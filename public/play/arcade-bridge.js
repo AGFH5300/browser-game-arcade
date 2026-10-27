@@ -6,3 +6,5 @@ window.addEventListener('keydown',function(e){if(['ArrowUp','ArrowDown','ArrowLe
 
 // Use the upstream puzzle resize API after its canvas is initialized.
 (function(){var fitted=false;function fit(){var canvas=document.getElementById('puzzlecanvas');if(!canvas||!canvas.width||typeof Module==='undefined'||!Module.cwrap||typeof runtimeInitialized==='undefined'||!runtimeInitialized)return;try{var dpr=window.devicePixelRatio||1;Module.cwrap('resize_puzzle','void',['number','number'])(Math.max(160,Math.min(innerWidth-28,600))*dpr,Math.max(160,Math.min(innerHeight-115,600))*dpr);fitted=true}catch(e){}}window.addEventListener('load',function(){var canvas=document.getElementById('puzzlecanvas');if(!canvas)return;var obs=new MutationObserver(function(){if(!fitted){fit();if(fitted)obs.disconnect()}});obs.observe(canvas,{attributes:true});fit();});window.addEventListener('resize',function(){if(document.getElementById('puzzlecanvas'))fit()});})();
+
+setTimeout(function(){var puzzle=document.getElementById('puzzle');if(puzzle&&puzzle.style.display==='none')parent.postMessage({type:'sidequest:error',message:'Puzzle initialization timed out'},'*')},12000);

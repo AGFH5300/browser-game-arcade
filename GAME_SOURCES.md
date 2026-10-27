@@ -26,6 +26,10 @@ Each game’s HTML page, JavaScript runtime, and WebAssembly binary was download
 - License: GPL-3.0-or-later, copyright 2018 Logan Engstrom. This is not MIT. Its full `LICENSE.md`, game sources, vendor scripts, images, and fonts are included under `public/play/hextris/`.
 - The remote advertising script, dynamically loaded analytics script, Google Fonts request, and remote high-score GET were removed. The game uses its bundled local fonts and local runtime dependencies. Social/store links remain in game-over/help content and require an explicit click; gameplay does not depend on them.
 
+## Excluded candidates
+
+PolyTrack, Moto X3M, Slope, and similar commercial browser games were not included because I could not confirm redistribution permission for their game code and assets from a source license. They remain excluded unless their rights holders or a license provide clear permission.
+
 ## Verification performed
 
 - Downloaded assets were checked for non-empty content; each Tatham WebAssembly file begins with the WASM magic bytes and each HTML page is non-empty HTML.
