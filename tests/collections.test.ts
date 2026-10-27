@@ -19,7 +19,7 @@ test('original 26 local games retain their URLs and puzzle discovery membership'
 test('collection discovery is independent of runtime and respects drafts',()=>{
  const candidates=seed.map(g=>({...g,published:true,playCount:0,likes:0})) as Game[];
  const classics=selectGames(candidates,{collection:'classics'});
- assert.equal(classics.total,6);
+ assert.equal(classics.total,9);
  assert(classics.games.some(g=>g.engine==='iframe'));
  assert(classics.games.some(g=>g.engine==='html5'));
  assert.equal(selectGames(candidates,{collection:'html5_puzzles'}).total,26);
@@ -34,13 +34,16 @@ test('main navigation exposes distinct collections and global search',()=>{
  assert(markup.indexOf('Flash Library')<markup.indexOf('HTML5 &amp; Puzzles'));
 });
 
-test('Moto X3M opens honestly at publisher instead of a blocked iframe landing page',async()=>{
+test('CarlWalks archive titles run inside Sidequest instead of redirecting to Famobi or Y8',async()=>{
  const {Player}=await import('../components/player');
  const {getTrustedPublisher}=await import('../lib/embeds');
- const game=seed.find(g=>g.slug==='moto-x3m')!;
- assert.equal(getTrustedPublisher(game.gameUrl)?.externalOnly,true);
- const markup=renderToStaticMarkup(createElement(Player,{game:{...game,playCount:0,likes:0} as Game}));
- assert(markup.includes('Play at Famobi'));
- assert(markup.includes('Opens the official game in a new tab'));
- assert(!markup.includes('<iframe'));
+ for(const slug of ['moto-x3m','moto-x3m-2','moto-x3m-3','slope']){
+   const game=seed.find(g=>g.slug===slug)!;
+   assert(game.gameUrl.startsWith('https://carlwalks.com/build_engine/root/'));
+   assert.equal(getTrustedPublisher(game.gameUrl)?.externalOnly,undefined);
+   const markup=renderToStaticMarkup(createElement(Player,{game:{...game,playCount:0,likes:0} as Game}));
+   assert(markup.includes('Play now'),slug);
+   assert(!markup.includes('Play at Famobi'),slug);
+   assert(!markup.includes('Opens the official game in a new tab'),slug);
+ }
 });

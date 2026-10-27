@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { getEmbedSandbox, getTrustedPublisher, isAllowedEmbedUrl } from '../lib/embeds';
+import { getEmbedSandbox, getTrustedPublisher, isAllowedEmbedUrl, carlwalksGameUrls } from '../lib/embeds';
 import { gameSchema } from '../lib/validation';
 
 const trustedUrls = [
@@ -52,4 +52,23 @@ test('custom configured HTTPS hosts remain allowed but stay isolated',()=>{
 test('local game frames keep their opaque sandbox even when publisher URL host changes',()=>{
   assert.equal(getEmbedSandbox('/play/local/index.html'), isolated);
   assert.equal(getEmbedSandbox('https://y8.com/embed/slope'), publisherPermissions);
+});
+
+test('the seven standalone CarlWalks game builds are explicitly allowlisted',()=>{
+ assert.equal(carlwalksGameUrls.length,7);
+ for(const url of carlwalksGameUrls){
+   assert.equal(getTrustedPublisher(url)?.name,'CarlWalks archive');
+   assert.equal(isAllowedEmbedUrl(url,''),true);
+   assert.equal(getEmbedSandbox(url),publisherPermissions);
+   assert.equal(gameSchema.safeParse({...base,gameUrl:url}).success,true);
+ }
+ for(const url of [
+   'https://carlwalks.com/build_engine/root/other/index.html',
+   'https://carlwalks.com/build_engine/root/moto-x3m/index.html?redir=https://evil.invalid',
+   'https://evil.invalid/build_engine/root/moto-x3m/index.html',
+   'http://carlwalks.com/build_engine/root/moto-x3m/index.html'
+ ]){
+   assert.equal(getTrustedPublisher(url),null,url);
+   assert.equal(isAllowedEmbedUrl(url,''),false,url);
+ }
 });
