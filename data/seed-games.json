@@ -7,7 +7,9 @@
     "shortDescription": "Fire a ray, then infer the hidden ball positions from its entry and exit numbers.",
     "thumbnail": "/covers/blackbox.svg",
     "categories": [
-      "Puzzle"
+      "Puzzle",
+      "HTML5",
+      "Classic"
     ],
     "tags": [
       "logic",
@@ -19,13 +21,13 @@
     "gameUrl": "/play/blackbox/blackbox.html",
     "sourceUrl": "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/blackbox.html",
     "license": "MIT",
-    "licenseNotes": "Simon Tatham’s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
+    "licenseNotes": "Simon Tatham\u2019s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
     "mobile": true,
     "controls": "Click a numbered point around the grid to fire a ray; mark suspected balls with clicks.",
     "instructions": "Click a numbered point around the grid to fire a ray; mark suspected balls with clicks. Full puzzle rules and help are included in the game menu.",
-    "featured": true,
+    "featured": false,
     "published": true,
-    "displayOrder": 1,
+    "displayOrder": 11,
     "createdAt": "2026-10-27T00:00:00.000Z",
     "updatedAt": "2026-10-27T00:00:00.000Z",
     "publishedAt": "2026-10-27T00:00:00.000Z"
@@ -38,7 +40,10 @@
     "shortDescription": "Connect every island with bridges while matching the number on each island.",
     "thumbnail": "/covers/bridges.svg",
     "categories": [
-      "Puzzle"
+      "Puzzle",
+      "HTML5",
+      "Classic",
+      "Strategy"
     ],
     "tags": [
       "logic",
@@ -50,7 +55,7 @@
     "gameUrl": "/play/bridges/bridges.html",
     "sourceUrl": "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/bridges.html",
     "license": "MIT",
-    "licenseNotes": "Simon Tatham’s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
+    "licenseNotes": "Simon Tatham\u2019s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
     "mobile": true,
     "controls": "Drag from an island toward a neighbor; repeat to cycle single, double, and no bridge.",
     "instructions": "Drag from an island toward a neighbor; repeat to cycle single, double, and no bridge. Full puzzle rules and help are included in the game menu.",
@@ -69,7 +74,9 @@
     "shortDescription": "Rotate the cube and its faces to restore six uniform sides.",
     "thumbnail": "/covers/cube.svg",
     "categories": [
-      "Puzzle"
+      "Puzzle",
+      "HTML5",
+      "Classic"
     ],
     "tags": [
       "logic",
@@ -81,13 +88,13 @@
     "gameUrl": "/play/cube/cube.html",
     "sourceUrl": "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/cube.html",
     "license": "MIT",
-    "licenseNotes": "Simon Tatham’s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
+    "licenseNotes": "Simon Tatham\u2019s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
     "mobile": true,
     "controls": "Drag to rotate the view; use the on-screen controls or keyboard to turn faces.",
     "instructions": "Drag to rotate the view; use the on-screen controls or keyboard to turn faces. Full puzzle rules and help are included in the game menu.",
-    "featured": true,
+    "featured": false,
     "published": true,
-    "displayOrder": 3,
+    "displayOrder": 13,
     "createdAt": "2026-10-27T00:00:00.000Z",
     "updatedAt": "2026-10-27T00:00:00.000Z",
     "publishedAt": "2026-10-27T00:00:00.000Z"
@@ -100,7 +107,9 @@
     "shortDescription": "Partition the board into dominoes so each number pair appears once.",
     "thumbnail": "/covers/dominosa.svg",
     "categories": [
-      "Puzzle"
+      "Puzzle",
+      "HTML5",
+      "Classic"
     ],
     "tags": [
       "logic",
@@ -112,13 +121,13 @@
     "gameUrl": "/play/dominosa/dominosa.html",
     "sourceUrl": "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/dominosa.html",
     "license": "MIT",
-    "licenseNotes": "Simon Tatham’s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
+    "licenseNotes": "Simon Tatham\u2019s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
     "mobile": true,
     "controls": "Click an edge between cells to place or remove a domino boundary.",
     "instructions": "Click an edge between cells to place or remove a domino boundary. Full puzzle rules and help are included in the game menu.",
-    "featured": true,
+    "featured": false,
     "published": true,
-    "displayOrder": 4,
+    "displayOrder": 14,
     "createdAt": "2026-10-27T00:00:00.000Z",
     "updatedAt": "2026-10-27T00:00:00.000Z",
     "publishedAt": "2026-10-27T00:00:00.000Z"
@@ -131,7 +140,10 @@
     "shortDescription": "Arrange the numbered tiles in ascending order.",
     "thumbnail": "/covers/fifteen.svg",
     "categories": [
-      "Puzzle"
+      "Puzzle",
+      "HTML5",
+      "Classic",
+      "Casual"
     ],
     "tags": [
       "logic",
@@ -143,13 +155,13 @@
     "gameUrl": "/play/fifteen/fifteen.html",
     "sourceUrl": "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/fifteen.html",
     "license": "MIT",
-    "licenseNotes": "Simon Tatham’s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
+    "licenseNotes": "Simon Tatham\u2019s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
     "mobile": true,
     "controls": "Click a tile next to the empty square to slide it.",
     "instructions": "Click a tile next to the empty square to slide it. Full puzzle rules and help are included in the game menu.",
     "featured": true,
     "published": true,
-    "displayOrder": 5,
+    "displayOrder": 4,
     "createdAt": "2026-10-27T00:00:00.000Z",
     "updatedAt": "2026-10-27T00:00:00.000Z",
     "publishedAt": "2026-10-27T00:00:00.000Z"
@@ -162,7 +174,9 @@
     "shortDescription": "Fill every region while keeping adjacent regions different colors.",
     "thumbnail": "/covers/filling.svg",
     "categories": [
-      "Puzzle"
+      "Puzzle",
+      "HTML5",
+      "Classic"
     ],
     "tags": [
       "logic",
@@ -174,13 +188,13 @@
     "gameUrl": "/play/filling/filling.html",
     "sourceUrl": "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/filling.html",
     "license": "MIT",
-    "licenseNotes": "Simon Tatham’s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
+    "licenseNotes": "Simon Tatham\u2019s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
     "mobile": true,
     "controls": "Click a region to cycle its color.",
     "instructions": "Click a region to cycle its color. Full puzzle rules and help are included in the game menu.",
-    "featured": true,
+    "featured": false,
     "published": true,
-    "displayOrder": 6,
+    "displayOrder": 16,
     "createdAt": "2026-10-27T00:00:00.000Z",
     "updatedAt": "2026-10-27T00:00:00.000Z",
     "publishedAt": "2026-10-27T00:00:00.000Z"
@@ -193,7 +207,9 @@
     "shortDescription": "Flip tiles in groups until the board reaches its goal pattern.",
     "thumbnail": "/covers/flip.svg",
     "categories": [
-      "Puzzle"
+      "Puzzle",
+      "HTML5",
+      "Classic"
     ],
     "tags": [
       "logic",
@@ -205,13 +221,13 @@
     "gameUrl": "/play/flip/flip.html",
     "sourceUrl": "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/flip.html",
     "license": "MIT",
-    "licenseNotes": "Simon Tatham’s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
+    "licenseNotes": "Simon Tatham\u2019s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
     "mobile": true,
     "controls": "Click a tile to flip it and its neighbors.",
     "instructions": "Click a tile to flip it and its neighbors. Full puzzle rules and help are included in the game menu.",
     "featured": false,
     "published": true,
-    "displayOrder": 7,
+    "displayOrder": 17,
     "createdAt": "2026-10-27T00:00:00.000Z",
     "updatedAt": "2026-10-27T00:00:00.000Z",
     "publishedAt": "2026-10-27T00:00:00.000Z"
@@ -224,7 +240,10 @@
     "shortDescription": "Turn the whole board into one color in as few moves as possible.",
     "thumbnail": "/covers/flood.svg",
     "categories": [
-      "Puzzle"
+      "Puzzle",
+      "HTML5",
+      "Classic",
+      "Casual"
     ],
     "tags": [
       "logic",
@@ -236,13 +255,13 @@
     "gameUrl": "/play/flood/flood.html",
     "sourceUrl": "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/flood.html",
     "license": "MIT",
-    "licenseNotes": "Simon Tatham’s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
+    "licenseNotes": "Simon Tatham\u2019s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
     "mobile": true,
     "controls": "Choose a color button to absorb adjoining regions.",
     "instructions": "Choose a color button to absorb adjoining regions. Full puzzle rules and help are included in the game menu.",
     "featured": false,
     "published": true,
-    "displayOrder": 8,
+    "displayOrder": 18,
     "createdAt": "2026-10-27T00:00:00.000Z",
     "updatedAt": "2026-10-27T00:00:00.000Z",
     "publishedAt": "2026-10-27T00:00:00.000Z"
@@ -255,7 +274,9 @@
     "shortDescription": "Draw region boundaries so each region is rotationally symmetric around its star.",
     "thumbnail": "/covers/galaxies.svg",
     "categories": [
-      "Puzzle"
+      "Puzzle",
+      "HTML5",
+      "Classic"
     ],
     "tags": [
       "logic",
@@ -267,13 +288,13 @@
     "gameUrl": "/play/galaxies/galaxies.html",
     "sourceUrl": "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/galaxies.html",
     "license": "MIT",
-    "licenseNotes": "Simon Tatham’s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
+    "licenseNotes": "Simon Tatham\u2019s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
     "mobile": true,
     "controls": "Click or drag along cell edges to draw boundaries.",
     "instructions": "Click or drag along cell edges to draw boundaries. Full puzzle rules and help are included in the game menu.",
     "featured": false,
     "published": true,
-    "displayOrder": 9,
+    "displayOrder": 19,
     "createdAt": "2026-10-27T00:00:00.000Z",
     "updatedAt": "2026-10-27T00:00:00.000Z",
     "publishedAt": "2026-10-27T00:00:00.000Z"
@@ -286,7 +307,9 @@
     "shortDescription": "Deduce the hidden color sequence from the clues after each guess.",
     "thumbnail": "/covers/guess.svg",
     "categories": [
-      "Puzzle"
+      "Puzzle",
+      "HTML5",
+      "Classic"
     ],
     "tags": [
       "logic",
@@ -298,13 +321,13 @@
     "gameUrl": "/play/guess/guess.html",
     "sourceUrl": "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/guess.html",
     "license": "MIT",
-    "licenseNotes": "Simon Tatham’s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
+    "licenseNotes": "Simon Tatham\u2019s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
     "mobile": true,
     "controls": "Choose colors in the row, then submit the guess.",
     "instructions": "Choose colors in the row, then submit the guess. Full puzzle rules and help are included in the game menu.",
     "featured": false,
     "published": true,
-    "displayOrder": 10,
+    "displayOrder": 20,
     "createdAt": "2026-10-27T00:00:00.000Z",
     "updatedAt": "2026-10-27T00:00:00.000Z",
     "publishedAt": "2026-10-27T00:00:00.000Z"
@@ -317,7 +340,9 @@
     "shortDescription": "Collect the target while avoiding hazards in a board where movement carries you forward.",
     "thumbnail": "/covers/inertia.svg",
     "categories": [
-      "Puzzle"
+      "Puzzle",
+      "HTML5",
+      "Classic"
     ],
     "tags": [
       "logic",
@@ -329,13 +354,13 @@
     "gameUrl": "/play/inertia/inertia.html",
     "sourceUrl": "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/inertia.html",
     "license": "MIT",
-    "licenseNotes": "Simon Tatham’s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
+    "licenseNotes": "Simon Tatham\u2019s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
     "mobile": true,
     "controls": "Use arrow keys or swipe to move; movement stops at obstacles.",
     "instructions": "Use arrow keys or swipe to move; movement stops at obstacles. Full puzzle rules and help are included in the game menu.",
     "featured": false,
     "published": true,
-    "displayOrder": 11,
+    "displayOrder": 21,
     "createdAt": "2026-10-27T00:00:00.000Z",
     "updatedAt": "2026-10-27T00:00:00.000Z",
     "publishedAt": "2026-10-27T00:00:00.000Z"
@@ -348,7 +373,9 @@
     "shortDescription": "Fill each row and column with unique digits while satisfying each cage.",
     "thumbnail": "/covers/keen.svg",
     "categories": [
-      "Puzzle"
+      "Puzzle",
+      "HTML5",
+      "Classic"
     ],
     "tags": [
       "logic",
@@ -360,13 +387,13 @@
     "gameUrl": "/play/keen/keen.html",
     "sourceUrl": "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/keen.html",
     "license": "MIT",
-    "licenseNotes": "Simon Tatham’s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
+    "licenseNotes": "Simon Tatham\u2019s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
     "mobile": true,
     "controls": "Click a cell and enter a digit; use pencil marks as needed.",
     "instructions": "Click a cell and enter a digit; use pencil marks as needed. Full puzzle rules and help are included in the game menu.",
     "featured": false,
     "published": true,
-    "displayOrder": 12,
+    "displayOrder": 22,
     "createdAt": "2026-10-27T00:00:00.000Z",
     "updatedAt": "2026-10-27T00:00:00.000Z",
     "publishedAt": "2026-10-27T00:00:00.000Z"
@@ -379,7 +406,10 @@
     "shortDescription": "Illuminate the board by placing lamps that obey numbered-wall clues.",
     "thumbnail": "/covers/lightup.svg",
     "categories": [
-      "Puzzle"
+      "Puzzle",
+      "HTML5",
+      "Classic",
+      "Strategy"
     ],
     "tags": [
       "logic",
@@ -391,13 +421,13 @@
     "gameUrl": "/play/lightup/lightup.html",
     "sourceUrl": "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/lightup.html",
     "license": "MIT",
-    "licenseNotes": "Simon Tatham’s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
+    "licenseNotes": "Simon Tatham\u2019s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
     "mobile": true,
     "controls": "Click an open square to toggle a lamp.",
     "instructions": "Click an open square to toggle a lamp. Full puzzle rules and help are included in the game menu.",
     "featured": false,
     "published": true,
-    "displayOrder": 13,
+    "displayOrder": 23,
     "createdAt": "2026-10-27T00:00:00.000Z",
     "updatedAt": "2026-10-27T00:00:00.000Z",
     "publishedAt": "2026-10-27T00:00:00.000Z"
@@ -410,7 +440,10 @@
     "shortDescription": "Draw a single continuous loop with the required number of edges around each clue.",
     "thumbnail": "/covers/loopy.svg",
     "categories": [
-      "Puzzle"
+      "Puzzle",
+      "HTML5",
+      "Classic",
+      "Strategy"
     ],
     "tags": [
       "logic",
@@ -422,13 +455,13 @@
     "gameUrl": "/play/loopy/loopy.html",
     "sourceUrl": "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/loopy.html",
     "license": "MIT",
-    "licenseNotes": "Simon Tatham’s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
+    "licenseNotes": "Simon Tatham\u2019s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
     "mobile": true,
     "controls": "Click or drag grid edges to toggle them.",
     "instructions": "Click or drag grid edges to toggle them. Full puzzle rules and help are included in the game menu.",
     "featured": false,
     "published": true,
-    "displayOrder": 14,
+    "displayOrder": 24,
     "createdAt": "2026-10-27T00:00:00.000Z",
     "updatedAt": "2026-10-27T00:00:00.000Z",
     "publishedAt": "2026-10-27T00:00:00.000Z"
@@ -441,7 +474,10 @@
     "shortDescription": "Fill the board with magnet pairs and blanks to satisfy every line total.",
     "thumbnail": "/covers/magnets.svg",
     "categories": [
-      "Puzzle"
+      "Puzzle",
+      "HTML5",
+      "Classic",
+      "Strategy"
     ],
     "tags": [
       "logic",
@@ -453,13 +489,13 @@
     "gameUrl": "/play/magnets/magnets.html",
     "sourceUrl": "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/magnets.html",
     "license": "MIT",
-    "licenseNotes": "Simon Tatham’s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
+    "licenseNotes": "Simon Tatham\u2019s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
     "mobile": true,
     "controls": "Click a domino-shaped cell pair to cycle its magnet orientation or blank.",
     "instructions": "Click a domino-shaped cell pair to cycle its magnet orientation or blank. Full puzzle rules and help are included in the game menu.",
     "featured": false,
     "published": true,
-    "displayOrder": 15,
+    "displayOrder": 25,
     "createdAt": "2026-10-27T00:00:00.000Z",
     "updatedAt": "2026-10-27T00:00:00.000Z",
     "publishedAt": "2026-10-27T00:00:00.000Z"
@@ -472,7 +508,10 @@
     "shortDescription": "Color every region so touching regions use different colors.",
     "thumbnail": "/covers/map.svg",
     "categories": [
-      "Puzzle"
+      "Puzzle",
+      "HTML5",
+      "Classic",
+      "Strategy"
     ],
     "tags": [
       "logic",
@@ -484,13 +523,13 @@
     "gameUrl": "/play/map/map.html",
     "sourceUrl": "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/map.html",
     "license": "MIT",
-    "licenseNotes": "Simon Tatham’s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
+    "licenseNotes": "Simon Tatham\u2019s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
     "mobile": true,
     "controls": "Click a region to cycle through the available colors.",
     "instructions": "Click a region to cycle through the available colors. Full puzzle rules and help are included in the game menu.",
     "featured": false,
     "published": true,
-    "displayOrder": 16,
+    "displayOrder": 26,
     "createdAt": "2026-10-27T00:00:00.000Z",
     "updatedAt": "2026-10-27T00:00:00.000Z",
     "publishedAt": "2026-10-27T00:00:00.000Z"
@@ -503,7 +542,9 @@
     "shortDescription": "Clear the board without opening a mine.",
     "thumbnail": "/covers/mines.svg",
     "categories": [
-      "Puzzle"
+      "Puzzle",
+      "HTML5",
+      "Classic"
     ],
     "tags": [
       "logic",
@@ -515,13 +556,13 @@
     "gameUrl": "/play/mines/mines.html",
     "sourceUrl": "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/mines.html",
     "license": "MIT",
-    "licenseNotes": "Simon Tatham’s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
+    "licenseNotes": "Simon Tatham\u2019s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
     "mobile": true,
     "controls": "Click to reveal a square; use the alternate click to flag a mine.",
     "instructions": "Click to reveal a square; use the alternate click to flag a mine. Full puzzle rules and help are included in the game menu.",
     "featured": false,
     "published": true,
-    "displayOrder": 17,
+    "displayOrder": 27,
     "createdAt": "2026-10-27T00:00:00.000Z",
     "updatedAt": "2026-10-27T00:00:00.000Z",
     "publishedAt": "2026-10-27T00:00:00.000Z"
@@ -534,7 +575,9 @@
     "shortDescription": "Shade cells to form the picture described by the number clues.",
     "thumbnail": "/covers/mosaic.svg",
     "categories": [
-      "Puzzle"
+      "Puzzle",
+      "HTML5",
+      "Classic"
     ],
     "tags": [
       "logic",
@@ -546,13 +589,13 @@
     "gameUrl": "/play/mosaic/mosaic.html",
     "sourceUrl": "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/mosaic.html",
     "license": "MIT",
-    "licenseNotes": "Simon Tatham’s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
+    "licenseNotes": "Simon Tatham\u2019s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
     "mobile": true,
     "controls": "Click or drag cells to mark them filled or empty.",
     "instructions": "Click or drag cells to mark them filled or empty. Full puzzle rules and help are included in the game menu.",
     "featured": false,
     "published": true,
-    "displayOrder": 18,
+    "displayOrder": 28,
     "createdAt": "2026-10-27T00:00:00.000Z",
     "updatedAt": "2026-10-27T00:00:00.000Z",
     "publishedAt": "2026-10-27T00:00:00.000Z"
@@ -565,7 +608,10 @@
     "shortDescription": "Connect all the terminals into a single network without loose ends.",
     "thumbnail": "/covers/net.svg",
     "categories": [
-      "Puzzle"
+      "Puzzle",
+      "HTML5",
+      "Classic",
+      "Strategy"
     ],
     "tags": [
       "logic",
@@ -577,13 +623,13 @@
     "gameUrl": "/play/net/net.html",
     "sourceUrl": "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/net.html",
     "license": "MIT",
-    "licenseNotes": "Simon Tatham’s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
+    "licenseNotes": "Simon Tatham\u2019s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
     "mobile": true,
     "controls": "Click a tile to rotate it; drag to rotate multiple tiles.",
     "instructions": "Click a tile to rotate it; drag to rotate multiple tiles. Full puzzle rules and help are included in the game menu.",
-    "featured": false,
+    "featured": true,
     "published": true,
-    "displayOrder": 19,
+    "displayOrder": 3,
     "createdAt": "2026-10-27T00:00:00.000Z",
     "updatedAt": "2026-10-27T00:00:00.000Z",
     "publishedAt": "2026-10-27T00:00:00.000Z"
@@ -596,7 +642,9 @@
     "shortDescription": "Place fences to partition the grid while matching each numbered region.",
     "thumbnail": "/covers/palisade.svg",
     "categories": [
-      "Puzzle"
+      "Puzzle",
+      "HTML5",
+      "Classic"
     ],
     "tags": [
       "logic",
@@ -608,13 +656,13 @@
     "gameUrl": "/play/palisade/palisade.html",
     "sourceUrl": "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/palisade.html",
     "license": "MIT",
-    "licenseNotes": "Simon Tatham’s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
+    "licenseNotes": "Simon Tatham\u2019s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
     "mobile": true,
     "controls": "Click or drag along grid edges to add or remove fences.",
     "instructions": "Click or drag along grid edges to add or remove fences. Full puzzle rules and help are included in the game menu.",
     "featured": false,
     "published": true,
-    "displayOrder": 20,
+    "displayOrder": 30,
     "createdAt": "2026-10-27T00:00:00.000Z",
     "updatedAt": "2026-10-27T00:00:00.000Z",
     "publishedAt": "2026-10-27T00:00:00.000Z"
@@ -627,7 +675,9 @@
     "shortDescription": "Create one loop that obeys the turn rules around every pearl.",
     "thumbnail": "/covers/pearl.svg",
     "categories": [
-      "Puzzle"
+      "Puzzle",
+      "HTML5",
+      "Classic"
     ],
     "tags": [
       "logic",
@@ -639,13 +689,13 @@
     "gameUrl": "/play/pearl/pearl.html",
     "sourceUrl": "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/pearl.html",
     "license": "MIT",
-    "licenseNotes": "Simon Tatham’s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
+    "licenseNotes": "Simon Tatham\u2019s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
     "mobile": true,
     "controls": "Click or drag grid edges to toggle loop segments.",
     "instructions": "Click or drag grid edges to toggle loop segments. Full puzzle rules and help are included in the game menu.",
     "featured": false,
     "published": true,
-    "displayOrder": 21,
+    "displayOrder": 31,
     "createdAt": "2026-10-27T00:00:00.000Z",
     "updatedAt": "2026-10-27T00:00:00.000Z",
     "publishedAt": "2026-10-27T00:00:00.000Z"
@@ -658,7 +708,10 @@
     "shortDescription": "Remove pegs with legal jumps until the target pattern is reached.",
     "thumbnail": "/covers/pegs.svg",
     "categories": [
-      "Puzzle"
+      "Puzzle",
+      "HTML5",
+      "Classic",
+      "Casual"
     ],
     "tags": [
       "logic",
@@ -670,13 +723,13 @@
     "gameUrl": "/play/pegs/pegs.html",
     "sourceUrl": "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/pegs.html",
     "license": "MIT",
-    "licenseNotes": "Simon Tatham’s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
+    "licenseNotes": "Simon Tatham\u2019s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
     "mobile": true,
     "controls": "Drag a peg over an adjacent peg into an empty hole.",
     "instructions": "Drag a peg over an adjacent peg into an empty hole. Full puzzle rules and help are included in the game menu.",
     "featured": false,
     "published": true,
-    "displayOrder": 22,
+    "displayOrder": 32,
     "createdAt": "2026-10-27T00:00:00.000Z",
     "updatedAt": "2026-10-27T00:00:00.000Z",
     "publishedAt": "2026-10-27T00:00:00.000Z"
@@ -686,10 +739,12 @@
     "title": "Range",
     "slug": "range",
     "description": "Place numbers so each clue sees exactly its stated number of cells.",
-    "shortDescription": "Fill the grid while making every clue’s line of sight match its number.",
+    "shortDescription": "Fill the grid while making every clue\u2019s line of sight match its number.",
     "thumbnail": "/covers/range.svg",
     "categories": [
-      "Puzzle"
+      "Puzzle",
+      "HTML5",
+      "Classic"
     ],
     "tags": [
       "logic",
@@ -701,13 +756,13 @@
     "gameUrl": "/play/range/range.html",
     "sourceUrl": "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/range.html",
     "license": "MIT",
-    "licenseNotes": "Simon Tatham’s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
+    "licenseNotes": "Simon Tatham\u2019s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
     "mobile": true,
     "controls": "Select a cell and enter a number.",
     "instructions": "Select a cell and enter a number. Full puzzle rules and help are included in the game menu.",
     "featured": false,
     "published": true,
-    "displayOrder": 23,
+    "displayOrder": 33,
     "createdAt": "2026-10-27T00:00:00.000Z",
     "updatedAt": "2026-10-27T00:00:00.000Z",
     "publishedAt": "2026-10-27T00:00:00.000Z"
@@ -720,7 +775,9 @@
     "shortDescription": "Divide the grid into rectangles so each rectangle contains one number.",
     "thumbnail": "/covers/rect.svg",
     "categories": [
-      "Puzzle"
+      "Puzzle",
+      "HTML5",
+      "Classic"
     ],
     "tags": [
       "logic",
@@ -732,13 +789,13 @@
     "gameUrl": "/play/rect/rect.html",
     "sourceUrl": "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/rect.html",
     "license": "MIT",
-    "licenseNotes": "Simon Tatham’s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
+    "licenseNotes": "Simon Tatham\u2019s Portable Puzzle Collection, copyright Simon Tatham and contributors; MIT License. License text included at /play/LICENSE.txt.",
     "mobile": true,
     "controls": "Click or drag cell boundaries to draw rectangle edges.",
     "instructions": "Click or drag cell boundaries to draw rectangle edges. Full puzzle rules and help are included in the game menu.",
     "featured": false,
     "published": true,
-    "displayOrder": 24,
+    "displayOrder": 34,
     "createdAt": "2026-10-27T00:00:00.000Z",
     "updatedAt": "2026-10-27T00:00:00.000Z",
     "publishedAt": "2026-10-27T00:00:00.000Z"
@@ -751,7 +808,10 @@
     "shortDescription": "Join matching number tiles to reach 2048.",
     "thumbnail": "/covers/2048.svg",
     "categories": [
-      "Puzzle"
+      "Puzzle",
+      "HTML5",
+      "Classic",
+      "Casual"
     ],
     "tags": [
       "numbers",
@@ -769,7 +829,7 @@
     "instructions": "Slide the tiles to combine matching numbers and create a 2048 tile. The game ends when no moves remain.",
     "featured": true,
     "published": true,
-    "displayOrder": 25,
+    "displayOrder": 0,
     "createdAt": "2026-10-27T00:00:00.000Z",
     "updatedAt": "2026-10-27T00:00:00.000Z",
     "publishedAt": "2026-10-27T00:00:00.000Z"
@@ -782,7 +842,8 @@
     "shortDescription": "Rotate the hexagon and match falling blocks.",
     "thumbnail": "/covers/hextris.svg",
     "categories": [
-      "Arcade"
+      "Arcade",
+      "HTML5"
     ],
     "tags": [
       "action",
@@ -800,7 +861,7 @@
     "instructions": "Rotate the hexagon to align incoming blocks of the same color. Clear blocks before the stack reaches the outer edge.",
     "featured": true,
     "published": true,
-    "displayOrder": 26,
+    "displayOrder": 1,
     "createdAt": "2026-10-27T00:00:00.000Z",
     "updatedAt": "2026-10-27T00:00:00.000Z",
     "publishedAt": "2026-10-27T00:00:00.000Z"

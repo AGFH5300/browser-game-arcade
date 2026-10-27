@@ -1,7 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import {Header,Footer} from '@/components/shell';
-export const preferredRegion='fra1';
 const origin=process.env.APP_URL||'https://browser-game-arcade-dxbavg-7923s-projects.vercel.app';
 export const metadata: Metadata={metadataBase:new URL(origin),title:{default:'Sidequest — Free Browser Games',template:'%s · Sidequest'},description:'Find your next little obsession. Play free browser games instantly.',openGraph:{type:'website',title:'Sidequest — Free Browser Games',description:'A little break. A new high score.',images:['/og.svg']},alternates:{canonical:'/'}};
 const themeScript=`try{let t=localStorage.getItem('theme')||'dark';document.documentElement.dataset.theme=t==='system'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):t;matchMedia('(prefers-color-scheme: light)').addEventListener('change',e=>{if(localStorage.getItem('theme')==='system')document.documentElement.dataset.theme=e.matches?'light':'dark'})}catch{}`;
