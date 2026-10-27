@@ -1,5 +1,7 @@
+import {classicGameEntrypoints} from './classic-sources';
+
 export type TrustedPublisher = {
-  name: 'Y8' | 'Famobi';
+  name: 'Y8' | 'Famobi' | 'CarlWalks';
   privacyUrl: string;
   disclosure: string;
   externalOnly?: boolean;
@@ -24,7 +26,13 @@ const publishers = new Map<string, TrustedPublisher>([
   }],
 ]);
 
+const approvedOriginals=new Set(Object.values(classicGameEntrypoints));
 export function getTrustedPublisher(url: string): TrustedPublisher | null {
+  if(approvedOriginals.has(url))return {
+    name:'CarlWalks',
+    privacyUrl:'https://www.carlwalks.com/',
+    disclosure:'This game loads its original, standalone browser build hosted by CarlWalks. Game assets come from that site.',
+  };
   return publishers.get(url) ?? null;
 }
 
