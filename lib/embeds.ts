@@ -1,3 +1,4 @@
+import {isSidequestArchive} from './game-archives';
 export type TrustedPublisher = {
   name: 'Y8' | 'Famobi' | 'CarlWalks archive';
   privacyUrl: string;
@@ -50,7 +51,7 @@ export function getTrustedPublisher(url: string): TrustedPublisher | null {
 }
 
 export function isAllowedEmbedUrl(url: string, configuredHosts = process.env.EMBED_ALLOWED_HOSTS ?? ''): boolean {
-  if (getTrustedPublisher(url)) return true;
+  if (getTrustedPublisher(url)||isSidequestArchive(url)) return true;
   try {
     const parsed = new URL(url);
     const hosts = configuredHosts.split(',').map(host => host.trim().toLowerCase()).filter(Boolean);
@@ -64,5 +65,6 @@ const isolatedSandbox = 'allow-scripts allow-pointer-lock';
 const publisherSandbox = `${isolatedSandbox} allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms`;
 
 export function getEmbedSandbox(url: string): string {
-  return getTrustedPublisher(url) ? publisherSandbox : isolatedSandbox;
+  return getTrustedPublisher(url)||isSidequestArchive(url) ? publisherSandbox : isolatedSandbox;
 }
+
