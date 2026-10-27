@@ -1,5 +1,8 @@
+export const sidequestArchiveUrl='https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/moto-x3m-2/index.html';
+export function isSidequestGameArchive(url:string){return url===sidequestArchiveUrl;}
+
 export type TrustedPublisher = {
-  name: 'Y8' | 'Famobi' | 'CarlWalks archive';
+  name: 'Y8' | 'Famobi' | 'CarlWalks archive' | 'Sidequest archive';
   privacyUrl: string;
   disclosure: string;
   externalOnly?: boolean;
@@ -26,6 +29,7 @@ const archivedGames: [string, TrustedPublisher][] = carlwalksGameUrls.map(url =>
 }]);
 
 const publishers = new Map<string, TrustedPublisher>([
+  [sidequestArchiveUrl,{name:'Sidequest archive',privacyUrl:'/privacy',disclosure:'Game files are hosted by Sidequest. Original game by MadPuffers.'}],
   ...archivedGames,
   ['https://y8.com/embed/slope', {
     name: 'Y8', privacyUrl: 'https://www.y8.com/cookie-policy',
@@ -64,5 +68,6 @@ const isolatedSandbox = 'allow-scripts allow-pointer-lock';
 const publisherSandbox = `${isolatedSandbox} allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms`;
 
 export function getEmbedSandbox(url: string): string {
+  if(isSidequestGameArchive(url))return isolatedSandbox+' allow-same-origin';
   return getTrustedPublisher(url) ? publisherSandbox : isolatedSandbox;
 }
