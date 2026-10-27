@@ -17,7 +17,7 @@ const publishers = new Map<string, TrustedPublisher>([
     name: 'Y8', privacyUrl: 'https://www.y8.com/cookie-policy',
     disclosure: 'This game is provided by Y8. The publisher may use cookies and show ads.',
   }],
-  ['https://play.famobi.com/moto-x3m', {
+  ['https://play.famobi.com/moto-x3m/A1000-11', {
     name: 'Famobi', privacyUrl: 'https://famobi.com/privacy/?locale=en',
     disclosure: 'This game is provided by Famobi. The publisher may use cookies and display ads.',
   }],

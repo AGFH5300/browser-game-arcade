@@ -962,7 +962,8 @@
     "tags": [
       "arcade",
       "browser",
-      "publisher-embed"
+      "publisher-embed",
+      "webgl"
     ],
     "developer": "Y8 Studio",
     "engine": "iframe",
@@ -972,7 +973,7 @@
     "licenseNotes": "Y8 explicitly supplies an iFrame Embed under \u201cAdd this game to your web page\u201d on its Slope page. Use the unmodified official /embed/slope endpoint; preserve publisher branding, advertising and links. https://www.y8.com/terms",
     "mobile": true,
     "controls": "Left/right arrows or A/D to steer. Use the in-game Play and retry buttons.",
-    "instructions": "Keep the ball on the green track, avoid red obstacles and survive as long as possible. This is the current official Y8 browser release; the reference uses an older Unity build.",
+    "instructions": "Keep the ball on the green track, avoid red obstacles and survive as long as possible. This is the current official Y8 browser release; the reference uses an older Unity build. Requires a WebGL-capable browser with graphics acceleration enabled.",
     "featured": true,
     "published": true,
     "displayOrder": 0,
@@ -1001,7 +1002,7 @@
     ],
     "developer": "MadPuffers",
     "engine": "iframe",
-    "gameUrl": "https://play.famobi.com/moto-x3m",
+    "gameUrl": "https://play.famobi.com/moto-x3m/A1000-11",
     "sourceUrl": "https://famobi.com/moto-x3m/",
     "license": "Famobi free publisher embed",
     "licenseNotes": "Famobi\u2019s official Moto X3M catalogue says \u201cUse this game for free\u201d and provides https://play.famobi.com/moto-x3m for embedding. This is remote publisher content, not a binary redistribution. Preserve ads, branding and links. https://famobi.com/moto-x3m/",
@@ -1032,7 +1033,8 @@
     "tags": [
       "arcade",
       "browser",
-      "publisher-embed"
+      "publisher-embed",
+      "webgl"
     ],
     "developer": "MadPuffers",
     "engine": "iframe",
@@ -1042,7 +1044,7 @@
     "licenseNotes": "Y8 supplies an iFrame Embed under \u201cAdd this game to your web page\u201d for this exact title: https://y8.com/embed/moto_x3m_2. Preserve publisher branding, advertising and links. https://www.y8.com/terms",
     "mobile": false,
     "controls": "Arrow keys to drive and balance. Space to retry from a checkpoint. Mouse to choose menus.",
-    "instructions": "Finish each course as quickly as possible. Balance in the air and use checkpoints after crashes. The publisher\u2019s current HTML5 release is loaded unmodified.",
+    "instructions": "Finish each course as quickly as possible. Balance in the air and use checkpoints after crashes. The publisher\u2019s current HTML5 release is loaded unmodified. Requires a WebGL-capable browser with graphics acceleration enabled.",
     "featured": true,
     "published": true,
     "displayOrder": 2,
@@ -1067,7 +1069,8 @@
     "tags": [
       "arcade",
       "browser",
-      "publisher-embed"
+      "publisher-embed",
+      "webgl"
     ],
     "developer": "MadPuffers",
     "engine": "iframe",
@@ -1077,7 +1080,7 @@
     "licenseNotes": "Y8 supplies an iFrame Embed under \u201cAdd this game to your web page\u201d for this exact title: https://y8.com/embed/moto_x3m_3. Preserve publisher branding, advertising and links. https://www.y8.com/terms",
     "mobile": false,
     "controls": "Arrow keys to drive and balance. Space to retry from a checkpoint. Mouse to choose menus.",
-    "instructions": "Ride through the third Moto X3M adventure, balancing the bike over hazards and aiming for a fast finish. Uses the original title\u2019s publisher embed; no substitute game.",
+    "instructions": "Ride through the third Moto X3M adventure, balancing the bike over hazards and aiming for a fast finish. Uses the original title\u2019s publisher embed; no substitute game. Requires a WebGL-capable browser with graphics acceleration enabled.",
     "featured": true,
     "published": true,
     "displayOrder": 3,
@@ -1102,7 +1105,8 @@
     "tags": [
       "timing",
       "stack",
-      "tower blocks"
+      "tower blocks",
+      "webgl"
     ],
     "developer": "Steve Gardner",
     "engine": "html5",
@@ -1112,7 +1116,7 @@
     "licenseNotes": "Original public CodePen contains an explicit MIT grant. Copyright notice preserved in LICENSE.txt and game.js. Three.js r83 MIT and GSAP 1.20.3 Standard License dependencies are loaded unmodified from CDN. CarlWalks Playcalm credit is inconsistent with this Three.js game; correct original attribution retained.",
     "mobile": true,
     "controls": "Space, click, or tap to place a block.",
-    "instructions": "Press Start, then time each drop to align with the tower. Overhanging pieces are cut away. Miss the tower and the game ends. Click or press Space to restart.",
+    "instructions": "Press Start, then time each drop to align with the tower. Overhanging pieces are cut away. Miss the tower and the game ends. Click or press Space to restart. Requires a WebGL-capable browser with graphics acceleration enabled.",
     "featured": false,
     "published": false,
     "displayOrder": 5,

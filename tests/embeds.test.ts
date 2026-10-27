@@ -7,7 +7,7 @@ const trustedUrls = [
   'https://y8.com/embed/slope',
   'https://y8.com/embed/moto_x3m_2',
   'https://y8.com/embed/moto_x3m_3',
-  'https://play.famobi.com/moto-x3m',
+  'https://play.famobi.com/moto-x3m/A1000-11',
 ];
 const isolated = 'allow-scripts allow-pointer-lock';
 const publisherPermissions = `${isolated} allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms`;
