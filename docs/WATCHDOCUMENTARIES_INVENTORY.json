@@ -1,7 +1,7 @@
 {
   "source": "https://watchdocumentaries.com/games/",
   "observedAt": "2026-10-27",
-  "description": "Source inventory only: NOT playable Sidequest catalogue entries. Each game requires verified publisher source, permitted integration and production gameplay QA before publishing.",
+  "description": "Research source inventory, NOT 128 playable games. Entries marked on_sidequest reflect exact-title matches with the existing Sidequest data; embeds and external links are not falsely marked as gameplay verified.",
   "total": 128,
   "games": [
     {
@@ -85,8 +85,13 @@
       "title": "Slope",
       "reference": "https://watchdocumentaries.com/slope-game/",
       "referencePage": 1,
-      "status": "inventory_only",
-      "playableOnSidequest": false
+      "status": "on_sidequest",
+      "playableOnSidequest": false,
+      "sidequestMatch": {
+        "slug": "slope",
+        "playerType": "publisher_iframe",
+        "runtimeVerification": "not_certified"
+      }
     },
     {
       "title": "Slope 2",
@@ -134,8 +139,13 @@
       "title": "Moto X3M",
       "reference": "https://watchdocumentaries.com/moto-x3m-game/",
       "referencePage": 1,
-      "status": "inventory_only",
-      "playableOnSidequest": false
+      "status": "on_sidequest",
+      "playableOnSidequest": false,
+      "sidequestMatch": {
+        "slug": "moto-x3m",
+        "playerType": "external_publisher_link",
+        "runtimeVerification": "not_certified"
+      }
     },
     {
       "title": "Basketball Stars",
@@ -708,8 +718,13 @@
       "title": "2048",
       "reference": "https://watchdocumentaries.com/2048-game/",
       "referencePage": 4,
-      "status": "inventory_only",
-      "playableOnSidequest": false
+      "status": "on_sidequest",
+      "playableOnSidequest": true,
+      "sidequestMatch": {
+        "slug": "2048",
+        "playerType": "locally_hosted",
+        "runtimeVerification": "previously_smoke_tested"
+      }
     },
     {
       "title": "2048 Cupcakes",
@@ -900,5 +915,7 @@
       "status": "inventory_only",
       "playableOnSidequest": false
     }
-  ]
+  ],
+  "sidequestExactTitleMatches": 3,
+  "remainingTitleCandidates": 125
 }
