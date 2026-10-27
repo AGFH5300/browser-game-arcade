@@ -19,7 +19,7 @@ test('original 26 local games retain their URLs and puzzle discovery membership'
 test('collection discovery is independent of runtime and respects drafts',()=>{
  const candidates=seed.map(g=>({...g,published:true,playCount:0,likes:0})) as Game[];
  const classics=selectGames(candidates,{collection:'classics'});
- assert.equal(classics.total,6);
+ assert.equal(classics.total,9);
  assert(classics.games.some(g=>g.engine==='iframe'));
  assert(classics.games.some(g=>g.engine==='html5'));
  assert.equal(selectGames(candidates,{collection:'html5_puzzles'}).total,26);
