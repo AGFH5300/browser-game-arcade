@@ -16,3 +16,13 @@ Decisions: Sidequest temporary original brand. Private source, public Vercel sit
 Remaining limitations: no Flash content/Ruffle; no physical-device touch certification or Lighthouse score; native fullscreen blocked in cloud test browser (expanded fallback verified); password change requires administrator action. See TESTING.md for exact evidence.
 
 Operational follow-up: resolve GitHub account billing/spending restriction to run GitHub Actions. Branch protection needs a compatible paid GitHub organization plan; no upgrade authorized or made. These do not prevent the live website or Vercel automatic verification.
+
+## Classics collection update
+- [x] Inspect every required CarlWalks title and preserve individual source/blocker evidence.
+- [x] Independent multi-collection classification, safe migration, admin assignment, routes and navigation.
+- [x] Preserve all 26 originals and single Hextris record.
+- [x] Integrate three authorized Y8 iframes and original MIT Stack.
+- [x] Moto X3M official external launch; Famobi iframe activation required.
+- [x] 22 automated tests, typecheck, lint/build; 9 admin API checks.
+- [ ] Complete WebGL gameplay certification for Slope and Moto X3M 2/3 on a graphics-capable browser (cloud browser has no WebGL).
+- [ ] PolyTrack/Crossy Road distribution permission; exact FNAF project and asset rights.

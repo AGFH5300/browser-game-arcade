@@ -1,0 +1,15 @@
+{
+  "base": "https://browser-game-arcade-nly26ky62-dxbavg-7923s-projects.vercel.app",
+  "passed": 9,
+  "checks": [
+    "Unauthorized API rejected",
+    "Original 26 games retained; authenticated catalogue available",
+    "Single Hextris record in both collections",
+    "Admin creates classified draft",
+    "Draft stays private",
+    "Admin persists dual collection assignment",
+    "Unknown collection rejected",
+    "Own disposable fixture removed",
+    "Every pre-existing game ID preserved"
+  ]
+}

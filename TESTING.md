@@ -51,3 +51,13 @@ Production release `c30e83ef9cd555464b438542295332e819426fcd` was deployed succe
 GitHub Actions run 40485505842 was blocked before any runner/test step started. Its annotation says recent account payments failed or the spending limit must be increased. No billing settings were changed. This is an infrastructure block, not a passing CI run or a code/test failure. To retain automatic checks without changing billing, the new Vercel project build command runs typecheck, lint, the test suite and the production build in sequence. Final deployment results are recorded in HANDOFF.md.
 
 Final deployment a99c94f20ed7cf9507aa9d6bcaff0224623d4fda reached READY with all four automatic Vercel checks successful; build log is committed under docs/verification/vercel-build.log. A final production API run passed login with the supplied initial password, persistent 26-game catalogue, protected contact inbox containing the browser-submitted QA message, and logout. The homepage screenshot is committed as docs/verification/production.jpg. The prior public QA fixture was removed from deployed public paths.
+
+## Classics update verification — 27 October 2026
+
+22 automated tests pass, including collection/runtime independence, preservation of 26 local originals, unique Hextris dual membership, navigation, admin classification validation, publisher URL constraints and honest external Moto X3M launch. Typecheck, zero-warning lint and production build pass.
+
+Nine deployed preview API checks pass: unauthorized access, authenticated persistent catalogue, single dual-collection Hextris, classified draft creation, draft privacy, persisted dual assignment, invalid collection rejection, cleanup of the self-created fixture, and preservation of every pre-existing ID. Evidence: docs/verification/collections-api.json. Test uses a short-lived signed fixture session from the existing deployment secret, not a changed password or relaxed auth.
+
+Stack rendered using the MIT upstream Three.js canvas fallback and responded to Start and Space placement/game-over. Moto X3M ran at the official Famobi destination: level selection, level 1 and Up-key acceleration were observed. Its iframe wrapper requires Famobi activation, so Sidequest presents an explicit external link. Slope, Moto X3M 2/3 reach publisher engines, but this cloud browser reports no WebGL. Gameplay for those three is unverified, not passed. See docs/CARLWALKS_STATUS.md for individual capabilities and limits.
+
+The preview-only /qa-classics route uses only bundled candidate metadata and preview-mode players. It exposes no admin catalogue, credentials or drafts from the database, and returns 404 outside VERCEL_ENV=preview.

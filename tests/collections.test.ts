@@ -33,3 +33,14 @@ test('main navigation exposes distinct collections and global search',()=>{
  assert(markup.includes('href="/games"'));
  assert(markup.indexOf('Flash Library')<markup.indexOf('HTML5 &amp; Puzzles'));
 });
+
+test('Moto X3M opens honestly at publisher instead of a blocked iframe landing page',async()=>{
+ const {Player}=await import('../components/player');
+ const {getTrustedPublisher}=await import('../lib/embeds');
+ const game=seed.find(g=>g.slug==='moto-x3m')!;
+ assert.equal(getTrustedPublisher(game.gameUrl)?.externalOnly,true);
+ const markup=renderToStaticMarkup(createElement(Player,{game:{...game,playCount:0,likes:0} as Game}));
+ assert(markup.includes('Play at Famobi'));
+ assert(markup.includes('Opens the official game in a new tab'));
+ assert(!markup.includes('<iframe'));
+});

@@ -32,7 +32,7 @@ Each game’s HTML page, JavaScript runtime, and WebAssembly binary was download
 | --- | --- | --- |
 | PolyTrack | Kodub; WebGL/WebAssembly browser game, not SWF | Official terms https://www.kodub.com/terms/polytrack §4 prohibit official-source iframes and reuploads on competing game portals. Sidequest needs explicit Kodub/CrazyGames permission. No copy integrated. |
 | Slope | Rob Kay / Y8; Unity WebGL | https://www.y8.com/games/slope exposes an add-to-website embed: https://y8.com/embed/slope. Use the publisher player unchanged, including branding/ads. |
-| Moto X3M | MadPuffers; HTML5 browser edition distributed by Famobi | https://famobi.com/moto-x3m/ offers its game to web publishers; https://play.famobi.com/moto-x3m/A1000-11 is the publisher’s actual playable entry point (the shorter URL is only a landing screen). Preserve branding and publisher content. |
+| Moto X3M | MadPuffers; HTML5 browser edition distributed by Famobi | https://famobi.com/moto-x3m/ offers its game to web publishers; https://play.famobi.com/moto-x3m/A1000-11 opens the official game. https://help.famobi.com/#use-games-in-an-iframe requires individual iframe activation; this entry therefore opens in a new tab and is explicitly labelled Publisher link. No iframe bypass or direct-CDN workaround is used. |
 | Crossy Road | Hipster Whale; HTML5 browser version with Poki SDK | https://poki.com/en/g/crossy-road identifies a Poki-exclusive browser edition. No permission for a Sidequest iframe/rehost found. Need Hipster Whale/Poki distribution permission. |
 | Five Nights at Freddy’s | CarlWalks credits gustacraft123; TurboWarp-packaged fan recreation | https://carlwalks.com/flash/fnaf/ is not proof of redistribution rights. Exact source project and asset licensing remain unverified. Need creator/source verification plus appropriate FNAF asset permissions; no substitute integrated. |
 | Moto X3M 2 | MadPuffers; HTML5/EaselJS/Nape | https://www.y8.com/games/moto_x3m_2 supplies https://y8.com/embed/moto_x3m_2. No binaries copied. |
@@ -42,7 +42,7 @@ Each game’s HTML page, JavaScript runtime, and WebAssembly binary was download
 
 Reference catalogue: https://www.carlwalks.com/flash/ . Individual reference pages: polytrack, moto-x3m, slope, crossy-road, fnaf, moto-x3m2, hextris, stack, moto-x3m3 under /flash/. Technical runtime and detailed remaining-title research are in docs/CARLWALKS_RESEARCH_REMAINING.md. Public publisher embed grants are used instead of copying mirrored proprietary assets. Runtime results and any provider-specific limits are recorded in TESTING.md.
 
-Publisher players contact their providers after the player is started. Privacy/advertising disclosures precede launch. Only the four exact reviewed publisher URLs receive their required same-origin/popup/form permissions; local game frames remain isolated. This does not grant those providers access to the Sidequest origin.
+Publisher players contact their providers after the player is started. Privacy/advertising disclosures precede launch. Only the exact reviewed Y8 publisher URLs receive their required same-origin/popup/form permissions; local game frames remain isolated. This does not grant those providers access to the Sidequest origin.
 
 ## Verification performed
 
@@ -56,3 +56,7 @@ Publisher players contact their providers after the player is started. Privacy/a
 All 26 frames rendered on the deployed Vercel preview on 27 October 2026. All 24 puzzles generated boards and responded to New game (Pegs has a deterministic default layout). In-board input and Undo were checked in Fifteen, Net, Black Box and Filling. 2048 keyboard movement/restart and Hextris launch/rotation/pause were checked. These are runtime/input smoke tests rather than full game completions; raw evidence is under `docs/verification/`.
 
 Sidequest adapters: each entry includes `arcade-bridge.js` for focus/keypress/error handling. Puzzle canvases are fitted only after WebAssembly initialization, with shared `puzzles.css` layout. 2048 has compact embed styling and no false official-host claim. Hextris uses session-only isolated storage; both dynamic Google Analytics loaders were removed. Browser games run in opaque-origin frames, so persistent preferences/progress are not guaranteed.
+
+Stack compatibility: the upstream Three.js r83 Projector/CanvasRenderer (MIT) provides a software canvas fallback when WebGL is unavailable; the original block physics, timing, score and restart remain unchanged. Touch/click handlers use one pointer event to avoid suppressing taps or double placements. Source notices are retained.
+
+Y8 Slope’s current page explicitly lists Mobile/Touchscreen support. Moto X3M 2 and 3 are marked keyboard/mouse in Sidequest. These are declared capabilities; mobile gameplay has not been physically verified during this update.

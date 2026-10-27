@@ -2,6 +2,7 @@ export type TrustedPublisher = {
   name: 'Y8' | 'Famobi';
   privacyUrl: string;
   disclosure: string;
+  externalOnly?: boolean;
 };
 
 const publishers = new Map<string, TrustedPublisher>([
@@ -18,7 +19,7 @@ const publishers = new Map<string, TrustedPublisher>([
     disclosure: 'This game is provided by Y8. The publisher may use cookies and show ads.',
   }],
   ['https://play.famobi.com/moto-x3m/A1000-11', {
-    name: 'Famobi', privacyUrl: 'https://famobi.com/privacy/?locale=en',
+    externalOnly: true, name: 'Famobi', privacyUrl: 'https://famobi.com/privacy/?locale=en',
     disclosure: 'This game is provided by Famobi. The publisher may use cookies and display ads.',
   }],
 ]);
