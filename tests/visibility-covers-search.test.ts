@@ -7,6 +7,7 @@ import {Advertising} from '../components/advertising';
 import {getDisplayCover,originalCovers} from '../lib/carlwalks-covers';
 import {GET} from '../app/api/original-covers/[slug]/route';
 import seed from '../data/seed-games.json';
+import type {Game} from '../lib/types';
 
 test('sitewide search is directly visible, functional and uses a GET /games form',()=>{
   const html=renderToStaticMarkup(createElement(Header));
@@ -42,8 +43,8 @@ test('hosted games show a real pre-launch mute control; external publishers show
   const {Player}=await import('../components/player');
   const hextris=seed.find(g=>g.slug==='hextris')!;
   const slope=seed.find(g=>g.slug==='slope')!;
-  const local=renderToStaticMarkup(createElement(Player,{game:{...hextris,playCount:0,likes:0}}));
-  const external=renderToStaticMarkup(createElement(Player,{game:{...slope,playCount:0,likes:0}}));
+  const local=renderToStaticMarkup(createElement(Player,{game:{...hextris,playCount:0,likes:0} as Game}));
+  const external=renderToStaticMarkup(createElement(Player,{game:{...slope,playCount:0,likes:0} as Game}));
   assert(local.includes('aria-label="Mute game"'));
   assert(!local.includes('aria-label="Mute game" disabled'));
   assert(external.includes('aria-label="How to mute this publisher game"'));
