@@ -37,3 +37,15 @@ test('original screenshot proxy does not allow arbitrary slug or arbitrary URLs'
   const response=await GET(new Request('http://localhost/api/original-covers/evil'),{params:Promise.resolve({slug:'evil'})});
   assert.equal(response.status,404);
 });
+
+test('hosted games show a real pre-launch mute control; external publishers show honest instructions',async()=>{
+  const {Player}=await import('../components/player');
+  const hextris=seed.find(g=>g.slug==='hextris')!;
+  const slope=seed.find(g=>g.slug==='slope')!;
+  const local=renderToStaticMarkup(createElement(Player,{game:{...hextris,playCount:0,likes:0}}));
+  const external=renderToStaticMarkup(createElement(Player,{game:{...slope,playCount:0,likes:0}}));
+  assert(local.includes('aria-label="Mute game"'));
+  assert(!local.includes('aria-label="Mute game" disabled'));
+  assert(external.includes('aria-label="How to mute this publisher game"'));
+  assert(!external.includes('aria-label="Mute game"'));
+});
