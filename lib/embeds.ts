@@ -1,6 +1,7 @@
+import referenceEntrypoints from '../data/reference-entrypoints.json';
 import {isSidequestArchive} from './game-archives';
 export type TrustedPublisher = {
-  name: 'Y8' | 'Famobi' | 'CarlWalks archive';
+  name: 'Y8' | 'Famobi' | 'CarlWalks archive' | 'Reference game host';
   privacyUrl: string;
   disclosure: string;
   externalOnly?: boolean;
@@ -28,6 +29,10 @@ const archivedGames: [string, TrustedPublisher][] = carlwalksGameUrls.map(url =>
 
 const publishers = new Map<string, TrustedPublisher>([
   ...archivedGames,
+  ...referenceEntrypoints.map((url):[string,TrustedPublisher]=>[url,{
+    name:'Reference game host',privacyUrl:'https://watchdocumentaries.com/privacy-policy/',
+    disclosure:'This game runs here through the reference game host. Availability, cookies and any in-game advertising are controlled by that host. Gameplay testing is pending.',
+  }]),
   ['https://y8.com/embed/slope', {
     name: 'Y8', privacyUrl: 'https://www.y8.com/cookie-policy',
     disclosure: 'This game is provided by Y8. The publisher may use cookies and show ads.',

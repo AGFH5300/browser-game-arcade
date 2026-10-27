@@ -1,0 +1,514 @@
+{
+  "Survival Race": [
+    "Racing",
+    "Stay on the platform as the arena falls away beneath your car."
+  ],
+  "Fortzone Battle Royale": [
+    "Action",
+    "Scavenge, build and survive a battle royale arena."
+  ],
+  "Cookie Clicker": [
+    "Simulation",
+    "Bake cookies, buy upgrades and grow a cookie empire."
+  ],
+  "Crazy Cattle 3D": [
+    "Action",
+    "Bump rival sheep out of chaotic three-dimensional arenas."
+  ],
+  "Snow Rider 3D": [
+    "Racing",
+    "Steer a sled between snowy obstacles and collect gifts."
+  ],
+  "PolyTrack": [
+    "Racing",
+    "Chase faster times through low-poly stunt tracks."
+  ],
+  "Eaglercraft": [
+    "Adventure",
+    "Explore and build in a browser-based block world."
+  ],
+  "Drift Hunters": [
+    "Racing",
+    "Link drifts and tune cars to improve your runs."
+  ],
+  "Drive Mad": [
+    "Racing",
+    "Balance your vehicle across increasingly awkward obstacles."
+  ],
+  "Granny": [
+    "Adventure",
+    "Search for an escape while avoiding Granny."
+  ],
+  "Granny 2": [
+    "Adventure",
+    "Find a way out while staying clear of the house’s inhabitants."
+  ],
+  "Slope": [
+    "Arcade",
+    "Guide a rolling ball down a fast, unpredictable course."
+  ],
+  "Slope 2": [
+    "Arcade",
+    "Keep your ball on the course through rapid turns and hazards."
+  ],
+  "Slope 3": [
+    "Arcade",
+    "React quickly as a downhill ball course gathers speed."
+  ],
+  "Five Nights at Freddy’s": [
+    "Strategy",
+    "Watch the cameras and conserve power through the night."
+  ],
+  "Five Nights at Freddy’s 2": [
+    "Strategy",
+    "Monitor the animatronics and survive another night shift."
+  ],
+  "Five Nights at Freddy’s 3": [
+    "Strategy",
+    "Track the threat and manage failing systems until morning."
+  ],
+  "Five Nights at Freddy’s 4": [
+    "Strategy",
+    "Listen carefully and guard the bedroom against approaching threats."
+  ],
+  "Moto X3M": [
+    "Racing",
+    "Ride a stunt bike through explosive obstacle courses."
+  ],
+  "Basketball Stars": [
+    "Sports",
+    "Shoot, steal and dunk in arcade basketball matches."
+  ],
+  "Football Legends": [
+    "Sports",
+    "Score goals in fast arcade football matches."
+  ],
+  "A Small World Cup": [
+    "Sports",
+    "Swing a ragdoll footballer into the ball and chase a win."
+  ],
+  "Traffic Jam 3D": [
+    "Racing",
+    "Navigate busy roads and weave between vehicles."
+  ],
+  "Highway Traffic": [
+    "Racing",
+    "Find gaps in highway traffic and keep your run going."
+  ],
+  "Run 3": [
+    "Platformer",
+    "Run and jump around the walls of floating space tunnels."
+  ],
+  "Geometry Dash": [
+    "Platformer",
+    "Time jumps to clear spikes and rhythmic obstacle courses."
+  ],
+  "Geometry Dash SubZero": [
+    "Platformer",
+    "Jump through rhythm-driven courses with precise timing."
+  ],
+  "Geometry Dash Hyper Wave": [
+    "Arcade",
+    "Guide a wave through narrow passages and sharp obstacles."
+  ],
+  "Among Us": [
+    "Strategy",
+    "Complete the version’s tasks and watch for suspicious crewmates."
+  ],
+  "Monkey Mart": [
+    "Simulation",
+    "Stock shelves and expand a busy monkey supermarket."
+  ],
+  "OvO": [
+    "Platformer",
+    "Jump, slide and dive through compact platforming challenges."
+  ],
+  "Rocket League": [
+    "Sports",
+    "Use a vehicle to push the ball toward the opposing goal."
+  ],
+  "Subway Surfers": [
+    "Arcade",
+    "Dodge trains, jump barriers and collect coins on an endless run."
+  ],
+  "Retro Bowl": [
+    "Sports",
+    "Manage your football team and call the plays on the field."
+  ],
+  "Level Devil": [
+    "Platformer",
+    "Expect surprise hazards as you work toward each exit."
+  ],
+  "Stickman Hook": [
+    "Arcade",
+    "Swing between hooks and carry your momentum to the finish."
+  ],
+  "Funny Shooter 2": [
+    "Action",
+    "Face waves of unusual enemies in an arcade shooter."
+  ],
+  "Time Shooter 2": [
+    "Action",
+    "Plan each move in a shooter where time follows your movement."
+  ],
+  "Time Shooter 3": [
+    "Action",
+    "Use careful movement and timing to clear each encounter."
+  ],
+  "Angry Heroes": [
+    "Puzzle",
+    "Aim shots at structures and clear the targets."
+  ],
+  "Drift Boss": [
+    "Racing",
+    "Time each turn to keep a drifting car on a narrow road."
+  ],
+  "Eggy Car": [
+    "Racing",
+    "Drive over hills while keeping a fragile egg balanced."
+  ],
+  "Happy Wheels": [
+    "Action",
+    "Navigate hazardous physics courses with an unlikely rider."
+  ],
+  "Blade Ball": [
+    "Action",
+    "Time your deflections as a dangerous ball picks up speed."
+  ],
+  "Paper.io": [
+    "Arcade",
+    "Claim territory and return safely before opponents cut your trail."
+  ],
+  "Tiny Fishing": [
+    "Casual",
+    "Cast a line, collect fish and improve your fishing gear."
+  ],
+  "Snake.io": [
+    "Arcade",
+    "Grow your snake while steering clear of competing snakes."
+  ],
+  "Blockpost": [
+    "Action",
+    "Take aim in a block-styled multiplayer shooter."
+  ],
+  "House of Hazards": [
+    "Multiplayer",
+    "Complete everyday tasks while the house fights back."
+  ],
+  "Getaway Shootout": [
+    "Action",
+    "Hop past rivals and reach the getaway first."
+  ],
+  "Rooftop Snipers": [
+    "Action",
+    "Time your jumps and shots to knock a rival off the roof."
+  ],
+  "Gun Mayhem 2": [
+    "Action",
+    "Use an arsenal of weapons to blast rivals off the platforms."
+  ],
+  "Hole.io": [
+    "Arcade",
+    "Swallow objects to grow your hole and outsize the competition."
+  ],
+  "Escape Road": [
+    "Racing",
+    "Keep moving through city streets while evading pursuit."
+  ],
+  "Crossy Road": [
+    "Arcade",
+    "Hop across traffic, rivers and railway tracks."
+  ],
+  "Color Tunnel": [
+    "Arcade",
+    "Steer through a colorful tunnel while avoiding obstacles."
+  ],
+  "Icy Purple Head": [
+    "Puzzle",
+    "Switch between sticky and icy states to reach the delivery box."
+  ],
+  "Tanuki Sunset": [
+    "Sports",
+    "Longboard around bends and maintain your downhill flow."
+  ],
+  "Gunspin": [
+    "Arcade",
+    "Use the recoil of each shot to send a weapon farther."
+  ],
+  "Hover Racer Drive": [
+    "Racing",
+    "Steer a hover racer through high-speed obstacles."
+  ],
+  "Madalin Stunt Cars 2": [
+    "Racing",
+    "Explore stunt arenas with jumps, loops and performance cars."
+  ],
+  "Slowroads.io": [
+    "Racing",
+    "Take a relaxed drive along an endlessly generated road."
+  ],
+  "Cut the Rope": [
+    "Puzzle",
+    "Cut ropes in the right order to deliver candy to Om Nom."
+  ],
+  "Bottle Flip 3D": [
+    "Arcade",
+    "Flip a bottle between household objects and reach the finish."
+  ],
+  "Return Man 2": [
+    "Sports",
+    "Catch the kick and dodge defenders on the way to a touchdown."
+  ],
+  "Cluster Rush": [
+    "Platformer",
+    "Jump between moving trucks and stay above the ground."
+  ],
+  "Pixel Shooter": [
+    "Action",
+    "Battle through pixel-styled shooting arenas."
+  ],
+  "Death Run 3D": [
+    "Arcade",
+    "React to fast-approaching obstacles in a three-dimensional tunnel."
+  ],
+  "Burrito Bison: Launcha Libre": [
+    "Arcade",
+    "Launch into a candy world and keep your bouncing run alive."
+  ],
+  "Fall Boys": [
+    "Multiplayer",
+    "Race through obstacle courses and stay in the competition."
+  ],
+  "Brawl Guys": [
+    "Action",
+    "Fight through compact multiplayer-style arenas."
+  ],
+  "Ice Dodo": [
+    "Platformer",
+    "Keep your character on tricky floating courses."
+  ],
+  "Friday Night Funkin’": [
+    "Arcade",
+    "Match the arrows to the beat in musical battles."
+  ],
+  "Papa’s Pizzeria": [
+    "Simulation",
+    "Take orders, prepare pizzas and keep customers happy."
+  ],
+  "Papa’s Freezeria": [
+    "Simulation",
+    "Build frozen treats to match each customer’s order."
+  ],
+  "X Trench Run": [
+    "Action",
+    "Pilot a spacecraft through a dangerous trench."
+  ],
+  "Bloxorz": [
+    "Puzzle",
+    "Roll a block into the exit without falling from the platform."
+  ],
+  "Helix Jump": [
+    "Arcade",
+    "Guide a bouncing ball through gaps in a twisting tower."
+  ],
+  "Shortcut Race": [
+    "Racing",
+    "Collect planks and build shortcuts past your opponents."
+  ],
+  "Low’s Adventure 2": [
+    "Platformer",
+    "Explore small platforming levels and collect their coins."
+  ],
+  "Creative Kill Chamber": [
+    "Adventure",
+    "Find ways past the deadly obstacles in each room."
+  ],
+  "Vex 4": [
+    "Platformer",
+    "Run, jump and climb through precision obstacle courses."
+  ],
+  "Vex 5": [
+    "Platformer",
+    "Find your route through traps, moving platforms and timed jumps."
+  ],
+  "Tomb of the Mask": [
+    "Arcade",
+    "Dash through mazes and avoid the traps along your path."
+  ],
+  "Big Tower Tiny Square": [
+    "Platformer",
+    "Climb a huge tower one careful jump at a time."
+  ],
+  "Choppy Orc": [
+    "Puzzle",
+    "Use a returning axe to solve platforming puzzles."
+  ],
+  "Pizza Tower": [
+    "Platformer",
+    "Build momentum through a frantic, pizza-themed platform adventure."
+  ],
+  "Temple Run 2": [
+    "Arcade",
+    "Jump, slide and turn through an endless escape route."
+  ],
+  "Ricochet Arrow": [
+    "Puzzle",
+    "Bounce arrows around obstacles to hit every target."
+  ],
+  "Ragdoll Hit": [
+    "Action",
+    "Control a physics fighter and land decisive hits."
+  ],
+  "Big Shot Boxing": [
+    "Sports",
+    "Trade punches, defend and work your way through boxing bouts."
+  ],
+  "Jelly Truck": [
+    "Racing",
+    "Guide a soft-bodied truck across a world of squishy obstacles."
+  ],
+  "Smash Karts": [
+    "Racing",
+    "Collect weapons and battle other karts in an arena."
+  ],
+  "Shell Shockers": [
+    "Action",
+    "Join an egg-themed multiplayer shooting arena."
+  ],
+  "Zombs Royale": [
+    "Action",
+    "Gather equipment and survive a top-down battle royale."
+  ],
+  "World’s Hardest Game": [
+    "Puzzle",
+    "Move through precise patterns of hazards to reach the safe zone."
+  ],
+  "2048": [
+    "Puzzle",
+    "Slide matching tiles together and work toward 2048."
+  ],
+  "2048 Cupcakes": [
+    "Puzzle",
+    "Merge matching cupcakes through a sweeter version of 2048."
+  ],
+  "Fruit Merge": [
+    "Puzzle",
+    "Combine matching fruit while keeping the board under control."
+  ],
+  "Block Blast": [
+    "Puzzle",
+    "Fit blocks into the grid and complete rows and columns."
+  ],
+  "Tetris": [
+    "Puzzle",
+    "Rotate falling blocks and clear complete horizontal lines."
+  ],
+  "Bubble Shooter": [
+    "Puzzle",
+    "Aim bubbles to form matching groups and clear the board."
+  ],
+  "Pac-Man": [
+    "Arcade",
+    "Collect dots through the maze while avoiding the ghosts."
+  ],
+  "Super Mario Bros": [
+    "Platformer",
+    "Jump across classic side-scrolling courses and avoid enemies."
+  ],
+  "Idle Breakout": [
+    "Simulation",
+    "Buy balls and upgrades to break increasingly tough bricks."
+  ],
+  "Clicker Heroes": [
+    "Simulation",
+    "Defeat monsters, recruit heroes and build your damage output."
+  ],
+  "Gladihoppers": [
+    "Action",
+    "Guide a bouncing gladiator through physics-based duels."
+  ],
+  "Warfare 1944": [
+    "Strategy",
+    "Deploy squads and push across the battlefield."
+  ],
+  "Age of War": [
+    "Strategy",
+    "Defend your base and evolve your army through the ages."
+  ],
+  "Dino Run": [
+    "Platformer",
+    "Outrun extinction while collecting eggs and finding escape routes."
+  ],
+  "Learn to Fly": [
+    "Arcade",
+    "Improve a penguin’s flight gear and travel farther each attempt."
+  ],
+  "Learn to Fly 2": [
+    "Arcade",
+    "Upgrade your launch setup and overcome new flight challenges."
+  ],
+  "Duck Life 4": [
+    "Sports",
+    "Train your ducks and compete in races."
+  ],
+  "Car Rush": [
+    "Racing",
+    "Beat the clock while steering through traffic and bends."
+  ],
+  "Wheelie Bike": [
+    "Sports",
+    "Balance on one wheel and see how far you can ride."
+  ],
+  "Cat Ninja": [
+    "Platformer",
+    "Leap past traps and solve a cat ninja’s obstacle course."
+  ],
+  "Cat Trap": [
+    "Puzzle",
+    "Close off escape routes and try to keep the cat on the board."
+  ],
+  "Sprinter": [
+    "Sports",
+    "Build speed and race toward the finish line."
+  ],
+  "We Become What We Behold": [
+    "Simulation",
+    "Choose what to photograph and watch a small society react."
+  ],
+  "Master Chess": [
+    "Strategy",
+    "Plan your moves and work toward checkmate."
+  ],
+  "Solitaire": [
+    "Puzzle",
+    "Sort the cards and build each suit’s foundation."
+  ],
+  "Word Wipe": [
+    "Puzzle",
+    "Link letter tiles into words and clear lines from the board."
+  ],
+  "Wordle Unlimited": [
+    "Puzzle",
+    "Use letter clues to solve a new hidden word each round."
+  ],
+  "Fireboy and Watergirl 1: In the Forest Temple": [
+    "Puzzle",
+    "Coordinate two characters to solve the Forest Temple’s puzzles."
+  ],
+  "Fireboy and Watergirl 2: In the Light Temple": [
+    "Puzzle",
+    "Use light and teamwork to guide both characters to their exits."
+  ],
+  "Bitlife: Life Simulator": [
+    "Simulation",
+    "Make choices and follow the turns of a simulated life."
+  ],
+  "Plant vs Zombies": [
+    "Strategy",
+    "Arrange plants to defend your lawn from approaching zombies."
+  ],
+  "Clash Blade IO": [
+    "Action",
+    "Grow stronger and challenge rivals with your blade."
+  ]
+}

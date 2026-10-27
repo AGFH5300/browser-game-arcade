@@ -65,3 +65,9 @@ The preview-only /qa-classics route uses only bundled candidate metadata and pre
 Production release f0fdcf5dd9e946ea9e5265a71f4daa0ae225507d reached READY (dpl_YZwCwnEeC8AB6LfywB68ZAPyWqj8). Stable domain checked: /classics has six listings; search moto finds three; /html5 has 26 with working 20/6 pagination; global search stack finds the new original. Homepage hero is Slope and classics headings precede HTML5 & Puzzles. The production admin/API suite passed all nine checks.
 
 A fresh browser sweep rendered all 24 puzzle canvases and exercised every New game button. 2048 keyboard input changed the score from 0 to 8; Hextris reached its active pause-button state after launch. All 201 original runtime files match their launch Git blob hashes. Evidence: docs/verification/classics-legacy-runtime-checks.json. Stack public game page renders the canvas fallback. Slope’s public player displays the explicit WebGL warning in this unsupported browser. Moto X3M public page clearly says Play at Famobi and Publisher link. No new title requiring WebGL is represented as gameplay-passed.
+
+## V4 owner-directed testing boundary
+
+The owner requested that manual browser/gameplay testing be left to them because the hosted browser lacks graphics support for many games. No V4 game is claimed to have passed manual gameplay, mobile controls, save persistence, multiplayer service connectivity or audible output testing. The public entries and `docs/V4_INTEGRATION_STATUS.json` mark this as pending user review.
+
+Automated checks cover catalogue completeness, source hashes, safe exact entrypoint allowlists, preserved existing identities and local licenses, type checking, lint, compilation and static asset deployment availability. These checks do not establish that a game completes its loading sequence or that an external service will remain available.

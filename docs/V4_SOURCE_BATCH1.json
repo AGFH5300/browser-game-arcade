@@ -1,0 +1,285 @@
+{
+  "batch": 1,
+  "inventory": "docs/WATCHDOCUMENTARIES_INVENTORY.json",
+  "researchDate": "2026-10-27",
+  "authorization": "The project owner explicitly authorized use of selected game content for this project. That authorization is not an upstream license and does not erase specific published distribution conditions. Mirror provenance is recorded separately from license status.",
+  "pinnedMirror": {
+    "repository": "https://github.com/brunoiscool2/unblockedgames",
+    "revision": "8e1b7aacdbb8086d0b4023465602437b52c1c6cc",
+    "tree": "https://api.github.com/repos/brunoiscool2/unblockedgames/git/trees/8e1b7aacdbb8086d0b4023465602437b52c1c6cc?recursive=1",
+    "rootLicense": "No root LICENSE was found in the pinned tree. Game folders require their own notices; absence of one does not prove redistribution rights.",
+    "use": "Technical source candidate only where an exact package folder is listed below. Folder names in this mirror do not independently establish game edition, creator, or relationship to the WatchDocumentaries build."
+  },
+  "entries": [
+    {
+      "ordinal": 1,
+      "title": "Survival Race",
+      "referencePage": "https://watchdocumentaries.com/survival-race-game/",
+      "observedReferenceBuild": "https://watchdocumentaries.com/wp-content/uploads/games/survival-race/",
+      "sourceCandidate": null,
+      "finding": "No pinned original-developer or complete standalone source candidate was established in this batch. Reference runtime is multiplayer-oriented and may require live opponents/services.",
+      "nextAction": "Keep the observed reference entry pending provenance/runtime review; do not claim an offline package."
+    },
+    {
+      "ordinal": 2,
+      "title": "Fortzone Battle Royale",
+      "referencePage": "https://watchdocumentaries.com/fortzone-battle-royale-game/",
+      "observedReferenceBuild": "https://watchdocumentaries.com/wp-content/uploads/games/fortzone-battle-royale/",
+      "sourceCandidate": null,
+      "finding": "No pinned original-developer or complete standalone source candidate was established. Battle royale play depends on a live online service.",
+      "nextAction": "Keep the observed reference entry pending provenance and service review."
+    },
+    {
+      "ordinal": 3,
+      "title": "Cookie Clicker",
+      "referencePage": "https://watchdocumentaries.com/cookie-clicker-game/",
+      "observedReferenceBuild": "https://watchdocumentaries.com/wp-content/uploads/games/cookie-clicker/",
+      "originalDeveloper": "Julien Thiennot (Orteil)",
+      "officialGame": "https://orteil.dashnet.org/cookieclicker/",
+      "sourceCandidate": {
+        "repository": "https://github.com/brunoiscool2/unblockedgames",
+        "revision": "8e1b7aacdbb8086d0b4023465602437b52c1c6cc",
+        "path": "play/cookie",
+        "license": "No root license in the pinned mirror; game-folder license not established."
+      },
+      "distributionCondition": "Cookie Clicker source explicitly says not to re-host. Preserve this concrete condition; use the official hosted game link unless the applicable rights holder has directly waived it for this project.",
+      "nextAction": "Do not copy the mirror package into the local archive based only on the project authorization assertion."
+    },
+    {
+      "ordinal": 4,
+      "title": "Crazy Cattle 3D",
+      "referencePage": "https://watchdocumentaries.com/crazy-cattle-3d-game/",
+      "observedReferenceBuild": "https://watchdocumentaries.com/wp-content/uploads/games/crazy-cattle-3d/",
+      "sourceCandidate": null,
+      "finding": "No pinned original-developer build or complete distributable package was established in this batch; no upstream license was confirmed.",
+      "nextAction": "Retain the exact reference identity while source provenance and package completeness are reviewed."
+    },
+    {
+      "ordinal": 5,
+      "title": "Snow Rider 3D",
+      "referencePage": "https://watchdocumentaries.com/snow-rider-3d-game/",
+      "observedReferenceBuild": "https://watchdocumentaries.com/wp-content/uploads/games/snow-rider-3d/",
+      "sourceCandidate": {
+        "repository": "https://github.com/focus-solutions/snow-rider",
+        "revision": "d330d523211b4f3c454fc04a42aabca022ef5aad",
+        "entry": "index.html",
+        "packageType": "Unity WebGL build; pinned Build payload measured at approximately 13.23 MB.",
+        "provenance": "The repository's @source.txt identifies a GameDistribution page; no game license was found.",
+        "entryIssues": ["index.html immediately redirects to https://snowrider3d.ubg235.com/", "entry loads js/analytics_ubg_v1_4.js"],
+        "license": "No game license established; the repository's license, if any, does not by itself grant rights to embedded game assets."
+      },
+      "nextAction": "Candidate is technically complete enough to inspect/import under the asserted project authorization, after repairing the redirect and removing non-game analytics."
+    },
+    {
+      "ordinal": 6,
+      "title": "PolyTrack",
+      "referencePage": "https://watchdocumentaries.com/polytrack-game/",
+      "observedReferenceBuild": "https://watchdocumentaries.com/wp-content/uploads/games/polytrack/",
+      "originalDeveloper": "Kodub",
+      "officialTerms": "https://www.kodub.com/terms/polytrack",
+      "sourceCandidate": null,
+      "distributionCondition": "The official terms prohibit use of the official source in an iframe and prohibit reuploads on competing game portals. Project-specific permission is needed for either route.",
+      "nextAction": "Keep the publisher link/permission decision distinct from any source-package candidate."
+    },
+    {
+      "ordinal": 7,
+      "title": "Eaglercraft",
+      "referencePage": "https://watchdocumentaries.com/eaglercraft-game/",
+      "observedReferenceBuild": "https://watchdocumentaries.com/wp-content/uploads/games/minecraft/",
+      "sourceCandidate": null,
+      "finding": "The reference page labels a Minecraft browser build as Eaglercraft. This batch did not establish an exact primary-source revision, complete package, or distribution license. Public multiplayer depends on external servers.",
+      "nextAction": "Do not equate a community Eaglercraft repository or client with authorization to redistribute Minecraft assets or use public servers."
+    },
+    {
+      "ordinal": 8,
+      "title": "Drift Hunters",
+      "referencePage": "https://watchdocumentaries.com/drift-hunters-game/",
+      "observedReferenceBuild": "https://watchdocumentaries.com/wp-content/uploads/games/drift-hunters/",
+      "sourceCandidate": {
+        "repository": "https://github.com/unxa/unxa.github.io",
+        "revision": "976db99398423b4e5a8b327892c2b57b6a5b766f",
+        "path": "g/drift-hunters/",
+        "files": 14,
+        "bytes": 141263918,
+        "entry": "Unity WebGL build (dh.json plus split data/code/framework/memory payloads).",
+        "provenance": "Community mirror; upstream original developer/build provenance was not confirmed.",
+        "license": "Repository MIT license does not establish a license for the embedded Drift Hunters game/assets."
+      },
+      "nextAction": "Technically complete candidate under the project authorization assertion; retain mirror provenance, 141 MB size, and unverified game-asset license in catalogue notes."
+    },
+    {
+      "ordinal": 9,
+      "title": "Drive Mad",
+      "referencePage": "https://watchdocumentaries.com/drive-mad-game/",
+      "observedReferenceBuild": "https://watchdocumentaries.com/wp-content/uploads/games/drive-mad/",
+      "sourceCandidate": null,
+      "finding": "No pinned original-developer package with complete local runtime assets was established in this batch.",
+      "nextAction": "Use the exact observed reference build only while source identity and distribution terms are confirmed."
+    },
+    {
+      "ordinal": 10,
+      "title": "Granny",
+      "referencePage": "https://watchdocumentaries.com/granny-game/",
+      "observedReferenceBuild": "https://watchdocumentaries.com/wp-content/uploads/games/granny/",
+      "sourceCandidate": null,
+      "finding": "No verified complete browser build from the original developer was established in this batch. Do not silently substitute a mobile APK, decompilation, or fan remake.",
+      "nextAction": "Keep exact version and source unresolved."
+    },
+    {
+      "ordinal": 11,
+      "title": "Granny 2",
+      "referencePage": "https://watchdocumentaries.com/granny-2-game/",
+      "observedReferenceBuild": "https://watchdocumentaries.com/wp-content/uploads/games/granny-2/",
+      "sourceCandidate": null,
+      "finding": "No verified complete browser build from the original developer was established in this batch. Do not silently substitute a mobile APK, decompilation, or fan remake.",
+      "nextAction": "Keep exact version and source unresolved."
+    },
+    {
+      "ordinal": 12,
+      "title": "Slope",
+      "referencePage": "https://watchdocumentaries.com/slope-game/",
+      "observedReferenceBuild": "https://watchdocumentaries.com/wp-content/uploads/games/slope/",
+      "publisherSource": "https://www.y8.com/games/slope",
+      "publisherEmbed": "https://y8.com/embed/slope",
+      "sourceCandidate": null,
+      "finding": "Y8 provides the publisher-controlled embed; no local game package was selected. The existing source inventory records the provider player and its SDK/ads/service dependencies.",
+      "nextAction": "Preserve Y8 branding and provider terms if using the exact embed; do not copy the provider runtime."
+    },
+    {
+      "ordinal": 13,
+      "title": "Slope 2",
+      "referencePage": "https://watchdocumentaries.com/slope-2-game/",
+      "observedReferenceBuild": "https://watchdocumentaries.com/wp-content/uploads/games/slope-2/",
+      "sourceCandidate": null,
+      "finding": "No exact, verified publisher embed URL or pinned complete source package was established in this bounded batch.",
+      "nextAction": "Do not guess the Y8 embed slug; verify it from the publisher game page before using it."
+    },
+    {
+      "ordinal": 14,
+      "title": "Slope 3",
+      "referencePage": "https://watchdocumentaries.com/slope-3-game/",
+      "observedReferenceBuild": "https://watchdocumentaries.com/wp-content/uploads/games/slope-3/",
+      "sourceCandidate": null,
+      "finding": "No exact, verified publisher embed URL or pinned complete source package was established in this bounded batch.",
+      "nextAction": "Do not guess the publisher embed slug; verify it from the publisher game page before using it."
+    },
+    {
+      "ordinal": 15,
+      "title": "Five Nights at Freddy’s",
+      "referencePage": "https://watchdocumentaries.com/five-nights-at-freddys-game/",
+      "observedReferenceBuild": "https://watchdocumentaries.com/wp-content/uploads/games/five-nights-at-freddys/",
+      "sourceCandidate": {
+        "repository": "https://github.com/brunoiscool2/unblockedgames",
+        "revision": "8e1b7aacdbb8086d0b4023465602437b52c1c6cc",
+        "path": "play/fnaf/",
+        "files": 3,
+        "bytes": 38123014,
+        "license": "No game-folder license/notice and no root repository license."
+      },
+      "identityCaveat": "Folder label does not establish whether this is the commercial Scott Cawthon game, a fan build, or the exact WatchDocumentaries iframe version. Keep separate from the CarlWalks gustacraft123 TurboWarp fan recreation; its exact source/asset chain is also unverified.",
+      "nextAction": "Do not call this a fan recreation or an official commercial build without positive version/source evidence."
+    },
+    {
+      "ordinal": 16,
+      "title": "Five Nights at Freddy’s 2",
+      "referencePage": "https://watchdocumentaries.com/five-nights-at-freddys-2-game/",
+      "observedReferenceBuild": "https://watchdocumentaries.com/wp-content/uploads/games/five-nights-at-freddys-2/",
+      "sourceCandidate": {
+        "repository": "https://github.com/brunoiscool2/unblockedgames",
+        "revision": "8e1b7aacdbb8086d0b4023465602437b52c1c6cc",
+        "path": "play/fnaf2/",
+        "files": 3,
+        "bytes": 33392436,
+        "license": "No game-folder license/notice and no root repository license."
+      },
+      "identityCaveat": "Commercial-versus-fan identity and exact page-build match were not verified. Keep this source folder distinct from any FNAF 2 fan recreation.",
+      "nextAction": "Pin the package bytes and record its source folder; do not infer edition or distribution rights from the folder name."
+    },
+    {
+      "ordinal": 17,
+      "title": "Five Nights at Freddy’s 3",
+      "referencePage": "https://watchdocumentaries.com/five-nights-at-freddys-3-game/",
+      "observedReferenceBuild": "https://watchdocumentaries.com/wp-content/uploads/games/five-nights-at-freddys-3/",
+      "sourceCandidate": {
+        "repository": "https://github.com/brunoiscool2/unblockedgames",
+        "revision": "8e1b7aacdbb8086d0b4023465602437b52c1c6cc",
+        "path": "play/fnaf3/",
+        "files": 3,
+        "bytes": 33753658,
+        "license": "No game-folder license/notice and no root repository license."
+      },
+      "identityCaveat": "Commercial-versus-fan identity and exact page-build match were not verified.",
+      "nextAction": "Pin the package bytes and record its source folder; do not infer edition or distribution rights from the folder name."
+    },
+    {
+      "ordinal": 18,
+      "title": "Five Nights at Freddy’s 4",
+      "referencePage": "https://watchdocumentaries.com/five-nights-at-freddys-4-game/",
+      "observedReferenceBuild": "https://watchdocumentaries.com/wp-content/uploads/games/five-nights-at-freddys-4/",
+      "sourceCandidate": {
+        "repository": "https://github.com/brunoiscool2/unblockedgames",
+        "revision": "8e1b7aacdbb8086d0b4023465602437b52c1c6cc",
+        "path": "play/fnaf4/",
+        "files": 469,
+        "bytes": 54794962,
+        "license": "No game-folder license/notice and no root repository license."
+      },
+      "identityCaveat": "Commercial-versus-fan identity and exact page-build match were not verified.",
+      "nextAction": "Pin the package bytes and record its source folder; do not infer edition or distribution rights from the folder name."
+    },
+    {
+      "ordinal": 19,
+      "title": "Moto X3M",
+      "referencePage": "https://watchdocumentaries.com/moto-x3m-game/",
+      "observedReferenceBuild": "https://watchdocumentaries.com/wp-content/uploads/games/moto-x3m/",
+      "publisherSource": "https://famobi.com/moto-x3m/",
+      "publisherGame": "https://play.famobi.com/moto-x3m/A1000-11",
+      "sourceCandidate": null,
+      "finding": "MadPuffers game distributed by Famobi. Famobi documents publisher iframe activation; the official game link is a valid publisher launch. No unverified local mirror/CDN route was used.",
+      "nextAction": "Use the official launch link or an individually activated Famobi iframe, preserving provider controls and disclosures."
+    },
+    {
+      "ordinal": 20,
+      "title": "Basketball Stars",
+      "referencePage": "https://watchdocumentaries.com/basketball-stars-game/",
+      "observedReferenceBuild": "https://watchdocumentaries.com/wp-content/uploads/games/basketball-stars/",
+      "sourceCandidate": {
+        "repository": "https://github.com/brunoiscool2/unblockedgames",
+        "revision": "8e1b7aacdbb8086d0b4023465602437b52c1c6cc",
+        "path": "play/basketball-stars/",
+        "entry": "index.html",
+        "files": 64,
+        "bytes": 11944728,
+        "license": "No game-folder license/notice and no root repository license.",
+        "entryFindings": "Wrapper loaded the source-site /js/main.js and Google IMA. Importer removes these non-game scripts; embedded package provenance still needs review."
+      },
+      "nextAction": "Technical package candidate under the explicit project authorization; retain mirror provenance and missing-upstream-license status."
+    }
+  ],
+  "supplementalCandidates": [
+    {
+      "title": "Moto X3M 2",
+      "source": "https://y8.com/embed/moto_x3m_2",
+      "publisher": "MadPuffers / Y8",
+      "evidence": "Y8-supplied embed URL recorded in docs/CARLWALKS_RESEARCH_REMAINING.md; 900 × 600. Preserve provider branding and runtime."
+    },
+    {
+      "title": "Moto X3M 3",
+      "source": "https://y8.com/embed/moto_x3m_3",
+      "publisher": "MadPuffers / Y8",
+      "evidence": "Y8-supplied embed URL recorded in docs/CARLWALKS_RESEARCH_REMAINING.md; 800 × 600. Preserve provider branding and runtime."
+    },
+    {
+      "title": "Run 3",
+      "source": "https://github.com/bigjackson/Run3Source/tree/32afdf8591fb0ab6ef567628f8a6d0273e831f52",
+      "revision": "32afdf8591fb0ab6ef567628f8a6d0273e831f52",
+      "package": "347 files / 18750592 bytes; local Unity/WebGL-style runtime payload and assets.",
+      "caveat": "No license observed. Entry references external S3 scr.js; inspect that dependency and source notices before import."
+    }
+  ],
+  "sourcePolicy": [
+    "Pin repository commit and every imported asset hash; report total file count and bytes.",
+    "A mirror path, local asset bundle, or project authorization assertion does not establish original-developer provenance or an upstream license.",
+    "Record exact version uncertainty and external runtime dependencies. Do not strip game-level domain restrictions or concrete distribution terms."
+  ]
+}

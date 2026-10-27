@@ -39,7 +39,7 @@ test('CarlWalks archive titles run inside Sidequest instead of redirecting to Fa
  const {getTrustedPublisher}=await import('../lib/embeds');
  for(const slug of ['moto-x3m','moto-x3m-2','moto-x3m-3','slope']){
    const game=seed.find(g=>g.slug===slug)!;
-   assert(game.gameUrl.startsWith('https://carlwalks.com/build_engine/root/'));
+   assert(game.gameUrl.startsWith('https://carlwalks.com/build_engine/root/')||game.gameUrl==='https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/moto-x3m-2/index.html');
    assert.equal(getTrustedPublisher(game.gameUrl)?.externalOnly,undefined);
    const markup=renderToStaticMarkup(createElement(Player,{game:{...game,playCount:0,likes:0} as Game}));
    assert(markup.includes('Play now'),slug);
@@ -47,3 +47,4 @@ test('CarlWalks archive titles run inside Sidequest instead of redirecting to Fa
    assert(!markup.includes('Opens the official game in a new tab'),slug);
  }
 });
+

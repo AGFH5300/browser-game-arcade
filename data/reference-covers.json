@@ -1,0 +1,642 @@
+{
+  "survival-race": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/survival-race-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/survival-race.jpg"
+  },
+  "fortzone-battle-royale": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/fortzone-battle-royale-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/fortzone-battle-royale.jpg"
+  },
+  "cookie-clicker": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/cookie-clicker-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/cookie-clicker.jpg"
+  },
+  "crazy-cattle-3d": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/crazy-cattle-3d-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/crazy-cattle-3d.jpg"
+  },
+  "snow-rider-3d": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/snow-rider-3d-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/snow-rider-3d.jpg"
+  },
+  "polytrack": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/polytrack-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/polytrack.jpg"
+  },
+  "eaglercraft": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/eaglercraft-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/eaglercraft.jpg"
+  },
+  "drift-hunters": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/drift-hunters-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/drift-hunters.jpg"
+  },
+  "drive-mad": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/drive-mad-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/drive-mad.jpg"
+  },
+  "granny": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/granny-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/granny.jpg"
+  },
+  "granny-2": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/granny-2-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/granny-2.jpg"
+  },
+  "slope": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/slope-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/slope.jpg"
+  },
+  "slope-2": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/slope-2-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/slope-2.jpg"
+  },
+  "slope-3": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/slope-3-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/slope-3.jpg"
+  },
+  "fnaf": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/five-nights-at-freddys-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/five-nights-at-freddys.jpg"
+  },
+  "five-nights-at-freddys-2": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/five-nights-at-freddys-2-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/five-nights-at-freddys-2.jpg"
+  },
+  "five-nights-at-freddys-3": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/five-nights-at-freddys-3-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/five-nights-at-freddys-3.jpg"
+  },
+  "five-nights-at-freddys-4": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/five-nights-at-freddys-4-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/five-nights-at-freddys-4.jpg"
+  },
+  "moto-x3m": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/moto-x3m-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/moto-x3m.jpg"
+  },
+  "basketball-stars": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/basketball-stars-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/basketball-stars.jpg"
+  },
+  "football-legends": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/football-legends-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/football-legends.jpg"
+  },
+  "a-small-world-cup": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/a-small-world-cup-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/a-small-world-cup.jpg"
+  },
+  "traffic-jam-3d": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/traffic-jam-3d-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/traffic-jam-3d.jpg"
+  },
+  "highway-traffic": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/highway-traffic-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/highway-traffic.jpg"
+  },
+  "run-3": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/run-3-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/run-3.jpg"
+  },
+  "geometry-dash": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/geometry-dash-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/geometry-dash.jpg"
+  },
+  "geometry-dash-subzero": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/geometry-dash-subzero-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/geometry-dash-subzero.jpg"
+  },
+  "geometry-dash-hyper-wave": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/geometry-dash-hyper-wave-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/geometry-dash-hyper-wave.jpg"
+  },
+  "among-us": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/among-us-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/among-us.jpg"
+  },
+  "monkey-mart": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/monkey-mart-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/monkey-mart.jpg"
+  },
+  "ovo": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/ovo-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/ovo.jpg"
+  },
+  "rocket-league": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/rocket-league-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/rocket-league.jpg"
+  },
+  "subway-surfers": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/subway-surfers-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/subway-surfers.jpg"
+  },
+  "retro-bowl": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/retro-bowl-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/retro-bowl.jpg"
+  },
+  "level-devil": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/level-devil-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/level-devil.jpg"
+  },
+  "stickman-hook": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/stickman-hook-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/stickman-hook.jpg"
+  },
+  "fireboy-and-watergirl-1": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/fireboy-and-watergirl-1-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/fireboy-and-watergirl-1.jpg"
+  },
+  "fireboy-and-watergirl-2": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/fireboy-and-watergirl-2-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/fireboy-and-watergirl-2.jpg"
+  },
+  "funny-shooter-2": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/funny-shooter-2-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/funny-shooter-2.jpg"
+  },
+  "time-shooter-2": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/time-shooter-2-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/time-shooter-2.jpg"
+  },
+  "time-shooter-3": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/time-shooter-3-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/time-shooter-3.jpg"
+  },
+  "angry-heroes": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/angry-heroes-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/angry-heroes.jpg"
+  },
+  "drift-boss": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/drift-boss-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/drift-boss.jpg"
+  },
+  "bitlife-life-simulator": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/bitlife-life-simulator-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/bitlife-life-simulator.jpg"
+  },
+  "eggy-car": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/eggy-car-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/eggy-car.jpg"
+  },
+  "happy-wheels": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/happy-wheels-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/happy-wheels.jpg"
+  },
+  "blade-ball": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/blade-ball-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/blade-ball.jpg"
+  },
+  "paper-io": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/paper-io-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/paper-io.jpg"
+  },
+  "tiny-fishing": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/tiny-fishing-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/tiny-fishing.jpg"
+  },
+  "snake-io": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/snake-io-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/snake-io.jpg"
+  },
+  "blockpost": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/blockpost-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/blockpost.jpg"
+  },
+  "house-of-hazards": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/house-of-hazards-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/house-of-hazards.jpg"
+  },
+  "getaway-shootout": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/getaway-shootout-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/getaway-shootout.jpg"
+  },
+  "rooftop-snipers": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/rooftop-snipers-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/rooftop-snipers.jpg"
+  },
+  "gun-mayhem-2": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/gun-mayhem-2-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/gun-mayhem-2.jpg"
+  },
+  "hole-io": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/hole-io-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/hole-io.jpg"
+  },
+  "escape-road": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/escape-road-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/escape-road.jpg"
+  },
+  "crossy-road": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/crossy-road-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/crossy-road.jpg"
+  },
+  "color-tunnel": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/color-tunnel-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/color-tunnel.jpg"
+  },
+  "icy-purple-head": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/icy-purple-head-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/icy-purple-head.jpg"
+  },
+  "tanuki-sunset": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/tanuki-sunset-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/tanuki-sunset.jpg"
+  },
+  "gunspin": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/gunspin-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/gunspin.jpg"
+  },
+  "hover-racer-drive": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/hover-racer-drive-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/hover-racer-drive.jpg"
+  },
+  "madalin-stunt-cars-2": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/madalin-stunt-cars-2-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/madalin-stunt-cars-2.jpg"
+  },
+  "slowroads-io": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/slowroads-io-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/slowroads-io.jpg"
+  },
+  "cut-the-rope": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/cut-the-rope-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/cut-the-rope.jpg"
+  },
+  "bottle-flip-3d": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/bottle-flip-3d-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/bottle-flip-3d.jpg"
+  },
+  "return-man-2": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/return-man-2-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/return-man-2.jpg"
+  },
+  "cluster-rush": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/cluster-rush-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/cluster-rush.jpg"
+  },
+  "pixel-shooter": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/pixel-shooter-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/pixel-shooter.jpg"
+  },
+  "death-run-3d": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/death-run-3d-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/death-run-3d.jpg"
+  },
+  "burrito-bison-launcha-libre": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/burrito-bison-launcha-libre-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/burrito-bison-launcha-libre.jpg"
+  },
+  "fall-boys": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/fall-boys-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/fall-boys.jpg"
+  },
+  "brawl-guys": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/brawl-guys-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/brawl-guys.jpg"
+  },
+  "ice-dodo": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/ice-dodo-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/ice-dodo.jpg"
+  },
+  "friday-night-funkin": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/friday-night-funkin-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/friday-night-funkin.jpg"
+  },
+  "papas-pizzeria": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/papas-pizzeria-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/papas-pizzeria.jpg"
+  },
+  "papas-freezeria": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/papas-freezeria-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/papas-freezeria.jpg"
+  },
+  "x-trench-run": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/x-trench-run-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/x-trench-run.jpg"
+  },
+  "bloxorz": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/bloxorz-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/bloxorz.jpg"
+  },
+  "helix-jump": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/helix-jump-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/helix-jump.jpg"
+  },
+  "shortcut-race": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/shortcut-race-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/shortcut-race.jpg"
+  },
+  "lows-adventure-2": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/lows-adventure-2-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/lows-adventure-2.jpg"
+  },
+  "creative-kill-chamber": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/creative-kill-chamber-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/creative-kill-chamber.jpg"
+  },
+  "vex-4": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/vex-4-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/vex-4.jpg"
+  },
+  "vex-5": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/vex-5-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/vex-5.jpg"
+  },
+  "tomb-of-the-mask": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/tomb-of-the-mask-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/tomb-of-the-mask.jpg"
+  },
+  "big-tower-tiny-square": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/big-tower-tiny-square-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/big-tower-tiny-square.jpg"
+  },
+  "choppy-orc": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/choppy-orc-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/choppy-orc.jpg"
+  },
+  "pizza-tower": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/pizza-tower-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/pizza-tower.jpg"
+  },
+  "temple-run-2": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/temple-run-2-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/temple-run-2.jpg"
+  },
+  "ricochet-arrow": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/ricochet-arrow-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/ricochet-arrow.jpg"
+  },
+  "ragdoll-hit": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/ragdoll-hit-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/ragdoll-hit.jpg"
+  },
+  "big-shot-boxing": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/big-shot-boxing-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/big-shot-boxing.jpg"
+  },
+  "plant-vs-zombies": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/plant-vs-zombies-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/plant-vs-zombies.jpg"
+  },
+  "jelly-truck": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/jelly-truck-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/jelly-truck.jpg"
+  },
+  "smash-karts": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/smash-karts-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/smash-karts.jpg"
+  },
+  "shell-shockers": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/shell-shockers-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/shell-shockers.jpg"
+  },
+  "zombs-royale": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/zombs-royale-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/zombs-royale.jpg"
+  },
+  "worlds-hardest-game": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/worlds-hardest-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/worlds-hardest.jpg"
+  },
+  "2048": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/2048-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/2048.jpg"
+  },
+  "2048-cupcakes": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/2048-cupcakes-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/2048-cupcakes.jpg"
+  },
+  "fruit-merge": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/fruit-merge-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/fruit-merge.jpg"
+  },
+  "block-blast": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/block-blast-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/block-blast.jpg"
+  },
+  "tetris": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/tetris-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/tetris.jpg"
+  },
+  "bubble-shooter": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/bubble-shooter-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/bubble-shooter.jpg"
+  },
+  "pac-man": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/pac-man-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/pac-man.jpg"
+  },
+  "super-mario-bros": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/super-mario-bros-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/super-mario-bros.jpg"
+  },
+  "idle-breakout": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/idle-breakout-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/idle-breakout.jpg"
+  },
+  "clicker-heroes": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/clicker-heroes-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/clicker-heroes.jpg"
+  },
+  "gladihoppers": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/gladihoppers-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/gladihoppers.jpg"
+  },
+  "warfare-1944": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/warfare-1944-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/warfare-1944.jpg"
+  },
+  "age-of-war": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/age-of-war-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/age-of-war.jpg"
+  },
+  "dino-run": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/dino-run-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/dino-run.jpg"
+  },
+  "learn-to-fly": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/learn-to-fly-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/learn-to-fly.jpg"
+  },
+  "learn-to-fly-2": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/learn-to-fly-2-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/learn-to-fly-2.jpg"
+  },
+  "duck-life-4": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/duck-life-4-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/duck-life-4.jpg"
+  },
+  "car-rush": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/car-rush-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/car-rush.jpg"
+  },
+  "wheelie-bike": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/wheelie-bike-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/wheelie-bike.jpg"
+  },
+  "clash-blade-io": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/clash-blade-io-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/clash-blade-io.jpg"
+  },
+  "cat-ninja": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/cat-ninja-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/cat-ninja.jpg"
+  },
+  "cat-trap": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/cat-trap-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/cat-trap.jpg"
+  },
+  "sprinter": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/sprinter-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/sprinter.jpg"
+  },
+  "we-become-what-we-behold": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/we-become-what-we-behold-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/we-become-what-we-behold.jpg"
+  },
+  "master-chess": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/master-chess-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/master-chess.jpg"
+  },
+  "solitaire": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/solitaire-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/solitaire.jpg"
+  },
+  "word-wipe": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/word-wipe-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/word-wipe.jpg"
+  },
+  "wordle-unlimited": {
+    "url": "https://watchdocumentaries.com/wp-content/uploads/wordle-unlimited-game-360x203.jpg",
+    "mime": "image/jpeg",
+    "localPath": "/covers/reference/wordle-unlimited.jpg"
+  }
+}

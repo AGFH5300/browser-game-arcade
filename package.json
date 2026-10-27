@@ -10,26 +10,27 @@
     "lint": "eslint app components lib tests --max-warnings=0",
     "test": "node --import tsx --test tests/*.test.ts",
     "seed": "node --env-file=.env.local --import tsx scripts/seed.ts",
-    "prebuild": "node scripts/prepare-game-package.mjs"
+    "prebuild": "node scripts/prepare-game-package.mjs && node scripts/prepare-run3-package.mjs && node scripts/prepare-catalogue-packages.mjs && node scripts/prepare-flash-packages.mjs && node scripts/prepare-reference-covers.mjs --prepare"
   },
   "dependencies": {
+    "@neondatabase/serverless": "1.0.2",
+    "@ruffle-rs/ruffle": "0.7.1",
+    "lucide-react": "^0.577.0",
     "next": "16.4.3",
     "react": "19.2.4",
     "react-dom": "19.2.4",
-    "@neondatabase/serverless": "1.0.2",
-    "zod": "^4.3.6",
-    "lucide-react": "^0.577.0"
+    "zod": "^4.3.6"
   },
   "devDependencies": {
-    "typescript": "^5.9.3",
+    "@tailwindcss/postcss": "^4.2.1",
     "@types/node": "^22.19.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "tailwindcss": "^4.2.1",
-    "@tailwindcss/postcss": "^4.2.1",
     "eslint": "^9.39.0",
     "eslint-config-next": "16.4.3",
-    "tsx": "^4.21.0"
+    "tailwindcss": "^4.2.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
   },
   "type": "module"
 }

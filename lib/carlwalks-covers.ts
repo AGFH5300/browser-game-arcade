@@ -1,3 +1,5 @@
+import referenceCoverData from '../data/reference-covers.json';
+export const referenceCovers=referenceCoverData as Record<string,{url:string;mime:'image/jpeg'|'image/png';localPath?:string}>;
 // Screenshot covers are mapped to their exact CarlWalks card titles, not guessed.
 // The site owner has stated permission to reuse these covers. We avoid hotlinking
 // in the browser by serving the fixed, source-verified images through our endpoint.
@@ -14,5 +16,7 @@ export const originalCovers: Record<string,{url:string;mime:'image/jpeg'|'image/
 };
 
 export function getDisplayCover(slug:string, fallback:string|null):string|null{
-  return Object.hasOwn(originalCovers,slug)?`/api/original-covers/${slug}`:fallback;
+  if(Object.hasOwn(originalCovers,slug))return `/api/original-covers/${slug}`;
+  return Object.hasOwn(referenceCovers,slug)?referenceCovers[slug].localPath??`/api/original-covers/${slug}`:fallback;
 }
+

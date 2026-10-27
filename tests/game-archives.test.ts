@@ -4,8 +4,8 @@ import {readFileSync} from 'node:fs';
 import {isSidequestArchive,archiveOrigin,archivePaths} from '../lib/game-archives';
 import {isAllowedEmbedUrl,getEmbedSandbox} from '../lib/embeds';
 test('only the exact isolated Sidequest package URL receives archive permissions',()=>{
- const url=archiveOrigin+archivePaths[0];assert(isSidequestArchive(url));assert(isAllowedEmbedUrl(url,''));assert(getEmbedSandbox(url).includes('allow-same-origin'));
- for(const bad of [url+'?redirect=evil',url+'#x',url.replace('https:','http:'),url.replace('moto-x3m-2','other'),url.replace('browser-game-arcade-dxbavg-7923s-projects','evil')])assert(!isSidequestArchive(bad));
+ const url=archiveOrigin+'/play/archives/moto-x3m-2/index.html';assert(archivePaths.includes('/play/archives/moto-x3m-2/index.html'));assert(isSidequestArchive(url));assert(isAllowedEmbedUrl(url,''));assert(getEmbedSandbox(url).includes('allow-same-origin'));
+ for(const bad of [url.replace('https://','https://user:pass@'),url+'?redirect=evil',url+'#x',url.replace('https:','http:'),url.replace('moto-x3m-2','other'),url.replace('browser-game-arcade-dxbavg-7923s-projects','evil')])assert(!isSidequestArchive(bad));
  assert(!getEmbedSandbox('/play/archives/moto-x3m-2/index.html').includes('allow-same-origin'));
 });
 test('package source is pinned, bounded and hashes every asset',()=>{

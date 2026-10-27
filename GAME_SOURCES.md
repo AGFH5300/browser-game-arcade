@@ -60,3 +60,11 @@ Sidequest adapters: each entry includes `arcade-bridge.js` for focus/keypress/er
 Stack compatibility: the upstream Three.js r83 Projector/CanvasRenderer (MIT) provides a software canvas fallback when WebGL is unavailable; the original block physics, timing, score and restart remain unchanged. Touch/click handlers use one pointer event to avoid suppressing taps or double placements. Source notices are retained.
 
 Y8 Slope’s current page explicitly lists Mobile/Touchscreen support. Moto X3M 2 and 3 are marked keyboard/mouse in Sidequest. These are declared capabilities; mobile gameplay has not been physically verified during this update.
+
+## V4 reference collection (128 titles)
+
+The exact 128-title denominator and observed game entrypoints are recorded in `docs/V4_CATALOGUE_SOURCES.json`; the shipped URL, source, cover provenance and hosting type for each title are in `docs/V4_INTEGRATION_STATUS.json`. These records distinguish local packages from external embeds. Inclusion is not a claim of successful gameplay testing.
+
+The owner asserted authorization to use the intended game content and screenshots on 2026-10-27. This assertion is recorded separately from upstream licenses, which are retained where supplied; community mirrors are not labelled official developer releases. Runtime packages and reference screenshots are pinned to immutable Git blob hashes or SHA-256 hashes. `scripts/*-sources.json` records their complete asset inventories. Generated deployment assets include source manifests and original notices.
+
+Ruffle is the upstream `@ruffle-rs/ruffle` 0.7.1 distribution, installed at an exact version with integrity recorded in package-lock.json. Its MIT and Apache-2.0 license texts ship with the runtime. Flash content remains subject to its own game rights and any in-game restrictions; adding Ruffle does not remove restrictions or certify compatibility. All new entries await the owner's device and gameplay testing.

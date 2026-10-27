@@ -5,3 +5,7 @@ node_modules/
 .vercel/
 *.tsbuildinfo
 test-results/
+
+# Hash-verified game packages are prepared during build.
+public/play/archives/
+public/covers/reference/
