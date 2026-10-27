@@ -19,7 +19,7 @@ test('original 26 local games retain their URLs and puzzle discovery membership'
 test('collection discovery is independent of runtime and respects drafts',()=>{
  const candidates=seed.map(g=>({...g,published:true,playCount:0,likes:0})) as Game[];
  const classics=selectGames(candidates,{collection:'classics'});
- assert.equal(classics.total,6);
+ assert.equal(classics.total,9);
  assert(classics.games.some(g=>g.engine==='iframe'));
  assert(classics.games.some(g=>g.engine==='html5'));
  assert.equal(selectGames(candidates,{collection:'html5_puzzles'}).total,26);
@@ -34,13 +34,21 @@ test('main navigation exposes distinct collections and global search',()=>{
  assert(markup.indexOf('Flash Library')<markup.indexOf('HTML5 &amp; Puzzles'));
 });
 
-test('Moto X3M opens honestly at publisher instead of a blocked iframe landing page',async()=>{
+test('all nine CarlWalks titles use an in-page player instead of external Famobi/Y8',async()=>{
  const {Player}=await import('../components/player');
+ const {playableClassic,classicGameEntrypoints}=await import('../lib/classic-sources');
  const {getTrustedPublisher}=await import('../lib/embeds');
- const game=seed.find(g=>g.slug==='moto-x3m')!;
- assert.equal(getTrustedPublisher(game.gameUrl)?.externalOnly,true);
- const markup=renderToStaticMarkup(createElement(Player,{game:{...game,playCount:0,likes:0} as Game}));
- assert(markup.includes('Play at Famobi'));
- assert(markup.includes('Opens the official game in a new tab'));
- assert(!markup.includes('<iframe'));
+ const classics=seed.filter(g=>g.collections.includes('classics'));
+ assert.equal(classics.length,9);
+ for(const game of classics){
+   const resolved=playableClassic({...game,playCount:0,likes:0} as Game);
+   if(classicGameEntrypoints[game.slug]){
+     assert.equal(resolved.gameUrl,classicGameEntrypoints[game.slug]);
+     assert.equal(getTrustedPublisher(resolved.gameUrl)?.externalOnly,undefined);
+     assert(!resolved.gameUrl.includes('famobi.com'));
+   }
+   const markup=renderToStaticMarkup(createElement(Player,{game:resolved}));
+   assert(!markup.includes('Play at Famobi'));
+   assert(!markup.includes('Opens the official game in a new tab'));
+ }
 });
