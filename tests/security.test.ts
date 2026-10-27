@@ -1,0 +1,12 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {createSession,sessionClaims,verifySession,hashPassword,verifyPassword} from '../lib/auth';
+import {gameSchema} from '../lib/validation';
+process.env.SESSION_SECRET='test-session-secret-value-at-least-32-bytes-long';
+const base={title:'Test',slug:'test-game',description:'',shortDescription:'',categories:[],tags:[],developer:'',engine:'html5',gameUrl:'/play/test/index.html',sourceUrl:'',license:'MIT',licenseNotes:'Reviewed license',mobile:true,controls:'',instructions:'',featured:false,published:true,displayOrder:0};
+test('signed session verifies, binds username, and rejects tampering and expiry',()=>{const session=createSession('admin',1000);assert.equal(verifySession(session,1001),true);assert.deepEqual(sessionClaims(session,1001),{username:'admin',issuedAt:1000});assert.equal(verifySession(`${session}x`,1001),false);assert.equal(verifySession(session,1000+8*60*60*1000),false);});
+test('scrypt password hash verifies only correct password',async()=>{const hash=await hashPassword('correct horse battery staple','0123456789abcdef0123456789abcdef');assert.equal(await verifyPassword('correct horse battery staple',hash),true);assert.equal(await verifyPassword('wrong',hash),false);assert.equal(await verifyPassword('anything','malformed'),false);});
+test('published games require license notes',()=>{assert.equal(gameSchema.safeParse(base).success,true);assert.equal(gameSchema.safeParse({...base,licenseNotes:''}).success,false);});
+test('game URLs reject unsafe protocols and unapproved hosts',()=>{assert.equal(gameSchema.safeParse({...base,gameUrl:'javascript:alert(1)'}).success,false);assert.equal(gameSchema.safeParse({...base,gameUrl:'https://evil.invalid/game'}).success,false);assert.equal(gameSchema.safeParse({...base,gameUrl:'/play/../private'}).success,false);});
+test('Flash cannot be published until Ruffle is integrated',()=>{assert.equal(gameSchema.safeParse({...base,engine:'flash'}).success,false);assert.equal(gameSchema.safeParse({...base,engine:'flash',published:false}).success,true);});
+test('source links and thumbnails are constrained',()=>{assert.equal(gameSchema.safeParse({...base,sourceUrl:'javascript:alert(1)'}).success,false);assert.equal(gameSchema.safeParse({...base,thumbnailId:'/covers/test-game.svg'}).success,true);assert.equal(gameSchema.safeParse({...base,thumbnailId:'/arbitrary/path.svg'}).success,false);assert.equal(gameSchema.safeParse({...base,thumbnailId:'javascript:alert(1)'}).success,false);});

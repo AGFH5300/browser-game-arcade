@@ -1,0 +1,1 @@
+'use client';export default function ErrorPage({reset}:{reset:()=>void}){return <main className="empty"><h1>A little pause in play.</h1><p>The library could not load. Please try again in a moment.</p><button className="btn primary" onClick={reset}>Try again</button></main>}

@@ -1,0 +1,1 @@
+import Link from 'next/link';export default function NotFound(){return <main className="empty"><p className="eyebrow">404 / WRONG TURN</p><h1>This sidequest doesn’t exist.</h1><p>Head back to the library and find something worth playing.</p><Link className="btn primary" href="/games">Back to games</Link></main>}

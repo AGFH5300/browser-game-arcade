@@ -1,0 +1,3 @@
+import {Suspense} from 'react';import {listGames} from '@/lib/db';import {Catalogue} from '@/components/catalogue';
+export const dynamic='force-dynamic';export const metadata={title:'All Games',description:'Search and discover free browser games by category, creator and title.',alternates:{canonical:'/games'}};
+export default async function Games(){const games=await listGames();return <main><div className="page-intro"><p className="eyebrow">LESS SCROLLING. MORE PLAYING.</p><h1>The game library<span className="brand-dot">.</span></h1><p>Your next favourite is probably right here.</p></div><Suspense fallback={<p>Loading catalogue…</p>}><Catalogue games={games}/></Suspense></main>}

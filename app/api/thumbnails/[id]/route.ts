@@ -1,0 +1,2 @@
+import { getDb } from '@/lib/db';
+export async function GET(_req:Request,{params}:{params:Promise<{id:string}>}){const {id}=await params;if(!/^[0-9a-f-]{36}$/i.test(id))return new Response(null,{status:404});try{const r=await getDb()`SELECT mime_type,data FROM thumbnails WHERE id=${id} LIMIT 1`;if(!r[0])return new Response(null,{status:404});return new Response(r[0].data as BodyInit,{headers:{'Content-Type':String(r[0].mime_type),'Cache-Control':'public, max-age=31536000, immutable','X-Content-Type-Options':'nosniff'}});}catch{return new Response(null,{status:404});}}
