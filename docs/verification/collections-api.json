@@ -1,5 +1,5 @@
 {
-  "base": "https://browser-game-arcade-nly26ky62-dxbavg-7923s-projects.vercel.app",
+  "base": "https://browser-game-arcade.vercel.app",
   "passed": 9,
   "checks": [
     "Unauthorized API rejected",

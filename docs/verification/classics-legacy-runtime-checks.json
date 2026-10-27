@@ -1,0 +1,201 @@
+{
+  "puzzles": [
+    {
+      "slug": "bridges",
+      "newGame": true,
+      "canvas": {
+        "height": 503,
+        "width": 503
+      }
+    },
+    {
+      "slug": "net",
+      "newGame": true,
+      "canvas": {
+        "height": 499,
+        "width": 499
+      }
+    },
+    {
+      "slug": "fifteen",
+      "newGame": true,
+      "canvas": {
+        "height": 500,
+        "width": 500
+      }
+    },
+    {
+      "slug": "blackbox",
+      "newGame": true,
+      "canvas": {
+        "height": 495,
+        "width": 495
+      }
+    },
+    {
+      "slug": "cube",
+      "newGame": true,
+      "canvas": {
+        "height": 500,
+        "width": 500
+      }
+    },
+    {
+      "slug": "dominosa",
+      "newGame": true,
+      "canvas": {
+        "height": 501,
+        "width": 560
+      }
+    },
+    {
+      "slug": "filling",
+      "newGame": true,
+      "canvas": {
+        "height": 420,
+        "width": 588
+      }
+    },
+    {
+      "slug": "flip",
+      "newGame": true,
+      "canvas": {
+        "height": 497,
+        "width": 497
+      }
+    },
+    {
+      "slug": "flood",
+      "newGame": true,
+      "canvas": {
+        "height": 494,
+        "width": 494
+      }
+    },
+    {
+      "slug": "galaxies",
+      "newGame": true,
+      "canvas": {
+        "height": 495,
+        "width": 495
+      }
+    },
+    {
+      "slug": "guess",
+      "newGame": true,
+      "canvas": {
+        "height": 498,
+        "width": 312
+      }
+    },
+    {
+      "slug": "inertia",
+      "newGame": true,
+      "canvas": {
+        "height": 491,
+        "width": 589
+      }
+    },
+    {
+      "slug": "keen",
+      "newGame": true,
+      "canvas": {
+        "height": 496,
+        "width": 496
+      }
+    },
+    {
+      "slug": "lightup",
+      "newGame": true,
+      "canvas": {
+        "height": 503,
+        "width": 503
+      }
+    },
+    {
+      "slug": "loopy",
+      "newGame": true,
+      "canvas": {
+        "height": 495,
+        "width": 495
+      }
+    },
+    {
+      "slug": "magnets",
+      "newGame": true,
+      "canvas": {
+        "height": 499,
+        "width": 568
+      }
+    },
+    {
+      "slug": "map",
+      "newGame": true,
+      "canvas": {
+        "height": 460,
+        "width": 595
+      }
+    },
+    {
+      "slug": "mines",
+      "newGame": true,
+      "canvas": {
+        "height": 491,
+        "width": 491
+      }
+    },
+    {
+      "slug": "mosaic",
+      "newGame": true,
+      "canvas": {
+        "height": 495,
+        "width": 495
+      }
+    },
+    {
+      "slug": "palisade",
+      "newGame": true,
+      "canvas": {
+        "height": 499,
+        "width": 499
+      }
+    },
+    {
+      "slug": "pearl",
+      "newGame": true,
+      "canvas": {
+        "height": 494,
+        "width": 494
+      }
+    },
+    {
+      "slug": "pegs",
+      "newGame": true,
+      "canvas": {
+        "height": 503,
+        "width": 503
+      }
+    },
+    {
+      "slug": "range",
+      "newGame": true,
+      "canvas": {
+        "height": 420,
+        "width": 600
+      }
+    },
+    {
+      "slug": "rect",
+      "newGame": true,
+      "canvas": {
+        "height": 502,
+        "width": 502
+      }
+    }
+  ],
+  "additional": {
+    "2048": "keyboard moves changed score to 8",
+    "hextris": "canvas, game launch and keyboard controls observed"
+  },
+  "originalRuntimeFilesUnchanged": 201
+}
