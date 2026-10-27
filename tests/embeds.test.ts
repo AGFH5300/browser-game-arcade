@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { getEmbedSandbox, getTrustedPublisher, isAllowedEmbedUrl } from '../lib/embeds';
 import { gameSchema } from '../lib/validation';
+import seed from '../data/seed-games.json';
 
 const trustedUrls = [
   'https://y8.com/embed/slope',
@@ -71,7 +72,7 @@ test('only exact CarlWalks standalone HTML5 engines may use the full publisher i
    'https://carlwalks.com/build_engine/root/moto-x3m/index.html?next=evil',
    'https://carlwalks.com/build_engine/root/moto-x3m/index.html#x',
  ])assert.equal(isAllowedEmbedUrl(url,''),false,url);
- const sample={...base,slug:'moto-x3m',collections:['classics'],gameUrl:'https://play.famobi.com/moto-x3m/A1000-11',tags:['publisher-embed'],playCount:0,likes:0,description:'demo'} as import('../lib/types').Game;
+ const sample={...seed.find(g=>g.slug==='moto-x3m')!,gameUrl:'https://play.famobi.com/moto-x3m/A1000-11',tags:['publisher-embed'],playCount:0,likes:0} as import('../lib/types').Game;
  assert.equal(playableClassic(sample).gameUrl,classicGameEntrypoints['moto-x3m']);
  assert(!playableClassic(sample).tags.includes('publisher-embed'));
 });
