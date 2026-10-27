@@ -16,7 +16,7 @@ const mapGame = (r: Record<string, unknown>): Game => playableClassic({
   instructions: String(r.instructions ?? ''), featured: Boolean(r.featured), published: Boolean(r.published), displayOrder: Number(r.display_order ?? 0),
   createdAt: new Date(String(r.created_at)).toISOString(), updatedAt: new Date(String(r.updated_at)).toISOString(),
   publishedAt: r.published_at ? new Date(String(r.published_at)).toISOString() : null, playCount: Number(r.play_count ?? 0), likes: Number(r.likes ?? 0),
-}));
+});
 let fallbackWarned = false;
 export async function listGames(includeDrafts = false): Promise<Game[]> {
   if (!process.env.DATABASE_URL) {
