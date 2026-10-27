@@ -23,3 +23,82 @@
 .banner-actions{margin-left:auto;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
 .banner-actions>.text-link{font-size:10px}
 @media(max-width:650px){.banner-actions{margin:0;align-items:flex-start}}
+
+/* Sidequest V3: compact early-web arcade theme */
+:root,html[data-theme=light]{--bg:#e5e9ed;--surface:#fff;--raised:#edf1f4;--line:#aebbc7;--text:#172b40;--muted:#52687c;--accent:#1b75b8;--purple:#2e6b99;--hero:#f7f9fb;color-scheme:light}
+body{font-family:Arial,Helvetica,sans-serif;font-size:14px;background:#e5e9ed;color:#172b40;line-height:1.45}
+main{max-width:1200px;padding:20px 24px 42px}
+h1{font-size:28px;line-height:1.2;letter-spacing:-.3px;font-weight:700}
+h2{font-size:20px;line-height:1.25;letter-spacing:0;font-weight:700}
+.header{background:#102b48;border:0;border-bottom:4px solid #287bb4;color:#fff}
+.header-inner{max-width:1200px;height:62px;padding:0 24px;gap:42px}
+.brand{font-size:23px;letter-spacing:-.5px;color:#fff}
+.brand-icon{width:31px;height:31px;border-radius:3px;transform:none;background:#3a94cd;color:#fff}
+.brand-dot{color:#71c3ef;margin-left:-8px}
+.nav{gap:0;color:#e4eef7;font-size:12px;font-weight:700}
+.nav a{padding:21px 13px;border-left:1px solid #ffffff1c}
+.nav a:last-child{border-right:1px solid #ffffff1c}
+.nav a:hover{background:#1e4c73;color:#fff}
+.header-tools{gap:3px}
+.icon-btn{color:#e4eef7;width:32px;height:32px;border:1px solid #ffffff35;border-radius:2px}
+.icon-btn:hover{background:#24577f;color:#fff}
+.home-intro{display:flex;align-items:center;justify-content:space-between;gap:25px;background:#f8fafc;border:1px solid #aebbc7;border-top:4px solid #327faf;padding:17px 20px;margin-bottom:13px}
+.home-intro-copy .eyebrow{color:#446783;font-size:9px;letter-spacing:1.1px;margin-bottom:4px}
+.home-intro h1{font-size:25px;margin-bottom:4px}
+.home-intro-copy>p:last-child{font-size:12px;color:#52687c}
+.home-search{width:min(360px,42%);min-height:38px;padding:4px 6px 4px 10px;border-radius:2px;background:#fff;border-color:#aebbc7}
+.home-search input{font-size:12px}
+.home-search button{height:28px;width:30px;border-radius:2px;background:#287db5;color:#fff}
+.eyebrow{font-family:Arial,Helvetica,sans-serif;color:#52687c;font-size:9px;letter-spacing:1px}
+.status-dot{width:7px;height:7px;border-radius:0;background:#3a9b62}
+.discovery-strip{padding:9px 11px;background:#d5e5f0;border:1px solid #b1c8d8;color:#3c566d;font-size:11px}
+.discovery-strip>span{color:#244763;font-size:9px}
+.discovery-strip>a{font-size:11px;color:#145d91}
+.section{margin-top:22px;background:#f8fafc;border:1px solid #b5c1cb;padding:13px 14px 15px}
+.section-heading{margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid #c9d2da;align-items:center}
+.section-heading .eyebrow{font-size:8px;margin-bottom:3px}
+.section-heading h2{font-size:18px;gap:8px}
+.section-heading h2>svg{color:#287db5;width:18px;height:18px}
+.text-link{font-size:10px;color:#155f91}
+.game-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.game-card{padding:5px;background:#fff;border:1px solid #c4cdd5}
+.card-cover{border-radius:0;background:#dbe2e8;border:1px solid #b7c2cc;aspect-ratio:1.5}
+.card-cover img{transition:none}
+.game-card:hover img{transform:none}
+.card-heart{top:5px;right:5px;border-radius:2px;background:#102b48c9;width:25px;height:25px}
+.featured-label{top:5px;left:5px;border-radius:1px;background:#2578ae;color:#fff;font-size:7px}
+.play-overlay{opacity:1;bottom:5px;right:5px;border-radius:2px;background:#102b48dc;padding:4px 7px;font-size:9px}
+.card-title{font-size:12px;margin-top:6px;color:#183b57}
+.card-meta{font-size:9px}
+.end-banner{margin-top:22px;border-radius:0;background:#e0ebf3;border-color:#b5c4d0;padding:17px 19px;gap:18px}
+.end-banner h2{font-size:19px;margin:4px 0}
+.end-banner p:not(.eyebrow){font-size:11px;color:#52687c}
+.end-banner .btn.primary,.btn.primary{background:#287db5;color:#fff;border:1px solid #155d8e;border-radius:2px}
+.btn{border-radius:2px;padding:8px 12px;font-size:11px}
+.footer{max-width:1152px;padding:25px 0 18px;border-top:2px solid #9eafbe}
+.footer .brand{font-size:19px;color:#183b57}
+.footer .brand svg{color:#287db5}
+.footer-links{font-size:10px}
+.search{border-radius:2px}
+.page-intro{padding:16px 0 22px}
+.page-intro h1{font-size:27px}
+.catalogue-search,.sort-control,.chip,.tags a{border-radius:2px}
+.chip.active{background:#287db5;color:#fff;border-color:#155d8e}
+.player{border:3px solid #183b57;border-radius:0;background:#0a1016}
+.player-toolbar{background:#183b57;color:#fff}
+.player-brand>span{color:#75c8f2}
+.player-stage{min-height:280px}
+.game-info aside,.admin-shell form,.admin-list,.contact-form,.credit-item{background:#f8fafc;border:1px solid #b5c1cb;border-radius:0}
+.game-info aside{padding:18px}
+.notice{border-radius:0}
+.launch-screen{background:#183b57}
+.launch-content .eyebrow{color:#9ed9f6}
+.launch-content .publisher-disclosure a{color:#9ed9f6}
+.skip-link{background:#fff;color:#123}
+@media(max-width:1250px){main{padding:18px 22px 38px}.header-inner{padding:0 22px}.footer{margin:0 22px}.game-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.section .game-grid>.game-card:nth-child(5):last-child{display:block}}
+@media(max-width:900px){.header-inner{height:58px;gap:22px}.nav a{padding:19px 9px}.game-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.home-search{width:38%}}
+@media(max-width:650px){main{padding:14px 12px 30px}.header-inner{padding:0 12px;height:56px}.brand{font-size:21px}.nav{top:56px;background:#102b48}.nav a{padding:4px 0;border:0}.nav a:last-child{border:0}.home-intro{display:block;padding:13px;margin-bottom:10px}.home-intro h1{font-size:21px}.home-intro-copy>p:last-child{font-size:11px}.home-search{width:100%;margin-top:12px}.discovery-strip{padding:8px;gap:7px}.discovery-strip>p{font-size:9px}.discovery-strip>a{display:none}.section{margin-top:15px;padding:10px}.section-heading{margin-bottom:9px;gap:8px}.section-heading h2{font-size:16px}.text-link{font-size:9px}.game-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.game-card{padding:4px}.card-title{font-size:11px;margin-top:5px}.card-meta{font-size:8px}.section .game-grid>.game-card:nth-child(5):last-child{display:none}.play-overlay{opacity:1}.end-banner{padding:13px;gap:12px;align-items:flex-start}.end-banner h2{font-size:17px}.footer{margin:0 12px}.footer-links{gap:12px}.player-stage{min-height:300px}}
+/* Advertising spaces are ordinary document regions; AdSense controls live overlays. */
+.arcade-columns{display:block;max-width:1580px;margin:auto}.arcade-columns #content{min-width:0;flex:1}.advertisement{text-align:center;border:1px solid #aebdca;background:repeating-linear-gradient(45deg,#edf1f4,#edf1f4 8px,#e5ebf0 8px,#e5ebf0 16px);color:#54697a;font:11px Arial,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}.advertisement>span{font-size:9px;letter-spacing:1px}.advertisement>div{font-size:19px}.ad-left,.ad-right{display:none;width:160px;height:600px;flex:0 0 160px;margin-top:22px}.ad-bottom{height:90px;max-width:728px;margin:12px auto 24px}.arcade-columns main{max-width:1200px}.player-toolbar button:disabled{opacity:.5}.player-toolbar .audio-label{font:11px Arial,sans-serif}
+@media(min-width:1440px){.arcade-columns{display:flex;gap:14px;padding:0 12px}.ad-left,.ad-right{display:flex}.arcade-columns main{padding-left:8px;padding-right:8px}.arcade-columns .game-grid{grid-template-columns:repeat(5,minmax(0,1fr))}}
+@media(max-width:760px){.ad-bottom{max-width:320px;height:100px;margin:10px auto}.ad-bottom>div{font-size:0}.ad-bottom>div:after{content:'320 × 100';font-size:19px}.nav.is-open{flex-wrap:wrap}.player-toolbar{height:auto;min-height:44px;flex-wrap:wrap}.player-toolbar>div{display:flex;align-items:center;gap:3px}}
