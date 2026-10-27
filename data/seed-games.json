@@ -1105,18 +1105,17 @@
     "tags": [
       "timing",
       "stack",
-      "tower blocks",
-      "webgl"
+      "tower blocks"
     ],
     "developer": "Steve Gardner",
     "engine": "html5",
     "gameUrl": "/play/stack/index.html",
     "sourceUrl": "https://codepen.io/ste-vg/pen/ppLQNW",
     "license": "MIT (game); upstream dependency licenses",
-    "licenseNotes": "Original public CodePen contains an explicit MIT grant. Copyright notice preserved in LICENSE.txt and game.js. Three.js r83 MIT and GSAP 1.20.3 Standard License dependencies are loaded unmodified from CDN. CarlWalks Playcalm credit is inconsistent with this Three.js game; correct original attribution retained.",
+    "licenseNotes": "Original public CodePen contains an explicit MIT grant. Copyright notice preserved in LICENSE.txt and game.js. Three.js r83 MIT and GSAP 1.20.3 Standard License dependencies are loaded unmodified from CDN. CarlWalks Playcalm credit is inconsistent with this Three.js game; correct original attribution retained. Sidequest adds unified pointer input and an official Three.js MIT CanvasRenderer fallback; core gameplay unchanged.",
     "mobile": true,
     "controls": "Space, click, or tap to place a block.",
-    "instructions": "Press Start, then time each drop to align with the tower. Overhanging pieces are cut away. Miss the tower and the game ends. Click or press Space to restart. Requires a WebGL-capable browser with graphics acceleration enabled.",
+    "instructions": "Press Start, then time each drop to align with the tower. Overhanging pieces are cut away. Miss the tower and the game ends. Click or press Space to restart.",
     "featured": false,
     "published": false,
     "displayOrder": 5,

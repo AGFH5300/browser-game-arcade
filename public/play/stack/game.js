@@ -8,6 +8,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 "use strict";
 console.clear();
+const canvasFallback = (() => {try {const c=document.createElement('canvas'); return !c.getContext('webgl');} catch {return true;}})();
 class Stage {
     constructor() {
         // container
@@ -22,7 +23,7 @@ class Stage {
         };
         this.container = document.getElementById('game');
         // renderer
-        this.renderer = new THREE.WebGLRenderer({
+        this.renderer = canvasFallback ? new THREE.CanvasRenderer() : new THREE.WebGLRenderer({
             antialias: true,
             alpha: false
         });
@@ -102,7 +103,7 @@ class Block {
         // create block
         let geometry = new THREE.BoxGeometry(this.dimension.width, this.dimension.height, this.dimension.depth);
         geometry.applyMatrix(new THREE.Matrix4().makeTranslation(this.dimension.width / 2, this.dimension.height / 2, this.dimension.depth / 2));
-        this.material = new THREE.MeshToonMaterial({ color: this.color, shading: THREE.FlatShading });
+        this.material = new (canvasFallback ? THREE.MeshLambertMaterial : THREE.MeshToonMaterial)({ color: this.color, shading: THREE.FlatShading });
         this.mesh = new THREE.Mesh(geometry, this.material);
         this.mesh.position.set(this.position.x, this.position.y + (this.state == this.STATES.ACTIVE ? 0 : 0), this.position.z);
         if (this.state == this.STATES.ACTIVE) {
