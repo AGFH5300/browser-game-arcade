@@ -15,6 +15,10 @@ for(let i=0;i<manifest.files.length;i+=10)await Promise.all(manifest.files.slice
  if(!bytes){const r=await fetch(`https://raw.githubusercontent.com/${manifest.source}/${manifest.revision}/${manifest.sourcePath}/${f.path}`,{signal:AbortSignal.timeout(45000)});if(!r.ok)throw Error('Asset fetch failed '+f.path+' '+r.status);bytes=Buffer.from(await r.arrayBuffer());if(hash(bytes)!==f.sha)throw Error('Source hash mismatch '+f.path);downloaded++}
  await mkdir(path.dirname(cached),{recursive:true});await writeFile(cached,bytes);await mkdir(path.dirname(target),{recursive:true});await copyFile(cached,target);
 }));
+// Use Phaser's supported AUTO renderer: WebGL when available, Canvas otherwise.
+const runtimePath=path.join(root,'motox3m2.min.js');let runtime=await readFile(runtimePath,'utf8');
+if(runtime.split('renderer: Phaser.WEBGL,').length!==2)throw Error('Unexpected upstream renderer configuration');
+runtime=runtime.replace('renderer: Phaser.WEBGL,','renderer: Phaser.AUTO,');await writeFile(runtimePath,runtime);
 let html=await readFile(path.join(root,'index.html'),'utf8');
 html=html.replace(/<script[^>]*src="(?:\/js\/main\.js|https:\/\/imasdk\.googleapis\.com[^"]*)"[^>]*><\/script>/g,'').replace(/<script[^>]*data-ad-client[^>]*>[\s\S]*?<\/script>/g,'').replace(/<script type="text\/javascript">[\s\S]*?<\/script>/g,'').replace(/<script[^>]*src="assets\/lib\/gameBreakBeta\.js"[^>]*><\/script>/g,'').replace('<head>','<head><script src="bridge.js"></script><script src="offline-adapter.js"></script>');
 html=html.replace('</body>','<script>setTimeout(function(){document.getElementById("content").dispatchEvent(new Event("sdk_inited"));},0);</script></body>');
