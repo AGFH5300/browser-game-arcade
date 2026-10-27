@@ -38,6 +38,9 @@ setTimeout(function(){var puzzle=document.getElementById('puzzle');if(puzzle&&pu
       var WrappedContext=function(){
         var ctx=Reflect.construct(NativeContext,Array.prototype.slice.call(arguments));
         contexts.add(ctx);
+        // Prevent a game's automatic resume call from defeating a user mute.
+        var resume=ctx.resume.bind(ctx);
+        try{ctx.resume=function(){return muted?Promise.resolve():resume()}}catch(e){}
         if(muted)ctx.suspend().catch(function(){});
         return ctx;
       };
