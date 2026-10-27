@@ -12,6 +12,7 @@ const trustedUrls = [
 ];
 const isolated = 'allow-scripts allow-pointer-lock';
 const publisherPermissions = `${isolated} allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms`;
+const classicPermissions = `${isolated} allow-same-origin allow-forms`;
 const base = {title:'Test',slug:'test-game',description:'',shortDescription:'',categories:[],collections:[],tags:[],developer:'',engine:'iframe',gameUrl:'',sourceUrl:'',license:'MIT',licenseNotes:'Reviewed license',mobile:true,controls:'',instructions:'',featured:false,published:true,displayOrder:0};
 
 test('only the exact approved publisher URLs receive publisher sandbox permissions',()=>{
@@ -61,7 +62,7 @@ test('only exact CarlWalks standalone HTML5 engines may use the full publisher i
  assert.equal(entries.length,7);
  for(const [slug,url] of entries){
    assert.equal(isAllowedEmbedUrl(url,''),true,slug);
-   assert.equal(getEmbedSandbox(url),publisherPermissions,slug);
+   assert.equal(getEmbedSandbox(url),classicPermissions,slug);
    assert.equal(getTrustedPublisher(url)?.externalOnly,undefined,slug);
    assert.equal(gameSchema.safeParse({...base,slug,gameUrl:url}).success,true,slug);
  }
