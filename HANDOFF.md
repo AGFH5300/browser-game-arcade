@@ -2,7 +2,7 @@
 Working/default/production branch: main. Feature release has been merged.
 Latest production-verified code commit: c30e83ef9cd555464b438542295332e819426fcd.
 Completed: full Sidequest portal, 26 local games, PostgreSQL admin, favourites/history/play counts, SEO/legal, source registry. Twelve unit tests + typecheck/lint/build and 11 live admin API checks passed; 26 live game frame checks and responsive QA completed.
-Active checkpoint: documentation handoff and final Vercel verification. Preview-only public QA route has been removed; fixture source remains in scripts/.
+Active checkpoint: complete. Preview-only public QA route has been removed; fixture source remains in scripts/.
 Next: user can use the live site and change the supplied initial admin password. GitHub Actions is blocked by account payments/spending; Vercel runs typecheck/lint/tests/build automatically. No known critical implementation issue remains.
 Vercel project: prj_gNmSoJaaOciiIfSUhorY9OqKl3BQ (browser-game-arcade), team dxbavg-7923s-projects.
 Database: new project silent-lake-44327142, default branch br-dry-flower-balhirgu, Frankfurt. Settings available on account remain provider-controlled; no paid plan purchased.
@@ -12,3 +12,5 @@ Known limitations: see TESTING.md. The initial admin password is delivered priva
 
 Production URL: https://browser-game-arcade.vercel.app
 Production project is connected to private AGFH5300/browser-game-arcade, branch main. Git pushes were observed to trigger preview/production deployments. All requested source/checkpoint/license files are committed. Branch protection is not enforceable on the current private-repository plan.
+
+Final verified production checkpoint: a99c94f20ed7cf9507aa9d6bcaff0224623d4fda, deployment dpl_3EtdpZLqnX2Zg1MXfTdVnaPc3w8d, READY. Vercel automatically ran typecheck, zero-warning lint, all 12 tests and production compilation successfully. The stable production URL was opened and visually inspected. Final production API check passed login using the supplied bootstrap password, all 26 games, protected contact inbox retrieval and logout. Snapshot: docs/verification/production.jpg; deployment logs: docs/verification/vercel-build.log. This final documentation-only commit follows the verified code checkpoint; obtain its SHA with git log -1.
