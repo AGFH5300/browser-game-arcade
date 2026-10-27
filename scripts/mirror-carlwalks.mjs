@@ -51,7 +51,7 @@ function sanitize(text){
 }
 async function copy(name){
  const source=builds[name];if(!source)throw Error('Unexpected game '+name);
- const site='https://carlwalks.com/build_engine/root/'+encodeURIComponent(source)+'/';
+ const site='https://www.carlwalks.com/build_engine/root/'+encodeURIComponent(source)+'/';
  const pending=new Set(['index.html',...(existing.games?.[source]||[])]);
  const visited=new Set();let bytes=0,fail=[],saved=0;
  const folder=join(ROOT,name);
@@ -62,7 +62,7 @@ async function copy(name){
    visited.add(normalized);if(visited.size>1500)throw Error(name+': >1500 assets');
    try{
     const u=new URL(normalized,site);
-    const response=await fetch(u,{signal:AbortSignal.timeout(20000),redirect:'error'});
+    const response=await fetch(u,{signal:AbortSignal.timeout(20000),redirect:'error',headers:{'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/130.0.0.0 Safari/537.36','Accept':'text/html,application/json,application/javascript,image/avif,image/webp,*/*;q=0.8','Referer':'https://www.carlwalks.com/flash/'}});
     if(!response.ok)throw Error('HTTP '+response.status);
     const content=new Uint8Array(await response.arrayBuffer());
     if(content.byteLength>75_000_000)throw Error('single file too large');
