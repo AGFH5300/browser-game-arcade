@@ -49,7 +49,8 @@ export function isAllowedEmbedUrl(url: string, configuredHosts = process.env.EMB
 
 const isolatedSandbox = 'allow-scripts allow-pointer-lock';
 const publisherSandbox = `${isolatedSandbox} allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms`;
+const classicSandbox = `${isolatedSandbox} allow-same-origin allow-forms`;
 
 export function getEmbedSandbox(url: string): string {
-  return getTrustedPublisher(url) ? publisherSandbox : isolatedSandbox;
+  return approvedOriginals.has(url) ? classicSandbox : getTrustedPublisher(url) ? publisherSandbox : isolatedSandbox;
 }
