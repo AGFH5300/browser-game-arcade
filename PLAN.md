@@ -37,3 +37,15 @@ Operational follow-up: resolve GitHub account billing/spending restriction to ru
 - [ ] Use a signed-in browser with the intended eligible adult Google account to configure and submit actual AdSense; do not assume a publisher ID or approval.
 - [ ] Replace generic game art with correct original gameplay screenshots; inventory/integrate more licensed games; check WebGL and authorized Fortinet-network availability.
 - [ ] Keep one implementer and no more than three specifically GPT-5.6 Luna XHigh/Max delegated workers. Never spawn workers recursively or swap to other models.
+
+## V3.2 user-reported changes
+- [x] Suppress all advertising placeholder spaces on the public site until live AdSense is ready.
+- [x] Add visible global desktop/mobile game search field with GET /games functionality.
+- [x] Map all nine actual CarlWalks original cover images; use these for matching published games.
+- [x] Serve original covers from a fixed allowlisted, cached image endpoint (no arbitrary URL proxy).
+- [x] Enable local game mute before launch; expose truthful audio guidance on third-party game frames.
+- [x] Research and save WatchDocumentaries' complete four-page, 128-title game inventory, separate from verified playable Sidequest games.
+- [ ] Integrate remaining titles as actual playable games; don't represent the inventory alone as playable.
+- [ ] Obtain publisher API integration or authorized self-hosted version for any desired external-game sound control.
+- [ ] Verify original cover displays and actual mute behavior visually/audibly on desktop and phone.
+- [ ] Complete AdSense browser account setup only when eligible account is available.
