@@ -1117,5 +1117,114 @@
     "createdAt": "2026-10-27T00:00:00.000Z",
     "updatedAt": "2026-10-27T00:00:00.000Z",
     "publishedAt": "2026-10-27T00:00:00.000Z"
+  },
+  {
+    "id": "archive-polytrack",
+    "title": "PolyTrack",
+    "slug": "polytrack",
+    "description": "Low-poly time trial racing on challenging tracks.",
+    "shortDescription": "Low-poly time trial racing on challenging tracks.",
+    "thumbnail": null,
+    "categories": [
+      "Racing",
+      "Simulation"
+    ],
+    "collections": [
+      "classics"
+    ],
+    "tags": [
+      "racing",
+      "time trial",
+      "3d",
+      "webgl"
+    ],
+    "developer": "Kodub",
+    "engine": "iframe",
+    "gameUrl": "https://carlwalks.com/build_engine/root/polytrack-0.3.1/index.html",
+    "sourceUrl": "https://www.carlwalks.com/flash/polytrack/",
+    "license": "Owner-authorized original web player",
+    "licenseNotes": "The user states they have permission for this CarlWalks game version and its assets. The exact original game entrypoint is used. Attribution remains with the credited developer.",
+    "mobile": false,
+    "controls": "Arrow keys or WASD to drive.",
+    "instructions": "Race tracks and improve your best lap. WebGL required.",
+    "featured": true,
+    "published": true,
+    "displayOrder": 0,
+    "createdAt": "2026-10-27T18:26:11.968Z",
+    "updatedAt": "2026-10-27T18:26:11.968Z",
+    "publishedAt": "2026-10-27T18:26:11.968Z"
+  },
+  {
+    "id": "archive-crossy-road",
+    "title": "Crossy Road",
+    "slug": "crossy-road",
+    "description": "Hop across busy roads and rivers in this arcade classic.",
+    "shortDescription": "Hop across busy roads and rivers in this arcade classic.",
+    "thumbnail": null,
+    "categories": [
+      "Arcade",
+      "Casual"
+    ],
+    "collections": [
+      "classics"
+    ],
+    "tags": [
+      "arcade",
+      "hopping",
+      "obstacles",
+      "webgl"
+    ],
+    "developer": "Hipster Whale",
+    "engine": "iframe",
+    "gameUrl": "https://carlwalks.com/build_engine/root/crossy-road/index.html",
+    "sourceUrl": "https://www.carlwalks.com/flash/crossy-road/",
+    "license": "Owner-authorized original web player",
+    "licenseNotes": "The user states they have permission for this CarlWalks game version and its assets. The exact original game entrypoint is used. Attribution remains with the credited developer.",
+    "mobile": true,
+    "controls": "Arrow keys or tap to hop.",
+    "instructions": "Hop through roads and waterways without crashing. WebGL required.",
+    "featured": true,
+    "published": true,
+    "displayOrder": 0,
+    "createdAt": "2026-10-27T18:26:11.968Z",
+    "updatedAt": "2026-10-27T18:26:11.968Z",
+    "publishedAt": "2026-10-27T18:26:11.968Z"
+  },
+  {
+    "id": "archive-fnaf",
+    "title": "Five Nights at Freddy's (gustacraft123)",
+    "slug": "fnaf",
+    "description": "A browser-playable FNAF fan project from CarlWalks.",
+    "shortDescription": "A browser-playable FNAF fan project from CarlWalks.",
+    "thumbnail": null,
+    "categories": [
+      "Adventure",
+      "Strategy"
+    ],
+    "collections": [
+      "classics"
+    ],
+    "tags": [
+      "horror",
+      "fnaf",
+      "turbowarp",
+      "fan project",
+      "webgl"
+    ],
+    "developer": "gustacraft123",
+    "engine": "iframe",
+    "gameUrl": "https://carlwalks.com/build_engine/root/fnaf/index.html",
+    "sourceUrl": "https://www.carlwalks.com/flash/fnaf/",
+    "license": "Owner-authorized original web player",
+    "licenseNotes": "The user states they have permission for this CarlWalks game version and its assets. The exact original game entrypoint is used. Attribution remains with the credited developer.",
+    "mobile": false,
+    "controls": "Use the mouse and on-screen controls.",
+    "instructions": "Play the CarlWalks-hosted fan project. WebGL required; initial package is large.",
+    "featured": true,
+    "published": true,
+    "displayOrder": 0,
+    "createdAt": "2026-10-27T18:26:11.968Z",
+    "updatedAt": "2026-10-27T18:26:11.968Z",
+    "publishedAt": "2026-10-27T18:26:11.968Z"
   }
 ]
