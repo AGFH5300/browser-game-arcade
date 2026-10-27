@@ -4,7 +4,7 @@ import {readFileSync} from 'node:fs';
 import {runInNewContext} from 'node:vm';
 
 test('hosted game sound bridge mutes and restores media plus Web Audio independently',async()=>{
-  const handlers=new Map<string,(event?:any)=>void>();
+  const handlers=new Map<string,(event?:unknown)=>void>();
   const sent:Array<{type:string;muted?:boolean}>=[];
   const parent={postMessage:(value:{type:string;muted?:boolean})=>sent.push(value)};
   class AudioElement {
@@ -16,9 +16,9 @@ test('hosted game sound bridge mutes and restores media plus Web Audio independe
     suspend(){this.state='suspended';return Promise.resolve();}
     resume(){this.state='running';return Promise.resolve();}
   }
-  const win:any={
+  const win:{AudioContext:typeof Context;addEventListener:(name:string,callback:(event?:unknown)=>void)=>void}={
     AudioContext:Context,
-    addEventListener:(name:string,callback:(event?:any)=>void)=>handlers.set(name,callback),
+    addEventListener:(name:string,callback:(event?:unknown)=>void)=>handlers.set(name,callback),
   };
   const document={
     getElementById:()=>null,
