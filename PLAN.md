@@ -26,3 +26,14 @@ Operational follow-up: resolve GitHub account billing/spending restriction to ru
 - [x] 22 automated tests, typecheck, lint/build; 9 admin API checks.
 - [ ] Complete WebGL gameplay certification for Slope and Moto X3M 2/3 on a graphics-capable browser (cloud browser has no WebGL).
 - [ ] PolyTrack/Crossy Road distribution permission; exact FNAF project and asset rights.
+
+## V3.1 balanced-design and monetization groundwork
+- [x] Restore 2024–2025 styling rather than 2008-style retro panels; preserve the V3 ad-slot infrastructure.
+- [x] Repair independent dark/light theme token definitions.
+- [x] Expose honest local-frame mute/unmute control with an audio messaging adapter; leave external iframe audio to supported publisher controls.
+- [x] Provide a validated publisher-ID-driven ads.txt endpoint; default to no AdSense authorization.
+- [x] Add automated checks for the audio bridge and ads.txt and obtain passing Vercel preview build.
+- [ ] Verify audio audibly in a real browser, including Hextris and games using Web Audio; verify desktop/mobile visual styling.
+- [ ] Use a signed-in browser with the intended eligible adult Google account to configure and submit actual AdSense; do not assume a publisher ID or approval.
+- [ ] Replace generic game art with correct original gameplay screenshots; inventory/integrate more licensed games; check WebGL and authorized Fortinet-network availability.
+- [ ] Keep one implementer and no more than three specifically GPT-5.6 Luna XHigh/Max delegated workers. Never spawn workers recursively or swap to other models.
