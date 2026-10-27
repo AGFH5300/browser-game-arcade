@@ -1,11 +1,32 @@
 export type TrustedPublisher = {
-  name: 'Y8' | 'Famobi';
+  name: 'Y8' | 'Famobi' | 'CarlWalks archive';
   privacyUrl: string;
   disclosure: string;
   externalOnly?: boolean;
 };
 
+const carlwalksGamePaths = [
+  'polytrack-0.3.1',
+  'moto-x3m',
+  'slope',
+  'moto-x3m-2',
+  'moto-x3m-3',
+  'crossy-road',
+  'fnaf',
+] as const;
+
+/** Fixed game entrypoints, not arbitrary CarlWalks pages or redirect URLs. */
+export const carlwalksGameUrls = carlwalksGamePaths.map(
+  path => `https://carlwalks.com/build_engine/root/${path}/index.html`
+);
+const archivedGames: [string, TrustedPublisher][] = carlwalksGameUrls.map(url => [url, {
+  name: 'CarlWalks archive',
+  privacyUrl: 'https://www.carlwalks.com/',
+  disclosure: 'The original game build is loaded inside this page from the CarlWalks game archive.',
+}]);
+
 const publishers = new Map<string, TrustedPublisher>([
+  ...archivedGames,
   ['https://y8.com/embed/slope', {
     name: 'Y8', privacyUrl: 'https://www.y8.com/cookie-policy',
     disclosure: 'This game is provided by Y8. The publisher may use cookies and show ads.',
