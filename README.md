@@ -30,4 +30,6 @@ CI checks types, lint, tests and production compilation. A successful deployment
 
 See GAME_SOURCES.md and `/credits` for licenses. Games execute in opaque-origin sandboxed frames. Hextris uses a session-only storage adapter; embedded game progress is not promised to persist. Favourites, recent history and theme persist in the parent site's local storage. Engagement totals are actual Play button starts with a per-game, keyed-IP throttle (one count per 30 minutes), not unique visitors or completed sessions. Likes are infrastructure-only; no fake likes are seeded.
 
+The contact form stores messages privately for the administrator at `/admin/messages`; it does not send mail.
+
 No ads, third-party analytics, paid APIs or proprietary game files are bundled. The library currently focuses on puzzles plus Hextris arcade; empty genre categories are labelled honestly. Optional external game storefront/social links are upstream attribution and are not partnerships.

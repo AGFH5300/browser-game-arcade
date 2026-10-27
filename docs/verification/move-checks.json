@@ -1,0 +1,21 @@
+[
+  {
+    "slug": "fifteen",
+    "undoEnabled": true,
+    "status": "Moves: 0"
+  },
+  {
+    "slug": "net",
+    "undoEnabled": true,
+    "status": "Active: 6/25"
+  },
+  {
+    "slug": "blackbox",
+    "undoEnabled": true,
+    "status": "Balls marked: 1 / 5"
+  },
+  {
+    "slug": "filling",
+    "undoEnabled": true
+  }
+]

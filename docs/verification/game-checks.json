@@ -1,0 +1,170 @@
+{
+  "testedAt": "2026-10-27",
+  "deployment": "https://browser-game-arcade-h7y66kfkj-dxbavg-7923s-projects.vercel.app",
+  "checks": [
+    {
+      "slug": "blackbox",
+      "rendered": true,
+      "newGameResponds": true,
+      "canvas": {
+        "height": 495,
+        "visible": 495,
+        "width": 495
+      }
+    },
+    {
+      "slug": "bridges",
+      "rendered": true,
+      "newGameResponds": true,
+      "canvas": {
+        "height": 503,
+        "visible": 503,
+        "width": 503
+      }
+    },
+    {
+      "slug": "cube",
+      "rendered": true,
+      "newGameResponds": true,
+      "canvas": {
+        "height": 500,
+        "visible": 500,
+        "width": 500
+      }
+    },
+    {
+      "slug": "dominosa",
+      "rendered": true,
+      "newGameResponds": true,
+      "canvas": {
+        "height": 501,
+        "visible": 560,
+        "width": 560
+      }
+    },
+    {
+      "slug": "fifteen",
+      "rendered": true,
+      "newGameResponds": true,
+      "canvas": {
+        "height": 500,
+        "visible": 500,
+        "width": 500
+      }
+    },
+    {
+      "slug": "filling",
+      "rendered": true,
+      "newGameResponds": true,
+      "canvas": {
+        "height": 420,
+        "visible": 588,
+        "width": 588
+      }
+    },
+    {
+      "slug": "flip",
+      "rendered": true,
+      "newGameResponds": true
+    },
+    {
+      "slug": "flood",
+      "rendered": true,
+      "newGameResponds": true
+    },
+    {
+      "slug": "galaxies",
+      "rendered": true,
+      "newGameResponds": true
+    },
+    {
+      "slug": "guess",
+      "rendered": true,
+      "newGameResponds": true
+    },
+    {
+      "slug": "inertia",
+      "rendered": true,
+      "newGameResponds": true
+    },
+    {
+      "slug": "keen",
+      "rendered": true,
+      "newGameResponds": true
+    },
+    {
+      "slug": "lightup",
+      "rendered": true,
+      "newGameResponds": true
+    },
+    {
+      "slug": "loopy",
+      "rendered": true,
+      "newGameResponds": true
+    },
+    {
+      "slug": "magnets",
+      "rendered": true,
+      "newGameResponds": true
+    },
+    {
+      "slug": "map",
+      "rendered": true,
+      "newGameResponds": true
+    },
+    {
+      "slug": "mines",
+      "rendered": true,
+      "newGameResponds": true
+    },
+    {
+      "slug": "mosaic",
+      "rendered": true,
+      "newGameResponds": true
+    },
+    {
+      "slug": "net",
+      "rendered": true,
+      "newGameResponds": true
+    },
+    {
+      "slug": "palisade",
+      "rendered": true,
+      "newGameResponds": true
+    },
+    {
+      "slug": "pearl",
+      "rendered": true,
+      "newGameResponds": true
+    },
+    {
+      "slug": "pegs",
+      "rendered": true,
+      "newGameResponds": false
+    },
+    {
+      "slug": "range",
+      "rendered": true,
+      "newGameResponds": true
+    },
+    {
+      "slug": "rect",
+      "rendered": true,
+      "newGameResponds": true
+    },
+    {
+      "slug": "hextris",
+      "rendered": true,
+      "started": true,
+      "keyboardPause": true
+    },
+    {
+      "slug": "2048",
+      "rendered": true,
+      "keyboardMoves": true,
+      "restart": true,
+      "expandedFallback": true
+    }
+  ],
+  "notes": "Puzzle checks confirm rendering and New game UI response, not puzzle completion. Pegs default board is deterministic; unchanged game ID is expected. 2048 tile movement and Hextris start/pause were exercised."
+}

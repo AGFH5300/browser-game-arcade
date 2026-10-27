@@ -3,3 +3,5 @@ CarlWalks /flash/: compact grid, simple site link, title and developer under eac
 WatchDocumentaries /games/: image/title/description cards, Latest sorting dropdown, many catalogue entries, shared search header, breadcrumbs and individual game routes. Main documentary homepage uses latest/featured collections and category navigation.
 Implementation: original Sidequest brand; dense 5-column desktop / 2-column phone library; compact hero, categories and actual filters; dominant player on detail pages; original descriptions, no copied assets. Preserve developer attribution and show controls outside player.
 Browser inspection completed for both catalogue pages and CarlWalks PolyTrack; further representative detail/mobile checks pending.
+
+Live QA comparisons: the finished portal keeps a compact game grid and player-first detail view, with original typography, lime/purple palette, game art and descriptions. Phone and tablet layouts were verified through actual 390px and 768px framed viewports. Source sites are inspiration only, without copied branding or copyrighted game assets.

@@ -36,3 +36,9 @@ PolyTrack, Moto X3M, Slope, and similar commercial browser games were not includ
 - All 26 seed game URLs resolve to files in `public/`; every Tatham game has its matching HTML, JS, and WASM files.
 - Catalog entries include source URL, license, controls, instructions, unique slug, cover path, and display order.
 - All 26 game pages and their referenced local HTML assets were served from a local HTTP server successfully (198 requests); Tatham JS/WASM files and signatures were verified. No browser-based gameplay test has been performed; parent integration is expected to perform that check in the application iframe.
+
+## Final integrated browser verification
+
+All 26 frames rendered on the deployed Vercel preview on 27 October 2026. All 24 puzzles generated boards and responded to New game (Pegs has a deterministic default layout). In-board input and Undo were checked in Fifteen, Net, Black Box and Filling. 2048 keyboard movement/restart and Hextris launch/rotation/pause were checked. These are runtime/input smoke tests rather than full game completions; raw evidence is under `docs/verification/`.
+
+Sidequest adapters: each entry includes `arcade-bridge.js` for focus/keypress/error handling. Puzzle canvases are fitted only after WebAssembly initialization, with shared `puzzles.css` layout. 2048 has compact embed styling and no false official-host claim. Hextris uses session-only isolated storage; both dynamic Google Analytics loaders were removed. Browser games run in opaque-origin frames, so persistent preferences/progress are not guaranteed.

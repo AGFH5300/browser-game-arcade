@@ -1,11 +1,16 @@
-# Plan
-- [x] New private repository; reference reconnaissance.
-- [ ] Verified Next.js foundation and initial Vercel deployment.
-- [ ] Responsive catalogue, themes, URL search/filter/sort/pagination.
-- [ ] Reusable player and 20+ legally usable games, real gameplay checks.
-- [ ] PostgreSQL migrations and seed; secure admin CRUD/publishing/uploads.
-- [ ] Favourites, history, actual play counts; related games.
-- [ ] SEO/legal/security, tests, production verification.
-Acceptance: requirements from attached brief; do not describe incomplete checks as passed.
-Decisions: Sidequest temporary original brand; locally hosted licensed games; PostgreSQL backed catalogue.
-Blockers: none at foundation stage.
+# Sidequest release plan
+- [x] Reference analysis and new private GitHub repo.
+- [x] Next.js/TypeScript/Tailwind shell, first successful Vercel deployment.
+- [x] Responsive visual system, dark/light/system themes.
+- [x] URL-backed instant search, real-metric/title/date sorting, categories, 20-item pagination.
+- [x] Isolated reusable HTML5/authorized iframe player, reload and fullscreen/expanded fallback.
+- [x] 26 legally usable locally hosted games, original covers, source/license registry.
+- [x] New Neon PostgreSQL schema and idempotent seed; authenticated admin CRUD, drafts/preview, publishing and thumbnail upload.
+- [x] Device-local favourites/history, related games, actual rate-limited play counts.
+- [x] SEO/legal pages, security checks, 12 tests, typecheck/lint/build and focused review.
+- [x] Live browser checks of all26 runtimes, representative gameplay, phone/tablet rendering and 11 admin API integration checks.
+- [ ] Final verified merge to main, production URL/CI confirmation and committed handoff.
+
+Decisions: Sidequest temporary original brand. Private source, public Vercel site. No proprietary game copies. Launch is intentionally puzzle-led. No paid plans or API billing introduced. Credentials only in encrypted Vercel env/server database.
+
+Remaining limitations: no Flash content/Ruffle; no physical-device touch certification or Lighthouse score; native fullscreen blocked in cloud test browser (expanded fallback verified); password change requires administrator action. See TESTING.md for exact evidence.
