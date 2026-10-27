@@ -23,5 +23,5 @@ export function playableClassic(game:Game):Game{
   // Slope and PolyTrack actually use WebGL. Moto X3M 2/3 use HTML5 canvas.
   if(game.slug==='slope'||game.slug==='polytrack')noLongerNecessary.delete('webgl');
   const tags=game.tags.filter(t=>!noLongerNecessary.has(t));
-  return {...game,engine:'iframe',gameUrl:target,tags};
+  return {...game,engine:'iframe',gameUrl:target,tags,sourceUrl:`https://www.carlwalks.com/flash/${game.slug==='moto-x3m-2'?'moto-x3m2':game.slug==='moto-x3m-3'?'moto-x3m3':game.slug}/`,license:'Owner-authorized standalone browser build',licenseNotes:'The owner confirms permission to use this CarlWalks-hosted game build in Sidequest. Technical reliability and cross-origin audio control remain independently testable.'};
 }
