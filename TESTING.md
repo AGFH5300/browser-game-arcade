@@ -14,7 +14,7 @@ Run `node scripts/live-smoke.mjs` with SMOKE_URL and provide the admin test pass
 
 Verified unauthorized denial, cross-origin denial, actual login with HttpOnly cookie, PostgreSQL catalogue read, draft creation, draft hidden publicly, authorized preview, edit/publish, persistent PNG upload/retrieval, unpublish, removal of the temporary test game and logout. Report groups some related assertions into 11 checks. No test game remains. A tiny test thumbnail remains in storage as an upload fixture.
 
-The browser login form is scheduled for final production inspection; the authenticated admin workflow was verified through the actual APIs. No user password was entered through browser automation. Password-change validation and session revocation were reviewed and unit tested for their underlying primitives; a real administrator password change was not performed.
+The production browser login form was inspected; the authenticated admin workflow was verified through the actual APIs. No user password was entered through browser automation. Password-change validation and session revocation were reviewed and unit tested for their underlying primitives; a real administrator password change was not performed.
 
 ## Live browser checks
 
@@ -41,3 +41,11 @@ Games run in opaque-origin sandbox frames and cannot read the portal/admin DOM. 
 Launch catalogue focuses on puzzles and Hextris arcade. Proprietary requested candidates were omitted where redistribution permission was not confirmed. Flash/Ruffle is not integrated and Flash publishing is rejected. Likes have no visitor button and remain infrastructure-only; zero likes are not fabricated. Play totals are actual Play-button starts, include QA traffic, and are rate-limited rather than identity-verified.
 
 No Lighthouse score is claimed. Browser CSS viewports were tested, not physical touch gestures, every browser or every orientation. No paid service/API plan was purchased.
+
+## Repository protections
+GitHub’s branch-protection setup page explicitly reports that rules will not be enforced for this private repository until it moves to a GitHub Team or Enterprise organization account. No paid upgrade was made and no misleading unenforced rule was created. The committed CI workflow runs on production pushes and pull requests.
+
+## Production and CI handoff
+Production release `c30e83ef9cd555464b438542295332e819426fcd` was deployed successfully and the homepage, contact submission and 2048 frame were checked at https://browser-game-arcade.vercel.app. The contact form stored a clearly labelled QA message and displayed its success state.
+
+GitHub Actions run 40485505842 was blocked before any runner/test step started. Its annotation says recent account payments failed or the spending limit must be increased. No billing settings were changed. This is an infrastructure block, not a passing CI run or a code/test failure. To retain automatic checks without changing billing, the new Vercel project build command runs typecheck, lint, the test suite and the production build in sequence. Final deployment results are recorded in HANDOFF.md.

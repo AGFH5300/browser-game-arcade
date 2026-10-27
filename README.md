@@ -24,7 +24,7 @@ Game runtime assets are code reviewed and versioned in GitHub; this release does
 
 Private repository `AGFH5300/browser-game-arcade`, production branch `main`, new Vercel project `browser-game-arcade`. Git pushes trigger preview/production builds. Vercel environment variables: DATABASE_URL, SESSION_SECRET, ADMIN_PASSWORD_HASH, ADMIN_USERNAME, APP_URL; optional EMBED_ALLOWED_HOSTS. Public catalogue/pages use server-side queries; game assets initialize only after Play.
 
-CI checks types, lint, tests and production compilation. A successful deployment is verified separately in the browser. Refer to PLAN.md, HANDOFF.md and TESTING.md for status, not the existence of a deploy URL alone.
+The Vercel build command checks types, lint, tests and production compilation before deploying. The same GitHub Actions workflow is committed, but its runner is currently blocked by the account billing/spending restriction. A successful deployment is verified separately in the browser. Refer to PLAN.md, HANDOFF.md and TESTING.md for status, not the existence of a deploy URL alone.
 
 ## Games and privacy
 
