@@ -197,17 +197,13 @@ class Game {
         this.tick();
         this.updateState(this.STATES.READY);
         document.addEventListener('keydown', e => {
-            if (e.keyCode == 32)
-                this.onAction();
+            if (e.keyCode == 32) { e.preventDefault(); this.onAction(); }
         });
-        document.addEventListener('click', e => {
-            this.onAction();
-        });
-        document.addEventListener('touchstart', e => {
+        // One pointer event per action avoids duplicate Android tap/click events.
+        document.addEventListener('pointerdown', e => {
+            if (e.target.closest('a')) return;
             e.preventDefault();
-            // this.onAction();
-            // ☝️ this triggers after click on android so you
-            // insta-lose, will figure it out later.
+            this.onAction();
         });
     }
     updateState(newState) {
