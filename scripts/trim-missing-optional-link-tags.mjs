@@ -3,7 +3,7 @@
 // Source hash verification is performed before these cosmetic output edits.
 import {readdir,readFile,writeFile,stat} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
-import {join,resolve,dirname} from 'node:path';
+import {join,resolve,dirname,sep} from 'node:path';
 const root=resolve(process.argv[2]??'public/play/archives');
 let removed=0,files=0;
 const found=[];
@@ -24,9 +24,10 @@ for(const dir of await readdir(root,{withFileTypes:true})){
     const pathOnly=href.split(/[?#]/,1)[0];
     let relative;
     try{relative=decodeURIComponent(pathOnly)}catch{continue}
-    // This cleanup is restricted to paths within this game package.
+    // Some mirrors use ../favicon.png shared at the archive root. Only
+    // consider optional links inside that root; never follow outside paths.
     const local=resolve(dirname(file),relative);
-    if(local!==resolve(root,dir.name)&&!local.startsWith(resolve(root,dir.name)+'/'))continue;
+    if(local!==root&&!local.startsWith(root+sep))continue;
     let exists=false;try{exists=(await stat(local)).isFile()}catch{}
     if(!exists){output=output.replace(tag,'');removed++;found.push(dir.name+':'+relative)}
   }
