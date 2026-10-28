@@ -25,3 +25,8 @@ test('missing shared archive favicon is removed without touching core scripts or
   assert.equal(meta.artifactBytes,Buffer.byteLength(result));
  }finally{rmSync(dir,{force:true,recursive:true});}
 });
+
+test('live archive audit self-check runs (no disabled one-line script)',()=>{
+ const out=execFileSync(process.execPath,['scripts/audit-live-archive-refs.mjs','--self-check'],{cwd:resolve('.'),encoding:'utf8'});
+ assert.match(out,/"selfCheck":"passed"/);
+});

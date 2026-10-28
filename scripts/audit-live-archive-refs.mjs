@@ -20,7 +20,11 @@ function normalize(raw,base){
   }catch{return null;}
 }
 function refs(html,base){
-  const active=html.replace(/<!--[\s\S]*?-->/g,'');
+  // Inline JS can contain document.write('<img src="' + path + '">').
+  // Such strings are not DOM elements: preserve script start tags but drop
+  // the script bodies before extracting literal static asset URLs.
+  const active=html.replace(/<!--[\s\S]*?-->/g,'')
+    .replace(/(<script\b[^>]*>)[\s\S]*?(<\/script\s*>)/gi,'$1$2');
   const matches=[...active.matchAll(/<(script|link|img|source|audio|video|iframe)\b([^>]*)>/gi)];
   const found=new Map();
   for(const match of matches){
@@ -71,6 +75,8 @@ if(args.includes('--self-check')){
   const sample='<html><head><script src="./game.js"></script><link rel="shortcut icon" href="../favicon.png"><link rel="stylesheet" href="./style.css"><!--<script src="./unused.js"></script>--></head></html>';
   const x=refs(sample,'https://example.com/play/archives/demo/index.html');
   if(x.length!==3||x.filter(v=>v.classification==='blocker').length!==2||x.filter(v=>v.classification==='warning').length!==1)throw Error('HTML classification regression');
+  const scriptMarkup='<html><script>document.write(\'<img src="\' + rootPath + \'/gears.gif">\');</script></html>';
+  if(refs(scriptMarkup,'https://example.com/play/archives/color-tunnel/index.html').length!==0)throw Error('Misread runtime-generated HTML as literal asset reference');
   console.log(JSON.stringify({selfCheck:'passed',refs:x.length}));process.exit(0);
 }
 const inventory=JSON.parse(await readFile(path.join(root,'data/reference-games.json'),'utf8'));
