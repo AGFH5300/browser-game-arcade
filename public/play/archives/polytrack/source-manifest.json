@@ -1,0 +1,19 @@
+{
+  "game": "PolyTrack",
+  "version": "0.6.3",
+  "released": "2026-09-16",
+  "developer": "Kodub",
+  "sourceRepo": "https://github.com/polytrackmods/PolyModLoader",
+  "sourceRevision": "aea33b2b2593beaa5cfb657bcd0c81a39a46f464",
+  "sourceBranch": "0.6.3",
+  "officialReleaseNotes": "https://www.kodub.com/updates",
+  "officialGame": "https://www.crazygames.com/game/polytrack",
+  "sourceType": "Community-maintained source mirror containing 0.6.3 game build and PolyModLoader. Not claimed as Kodub-authored GitHub repo.",
+  "authorization": "Site owner confirms permission; required creator notices and source license retained.",
+  "assetCount": 558,
+  "totalBytes": 18973448,
+  "sha256MainBundle": "9b73b277c1e4fb970ca50ffb1512aec050c4af7ed5b6b3ac54031c2d52410679",
+  "sha256PhysicsWasm": "d4ef02676973d41afc34b23b5248f6950b35dc4cc7e3047e3a9c6bd88e4c180e",
+  "manualGameplay": "Pending user browser/WebGL check",
+  "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/polytrack/index.html"
+}
