@@ -1070,8 +1070,11 @@ async function buildMode(selectedSlugs = null) {
         await mkdir(path.dirname(dest),{recursive:true});
         await writeFile(dest,helperBytes);
         if(sha256(await readFile(dest))!==sha256(helperBytes))throw new Error('Fortzone guest SDK helper hash mismatch.');
-        generatedHelpers.push({path:helperPath,sha256:sha256(helperBytes),size:helperBytes.length,
-          purpose:'Guest-only offline compatibility, not an official GamePush SDK or backend'});
+        const generatedHelper={path:helperPath,sha256:sha256(helperBytes),size:helperBytes.length,
+          generated:true,sourceSize:0,contentType:'application/javascript',contentEncoding:'identity',
+          appliedChanges:['Standalone local guest SDK; not the upstream GamePush SDK.']};
+        generatedHelpers.push(generatedHelper);
+        artifacts.push(generatedHelper);
         changes.push('Generated local Fortzone GamePush guest bridge instead of a missing and origin-dependent publisher SDK.');
       }
       const entry = artifacts.find(file => file.path === requiredEntryPath(pkg));
@@ -1080,10 +1083,7 @@ async function buildMode(selectedSlugs = null) {
         referencePackageManifest: true,
         ...packageMeta(manifest, pkg, artifacts, warnings, [], changes),
         generatedHelpers,
-        ...(generatedHelpers.length ? {
-          artifactFiles: artifacts.length+1+generatedHelpers.length,
-          artifactBytes: artifacts.reduce((sum,f)=>sum+f.size,0)+generatedHelpers.reduce((sum,f)=>sum+f.size,0)
-        } : {}),
+        sourceFiles: pkg.files.length,
         sourceEntry: entry.path,
         sourceEntryUrl: pkg.entryUrl,
         sourceEntrySha256: entry.sourceSha256,
