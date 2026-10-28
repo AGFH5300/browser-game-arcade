@@ -1,5 +1,4 @@
 'use client';
-import {getTrustedPublisher} from '@/lib/embeds';
 import {getDisplayCover,originalCovers} from '@/lib/carlwalks-covers';
 import { useSyncExternalStore } from 'react';
 import Link from 'next/link';
