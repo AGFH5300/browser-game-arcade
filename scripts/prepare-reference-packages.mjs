@@ -141,7 +141,12 @@ function requestRaw(urlValue, redirects = 0) {
         agent: undefined,
         rejectUnauthorized: true,
       };
-      if (!validated.viaProxy) requestOptions.lookup = (_hostname, _options, callback) => callback(null, validated.address, validated.family);
+      if (!validated.viaProxy) requestOptions.lookup = (_hostname, options, callback) => {
+        // Node 22+ can use dual-stack lookups and request an array.
+        if (typeof options === 'function') { callback = options; options = {}; }
+        if (options?.all) callback(null, [{ address: validated.address, family: validated.family }]);
+        else callback(null, validated.address, validated.family);
+      };
       const req = httpsRequest(validated.url, requestOptions, response => {
         const status = response.statusCode || 0;
         const location = response.headers.location;
@@ -281,7 +286,7 @@ function normalizeReference(value) {
 function resolveReference(value, baseUrl) {
   const normalized = normalizeReference(value);
   if (!normalized || /^(?:data:|blob:|javascript:|mailto:|tel:|#)/i.test(normalized) || normalized.startsWith('//')) {
-    if (normalized.startsWith('//')) return new URL(`https:${normalized}`);
+    if (normalized.startsWith('//')) { try { return new URL(`https:${normalized}`); } catch { return null; } }
     return null;
   }
   try { return new URL(normalized, baseUrl); } catch { return null; }
@@ -688,9 +693,12 @@ function makeArtifactTransforms(pkg, file, bytes, bridgeBytes, localBySourceUrl,
       });
       const bridgeLocal = path.posix.relative(path.posix.dirname(file.path), 'bridge.js') || 'bridge.js';
       const bridgeRef = bridgeLocal.startsWith('.') ? bridgeLocal : `./${bridgeLocal}`;
-      if (/<head\b[^>]*>/i.test(text)) text = text.replace(/<head\b[^>]*>/i, head => `${head}\n<script src="${encodeLocalPath(bridgeRef)}"></script>`);
-      else throw new Error(`Required HTML has no <head> for bridge injection: ${pkg.slug}/${file.path}`);
-      mods.push(`Injected local arcade/audio bridge before game scripts in ${file.path}.`);
+      if (/<head\b[^>]*>/i.test(text)) {
+        text = text.replace(/<head\b[^>]*>/i, head => `${head}\n<script src="${encodeLocalPath(bridgeRef)}"></script>`);
+        mods.push(`Injected local arcade/audio bridge before game scripts in ${file.path}.`);
+      } else if (file.path === requiredEntryPath(pkg)) {
+        throw new Error(`Required HTML has no <head> for bridge injection: ${pkg.slug}/${file.path}`);
+      } else mods.push(`Preserved non-entry HTML without head: ${file.path}`);
     } else text = rewriteTextReferences(text, extension, fileUrl, resolveLocalUrl);
     transformed = encodeContentEncoding(Buffer.from(text, 'utf8'), contentEncoding);
   } else {
@@ -881,12 +889,19 @@ async function recordMode() {
   if (readyCount !== manifest.expectedPackageCount) throw new Error(`${manifest.packages.length - readyCount} required reference packages are not ready; inspect per-package errors in the checkpoint.`);
 }
 
-async function buildMode() {
-  const manifest = await readJson(SOURCE_FILE);
+async function buildMode(selectedSlugs = null) {
+  const fullManifest = await readJson(SOURCE_FILE);
+  // An explicitly selected batch can ship independently of other incomplete records.
+  const manifest = selectedSlugs
+    ? { ...fullManifest, packages: fullManifest.packages.filter(pkg => selectedSlugs.includes(pkg.slug)) }
+    : fullManifest;
   assertSourceManifest(manifest);
   trustManifestSourceUrls(manifest);
-  const ready = manifest.packages.filter(pkg => pkg.ready);
-  if (ready.length !== manifest.expectedPackageCount || manifest.packages.length !== manifest.expectedPackageCount) throw new Error(`Only ${ready.length}/${manifest.expectedPackageCount} reference packages are pinned and ready.`);
+  const selected = selectedSlugs ? new Set(selectedSlugs) : null;
+  if (selected && (selected.size !== selectedSlugs.length || ![...selected].every(safeSlug))) throw new Error('Invalid or duplicate selected package slugs.');
+  const ready = manifest.packages.filter(pkg => pkg.ready && (!selected || selected.has(pkg.slug)));
+  if (selected && ready.length !== selected.size) throw new Error(`Only ${ready.length}/${selected.size} selected packages are pinned and ready.`);
+  if (!selected && (ready.length !== manifest.expectedPackageCount || manifest.packages.length !== manifest.expectedPackageCount)) throw new Error(`Only ${ready.length}/${manifest.expectedPackageCount} reference packages are pinned and ready.`);
   if (!ready.length) throw new Error('No ready pinned reference packages are available to build.');
   const totalBytes = ready.reduce((sum, pkg) => sum + pkg.files.reduce((n, file) => n + file.sourceSize, 0), 0);
   if (totalBytes > manifest.maxTotalBytes) throw new Error(`Aggregate source payload ${totalBytes} exceeds ${manifest.maxTotalBytes} bytes.`);
@@ -980,6 +995,7 @@ async function encodingSelfCheck() {
   const jsArtifact = makeArtifactTransforms(packageRoot, jsFile, jsPin, bridge, urls, []).bytes;
   if (!gunzipSync(jsArtifact).toString('utf8').includes('./game.data')) throw new Error('Compressed JavaScript local URL rewrite did not survive source decode and artifact re-encoding.');
   if (isPublicIp('::ffff:7f00:1') || !isPublicIp('::ffff:808:808')) throw new Error('IPv4-mapped IPv6 public/private validation failed.');
+  if (resolveReference('//', sourceUrl) !== null || resolveReference('///', sourceUrl) !== null) throw new Error('Malformed protocol-relative asset URL must be ignored.');
   console.log(JSON.stringify({ check: 'compressed-source-pin-and-artifact-rewrite', encodings: ['gzip', 'br'], mappedIpGuard: 'passed', normalizedSourceSha256: sha256(pinned), htmlArtifactSha256: sha256(artifact), brotliHtmlArtifactSha256: sha256(brotliArtifact), javascriptArtifactSha256: sha256(jsArtifact) }, null, 2));
 }
 
@@ -999,5 +1015,9 @@ async function mapLimit(items, limit, callback) {
 const arg = process.argv[2];
 if (arg === '--record') await recordMode();
 else if (arg === undefined || arg === '--build') await buildMode();
+else if (arg === '--build-selected') {
+  if (!process.argv[3]) throw new Error('Pass comma-separated pinned game slugs for --build-selected.');
+  await buildMode(process.argv[3].split(','));
+}
 else if (arg === '--self-check') await encodingSelfCheck();
 else throw new Error(`Usage: node scripts/prepare-reference-packages.mjs [--record|--build]`);
