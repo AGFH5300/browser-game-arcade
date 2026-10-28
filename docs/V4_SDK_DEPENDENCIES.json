@@ -1,0 +1,181 @@
+{
+  "checkedAt": "2026-10-28",
+  "policy": [
+    "Do not patch domain locks or rewrite eval/localhost checks to bypass publisher restrictions.",
+    "Do not emulate login, online leaderboards, achievements, paid features, ad completion or reward callbacks as if they succeeded.",
+    "A permitted offline adapter may expose only observed guest/not-authorized behavior and no-op save/ad callbacks; record the missing service as a limitation.",
+    "Keep official publisher players intact where the original runtime is domain-locked or carries source-specific framing/distribution conditions."
+  ],
+  "games": [
+    {
+      "slug": "moto-x3m",
+      "hosting": "local_package",
+      "source": "brunoiscool2/unblockedgames@8e1b7aacdbb8086d0b4023465602437b52c1c6cc/play/motox3m",
+      "dependencies": [
+        {
+          "name": "Enjoy4fun GameBridge",
+          "role": "Portal SDK and advertising integration",
+          "asset": "gamebridge.js",
+          "handling": "Removed only its script loader tag from the game entry. The unused source file remains listed in the full source manifest."
+        },
+        {
+          "name": "PK SDK",
+          "role": "Portal SDK",
+          "asset": "pk-sdk.js",
+          "handling": "Removed only its script loader tag from the game entry."
+        },
+        {
+          "name": "Google IMA",
+          "role": "Advertising",
+          "asset": "Remote IMA loader in index.html",
+          "handling": "Removed only its script loader tag from the game entry."
+        }
+      ],
+      "adapter": {
+        "file": "scripts/moto2-offline-adapter.js",
+        "mode": "guest-only offline compatibility",
+        "callbacks": [
+          "ID.getLoginStatus reports not_authorized.",
+          "ID.login does not authenticate.",
+          "ID.api returns an empty response.",
+          "GameAPI leaderboard and achievement saves are no-ops; list methods return no records.",
+          "showNextAd does not play an ad or issue a reward."
+        ],
+        "limitations": ["No account, online score, achievement sync or advertising is available."]
+      },
+      "gameRuntime": "The pinned Phaser runtime already requests Phaser.AUTO; no renderer patch is applied."
+    },
+    {
+      "slug": "slope",
+      "hosting": "local_package",
+      "source": "brunoiscool2/unblockedgames@8e1b7aacdbb8086d0b4023465602437b52c1c6cc/play/slope",
+      "dependencies": [
+        {
+          "name": "Google Ads",
+          "role": "Advertising",
+          "asset": "Remote adsbygoogle.js script tags in index.html",
+          "handling": "Removed the two script tags; Unity WebGL payload is kept unchanged."
+        },
+        {
+          "name": "Clicky",
+          "role": "Analytics",
+          "asset": "Remote Clicky script and noscript image in index.html",
+          "handling": "Removed the loader and tracking pixel."
+        }
+      ],
+      "adapter": null,
+      "runtime": "Complete pinned Unity WebGL payload. No account or online service adapter is added."
+    },
+    {
+      "slug": "snow-rider-3d",
+      "hosting": "local_package",
+      "source": "focus-solutions/snow-rider@d330d523211b4f3c454fc04a42aabca022ef5aad",
+      "dependencies": [
+        {
+          "name": "UBG235 redirect",
+          "role": "Portal redirect",
+          "asset": "Inline redirect in index.html and js/ubg235_redirect.js",
+          "handling": "Removed the inline redirect and excluded the unused portal redirect script."
+        },
+        {
+          "name": "UBG analytics",
+          "role": "Analytics",
+          "asset": "js/analytics_ubg_v1_4.js",
+          "handling": "Excluded the analytics file and its loader tag."
+        }
+      ],
+      "adapter": null,
+      "runtime": "Complete pinned Unity WebGL payload after removing portal redirect and analytics dependencies. No SDK reward or account behavior is fabricated."
+    },
+    {
+      "slug": "football-legends",
+      "hosting": "publisher_embed",
+      "source": "https://www.miniplay.com/embed/football-legends-2021",
+      "dependencies": [
+        {
+          "name": "GameDistribution SDK",
+          "role": "Advertising and publisher integration",
+          "observed": "The WatchDocumentaries build includes a domain-locked SDK path and ad reward behavior that can be made to report a fake reward by patching the SDK.",
+          "handling": "Do not copy or shim the local runtime. Use the approved Miniplay-hosted Football Legends 2021 embed."
+        }
+      ],
+      "adapter": null
+    },
+    {
+      "slug": "monkey-mart",
+      "hosting": "publisher_embed",
+      "source": "https://www.miniplay.com/embed/monkey-mart",
+      "dependencies": [
+        {
+          "name": "Poki SDK",
+          "role": "Publisher integration and advertising",
+          "observed": "The WatchDocumentaries copy rewrites eval behavior to spoof localhost and bypass a lock, then loads UBG235 advertising code.",
+          "handling": "Do not copy or alter the SDK. Use the approved Miniplay embed, which keeps its hosted player and dependencies intact."
+        }
+      ],
+      "adapter": null
+    },
+    {
+      "slug": "papa-freezeria",
+      "hosting": "reference_runtime_review",
+      "dependencies": [
+        {
+          "name": "Poki SDK",
+          "role": "Publisher integration",
+          "observed": "Game code catches a Poki initialization error and continues booting either way.",
+          "handling": "No adapter required by the observed boot path; do not fabricate Poki login, ads or rewards."
+        }
+      ],
+      "adapter": null
+    },
+    {
+      "slug": "helix-jump",
+      "hosting": "reference_runtime_review",
+      "dependencies": [
+        {
+          "name": "GameDistribution SDK",
+          "role": "Advertising callbacks",
+          "observed": "The referenced main.min.js returned 404 in the reviewed source snapshot; gdsdk calls in the game code are guarded.",
+          "handling": "Do not add an SDK shim based on a missing script."
+        }
+      ],
+      "adapter": null
+    },
+    {
+      "slug": "time-shooter",
+      "hosting": "reference_runtime_review",
+      "dependencies": [
+        {
+          "name": "Yandex Games SDK",
+          "role": "Platform integration and advertising",
+          "asset": "local v.js",
+          "handling": "Record as a live platform dependency; no account, ad or reward shim is provided."
+        }
+      ],
+      "adapter": null
+    },
+    {
+      "slug": "survival-race",
+      "hosting": "reference_runtime_review",
+      "dependencies": [
+        {
+          "name": "Game SDK callbacks",
+          "role": "Portal integration",
+          "handling": "A reviewed offline shim is limited to callbacks observed as required for boot. It stays guest/not-authorized and does not fake ad completion or rewards."
+        }
+      ],
+      "adapter": {
+        "mode": "offline shim reviewed",
+        "limitations": ["No login", "No online service", "No ad playback or reward completion"]
+      }
+    },
+    {
+      "slug": "polytrack",
+      "hosting": "owner-authorized_publisher_frame",
+      "source": "https://carlwalks.com/build_engine/root/polytrack-0.3.1/index.html",
+      "dependencies": [],
+      "adapter": null,
+      "terms": "Keep the existing CarlWalks frame. Kodub's official terms prohibit competing-portal reuploads and official-site embedding; record these terms separately. The project owner has already asserted content permissions; do not invent an additional written-waiver gate."
+    }
+  ]
+}

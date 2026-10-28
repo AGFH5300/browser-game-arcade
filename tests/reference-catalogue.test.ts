@@ -34,3 +34,7 @@ test('reference catalogue retains existing game identities and local licenses',(
   if(old.gameUrl.startsWith('/play/')){assert.equal(game.gameUrl,old.gameUrl);assert.equal(game.license,old.license);}
  }
 });
+
+test('reference collection avoids known host-blocked iframe URLs',()=>{
+ for(const game of reference){if(!game.gameUrl.startsWith('/'))assert.notEqual(new URL(game.gameUrl).hostname,'watchdocumentaries.com',game.slug);}
+});

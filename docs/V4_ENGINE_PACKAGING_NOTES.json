@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "observedAtUTC": "2026-10-28",
+  "sourceFiles": [
+    "docs/V4_REFERENCE_RUNTIME_AUDIT.json",
+    "docs/V4_UNITY_RUNTIME_ASSETS.json",
+    "docs/V4_INTEGRATION_STATUS.json"
+  ],
+  "summary": {
+    "referenceRuntimeEntryCount": 95,
+    "httpStatusCounts": {
+      "200": 95
+    },
+    "framingAssessmentCounts": {
+      "blocked_by_sameorigin": 91,
+      "permitted_by_headers": 4
+    },
+    "xFrameOptionsCounts": {
+      "SAMEORIGIN": 91,
+      "None": 4
+    },
+    "engineClassificationCounts": {
+      "unity_webgl": 38,
+      "html5_javascript_runtime_engine_unidentified": 44,
+      "godot_web": 1,
+      "phaser": 2,
+      "construct": 4,
+      "webassembly_web_runtime": 1,
+      "flash": 2,
+      "iframe_hosted_runtime_engine_uninspected": 2,
+      "pixi": 1
+    },
+    "localHTML5PackageCount": 20,
+    "localFlashPlayerCount": 13,
+    "manualGameplayQA": "deferred_to_user_per_instruction"
+  },
+  "packagingNotes": [
+    {
+      "engine": "Unity WebGL",
+      "recordCount": 38,
+      "assetManifest": "docs/V4_UNITY_RUNTIME_ASSETS.json",
+      "notes": [
+        "The Unity manifest inventories 38 exact runtime entries. It records observed HTML resources, observed loader/config URLs, and data/code/framework assets resolved from fetched JSON configs or literal build expressions.",
+        "For UnityLoader.instantiate calls, fetch the exact JSON argument and resolve its asset URL fields relative to that JSON URL directory.",
+        "For modern Unity pages, evaluate buildUrl and concatenated dataUrl/frameworkUrl/codeUrl/loaderUrl values as strings before resolving against the entry URL or an explicit CDN base. Do not treat a path fragment joined to buildUrl as a root-host URL.",
+        "Spaces in observed Unity config filenames are URL encoded as %20. The manifest preserves config-relative paths and observed external CDN dependencies.",
+        "Smash Karts selects the Bunny CDN for the observed geometrykarts.com entry host, which is outside the page’s explicit CDN split-host list. Both observed Addressables catalogs and their statically listed bundle URLs are recorded.",
+        "The manifest is an asset reference inventory; it does not package binaries, validate licensing, or claim that the online services are available locally."
+      ],
+      "configFetchStatusCounts": {
+        "200": 27
+      },
+      "assetReferenceCount": 529
+    },
+    {
+      "engine": "Godot Web",
+      "recordCount": 1,
+      "slug": "crazy-cattle-3d",
+      "entryURL": "https://watchdocumentaries.com/wp-content/uploads/games/crazy-cattle-3d/",
+      "threadSupport": false,
+      "threadSupportEvidence": "Captured runtime HTML sets GODOT_THREADS_ENABLED = false and GODOT_CONFIG.threads = false.",
+      "requiredFiles": [
+        {
+          "path": "index.js",
+          "url": "https://watchdocumentaries.com/wp-content/uploads/games/crazy-cattle-3d/index.js",
+          "sizeBytes": null,
+          "sizeEvidence": "Observed as a script asset in the runtime HTML; byte size was not measured."
+        },
+        {
+          "path": "index.pck",
+          "url": "https://watchdocumentaries.com/wp-content/uploads/games/crazy-cattle-3d/index.pck",
+          "sizeBytes": 42336176,
+          "sizeEvidence": "Exact fileSizes entry in captured Godot runtime HTML."
+        },
+        {
+          "path": "index.wasm",
+          "url": "https://watchdocumentaries.com/wp-content/uploads/games/crazy-cattle-3d/index.wasm",
+          "sizeBytes": 43699190,
+          "sizeEvidence": "Exact fileSizes entry in captured Godot runtime HTML."
+        }
+      ],
+      "notes": [
+        "Keep the Godot config, JavaScript loader, PCK, and WASM files at their observed relative paths if packaging this build.",
+        "Thread support is disabled in the observed page configuration; do not add cross-origin isolation requirements based on assumption."
+      ]
+    },
+    {
+      "engine": "HTML5 JavaScript / Canvas / WebGL; engine unidentified in entry HTML",
+      "recordCount": 44,
+      "notes": [
+        "The captured entry HTML contains JavaScript resources but no reliable engine marker. Use exact observed script and asset references from the runtime audit.",
+        "Static runtime pages may have additional dependencies inside referenced JavaScript files; this audit did not recursively fetch or execute all assets."
+      ]
+    },
+    {
+      "engine": "Construct 2/3",
+      "recordCount": 4,
+      "notes": [
+        "When a source has observed offline.js, offline.json, AppCache, or service-worker file lists, use those exact lists as evidence and reconcile them with the actual package file inventory and captured network/runtime references. A cache list alone does not prove that no network dependency remains.",
+        "The local Big Tower Tiny Square Construct 2 archive has 152 entries in both offline.js and offline.appcache; the current folder has 163 files. Twelve files are outside those lists, and one listed path, media/lavaflow.m4a, is absent. Its source-manifest reports 160 files. The archive also has NETWORK: * in AppCache, so this list is not evidence of a fully offline runtime.",
+        "For external Construct entries, this audit records only resources actually present in the captured entry HTML/CSS; recursively fetched runtime files may expose further dependencies."
+      ],
+      "observedLocalExample": {
+        "slug": "big-tower-tiny-square",
+        "sourceManifest": "public/play/archives/big-tower-tiny-square/source-manifest.json",
+        "offlineFile": "public/play/archives/big-tower-tiny-square/offline.js",
+        "appCacheFile": "public/play/archives/big-tower-tiny-square/offline.appcache",
+        "offlineJsEntryCount": 152,
+        "appCacheEntryCount": 152,
+        "actualFolderFileCount": 163,
+        "sourceManifestFileCount": 160,
+        "listedButMissing": [
+          "media/lavaflow.m4a"
+        ],
+        "actualFilesNotInOfflineList": [
+          "appmanifest.json",
+          "bridge.js",
+          "download.gif",
+          "icon.png",
+          "images.png",
+          "index.html",
+          "index.source.html.txt",
+          "offline.appcache",
+          "offline.js",
+          "source-manifest.json",
+          "splash.png",
+          "sw.js"
+        ],
+        "appCacheNetworkDirective": "NETWORK: *"
+      }
+    },
+    {
+      "engine": "Construct",
+      "recordCount": 4,
+      "notes": [
+        "Preserve the runtime entry document and exact observed scripts, stylesheets, and asset paths; dynamic behavior and offline completeness were not tested."
+      ]
+    },
+    {
+      "engine": "Phaser",
+      "recordCount": 2,
+      "notes": [
+        "Preserve exact relative script and asset paths; no gameplay or offline completeness test was performed."
+      ]
+    },
+    {
+      "engine": "Flash or SWF",
+      "recordCount": 2,
+      "notes": [
+        "These external runtime pages reference Flash content. Browser playback support is separate from obtaining and packaging an authorized SWF and its dependencies."
+      ]
+    },
+    {
+      "engine": "Other or iframe-hosted runtime",
+      "recordCount": 4,
+      "classificationCounts": {
+        "webassembly_web_runtime": 1,
+        "iframe_hosted_runtime_engine_uninspected": 2,
+        "pixi": 1
+      },
+      "notes": [
+        "The source entry HTML does not establish complete engine packaging requirements; use captured assets and inspect referenced runtime sources before attempting local packaging."
+      ]
+    }
+  ],
+  "framingNotes": [
+    "The 95 exact runtime URLs all returned HTTP 200 in this capture. The 91 WatchDocumentaries-hosted runtime entries returned X-Frame-Options: SAMEORIGIN and are not cross-origin embeddable from Sidequest under those headers.",
+    "Four runtime hosts have no X-Frame-Options header and are marked permitted_by_headers: geometrykarts.com, overeasy.club, zombsroyale.io, and cdn.clickerheroes.com. This is a header-level finding; no browser framing or gameplay test was performed.",
+    "Reference article-page headers are not used for these runtime classifications. `entryURL` is the observed runtime URL; article URLs remain provenance only."
+  ],
+  "rightsAndQA": [
+    "Owner authorization recorded in existing source records is distinct from upstream license terms. This document makes no new license or redistribution claim.",
+    "Manual gameplay and audio QA were not performed, as requested; they remain with the user."
+  ],
+  "limitations": [
+    "The audit fetches exact runtime entry HTML and Unity JSON configs for static inspection only. It does not execute game JavaScript or test controls, audio, multiplayer, mobile behavior, or service availability.",
+    "The full dependency graph for every HTML5 runtime is not recursively downloaded here; exact references discovered in entry HTML and Unity configs are recorded in the companion manifests."
+  ]
+}

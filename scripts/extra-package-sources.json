@@ -1,0 +1,782 @@
+{
+  "formatVersion": 1,
+  "sourcePolicy": {
+    "authorization": "Owner authorization for selected game content, as stated in the project handoff. This assertion is not an upstream license; provenance and concrete source notices remain recorded per package.",
+    "hash": "Every source file is pinned to a Git blob SHA-1 and verified during preparation.",
+    "cache": ".next/cache/sidequest-games/extra/<revision>/<slug>",
+    "output": "public/play/archives/<slug>"
+  },
+  "packages": [
+    {
+      "slug": "moto-x3m",
+      "source": "brunoiscool2/unblockedgames",
+      "revision": "8e1b7aacdbb8086d0b4023465602437b52c1c6cc",
+      "sourcePath": "play/motox3m",
+      "entry": "index.html",
+      "provenance": "Pinned community mirror. No upstream root/game-folder license or notice is included in this source folder; owner authorization is recorded separately and does not establish an upstream license.",
+      "modifications": [
+        "Remove only the Moto X3M gamebridge.js, pk-sdk.js and Google IMA loader tags from index.html.",
+        "Use the existing local guest SDK adapter; it reports guest/not-authorized and provides no real authentication, online scores, ad playback or fake rewards.",
+        "Keep the original game runtime and assets unchanged; its renderer already uses Phaser.AUTO."
+      ],
+      "files": [
+        {
+          "path": "assets/atlases/x1/cars_game.json",
+          "size": 16297,
+          "sha": "0e30d64c355b372c20da4481542bfe2c879b697a",
+          "include": true
+        },
+        {
+          "path": "assets/atlases/x1/cars_game.png",
+          "size": 54142,
+          "sha": "afc5e65f26509426547e8f17dd2e9b1bc13421a7",
+          "include": true
+        },
+        {
+          "path": "assets/atlases/x1/garage.json",
+          "size": 8202,
+          "sha": "1661f67cb77a9a1f4efa2789f8e2b30f09c7469d",
+          "include": true
+        },
+        {
+          "path": "assets/atlases/x1/garage.png",
+          "size": 156890,
+          "sha": "481085538069b37703a43a23e01b2e704ef1d49a",
+          "include": true
+        },
+        {
+          "path": "assets/atlases/x1/theme0.json",
+          "size": 26004,
+          "sha": "3d889c01a589385cabd59ae761dd66a3c758875a",
+          "include": true
+        },
+        {
+          "path": "assets/atlases/x1/theme0.png",
+          "size": 261264,
+          "sha": "df4b67f52e4a7ab6d3dfa27c9abed44635ede211",
+          "include": true
+        },
+        {
+          "path": "assets/atlases/x1/theme1.json",
+          "size": 30566,
+          "sha": "448f6a00011dda6f3d96a1bd1d9ccbaaa6d18935",
+          "include": true
+        },
+        {
+          "path": "assets/atlases/x1/theme1.png",
+          "size": 260964,
+          "sha": "ef7c713cef85b79c67f7bc1679a075a914723487",
+          "include": true
+        },
+        {
+          "path": "assets/atlases/x1/theme2.json",
+          "size": 26681,
+          "sha": "5fe8ce19ef07a1f2bfe6285af74da6736871fe24",
+          "include": true
+        },
+        {
+          "path": "assets/atlases/x1/theme2.png",
+          "size": 225162,
+          "sha": "e1dee02af79e3992161d1b1a4dbca7dd1ba6650f",
+          "include": true
+        },
+        {
+          "path": "assets/css/AllerDisplay.css",
+          "size": 475,
+          "sha": "a8e48b213beff89ff011123271279fcd46163e01",
+          "include": true
+        },
+        {
+          "path": "assets/css/app.css",
+          "size": 2114,
+          "sha": "2d9444a03bb6096a5601001fe8198db22e827797",
+          "include": true
+        },
+        {
+          "path": "assets/css/CfCrackBold.css",
+          "size": 479,
+          "sha": "42b3e721331893eede37cc31ad3c6af1bd43bf3f",
+          "include": true
+        },
+        {
+          "path": "assets/css/impact.css",
+          "size": 414,
+          "sha": "b0a32e686470c94d09898e61f4ffe3b75f96fefe",
+          "include": true
+        },
+        {
+          "path": "assets/fonts/AllerDisplay/AllerDisplay.woff",
+          "size": 13996,
+          "sha": "0f3666a813a7d595fa81f040843044f09bb6f564",
+          "include": true
+        },
+        {
+          "path": "assets/fonts/CfCrackBold/cfcrackandbold.woff",
+          "size": 57060,
+          "sha": "edf5ce2bf2b2271f41078b87a35dea0d9e30a1cd",
+          "include": true
+        },
+        {
+          "path": "assets/fonts/Impact/impact.woff",
+          "size": 68564,
+          "sha": "604daf8718efa67a3e1ed50387c30aef63341936",
+          "include": true
+        },
+        {
+          "path": "assets/images/x1/0bg_garage_xs.png",
+          "size": 15499,
+          "sha": "b2b455176a3eacd69fdf2fdcbc97e0ce05cd8284",
+          "include": true
+        },
+        {
+          "path": "assets/images/x1/0bg_garage.png",
+          "size": 170158,
+          "sha": "7a8c3ad3277953b3b9909de7e387ce11c521f091",
+          "include": true
+        },
+        {
+          "path": "assets/images/x1/bikes_texture.png",
+          "size": 18064,
+          "sha": "adb9747421fd769641a7ec7b22e379f047a39ea2",
+          "include": true
+        },
+        {
+          "path": "assets/images/x1/menu_texture.png",
+          "size": 42781,
+          "sha": "a31ca29c15f3e5406f324bcc4b922379c62edae6",
+          "include": true
+        },
+        {
+          "path": "assets/levels/1.json",
+          "size": 949,
+          "sha": "5fcd854f7ce7fc86136b755382af71c7df19ef28",
+          "include": true
+        },
+        {
+          "path": "assets/levels/bike.json",
+          "size": 1236,
+          "sha": "d5bad56bba1c275e8ac1fde254c9443072c8cd7d",
+          "include": true
+        },
+        {
+          "path": "assets/levels/bikes_skeleton.json",
+          "size": 41990,
+          "sha": "cb77604ec199f8ab0c1eaa902a6aa657bc250638",
+          "include": true
+        },
+        {
+          "path": "assets/levels/bikes_texture.json",
+          "size": 4763,
+          "sha": "e6a79f9cd18c82a57f45f52e71fec4dba0fc01a4",
+          "include": true
+        },
+        {
+          "path": "assets/levels/into_map1.json",
+          "size": 22570,
+          "sha": "fa1ebf632c677419e0015081da6703e1ef813aab",
+          "include": true
+        },
+        {
+          "path": "assets/levels/map.json",
+          "size": 1104,
+          "sha": "b64b21e1b6c98ab63af76a17a9125dd1edd0f756",
+          "include": true
+        },
+        {
+          "path": "assets/levels/menu_skeleton.json",
+          "size": 15277,
+          "sha": "9338edc57df5e7c0b1c0898a5f31b8cf9601081d",
+          "include": true
+        },
+        {
+          "path": "assets/levels/menu_texture.json",
+          "size": 999,
+          "sha": "f4ef62d5906872bb62da14142e129791eb6e4b33",
+          "include": true
+        },
+        {
+          "path": "assets/levels/objects.json",
+          "size": 16733,
+          "sha": "52abf33d03577060c6a8ffa9586d8ebde15eb3d3",
+          "include": true
+        },
+        {
+          "path": "assets/lib/bluebird.min.js",
+          "size": 76667,
+          "sha": "732622685baff1e0ec719c6a922bc4c1885b5a8b",
+          "include": true
+        },
+        {
+          "path": "assets/lib/dragonBones.min.js",
+          "size": 189336,
+          "sha": "804b45a560439dfaa1d7024ff15a505e76b354ef",
+          "include": true
+        },
+        {
+          "path": "assets/lib/easeljs-0.8.2.combined.js",
+          "size": 484580,
+          "sha": "a7992a5fdabda82ebc641f91704b2b25dfd540fb",
+          "include": true
+        },
+        {
+          "path": "assets/lib/jquery-3.1.1.min.js",
+          "size": 86717,
+          "sha": "ed3638990d4b0ed55c406d491fac3ab56b61ee58",
+          "include": true
+        },
+        {
+          "path": "assets/lib/nape.min.js",
+          "size": 1775999,
+          "sha": "99feba04c863167b653bbd21db2417c50b3fb9ee",
+          "include": true
+        },
+        {
+          "path": "assets/lib/phaser-cachebuster.min.js",
+          "size": 987,
+          "sha": "68f65483d1e059758b0b8f60840baf905ceec615",
+          "include": true
+        },
+        {
+          "path": "assets/lib/phaser-super-storage.min.js",
+          "size": 10735,
+          "sha": "e06f050e53bc791e3815ed69866b4aa32c311b5c",
+          "include": true
+        },
+        {
+          "path": "assets/lib/phaser.min.js",
+          "size": 791250,
+          "sha": "a3db8cdc64788d8ec46e490c65f4ce3d631c271f",
+          "include": true
+        },
+        {
+          "path": "assets/sound/accel01.ogg",
+          "size": 25207,
+          "sha": "8c9c84334ac7bca5c9b356a17b2432b35c94bd1d",
+          "include": true
+        },
+        {
+          "path": "assets/sound/accel02.ogg",
+          "size": 27577,
+          "sha": "024c9ab9c8f81f55a1dae5ca21cb1c5fa879f077",
+          "include": true
+        },
+        {
+          "path": "assets/sound/accel03.ogg",
+          "size": 50567,
+          "sha": "d5cc4e194f1fed8f45ba130df21df3b7ae9d02b3",
+          "include": true
+        },
+        {
+          "path": "assets/sound/accel04.ogg",
+          "size": 27140,
+          "sha": "dee14a65bf831b81fd79d87ece70bf1c73432d31",
+          "include": true
+        },
+        {
+          "path": "assets/sound/barrel_hit0.ogg",
+          "size": 8330,
+          "sha": "8f2bfb8a489e536932812eb499059dffdba278ec",
+          "include": true
+        },
+        {
+          "path": "assets/sound/barrel_hit1.ogg",
+          "size": 8257,
+          "sha": "528c602a6a4e42d7b7eabe3f500fa296dac574b9",
+          "include": true
+        },
+        {
+          "path": "assets/sound/button.ogg",
+          "size": 5595,
+          "sha": "593443dd5a7ce2ac82b9c3fc3cd436cfcd60388c",
+          "include": true
+        },
+        {
+          "path": "assets/sound/dead_01.ogg",
+          "size": 7043,
+          "sha": "3b9a7e6a475ca96de658ce8ad8ae01ca8b870ff6",
+          "include": true
+        },
+        {
+          "path": "assets/sound/dead_02.ogg",
+          "size": 8118,
+          "sha": "9d99b293aadccf29b79ffca112b8cdc143e4abfc",
+          "include": true
+        },
+        {
+          "path": "assets/sound/dead_03.ogg",
+          "size": 9257,
+          "sha": "5c2dcacca421ee0694f417a7e49f03a3d5fa3b40",
+          "include": true
+        },
+        {
+          "path": "assets/sound/dead_04.ogg",
+          "size": 7946,
+          "sha": "ecadd4a1e72ff60d3529ac4b7a6e2f28ee9608b1",
+          "include": true
+        },
+        {
+          "path": "assets/sound/dead_05.ogg",
+          "size": 7227,
+          "sha": "0d9b5813464817e233e1b2c97588c8da4f5d27cb",
+          "include": true
+        },
+        {
+          "path": "assets/sound/dead_06.ogg",
+          "size": 6628,
+          "sha": "4fda09b103d43c3490d8926a34f2dd214505f630",
+          "include": true
+        },
+        {
+          "path": "assets/sound/driver_spikes.ogg",
+          "size": 8886,
+          "sha": "545b5f7a7ac25d877b41eb908f1ec40676a46cc6",
+          "include": true
+        },
+        {
+          "path": "assets/sound/eng_loop.ogg",
+          "size": 21031,
+          "sha": "237790e5417d64aeabcfd8ddf3d06863dd832b7a",
+          "include": true
+        },
+        {
+          "path": "assets/sound/engine_finish.ogg",
+          "size": 27717,
+          "sha": "35ebe58df5e150fbdd5f85341b00e897da3eff76",
+          "include": true
+        },
+        {
+          "path": "assets/sound/engine_start.ogg",
+          "size": 24643,
+          "sha": "981543ef76b80ccff595c21347d0cba00a8281c2",
+          "include": true
+        },
+        {
+          "path": "assets/sound/explode1.ogg",
+          "size": 12850,
+          "sha": "b5ca1fe55c173fda27332021e061db81770d0a24",
+          "include": true
+        },
+        {
+          "path": "assets/sound/explode2.ogg",
+          "size": 13146,
+          "sha": "fdd18976a0c369efff01b15496800239f5ae8a34",
+          "include": true
+        },
+        {
+          "path": "assets/sound/flip_01.ogg",
+          "size": 11133,
+          "sha": "3d343b5eb97a4ef678285ce95bcebe9428eb681b",
+          "include": true
+        },
+        {
+          "path": "assets/sound/flip_02.ogg",
+          "size": 6736,
+          "sha": "403b8629fc183057d6d41cefb6d9bd09431d85c6",
+          "include": true
+        },
+        {
+          "path": "assets/sound/flip_03.ogg",
+          "size": 9613,
+          "sha": "edff25064727034c0d1a37ee4d6b29e3745eac1b",
+          "include": true
+        },
+        {
+          "path": "assets/sound/flip_04.ogg",
+          "size": 9991,
+          "sha": "9ce8000561843c59751670f44f73f9d22ba80447",
+          "include": true
+        },
+        {
+          "path": "assets/sound/flip_05.ogg",
+          "size": 7716,
+          "sha": "d6c343d0d0e4da78b686712e0fc797fadb401da8",
+          "include": true
+        },
+        {
+          "path": "assets/sound/flip_06.ogg",
+          "size": 9045,
+          "sha": "5a7977a005f9949fc52e9021e1b504d3cf559560",
+          "include": true
+        },
+        {
+          "path": "assets/sound/fly_01.ogg",
+          "size": 11471,
+          "sha": "59e8d56a06a42d9901cfa763d04f8b014d9c2401",
+          "include": true
+        },
+        {
+          "path": "assets/sound/fly_02.ogg",
+          "size": 14497,
+          "sha": "396ffb8da7f30692ca7b33898fc3be17ad98cae2",
+          "include": true
+        },
+        {
+          "path": "assets/sound/fly_03.ogg",
+          "size": 10266,
+          "sha": "dffae8847a31ae48973da57ac2771e4f22fffc24",
+          "include": true
+        },
+        {
+          "path": "assets/sound/game_track.ogg",
+          "size": 784968,
+          "sha": "bbab47583fc61b72c2d73f2b0c60ba81d7cb2b0c",
+          "include": true
+        },
+        {
+          "path": "assets/sound/landing.ogg",
+          "size": 4834,
+          "sha": "c29ea0fded70e9f2ee303972a9f0366222adef60",
+          "include": true
+        },
+        {
+          "path": "assets/sound/menu_track_1.ogg",
+          "size": 915974,
+          "sha": "a272e79c9ce50dc0b95188bbe7ea02f010caa9f2",
+          "include": true
+        },
+        {
+          "path": "assets/sound/motor.ogg",
+          "size": 39729,
+          "sha": "78de3ec579635f854e0d8cb4a8f43f5b1417bf6b",
+          "include": true
+        },
+        {
+          "path": "assets/sound/safepoint.ogg",
+          "size": 4895,
+          "sha": "4a98d98b4227d31e0c7877e19916bafaf0e9b762",
+          "include": true
+        },
+        {
+          "path": "assets/sound/stones.ogg",
+          "size": 15979,
+          "sha": "5eb4f2fc94549b5b8b6d809cc424c5f7e3755570",
+          "include": true
+        },
+        {
+          "path": "assets/sound/wendy.ogg",
+          "size": 22326,
+          "sha": "ae0db2ac1004e16cfbbcba02dd0c98fc2215f32f",
+          "include": true
+        },
+        {
+          "path": "assets/sound/wood_hit0.ogg",
+          "size": 7077,
+          "sha": "a26e3d54c40fbb991fd3f8d4460c19f3688b6565",
+          "include": true
+        },
+        {
+          "path": "gamebridge.js",
+          "size": 3896,
+          "sha": "e54b39a14c4961b32c8512029e2318262a5d8514",
+          "include": true
+        },
+        {
+          "path": "index.html",
+          "size": 1734,
+          "sha": "a9be027808f134c1d2d1e0521eaa84de95b13591",
+          "include": true
+        },
+        {
+          "path": "motox3m.min.js",
+          "size": 1110870,
+          "sha": "cd3785f0988a294b65feefdde020b1f74290d1ae",
+          "include": true
+        },
+        {
+          "path": "pk-sdk.js",
+          "size": 22882,
+          "sha": "daca78ad47081fb27ada3ba612bc96cb730fa1f8",
+          "include": true
+        },
+        {
+          "path": "splash.jpg",
+          "size": 115469,
+          "sha": "be93bb3754de9c8e9c15af4083b59136a7e3d90a",
+          "include": true
+        }
+      ]
+    },
+    {
+      "slug": "slope",
+      "source": "brunoiscool2/unblockedgames",
+      "revision": "8e1b7aacdbb8086d0b4023465602437b52c1c6cc",
+      "sourcePath": "play/slope",
+      "entry": "index.html",
+      "provenance": "Pinned community mirror. README attributes the game to Y8 and describes hosting this copy anywhere; no upstream game license was found. Preserve README.md verbatim. Owner authorization is recorded separately.",
+      "modifications": [
+        "Remove the two Google Ads loader tags and the Clicky analytics script/noscript only.",
+        "Keep all pinned Unity WebGL build assets, template files, README and the repository-provided slope.zip."
+      ],
+      "files": [
+        {
+          "path": "Build/slope_data.unityweb",
+          "size": 8645658,
+          "sha": "73301d81ccd54156f85325fb0befbbe96cedf537",
+          "include": true
+        },
+        {
+          "path": "Build/slope_framework.unityweb",
+          "size": 92804,
+          "sha": "1fa517b1653c13c6646d0b59a262712e0d547895",
+          "include": true
+        },
+        {
+          "path": "Build/slope_memory.unityweb",
+          "size": 555322,
+          "sha": "571fc5be41fdf17f9fcff6753659a92e6aeb9512",
+          "include": true
+        },
+        {
+          "path": "Build/slope_wasmcode.unityweb",
+          "size": 5027568,
+          "sha": "618b11d920f64d956abe2e1acd343812ac170adf",
+          "include": true
+        },
+        {
+          "path": "Build/slope_wasmframework.unityweb",
+          "size": 144705,
+          "sha": "42e5e1d1c8f44a49d1cfb4e0f1aaa3bd1c1b07f6",
+          "include": true
+        },
+        {
+          "path": "Build/slope.json",
+          "size": 492,
+          "sha": "733101b6030e6a5e59759f3092fea59507f97962",
+          "include": true
+        },
+        {
+          "path": "index.html",
+          "size": 1629,
+          "sha": "105cfa5dd30e3be6cc449657d04501ec106d1fda",
+          "include": true
+        },
+        {
+          "path": "README.md",
+          "size": 2485,
+          "sha": "53778328d7a00141fa90261ba0fee99025051901",
+          "include": true,
+          "notice": true,
+          "reason": "Preserved upstream README with source attribution and hosting notes."
+        },
+        {
+          "path": "slope.zip",
+          "size": 8353948,
+          "sha": "8fc4c8bebd9d53f4e8f72f283d3ec1dc41d52b91",
+          "include": true
+        },
+        {
+          "path": "TemplateData/progressEmpty.Dark.png",
+          "size": 114,
+          "sha": "0de75c50fa7ac075430486b0f5a4dcbf7292207d",
+          "include": true
+        },
+        {
+          "path": "TemplateData/progressFull.Dark.png",
+          "size": 93,
+          "sha": "0d6a5e8e4aa98790f08b03f6e449e051fd96ce58",
+          "include": true
+        },
+        {
+          "path": "TemplateData/progressLogo.Dark.png",
+          "size": 1476,
+          "sha": "02b858f5cd490f3ecbfeea0a3fcc090b9d30f5cc",
+          "include": true
+        },
+        {
+          "path": "TemplateData/style.css",
+          "size": 1536,
+          "sha": "f7707b8c9ac4081e455d66adc7a561f4929d90aa",
+          "include": true
+        },
+        {
+          "path": "TemplateData/unityloader41.js",
+          "size": 193878,
+          "sha": "a387998478b48285e3a3228d5bd8e7b5294fb2e2",
+          "include": true
+        },
+        {
+          "path": "TemplateData/UnityProgress.js",
+          "size": 1182,
+          "sha": "eb87eb33c93cab06de3fecfd3a5049eefe5752cb",
+          "include": true
+        }
+      ]
+    },
+    {
+      "slug": "snow-rider-3d",
+      "source": "focus-solutions/snow-rider",
+      "revision": "d330d523211b4f3c454fc04a42aabca022ef5aad",
+      "sourcePath": ".",
+      "entry": "index.html",
+      "provenance": "Pinned community mirror. @source.txt attributes the build to a GameDistribution listing. No game license was found; the repository does not establish rights in the embedded game assets. Preserve @source.txt verbatim as a source notice. Owner authorization is recorded separately.",
+      "modifications": [
+        "Remove the inline redirect to snowrider3d.ubg235.com and do not import the portal redirect or analytics files.",
+        "Keep the Unity WebGL loader, build payload and remaining local runtime assets unchanged."
+      ],
+      "files": [
+        {
+          "path": "@source.txt",
+          "size": 77,
+          "sha": "2dec854d6ac90b4ef2122c006b7e26b27a9eed65",
+          "include": false,
+          "noticeOnly": true,
+          "reason": "Source attribution notice; preserved verbatim outside the runtime package."
+        },
+        {
+          "path": "404.html",
+          "size": 1808,
+          "sha": "829eda8fdcf133ab2083dbc880b6362b11d0c8ea",
+          "include": false,
+          "reason": "Repository error page, not part of the game runtime."
+        },
+        {
+          "path": "ahrefs_585f4691b0e399a160cb6e0c016b4fcd7b0c55de8ae4d7dc4c83d5d0761520b3",
+          "size": 89,
+          "sha": "08c92a6519cb55e81f9a9a2efb0b6239bb03464c",
+          "include": true
+        },
+        {
+          "path": "Build/SnowRider3D-gd-1.data.unityweb",
+          "size": 5813599,
+          "sha": "10da9dcf7ee29d5c17bd2e9b3ffdb6fd76f021f3",
+          "include": true
+        },
+        {
+          "path": "Build/SnowRider3D-gd-1.json",
+          "size": 418,
+          "sha": "97866d86051213028f89a8a906df1e1e496896bc",
+          "include": true
+        },
+        {
+          "path": "Build/SnowRider3D-gd-1.wasm.code.unityweb",
+          "size": 6650777,
+          "sha": "c7a84ec5387205f23de6b934ca70e718d37b8a4e",
+          "include": true
+        },
+        {
+          "path": "Build/SnowRider3D-gd-1.wasm.framework.unityweb",
+          "size": 95530,
+          "sha": "317b9fb05397d64af3d15c45f81278208eb28b99",
+          "include": true
+        },
+        {
+          "path": "Build/SnowRider3D-gd-1.wasm.framework.unityweb.js",
+          "size": 514248,
+          "sha": "2457d3370d9be317c787fe8e0b6b8306dccbd249",
+          "include": true
+        },
+        {
+          "path": "Build/UnityLoader.js",
+          "size": 156644,
+          "sha": "f1c0640f10559cddd84ab5b724f22dda4838c932",
+          "include": true
+        },
+        {
+          "path": "favicon.ico",
+          "size": 25214,
+          "sha": "ccbe3d11cc19cb79e14cd3ef21fc2ca568672d0d",
+          "include": true
+        },
+        {
+          "path": "index.html",
+          "size": 1501,
+          "sha": "79750c513a318f0a3104942d4943c2c519a298c9",
+          "include": true
+        },
+        {
+          "path": "js/analytics_ubg_v1_4.js",
+          "size": 745,
+          "sha": "371c2d2a9c15320a8c39f2a1af6a81d717be5860",
+          "include": false,
+          "reason": "Third-party analytics."
+        },
+        {
+          "path": "js/jquery-3.6.0.min.js",
+          "size": 89501,
+          "sha": "c4c6022f2982e8dae64cebd6b9a2b59f2547faad",
+          "include": true
+        },
+        {
+          "path": "js/main.min.js",
+          "size": 608587,
+          "sha": "62a3330be3df3c18a80a7e028498840de2c78d5a",
+          "include": true
+        },
+        {
+          "path": "js/null.js",
+          "size": 11,
+          "sha": "ad6f6cd12e06c55aa027a0d653e021261e27d765",
+          "include": true
+        },
+        {
+          "path": "js/ubg235_redirect.js",
+          "size": 724,
+          "sha": "5b5868f1968338b7520c3599712ceb6759770578",
+          "include": false,
+          "reason": "Portal redirect/wrapper; not part of the game runtime."
+        },
+        {
+          "path": "json/config.json",
+          "size": 2,
+          "sha": "9e26dfeeb6e641a33dae4961196235bdb965b21b",
+          "include": true
+        },
+        {
+          "path": "json/null.json",
+          "size": 2,
+          "sha": "9e26dfeeb6e641a33dae4961196235bdb965b21b",
+          "include": true
+        },
+        {
+          "path": "json/ping.json",
+          "size": 2,
+          "sha": "9e26dfeeb6e641a33dae4961196235bdb965b21b",
+          "include": true
+        },
+        {
+          "path": "snow-rider-3d.png",
+          "size": 153945,
+          "sha": "40f3faaa87ba80d6a678b0b4c718d3f077144ea3",
+          "include": true
+        },
+        {
+          "path": "TemplateData/favicon.ico",
+          "size": 13275,
+          "sha": "dd6bf7e9cec4d87389fad00e34cd385321d748e1",
+          "include": true
+        },
+        {
+          "path": "TemplateData/gears.gif",
+          "size": 72958,
+          "sha": "c440845e70aa041efc1e3dfcefac9c06f9073839",
+          "include": true
+        },
+        {
+          "path": "TemplateData/logo.png",
+          "size": 276220,
+          "sha": "cce74503b3545234d376b89e2c896669a2567a6d",
+          "include": true
+        },
+        {
+          "path": "TemplateData/style.css",
+          "size": 3196,
+          "sha": "acac86da22ca01545c9a50b2604c3d17ed046ab9",
+          "include": true
+        },
+        {
+          "path": "TemplateData/UnityProgress.js",
+          "size": 5415,
+          "sha": "ac59a34cba7653d43eb62d02ea8f502849a61edb",
+          "include": true
+        },
+        {
+          "path": "ubg235.html",
+          "size": 98,
+          "sha": "fcfe25aac1a33a291aa181e451fc15eeb8c634f4",
+          "include": false,
+          "reason": "Portal redirect/wrapper; not part of the game runtime."
+        }
+      ]
+    }
+  ]
+}

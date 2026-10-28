@@ -1,0 +1,32 @@
+{
+  "checkedAt": "2026-10-28",
+  "games": [
+    {
+      "slug": "cookie-clicker",
+      "url": "https://orteil.dashnet.org/cookieclicker/",
+      "sourceUrl": "https://orteil.dashnet.org/cookieclicker/",
+      "provider": "Orteil / DashNet",
+      "developer": "Julien Thiennot (Orteil)",
+      "framingChecked": true,
+      "notes": "Official game URL returned HTTP 200 to a HEAD request with no X-Frame-Options or Content-Security-Policy response header observed. The official project asks third parties not to re-host the game; use this intact publisher-hosted page in an iframe and do not copy its files."
+    },
+    {
+      "slug": "monkey-mart",
+      "url": "https://www.miniplay.com/embed/monkey-mart",
+      "sourceUrl": "https://www.miniplay.com/game/monkey-mart",
+      "provider": "Miniplay",
+      "developer": null,
+      "framingChecked": true,
+      "notes": "Miniplay publisher embed returned HTTP 200 to a HEAD request with no X-Frame-Options or Content-Security-Policy response header observed. The embed serves the game through ext.minijuegosgratis.com. Keep Miniplay's hosted player intact; no local SDK or game package is included."
+    },
+    {
+      "slug": "football-legends",
+      "url": "https://www.miniplay.com/embed/football-legends-2021",
+      "sourceUrl": "https://www.miniplay.com/game/football-legends-2021",
+      "provider": "Miniplay",
+      "developer": "MadPuffers",
+      "framingChecked": true,
+      "notes": "Miniplay publisher embed returned HTTP 200 to a HEAD request with no X-Frame-Options or Content-Security-Policy response header observed. Its underlying GameDistribution ID ecd138ae69cf4e92b5f5cdd328b6b62e matches the 2021 edition, not the 2026 edition. Keep the publisher-hosted player intact; do not copy the domain-locked SDK or fabricate ad rewards."
+    }
+  ]
+}
