@@ -7,7 +7,7 @@ import { copyFile, mkdir, readFile, rename, rm, stat, writeFile } from 'node:fs/
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import net from 'node:net';
-import { LEVEL_DEVIL_POKI_GUEST } from './portal-guest-adapters.mjs';
+import { LEVEL_DEVIL_POKI_GUEST, FORTZONE_GAMEPUSH_GUEST } from './portal-guest-adapters.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SOURCE_FILE = path.join(ROOT, 'scripts/reference-package-sources.json');
@@ -762,6 +762,15 @@ function makeArtifactTransforms(pkg, file, bytes, bridgeBytes, localBySourceUrl,
           "var hiddenBlock = document.querySelector('#logo'); if (!hiddenBlock) return;");
         if(previous!==text)mods.push('Guarded missing optional Granny #logo element during resize check.');
       }
+      if(pkg.slug==='fortzone-battle-royale' && file.path===requiredEntryPath(pkg)) {
+        // Direct Unity's SDK fallback at the generated local guest bridge.
+        // The unapproved remote GamePush origins and missing fallback are never requested.
+        const previous=text;
+        text=text.replace(/<head\b[^>]*>/i, head => head +
+          '\n<script>window.__GS_BOOT_CFG__={sdkSrc:"./TemplateData/gp_bundle/gamepush.js"};<\/script>');
+        if(text===previous)throw new Error('Fortzone HTML has no head for guest SDK bootstrap.');
+        mods.push('Configured Fortzone WebGL to use a local, guest-only GamePush compatibility script.');
+      }
       const bridgeLocal = path.posix.relative(path.posix.dirname(file.path), 'bridge.js') || 'bridge.js';
       const bridgeRef = bridgeLocal.startsWith('.') ? bridgeLocal : `./${bridgeLocal}`;
       if (/<head\b[^>]*>/i.test(text)) {
@@ -1049,13 +1058,32 @@ async function buildMode(selectedSlugs = null) {
         if (verify.length !== transformed.outputFile.size || sha256(verify) !== transformed.outputFile.sha256) throw new Error(`Artifact hash mismatch after write: ${pkg.slug}/${file.path}`);
         artifacts.push(transformed.outputFile);
       }
+      const generatedHelpers=[];
       await copyFile(BRIDGE_FILE, path.join(staging, 'bridge.js'));
       if (sha256(await readFile(path.join(staging, 'bridge.js'))) !== bridgeSha256) throw new Error(`Arcade bridge copy hash mismatch: ${pkg.slug}`);
+      if(pkg.slug==='fortzone-battle-royale') {
+        const helperPath='TemplateData/gp_bundle/gamepush.js';
+        if(artifacts.some(file=>file.path===helperPath))throw new Error('Fortzone guest helper conflicts with pinned source file.');
+        const helperBytes=Buffer.from(FORTZONE_GAMEPUSH_GUEST,'utf8');
+        const dest=path.join(staging,...helperPath.split('/'));
+        inside(staging,dest,'guest SDK helper');
+        await mkdir(path.dirname(dest),{recursive:true});
+        await writeFile(dest,helperBytes);
+        if(sha256(await readFile(dest))!==sha256(helperBytes))throw new Error('Fortzone guest SDK helper hash mismatch.');
+        generatedHelpers.push({path:helperPath,sha256:sha256(helperBytes),size:helperBytes.length,
+          purpose:'Guest-only offline compatibility, not an official GamePush SDK or backend'});
+        changes.push('Generated local Fortzone GamePush guest bridge instead of a missing and origin-dependent publisher SDK.');
+      }
       const entry = artifacts.find(file => file.path === requiredEntryPath(pkg));
       if (!entry) throw new Error(`Required entry missing from ready package ${pkg.slug}`);
       const metadata = {
         referencePackageManifest: true,
         ...packageMeta(manifest, pkg, artifacts, warnings, [], changes),
+        generatedHelpers,
+        ...(generatedHelpers.length ? {
+          artifactFiles: artifacts.length+1+generatedHelpers.length,
+          artifactBytes: artifacts.reduce((sum,f)=>sum+f.size,0)+generatedHelpers.reduce((sum,f)=>sum+f.size,0)
+        } : {}),
         sourceEntry: entry.path,
         sourceEntryUrl: pkg.entryUrl,
         sourceEntrySha256: entry.sourceSha256,
