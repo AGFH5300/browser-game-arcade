@@ -11,6 +11,7 @@ test('critical page-one runtime files are pinned, required and integrity checked
   'granny':['StreamingAssets/Audio/Audio/_Done/ButtonClick_MP3.mp3','StreamingAssets/Audio/Audio/_Done/Menu_MP3.mp3'],
   'granny-2':['StreamingAssets/aa/settings.json','StreamingAssets/aa/catalog.json','StreamingAssets/aa/WebGL/defaultlocalgroup_scenes_all_f11cbd6bc591e66331593f2581376106.bundle'],
   'traffic-jam-3d':['TemplateData/gears.gif'],
+  'a-small-world-cup':['media/goal_uaaah.m4a','media/song_menu_drum.m4a'],
   'geometry-dash-hyper-wave':['html5game/snd_click.ogg','html5game/snd_lvl_1.ogg']
  };
  for(const [slug,paths] of Object.entries(required)){

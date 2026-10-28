@@ -176,5 +176,20 @@
   ],
   "level-devil": [
     "poki-sdk-core-v2.263.0.js"
+  ],
+  "a-small-world-cup": [
+    "media/goal_uaaah.m4a",
+    "media/applauseend.m4a",
+    "media/backgroundmilan.m4a",
+    "media/fischio_end.m4a",
+    "media/fischio_start.m4a",
+    "media/171697__nenadsimic__menu-selection-click.m4a",
+    "media/body_hit.m4a",
+    "media/net-sound.m4a",
+    "media/realballhit.m4a",
+    "media/song_menu_drum.m4a",
+    "media/myself_loop.m4a",
+    "media/drum-roll.m4a",
+    "media/thud1.m4a"
   ]
 }

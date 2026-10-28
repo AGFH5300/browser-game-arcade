@@ -1,10 +1,10 @@
 {
   "pinned": {
-    "granny-2": 3
+    "a-small-world-cup": 13
   },
   "statuses": {
     "404": 3,
-    "pinned": 3
+    "pinned": 13
   },
   "skipped": [
     {
@@ -22,5 +22,15 @@
       "path": "html5game/GameData.ini",
       "reason": "404"
     }
-  ]
+  ],
+  "cumulativePinnedFiles": {
+    "crazy-cattle-3d": 1,
+    "eaglercraft": 1,
+    "granny": 135,
+    "granny-2": 4,
+    "a-small-world-cup": 13,
+    "traffic-jam-3d": 1,
+    "geometry-dash-hyper-wave": 9
+  },
+  "totalNewlyPinnedRuntimeFiles": 164
 }
