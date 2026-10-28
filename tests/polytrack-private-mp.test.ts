@@ -35,6 +35,8 @@ test('opt-in game client redirects only multiplayer and ICE URLs',()=>{
  const pilot=readFileSync('public/play/archives/polytrack/private-main.bundle.js','utf8');
  const markup=readFileSync('public/play/archives/polytrack/private-mp.html','utf8');
  assert(markup.includes('private-main.bundle.js'));
+ assert(markup.includes('private-mp-layout.js'));
+ assert(readFileSync('public/play/archives/polytrack/private-mp-layout.js','utf8').includes('Unofficial PolyModLoader mod by'));
  assert(!markup.includes('src="main.bundle.js"'));
  assert(standard.includes('https://vps.kodub.com/'));
  assert(pilot.includes('window.location.origin + "/api/polytrack-mp/"'));

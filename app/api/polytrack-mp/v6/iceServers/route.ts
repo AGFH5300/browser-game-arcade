@@ -7,6 +7,9 @@ export function OPTIONS(request:Request){
 }
 export function GET(request:Request){
  if(!privateMpEnabled())return new Response('Pilot disabled',{status:503});
- const h=iceCorsHeaders(request.headers.get('origin'));
+ const origin=request.headers.get('origin');
+ // A same-origin XHR typically sends no Origin; the old pilot rejected it 403.
+ if(!origin)return Response.json(ICE_SERVERS,{headers:{'Cache-Control':'no-store'}});
+ const h=iceCorsHeaders(origin);
  return h?Response.json(ICE_SERVERS,{headers:h}):new Response('Forbidden',{status:403});
 }
