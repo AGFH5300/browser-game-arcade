@@ -31,7 +31,12 @@ const publishers = new Map<string, TrustedPublisher>([
   ...archivedGames,
   ...referenceEntrypoints.map((url):[string,TrustedPublisher]=>[url,{
     name:url.includes('miniplay.com')?'MiniPlay':url.includes('dashnet.org')?'DashNet / Orteil':'Game provider',privacyUrl:new URL(url).origin,
-    disclosure:'This game runs here through its external provider. The provider controls availability, cookies and in-game advertising.',
+    // Orteil sends X-Frame-Options: SAMEORIGIN for Cookie Clicker. A blank
+    // iframe cannot be repaired by Sidequest or an iframe sandbox setting.
+    externalOnly:url==='https://orteil.dashnet.org/cookieclicker/',
+    disclosure:url==='https://orteil.dashnet.org/cookieclicker/'
+      ? 'The creator restricts cross-site embedding; open the official game in a separate tab.'
+      : 'This game runs here through its external provider. The provider controls availability, cookies and in-game advertising.',
   }]),
   ['https://y8.com/embed/slope', {
     name: 'Y8', privacyUrl: 'https://www.y8.com/cookie-policy',
