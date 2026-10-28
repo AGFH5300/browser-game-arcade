@@ -1,0 +1,6 @@
+node_modules
+PolyModLoader-darwin-x64
+PolyModLoader-linux-x64
+PolyModLoader-win32-x64
+/.idea/
+.DS_Store
