@@ -499,6 +499,10 @@ function htmlTagAttributeRewrite(html, fileUrl, resolveLocalUrl) {
         }).join(',');
         return rewritten === value ? full : `${prefix}${delimiter}${rewritten}${delimiter}`;
       }
+      // Only <object data=...> is a resource URL. <script data=...> often
+      // stores encoded TurboWarp/Construct asset chunks; rewriting it
+      // corrupts the embedded ZIP (as observed in Geometry Dash SubZero).
+      if (name==='data' && tagName!=='object') return full;
       if (!['src', 'href', 'data', 'poster', 'xlink:href'].includes(name)) return full;
       if (tagName === 'link' && name === 'href') {
         const rel = /\brel\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(tag);

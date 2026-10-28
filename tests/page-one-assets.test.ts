@@ -25,4 +25,5 @@ test('page-one transforms target broken Unity loader roots and keep Construct 2 
  assert(code.includes("pkg.slug==='ovo' && file.path==='c2runtime.js'"));
  assert(code.includes("['rocket-league','subway-surfers'].includes(pkg.slug)"));
  assert(code.includes("pkg.slug==='granny'"));
+ assert(code.includes("if (name==='data' && tagName!=='object') return full;"));
 });
