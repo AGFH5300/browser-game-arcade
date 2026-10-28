@@ -7,6 +7,7 @@ import { copyFile, mkdir, readFile, rename, rm, stat, writeFile } from 'node:fs/
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import net from 'node:net';
+import { LEVEL_DEVIL_POKI_GUEST } from './portal-guest-adapters.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SOURCE_FILE = path.join(ROOT, 'scripts/reference-package-sources.json');
@@ -769,6 +770,11 @@ function makeArtifactTransforms(pkg, file, bytes, bridgeBytes, localBySourceUrl,
       } else if (file.path === requiredEntryPath(pkg)) {
         throw new Error(`Required HTML has no <head> for bridge injection: ${pkg.slug}/${file.path}`);
       } else mods.push(`Preserved non-entry HTML without head: ${file.path}`);
+    } else if (pkg.slug==='level-devil' && file.path==='poki-sdk.js') {
+      // The upstream wrapper requests an unavailable external Poki core.
+      // Use a bounded local guest adapter; never claim ads, accounts or scores work.
+      text=LEVEL_DEVIL_POKI_GUEST;
+      mods.push('Replaced missing Poki core loader with local ad-free guest compatibility.');
     } else if (pkg.slug==='ovo' && file.path==='c2runtime.js') {
       // Construct 2 uses expressions like typeof x === "undefined" ? 200 : 0.
       // Generic URL rewriting interpreted the expression tail as a URL query,
