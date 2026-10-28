@@ -30,7 +30,9 @@
     const pane=content.querySelector('[data-kind="mod-info"]')||document.createElement('div');
     pane.dataset.kind='mod-info';
     if(!pane.parentElement)content.prepend(pane);
-    for(const n of [...group.children])pane.append(n);
+    // Never relocate sibling menu buttons: only the notice and its official link.
+    pane.append(label);
+    for(const a of [...group.querySelectorAll('a[href*="crazygames.com/game/polytrack"]')])pane.append(a);
    }
   };
   const observer=new MutationObserver(()=>{
