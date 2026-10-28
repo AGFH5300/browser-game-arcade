@@ -2,6 +2,7 @@
 // archive HTML. Never remove gameplay scripts, stylesheets, preloads or assets.
 // Source hash verification is performed before these cosmetic output edits.
 import {readdir,readFile,writeFile,stat} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
 import {join,resolve,dirname} from 'node:path';
 const root=resolve(process.argv[2]??'public/play/archives');
 let removed=0,files=0;
@@ -29,6 +30,28 @@ for(const dir of await readdir(root,{withFileTypes:true})){
     let exists=false;try{exists=(await stat(local)).isFile()}catch{}
     if(!exists){output=output.replace(tag,'');removed++;found.push(dir.name+':'+relative)}
   }
-  if(output!==html){await writeFile(file,output);files++}
+  if(output!==html){
+    // Generated archive audits enforce the *output* hashes and aggregate
+    // artifact bytes. Update only these computed fields. Original source
+    // hashes, wire hashes, individual pins and download authorizations remain unchanged.
+    const manifestPath=join(root,dir.name,'source-manifest.json');
+    let manifest;
+    try{manifest=JSON.parse(await readFile(manifestPath,'utf8'))}catch{}
+    if(manifest){
+      const record=manifest.files?.find(entry=>entry.path==='index.html');
+      if(record){
+        const oldSize=record.size;
+        const newBytes=Buffer.from(output,'utf8');
+        record.sha256=createHash('sha256').update(newBytes).digest('hex');
+        record.size=newBytes.length;
+        record.appliedChanges=[...(record.appliedChanges??[]),'Removed references to missing optional icons/PWA manifests.'];
+        if(Number.isSafeInteger(manifest.artifactBytes))manifest.artifactBytes+=newBytes.length-oldSize;
+        manifest.appliedChanges=[...(manifest.appliedChanges??[]),'Removed broken optional icon/PWA manifest references from index.html.'];
+        await writeFile(manifestPath,JSON.stringify(manifest,null,2)+'\\n');
+      }
+    }
+    await writeFile(file,output);
+    files++;
+  }
 }
 console.log(JSON.stringify({trimmedOptionalLinks:removed,affectedGames:files,details:found.slice(0,40)}));
