@@ -7,7 +7,7 @@ It creates separate Sidequest invite codes and rooms, preserving the
 PolyTrack 0.6.3 peer-to-peer WebRTC game protocol.
 
 ## Current status
-**Preview-only experimental code. NOT multiplayer-verified or activated in the live Sidequest game.**
+**Preview-only experimental code. A two-WebSocket signaling smoke test PASSED on the real Vercel preview, but actual peer-to-peer gameplay is NOT verified or activated in the live Sidequest game.**
 The current production PolyTrack single-player game must not be modified
 until two real clients can create, join, connect, and race reliably.
 
@@ -58,3 +58,13 @@ rows require a scheduled pruning job for long-running usage.
 - 8-player room cap, 20-minute room TTL, basic socket-message rate limiting.
 - Not a production-grade abuse-defense and scaling layer.
 - Does not disguise requests or circumvent Kodub's access restrictions.
+
+## Verified checkpoint, 28 October 2026
+- Vercel preview: https://browser-game-arcade-9qgvgjb04-dxbavg-7923s-projects.vercel.app
+- Pilot game: https://browser-game-arcade-9qgvgjb04-dxbavg-7923s-projects.vercel.app/play/archives/polytrack/private-mp.html
+- Production PolyTrack is unchanged.
+- Neon pilot tables (three independent tables) created; no existing game data altered.
+- Tested with two independent WebSocket clients: host opened, invite code created, join opened, WebRTC offer delivered, answer delivered, joining-side candidate delivered to host, host-side candidate delivered to joining client. **PASS**.
+- Rerun with: `node scripts/smoke-polytrack-private-mp.cjs https://browser-game-arcade-9qgvgjb04-dxbavg-7923s-projects.vercel.app`
+- Remaining: real WebGL game startup, two-player WebRTC peer-to-peer racing, NAT/TURN reliability, reconnection, rate limits/abuse defense and cross-device manual test.
+- If successful: use a separate, opt-in Sidequest Multiplayer menu item; never overwrite the existing single-player PolyTrack until rollout is verified.
