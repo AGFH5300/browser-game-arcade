@@ -47,7 +47,7 @@ for(const dir of await readdir(root,{withFileTypes:true})){
         record.appliedChanges=[...(record.appliedChanges??[]),'Removed references to missing optional icons/PWA manifests.'];
         if(Number.isSafeInteger(manifest.artifactBytes))manifest.artifactBytes+=newBytes.length-oldSize;
         manifest.appliedChanges=[...(manifest.appliedChanges??[]),'Removed broken optional icon/PWA manifest references from index.html.'];
-        await writeFile(manifestPath,JSON.stringify(manifest,null,2)+'\\n');
+        await writeFile(manifestPath,JSON.stringify(manifest,null,2));
       }
     }
     await writeFile(file,output);
