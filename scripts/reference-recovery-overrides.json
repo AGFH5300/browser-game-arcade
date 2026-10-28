@@ -1,0 +1,351 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Exact source and reference corrections for six incomplete V4 packages; this file is advisory input and does not change the shared importer or primary package manifest.",
+  "records": [
+    {
+      "slug": "slope-3",
+      "strategy": "pinned-complete-source-build",
+      "inspectSourceUrl": "https://github.com/Slope3/Slope3.github.io/tree/114ce2132ebfa47d8f4a82814d759d7bd34da2c7",
+      "source": "Slope3/Slope3.github.io",
+      "revision": "114ce2132ebfa47d8f4a82814d759d7bd34da2c7",
+      "referenceEntryUrl": "https://watchdocumentaries.com/wp-content/uploads/games/slope-3/",
+      "replaceSourceEntry": {
+        "path": "index.html",
+        "sourceUrl": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/index.html",
+        "gitBlobSha1": "0cb3d12ccc5ab8726854043676acb4216f54ad1f",
+        "size": 1395,
+        "handling": "Use as provenance/inspection only. Generate the local entry without the upstream redirect or publisher analytics/client scripts."
+      },
+      "requiredUrls": [
+        "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/Build/UnityLoader.js",
+        "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/Build/Slope3.json",
+        "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/Build/Slope3.data.unityweb",
+        "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/Build/Slope3.wasm.code.unityweb",
+        "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/Build/Slope3.wasm.framework.unityweb",
+        "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/unity/UnityProgress.js",
+        "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/unity/dummy.js",
+        "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/unity/unity-mod.js",
+        "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/unity/style.css"
+      ],
+      "sourceFiles": [
+        {
+          "path": "Build/UnityLoader.js",
+          "size": 159512,
+          "gitBlobSha1": "74cc1dac7879a4444f6f254912be42ba72e962c3",
+          "required": true,
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/Build/UnityLoader.js"
+        },
+        {
+          "path": "Build/Slope3.json",
+          "size": 509,
+          "gitBlobSha1": "31907c94c6e4f59b76aa8cdd8f4083ac5f76453c",
+          "required": true,
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/Build/Slope3.json"
+        },
+        {
+          "path": "Build/Slope3.data.unityweb",
+          "size": 28526058,
+          "gitBlobSha1": "30a464928948801aff87fa21422cd09865a88971",
+          "required": true,
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/Build/Slope3.data.unityweb"
+        },
+        {
+          "path": "Build/Slope3.wasm.code.unityweb",
+          "size": 18608341,
+          "gitBlobSha1": "18539406874e3a3eb13212b1450d754972ca24ac",
+          "required": true,
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/Build/Slope3.wasm.code.unityweb"
+        },
+        {
+          "path": "Build/Slope3.wasm.framework.unityweb",
+          "size": 502214,
+          "gitBlobSha1": "c05d5486d3f7abdde204ef74bd3bcc6f2405961d",
+          "required": true,
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/Build/Slope3.wasm.framework.unityweb"
+        },
+        {
+          "path": "unity/UnityProgress.js",
+          "size": 4672,
+          "gitBlobSha1": "bda66d34f276300fbe8904ba5c9e47563b0797e8",
+          "required": true,
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/unity/UnityProgress.js"
+        },
+        {
+          "path": "unity/dummy.js",
+          "size": 753,
+          "gitBlobSha1": "36bb187ea83c57defe43cb881433a4a106498c0a",
+          "required": true,
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/unity/dummy.js"
+        },
+        {
+          "path": "unity/unity-mod.js",
+          "size": 786,
+          "gitBlobSha1": "85974a96f468f6695dabd1ddc2256022cc1fc53f",
+          "required": true,
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/unity/unity-mod.js"
+        },
+        {
+          "path": "unity/style.css",
+          "size": 18647,
+          "gitBlobSha1": "e8ddae035acf1b63ab1d19822e6318e802481378",
+          "required": true,
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/unity/style.css"
+        },
+        {
+          "path": "unity/favicon.ico",
+          "size": 13275,
+          "gitBlobSha1": "dd6bf7e9cec4d87389fad00e34cd385321d748e1",
+          "required": false,
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/unity/favicon.ico"
+        },
+        {
+          "path": "favicon.ico",
+          "size": 25214,
+          "gitBlobSha1": "ccbe3d11cc19cb79e14cd3ef21fc2ca568672d0d",
+          "required": false,
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/favicon.ico"
+        }
+      ],
+      "excludedPaths": [
+        "js/analytics_ubg_v1_4.js",
+        "js/ubg235_client_v1_1.js",
+        "ubg235.html",
+        "ahrefs_585f4691b0e399a160cb6e0c016b4fcd7b0c55de8ae4d7dc4c83d5d0761520b3"
+      ],
+      "fix": "Use the whole pinned Slope3 Unity build. Do not use the broken tbg95.pages.dev data URL; its observed data asset returned 404.",
+      "pinnedTreeFiles": [
+        {
+          "path": "@source.txt",
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/@source.txt",
+          "size": 77,
+          "gitBlobSha1": "7ea462c888c31b850aa4dd9030369b88dcb29e1e",
+          "required": false
+        },
+        {
+          "path": "Build/Slope3.data.unityweb",
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/Build/Slope3.data.unityweb",
+          "size": 28526058,
+          "gitBlobSha1": "30a464928948801aff87fa21422cd09865a88971",
+          "required": true
+        },
+        {
+          "path": "Build/Slope3.json",
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/Build/Slope3.json",
+          "size": 509,
+          "gitBlobSha1": "31907c94c6e4f59b76aa8cdd8f4083ac5f76453c",
+          "required": true
+        },
+        {
+          "path": "Build/Slope3.wasm.code.unityweb",
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/Build/Slope3.wasm.code.unityweb",
+          "size": 18608341,
+          "gitBlobSha1": "18539406874e3a3eb13212b1450d754972ca24ac",
+          "required": true
+        },
+        {
+          "path": "Build/Slope3.wasm.framework.unityweb",
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/Build/Slope3.wasm.framework.unityweb",
+          "size": 502214,
+          "gitBlobSha1": "c05d5486d3f7abdde204ef74bd3bcc6f2405961d",
+          "required": true
+        },
+        {
+          "path": "Build/UnityLoader.js",
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/Build/UnityLoader.js",
+          "size": 159512,
+          "gitBlobSha1": "74cc1dac7879a4444f6f254912be42ba72e962c3",
+          "required": true
+        },
+        {
+          "path": "ahrefs_585f4691b0e399a160cb6e0c016b4fcd7b0c55de8ae4d7dc4c83d5d0761520b3",
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/ahrefs_585f4691b0e399a160cb6e0c016b4fcd7b0c55de8ae4d7dc4c83d5d0761520b3",
+          "size": 89,
+          "gitBlobSha1": "08c92a6519cb55e81f9a9a2efb0b6239bb03464c",
+          "required": false
+        },
+        {
+          "path": "favicon.ico",
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/favicon.ico",
+          "size": 25214,
+          "gitBlobSha1": "ccbe3d11cc19cb79e14cd3ef21fc2ca568672d0d",
+          "required": false
+        },
+        {
+          "path": "index.html",
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/index.html",
+          "size": 1395,
+          "gitBlobSha1": "0cb3d12ccc5ab8726854043676acb4216f54ad1f",
+          "required": false
+        },
+        {
+          "path": "js/analytics_ubg_v1_4.js",
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/js/analytics_ubg_v1_4.js",
+          "size": 745,
+          "gitBlobSha1": "371c2d2a9c15320a8c39f2a1af6a81d717be5860",
+          "required": false
+        },
+        {
+          "path": "js/null.js",
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/js/null.js",
+          "size": 10,
+          "gitBlobSha1": "7a2331eddd86d21c9eda2f95db403cde0d9b1a8f",
+          "required": false
+        },
+        {
+          "path": "js/ubg235_client_v1_1.js",
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/js/ubg235_client_v1_1.js",
+          "size": 593,
+          "gitBlobSha1": "ee3dc1a56147c6e24478bed816d1b146063fa3fb",
+          "required": false
+        },
+        {
+          "path": "json/config.json",
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/json/config.json",
+          "size": 2,
+          "gitBlobSha1": "9e26dfeeb6e641a33dae4961196235bdb965b21b",
+          "required": false
+        },
+        {
+          "path": "json/null.json",
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/json/null.json",
+          "size": 2,
+          "gitBlobSha1": "9e26dfeeb6e641a33dae4961196235bdb965b21b",
+          "required": false
+        },
+        {
+          "path": "json/ping.json",
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/json/ping.json",
+          "size": 2,
+          "gitBlobSha1": "9e26dfeeb6e641a33dae4961196235bdb965b21b",
+          "required": false
+        },
+        {
+          "path": "logo.png",
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/logo.png",
+          "size": 21050,
+          "gitBlobSha1": "09f09edf7333ef07ff43da6f07bbff96190eecc3",
+          "required": false
+        },
+        {
+          "path": "ubg235.html",
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/ubg235.html",
+          "size": 98,
+          "gitBlobSha1": "fcfe25aac1a33a291aa181e451fc15eeb8c634f4",
+          "required": false
+        },
+        {
+          "path": "unity/UnityProgress.js",
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/unity/UnityProgress.js",
+          "size": 4672,
+          "gitBlobSha1": "bda66d34f276300fbe8904ba5c9e47563b0797e8",
+          "required": true
+        },
+        {
+          "path": "unity/dummy.js",
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/unity/dummy.js",
+          "size": 753,
+          "gitBlobSha1": "36bb187ea83c57defe43cb881433a4a106498c0a",
+          "required": true
+        },
+        {
+          "path": "unity/favicon.ico",
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/unity/favicon.ico",
+          "size": 13275,
+          "gitBlobSha1": "dd6bf7e9cec4d87389fad00e34cd385321d748e1",
+          "required": false
+        },
+        {
+          "path": "unity/style.css",
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/unity/style.css",
+          "size": 18647,
+          "gitBlobSha1": "e8ddae035acf1b63ab1d19822e6318e802481378",
+          "required": true
+        },
+        {
+          "path": "unity/unity-mod.js",
+          "url": "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/unity/unity-mod.js",
+          "size": 786,
+          "gitBlobSha1": "85974a96f468f6695dabd1ddc2256022cc1fc53f",
+          "required": true
+        }
+      ],
+      "optionalUrls": [
+        "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/unity/favicon.ico",
+        "https://raw.githubusercontent.com/Slope3/Slope3.github.io/114ce2132ebfa47d8f4a82814d759d7bd34da2c7/favicon.ico"
+      ]
+    },
+    {
+      "slug": "subway-surfers",
+      "inspectSourceUrl": "https://watchdocumentaries.com/wp-content/uploads/games/subway-surfers/",
+      "requiredUrls": [
+        "https://watchdocumentaries.com/wp-content/uploads/games/subway-surfers/Build/ZurichNewPrivacy.json",
+        "https://watchdocumentaries.com/wp-content/uploads/games/subway-surfers/Build/ZurichNewPrivacy.data.unityweb",
+        "https://watchdocumentaries.com/wp-content/uploads/games/subway-surfers/Build/ZurichNewPrivacy.wasm.code.unityweb",
+        "https://watchdocumentaries.com/wp-content/uploads/games/subway-surfers/Build/ZurichNewPrivacy.wasm.framework.unityweb"
+      ],
+      "optionalUrls": [
+        "https://watchdocumentaries.com/wp-content/uploads/games/subway-surfers/Build/ZurichNewPrivacy.asm.code.unityweb",
+        "https://watchdocumentaries.com/wp-content/uploads/games/subway-surfers/Build/ZurichNewPrivacy.asm.memory.unityweb",
+        "https://watchdocumentaries.com/wp-content/uploads/games/subway-surfers/Build/ZurichNewPrivacy.asm.framework.unityweb"
+      ],
+      "fix": "Require the observed WASM data/code/framework trio; make the legacy ASM fallback triplet optional. The ASM code and memory URLs returned 404."
+    },
+    {
+      "slug": "death-run-3d",
+      "inspectSourceUrl": "https://watchdocumentaries.com/wp-content/uploads/games/death-run-3d/",
+      "requiredUrls": [
+        "https://watchdocumentaries.com/wp-content/uploads/games/death-run-3d/build.json",
+        "https://watchdocumentaries.com/wp-content/uploads/games/death-run-3d/death_run_wasm_v1.data.unityweb",
+        "https://watchdocumentaries.com/wp-content/uploads/games/death-run-3d/death_run_wasm_v1.wasm.code.unityweb",
+        "https://watchdocumentaries.com/wp-content/uploads/games/death-run-3d/death_run_wasm_v1.wasm.framework.unityweb"
+      ],
+      "optionalUrls": [
+        "https://watchdocumentaries.com/wp-content/uploads/games/death-run-3d/death_run_wasm_v1.asm.code.unityweb",
+        "https://watchdocumentaries.com/wp-content/uploads/games/death-run-3d/death_run_wasm_v1.asm.memory.unityweb",
+        "https://watchdocumentaries.com/wp-content/uploads/games/death-run-3d/death_run_wasm_v1.asm.framework.unityweb"
+      ],
+      "fix": "Require the observed WASM data/code/framework trio; make the legacy ASM fallback triplet optional. All three ASM URLs returned 404."
+    },
+    {
+      "slug": "tiny-fishing",
+      "inspectSourceUrl": "https://watchdocumentaries.com/wp-content/uploads/games/tiny-fishing/",
+      "requiredUrls": [
+        "https://watchdocumentaries.com/wp-content/uploads/games/tiny-fishing/html5game/TinyFishing.js"
+      ],
+      "optionalUrls": [
+        "https://watchdocumentaries.com/wp-content/uploads/games/tiny-fishing/html5game/tph_PokiExt.js"
+      ],
+      "removeRequiredUrls": [
+        "https://watchdocumentaries.com/poki-sdk.js"
+      ],
+      "fix": "The sole failed SDK reference is an HTML comment; remove or make optional only that exact root script tag."
+    },
+    {
+      "slug": "house-of-hazards",
+      "inspectSourceUrl": "https://watchdocumentaries.com/wp-content/uploads/games/house-of-hazards/",
+      "requiredUrls": [
+        "https://watchdocumentaries.com/wp-content/uploads/games/house-of-hazards/style.css",
+        "https://watchdocumentaries.com/wp-content/uploads/games/house-of-hazards/api.js",
+        "https://watchdocumentaries.com/wp-content/uploads/games/house-of-hazards/loader.js",
+        "https://watchdocumentaries.com/wp-content/uploads/games/house-of-hazards/Build/HouseOfHazardsPoki.json",
+        "https://watchdocumentaries.com/wp-content/uploads/games/house-of-hazards/Build/HouseOfHazardsPoki.data.unityweb",
+        "https://watchdocumentaries.com/wp-content/uploads/games/house-of-hazards/Build/HouseOfHazardsPoki.wasm.code.unityweb",
+        "https://watchdocumentaries.com/wp-content/uploads/games/house-of-hazards/Build/HouseOfHazardsPoki.wasm.framework.unityweb"
+      ],
+      "removeRequiredUrls": [
+        "https://watchdocumentaries.com/cloak.js"
+      ],
+      "fix": "Remove the exact broken portal cloak.js script tag; retain local game assets."
+    },
+    {
+      "slug": "fall-boys",
+      "inspectSourceUrl": "https://watchdocumentaries.com/wp-content/uploads/games/fall-boys/",
+      "requiredUrls": [
+        "https://watchdocumentaries.com/wp-content/uploads/games/fall-boys/css/game.css",
+        "https://watchdocumentaries.com/wp-content/uploads/games/fall-boys/js/fall_boys.js",
+        "https://watchdocumentaries.com/wp-content/uploads/games/fall-boys/js/fall_boys.json"
+      ],
+      "fix": "Resolve fall_boys.json relative to the entry document URL, yielding /fall-boys/js/fall_boys.json; do not resolve it relative to /fall-boys/js/fall_boys.js."
+    }
+  ]
+}

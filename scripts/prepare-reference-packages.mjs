@@ -280,7 +280,7 @@ function urlPathToLocalPath(urlValue, entryUrl, isEntry = false, allowExactExten
 }
 
 function normalizeReference(value) {
-  return value.replaceAll('\\/', '/').replaceAll('\\\\', '\\').trim();
+  return String(value ?? '').replaceAll('\\/', '/').replaceAll('\\\\', '\\').trim();
 }
 
 function resolveReference(value, baseUrl) {
@@ -293,6 +293,7 @@ function resolveReference(value, baseUrl) {
 }
 
 function collectHtmlReferences(html, baseUrl) {
+  html = html.replace(/<!--[\s\S]*?-->/g, '');
   const refs = [];
   const tagRe = /<(script|link|img|source|audio|video|track|iframe|object|embed|input|image|use|video|canvas|model-viewer|base)\b[^>]*>/gi;
   const attrRe = /([\w:-]+)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/g;
@@ -343,7 +344,7 @@ function collectQuotedStaticReferences(text, baseUrl, exactConfig = false) {
   let match;
   while ((match = re.exec(text))) {
     const candidate = normalizeReference(match[2]).replace(/\\u002[fF]/g, '/').replace(/\\x2[fF]/g, '/');
-    if (!candidate || candidate.includes('${') || candidate.length > 2_000 || !/\.(?:html?|css|m?js|cjs|json|wasm|data|unityweb|br|gz|png|jpe?g|gif|webp|avif|svg|ico|ktx2?|basis|hdr|env|glb|gltf|bin|arcd|arci|dmanifest|projectc|dmloader|dmwasm|opus|mp[34]|ogg|wav|woff2?|ttf|otf)(?:\.(?:br|gz|unityweb))?(?:[?#].*)?$/i.test(candidate)) continue;
+    if (!candidate || candidate.includes('${') || candidate.length > 2_000 || !/\.(?:html?|css|m?js|cjs|json|wasm|data|unityweb|br|gz|png|jpe?g|gif|webp|avif|svg|ico|ktx2?|basis|hdr|env|glb|gltf|bin|arcd|arci|dmanifest|projectc|dmloader|dmwasm|opus|mp[34]|ogg|wav|woff2?|ttf|otf|pak)(?:\.(?:br|gz|unityweb))?(?:[?#].*)?$/i.test(candidate)) continue;
     const url = resolveReference(candidate, baseUrl);
     if (url && isAllowedStaticUrl(url.href) && !isBlockedAdOrAnalyticsUrl(url.href) && !isAuditedExternalUrl(url.href)) refs.push({ url: stripFragment(url).href, required: exactConfig && SCRIPT_STYLE_EXTENSIONS.has(extFor(url.href)), evidence: exactConfig ? 'quoted-config-ref' : 'quoted-static-heuristic' });
   }
@@ -576,6 +577,9 @@ async function scanPackage(pkg, totalUsed) {
           for (const found of collectCssReferences(decodedForDetection.toString('utf8'), response.finalUrl)) enqueue(found);
         } else if (contentType.includes('javascript') || ['.js', '.mjs', '.cjs'].includes(assetTextExtension(ref.url))) {
           for (const found of collectQuotedStaticReferences(decodedForDetection.toString('utf8'), response.finalUrl)) enqueue(found);
+          // Classic engine scripts resolve runtime URL literals against the document.
+          // Follow the same observed literals at that base; do not invent suffixes.
+          for (const found of collectQuotedStaticReferences(decodedForDetection.toString('utf8'), entryUrl)) enqueue({...found,evidence:'document-base:'+found.evidence});
         } else if (isUnityMetadata(ref.url, contentType) || assetTextExtension(ref.url) === '.json') {
           for (const found of collectQuotedStaticReferences(decodedForDetection.toString('utf8'), response.finalUrl, true)) enqueue(found);
           for (const found of collectJsonAssetReferences(decodedForDetection, response.finalUrl)) enqueue(found);
@@ -789,7 +793,7 @@ async function ensurePackageOutputAllowed(pkg) {
   return target;
 }
 
-async function recordMode() {
+async function recordMode(selectedSlugs = null) {
   const manifest = await readJson(SOURCE_FILE);
   if (!Array.isArray(manifest.packages)) manifest.packages = [];
   manifest.audit ||= path.relative(ROOT, AUDIT_FALLBACK);
@@ -855,7 +859,9 @@ async function recordMode() {
   }
   let checkpoint = Promise.resolve();
   const totalUsed = { value: manifest.packages.filter(pkg => validReady.has(pkg.slug)).reduce((sum, pkg) => sum + (pkg.totalSourceBytes || pkg.files.reduce((n, file) => n + file.sourceSize, 0)), 0) };
-  const pending = manifest.packages.filter(pkg => !validReady.has(pkg.slug));
+  const selected = selectedSlugs ? new Set(selectedSlugs) : null;
+  if (selected && (selected.size !== selectedSlugs.length || ![...selected].every(slug => safeSlug(slug) && manifest.packages.some(pkg => pkg.slug === slug)))) throw new Error('Invalid, duplicate, or unknown selected package slugs.');
+  const pending = manifest.packages.filter(pkg => !validReady.has(pkg.slug) && (!selected || selected.has(pkg.slug)));
   await mapLimit(pending, PACKAGE_CONCURRENCY, async pkg => {
     console.log(`[record:${pkg.slug}] starting ${pkg.entryUrl}`);
     try {
@@ -886,6 +892,11 @@ async function recordMode() {
   await atomicJson(SOURCE_FILE, manifest);
   const readyCount = manifest.packages.filter(pkg => pkg.ready).length;
   console.log(`Recorded ${readyCount}/${manifest.packages.length} reference packages (${manifest.totalFiles} files, ${manifest.totalBytes} bytes).`);
+  if (selected) {
+    const failed = manifest.packages.filter(pkg => selected.has(pkg.slug) && !pkg.ready);
+    if (failed.length) throw new Error(`Selected source packages incomplete: ${failed.map(pkg => pkg.slug).join(', ')}`);
+    return;
+  }
   if (readyCount !== manifest.expectedPackageCount) throw new Error(`${manifest.packages.length - readyCount} required reference packages are not ready; inspect per-package errors in the checkpoint.`);
 }
 
@@ -1014,6 +1025,10 @@ async function mapLimit(items, limit, callback) {
 
 const arg = process.argv[2];
 if (arg === '--record') await recordMode();
+else if (arg === '--record-selected') {
+  if (!process.argv[3]) throw new Error('Pass comma-separated game slugs for --record-selected.');
+  await recordMode(process.argv[3].split(','));
+}
 else if (arg === undefined || arg === '--build') await buildMode();
 else if (arg === '--build-selected') {
   if (!process.argv[3]) throw new Error('Pass comma-separated pinned game slugs for --build-selected.');

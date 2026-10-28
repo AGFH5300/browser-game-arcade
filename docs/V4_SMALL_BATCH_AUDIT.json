@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "auditDate": "2026-10-28",
+  "scope": "Static package audit for the selected ten archive outputs. No gameplay or browser QA was performed.",
+  "method": {
+    "artifactChecks": "Compared each source-manifest file against on-disk presence, byte size, and SHA-256; reconciled file counts and artifact byte totals.",
+    "referenceChecks": "Inspected entry HTML, CSS, runtime bootstrap code, and static local asset references. Treated conditional SDK, platform, and user-triggered download references separately from core runtime assets.",
+    "encoding": "All pinned output files in this batch record identity wire and artifact encodings. No compressed Unity payload was successfully included.",
+    "httpHeaders": "Not verified. A bounded localhost request was refused by the local dev listener, so Content-Type and Content-Encoding response headers remain unconfirmed.",
+    "gameplayQA": "Not performed; left to the user per recovery instructions."
+  },
+  "batchIntegrity": {
+    "allPinnedOutputFilesPresent": true,
+    "allPinnedOutputSizesMatchManifest": true,
+    "allPinnedOutputSha256MatchManifest": true,
+    "allArtifactByteTotalsReconcile": true,
+    "note": "These checks establish integrity of files that were packaged; they do not establish that optional or undiscovered runtime dependencies are complete."
+  },
+  "packages": [
+    {
+      "slug": "funny-shooter-2",
+      "sourceFiles": 6,
+      "artifactFiles": 7,
+      "artifactBytes": 105621,
+      "runtimeCore": "incomplete",
+      "staticIntegration": "hold",
+      "blockingIssues": [
+        "The entry config declares a Unity 2020.3.37f1 build with cached decompressed payloads of about 33 MB. The package has only 105,621 artifact bytes and omits FunnyShooter2_Poki.data.unityweb, framework.js.unityweb, loader.js, wasm.unityweb, and the configured game JPEG; the manifest records 404s for these paths. master-loader.js and unity-2020.js alone are only loaders, not the game runtime payload."
+      ],
+      "action": "Recover and hash-pin the Unity data, framework, loader, wasm, and referenced image files before integration."
+    },
+    {
+      "slug": "icy-purple-head",
+      "sourceFiles": 9,
+      "artifactFiles": 10,
+      "artifactBytes": 209799,
+      "runtimeCore": "incomplete",
+      "staticIntegration": "hold",
+      "blockingIssues": [
+        "Construct 3 main.js explicitly configures engineScripts [scripts/c3runtime.js], but c3runtime.js is absent. workermain.js and box2d.wasm.js are also missing; the source manifest records 404s. The presence of main.js is not a complete Construct runtime."
+      ],
+      "action": "Recover the pinned Construct runtime and required worker dependencies, then repeat the reference and hash audit."
+    },
+    {
+      "slug": "among-us",
+      "sourceFiles": 19,
+      "artifactFiles": 20,
+      "artifactBytes": 598526,
+      "runtimeCore": "incomplete",
+      "staticIntegration": "hold",
+      "blockingIssues": [
+        "Construct 3 main.js explicitly requests scripts/c3runtime.js, which is absent. workermain.js is also missing. The packaged opus wasm files do not replace the Construct runtime core."
+      ],
+      "action": "Recover c3runtime.js and worker dependencies before integration."
+    },
+    {
+      "slug": "paper-io",
+      "sourceFiles": 10,
+      "artifactFiles": 11,
+      "artifactBytes": 1428493,
+      "runtimeCore": "present with non-core reference gaps",
+      "staticIntegration": "eligible-for-static-integration-with-caveats",
+      "blockingIssues": [],
+      "nonBlockingIssues": [
+        "index.html references manifest.json and ../favicon.png, neither is packaged; these are PWA/icon references.",
+        "The packaged Latin PT Sans WOFF2 file is a 97-byte plain-text 'No Content' placeholder, and the other font slices return 404; expect fallback typography until valid font files are pinned.",
+        "The loader includes Google/Input Tools references that the archive CSP will block. No external calls were enabled or bypassed; gameplay/network behavior still needs the user's manual QA."
+      ],
+      "action": "For a polished package, repair the font references and either add manifest/icon files or remove only the non-core references after review. Preserve the archive CSP."
+    },
+    {
+      "slug": "pixel-shooter",
+      "sourceFiles": 6,
+      "artifactFiles": 7,
+      "artifactBytes": 1895815,
+      "runtimeCore": "incomplete",
+      "staticIntegration": "hold",
+      "blockingIssues": [
+        "The Cocos settings declare hasResourcesBundle=true and launchScene=db://assets/loadBundle.fire, but the package contains no assets/resources bundle, scene, or bundle manifest. The 1.86 MB cocos2d-js file is the engine; settings and the small 27.6 KB main script do not provide the game scene/content."
+      ],
+      "action": "Recover and pin the Cocos main/resources bundle and launch scene. Physics files are conditional and are not the primary blocker."
+    },
+    {
+      "slug": "drive-mad",
+      "sourceFiles": 8,
+      "artifactFiles": 9,
+      "artifactBytes": 2886632,
+      "runtimeCore": "present",
+      "staticIntegration": "eligible-for-static-integration-with-caveats",
+      "blockingIssues": [],
+      "nonBlockingIssues": [
+        "The Fancade shell references ancillary common/view files and sound assets that returned 404; the packaged index.wasm and index.data game payloads are present."
+      ],
+      "action": "Static package is suitable for user gameplay QA. Check the archive host serves index.wasm as application/wasm and the data file without an incorrect Content-Encoding before promotion."
+    },
+    {
+      "slug": "geometry-dash-hyper-wave",
+      "sourceFiles": 8,
+      "artifactFiles": 9,
+      "artifactBytes": 3319060,
+      "runtimeCore": "present with platform-SDK dependency",
+      "staticIntegration": "eligible-for-static-integration-with-caveats",
+      "blockingIssues": [],
+      "nonBlockingIssues": [
+        "The GameMaker core and three texture atlases are packaged. YaGames adapter code attempts to load relative sdk.js, which is absent; the archive CSP also blocks external SDK/network calls. The game code repeatedly checks SDK initialization, so user QA must confirm it reaches its normal start state without the publisher SDK."
+      ],
+      "action": "Integrate only as a static QA candidate under the existing CSP. Do not inject a fake SDK or bypass the CSP; resolve publisher SDK availability or confirm graceful behavior before release."
+    },
+    {
+      "slug": "retro-bowl",
+      "sourceFiles": 6,
+      "artifactFiles": 7,
+      "artifactBytes": 3838123,
+      "runtimeCore": "present",
+      "staticIntegration": "eligible-for-static-integration-with-caveats",
+      "blockingIssues": [],
+      "nonBlockingIssues": [
+        "GameMaker runtime and both texture atlases are packaged. The Poki adapter is included as a file but not referenced by the entry HTML; the inline bootstrap falls back to GameMaker_Init when PokiSDK is unavailable. Publisher services remain blocked by archive CSP."
+      ],
+      "action": "Static package is suitable for user gameplay QA; keep publisher services blocked and do not claim gameplay verified."
+    },
+    {
+      "slug": "level-devil",
+      "sourceFiles": 3,
+      "artifactFiles": 4,
+      "artifactBytes": 4629504,
+      "runtimeCore": "incomplete",
+      "staticIntegration": "hold",
+      "blockingIssues": [
+        "The compiled OpenFL/Lime script embeds an asset manifest whose libraryArgs name lib/default.pak with gzip packing, but no lib/default.pak or other asset pack is present. The manifest also records 404s for game-config/assets references. The 4.6 MB JavaScript bootstrap alone is not the packaged game content."
+      ],
+      "action": "Recover and hash-pin the referenced packed asset library (and validate its compression handling) before integration."
+    },
+    {
+      "slug": "stickman-hook",
+      "sourceFiles": 54,
+      "artifactFiles": 55,
+      "artifactBytes": 4770875,
+      "runtimeCore": "present with cosmetic asset gaps",
+      "staticIntegration": "eligible-for-static-integration-with-caveats",
+      "blockingIssues": [],
+      "nonBlockingIssues": [
+        "The bundle contains the START/MIDDLE/FINISH level JSON modules inline; the 115 missing level-JSON URLs reported by the broad static scanner are bundled module names, not absent files required by the loader.",
+        "26 seasonal shop, character thumbnail, popup, and shadow images returned 404; core bundle and startup assets are present, but those cosmetics may display missing-image placeholders.",
+        "Poki/ad/social endpoints are external and remain blocked by archive CSP."
+      ],
+      "action": "Static package is suitable for user gameplay QA. Confirm missing cosmetic images fail gracefully; keep external publisher services blocked."
+    }
+  ],
+  "staticIntegrationCandidates": [
+    "paper-io",
+    "drive-mad",
+    "geometry-dash-hyper-wave",
+    "retro-bowl",
+    "stickman-hook"
+  ],
+  "onHold": [
+    "funny-shooter-2",
+    "icy-purple-head",
+    "among-us",
+    "pixel-shooter",
+    "level-devil"
+  ],
+  "releaseReadiness": "No package is declared playable or production-ready by this audit. The candidate list means asset-level static integration and user QA can proceed; it does not record successful gameplay or SDK/WebGL QA."
+}

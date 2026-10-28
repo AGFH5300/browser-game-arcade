@@ -2478,3 +2478,4 @@
     "method": "Runtime HTML assets came from exact captured HTML tags, CSS, quoted static file strings, and exact UnityLoader.instantiate JSON argument paths. Modern config string concatenations were statically resolved when all operands were observed string literals; unresolved dynamic expressions are called out in notes. Fetched Unity config JSON asset paths were resolved relative to the config JSON URL directory. No gameplay/browser execution or access-filter bypass."
   }
 }
+

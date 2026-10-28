@@ -1,0 +1,169 @@
+{
+  "formatVersion": 1,
+  "slug": "ragdoll-hit",
+  "source": "bubbls/UGS-Assets",
+  "revision": "a701d831beaf842d5472ebfe2d64b0bbc2fd4c1a",
+  "sourcePath": "ragdoll-hit",
+  "entry": "index.html",
+  "cache": ".next/cache/sidequest-games/ragdoll/<revision>",
+  "output": "public/play/archives/ragdoll-hit",
+  "provenance": {
+    "sourceDescription": "Public GitHub asset mirror; source files are pinned to this exact commit and Git blob SHA-1.",
+    "sourceLicense": "No LICENSE, COPYING, or NOTICE file was found at the pinned repository root or ragdoll-hit directory. This does not establish an upstream license.",
+    "ownerPermission": "Project handoff records owner authorization for the selected game content. This is separate from, and does not assert, an upstream license.",
+    "originalEntry": "The pinned index refers to mutable google-class/merge.js and a mutable base path. Neither is used by the local package."
+  },
+  "modifications": [
+    "Replace the original portal entry and master loader with a clean local Unity 2022.3.6f1 createUnityInstance bootstrap using the pinned v84 loader and exact product metadata.",
+    "Keep the original Poki SDK loader and core files unchanged; initialize the SDK and forward only the original ready/adblock and loading callbacks.",
+    "Reassemble the original data, framework and wasm .unityweb files from their GitHub-pinned parts in the listed order, with no core or SDK patch."
+  ],
+  "files": [
+    {
+      "path": "Build/3276aa7c11496bcc48eb6908f112f0c3.js.unityweb.part1",
+      "size": 365286,
+      "sha": "e63745cc1c5b10677ac5bca18125ef14d132be93",
+      "include": true,
+      "handling": "Pinned raw source part; joined in listed order into the original Unity filename."
+    },
+    {
+      "path": "Build/959bf1c60308f1c34bf072f43c3c17d4.data.unityweb.part1",
+      "size": 13459814,
+      "sha": "1a71351e89d4b02d7343e64f02aed2177b9409c8",
+      "include": true,
+      "handling": "Pinned raw source part; joined in listed order into the original Unity filename."
+    },
+    {
+      "path": "Build/f23c0f3f40a28f1adce731399dde22aa.wasm.unityweb.part1",
+      "size": 19922944,
+      "sha": "a92e983b8fd0a03019155a49050a3cd5c5eb4199",
+      "include": true,
+      "handling": "Pinned raw source part; joined in listed order into the original Unity filename."
+    },
+    {
+      "path": "Build/f23c0f3f40a28f1adce731399dde22aa.wasm.unityweb.part2",
+      "size": 5557388,
+      "sha": "e804eeb1779bb6104dc71e96dd1f84af32341ff8",
+      "include": true,
+      "handling": "Pinned raw source part; joined in listed order into the original Unity filename."
+    },
+    {
+      "path": "Build/v84.loader.js",
+      "size": 114199,
+      "sha": "5101b9854ff477627f7b0243573c0defb4774c0c",
+      "include": true,
+      "handling": "Pinned Unity loader copied unchanged."
+    },
+    {
+      "path": "index.html",
+      "size": 2160,
+      "sha": "788c21c5478ff5ab8c4ba254005ba7add267004f",
+      "include": false,
+      "handling": "Original portal entry retained in provenance only; replaced by a clean local Unity bootstrap."
+    },
+    {
+      "path": "master-loader.js",
+      "size": 1192,
+      "sha": "41dfd1a8bd96771e49f74de7d9d340ebdf82bbfb",
+      "include": false,
+      "handling": "Original portal loader/template excluded; not executed or copied."
+    },
+    {
+      "path": "MobileDetect.js",
+      "size": 39586,
+      "sha": "e7be99576c8c192d7a41ab037b782898b84fce30",
+      "include": true,
+      "handling": "Original game companion asset copied unchanged."
+    },
+    {
+      "path": "poki-sdk-core-v2.263.0.js",
+      "size": 173232,
+      "sha": "fcc3d96efdde4157a975b224efe5d866eeba0a8f",
+      "include": true,
+      "handling": "Original game companion asset copied unchanged."
+    },
+    {
+      "path": "poki-sdk.js",
+      "size": 3212,
+      "sha": "5730af1a9e065846d4e6d86356f218e0029e715d",
+      "include": true,
+      "handling": "Original game companion asset copied unchanged."
+    },
+    {
+      "path": "screenshots/1-small.jpg",
+      "size": 1379,
+      "sha": "76a36626ef5854c0ef159aff34b00ab5486d823f",
+      "include": true,
+      "handling": "Original preview image copied unchanged."
+    },
+    {
+      "path": "screenshots/1.jpg",
+      "size": 11126,
+      "sha": "1a4be40b27655540ec8ba18e72a9e57199a86d03",
+      "include": true,
+      "handling": "Original preview image copied unchanged."
+    },
+    {
+      "path": "screenshots/2-small.jpg",
+      "size": 1067,
+      "sha": "347af51222794f60c64e3c07a9da6c5117f4507d",
+      "include": true,
+      "handling": "Original preview image copied unchanged."
+    },
+    {
+      "path": "screenshots/2.jpg",
+      "size": 7138,
+      "sha": "b7f43bf324fa3730d96c500743cd0a9b37f88333",
+      "include": true,
+      "handling": "Original preview image copied unchanged."
+    },
+    {
+      "path": "screenshots/3-small.jpg",
+      "size": 1219,
+      "sha": "7d1c034e01544b464cc09ced55a6fafbaed41baf",
+      "include": true,
+      "handling": "Original preview image copied unchanged."
+    },
+    {
+      "path": "thumbnail.png",
+      "size": 131,
+      "sha": "457b82b1ae7c01b178bf77fc469c0cc41a663a6d",
+      "include": true,
+      "handling": "Original game companion asset copied unchanged."
+    },
+    {
+      "path": "unity-2020.js",
+      "size": 32043,
+      "sha": "a7a7c044d48bbe9e03b6ce81d91bdea08dbfaab1",
+      "include": false,
+      "handling": "Original portal loader/template excluded; not executed or copied."
+    }
+  ],
+  "assemblies": [
+    {
+      "outputPath": "Build/959bf1c60308f1c34bf072f43c3c17d4.data.unityweb",
+      "parts": [
+        "Build/959bf1c60308f1c34bf072f43c3c17d4.data.unityweb.part1"
+      ],
+      "size": 13459814,
+      "sha256": "14b1c71965daef879f425661f92e2caf4b10cce1841501605bbd66827215cfbb"
+    },
+    {
+      "outputPath": "Build/3276aa7c11496bcc48eb6908f112f0c3.js.unityweb",
+      "parts": [
+        "Build/3276aa7c11496bcc48eb6908f112f0c3.js.unityweb.part1"
+      ],
+      "size": 365286,
+      "sha256": "f03903333be45fb5d00f8be063984ea484f340f32f4e0b2bb71497aff72a6e21"
+    },
+    {
+      "outputPath": "Build/f23c0f3f40a28f1adce731399dde22aa.wasm.unityweb",
+      "parts": [
+        "Build/f23c0f3f40a28f1adce731399dde22aa.wasm.unityweb.part1",
+        "Build/f23c0f3f40a28f1adce731399dde22aa.wasm.unityweb.part2"
+      ],
+      "size": 25480332,
+      "sha256": "8338ea05e4a9b8d0684049ad816203d72b04f0c064733aa110be89a142a4c00d"
+    }
+  ]
+}
