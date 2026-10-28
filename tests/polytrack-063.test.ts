@@ -31,5 +31,11 @@ test('PolyTrack 0.6.3 is a complete pinned local game, not an outdated external 
  assert(entry.includes('../../arcade-bridge.js'));
  assert(entry.includes('window.polytrackModConfiguration'));
  assert(entry.includes('main.bundle.js'));
+ assert(entry.includes('menu-layout.js'));
+ const layout=readFileSync(folder+'menu-layout.js','utf8');
+ assert(layout.includes('sidequest-polytrack-info'));
+ assert(layout.includes('Unofficial PolyModLoader mod by'));
+ assert(layout.includes('Never relocate sibling menu buttons'));
+
  assert(manifest.assetCount>500);
 });
