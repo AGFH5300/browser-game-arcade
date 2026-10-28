@@ -30,3 +30,9 @@ test('live archive audit self-check runs (no disabled one-line script)',()=>{
  const out=execFileSync(process.execPath,['scripts/audit-live-archive-refs.mjs','--self-check'],{cwd:resolve('.'),encoding:'utf8'});
  assert.match(out,/"selfCheck":"passed"/);
 });
+
+test('live archive smoke includes the original 26 puzzle entries as well as reference and Gameria packages',()=>{
+ const source=readFileSync('scripts/audit-live-archive-refs.mjs','utf8');
+ assert.match(source,/data\/seed-games\.json/);
+ assert.match(source,/\.\.\.inventory,\.\.\.gamerias,\.\.\.seed/);
+});

@@ -80,9 +80,19 @@ if(args.includes('--self-check')){
   console.log(JSON.stringify({selfCheck:'passed',refs:x.length}));process.exit(0);
 }
 const inventory=JSON.parse(await readFile(path.join(root,'data/reference-games.json'),'utf8'));
+const seed=JSON.parse(await readFile(path.join(root,'data/seed-games.json'),'utf8'));
 const gameria=JSON.parse(await readFile(path.join(root,'data/gameria-games.json'),'utf8'));
 const gamerias=[...(gameria.newGames||[])];
-const games=[...inventory,...gamerias].filter(g=>typeof g.gameUrl==='string'&&g.gameUrl.startsWith('https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/'));
+const archiveOrigin='https://browser-game-arcade-dxbavg-7923s-projects.vercel.app';
+const appOrigin='https://browser-game-arcade.vercel.app';
+const games=[...inventory,...gamerias,...seed].flatMap(g=>{
+ const value=g.gameUrl;
+ if(typeof value!=='string')return [];
+ // Original puzzle and 2048 games are same-site relative assets, not archives.
+ const url=value.startsWith('/play/')?appOrigin+value:value;
+ if(url.startsWith(archiveOrigin+'/play/archives/')||url.startsWith(appOrigin+'/play/'))return [{...g,gameUrl:url}];
+ return [];
+});
 const unique=[...new Map(games.map(g=>[g.gameUrl,g])).values()];
 const entries=await batch(unique,async game=>{
   const r=await request(game.gameUrl,300000);
@@ -105,7 +115,7 @@ const checks=await batch([...lookup.values()],async ref=>{
 const failures=checks.filter(e=>e.status!==200);
 const report={
   createdAt:new Date().toISOString(),
-  scope:'All unique local WatchDocumentaries reference games and Flipline Gameria records; entry HTML and first-level local URLs.',
+  scope:'All unique local WatchDocumentaries reference games, Flipline Gamerias, and original Sidequest puzzle/2048 entries; entry HTML and first-level local URLs.',
   limitations:'Does not execute gameplay, check audio, WebGL, cross-device multiplayer, asset hashes, dynamic JS imports or runtime service availability. The build-time packaged runtime audit checks hashes and known engine dependencies separately.',
   entryPages:entries.length,entryErrors,
   assetReferences:checks.length,successfulAssetReferences:checks.length-failures.length,
