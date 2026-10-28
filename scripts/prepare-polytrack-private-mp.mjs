@@ -10,7 +10,7 @@ for(const endpoint of hosts){
  if(index<0)throw Error('Missing multiplayer client endpoint '+endpoint);
  const before=copy.lastIndexOf('"https://vps.kodub.com/"',index);
  if(before<0||index-before>340)throw Error('Unexpected PolyTrack multiplayer endpoint layout '+endpoint);
- copy=copy.slice(0,before)+'"https://browser-game-arcade.vercel.app/api/polytrack-mp/"'+copy.slice(before+'"https://vps.kodub.com/"'.length);
+ copy=copy.slice(0,before)+'(window.location.origin + "/api/polytrack-mp/")'+copy.slice(before+'"https://vps.kodub.com/"'.length);
 }
 if(copy===source)throw Error('Missing replacements');
 const html=await readFile(root+'index.html','utf8');

@@ -76388,7 +76388,7 @@ ActivePolyModLoader.importMods()
                   "WebSocket creation not allowed with non-deterministic physics",
                 );
               return new WebSocket(
-                "https://browser-game-arcade.vercel.app/api/polytrack-mp/" +
+                (window.location.origin + "/api/polytrack-mp/") +
                   (0, R.gn)(this, Af, "f") +
                   "multiplayer/host",
               );
@@ -76399,7 +76399,7 @@ ActivePolyModLoader.importMods()
                   "WebSocket creation not allowed with non-deterministic physics",
                 );
               return new WebSocket(
-                "https://browser-game-arcade.vercel.app/api/polytrack-mp/" +
+                (window.location.origin + "/api/polytrack-mp/") +
                   (0, R.gn)(this, Af, "f") +
                   "multiplayer/join",
               );
@@ -76407,7 +76407,7 @@ ActivePolyModLoader.importMods()
             getIceServers() {
               return new Promise((e, t) => {
                 const n =
-                    "https://browser-game-arcade.vercel.app/api/polytrack-mp/" +
+                    (window.location.origin + "/api/polytrack-mp/") +
                     (0, R.gn)(this, Af, "f") +
                     "iceServers?version=0.6.3",
                   i = new XMLHttpRequest();

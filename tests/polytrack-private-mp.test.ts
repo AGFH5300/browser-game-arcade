@@ -37,8 +37,8 @@ test('opt-in game client redirects only multiplayer and ICE URLs',()=>{
  assert(markup.includes('private-main.bundle.js'));
  assert(!markup.includes('src="main.bundle.js"'));
  assert(standard.includes('https://vps.kodub.com/'));
- assert(pilot.includes('https://browser-game-arcade.vercel.app/api/polytrack-mp/'));
- assert.equal((pilot.match(/https:\/\/browser-game-arcade.vercel.app\/api\/polytrack-mp\//g)||[]).length,3);
+ assert(pilot.includes('window.location.origin + "/api/polytrack-mp/"'));
+ assert.equal((pilot.match(/window\.location\.origin \+ "\/api\/polytrack-mp\/"/g)||[]).length,3);
  assert(pilot.includes('"user?version=0.6.3&userToken="')); // User profile endpoint unchanged.
  assert(pilot.includes('"trackOfTheWeek?version=0.6.3"')); // No fake official data.
 });
