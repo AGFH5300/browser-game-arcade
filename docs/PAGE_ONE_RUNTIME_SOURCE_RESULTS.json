@@ -1,0 +1,26 @@
+{
+  "pinned": {
+    "granny-2": 3
+  },
+  "statuses": {
+    "404": 3,
+    "pinned": 3
+  },
+  "skipped": [
+    {
+      "slug": "granny",
+      "path": "StreamingAssets/Audio/Audio/_Done/RatDie_MP3.mp3",
+      "reason": "404"
+    },
+    {
+      "slug": "granny",
+      "path": "StreamingAssets/Audio/Audio/_Done/RatNoise_MP3.mp3",
+      "reason": "404"
+    },
+    {
+      "slug": "geometry-dash-hyper-wave",
+      "path": "html5game/GameData.ini",
+      "reason": "404"
+    }
+  ]
+}

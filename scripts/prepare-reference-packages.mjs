@@ -749,6 +749,14 @@ function makeArtifactTransforms(pkg, file, bytes, bridgeBytes, localBySourceUrl,
         const scriptExt = /json/.test(type) ? '.json' : '.js';
         return `<script${attrs}>${rewriteTextReferences(script, scriptExt, fileUrl, resolveLocalUrl)}</script>`;
       });
+      if(pkg.slug==='granny' && file.path===requiredEntryPath(pkg)) {
+        // Upstream Granny page tries to set #logo.style although #logo is
+        // absent in its shipped markup. Don't throw during startup.
+        const previous=text;
+        text=text.replace("var hiddenBlock = document.querySelector('#logo');",
+          "var hiddenBlock = document.querySelector('#logo'); if (!hiddenBlock) return;");
+        if(previous!==text)mods.push('Guarded missing optional Granny #logo element during resize check.');
+      }
       const bridgeLocal = path.posix.relative(path.posix.dirname(file.path), 'bridge.js') || 'bridge.js';
       const bridgeRef = bridgeLocal.startsWith('.') ? bridgeLocal : `./${bridgeLocal}`;
       if (/<head\b[^>]*>/i.test(text)) {
@@ -757,7 +765,21 @@ function makeArtifactTransforms(pkg, file, bytes, bridgeBytes, localBySourceUrl,
       } else if (file.path === requiredEntryPath(pkg)) {
         throw new Error(`Required HTML has no <head> for bridge injection: ${pkg.slug}/${file.path}`);
       } else mods.push(`Preserved non-entry HTML without head: ${file.path}`);
-    } else text = rewriteTextReferences(text, extension, fileUrl, resolveLocalUrl);
+    } else if (pkg.slug==='ovo' && file.path==='c2runtime.js') {
+      // Construct 2 uses expressions like typeof x === "undefined" ? 200 : 0.
+      // Generic URL rewriting interpreted the expression tail as a URL query,
+      // injecting ./c2runtime.js?%20200... and producing invalid JavaScript.
+      mods.push('Preserved original valid Construct 2 runtime; skipped unsafe generic JS string rewriting.');
+    } else {
+      text = rewriteTextReferences(text, extension, fileUrl, resolveLocalUrl);
+      if (file.path==='master-loader.js' && ['rocket-league','subway-surfers'].includes(pkg.slug)) {
+        // Local relative rewrites changed the source loader's split delimiter,
+        // causing master-loader.js./unity.js 404 rather than /unity.js.
+        const fixed=text.replace(/\.split\(["']\.\/master-loader\.js["']\)/g, '.split("master-loader.js")');
+        if(fixed!==text)mods.push('Restored loader script URL delimiter for correct Unity asset base path.');
+        text=fixed;
+      }
+    }
     transformed = encodeContentEncoding(Buffer.from(text, 'utf8'), contentEncoding);
   } else {
     transformed = normalizeCloudflareAnalytics(bytes, type);
