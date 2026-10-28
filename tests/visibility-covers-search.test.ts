@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createElement} from 'react';
 import {renderToStaticMarkup} from 'react-dom/server';
-import {Header} from '../components/shell';
+import {Header,Footer} from '../components/shell';
 import {Advertising} from '../components/advertising';
 import {getDisplayCover,originalCovers} from '../lib/carlwalks-covers';
 import {GET} from '../app/api/original-covers/[slug]/route';
@@ -49,4 +49,16 @@ test('hosted games show a real pre-launch mute control; external publishers show
   assert(!local.includes('aria-label="Mute game" disabled'));
   assert(external.includes('aria-label="How to mute this publisher game"'));
   assert(!external.includes('aria-label="Mute game"'));
+});
+
+test('play screen has no generic keyboard recommendations or publisher credits before launch',async()=>{
+  const {Player}=await import('../components/player');
+  for(const game of seed.slice(0,5)){
+    const html=renderToStaticMarkup(createElement(Player,{game:{...game,playCount:0,likes:0} as Game}));
+    assert(!html.includes('Best with a keyboard and mouse'),game.slug);
+    assert(!html.includes('Works with touch, mouse or keyboard'),game.slug);
+    assert(!html.includes('class="publisher-disclosure"'),game.slug);
+  }
+  const footer=renderToStaticMarkup(createElement(Footer));
+  assert(!footer.includes('Game credits'));
 });
