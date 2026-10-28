@@ -10,10 +10,17 @@
   "officialGame": "https://www.crazygames.com/game/polytrack",
   "sourceType": "Community-maintained source mirror containing 0.6.3 game build and PolyModLoader. Not claimed as Kodub-authored GitHub repo.",
   "authorization": "Site owner confirms permission; required creator notices and source license retained.",
-  "assetCount": 558,
-  "totalBytes": 18973448,
+  "assetCount": 559,
+  "totalBytes": 18973466,
   "sha256MainBundle": "9b73b277c1e4fb970ca50ffb1512aec050c4af7ed5b6b3ac54031c2d52410679",
   "sha256PhysicsWasm": "d4ef02676973d41afc34b23b5248f6950b35dc4cc7e3047e3a9c6bd88e4c180e",
   "manualGameplay": "Pending user browser/WebGL check",
-  "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/polytrack/index.html"
+  "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/polytrack/index.html",
+  "sha256PolyModLoader": "cd8efe1312ee03e5cdc1a7ac79669f1b250307a0f69d26b0d1f6d180a718b898",
+  "runtimeFixes": [
+    "Load audio bridge from isolated Sidequest static host allowlist",
+    "Resolve PolyModLoader metadata from local pml-package.json",
+    "Load PolyModLoader logo from local assets"
+  ],
+  "onlineServices": "Kodub API CORS/WebSocket origin authorization is server-controlled; Sidequest cannot enable multiplayer without the authorized backend accepting this origin."
 }

@@ -131,7 +131,7 @@ async function resolvePmlVersion() {
     }
     // Plain web
     try {
-        const res = await fetch("/package.json", { signal: AbortSignal.timeout(3000) });
+        const res = await fetch("./pml-package.json", { signal: AbortSignal.timeout(3000) });
         if (!res.ok)
             throw new Error(`HTTP ${res.status}`);
         const pkg = await res.json();
@@ -515,7 +515,7 @@ class PolyModLoaderImpl {
         loadingDiv.style.backgroundColor = "#192042";
         loadingDiv.style.transition = "background-color 1s ease-out";
         loadingDiv.style.overflow = "hidden";
-        loadingDiv.innerHTML = `<img src="https://cdn.polymodloader.com/pml/PolyModLoader/0.6.0/images/pmllogo.svg" style="width: calc(100vw * (1000 / 1300)); height: 200px; margin: 30px auto 0 auto" />`;
+        loadingDiv.innerHTML = `<img src="./images/pmllogo.svg" style="width: calc(100vw * (1000 / 1300)); height: 200px; margin: 30px auto 0 auto" />`;
         const loadingUI = document.createElement("div");
         loadingUI.style.margin = "20px 0 0 0";
         loadingUI.style.padding = "0";
