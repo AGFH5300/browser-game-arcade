@@ -1,5 +1,6 @@
 import referenceCovers from '../data/reference-covers.json';
-const referenceCoverPaths=new Set(Object.values(referenceCovers).map(c=>c.localPath));
+import gamerias from '../data/gameria-games.json';
+const referenceCoverPaths=new Set([...Object.values(referenceCovers).map(c=>c.localPath),...gamerias.newGames.map(g=>g.thumbnail)]);
 import { z } from 'zod';
 import { collections } from './types';
 import { isAllowedEmbedUrl } from './embeds';

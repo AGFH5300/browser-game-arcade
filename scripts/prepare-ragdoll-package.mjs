@@ -8,7 +8,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SOURCE_FILE = path.join(ROOT, 'scripts/ragdoll-source.json');
 const OUTPUT_DIR = path.join(ROOT, 'public/play/archives/ragdoll-hit');
 const CACHE_ROOT = path.join(ROOT, '.next/cache/sidequest-games/ragdoll');
-const AUDIO_BRIDGE = path.join(ROOT, 'public/play/audio-bridge.js');
+const AUDIO_BRIDGE = path.join(ROOT, 'public/play/arcade-bridge.js');
 const MAX_FILE_BYTES = 30 * 1024 * 1024;
 
 const source = JSON.parse(await readFile(SOURCE_FILE, 'utf8'));
@@ -199,7 +199,7 @@ for (const assembly of assemblies) {
   outputFiles.push({ path: assembly.outputPath, sourceParts: assembly.parts, size: bytes.length, sha256: sha256(bytes) });
 }
 const bridgeBytes = await readFile(AUDIO_BRIDGE);
-outputFiles.push({ path: 'bridge.js', source: 'public/play/audio-bridge.js', size: bridgeBytes.length, sha256: sha256(bridgeBytes) });
+outputFiles.push({ path: 'bridge.js', source: 'public/play/arcade-bridge.js', size: bridgeBytes.length, sha256: sha256(bridgeBytes) });
 const htmlBytes = Buffer.from(indexHtml);
 outputFiles.push({ path: 'index.html', generated: 'clean local Unity bootstrap', size: htmlBytes.length, sha256: sha256(htmlBytes) });
 

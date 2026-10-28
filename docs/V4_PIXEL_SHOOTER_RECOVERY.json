@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "slug": "pixel-shooter",
+  "observedAt": "2026-10-28",
+  "decision": "Use CrazyGames as the approved provider fallback. Keep the incomplete local archive out of the package build.",
+  "providerFallback": {
+    "provider": "CrazyGames",
+    "gamePageUrl": "https://www.crazygames.com/game/pixel-shooter",
+    "embedUrl": "https://www.crazygames.com/embed/pixel-shooter",
+    "embedRequest": {
+      "status": 301,
+      "location": "https://games.crazygames.com/en_US/pixel-shooter/index.html?v=2.13",
+      "contentType": "text/plain; charset=utf-8",
+      "xFrameOptions": "SAMEORIGIN",
+      "contentSecurityPolicy": null
+    },
+    "embedFinalResponse": {
+      "url": "https://games.crazygames.com/en_US/pixel-shooter/index.html?v=2.13",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "xFrameOptions": null,
+      "contentSecurityPolicy": null
+    },
+    "gamePageResponse": {
+      "status": 200,
+      "xFrameOptions": "SAMEORIGIN",
+      "contentSecurityPolicy": null,
+      "htmlMetadata": {
+        "allowEmbed": true,
+        "title": "Pixel Shooter",
+        "developer": "PoPMu",
+        "datePublished": "2022-02-16",
+        "engine": "HTML5"
+      }
+    },
+    "framingAssessment": "CrazyGames marks the game allowEmbed:true. The exact embed endpoint redirects to its game player, whose final response has no X-Frame-Options or Content-Security-Policy header. The redirect response itself has X-Frame-Options:SAMEORIGIN; the browser follows it to the separately frameable final player. The app can frame the provider URL directly.",
+    "identityEvidence": [
+      "The CrazyGames game page credits PoPMu, matching the Miniplay Pixel Shooter embed page at https://www.miniplay.com/embed/pixel-shooter.",
+      "CrazyGames and Miniplay thumbnails show the same voxel soldier character. The original WatchDocumentaries Pixel Shooter cover shows the same characters and game title.",
+      "The original source page at https://watchdocumentaries.com/pixel-shooter-game/ describes the game as a 2D side-scrolling shooter; CrazyGames classifies its matching PoPMu title as an HTML5 2D side-scrolling shooter.",
+      "The unrelated Y8 title at https://www.y8.com/games/pixel_shooter_ is a different older Flash shooting game and is excluded."
+    ],
+    "gameplayQa": "Not performed. The provider fallback is identity and framing verified only."
+  },
+  "localRecovery": {
+    "sourcePageUrl": "https://watchdocumentaries.com/pixel-shooter-game/",
+    "sourceAssetBase": "https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/",
+    "helper": "scripts/prepare-pixel-shooter-package.mjs",
+    "checkpointDirectory": ".next/cache/sidequest-games/pixel-shooter/checkpoint",
+    "evidenceFiles": [
+      ".next/cache/sidequest-games/pixel-shooter/checkpoint/cocos-asset-manifest.json",
+      ".next/cache/sidequest-games/pixel-shooter/checkpoint/cocos-http-source-proof.json"
+    ],
+    "bundleVersions": {
+      "internal": "604e0",
+      "resources": "3f07b",
+      "sub": "6c731",
+      "main": "99d5f"
+    },
+    "launchScene": "db://assets/loadBundle.fire",
+    "verifiedSuccessfulSourceFiles": 180,
+    "verifiedSuccessfulSourceBytes": 7877058,
+    "primaryHttpStatusCounts": {
+      "200": 180,
+      "404": 14
+    },
+    "allHttpProofRecords": 200,
+    "totalHttpResponseBytesIncludingFailuresAndMirrorChecks": 9193614,
+    "unreferencedMissingSingleImports": 13,
+    "fatalMissingNativeAsset": {
+      "type": "cc.AudioClip",
+      "name": "logo音效",
+      "uuid": "634bb89c-5f55-4c3c-baa0-01ea910db53b",
+      "path": "assets/main/native/63/634bb89c-5f55-4c3c-baa0-01ea910db53b.752cd.mp3",
+      "sourceImport": "assets/main/import/06/06f2dff0f.f4014.json",
+      "primarySourceUrl": "https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/assets/main/native/63/634bb89c-5f55-4c3c-baa0-01ea910db53b.752cd.mp3",
+      "primaryStatus": 404,
+      "primaryResponseBytes": 324,
+      "primaryResponseSha256": "b072dbdc089ae5df56b7d3b69e7ccdac14df868083755f23827dbe6d076a62f6",
+      "reachableFrom": "db://assets/loadBundle.fire",
+      "referencedBySceneAsset": "04859aa0-9466-443a-bfb3-176cfee9623c",
+      "fatalReason": "The pinned Cocos Creator 2.4.2 runtime includes the AudioClip native dependency while resolving scene dependencies. Its scene-load callback routes any load error to the failure branch and does not run the scene. This dependency is required by the configured launch scene, so it cannot be treated as an optional audio omission."
+    },
+    "publicArchive": {
+      "complete": false,
+      "launchable": false,
+      "written": false,
+      "status": "The 180 verified assets remain a cache checkpoint only. No native Cocos bundle files were copied into public/play/archives/pixel-shooter and the local package is not wired into prebuild."
+    },
+    "gameplayQa": "Not performed."
+  },
+  "sameBuildMirrorComparison": {
+    "pinnedDiscoverySource": {
+      "repository": "brickyosu/ugs-files-sorted",
+      "commit": "33ebd73c4fd042bf2f398a76c527e738bd8c4eca",
+      "path": "P/clpixelshooter.html",
+      "gitBlobSha1": "cc31b503c4402c8030ac7ac03c245b2984d2e52e",
+      "url": "https://github.com/brickyosu/ugs-files-sorted/blob/33ebd73c4fd042bf2f398a76c527e738bd8c4eca/P/clpixelshooter.html"
+    },
+    "assetRoot": "https://274019683-173520394482650759.preview.editmysite.com/uploads/b/139890129-131715539788281629/files/",
+    "matchingFingerprintFiles": [
+      {
+        "path": "src/settings.5beaa.js",
+        "bytes": 591,
+        "sha256": "e2792d59d0d6857b0c486d4c3aa9d1595a19460ffd8b25ecbc6af77c8d0308bd"
+      },
+      {
+        "path": "main.93472.js",
+        "bytes": 27575,
+        "sha256": "1cb593db4ba98a71b1a14201393fa6a2cfe817b6da67b72287fc4775b8c01982"
+      },
+      {
+        "path": "assets/main/config.99d5f.json",
+        "bytes": 28113,
+        "sha256": "25aed94527d7e84ff6832e75986d2d545ddacd0b866ed6e3b787fb34b828a284"
+      },
+      {
+        "path": "assets/main/index.99d5f.js",
+        "bytes": 225478,
+        "sha256": "4f674ce846b579891c333c2d2e5fcd7f26bf70b573216ce01fda23c4c2a94bd5"
+      },
+      {
+        "path": "assets/main/import/06/06f2dff0f.f4014.json",
+        "bytes": 37083,
+        "sha256": "133d9dc2fed6fcf4203615f6b37cbaf98e0841a000862d0cb896e5b5cb742627"
+      }
+    ],
+    "fingerprintMatchCount": 5,
+    "missingAssetComparison": {
+      "path": "assets/main/native/63/634bb89c-5f55-4c3c-baa0-01ea910db53b.752cd.mp3",
+      "url": "https://274019683-173520394482650759.preview.editmysite.com/uploads/b/139890129-131715539788281629/files/assets/main/native/63/634bb89c-5f55-4c3c-baa0-01ea910db53b.752cd.mp3",
+      "status": 404,
+      "responseBytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "fallbackUsed": false
+    },
+    "conclusion": "Five exact Cocos build anchors prove this is the same build, but its missing launch-scene audio asset is also unavailable. The mirror does not complete the local package."
+  },
+  "constraints": {
+    "noAssetSubstitution": true,
+    "noGameBinaryPatching": true,
+    "noHostnameSpoofing": true,
+    "noAdOrDomainBypasses": true,
+    "manualGameplayQaRequired": true
+  }
+}

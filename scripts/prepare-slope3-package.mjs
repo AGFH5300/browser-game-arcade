@@ -148,6 +148,7 @@ const indexHtml = [
   '<!doctype html>',
   '<html lang="en">',
   '<head>',
+  '  <script src="./bridge.js"></script>',
   '  <meta charset="utf-8">',
   '  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">',
   '  <meta name="theme-color" content="#231F20">',
@@ -198,6 +199,9 @@ if (!filesToCopy.some(file => file.path === '@source.txt')) {
 await rm(OUTPUT_DIR, { recursive: true, force: true });
 await mkdir(OUTPUT_DIR, { recursive: true });
 const outputFiles = [];
+const bridgeBytes=await readFile(path.join(ROOT,'public/play/arcade-bridge.js'));
+await writeFile(path.join(OUTPUT_DIR,'bridge.js'),bridgeBytes);
+outputFiles.push({path:'bridge.js',generatedFrom:'public/play/arcade-bridge.js',outputBytes:bridgeBytes.length,outputSha256:sha256(bridgeBytes)});
 for (const file of filesToCopy) {
   const bytes = sourceBytes.get(file.path);
   const destination = safeChild(OUTPUT_DIR, file.path);

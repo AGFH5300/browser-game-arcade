@@ -1,0 +1,1166 @@
+{
+  "date": "2026-10-28",
+  "method": "Static source/output hash, configured-core-reference and production-build checks. No browser/gameplay QA.",
+  "scopeReferencePackages": 82,
+  "artifactIntegrityErrors": 0,
+  "knownConfiguredCoreMissing": 0,
+  "unclassifiedFormatsPendingUserReview": 25,
+  "gameriaNewPackages": 12,
+  "gameriaVerifiedOutputFiles": 109,
+  "checks": {
+    "unitTests": 37,
+    "typecheck": "passed",
+    "lint": "passed",
+    "productionBuild": "passed",
+    "gzipBrotliSelfCheck": "passed",
+    "allOriginalSourcePinsUnchanged": 836
+  },
+  "games": [
+    {
+      "slug": "cat-trap",
+      "runtime": "unclassified",
+      "status": "needs-review",
+      "integrity": {
+        "pinnedFiles": 1,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 34530,
+        "manifestArtifactBytes": 34530,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "wordle-unlimited",
+      "runtime": "unclassified",
+      "status": "needs-review",
+      "integrity": {
+        "pinnedFiles": 2,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 224045,
+        "manifestArtifactBytes": 224045,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "bubble-shooter",
+      "runtime": "unclassified",
+      "status": "needs-review",
+      "integrity": {
+        "pinnedFiles": 3,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 272338,
+        "manifestArtifactBytes": 272338,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "pac-man",
+      "runtime": "unclassified",
+      "status": "needs-review",
+      "integrity": {
+        "pinnedFiles": 15,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 273793,
+        "manifestArtifactBytes": 273793,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "solitaire",
+      "runtime": "unclassified",
+      "status": "needs-review",
+      "integrity": {
+        "pinnedFiles": 3,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 456045,
+        "manifestArtifactBytes": 456045,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "choppy-orc",
+      "runtime": "construct-2",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 37,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 658270,
+        "manifestArtifactBytes": 658270,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "paper-io",
+      "runtime": "unclassified",
+      "status": "needs-review",
+      "integrity": {
+        "pinnedFiles": 11,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 1434630,
+        "manifestArtifactBytes": 1434630,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "lows-adventure-2",
+      "runtime": "construct-3",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 28,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 2216162,
+        "manifestArtifactBytes": 2216162,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "tiny-fishing",
+      "runtime": "unclassified",
+      "status": "needs-review",
+      "integrity": {
+        "pinnedFiles": 17,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 2781382,
+        "manifestArtifactBytes": 2781382,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "drive-mad",
+      "runtime": "unclassified",
+      "status": "needs-review",
+      "integrity": {
+        "pinnedFiles": 8,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 2886632,
+        "manifestArtifactBytes": 2886632,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "geometry-dash-hyper-wave",
+      "runtime": "gamemaker-html5-guest-offline",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 9,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 3280539,
+        "manifestArtifactBytes": 3280539,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "ricochet-arrow",
+      "runtime": "construct-3",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 35,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 3710296,
+        "manifestArtifactBytes": 3710296,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "retro-bowl",
+      "runtime": "unclassified",
+      "status": "needs-review",
+      "integrity": {
+        "pinnedFiles": 6,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 3838123,
+        "manifestArtifactBytes": 3838123,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "fruit-merge",
+      "runtime": "construct-3",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 38,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 3866284,
+        "manifestArtifactBytes": 3866284,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "wheelie-bike",
+      "runtime": "construct-3",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 34,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 3970680,
+        "manifestArtifactBytes": 3970680,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "clash-blade-io",
+      "runtime": "construct-3",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 28,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 3983709,
+        "manifestArtifactBytes": 3983709,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "car-rush",
+      "runtime": "unclassified",
+      "status": "needs-review",
+      "integrity": {
+        "pinnedFiles": 87,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 4132470,
+        "manifestArtifactBytes": 4132470,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "sprinter",
+      "runtime": "unclassified",
+      "status": "needs-review",
+      "integrity": {
+        "pinnedFiles": 64,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 4242530,
+        "manifestArtifactBytes": 4242530,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "master-chess",
+      "runtime": "unclassified",
+      "status": "needs-review",
+      "integrity": {
+        "pinnedFiles": 91,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 4489713,
+        "manifestArtifactBytes": 4489713,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "eggy-car",
+      "runtime": "construct-2",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 76,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 4661553,
+        "manifestArtifactBytes": 4661553,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "stickman-hook",
+      "runtime": "unclassified",
+      "status": "needs-review",
+      "integrity": {
+        "pinnedFiles": 54,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 4770875,
+        "manifestArtifactBytes": 4770875,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "pizza-tower",
+      "runtime": "construct-2",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 158,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 4938213,
+        "manifestArtifactBytes": 4938213,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "x-trench-run",
+      "runtime": "unclassified",
+      "status": "needs-review",
+      "integrity": {
+        "pinnedFiles": 39,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 5152804,
+        "manifestArtifactBytes": 5152804,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "icy-purple-head",
+      "runtime": "construct-3",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 41,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 5544795,
+        "manifestArtifactBytes": 5544795,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "drift-boss",
+      "runtime": "game-asset-bundle",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 11,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 6003765,
+        "manifestArtifactBytes": 6003765,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "ice-dodo",
+      "runtime": "unclassified",
+      "status": "needs-review",
+      "integrity": {
+        "pinnedFiles": 16,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 6018905,
+        "manifestArtifactBytes": 6018905,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "death-run-3d",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 13,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 6268695,
+        "manifestArtifactBytes": 6268695,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "fireboy-and-watergirl-2",
+      "runtime": "phaser-fireboy-watergirl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 83,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 6380759,
+        "manifestArtifactBytes": 6380759,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "slope-2",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 11,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 6416992,
+        "manifestArtifactBytes": 6416992,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "big-shot-boxing",
+      "runtime": "lime-packed-assets",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 5,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 6690423,
+        "manifestArtifactBytes": 6690423,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "we-become-what-we-behold",
+      "runtime": "unclassified",
+      "status": "needs-review",
+      "integrity": {
+        "pinnedFiles": 160,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 6703943,
+        "manifestArtifactBytes": 6703943,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "a-small-world-cup",
+      "runtime": "construct-2",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 74,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 7646466,
+        "manifestArtifactBytes": 7646466,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "word-wipe",
+      "runtime": "unclassified",
+      "status": "needs-review",
+      "integrity": {
+        "pinnedFiles": 6,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 7734901,
+        "manifestArtifactBytes": 7734901,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "eaglercraft",
+      "runtime": "unclassified",
+      "status": "needs-review",
+      "integrity": {
+        "pinnedFiles": 5,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 7843634,
+        "manifestArtifactBytes": 7843634,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "papas-freezeria",
+      "runtime": "flash-papa-series",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 7,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 7987051,
+        "manifestArtifactBytes": 7987051,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "level-devil",
+      "runtime": "lime-packed-assets",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 4,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 8454323,
+        "manifestArtifactBytes": 8454323,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "rooftop-snipers",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 8,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 8502432,
+        "manifestArtifactBytes": 8502432,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "snake-io",
+      "runtime": "construct-2",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 57,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 8586876,
+        "manifestArtifactBytes": 8586876,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "time-shooter-3",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 7,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 9315088,
+        "manifestArtifactBytes": 9315088,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "time-shooter-2",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 9,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 9640495,
+        "manifestArtifactBytes": 9640495,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "block-blast",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 11,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 10272475,
+        "manifestArtifactBytes": 10272475,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "cat-ninja",
+      "runtime": "unclassified",
+      "status": "needs-review",
+      "integrity": {
+        "pinnedFiles": 7,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 11097066,
+        "manifestArtifactBytes": 11097066,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "fireboy-and-watergirl-1",
+      "runtime": "phaser-fireboy-watergirl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 82,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 11260477,
+        "manifestArtifactBytes": 11260477,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "brawl-guys",
+      "runtime": "construct-2",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 70,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 12573866,
+        "manifestArtifactBytes": 12573866,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "getaway-shootout",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 8,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 13013694,
+        "manifestArtifactBytes": 13013694,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "angry-heroes",
+      "runtime": "construct-2",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 184,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 13540249,
+        "manifestArtifactBytes": 13540249,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "geometry-dash-subzero",
+      "runtime": "unclassified",
+      "status": "needs-review",
+      "integrity": {
+        "pinnedFiles": 1,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 13823211,
+        "manifestArtifactBytes": 13823211,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "slowroads-io",
+      "runtime": "unclassified",
+      "status": "needs-review",
+      "integrity": {
+        "pinnedFiles": 166,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 13848534,
+        "manifestArtifactBytes": 13848534,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "tomb-of-the-mask",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 11,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 15929572,
+        "manifestArtifactBytes": 15929572,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "helix-jump",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 12,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 16085132,
+        "manifestArtifactBytes": 16085132,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "color-tunnel",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 8,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 16203376,
+        "manifestArtifactBytes": 16203376,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "shortcut-race",
+      "runtime": "construct-3",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 95,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 17103984,
+        "manifestArtifactBytes": 17103984,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "hover-racer-drive",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 13,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 17604980,
+        "manifestArtifactBytes": 17604980,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "bottle-flip-3d",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 7,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 18107691,
+        "manifestArtifactBytes": 18107691,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "ovo",
+      "runtime": "construct-2",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 262,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 23330948,
+        "manifestArtifactBytes": 23330948,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "gunspin",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 9,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 23483798,
+        "manifestArtifactBytes": 23483798,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "friday-night-funkin",
+      "runtime": "unclassified",
+      "status": "needs-review",
+      "integrity": {
+        "pinnedFiles": 133,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 24946525,
+        "manifestArtifactBytes": 24946525,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "plant-vs-zombies",
+      "runtime": "unclassified",
+      "status": "needs-review",
+      "integrity": {
+        "pinnedFiles": 446,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 25686408,
+        "manifestArtifactBytes": 25686408,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "highway-traffic",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 12,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 29973292,
+        "manifestArtifactBytes": 29973292,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "jelly-truck",
+      "runtime": "unclassified",
+      "status": "needs-review",
+      "integrity": {
+        "pinnedFiles": 210,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 30619199,
+        "manifestArtifactBytes": 30619199,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "house-of-hazards",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 12,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 33658765,
+        "manifestArtifactBytes": 33658765,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "burrito-bison-launcha-libre",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 18,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 35221642,
+        "manifestArtifactBytes": 35221642,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "survival-race",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 5,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 37009656,
+        "manifestArtifactBytes": 37009656,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "fortzone-battle-royale",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 7,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 37785088,
+        "manifestArtifactBytes": 37785088,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "blockpost",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 12,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 42221729,
+        "manifestArtifactBytes": 42221729,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "madalin-stunt-cars-2",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 8,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 42804061,
+        "manifestArtifactBytes": 42804061,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "traffic-jam-3d",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 10,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 43235699,
+        "manifestArtifactBytes": 43235699,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "among-us",
+      "runtime": "construct-3",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 55,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 43532246,
+        "manifestArtifactBytes": 43532246,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "fall-boys",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 7,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 43771937,
+        "manifestArtifactBytes": 43771937,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "crazy-cattle-3d",
+      "runtime": "unclassified",
+      "status": "needs-review",
+      "integrity": {
+        "pinnedFiles": 5,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 44185257,
+        "manifestArtifactBytes": 44185257,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "granny-2",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 10,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 45935566,
+        "manifestArtifactBytes": 45935566,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "gladihoppers",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 12,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 48191895,
+        "manifestArtifactBytes": 48191895,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "hole-io",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 9,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 54198273,
+        "manifestArtifactBytes": 54198273,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "tanuki-sunset",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 17,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 54747878,
+        "manifestArtifactBytes": 54747878,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "subway-surfers",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 14,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 57213480,
+        "manifestArtifactBytes": 57213480,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "rocket-league",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 11,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 57924881,
+        "manifestArtifactBytes": 57924881,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "escape-road",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 18,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 66720658,
+        "manifestArtifactBytes": 66720658,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "granny",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 10,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 72558196,
+        "manifestArtifactBytes": 72558196,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "blade-ball",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 6,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 73797864,
+        "manifestArtifactBytes": 73797864,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "drift-hunters",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 19,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 141188444,
+        "manifestArtifactBytes": 141188444,
+        "bridgeBytes": 3890,
+        "note": "artifactBytes sums the pinned files array; bridge hash/size are checked separately, and source-manifest.json is not counted as a game artifact."
+      }
+    },
+    {
+      "slug": "slope-3",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 19,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 47886258,
+        "manifestArtifactBytes": null,
+        "note": "Legacy output manifest hashes are checked against assembled output files; source part hashes are provenance only."
+      }
+    },
+    {
+      "slug": "ragdoll-hit",
+      "runtime": "unity-webgl",
+      "status": "asset-check-pass",
+      "integrity": {
+        "pinnedFiles": 15,
+        "missing": 0,
+        "mismatches": 0,
+        "summedBytes": 39663937,
+        "manifestArtifactBytes": null,
+        "note": "Legacy output manifest hashes are checked against assembled output files; source part hashes are provenance only."
+      }
+    }
+  ]
+}

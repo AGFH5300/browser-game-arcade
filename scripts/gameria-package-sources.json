@@ -1,0 +1,1042 @@
+{
+  "schemaVersion": 1,
+  "sourceListingUrl": "https://www.flipline.com/freegames.html",
+  "observedAt": "2026-10-28",
+  "observedDistributionStatement": "You can download the zip package and upload any of the games below to your site!",
+  "sourceOwner": "Flipline Studios / Flipline IDS LLC",
+  "authorizationBasis": "Flipline's official freegames page offers the standard ZIP package for hosting on a site. Individual game pages identify Flipline Studios as developer. The original game copyright and any notices in each ZIP are preserved; no open-source license is inferred.",
+  "runtime": {
+    "engine": "Adobe Flash SWF",
+    "player": "Ruffle",
+    "playerVersion": "0.7.1",
+    "playerPath": "public/play/archives/ruffle/ruffle.js",
+    "localPlayerOnly": true
+  },
+  "games": [
+    {
+      "id": "papas-pizzeria",
+      "slug": "papas-pizzeria",
+      "title": "Papa’s Pizzeria",
+      "officialGameUrl": "https://www.flipline.com/games/papaspizzeria/index.html",
+      "officialPackageUrl": "https://i.flipline.com/downloads/papaspizzeria.zip",
+      "version": "2.0",
+      "sourceAction": "reuse-existing-reference-entry",
+      "newCatalogueEntry": false
+    },
+    {
+      "id": "papas-freezeria",
+      "slug": "papas-freezeria",
+      "title": "Papa’s Freezeria",
+      "officialGameUrl": "https://www.flipline.com/games/papasfreezeria/index.html",
+      "officialPackageUrl": "https://i.flipline.com/downloads/papasfreezeria.zip",
+      "version": "2.0",
+      "sourceAction": "reuse-existing-reference-html5-package",
+      "newCatalogueEntry": false
+    },
+    {
+      "id": "papas-burgeria",
+      "slug": "papas-burgeria",
+      "title": "Papa’s Burgeria",
+      "officialGameUrl": "https://www.flipline.com/games/papasburgeria/index.html",
+      "officialPackageUrl": "https://i.flipline.com/downloads/papasburgeria.zip",
+      "version": "2.0",
+      "sourceAction": "build-local-ruffle-package",
+      "newCatalogueEntry": true,
+      "packagePin": {
+        "archive": {
+          "requestedUrl": "https://i.flipline.com/downloads/papasburgeria.zip",
+          "finalUrl": "https://i.flipline.com/downloads/papasburgeria.zip",
+          "status": 200,
+          "contentType": "application/zip",
+          "contentLength": 3992340,
+          "bytes": 3992340,
+          "sha256": "a7312f7ba326a816d85422e3c7f2b66f4498e16042d099cf50e793e617f94696",
+          "fetchedAt": "2026-10-28T08:45:45.589Z",
+          "fetchedInEarlierCheckpoint": true
+        },
+        "entryCount": 6,
+        "uncompressedBytes": 4002062,
+        "files": [
+          {
+            "path": "papasburgeria/gameinfo.txt",
+            "bytes": 598,
+            "sha256": "81968e29494ed06e9600ad5c82dab69572d8950922c263466a1ab3dd4012d8ed",
+            "crc32": "412f6b2d",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papasburgeria/papasburgeria_100x100.jpg",
+            "bytes": 10625,
+            "sha256": "d33daf71b07474002a69af4bdc1b102f04d3832e36f547fffbe1943e59c4fb32",
+            "crc32": "5e28f743",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papasburgeria/papasburgeria_300x300.jpg",
+            "bytes": 64768,
+            "sha256": "bf2d3a781904f68ae6040559179f5dcfdbe40d98283af3ce71e661f4deb11fb2",
+            "crc32": "abd74299",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papasburgeria/papasburgeria_400x226.jpg",
+            "bytes": 56088,
+            "sha256": "ef7a9032c939cd6ed2fec53503cc03593a27e07e7633f8ba4f14560866dc7061",
+            "crc32": "5d2f803c",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papasburgeria/papasburgeria.swf",
+            "bytes": 3814175,
+            "sha256": "929d3857240f36dc21f63c6fc8d3e1bd2c0396fd0d47cdcc1330212bc1354143",
+            "crc32": "ab889674",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papasburgeria/Thumbs.db",
+            "bytes": 55808,
+            "sha256": "ca034cf01b900abf379b2583edc57361a5d31977e358451a886e899e77292727",
+            "crc32": "35d7b364",
+            "compressionMethod": 8
+          }
+        ],
+        "swf": {
+          "path": "papasburgeria/papasburgeria.swf",
+          "bytes": 3814175,
+          "sha256": "929d3857240f36dc21f63c6fc8d3e1bd2c0396fd0d47cdcc1330212bc1354143"
+        },
+        "authorNotice": {
+          "path": "papasburgeria/gameinfo.txt",
+          "bytes": 598,
+          "sha256": "81968e29494ed06e9600ad5c82dab69572d8950922c263466a1ab3dd4012d8ed"
+        },
+        "cover": {
+          "path": "papasburgeria/papasburgeria_400x226.jpg",
+          "bytes": 56088,
+          "sha256": "ef7a9032c939cd6ed2fec53503cc03593a27e07e7633f8ba4f14560866dc7061"
+        }
+      }
+    },
+    {
+      "id": "papas-taco-mia",
+      "slug": "papas-taco-mia",
+      "title": "Papa’s Taco Mia!",
+      "officialGameUrl": "https://www.flipline.com/games/papastacomia/index.html",
+      "officialPackageUrl": "https://i.flipline.com/downloads/papastacomia.zip",
+      "version": "2.0",
+      "sourceAction": "build-local-ruffle-package",
+      "newCatalogueEntry": true,
+      "packagePin": {
+        "archive": {
+          "requestedUrl": "https://i.flipline.com/downloads/papastacomia.zip",
+          "finalUrl": "https://i.flipline.com/downloads/papastacomia.zip",
+          "status": 200,
+          "contentType": "application/zip",
+          "contentLength": 5564480,
+          "bytes": 5564480,
+          "sha256": "d7bdb2d635fef955cf0ad36cd3394842663f8723c9e1e3c83b0ee9cfd54d1ea1",
+          "fetchedAt": "2026-10-28T08:45:45.599Z",
+          "fetchedInEarlierCheckpoint": true
+        },
+        "entryCount": 6,
+        "uncompressedBytes": 5580234,
+        "files": [
+          {
+            "path": "papastacomia/gameinfo.txt",
+            "bytes": 1177,
+            "sha256": "1c082e8fc63c68bea0e759876dc49823b5353761f7cf906a7b2f57260949ee71",
+            "crc32": "3d1a3679",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papastacomia/papastacomia_100x100.jpg",
+            "bytes": 12958,
+            "sha256": "6cb5de515dc17547e4c4c68236577ef2fc92b240fa2520db82b29ce5d4212658",
+            "crc32": "1729fcc2",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papastacomia/papastacomia_300x300.jpg",
+            "bytes": 62272,
+            "sha256": "8863c77890cc716f5b4c93917812c2aa0fc058fecca32aafd355e8e791048717",
+            "crc32": "71b1ac8a",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papastacomia/papastacomia_400x226.jpg",
+            "bytes": 53096,
+            "sha256": "9fb7f3d68127c7ea1e4230928a15dfff84c899d6fe64c389b23237d4afe711af",
+            "crc32": "8d336171",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papastacomia/papastacomia.swf",
+            "bytes": 5394411,
+            "sha256": "cc0d36fb8cce1870148e4824d974b819b7a6ba976f3b9b68db3f7eb4b13fbd2f",
+            "crc32": "430568a0",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papastacomia/Thumbs.db",
+            "bytes": 56320,
+            "sha256": "057b89e3d8b1b52b67ff113fd8a4ac3acbb14dbff0b0c03d1796581f4bb444f8",
+            "crc32": "d5e23908",
+            "compressionMethod": 8
+          }
+        ],
+        "swf": {
+          "path": "papastacomia/papastacomia.swf",
+          "bytes": 5394411,
+          "sha256": "cc0d36fb8cce1870148e4824d974b819b7a6ba976f3b9b68db3f7eb4b13fbd2f"
+        },
+        "authorNotice": {
+          "path": "papastacomia/gameinfo.txt",
+          "bytes": 1177,
+          "sha256": "1c082e8fc63c68bea0e759876dc49823b5353761f7cf906a7b2f57260949ee71"
+        },
+        "cover": {
+          "path": "papastacomia/papastacomia_400x226.jpg",
+          "bytes": 53096,
+          "sha256": "9fb7f3d68127c7ea1e4230928a15dfff84c899d6fe64c389b23237d4afe711af"
+        }
+      }
+    },
+    {
+      "id": "papas-pancakeria",
+      "slug": "papas-pancakeria",
+      "title": "Papa’s Pancakeria",
+      "officialGameUrl": "https://www.flipline.com/games/papaspancakeria/index.html",
+      "officialPackageUrl": "https://i.flipline.com/downloads/papaspancakeria.zip",
+      "version": "2.0",
+      "sourceAction": "build-local-ruffle-package",
+      "newCatalogueEntry": true,
+      "packagePin": {
+        "archive": {
+          "requestedUrl": "https://i.flipline.com/downloads/papaspancakeria.zip",
+          "finalUrl": "https://i.flipline.com/downloads/papaspancakeria.zip",
+          "status": 200,
+          "contentType": "application/zip",
+          "contentLength": 6681192,
+          "bytes": 6681192,
+          "sha256": "d53f4823e1f503536b09f38254400da1d72acef0c9d30dd00dd15a4b390c1150",
+          "fetchedAt": "2026-10-28T08:45:45.611Z",
+          "fetchedInEarlierCheckpoint": true
+        },
+        "entryCount": 6,
+        "uncompressedBytes": 6688818,
+        "files": [
+          {
+            "path": "papaspancakeria/gameinfo.txt",
+            "bytes": 1048,
+            "sha256": "f124ebd195d3cc4fd0af966d39bb2e82d3ad672871614c43bf3eeec21f7fa06e",
+            "crc32": "99b1edf7",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papaspancakeria/papaspancakeria_100x100.jpg",
+            "bytes": 11435,
+            "sha256": "a2377daf01ce7059d8883a3565bac5109ff1b9b19e7fc53a85cf1ce2ec44ec7c",
+            "crc32": "386d8b63",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papaspancakeria/papaspancakeria_300x300.jpg",
+            "bytes": 57741,
+            "sha256": "7bb5d2e58a85f56e66c20835b3caa8872f8d392885c42e17debc6951c005742a",
+            "crc32": "12bd84aa",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papaspancakeria/papaspancakeria_400x226.jpg",
+            "bytes": 67050,
+            "sha256": "8d2952736227b6d759a7489290485144f2a3a3cbf612f092c038e9d7391db9a7",
+            "crc32": "ef6693ec",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papaspancakeria/papaspancakeria.swf",
+            "bytes": 6496248,
+            "sha256": "b509d99a30f2989e773f945f2cc06220f80ebc208255fb9018e5e17bad8638f2",
+            "crc32": "a7fd5bdd",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papaspancakeria/Thumbs.db",
+            "bytes": 55296,
+            "sha256": "aa93afd9879cff97bc048dad7a55b930fc26ec86217b839d937298160bfac913",
+            "crc32": "dd12923e",
+            "compressionMethod": 8
+          }
+        ],
+        "swf": {
+          "path": "papaspancakeria/papaspancakeria.swf",
+          "bytes": 6496248,
+          "sha256": "b509d99a30f2989e773f945f2cc06220f80ebc208255fb9018e5e17bad8638f2"
+        },
+        "authorNotice": {
+          "path": "papaspancakeria/gameinfo.txt",
+          "bytes": 1048,
+          "sha256": "f124ebd195d3cc4fd0af966d39bb2e82d3ad672871614c43bf3eeec21f7fa06e"
+        },
+        "cover": {
+          "path": "papaspancakeria/papaspancakeria_400x226.jpg",
+          "bytes": 67050,
+          "sha256": "8d2952736227b6d759a7489290485144f2a3a3cbf612f092c038e9d7391db9a7"
+        }
+      }
+    },
+    {
+      "id": "papas-wingeria",
+      "slug": "papas-wingeria",
+      "title": "Papa’s Wingeria",
+      "officialGameUrl": "https://www.flipline.com/games/papaswingeria/index.html",
+      "officialPackageUrl": "https://i.flipline.com/downloads/papaswingeria.zip",
+      "version": "2.0",
+      "sourceAction": "build-local-ruffle-package",
+      "newCatalogueEntry": true,
+      "packagePin": {
+        "archive": {
+          "requestedUrl": "https://i.flipline.com/downloads/papaswingeria.zip",
+          "finalUrl": "https://i.flipline.com/downloads/papaswingeria.zip",
+          "status": 200,
+          "contentType": "application/zip",
+          "contentLength": 7890773,
+          "bytes": 7890773,
+          "sha256": "84733ccfbbc4b65841d1ffe20765c964ce1a1f71ff60b4f4d223aeb7c98de446",
+          "fetchedAt": "2026-10-28T08:45:45.624Z",
+          "fetchedInEarlierCheckpoint": true
+        },
+        "entryCount": 6,
+        "uncompressedBytes": 7896519,
+        "files": [
+          {
+            "path": "papaswingeria/gameinfo.txt",
+            "bytes": 944,
+            "sha256": "413d839951d2ec0434d1bb1968b844dd79628451852593be80eadfa7117a04e9",
+            "crc32": "8ae4ca0e",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papaswingeria/papaswingeria_100x100.jpg",
+            "bytes": 10940,
+            "sha256": "eeac9ae2227ef4ad981cea2050aa82fb09ec8f1f32c715313326fb333a68cc3a",
+            "crc32": "26bb1355",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papaswingeria/papaswingeria_300x300.jpg",
+            "bytes": 73603,
+            "sha256": "0e8ee30e6df7f3c199d99ca6e6b71d67fc1d06dc37701a28bd5d86fd48a04c35",
+            "crc32": "fc3ac3b5",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papaswingeria/papaswingeria_400x226.jpg",
+            "bytes": 62505,
+            "sha256": "38a2fe3c334a19c39aaa0f87bff434026b1fb83a979a101b9baa833350e2e31c",
+            "crc32": "0d54fe45",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papaswingeria/papaswingeria.swf",
+            "bytes": 7687087,
+            "sha256": "98dd36e7e9211f34d25251a68da887ebb9d73361183d0bb6b8e9c941ee8544d9",
+            "crc32": "1dae9177",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papaswingeria/Thumbs.db",
+            "bytes": 61440,
+            "sha256": "b9321cb49cb6e18dae225cc377d17b05d9b22c5b2eacd2937d84d5b34a594475",
+            "crc32": "bd1a6d10",
+            "compressionMethod": 8
+          }
+        ],
+        "swf": {
+          "path": "papaswingeria/papaswingeria.swf",
+          "bytes": 7687087,
+          "sha256": "98dd36e7e9211f34d25251a68da887ebb9d73361183d0bb6b8e9c941ee8544d9"
+        },
+        "authorNotice": {
+          "path": "papaswingeria/gameinfo.txt",
+          "bytes": 944,
+          "sha256": "413d839951d2ec0434d1bb1968b844dd79628451852593be80eadfa7117a04e9"
+        },
+        "cover": {
+          "path": "papaswingeria/papaswingeria_400x226.jpg",
+          "bytes": 62505,
+          "sha256": "38a2fe3c334a19c39aaa0f87bff434026b1fb83a979a101b9baa833350e2e31c"
+        }
+      }
+    },
+    {
+      "id": "papas-hot-doggeria",
+      "slug": "papas-hot-doggeria",
+      "title": "Papa’s Hot Doggeria",
+      "officialGameUrl": "https://www.flipline.com/games/papashotdoggeria/index.html",
+      "officialPackageUrl": "https://i.flipline.com/downloads/papashotdoggeria.zip",
+      "version": "2.0",
+      "sourceAction": "build-local-ruffle-package",
+      "newCatalogueEntry": true,
+      "packagePin": {
+        "archive": {
+          "requestedUrl": "https://i.flipline.com/downloads/papashotdoggeria.zip",
+          "finalUrl": "https://i.flipline.com/downloads/papashotdoggeria.zip",
+          "status": 200,
+          "contentType": "application/zip",
+          "contentLength": 8873533,
+          "bytes": 8873533,
+          "sha256": "280dd2d7491849fafdef7a5580493c428cf62fd4489b76445526e2bafce2eb42",
+          "fetchedAt": "2026-10-28T08:46:38.349Z"
+        },
+        "entryCount": 6,
+        "uncompressedBytes": 8880036,
+        "files": [
+          {
+            "path": "papashotdoggeria/gameinfo.txt",
+            "bytes": 686,
+            "sha256": "d9a4676d52481386d90681c58e9d5cc7146b1c53f843e4af9db5f360dfdd27a8",
+            "crc32": "e55f7c20",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papashotdoggeria/papashotdoggeria_100x100.jpg",
+            "bytes": 10900,
+            "sha256": "55bd9f1503b3a38f92c3baaaf5672af0a3c19f2ce846304109e028391f9e3ce8",
+            "crc32": "f2748527",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papashotdoggeria/papashotdoggeria_300x300.jpg",
+            "bytes": 67110,
+            "sha256": "81b5f5fc4891a741b1ad04625284672befccd8701e713781da5157b283d58867",
+            "crc32": "4b6ddbb3",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papashotdoggeria/papashotdoggeria_400x226.jpg",
+            "bytes": 53476,
+            "sha256": "2a8c7e6bad37c343e7ff036163f7d058fddc11282613ad55d670ccf9cde67908",
+            "crc32": "4db241da",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papashotdoggeria/papashotdoggeria.swf",
+            "bytes": 8692568,
+            "sha256": "e5b0c568ee006c6b096680dfb773dedbad2194882c9ba261954e2cbe03e22007",
+            "crc32": "df073adf",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papashotdoggeria/Thumbs.db",
+            "bytes": 55296,
+            "sha256": "3473400ffe3f89d2eb4a35664538c652ea1488d40fc19de2302424bec3507682",
+            "crc32": "1ffe9cec",
+            "compressionMethod": 8
+          }
+        ],
+        "swf": {
+          "path": "papashotdoggeria/papashotdoggeria.swf",
+          "bytes": 8692568,
+          "sha256": "e5b0c568ee006c6b096680dfb773dedbad2194882c9ba261954e2cbe03e22007"
+        },
+        "authorNotice": {
+          "path": "papashotdoggeria/gameinfo.txt",
+          "bytes": 686,
+          "sha256": "d9a4676d52481386d90681c58e9d5cc7146b1c53f843e4af9db5f360dfdd27a8"
+        },
+        "cover": {
+          "path": "papashotdoggeria/papashotdoggeria_400x226.jpg",
+          "bytes": 53476,
+          "sha256": "2a8c7e6bad37c343e7ff036163f7d058fddc11282613ad55d670ccf9cde67908"
+        }
+      }
+    },
+    {
+      "id": "papas-cupcakeria",
+      "slug": "papas-cupcakeria",
+      "title": "Papa’s Cupcakeria",
+      "officialGameUrl": "https://www.flipline.com/games/papascupcakeria/index.html",
+      "officialPackageUrl": "https://i.flipline.com/downloads/papascupcakeria.zip",
+      "version": "2.0",
+      "sourceAction": "build-local-ruffle-package",
+      "newCatalogueEntry": true,
+      "packagePin": {
+        "archive": {
+          "requestedUrl": "https://i.flipline.com/downloads/papascupcakeria.zip",
+          "finalUrl": "https://i.flipline.com/downloads/papascupcakeria.zip",
+          "status": 200,
+          "contentType": "application/zip",
+          "contentLength": 9089809,
+          "bytes": 9089809,
+          "sha256": "22c9e117bfeb9bf6624ceed83de0bb082604a8b367c098adba223840a83c9129",
+          "fetchedAt": "2026-10-28T08:46:38.773Z"
+        },
+        "entryCount": 6,
+        "uncompressedBytes": 9097277,
+        "files": [
+          {
+            "path": "papascupcakeria/gameinfo.txt",
+            "bytes": 954,
+            "sha256": "9828cd24f5345cdf384555c37dd8c6af7b8fd1c4848961a057f40b48e966cced",
+            "crc32": "008958a7",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papascupcakeria/papascupcakeria_100x100.jpg",
+            "bytes": 9599,
+            "sha256": "495aa70b1264d188819068f47a400a013908bf1f6abdd59bf42fa2a84f837578",
+            "crc32": "12010dd1",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papascupcakeria/papascupcakeria_300x300.jpg",
+            "bytes": 58722,
+            "sha256": "47e21765d37401be00c9fb62d74bfdfecab3f22e0044d0a363df874ebdef8f70",
+            "crc32": "f3cc97a5",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papascupcakeria/papascupcakeria_400x226.jpg",
+            "bytes": 59206,
+            "sha256": "2ebd9fbaee0199e5b26600b7a45f56d7d6ccb3849c94065a4f5004b215c45d51",
+            "crc32": "cfd749ea",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papascupcakeria/papascupcakeria.swf",
+            "bytes": 8915548,
+            "sha256": "24ab664ccb2c3d9a2b25d25f09b4a2656efc0d23fde4a8599b698663b0f35ddb",
+            "crc32": "eee0e87d",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papascupcakeria/Thumbs.db",
+            "bytes": 53248,
+            "sha256": "de1f87810037c2ea3773b66dee92ea2b31bf1614b7adc822dff1ea197a3f7d9d",
+            "crc32": "f27cf0b7",
+            "compressionMethod": 8
+          }
+        ],
+        "swf": {
+          "path": "papascupcakeria/papascupcakeria.swf",
+          "bytes": 8915548,
+          "sha256": "24ab664ccb2c3d9a2b25d25f09b4a2656efc0d23fde4a8599b698663b0f35ddb"
+        },
+        "authorNotice": {
+          "path": "papascupcakeria/gameinfo.txt",
+          "bytes": 954,
+          "sha256": "9828cd24f5345cdf384555c37dd8c6af7b8fd1c4848961a057f40b48e966cced"
+        },
+        "cover": {
+          "path": "papascupcakeria/papascupcakeria_400x226.jpg",
+          "bytes": 59206,
+          "sha256": "2ebd9fbaee0199e5b26600b7a45f56d7d6ccb3849c94065a4f5004b215c45d51"
+        }
+      }
+    },
+    {
+      "id": "papas-pastaria",
+      "slug": "papas-pastaria",
+      "title": "Papa’s Pastaria",
+      "officialGameUrl": "https://www.flipline.com/games/papaspastaria/index.html",
+      "officialPackageUrl": "https://i.flipline.com/downloads/papaspastaria.zip",
+      "version": "2.0",
+      "sourceAction": "build-local-ruffle-package",
+      "newCatalogueEntry": true,
+      "packagePin": {
+        "archive": {
+          "requestedUrl": "https://i.flipline.com/downloads/papaspastaria.zip",
+          "finalUrl": "https://i.flipline.com/downloads/papaspastaria.zip",
+          "status": 200,
+          "contentType": "application/zip",
+          "contentLength": 10753807,
+          "bytes": 10753807,
+          "sha256": "c34234c53bdc299cf7407c11c30bc018d77211c2a97a7e70d78f8830d87fd96b",
+          "fetchedAt": "2026-10-28T08:46:39.245Z"
+        },
+        "entryCount": 6,
+        "uncompressedBytes": 10772961,
+        "files": [
+          {
+            "path": "papaspastaria/gameinfo.txt",
+            "bytes": 845,
+            "sha256": "a878fa2e9db93272a0ffbaa70c932db5fc5d8a6dfcb4fa44311245de62d82bdb",
+            "crc32": "a8f535f1",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papaspastaria/papaspastaria_100x100.jpg",
+            "bytes": 10977,
+            "sha256": "02a17b59eeaae1a10029faf5440b494c26c3784328cc01b2b90fc8595e43b5f7",
+            "crc32": "2e77c3c0",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papaspastaria/papaspastaria_300x300.jpg",
+            "bytes": 66294,
+            "sha256": "e7e596cf2448b72026dd94475d0dfbd1bfe3aed04c4c47ce232dd126458f2dc8",
+            "crc32": "5038378b",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papaspastaria/papaspastaria_400x226.jpg",
+            "bytes": 58668,
+            "sha256": "02ec2260c3db24030b4aab81e87512fffe477bea7eab60b96b22b778ebe4baaa",
+            "crc32": "f354d787",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papaspastaria/papaspastaria.swf",
+            "bytes": 10578833,
+            "sha256": "107a7df8f8ad45aa19071257cc110fe233af62de66f21dd9395e60b8e50014ce",
+            "crc32": "5d338dab",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papaspastaria/Thumbs.db",
+            "bytes": 57344,
+            "sha256": "072aa2915b8bb947b742dab5e91bc669f21402a259451995349d138faf964cba",
+            "crc32": "998906e4",
+            "compressionMethod": 8
+          }
+        ],
+        "swf": {
+          "path": "papaspastaria/papaspastaria.swf",
+          "bytes": 10578833,
+          "sha256": "107a7df8f8ad45aa19071257cc110fe233af62de66f21dd9395e60b8e50014ce"
+        },
+        "authorNotice": {
+          "path": "papaspastaria/gameinfo.txt",
+          "bytes": 845,
+          "sha256": "a878fa2e9db93272a0ffbaa70c932db5fc5d8a6dfcb4fa44311245de62d82bdb"
+        },
+        "cover": {
+          "path": "papaspastaria/papaspastaria_400x226.jpg",
+          "bytes": 58668,
+          "sha256": "02ec2260c3db24030b4aab81e87512fffe477bea7eab60b96b22b778ebe4baaa"
+        }
+      }
+    },
+    {
+      "id": "papas-donuteria",
+      "slug": "papas-donuteria",
+      "title": "Papa’s Donuteria",
+      "officialGameUrl": "https://www.flipline.com/games/papasdonuteria/index.html",
+      "officialPackageUrl": "https://i.flipline.com/downloads/papasdonuteria_102.zip",
+      "version": "1.0.2",
+      "sourceAction": "build-local-ruffle-package",
+      "newCatalogueEntry": true,
+      "packagePin": {
+        "archive": {
+          "requestedUrl": "https://i.flipline.com/downloads/papasdonuteria_102.zip",
+          "finalUrl": "https://i.flipline.com/downloads/papasdonuteria_102.zip",
+          "status": 200,
+          "contentType": "application/zip",
+          "contentLength": 12356299,
+          "bytes": 12356299,
+          "sha256": "d7b0a1cba13630778d36f923d96fa48b510ae3f03a3536d23fa7ff53b8bc9225",
+          "fetchedAt": "2026-10-28T08:46:39.748Z"
+        },
+        "entryCount": 6,
+        "uncompressedBytes": 12367398,
+        "files": [
+          {
+            "path": "papasdonuteria/donuteria_100x100.jpg",
+            "bytes": 11235,
+            "sha256": "7e42023a1bbbd2e72332400d40fab191127abe7a56a3fc59435ab849f188d144",
+            "crc32": "6c7869a0",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papasdonuteria/donuteria_278x188.jpg",
+            "bytes": 35074,
+            "sha256": "881d1218446e438193502dc110e9ad262ff441d5340a123d21f74d09d3bb3e9d",
+            "crc32": "2c41019c",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papasdonuteria/donuteria_300x300.jpg",
+            "bytes": 56454,
+            "sha256": "2b37a9da164c70a4a53c0d624ea5999727024f66419d0d4034ae7e70c1f7d350",
+            "crc32": "fe8e34f7",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papasdonuteria/gameinfo.txt",
+            "bytes": 818,
+            "sha256": "82bef857a147f000dfe0a2a0c351d1cdd088579d60351d8bd131c08c32d136dc",
+            "crc32": "92c485d3",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papasdonuteria/papasdonuteria.swf",
+            "bytes": 12211081,
+            "sha256": "099cc6d776f3bd31ea29b4dea6dce918389b103e8aa3e1dc9b158440e7550fcb",
+            "crc32": "05ebde54",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papasdonuteria/Thumbs.db",
+            "bytes": 52736,
+            "sha256": "606e93bf9e7453898fb57d2f6078b4e9b804a9ae4b351b5ee89f83ac8c010292",
+            "crc32": "9ec37919",
+            "compressionMethod": 8
+          }
+        ],
+        "swf": {
+          "path": "papasdonuteria/papasdonuteria.swf",
+          "bytes": 12211081,
+          "sha256": "099cc6d776f3bd31ea29b4dea6dce918389b103e8aa3e1dc9b158440e7550fcb"
+        },
+        "authorNotice": {
+          "path": "papasdonuteria/gameinfo.txt",
+          "bytes": 818,
+          "sha256": "82bef857a147f000dfe0a2a0c351d1cdd088579d60351d8bd131c08c32d136dc"
+        },
+        "cover": {
+          "path": "papasdonuteria/donuteria_278x188.jpg",
+          "bytes": 35074,
+          "sha256": "881d1218446e438193502dc110e9ad262ff441d5340a123d21f74d09d3bb3e9d"
+        }
+      }
+    },
+    {
+      "id": "papas-cheeseria",
+      "slug": "papas-cheeseria",
+      "title": "Papa’s Cheeseria",
+      "officialGameUrl": "https://www.flipline.com/games/papascheeseria/index.html",
+      "officialPackageUrl": "https://i.flipline.com/downloads/papascheeseria_102.zip",
+      "version": "1.0.2",
+      "sourceAction": "build-local-ruffle-package",
+      "newCatalogueEntry": true,
+      "packagePin": {
+        "archive": {
+          "requestedUrl": "https://i.flipline.com/downloads/papascheeseria_102.zip",
+          "finalUrl": "https://i.flipline.com/downloads/papascheeseria_102.zip",
+          "status": 200,
+          "contentType": "application/zip",
+          "contentLength": 12657954,
+          "bytes": 12657954,
+          "sha256": "b5cbecb91255d409cb9df862e157d0f0dfc12cda5f8c7fbb5b67062351ce9cde",
+          "fetchedAt": "2026-10-28T08:47:12.063Z"
+        },
+        "entryCount": 7,
+        "uncompressedBytes": 12674325,
+        "files": [
+          {
+            "path": "papascheeseria_102/cheeseria_100x100.jpg",
+            "bytes": 11645,
+            "sha256": "5ac15a5ae23ad63ee0a02da59581c4b32f1a3f73e53105983d426bf5859fbd3f",
+            "crc32": "300fd180",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papascheeseria_102/cheeseria_278x188.jpg",
+            "bytes": 36047,
+            "sha256": "b07acf79bf594233ba23786e3cb6b80fd3a1f7529f52ceb8d6cf7cd162644e49",
+            "crc32": "2a076b30",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papascheeseria_102/cheeseria_300x300.jpg",
+            "bytes": 59248,
+            "sha256": "b31897ddb5aad390c5a8656c1377c259dd4bf89d3696fc7dd6d870366f2eccc6",
+            "crc32": "426a98b7",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papascheeseria_102/gameinfo.txt",
+            "bytes": 872,
+            "sha256": "7edf3403ba74190e19bbec2ad9311e5816a91233e8696848a624916a0d11f278",
+            "crc32": "a4a4d76f",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papascheeseria_102/papascheeseria_102.swf",
+            "bytes": 12339497,
+            "sha256": "bcd49a30f8831922fbcc0059c65ec8bf1fdd9d21eea2a026c4a173cfcbb83691",
+            "crc32": "caca8d7b",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papascheeseria_102/screenshot_01.jpg",
+            "bytes": 151752,
+            "sha256": "bc7631d3a6cf9f886b7dacdc141bacdd2e32fb4be4a8eba49ad0b61f2b2a3c3c",
+            "crc32": "c6b4945e",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papascheeseria_102/Thumbs.db",
+            "bytes": 75264,
+            "sha256": "e2aaffc26b2351d43ce581d2e1677da5a7568d35be87850795df36faeb6a1d49",
+            "crc32": "07a5d19e",
+            "compressionMethod": 8
+          }
+        ],
+        "swf": {
+          "path": "papascheeseria_102/papascheeseria_102.swf",
+          "bytes": 12339497,
+          "sha256": "bcd49a30f8831922fbcc0059c65ec8bf1fdd9d21eea2a026c4a173cfcbb83691"
+        },
+        "authorNotice": {
+          "path": "papascheeseria_102/gameinfo.txt",
+          "bytes": 872,
+          "sha256": "7edf3403ba74190e19bbec2ad9311e5816a91233e8696848a624916a0d11f278"
+        },
+        "cover": {
+          "path": "papascheeseria_102/cheeseria_278x188.jpg",
+          "bytes": 36047,
+          "sha256": "b07acf79bf594233ba23786e3cb6b80fd3a1f7529f52ceb8d6cf7cd162644e49"
+        }
+      }
+    },
+    {
+      "id": "papas-bakeria",
+      "slug": "papas-bakeria",
+      "title": "Papa’s Bakeria",
+      "officialGameUrl": "https://www.flipline.com/games/papasbakeria/index.html",
+      "officialPackageUrl": "https://i.flipline.com/downloads/papasbakeria_101.zip",
+      "version": "1.0.1",
+      "sourceAction": "build-local-ruffle-package",
+      "newCatalogueEntry": true,
+      "packagePin": {
+        "archive": {
+          "requestedUrl": "https://i.flipline.com/downloads/papasbakeria_101.zip",
+          "finalUrl": "https://i.flipline.com/downloads/papasbakeria_101.zip",
+          "status": 200,
+          "contentType": "application/zip",
+          "contentLength": 14529253,
+          "bytes": 14529253,
+          "sha256": "103c9bdea59440577f2cfda63ca3bf8117a74ee313533d4e4e0a1fa8d4c5dafc",
+          "fetchedAt": "2026-10-28T08:47:12.609Z"
+        },
+        "entryCount": 5,
+        "uncompressedBytes": 14532961,
+        "files": [
+          {
+            "path": "gameinfo.txt",
+            "bytes": 869,
+            "sha256": "7247ebde68045384e73994b8e7f1acfc18c7569a49d121d7055c80920bb81a7e",
+            "crc32": "b8ad67d0",
+            "compressionMethod": 8
+          },
+          {
+            "path": "icon_100x100_papasbakeria.jpg",
+            "bytes": 10179,
+            "sha256": "2eb68a1f8c35bad740c117e19cf6cb79d1536c4b253d12f851fba972723b9abd",
+            "crc32": "567f2780",
+            "compressionMethod": 8
+          },
+          {
+            "path": "icon_278x188_papasbakeria.jpg",
+            "bytes": 32858,
+            "sha256": "97a203b27721fc526b0de360543fd28b9d81d315a0530f11de67ecf3205442f8",
+            "crc32": "01260c06",
+            "compressionMethod": 8
+          },
+          {
+            "path": "icon_300x300_papasbakeria.jpg",
+            "bytes": 49330,
+            "sha256": "00757eafc613a97db0d035ba8d12f70e342a6edbc2060a280357132704233e3b",
+            "crc32": "40261cd0",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papasbakeria.swf",
+            "bytes": 14439725,
+            "sha256": "40dcbad03aef77d439d0b5e0ef1addb4aa2be0eb3c9f07ef4e282b8ca0c23544",
+            "crc32": "c88647d9",
+            "compressionMethod": 8
+          }
+        ],
+        "swf": {
+          "path": "papasbakeria.swf",
+          "bytes": 14439725,
+          "sha256": "40dcbad03aef77d439d0b5e0ef1addb4aa2be0eb3c9f07ef4e282b8ca0c23544"
+        },
+        "authorNotice": {
+          "path": "gameinfo.txt",
+          "bytes": 869,
+          "sha256": "7247ebde68045384e73994b8e7f1acfc18c7569a49d121d7055c80920bb81a7e"
+        },
+        "cover": {
+          "path": "icon_278x188_papasbakeria.jpg",
+          "bytes": 32858,
+          "sha256": "97a203b27721fc526b0de360543fd28b9d81d315a0530f11de67ecf3205442f8"
+        }
+      }
+    },
+    {
+      "id": "papas-sushiria",
+      "slug": "papas-sushiria",
+      "title": "Papa’s Sushiria",
+      "officialGameUrl": "https://www.flipline.com/games/papassushiria/index.html",
+      "officialPackageUrl": "https://i.flipline.com/downloads/papassushiria_101.zip",
+      "version": "1.0.1",
+      "sourceAction": "build-local-ruffle-package",
+      "newCatalogueEntry": true,
+      "packagePin": {
+        "archive": {
+          "requestedUrl": "https://i.flipline.com/downloads/papassushiria_101.zip",
+          "finalUrl": "https://i.flipline.com/downloads/papassushiria_101.zip",
+          "status": 200,
+          "contentType": "application/zip",
+          "contentLength": 15759766,
+          "bytes": 15759766,
+          "sha256": "45530839504741639efe811eb5e0283c3d1a4db76f596b92d718230e71dd8e52",
+          "fetchedAt": "2026-10-28T08:47:13.319Z"
+        },
+        "entryCount": 6,
+        "uncompressedBytes": 15775618,
+        "files": [
+          {
+            "path": "papassushiria_101/gameinfo.txt",
+            "bytes": 917,
+            "sha256": "6de2f606ffd4c6d4581662d8d0814a4f7099456faa3939103e5af34d8f36d3c9",
+            "crc32": "65d120e0",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papassushiria_101/icon_100x100_papassushiria.jpg",
+            "bytes": 9630,
+            "sha256": "a989a147a49c0021273471e2e8dcb9a5c16f374f6e4543ba54f080f2069798a3",
+            "crc32": "8e58d984",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papassushiria_101/icon_278x188_papassushiria.jpg",
+            "bytes": 35692,
+            "sha256": "7bdc33c4024bb2e2dc4bbf5e3e45386bf185b8b4e5046e4c4465bfb272ddd205",
+            "crc32": "74a5f994",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papassushiria_101/icon_300x300_papassushiria.jpg",
+            "bytes": 47255,
+            "sha256": "b63f08d304bea5a4974c82476eb27d6c29287d92359f23056277b5c075314207",
+            "crc32": "434e196e",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papassushiria_101/papassushiria.swf",
+            "bytes": 15583308,
+            "sha256": "91b31bec57008658189dcccd2b23210ea6333cb4b1d819bac54c3e153a783947",
+            "crc32": "9985a16c",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papassushiria_101/Thumbs.db",
+            "bytes": 98816,
+            "sha256": "52852a3076b684094b552eaffc01a8e753a0ec7f3f66ca48c611d2b3cb663587",
+            "crc32": "9e58fd35",
+            "compressionMethod": 8
+          }
+        ],
+        "swf": {
+          "path": "papassushiria_101/papassushiria.swf",
+          "bytes": 15583308,
+          "sha256": "91b31bec57008658189dcccd2b23210ea6333cb4b1d819bac54c3e153a783947"
+        },
+        "authorNotice": {
+          "path": "papassushiria_101/gameinfo.txt",
+          "bytes": 917,
+          "sha256": "6de2f606ffd4c6d4581662d8d0814a4f7099456faa3939103e5af34d8f36d3c9"
+        },
+        "cover": {
+          "path": "papassushiria_101/icon_278x188_papassushiria.jpg",
+          "bytes": 35692,
+          "sha256": "7bdc33c4024bb2e2dc4bbf5e3e45386bf185b8b4e5046e4c4465bfb272ddd205"
+        }
+      }
+    },
+    {
+      "id": "papas-scooperia",
+      "slug": "papas-scooperia",
+      "title": "Papa’s Scooperia",
+      "officialGameUrl": "https://www.flipline.com/games/papasscooperia/index.html",
+      "officialPackageUrl": "https://i.flipline.com/downloads/papasscooperia_102.zip",
+      "version": "1.0.2",
+      "sourceAction": "build-local-ruffle-package",
+      "newCatalogueEntry": true,
+      "packagePin": {
+        "archive": {
+          "requestedUrl": "https://i.flipline.com/downloads/papasscooperia_102.zip",
+          "finalUrl": "https://i.flipline.com/downloads/papasscooperia_102.zip",
+          "status": 200,
+          "contentType": "application/zip",
+          "contentLength": 20909034,
+          "bytes": 20909034,
+          "sha256": "a40b6073b08ec6c5ad741299e74ccc75c57cd4ea65c86fa01ce922fe9443516a",
+          "fetchedAt": "2026-10-28T08:47:14.193Z"
+        },
+        "entryCount": 6,
+        "uncompressedBytes": 20925963,
+        "files": [
+          {
+            "path": "papasscooperia/gameinfo.txt",
+            "bytes": 686,
+            "sha256": "fbea5053f067ace706f435c3b93e20254f57c0233a3fdab76b74807d6979fa77",
+            "crc32": "d54a6d88",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papasscooperia/icon_100x100_papasscooperia.jpg",
+            "bytes": 9817,
+            "sha256": "f19fbe9ac82f1b2612ee14a52c3eb9d184f3e97fe0c33781c65c3c7d1e09b573",
+            "crc32": "04b8de7f",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papasscooperia/icon_278x188_papasscooperia.jpg",
+            "bytes": 37659,
+            "sha256": "439ba64de56a087db5e9ba6a4a59e6dccae2c4282fe61253779e23e62ba413fd",
+            "crc32": "ecd351b5",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papasscooperia/icon_300x300_papasscooperia.jpg",
+            "bytes": 57695,
+            "sha256": "5187ebb2a68e17b4182df512e3148233886335c4f9d36a3607f6c652dd0628b4",
+            "crc32": "6b4b101c",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papasscooperia/papasscooperia_v102.swf",
+            "bytes": 20713098,
+            "sha256": "ca7ae36d1e1b5ca92b655f1ba415fb9bff5fa609a57c2482a5594f51694b49d2",
+            "crc32": "e0bbd253",
+            "compressionMethod": 8
+          },
+          {
+            "path": "papasscooperia/Thumbs.db",
+            "bytes": 107008,
+            "sha256": "e8cb53dbb95a59fb409421e15b522ccfa5044bf11d890446381f9112a53e174a",
+            "crc32": "780fd504",
+            "compressionMethod": 8
+          }
+        ],
+        "swf": {
+          "path": "papasscooperia/papasscooperia_v102.swf",
+          "bytes": 20713098,
+          "sha256": "ca7ae36d1e1b5ca92b655f1ba415fb9bff5fa609a57c2482a5594f51694b49d2"
+        },
+        "authorNotice": {
+          "path": "papasscooperia/gameinfo.txt",
+          "bytes": 686,
+          "sha256": "fbea5053f067ace706f435c3b93e20254f57c0233a3fdab76b74807d6979fa77"
+        },
+        "cover": {
+          "path": "papasscooperia/icon_278x188_papasscooperia.jpg",
+          "bytes": 37659,
+          "sha256": "439ba64de56a087db5e9ba6a4a59e6dccae2c4282fe61253779e23e62ba413fd"
+        }
+      }
+    }
+  ],
+  "notes": [
+    "Exact game-page and ZIP hrefs above were read from the official Flipline freegames page rendered on 2026-10-28. URLs are not inferred from naming patterns.",
+    "The official page describes the standard web versions as ZIP packages for uploading to a site. Each ZIP must be inventoried and its author/copyright/usage notices retained before it is packaged.",
+    "No mobile To Go, HD, Deluxe, paid app package, or branded/site-locked version is included."
+  ]
+}

@@ -16,14 +16,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/survival-race/index.html",
     "sourceUrl": "https://watchdocumentaries.com/survival-race-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Stay on the platform as the arena falls away beneath your car. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -51,14 +51,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/fortzone-battle-royale/index.html",
     "sourceUrl": "https://watchdocumentaries.com/fortzone-battle-royale-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Scavenge, build and survive a battle royale arena. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -92,8 +92,8 @@
     "engine": "iframe",
     "gameUrl": "https://orteil.dashnet.org/cookieclicker/",
     "sourceUrl": "https://orteil.dashnet.org/cookieclicker/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Publisher-hosted game",
+    "licenseNotes": "The matching game is loaded through its reviewed publisher/archive entrypoint. The external provider controls hosting, availability, cookies and in-game advertising. Owner content-use authorization is recorded separately; no official partnership or open-source license is asserted. Manual gameplay, device and audio QA remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Bake cookies, buy upgrades and grow a cookie empire. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -121,14 +121,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/crazy-cattle-3d/index.html",
     "sourceUrl": "https://watchdocumentaries.com/crazy-cattle-3d-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Bump rival sheep out of chaotic three-dimensional arenas. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -156,14 +156,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/snow-rider-3d/index.html",
     "sourceUrl": "https://watchdocumentaries.com/snow-rider-3d-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Steer a sled between snowy obstacles and collect gifts. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -200,8 +200,8 @@
     "engine": "iframe",
     "gameUrl": "https://carlwalks.com/build_engine/root/polytrack-0.3.1/index.html",
     "sourceUrl": "https://www.carlwalks.com/flash/polytrack/",
-    "license": "Owner-authorized original web player",
-    "licenseNotes": "The user states they have permission for this CarlWalks game version and its assets. The exact original game entrypoint is used. Attribution remains with the credited developer.",
+    "license": "Publisher-hosted game",
+    "licenseNotes": "The matching game is loaded through its reviewed publisher/archive entrypoint. The external provider controls hosting, availability, cookies and in-game advertising. Owner content-use authorization is recorded separately; no official partnership or open-source license is asserted. Manual gameplay, device and audio QA remain pending user review.",
     "mobile": false,
     "controls": "Arrow keys or WASD to drive.",
     "instructions": "Race tracks and improve your best lap. WebGL required.",
@@ -229,14 +229,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/eaglercraft/index.html",
     "sourceUrl": "https://watchdocumentaries.com/eaglercraft-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Explore and build in a browser-based block world. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -264,14 +264,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/drift-hunters/index.html",
     "sourceUrl": "https://watchdocumentaries.com/drift-hunters-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Link drifts and tune cars to improve your runs. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -299,14 +299,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/drive-mad/index.html",
     "sourceUrl": "https://watchdocumentaries.com/drive-mad-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Balance your vehicle across increasingly awkward obstacles. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -334,14 +334,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/granny/index.html",
     "sourceUrl": "https://watchdocumentaries.com/granny-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Search for an escape while avoiding Granny. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -369,14 +369,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/granny-2/index.html",
     "sourceUrl": "https://watchdocumentaries.com/granny-2-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Find a way out while staying clear of the house\u2019s inhabitants. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -406,14 +406,15 @@
       "browser",
       "webgl",
       "reference-catalogue",
-      "user-qa-pending"
+      "user-qa-pending",
+      "self-hosted"
     ],
     "developer": "Y8 Studio",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/slope/index.html",
     "sourceUrl": "https://www.y8.com/games/slope",
-    "license": "Owner-authorized CarlWalks archive game build",
-    "licenseNotes": "The user represents that distribution/embedding permission has been granted for the CarlWalks collection. Sidequest loads the exact original game entrypoint in an in-page iframe, preserving its upstream source and developer credits. Required game assets remain hosted by CarlWalks, so externally blocked networks may prevent loading.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": true,
     "controls": "Left/right arrows or A/D to steer. Use the in-game Play and retry buttons.",
     "instructions": "Keep the ball on the green track, avoid red obstacles and survive as long as possible. This is the current official Y8 browser release; the reference uses an older Unity build. Requires a WebGL-capable browser with graphics acceleration enabled.",
@@ -441,14 +442,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/slope-2/index.html",
     "sourceUrl": "https://watchdocumentaries.com/slope-2-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Keep your ball on the course through rapid turns and hazards. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -476,14 +477,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/slope-3/index.html",
-    "sourceUrl": "https://watchdocumentaries.com/slope-3-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "sourceUrl": "https://github.com/Slope3/Slope3.github.io/tree/114ce2132ebfa47d8f4a82814d759d7bd34da2c7",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review. Complete alternate Unity build replaces the reference mirror whose configured data file is missing; source attribution is retained.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "React quickly as a downhill ball course gathers speed. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -656,14 +657,15 @@
       "arcade",
       "browser",
       "reference-catalogue",
-      "user-qa-pending"
+      "user-qa-pending",
+      "self-hosted"
     ],
     "developer": "MadPuffers",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/moto-x3m/index.html",
     "sourceUrl": "https://famobi.com/moto-x3m/",
-    "license": "Owner-authorized CarlWalks archive game build",
-    "licenseNotes": "The user represents that distribution/embedding permission has been granted for the CarlWalks collection. Sidequest loads the exact original game entrypoint in an in-page iframe, preserving its upstream source and developer credits. Required game assets remain hosted by CarlWalks, so externally blocked networks may prevent loading.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": true,
     "controls": "Arrow keys to accelerate, brake and balance. Space to respawn. On touch devices use the game\u2019s on-screen controls.",
     "instructions": "Reach the finish quickly while balancing your bike. Flips save time; checkpoints let you retry after a crash. This is the genuine HTML5 release by MadPuffers, distributed by Famobi.",
@@ -732,8 +734,8 @@
     "engine": "iframe",
     "gameUrl": "https://www.miniplay.com/embed/football-legends-2021",
     "sourceUrl": "https://www.miniplay.com/game/football-legends-2021",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Publisher-hosted game",
+    "licenseNotes": "The matching game is loaded through its reviewed publisher/archive entrypoint. The external provider controls hosting, availability, cookies and in-game advertising. Owner content-use authorization is recorded separately; no official partnership or open-source license is asserted. Manual gameplay, device and audio QA remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Score goals in fast arcade football matches. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -761,14 +763,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/a-small-world-cup/index.html",
     "sourceUrl": "https://watchdocumentaries.com/a-small-world-cup-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Swing a ragdoll footballer into the ball and chase a win. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -796,14 +798,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/traffic-jam-3d/index.html",
     "sourceUrl": "https://watchdocumentaries.com/traffic-jam-3d-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Navigate busy roads and weave between vehicles. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -831,14 +833,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/highway-traffic/index.html",
     "sourceUrl": "https://watchdocumentaries.com/highway-traffic-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Find gaps in highway traffic and keep your run going. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -936,14 +938,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/geometry-dash-subzero/index.html",
     "sourceUrl": "https://watchdocumentaries.com/geometry-dash-subzero-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Jump through rhythm-driven courses with precise timing. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -971,14 +973,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/geometry-dash-hyper-wave/index.html",
     "sourceUrl": "https://watchdocumentaries.com/geometry-dash-hyper-wave-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review. A visibly labelled guest extension starts the local game without publisher accounts, leaderboards or ads. Unavailable services return errors; no rewards, accounts or domain identities are fabricated.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Guide a wave through narrow passages and sharp obstacles. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -1006,14 +1008,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/among-us/index.html",
     "sourceUrl": "https://watchdocumentaries.com/among-us-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Complete the version\u2019s tasks and watch for suspicious crewmates. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -1047,8 +1049,8 @@
     "engine": "iframe",
     "gameUrl": "https://www.miniplay.com/embed/monkey-mart",
     "sourceUrl": "https://www.miniplay.com/game/monkey-mart",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Publisher-hosted game",
+    "licenseNotes": "The matching game is loaded through its reviewed publisher/archive entrypoint. The external provider controls hosting, availability, cookies and in-game advertising. Owner content-use authorization is recorded separately; no official partnership or open-source license is asserted. Manual gameplay, device and audio QA remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Stock shelves and expand a busy monkey supermarket. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -1076,14 +1078,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/ovo/index.html",
     "sourceUrl": "https://watchdocumentaries.com/ovo-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Jump, slide and dive through compact platforming challenges. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -1111,14 +1113,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/rocket-league/index.html",
     "sourceUrl": "https://watchdocumentaries.com/rocket-league-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Use a vehicle to push the ball toward the opposing goal. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -1146,14 +1148,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/subway-surfers/index.html",
     "sourceUrl": "https://watchdocumentaries.com/subway-surfers-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Dodge trains, jump barriers and collect coins on an endless run. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -1181,14 +1183,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/retro-bowl/index.html",
     "sourceUrl": "https://watchdocumentaries.com/retro-bowl-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Manage your football team and call the plays on the field. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -1216,14 +1218,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/level-devil/index.html",
     "sourceUrl": "https://watchdocumentaries.com/level-devil-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Expect surprise hazards as you work toward each exit. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -1251,14 +1253,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/stickman-hook/index.html",
     "sourceUrl": "https://watchdocumentaries.com/stickman-hook-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Swing between hooks and carry your momentum to the finish. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -1286,14 +1288,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Oslo Albet",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/fireboy-and-watergirl-1/index.html",
     "sourceUrl": "https://watchdocumentaries.com/fireboy-and-watergirl-1-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Coordinate two characters to solve the Forest Temple\u2019s puzzles. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -1321,14 +1323,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Oslo Albet",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/fireboy-and-watergirl-2/index.html",
     "sourceUrl": "https://watchdocumentaries.com/fireboy-and-watergirl-2-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Use light and teamwork to guide both characters to their exits. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -1362,8 +1364,8 @@
     "engine": "iframe",
     "gameUrl": "https://www.miniplay.com/embed/funny-shooter-2",
     "sourceUrl": "https://www.miniplay.com/game/funny-shooter-2",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Publisher-hosted game",
+    "licenseNotes": "The matching game is loaded through its reviewed publisher/archive entrypoint. The external provider controls hosting, availability, cookies and in-game advertising. Owner content-use authorization is recorded separately; no official partnership or open-source license is asserted. Manual gameplay, device and audio QA remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Face waves of unusual enemies in an arcade shooter. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -1391,14 +1393,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/time-shooter-2/index.html",
     "sourceUrl": "https://watchdocumentaries.com/time-shooter-2-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Plan each move in a shooter where time follows your movement. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -1426,14 +1428,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/time-shooter-3/index.html",
     "sourceUrl": "https://watchdocumentaries.com/time-shooter-3-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Use careful movement and timing to clear each encounter. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -1461,14 +1463,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/angry-heroes/index.html",
     "sourceUrl": "https://watchdocumentaries.com/angry-heroes-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Aim shots at structures and clear the targets. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -1496,14 +1498,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/drift-boss/index.html",
     "sourceUrl": "https://watchdocumentaries.com/drift-boss-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Time each turn to keep a drifting car on a narrow road. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -1566,14 +1568,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/eggy-car/index.html",
     "sourceUrl": "https://watchdocumentaries.com/eggy-car-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Drive over hills while keeping a fragile egg balanced. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -1638,14 +1640,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/blade-ball/index.html",
     "sourceUrl": "https://watchdocumentaries.com/blade-ball-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Time your deflections as a dangerous ball picks up speed. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -1673,14 +1675,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/paper-io/index.html",
     "sourceUrl": "https://watchdocumentaries.com/paper-io-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Claim territory and return safely before opponents cut your trail. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -1708,14 +1710,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/tiny-fishing/index.html",
     "sourceUrl": "https://watchdocumentaries.com/tiny-fishing-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Cast a line, collect fish and improve your fishing gear. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -1743,14 +1745,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/snake-io/index.html",
     "sourceUrl": "https://watchdocumentaries.com/snake-io-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Grow your snake while steering clear of competing snakes. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -1778,14 +1780,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/blockpost/index.html",
     "sourceUrl": "https://watchdocumentaries.com/blockpost-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Take aim in a block-styled multiplayer shooter. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -1813,14 +1815,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/house-of-hazards/index.html",
     "sourceUrl": "https://watchdocumentaries.com/house-of-hazards-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Complete everyday tasks while the house fights back. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -1848,14 +1850,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/getaway-shootout/index.html",
     "sourceUrl": "https://watchdocumentaries.com/getaway-shootout-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Hop past rivals and reach the getaway first. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -1883,14 +1885,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/rooftop-snipers/index.html",
     "sourceUrl": "https://watchdocumentaries.com/rooftop-snipers-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Time your jumps and shots to knock a rival off the roof. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -1955,14 +1957,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/hole-io/index.html",
     "sourceUrl": "https://watchdocumentaries.com/hole-io-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Swallow objects to grow your hole and outsize the competition. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -1990,14 +1992,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/escape-road/index.html",
     "sourceUrl": "https://watchdocumentaries.com/escape-road-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Keep moving through city streets while evading pursuit. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -2063,14 +2065,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/color-tunnel/index.html",
     "sourceUrl": "https://watchdocumentaries.com/color-tunnel-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Steer through a colorful tunnel while avoiding obstacles. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -2098,14 +2100,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/icy-purple-head/index.html",
     "sourceUrl": "https://watchdocumentaries.com/icy-purple-head-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Switch between sticky and icy states to reach the delivery box. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -2133,14 +2135,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/tanuki-sunset/index.html",
     "sourceUrl": "https://watchdocumentaries.com/tanuki-sunset-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Longboard around bends and maintain your downhill flow. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -2168,14 +2170,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/gunspin/index.html",
     "sourceUrl": "https://watchdocumentaries.com/gunspin-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Use the recoil of each shot to send a weapon farther. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -2203,14 +2205,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/hover-racer-drive/index.html",
     "sourceUrl": "https://watchdocumentaries.com/hover-racer-drive-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Steer a hover racer through high-speed obstacles. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -2238,14 +2240,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/madalin-stunt-cars-2/index.html",
     "sourceUrl": "https://watchdocumentaries.com/madalin-stunt-cars-2-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Explore stunt arenas with jumps, loops and performance cars. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -2273,14 +2275,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/slowroads-io/index.html",
     "sourceUrl": "https://watchdocumentaries.com/slowroads-io-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Take a relaxed drive along an endlessly generated road. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -2343,14 +2345,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/bottle-flip-3d/index.html",
     "sourceUrl": "https://watchdocumentaries.com/bottle-flip-3d-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Flip a bottle between household objects and reach the finish. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -2454,10 +2456,10 @@
     ],
     "developer": "Creator credits in game",
     "engine": "iframe",
-    "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/pixel-shooter/index.html",
-    "sourceUrl": "https://watchdocumentaries.com/pixel-shooter-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "gameUrl": "https://www.crazygames.com/embed/pixel-shooter",
+    "sourceUrl": "https://www.crazygames.com/game/pixel-shooter",
+    "license": "Publisher-hosted game",
+    "licenseNotes": "The matching game is loaded through its reviewed publisher/archive entrypoint. The external provider controls hosting, availability, cookies and in-game advertising. Owner content-use authorization is recorded separately; no official partnership or open-source license is asserted. Manual gameplay, device and audio QA remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Battle through pixel-styled shooting arenas. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -2485,14 +2487,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/death-run-3d/index.html",
     "sourceUrl": "https://watchdocumentaries.com/death-run-3d-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "React to fast-approaching obstacles in a three-dimensional tunnel. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -2520,14 +2522,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/burrito-bison-launcha-libre/index.html",
     "sourceUrl": "https://watchdocumentaries.com/burrito-bison-launcha-libre-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Launch into a candy world and keep your bouncing run alive. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -2555,14 +2557,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/fall-boys/index.html",
     "sourceUrl": "https://watchdocumentaries.com/fall-boys-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Race through obstacle courses and stay in the competition. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -2590,14 +2592,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/brawl-guys/index.html",
     "sourceUrl": "https://watchdocumentaries.com/brawl-guys-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Fight through compact multiplayer-style arenas. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -2625,14 +2627,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/ice-dodo/index.html",
     "sourceUrl": "https://watchdocumentaries.com/ice-dodo-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Keep your character on tricky floating courses. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -2660,14 +2662,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/friday-night-funkin/index.html",
     "sourceUrl": "https://watchdocumentaries.com/friday-night-funkin-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Match the arrows to the beat in musical battles. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -2732,14 +2734,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/papas-freezeria/index.html",
     "sourceUrl": "https://watchdocumentaries.com/papas-freezeria-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Build frozen treats to match each customer\u2019s order. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -2767,14 +2769,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/x-trench-run/index.html",
     "sourceUrl": "https://watchdocumentaries.com/x-trench-run-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Pilot a spacecraft through a dangerous trench. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -2839,14 +2841,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/helix-jump/index.html",
     "sourceUrl": "https://watchdocumentaries.com/helix-jump-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Guide a bouncing ball through gaps in a twisting tower. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -2874,14 +2876,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/shortcut-race/index.html",
     "sourceUrl": "https://watchdocumentaries.com/shortcut-race-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Collect planks and build shortcuts past your opponents. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -2909,14 +2911,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/lows-adventure-2/index.html",
     "sourceUrl": "https://watchdocumentaries.com/lows-adventure-2-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Explore small platforming levels and collect their coins. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -3051,14 +3053,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/tomb-of-the-mask/index.html",
     "sourceUrl": "https://watchdocumentaries.com/tomb-of-the-mask-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Dash through mazes and avoid the traps along your path. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -3121,14 +3123,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/choppy-orc/index.html",
     "sourceUrl": "https://watchdocumentaries.com/choppy-orc-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Use a returning axe to solve platforming puzzles. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -3156,14 +3158,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/pizza-tower/index.html",
     "sourceUrl": "https://watchdocumentaries.com/pizza-tower-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Build momentum through a frantic, pizza-themed platform adventure. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -3226,14 +3228,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/ricochet-arrow/index.html",
     "sourceUrl": "https://watchdocumentaries.com/ricochet-arrow-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Bounce arrows around obstacles to hit every target. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -3261,14 +3263,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/ragdoll-hit/index.html",
-    "sourceUrl": "https://watchdocumentaries.com/ragdoll-hit-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "sourceUrl": "https://github.com/bubbls/UGS-Assets/tree/a701d831beaf842d5472ebfe2d64b0bbc2fd4c1a/ragdoll-hit",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review. Original split files are reassembled byte-exact; native loader, original SDK and product metadata are retained.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Control a physics fighter and land decisive hits. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -3296,14 +3298,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/big-shot-boxing/index.html",
     "sourceUrl": "https://watchdocumentaries.com/big-shot-boxing-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Trade punches, defend and work your way through boxing bouts. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -3331,14 +3333,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/plant-vs-zombies/index.html",
     "sourceUrl": "https://watchdocumentaries.com/plant-vs-zombies-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Arrange plants to defend your lawn from approaching zombies. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -3366,14 +3368,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/jelly-truck/index.html",
     "sourceUrl": "https://watchdocumentaries.com/jelly-truck-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Guide a soft-bodied truck across a world of squishy obstacles. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -3407,8 +3409,8 @@
     "engine": "iframe",
     "gameUrl": "https://geometrykarts.com/",
     "sourceUrl": "https://watchdocumentaries.com/smash-karts-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Publisher-hosted game",
+    "licenseNotes": "The matching game is loaded through its reviewed publisher/archive entrypoint. The external provider controls hosting, availability, cookies and in-game advertising. Owner content-use authorization is recorded separately; no official partnership or open-source license is asserted. Manual gameplay, device and audio QA remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Collect weapons and battle other karts in an arena. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -3442,8 +3444,8 @@
     "engine": "iframe",
     "gameUrl": "https://overeasy.club/",
     "sourceUrl": "https://watchdocumentaries.com/shell-shockers-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Publisher-hosted game",
+    "licenseNotes": "The matching game is loaded through its reviewed publisher/archive entrypoint. The external provider controls hosting, availability, cookies and in-game advertising. Owner content-use authorization is recorded separately; no official partnership or open-source license is asserted. Manual gameplay, device and audio QA remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Join an egg-themed multiplayer shooting arena. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -3477,8 +3479,8 @@
     "engine": "iframe",
     "gameUrl": "https://zombsroyale.io/",
     "sourceUrl": "https://watchdocumentaries.com/zombs-royale-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Publisher-hosted game",
+    "licenseNotes": "The matching game is loaded through its reviewed publisher/archive entrypoint. The external provider controls hosting, availability, cookies and in-game advertising. Owner content-use authorization is recorded separately; no official partnership or open-source license is asserted. Manual gameplay, device and audio QA remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Gather equipment and survive a top-down battle royale. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -3616,14 +3618,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/fruit-merge/index.html",
     "sourceUrl": "https://watchdocumentaries.com/fruit-merge-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Combine matching fruit while keeping the board under control. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -3651,14 +3653,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/block-blast/index.html",
     "sourceUrl": "https://watchdocumentaries.com/block-blast-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Fit blocks into the grid and complete rows and columns. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -3723,14 +3725,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/bubble-shooter/index.html",
     "sourceUrl": "https://watchdocumentaries.com/bubble-shooter-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Aim bubbles to form matching groups and clear the board. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -3758,14 +3760,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/pac-man/index.html",
     "sourceUrl": "https://watchdocumentaries.com/pac-man-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Collect dots through the maze while avoiding the ghosts. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -3869,8 +3871,8 @@
     "engine": "iframe",
     "gameUrl": "https://cdn.clickerheroes.com/gamebuild/index.php",
     "sourceUrl": "https://watchdocumentaries.com/clicker-heroes-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Publisher-hosted game",
+    "licenseNotes": "The matching game is loaded through its reviewed publisher/archive entrypoint. The external provider controls hosting, availability, cookies and in-game advertising. Owner content-use authorization is recorded separately; no official partnership or open-source license is asserted. Manual gameplay, device and audio QA remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Defeat monsters, recruit heroes and build your damage output. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -3898,14 +3900,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/gladihoppers/index.html",
     "sourceUrl": "https://watchdocumentaries.com/gladihoppers-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Guide a bouncing gladiator through physics-based duels. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -4155,14 +4157,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/car-rush/index.html",
     "sourceUrl": "https://watchdocumentaries.com/car-rush-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Beat the clock while steering through traffic and bends. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -4190,14 +4192,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/wheelie-bike/index.html",
     "sourceUrl": "https://watchdocumentaries.com/wheelie-bike-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Balance on one wheel and see how far you can ride. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -4225,14 +4227,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/clash-blade-io/index.html",
     "sourceUrl": "https://watchdocumentaries.com/clash-blade-io-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Grow stronger and challenge rivals with your blade. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -4260,14 +4262,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/cat-ninja/index.html",
     "sourceUrl": "https://watchdocumentaries.com/cat-ninja-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Leap past traps and solve a cat ninja\u2019s obstacle course. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -4295,14 +4297,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/cat-trap/index.html",
     "sourceUrl": "https://watchdocumentaries.com/cat-trap-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Close off escape routes and try to keep the cat on the board. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -4330,14 +4332,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/sprinter/index.html",
     "sourceUrl": "https://watchdocumentaries.com/sprinter-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Build speed and race toward the finish line. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -4365,14 +4367,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/we-become-what-we-behold/index.html",
     "sourceUrl": "https://watchdocumentaries.com/we-become-what-we-behold-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Choose what to photograph and watch a small society react. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -4400,14 +4402,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/master-chess/index.html",
     "sourceUrl": "https://watchdocumentaries.com/master-chess-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Plan your moves and work toward checkmate. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -4435,14 +4437,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/solitaire/index.html",
     "sourceUrl": "https://watchdocumentaries.com/solitaire-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Sort the cards and build each suit\u2019s foundation. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -4470,14 +4472,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/word-wipe/index.html",
     "sourceUrl": "https://watchdocumentaries.com/word-wipe-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Link letter tiles into words and clear lines from the board. Select Play now, then follow the game\u2019s own start and control prompts.",
@@ -4505,14 +4507,14 @@
     "tags": [
       "reference-catalogue",
       "user-qa-pending",
-      "reference-embed"
+      "self-hosted"
     ],
     "developer": "Creator credits in game",
-    "engine": "iframe",
+    "engine": "html5",
     "gameUrl": "https://browser-game-arcade-dxbavg-7923s-projects.vercel.app/play/archives/wordle-unlimited/index.html",
     "sourceUrl": "https://watchdocumentaries.com/wordle-unlimited-game/",
-    "license": "Owner-authorized reference embed",
-    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. Loaded from the exact observed reference entrypoint; external hosting and availability remain dependencies. No official partnership implied. Manual gameplay, mobile compatibility and audible audio testing are pending user review.",
+    "license": "Owner-authorized game archive",
+    "licenseNotes": "Owner supplied content and screenshot authorization on 2026-10-27. The selected source build is preserved in a local archive with pinned source hashes and recorded provenance; no missing upstream open-source license or official partnership is asserted. Manual gameplay, device compatibility, save persistence and audible audio testing remain pending user review.",
     "mobile": false,
     "controls": "Use the controls shown on the game\u2019s title or help screen. Click inside the game to focus keyboard input.",
     "instructions": "Use letter clues to solve a new hidden word each round. Select Play now, then follow the game\u2019s own start and control prompts.",

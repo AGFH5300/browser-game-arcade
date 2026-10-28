@@ -71,3 +71,7 @@ A fresh browser sweep rendered all 24 puzzle canvases and exercised every New ga
 The owner requested that manual browser/gameplay testing be left to them because the hosted browser lacks graphics support for many games. No V4 game is claimed to have passed manual gameplay, mobile controls, save persistence, multiplayer service connectivity or audible output testing. The public entries and `docs/V4_INTEGRATION_STATUS.json` mark this as pending user review.
 
 Automated checks cover catalogue completeness, source hashes, safe exact entrypoint allowlists, preserved existing identities and local licenses, type checking, lint, compilation and static asset deployment availability. These checks do not establish that a game completes its loading sequence or that an external service will remain available.
+
+
+### V4 direct-recovery release checks
+Seven original derived totals repaired with individual file pins unchanged. Additional source graphs were augmented while retaining their old hashes; 80/80 selected reference manifests now pass the offline audit. All 36 unit checks, typecheck, lint, encoding/IP self-check and the full production build pass. All original puzzle UUIDs remain unchanged after the first live release (76 published records). Game assets and stable archive paths are checked before database publication. The runtime-format gate reports asset integrity/core-reference evidence, never gameplay certification. Manual gameplay/WebGL/mobile/audio/save QA belongs to the user and remains pending.

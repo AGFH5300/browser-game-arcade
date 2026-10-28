@@ -1,0 +1,676 @@
+{
+  "reason": "Preserved source evidence; these incomplete reference-source plans are not release packages. See standalone scripts or publisher registry.",
+  "packages": [
+    {
+      "slug": "slope-3",
+      "title": "Slope 3",
+      "reference": "https://watchdocumentaries.com/slope-3-game/",
+      "entryUrl": "https://watchdocumentaries.com/wp-content/uploads/games/slope-3/",
+      "assetBaseUrl": "https://watchdocumentaries.com/wp-content/uploads/games/slope-3/",
+      "source": null,
+      "revision": null,
+      "entryPath": "index.html",
+      "requiredUrls": [
+        {
+          "resolvedURL": "https://watchdocumentaries.com/wp-content/uploads/games/slope-3/slope3/icon-slope-3.png",
+          "kind": "asset"
+        },
+        {
+          "resolvedURL": "https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/UnityLoader.js",
+          "kind": "script"
+        },
+        {
+          "resolvedURL": "https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/Slope3.json",
+          "kind": "asset"
+        }
+      ],
+      "requiredFiles": [],
+      "unity": {
+        "slug": "slope-3",
+        "entryURL": "https://watchdocumentaries.com/wp-content/uploads/games/slope-3/",
+        "assets": [
+          {
+            "url": "https://watchdocumentaries.com/wp-content/uploads/games/slope-3/slope3/icon-slope-3.png",
+            "kind": "asset"
+          },
+          {
+            "url": "https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/UnityLoader.js",
+            "kind": "loader"
+          },
+          {
+            "url": "https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/Slope3.json",
+            "kind": "build_config"
+          },
+          {
+            "url": "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+            "kind": "script"
+          },
+          {
+            "url": "https://tbg95.pages.dev/slope3/Slope3.data.unityweb",
+            "kind": "data"
+          },
+          {
+            "url": "https://tbg95.pages.dev/slope3/Slope3.wasm.code.unityweb",
+            "kind": "code"
+          },
+          {
+            "url": "https://tbg95.pages.dev/slope3/Slope3.wasm.framework.unityweb",
+            "kind": "framework"
+          }
+        ],
+        "notes": [
+          "no config object found",
+          "Fetched observed Unity config JSON (660 bytes; `unity-config-json/slope-3-Slope3.json`); config asset URLs resolved relative to the JSON URL directory."
+        ]
+      },
+      "fileLists": [],
+      "externalDependencies": [
+        {
+          "resolvedURL": "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "kind": "script"
+        }
+      ],
+      "sourceNotices": [],
+      "sourceLicenseStatus": null,
+      "authorization": null,
+      "runtimeAudit": {
+        "finalURL": "https://watchdocumentaries.com/wp-content/uploads/games/slope-3/",
+        "httpStatus": 200,
+        "contentType": "text/html",
+        "xFrameOptions": "SAMEORIGIN",
+        "framingAssessment": "blocked_by_sameorigin",
+        "engineClassification": "unity_webgl",
+        "rawHTMLFile": "raw-entry-html/slope-3.html",
+        "entryURL": "https://watchdocumentaries.com/wp-content/uploads/games/slope-3/",
+        "sourcePageURL": "https://watchdocumentaries.com/slope-3-game/"
+      },
+      "removeShellRedirectScriptUrl": null,
+      "notes": [],
+      "files": [
+        {
+          "path": "_hosts/tbg95.pages.dev/slope3/Slope3.wasm.code.unityweb",
+          "url": "https://tbg95.pages.dev/slope3/Slope3.wasm.code.unityweb",
+          "sourceSha256": "0b2c535e697292edcca8b98a56d8859e54b099b8af1e7c1bcd8177918ce90387",
+          "sourceSize": 16650099,
+          "contentType": "application/octet-stream",
+          "contentEncoding": "identity",
+          "wireContentEncoding": "identity",
+          "required": true,
+          "evidence": "audited-file-list:code",
+          "finalUrl": "https://tbg95.pages.dev/slope3/Slope3.wasm.code.unityweb",
+          "wireSha256": "0b2c535e697292edcca8b98a56d8859e54b099b8af1e7c1bcd8177918ce90387",
+          "wireSize": 16650099,
+          "sha256": "0b2c535e697292edcca8b98a56d8859e54b099b8af1e7c1bcd8177918ce90387",
+          "size": 16650099,
+          "appliedChanges": []
+        },
+        {
+          "path": "_hosts/tbg95.pages.dev/slope3/Slope3.wasm.framework.unityweb",
+          "url": "https://tbg95.pages.dev/slope3/Slope3.wasm.framework.unityweb",
+          "sourceSha256": "4204714a05911665935bbcb6eec0fd73dc007e4d78589b185dd502735dc1fb7b",
+          "sourceSize": 875190,
+          "contentType": "application/octet-stream",
+          "contentEncoding": "identity",
+          "wireContentEncoding": "identity",
+          "required": true,
+          "evidence": "audited-file-list:framework; unity-or-offline-json-config",
+          "finalUrl": "https://tbg95.pages.dev/slope3/Slope3.wasm.framework.unityweb",
+          "wireSha256": "4204714a05911665935bbcb6eec0fd73dc007e4d78589b185dd502735dc1fb7b",
+          "wireSize": 875190,
+          "sha256": "4204714a05911665935bbcb6eec0fd73dc007e4d78589b185dd502735dc1fb7b",
+          "size": 875190,
+          "appliedChanges": []
+        },
+        {
+          "path": "Build/Slope3.json",
+          "url": "https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/Slope3.json",
+          "sourceSha256": "95a184bcdc4248c7570bcce34a6bda4f6300d1b328468095f630ad7149f5e577",
+          "sourceSize": 660,
+          "contentType": "application/json",
+          "contentEncoding": "identity",
+          "wireContentEncoding": "identity",
+          "required": true,
+          "evidence": "audited-file-list:asset; audited-file-list:build_config",
+          "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/Slope3.json",
+          "wireSha256": "95a184bcdc4248c7570bcce34a6bda4f6300d1b328468095f630ad7149f5e577",
+          "wireSize": 660,
+          "sha256": "95a184bcdc4248c7570bcce34a6bda4f6300d1b328468095f630ad7149f5e577",
+          "size": 660,
+          "appliedChanges": []
+        },
+        {
+          "path": "Build/UnityLoader.js",
+          "url": "https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/UnityLoader.js",
+          "sourceSha256": "8cae14616e88e1a4693cb9638363b6b969fc6503b5b1aee828d8a32bd2517a29",
+          "sourceSize": 283306,
+          "contentType": "application/javascript",
+          "contentEncoding": "identity",
+          "wireContentEncoding": "identity",
+          "required": true,
+          "evidence": "audited-file-list:script",
+          "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/UnityLoader.js",
+          "wireSha256": "8cae14616e88e1a4693cb9638363b6b969fc6503b5b1aee828d8a32bd2517a29",
+          "wireSize": 283306,
+          "sha256": "8cae14616e88e1a4693cb9638363b6b969fc6503b5b1aee828d8a32bd2517a29",
+          "size": 283306,
+          "appliedChanges": []
+        },
+        {
+          "path": "index.html",
+          "url": "https://watchdocumentaries.com/wp-content/uploads/games/slope-3/",
+          "sourceSha256": "6e73f1e66c2baae973fffbb4dc82f874adcba355b9b0a1c82a3749b652909c30",
+          "sourceSize": 3212,
+          "contentType": "text/html",
+          "contentEncoding": "identity",
+          "wireContentEncoding": "identity",
+          "required": true,
+          "evidence": "audited-runtime-entry",
+          "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/slope-3/",
+          "wireSha256": "6e73f1e66c2baae973fffbb4dc82f874adcba355b9b0a1c82a3749b652909c30",
+          "wireSize": 3212,
+          "sha256": "6e73f1e66c2baae973fffbb4dc82f874adcba355b9b0a1c82a3749b652909c30",
+          "size": 3212,
+          "appliedChanges": []
+        }
+      ],
+      "totalFiles": 5,
+      "totalSourceBytes": 17812467,
+      "ready": false,
+      "errors": [
+        "Required source asset failed for slope-3: https://tbg95.pages.dev/slope3/Slope3.data.unityweb: HTTP 404",
+        "https://tbg95.pages.dev/slope3/Slope3.data.unityweb: HTTP 404"
+      ],
+      "warnings": [
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/slope3/icon-slope-3.png: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/inflate.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/utils/common.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/utils/strings.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/zlib/inflate.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/zlib/constants.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/zlib/messages.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/zlib/zstream.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/zlib/gzheader.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/zlib/adler32.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/zlib/crc32.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/zlib/inffast.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/zlib/inftrees.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/index.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/.js: HTTP 403",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/dec/bit_reader.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/decompress.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/dec/context.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/dec/decode.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/dec/dictionary.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/dec/dictionary.bin.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/dictionary.bin.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/dec/dictionary-browser.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/dec/huffman.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/dec/prefix.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/dec/streams.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/dec/transform.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/node_modules/base64-js/index.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/.unityweb: HTTP 403",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/build.wasm: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/slope3/icon-slope-3.png: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/inflate.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/utils/common.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/utils/strings.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/zlib/inflate.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/zlib/constants.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/zlib/messages.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/zlib/zstream.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/zlib/gzheader.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/zlib/adler32.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/zlib/crc32.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/zlib/inffast.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/zlib/inftrees.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/slope-3/Build/.js: HTTP 403"
+      ],
+      "appliedChanges": [],
+      "auditRef": "docs/V4_REFERENCE_RUNTIME_AUDIT.json"
+    },
+    {
+      "slug": "funny-shooter-2",
+      "title": "Funny Shooter 2",
+      "reference": "https://watchdocumentaries.com/funny-shooter-2-game/",
+      "entryUrl": "https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/",
+      "assetBaseUrl": "https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/",
+      "source": null,
+      "revision": null,
+      "entryPath": "index.html",
+      "requiredUrls": [
+        {
+          "resolvedURL": "https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/master-loader.js",
+          "kind": "script"
+        }
+      ],
+      "requiredFiles": [],
+      "unity": {
+        "slug": "funny-shooter-2",
+        "entryURL": "https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/",
+        "assets": [
+          {
+            "url": "https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/master-loader.js",
+            "kind": "script"
+          },
+          {
+            "url": "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+            "kind": "script"
+          }
+        ],
+        "notes": [
+          "no config object found",
+          "Unity WebGL markers were present in runtime HTML, but no exact loader config or statically resolvable asset config was observed; only actual HTML references are listed.",
+          "No data/framework/code/wasm URL was statically resolved from captured HTML or fetched config JSON."
+        ]
+      },
+      "fileLists": [],
+      "externalDependencies": [
+        {
+          "resolvedURL": "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "kind": "script"
+        }
+      ],
+      "sourceNotices": [],
+      "sourceLicenseStatus": null,
+      "authorization": null,
+      "runtimeAudit": {
+        "finalURL": "https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/",
+        "httpStatus": 200,
+        "contentType": "text/html",
+        "xFrameOptions": "SAMEORIGIN",
+        "framingAssessment": "blocked_by_sameorigin",
+        "engineClassification": "unity_webgl",
+        "rawHTMLFile": "raw-entry-html/funny-shooter-2.html",
+        "entryURL": "https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/",
+        "sourcePageURL": "https://watchdocumentaries.com/funny-shooter-2-game/"
+      },
+      "removeShellRedirectScriptUrl": null,
+      "notes": [],
+      "files": [
+        {
+          "path": "index.html",
+          "url": "https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/",
+          "sourceSha256": "80e83f2b5d65a777c35315bf67f3533e0948643c71893750a75c88201378f145",
+          "sourceSize": 1982,
+          "contentType": "text/html",
+          "contentEncoding": "identity",
+          "wireContentEncoding": "identity",
+          "required": true,
+          "evidence": "audited-runtime-entry",
+          "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/",
+          "wireSha256": "80e83f2b5d65a777c35315bf67f3533e0948643c71893750a75c88201378f145",
+          "wireSize": 1982,
+          "sha256": "80e83f2b5d65a777c35315bf67f3533e0948643c71893750a75c88201378f145",
+          "size": 1982,
+          "appliedChanges": []
+        },
+        {
+          "path": "master-loader.js",
+          "url": "https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/master-loader.js",
+          "sourceSha256": "c7aec31a74c7cb8ce2955180acb0bd5e9f33cab735af122e293810d488b06d2e",
+          "sourceSize": 1191,
+          "contentType": "application/javascript",
+          "contentEncoding": "identity",
+          "wireContentEncoding": "identity",
+          "required": true,
+          "evidence": "audited-file-list:script",
+          "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/master-loader.js",
+          "wireSha256": "c7aec31a74c7cb8ce2955180acb0bd5e9f33cab735af122e293810d488b06d2e",
+          "wireSize": 1191,
+          "sha256": "c7aec31a74c7cb8ce2955180acb0bd5e9f33cab735af122e293810d488b06d2e",
+          "size": 1191,
+          "appliedChanges": []
+        },
+        {
+          "path": "poki-sdk.js",
+          "url": "https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/poki-sdk.js",
+          "sourceSha256": "93790a07a5ab9b8e55c62598572faababc27992dbe51d2f92fa7b5a9856a1a5f",
+          "sourceSize": 3212,
+          "contentType": "application/javascript",
+          "contentEncoding": "identity",
+          "wireContentEncoding": "identity",
+          "required": false,
+          "evidence": "quoted-static-heuristic",
+          "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/poki-sdk.js",
+          "wireSha256": "93790a07a5ab9b8e55c62598572faababc27992dbe51d2f92fa7b5a9856a1a5f",
+          "wireSize": 3212,
+          "sha256": "93790a07a5ab9b8e55c62598572faababc27992dbe51d2f92fa7b5a9856a1a5f",
+          "size": 3212,
+          "appliedChanges": []
+        },
+        {
+          "path": "screenshots/1-small.jpg",
+          "url": "https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/screenshots/1-small.jpg",
+          "sourceSha256": "b46b8675548e12b9f5dcdf3f5003c8a81b3a7e7377e3d51bd006014efceba73d",
+          "sourceSize": 4177,
+          "contentType": "image/jpeg",
+          "contentEncoding": "identity",
+          "wireContentEncoding": "identity",
+          "required": false,
+          "evidence": "quoted-static-heuristic",
+          "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/screenshots/1-small.jpg",
+          "wireSha256": "b46b8675548e12b9f5dcdf3f5003c8a81b3a7e7377e3d51bd006014efceba73d",
+          "wireSize": 4177,
+          "sha256": "b46b8675548e12b9f5dcdf3f5003c8a81b3a7e7377e3d51bd006014efceba73d",
+          "size": 4177,
+          "appliedChanges": []
+        },
+        {
+          "path": "screenshots/1.jpg",
+          "url": "https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/screenshots/1.jpg",
+          "sourceSha256": "442ff5569c9cbe72b296387589af0c1ba935c7f358a43d91863906bf72dd3eaf",
+          "sourceSize": 62951,
+          "contentType": "image/jpeg",
+          "contentEncoding": "identity",
+          "wireContentEncoding": "identity",
+          "required": false,
+          "evidence": "quoted-static-heuristic",
+          "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/screenshots/1.jpg",
+          "wireSha256": "442ff5569c9cbe72b296387589af0c1ba935c7f358a43d91863906bf72dd3eaf",
+          "wireSize": 62951,
+          "sha256": "442ff5569c9cbe72b296387589af0c1ba935c7f358a43d91863906bf72dd3eaf",
+          "size": 62951,
+          "appliedChanges": []
+        },
+        {
+          "path": "unity-2020.js",
+          "url": "https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/unity-2020.js",
+          "sourceSha256": "22dffa1ae05a6eb621dc93671254f09caca2feaffc1ed15d46a79f75d43ca614",
+          "sourceSize": 32043,
+          "contentType": "application/javascript",
+          "contentEncoding": "identity",
+          "wireContentEncoding": "identity",
+          "required": false,
+          "evidence": "quoted-static-heuristic",
+          "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/unity-2020.js",
+          "wireSha256": "22dffa1ae05a6eb621dc93671254f09caca2feaffc1ed15d46a79f75d43ca614",
+          "wireSize": 32043,
+          "sha256": "22dffa1ae05a6eb621dc93671254f09caca2feaffc1ed15d46a79f75d43ca614",
+          "size": 32043,
+          "appliedChanges": []
+        }
+      ],
+      "totalFiles": 6,
+      "totalSourceBytes": 105556,
+      "ready": true,
+      "errors": [],
+      "warnings": [
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/894abba63a6b23fed823f404831f444f.jpeg: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/FunnyShooter2_Poki.data.unityweb: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/FunnyShooter2_Poki.framework.js.unityweb: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/FunnyShooter2_Poki.loader.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/FunnyShooter2_Poki.jpg: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/unity.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/unity-beta.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/unity.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/FunnyShooter2_Poki.wasm.unityweb: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/unity-beta/dist/unity-beta.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/unity-2020/dist/unity-2020.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/UnityLoader.2019.1.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/UnityLoader.2019.2.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/UnityLoader.js: HTTP 404",
+        "Optional asset skipped: https://img.poki.com/cdn-cgi/image/quality=80,width=100,height=100,fit=cover,g=0.5x0.5,f=auto/a398cd4e645b76810031bd97f8697414.png: Blocked source host outside the exact audit allowlist: img.poki.com",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/-small.jpg: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/.jpg: HTTP 403",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/.png: HTTP 403",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/funny-shooter-2/.js: HTTP 403"
+      ],
+      "appliedChanges": [],
+      "auditRef": "docs/V4_REFERENCE_RUNTIME_AUDIT.json"
+    },
+    {
+      "slug": "pixel-shooter",
+      "title": "Pixel Shooter",
+      "reference": "https://watchdocumentaries.com/pixel-shooter-game/",
+      "entryUrl": "https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/",
+      "assetBaseUrl": "https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/",
+      "source": null,
+      "revision": null,
+      "entryPath": "index.html",
+      "requiredUrls": [
+        {
+          "resolvedURL": "https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/style-mobile.6e9cd.css",
+          "kind": "stylesheet"
+        },
+        {
+          "resolvedURL": "https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/src/settings.5beaa.js",
+          "kind": "script"
+        },
+        {
+          "resolvedURL": "https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/main.93472.js",
+          "kind": "script"
+        }
+      ],
+      "requiredFiles": [],
+      "unity": null,
+      "fileLists": [],
+      "externalDependencies": [
+        {
+          "resolvedURL": "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "kind": "script"
+        }
+      ],
+      "sourceNotices": [],
+      "sourceLicenseStatus": null,
+      "authorization": null,
+      "runtimeAudit": {
+        "finalURL": "https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/",
+        "httpStatus": 200,
+        "contentType": "text/html",
+        "xFrameOptions": "SAMEORIGIN",
+        "framingAssessment": "blocked_by_sameorigin",
+        "engineClassification": "html5_javascript_runtime_engine_unidentified",
+        "rawHTMLFile": "raw-entry-html/pixel-shooter.html",
+        "entryURL": "https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/",
+        "sourcePageURL": "https://watchdocumentaries.com/pixel-shooter-game/"
+      },
+      "removeShellRedirectScriptUrl": null,
+      "notes": [],
+      "files": [
+        {
+          "path": "cocos2d-js-min.55149.js",
+          "url": "https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/cocos2d-js-min.55149.js",
+          "sourceSha256": "7c35505d408239a56cd1fa1b7505a8d2fe258a85184b2142a544b48a1883aefb",
+          "sourceSize": 1862103,
+          "contentType": "application/javascript",
+          "contentEncoding": "identity",
+          "wireContentEncoding": "identity",
+          "required": false,
+          "evidence": "quoted-static-heuristic",
+          "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/cocos2d-js-min.55149.js",
+          "wireSha256": "7c35505d408239a56cd1fa1b7505a8d2fe258a85184b2142a544b48a1883aefb",
+          "wireSize": 1862103,
+          "sha256": "7c35505d408239a56cd1fa1b7505a8d2fe258a85184b2142a544b48a1883aefb",
+          "size": 1862103,
+          "appliedChanges": []
+        },
+        {
+          "path": "index.html",
+          "url": "https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/",
+          "sourceSha256": "9d0f8c4d261813e4b69e81bf9c22a1a3b74cb20b77a31e826d8678b9cd0d2bc2",
+          "sourceSize": 3437,
+          "contentType": "text/html",
+          "contentEncoding": "identity",
+          "wireContentEncoding": "identity",
+          "required": true,
+          "evidence": "audited-runtime-entry",
+          "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/",
+          "wireSha256": "9d0f8c4d261813e4b69e81bf9c22a1a3b74cb20b77a31e826d8678b9cd0d2bc2",
+          "wireSize": 3437,
+          "sha256": "9d0f8c4d261813e4b69e81bf9c22a1a3b74cb20b77a31e826d8678b9cd0d2bc2",
+          "size": 3437,
+          "appliedChanges": []
+        },
+        {
+          "path": "main.93472.js",
+          "url": "https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/main.93472.js",
+          "sourceSha256": "1cb593db4ba98a71b1a14201393fa6a2cfe817b6da67b72287fc4775b8c01982",
+          "sourceSize": 27575,
+          "contentType": "application/javascript",
+          "contentEncoding": "identity",
+          "wireContentEncoding": "identity",
+          "required": true,
+          "evidence": "audited-file-list:script",
+          "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/main.93472.js",
+          "wireSha256": "1cb593db4ba98a71b1a14201393fa6a2cfe817b6da67b72287fc4775b8c01982",
+          "wireSize": 27575,
+          "sha256": "1cb593db4ba98a71b1a14201393fa6a2cfe817b6da67b72287fc4775b8c01982",
+          "size": 27575,
+          "appliedChanges": []
+        },
+        {
+          "path": "splash.85cfd.png",
+          "url": "https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/splash.85cfd.png",
+          "sourceSha256": "93bcf45ac3324bac50e1003d7083b852f1eb7a4ca16dbe1c8ac9456f27315f8b",
+          "sourceSize": 291,
+          "contentType": "image/png",
+          "contentEncoding": "identity",
+          "wireContentEncoding": "identity",
+          "required": false,
+          "evidence": "css:url()",
+          "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/splash.85cfd.png",
+          "wireSha256": "93bcf45ac3324bac50e1003d7083b852f1eb7a4ca16dbe1c8ac9456f27315f8b",
+          "wireSize": 291,
+          "sha256": "93bcf45ac3324bac50e1003d7083b852f1eb7a4ca16dbe1c8ac9456f27315f8b",
+          "size": 291,
+          "appliedChanges": []
+        },
+        {
+          "path": "src/settings.5beaa.js",
+          "url": "https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/src/settings.5beaa.js",
+          "sourceSha256": "e2792d59d0d6857b0c486d4c3aa9d1595a19460ffd8b25ecbc6af77c8d0308bd",
+          "sourceSize": 591,
+          "contentType": "application/javascript",
+          "contentEncoding": "identity",
+          "wireContentEncoding": "identity",
+          "required": true,
+          "evidence": "audited-file-list:script",
+          "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/src/settings.5beaa.js",
+          "wireSha256": "e2792d59d0d6857b0c486d4c3aa9d1595a19460ffd8b25ecbc6af77c8d0308bd",
+          "wireSize": 591,
+          "sha256": "e2792d59d0d6857b0c486d4c3aa9d1595a19460ffd8b25ecbc6af77c8d0308bd",
+          "size": 591,
+          "appliedChanges": []
+        },
+        {
+          "path": "style-mobile.6e9cd.css",
+          "url": "https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/style-mobile.6e9cd.css",
+          "sourceSha256": "2c329cbf5d98e98e7626456cabd5072b02c87c3b81be48a49da560ce262ee21a",
+          "sourceSize": 1675,
+          "contentType": "text/css",
+          "contentEncoding": "identity",
+          "wireContentEncoding": "identity",
+          "required": true,
+          "evidence": "audited-file-list:stylesheet",
+          "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/style-mobile.6e9cd.css",
+          "wireSha256": "2c329cbf5d98e98e7626456cabd5072b02c87c3b81be48a49da560ce262ee21a",
+          "wireSize": 1675,
+          "sha256": "2c329cbf5d98e98e7626456cabd5072b02c87c3b81be48a49da560ce262ee21a",
+          "size": 1675,
+          "appliedChanges": []
+        }
+      ],
+      "totalFiles": 6,
+      "totalSourceBytes": 1895672,
+      "ready": true,
+      "errors": [],
+      "warnings": [
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/cocos2d-js.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/physics.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/physics-min.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/src/physics.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/jsb-adapter/jsb-engine.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/renderer/index.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/.json: HTTP 403",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/.png: HTTP 403",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/.jpg: HTTP 403",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/.jpeg: HTTP 403",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/.gif: HTTP 403",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/.webp: HTTP 403",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/.ico: HTTP 403",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/.mp3: HTTP 403",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/.ogg: HTTP 403",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/.wav: HTTP 403",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/download-script.js: HTTP 404",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/.ttf: HTTP 403",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/.woff: HTTP 403",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/.svg: HTTP 403",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/.mp4: HTTP 403",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/.bin: HTTP 403",
+        "Optional asset skipped: https://watchdocumentaries.com/wp-content/uploads/games/pixel-shooter/.js: HTTP 403",
+        "Optional asset skipped: packages://inspector/inspectors/comps/block-input-events.js: Blocked non-public or non-HTTPS URL: packages://inspector/inspectors/comps/block-input-events.js",
+        "Optional asset skipped: packages://inspector/inspectors/comps/missing-script.js: Blocked non-public or non-HTTPS URL: packages://inspector/inspectors/comps/missing-script.js"
+      ],
+      "appliedChanges": [],
+      "auditRef": "docs/V4_REFERENCE_RUNTIME_AUDIT.json"
+    },
+    {
+      "slug": "ragdoll-hit",
+      "title": "Ragdoll Hit",
+      "reference": "https://watchdocumentaries.com/ragdoll-hit-game/",
+      "entryUrl": "https://watchdocumentaries.com/wp-content/uploads/games/ragdoll-hit/",
+      "assetBaseUrl": "https://watchdocumentaries.com/wp-content/uploads/games/ragdoll-hit/",
+      "source": null,
+      "revision": null,
+      "entryPath": "index.html",
+      "requiredUrls": [
+        {
+          "resolvedURL": "https://watchdocumentaries.com/wp-content/uploads/games/ragdoll-hit/MobileDetect.js",
+          "kind": "script"
+        },
+        {
+          "resolvedURL": "https://watchdocumentaries.com/wp-content/uploads/games/ragdoll-hit/master-loader.js",
+          "kind": "script"
+        }
+      ],
+      "requiredFiles": [],
+      "unity": {
+        "slug": "ragdoll-hit",
+        "entryURL": "https://watchdocumentaries.com/wp-content/uploads/games/ragdoll-hit/",
+        "assets": [
+          {
+            "url": "https://watchdocumentaries.com/wp-content/uploads/games/ragdoll-hit/MobileDetect.js",
+            "kind": "script"
+          },
+          {
+            "url": "https://watchdocumentaries.com/wp-content/uploads/games/ragdoll-hit/master-loader.js",
+            "kind": "script"
+          },
+          {
+            "url": "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+            "kind": "script"
+          }
+        ],
+        "notes": [
+          "no config object found",
+          "Unity WebGL markers were present in runtime HTML, but no exact loader config or statically resolvable asset config was observed; only actual HTML references are listed.",
+          "No data/framework/code/wasm URL was statically resolved from captured HTML or fetched config JSON."
+        ]
+      },
+      "fileLists": [],
+      "externalDependencies": [
+        {
+          "resolvedURL": "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+          "kind": "script"
+        }
+      ],
+      "sourceNotices": [],
+      "sourceLicenseStatus": null,
+      "authorization": null,
+      "runtimeAudit": {
+        "finalURL": "https://watchdocumentaries.com/wp-content/uploads/games/ragdoll-hit/",
+        "httpStatus": 200,
+        "contentType": "text/html",
+        "xFrameOptions": "SAMEORIGIN",
+        "framingAssessment": "blocked_by_sameorigin",
+        "engineClassification": "unity_webgl",
+        "rawHTMLFile": "raw-entry-html/ragdoll-hit.html",
+        "entryURL": "https://watchdocumentaries.com/wp-content/uploads/games/ragdoll-hit/",
+        "sourcePageURL": "https://watchdocumentaries.com/ragdoll-hit-game/"
+      },
+      "removeShellRedirectScriptUrl": null,
+      "notes": []
+    }
+  ]
+}

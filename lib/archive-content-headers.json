@@ -3,5 +3,270 @@
     "path": "/play/archives/paper-io/_hosts/www.gstatic.com/inputtools/js/ita/inputtools_3.js",
     "contentType": "application/javascript",
     "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/death-run-3d/death_run_wasm_v1.wasm.code.unityweb",
+    "contentType": "application/wasm",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/death-run-3d/death_run_wasm_v1.wasm.framework.unityweb",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/slope-2/slope2.wasm.code.unityweb",
+    "contentType": "application/wasm",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/slope-2/slope2.wasm.framework.unityweb",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/time-shooter-3/Build/TimeShooter3_GD.framework.js.unityweb",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/time-shooter-3/Build/TimeShooter3_GD.wasm.unityweb",
+    "contentType": "application/wasm",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/time-shooter-2/TimeShooter2.framework.js.unityweb",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/time-shooter-2/TimeShooter2.wasm.unityweb",
+    "contentType": "application/wasm",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/block-blast/Build/BlockBlast1.1-8.framework.js.unityweb",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/block-blast/Build/BlockBlast1.1-8.wasm.unityweb",
+    "contentType": "application/wasm",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/fireboy-and-watergirl-1/_hosts/cdn.jsdelivr.net/npm/@azerion/phaser-super-storage@2.0/build/phaser-super-storage.min.js",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/tomb-of-the-mask/Build/totm.wasm.code.unityweb",
+    "contentType": "application/wasm",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/tomb-of-the-mask/Build/totm.wasm.framework.unityweb",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/helix-jump/Build/game.wasm.code.unityweb",
+    "contentType": "application/wasm",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/helix-jump/Build/game.wasm.framework.unityweb",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/color-tunnel/Build/ColorTunnel-2022-v1.wasm.unityweb",
+    "contentType": "application/wasm",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/hover-racer-drive/Build/WebGL.wasm.code.unityweb",
+    "contentType": "application/wasm",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/hover-racer-drive/Build/WebGL.wasm.framework.unityweb",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/bottle-flip-3d/Build/GDBuild.wasm.code.unityweb",
+    "contentType": "application/wasm",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/bottle-flip-3d/Build/GDBuild.wasm.framework.unityweb",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/gunspin/Build/GunSpin WebGL FinalVersion.wasm.code.unityweb",
+    "contentType": "application/wasm",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/gunspin/Build/GunSpin WebGL FinalVersion.wasm.framework.unityweb",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/highway-traffic/Build/game.wasm.code.unityweb",
+    "contentType": "application/wasm",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/highway-traffic/Build/game.wasm.framework.unityweb",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/house-of-hazards/Build/HouseOfHazardsPoki.wasm.code.unityweb",
+    "contentType": "application/wasm",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/house-of-hazards/Build/HouseOfHazardsPoki.wasm.framework.unityweb",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/survival-race/Build/yandexBrotli.framework.js.unityweb",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/survival-race/Build/yandexBrotli.wasm.unityweb",
+    "contentType": "application/wasm",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/fortzone-battle-royale/Build/FortzoneWebGL109.framework.js.unityweb",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/fortzone-battle-royale/Build/FortzoneWebGL109.wasm.unityweb",
+    "contentType": "application/wasm",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/blockpost/Build/webgl_poki.wasm.code.unityweb",
+    "contentType": "application/wasm",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/blockpost/Build/webgl_poki.wasm.framework.unityweb",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/traffic-jam-3d/Build/TrafficJam3D-build-4.wasm.code.unityweb",
+    "contentType": "application/wasm",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/traffic-jam-3d/Build/TrafficJam3D-build-4.wasm.framework.unityweb",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/fall-boys/js/fall_boys.wasm.code.unityweb",
+    "contentType": "application/wasm",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/fall-boys/js/fall_boys.wasm.framework.unityweb",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/gladihoppers/Build/Gladihoppers.wasm.code.unityweb",
+    "contentType": "application/wasm",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/gladihoppers/Build/Gladihoppers.wasm.framework.unityweb",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/tanuki-sunset/Build/WebGL.wasm.code.unityweb",
+    "contentType": "application/wasm",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/tanuki-sunset/Build/WebGL.wasm.framework.unityweb",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/subway-surfers/Build/ZurichNewPrivacy.wasm.code.unityweb",
+    "contentType": "application/wasm",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/subway-surfers/Build/ZurichNewPrivacy.wasm.framework.unityweb",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/rocket-league/RSD 1.1.0rc4.wasm.code.unityweb",
+    "contentType": "application/wasm",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/rocket-league/RSD 1.1.0rc4.wasm.framework.unityweb",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/escape-road/_hosts/www.gstatic.com/firebasejs/10.9.0/firebase-analytics-compat.js",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/escape-road/_hosts/www.gstatic.com/firebasejs/10.9.0/firebase-analytics.js",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/escape-road/_hosts/www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/escape-road/_hosts/www.gstatic.com/firebasejs/10.9.0/firebase-app.js",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/escape-road/_hosts/www.gstatic.com/firebasejs/10.9.0/firebase-auth-compat.js",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/escape-road/_hosts/www.gstatic.com/firebasejs/10.9.0/firebase-auth.js",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/escape-road/_hosts/www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/escape-road/Build/2410211.framework.js.unityweb",
+    "contentType": "application/javascript",
+    "contentEncoding": "identity"
+  },
+  {
+    "path": "/play/archives/escape-road/Build/2410211.wasm.unityweb",
+    "contentType": "application/wasm",
+    "contentEncoding": "identity"
   }
 ]

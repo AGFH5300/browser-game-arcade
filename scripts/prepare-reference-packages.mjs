@@ -1,3 +1,4 @@
+import acorn from 'next/dist/compiled/acorn/acorn.js';
 import { createHash } from 'node:crypto';
 import { lookup } from 'node:dns/promises';
 import { request as httpsRequest } from 'node:https';
@@ -24,7 +25,7 @@ const USE_CONFIGURED_ENV_PROXY = process.env.NODE_USE_ENV_PROXY === '1' && Boole
 const TRUSTED_SOURCE_HOSTS = new Set();
 const AUDITED_EXTERNAL_URLS = new Set();
 const STATIC_EXTENSIONS = new Set([
-  '.html', '.htm', '.css', '.js', '.mjs', '.cjs', '.json', '.wasm', '.data', '.unityweb', '.br', '.gz',
+  '.swf', '.html', '.htm', '.css', '.js', '.mjs', '.cjs', '.json', '.wasm', '.data', '.unityweb', '.br', '.gz',
   '.png', '.jpg', '.jpeg', '.gif', '.webp', '.avif', '.svg', '.ico', '.bmp', '.tif', '.tiff', '.ktx', '.ktx2', '.basis', '.hdr', '.env', '.glb', '.gltf', '.obj', '.mtl', '.bin', '.txt', '.xml', '.manifest', '.dmanifest', '.projectc', '.dmloader', '.dmwasm', '.arcd', '.arci', '.opus', '.mp3', '.ogg', '.wav', '.mp4', '.webm', '.m4a', '.woff', '.woff2', '.ttf', '.otf', '.eot', '.map', '.dat', '.pak', '.bytes', '.asset', '.bundle', '.indexdb', '.wasm.br', '.data.br', '.js.br', '.wasm.gz', '.data.gz', '.js.gz',
 ]);
 const SCRIPT_STYLE_EXTENSIONS = new Set(['.js', '.mjs', '.cjs', '.css', '.json', '.wasm', '.data', '.unityweb', '.br', '.gz', '.wasm.br', '.data.br', '.js.br', '.wasm.gz', '.data.gz', '.js.gz']);
@@ -72,6 +73,7 @@ function trustManifestSourceUrls(manifest) {
   for (const pkg of manifest.packages || []) {
     trustAuditedUrl(pkg.entryUrl);
     trustAuditedUrl(pkg.assetBaseUrl);
+    for(const url of [...(pkg.reviewedDependencies||[]),...Object.values(pkg.sourceUrlOverrides||{})])trustAuditedUrl(url);
     for (const file of pkg.files || []) {
       trustAuditedUrl(file.url);
       trustAuditedUrl(file.finalUrl);
@@ -328,6 +330,7 @@ function collectHtmlReferences(html, baseUrl) {
 
 function collectCssReferences(css, baseUrl) {
   const refs = [];
+  css = css.replace(/\/\*[\s\S]*?\*\//g, '');
   const re = /url\(\s*(["']?)(.*?)\1\s*\)|@import\s+(?:url\()?\s*(["'])(.*?)\3\s*\)?/gi;
   let match;
   while ((match = re.exec(css))) {
@@ -338,13 +341,34 @@ function collectCssReferences(css, baseUrl) {
   return refs;
 }
 
+let lastConstantText=null,lastConstants=[];
+function staticStringConstants(text) {
+  if(text===lastConstantText)return lastConstants;
+  const values=[];const seen=new Set();
+  const add=value=>{if(typeof value!=='string'||seen.has(value))return;seen.add(value);values.push(value);
+    if(value.length<=2000000 && /^\s*[\[{]/.test(value)){try{walkData(JSON.parse(value));}catch{}}
+  };
+  const walkData=value=>{const pending=[value];while(pending.length){const item=pending.pop();if(typeof item==='string')add(item);else if(item&&typeof item==='object')pending.push(...Object.values(item));}};
+  try{walkData(JSON.parse(text));}catch{
+    try{
+      const ast=acorn.parse(text,{ecmaVersion:'latest',sourceType:'module',allowReturnOutsideFunction:true,allowAwaitOutsideFunction:true});
+      const pending=[ast];while(pending.length){const node=pending.pop();if(!node||typeof node!=='object')continue;
+        if(node.type==='Literal')add(node.value);
+        else if(node.type==='TemplateLiteral'&&!node.expressions.length)add(node.quasis.map(q=>q.value.cooked).join(''));
+        for(const value of Object.values(node))if(value&&typeof value==='object')Array.isArray(value)?pending.push(...value):pending.push(value);
+      }
+    }catch{
+      const re=/(["'`])((?:\\.|(?!\1)[^\\])*?)\1/g;for(const match of text.matchAll(re))add(match[2]);
+    }
+  }
+  lastConstantText=text;lastConstants=values;return values;
+}
+
 function collectQuotedStaticReferences(text, baseUrl, exactConfig = false) {
   const refs = [];
-  const re = /(["'`])((?:\\.|(?!\1)[^\\])*?)\1/g;
-  let match;
-  while ((match = re.exec(text))) {
-    const candidate = normalizeReference(match[2]).replace(/\\u002[fF]/g, '/').replace(/\\x2[fF]/g, '/');
-    if (!candidate || candidate.includes('${') || candidate.length > 2_000 || !/\.(?:html?|css|m?js|cjs|json|wasm|data|unityweb|br|gz|png|jpe?g|gif|webp|avif|svg|ico|ktx2?|basis|hdr|env|glb|gltf|bin|arcd|arci|dmanifest|projectc|dmloader|dmwasm|opus|mp[34]|ogg|wav|woff2?|ttf|otf|pak)(?:\.(?:br|gz|unityweb))?(?:[?#].*)?$/i.test(candidate)) continue;
+  for (const literal of staticStringConstants(text)) {
+    const candidate = normalizeReference(literal).replace(/\\u002[fF]/g, '/').replace(/\\x2[fF]/g, '/');
+    if (!candidate || candidate.includes('${') || candidate.length > 2_000 || !/\.(?:html?|css|m?js|cjs|json|wasm|data|unityweb|br|gz|png|jpe?g|gif|webp|avif|svg|ico|ktx2?|basis|hdr|env|glb|gltf|bin|arcd|arci|dmanifest|projectc|dmloader|dmwasm|opus|mp[34]|ogg|wav|woff2?|ttf|otf|pak|swf)(?:\.(?:br|gz|unityweb))?(?:[?#].*)?$/i.test(candidate)) continue;
     const url = resolveReference(candidate, baseUrl);
     if (url && isAllowedStaticUrl(url.href) && !isBlockedAdOrAnalyticsUrl(url.href) && !isAuditedExternalUrl(url.href)) refs.push({ url: stripFragment(url).href, required: exactConfig && SCRIPT_STYLE_EXTENSIONS.has(extFor(url.href)), evidence: exactConfig ? 'quoted-config-ref' : 'quoted-static-heuristic' });
   }
@@ -458,7 +482,7 @@ function htmlTagAttributeRewrite(html, fileUrl, resolveLocalUrl) {
     return tag.replace(attrRe, (full, prefix, quoted, doubleValue, singleValue, bareValue) => {
       const name = /^([\w:-]+)/.exec(prefix)?.[1]?.toLowerCase();
       const value = doubleValue ?? singleValue ?? bareValue ?? '';
-      const delimiter = quoted[0] || '"';
+      const delimiter = /^["']/.test(quoted) ? quoted[0] : '"';
       if (name === 'style') {
         const css = value.replace(/url\(\s*(["']?)(.*?)\1\s*\)/gi, (all, quote, ref) => {
           const local = resolveLocalUrl(ref, fileUrl);
@@ -532,6 +556,13 @@ async function scanPackage(pkg, totalUsed) {
   for (const value of pkg.requiredFiles || []) fileListUrls(value, entryUrl, refs);
   for (const value of pkg.fileLists || []) fileListUrls(value, entryUrl, refs);
   if (pkg.unity) fileListUrls(pkg.unity, entryUrl, refs);
+  const optionalAsm = ['subway-surfers','death-run-3d'].includes(pkg.slug);
+  const ignoredPortalUrls = pkg.slug === 'house-of-hazards' ? new Set(['https://watchdocumentaries.com/cloak.js']) : new Set();
+  const nonCoreStyle = url => (pkg.slug==='cat-ninja' && url==='https://fonts.googleapis.com/earlyaccess/notosanskr.css') || (pkg.slug==='fall-boys' && url.startsWith('https://gamepluto.com/content/themes/default/'));
+  for (const [url,ref] of refs) {
+    if (ignoredPortalUrls.has(url) || nonCoreStyle(url)) refs.delete(url);
+    else if (optionalAsm && /\.asm\.(?:code|memory|framework)\.unityweb$/.test(new URL(url).pathname)) refs.set(url,{...ref,required:false,evidence:ref.evidence+'; optional-legacy-asm'});
+  }
 
   const sourceFiles = new Map();
   const pending = [...refs.keys()];
@@ -555,13 +586,18 @@ async function scanPackage(pkg, totalUsed) {
         continue;
       }
       try {
-        const response = await fetchRaw(ref.url);
+        const caseAlias = pkg.slug==='shortcut-race' && /\.gltf$/i.test(new URL(ref.url).pathname) ? (pkg.files||[]).find(file=>file.url.toLowerCase()===ref.url.toLowerCase()) : null;
+        const sourceFetchUrl=pkg.sourceUrlOverrides?.[ref.url] || caseAlias?.url || ref.url;
+        const prior=(pkg.files||[]).find(file=>file.url===sourceFetchUrl);
+        const cached=prior?await cachedOriginal(pkg,prior):null;
+        const response = cached ? {status:200,bytes:cached,headers:{'content-type':prior.contentType,'content-encoding':prior.contentEncoding||'identity'},finalUrl:prior.finalUrl||prior.url} : await fetchRaw(sourceFetchUrl);
         if (response.status < 200 || response.status >= 300) throw new Error(`HTTP ${response.status}`);
         const wireContentEncoding = String(response.headers['content-encoding'] || 'identity').toLowerCase();
         const decodedForDetection = decodeContentEncoding(response.bytes, wireContentEncoding);
         if (decodedForDetection.length > 200_000_000) throw new Error(`decoded response exceeds ${200_000_000} byte per-file limit`);
         let contentType = contentTypeOf(response, ref.url);
         if (isEntry && looksLikeHtml(decodedForDetection)) contentType = 'text/html';
+        if (!isEntry && !/\.html?$/i.test(new URL(ref.url).pathname) && looksLikeHtml(decodedForDetection)) throw new Error('Non-HTML source returned an HTML page rather than its configured asset');
         const canonical = canonicalizeSourceResponse(response.bytes, wireContentEncoding, contentType, wireContentEncoding);
         const normalizedEntity = canonical.normalizedEntity;
         const bytes = canonical.pinnedBytes;
@@ -572,7 +608,7 @@ async function scanPackage(pkg, totalUsed) {
           const text = normalizedEntity.toString('utf8');
           if (looksLikeHttpErrorPage(text)) warnings.push(`HTTP 200 body contains an error-page marker (kept as a warning): ${ref.url}`);
           if (isEntry && !/<html\b|<!doctype\s+html/i.test(text)) throw new Error('runtime entry did not return an HTML document');
-          for (const found of collectHtmlReferences(text, response.finalUrl)) enqueue(found);
+          if(isEntry || ref.required) for (const found of collectHtmlReferences(text, response.finalUrl)) enqueue(found);
         } else if (contentType.includes('text/css') || assetTextExtension(ref.url) === '.css') {
           for (const found of collectCssReferences(decodedForDetection.toString('utf8'), response.finalUrl)) enqueue(found);
         } else if (contentType.includes('javascript') || ['.js', '.mjs', '.cjs'].includes(assetTextExtension(ref.url))) {
@@ -581,13 +617,20 @@ async function scanPackage(pkg, totalUsed) {
           // Follow the same observed literals at that base; do not invent suffixes.
           for (const found of collectQuotedStaticReferences(decodedForDetection.toString('utf8'), entryUrl)) enqueue({...found,evidence:'document-base:'+found.evidence});
         } else if (isUnityMetadata(ref.url, contentType) || assetTextExtension(ref.url) === '.json') {
-          for (const found of collectQuotedStaticReferences(decodedForDetection.toString('utf8'), response.finalUrl, true)) enqueue(found);
+          for (const found of collectQuotedStaticReferences(decodedForDetection.toString('utf8'), response.finalUrl, false)) enqueue(found);
           for (const found of collectJsonAssetReferences(decodedForDetection, response.finalUrl)) enqueue(found);
+          if(/^fireboy-and-watergirl-[12]$/.test(pkg.slug) && new URL(ref.url).pathname.endsWith('/data/'+(pkg.slug.endsWith('-1')?'forest':'light')+'/temple.json')) {
+            const pendingObjects=[JSON.parse(decodedForDetection.toString('utf8'))];
+            while(pendingObjects.length){const value=pendingObjects.pop();if(value&&typeof value==='object'){
+              if(typeof value.filename==='string')enqueue({url:new URL('data/'+value.filename,entryUrl).href,required:true,evidence:'temple-level-loader:data/filename'});
+              for(const v of Object.values(value))if(v&&typeof v==='object')pendingObjects.push(v);
+            }}
+          }
         }
         const previous = sourceFiles.get(assignedPath);
         const sourceSha256 = sha256(bytes);
         if (previous && previous.sourceSha256 !== sourceSha256) throw new Error(`Source path collision with different bytes: ${assignedPath}`);
-        sourceFiles.set(assignedPath, { path: assignedPath, url: ref.url, sourceSha256, sourceSize: bytes.length, contentType, contentEncoding: wireContentEncoding, wireContentEncoding, required: Boolean(ref.required), evidence: ref.evidence, finalUrl: response.finalUrl, wireSha256: sha256(response.bytes), wireSize: response.bytes.length });
+        sourceFiles.set(assignedPath, { path: assignedPath, url: sourceFetchUrl, originalRuntimeReference: sourceFetchUrl===ref.url?undefined:ref.url, sourceSha256, sourceSize: bytes.length, contentType, contentEncoding: wireContentEncoding, wireContentEncoding, required: Boolean(ref.required), evidence: ref.evidence, finalUrl: response.finalUrl, wireSha256: sha256(response.bytes), wireSize: response.bytes.length });
         const cachePath = path.join(CACHE_ROOT, pkg.slug, ...assignedPath.split('/'));
         inside(path.join(CACHE_ROOT, pkg.slug), cachePath, 'cache');
         await mkdir(path.dirname(cachePath), { recursive: true });
@@ -603,6 +646,8 @@ async function scanPackage(pkg, totalUsed) {
     }
   }
   function enqueue(reference) {
+    if (ignoredPortalUrls.has(reference.url) || nonCoreStyle(reference.url) || (pkg.slug==='clash-blade-io' && /\/ecapsyanads\.js$/.test(new URL(reference.url).pathname))) return;
+    if (optionalAsm && /\.asm\.(?:code|memory|framework)\.unityweb$/.test(new URL(reference.url).pathname)) reference={...reference,required:false,evidence:reference.evidence+'; optional-legacy-asm'};
     markUniqueRef(refs, reference);
     if (!queued.has(reference.url) && !visited.has(reference.url)) {
       queued.add(reference.url);
@@ -611,8 +656,13 @@ async function scanPackage(pkg, totalUsed) {
   }
   await Promise.all(Array.from({ length: ASSET_CONCURRENCY }, worker));
   if (firstRequiredFailure) errors.unshift(firstRequiredFailure.message);
+  if(optionalAsm){
+    for(const role of ['data','wasm.code','wasm.framework']){
+      if(![...sourceFiles.values()].some(file=>file.path.endsWith('.'+role+'.unityweb'))) errors.push(`Missing required modern Unity payload: ${role}`);
+    }
+  }
   const files = [...sourceFiles.values()].sort((a, b) => a.path.localeCompare(b.path));
-  return { files, sourceBytes, errors, warnings, modifications };
+  return { files, sourceBytes: files.reduce((sum,file)=>sum+file.sourceSize,0), errors, warnings, modifications };
 }
 
 function isUnityMetadata(url, contentType) {
@@ -665,6 +715,10 @@ function makeArtifactTransforms(pkg, file, bytes, bridgeBytes, localBySourceUrl,
     const textBytes = normalizeCloudflareAnalytics(entityBytes, type);
     if (!textBytes.equals(entityBytes)) mods.push('Normalized per-request Cloudflare analytics beacon tags before artifact generation.');
     let text = textBytes.toString('utf8');
+    if(pkg.slug==='house-of-hazards' && file.path===requiredEntryPath(pkg)) {
+      const removed=shellRedirectRemoved(text,'/cloak.js');text=removed.html;
+      if(removed.removed)mods.push('Removed the documented missing portal-only /cloak.js script; game SDK and payload unchanged.');
+    }
     if ((extension === '.html' || extension === '.htm') && file.path === requiredEntryPath(pkg) && pkg.removeShellRedirectScriptUrl) {
       const result = shellRedirectRemoved(text, pkg.removeShellRedirectScriptUrl);
       text = result.html;
@@ -802,6 +856,7 @@ async function recordMode(selectedSlugs = null) {
   try { audit = await readJson(auditPath); }
   catch (error) { throw new Error(`Cannot read runtime audit ${auditPath}: ${error.message}`); }
   trustAudit(audit);
+  trustManifestSourceUrls(manifest);
   const seeds = chooseAuditPackageSeeds(audit, manifest.omissions || []);
   if (seeds.length) {
     const existing = new Map(manifest.packages.map(pkg => [pkg.slug, pkg]));
@@ -866,6 +921,14 @@ async function recordMode(selectedSlugs = null) {
     console.log(`[record:${pkg.slug}] starting ${pkg.entryUrl}`);
     try {
       const result = await scanPackage(pkg, totalUsed);
+      const resultByPath=new Map(result.files.map(file=>[file.path,file]));
+      for(const old of pkg.files||[]){
+        const current=resultByPath.get(old.path);
+        if(current && (current.sourceSha256!==old.sourceSha256 || current.sourceSize!==old.sourceSize))throw new Error(`Existing source pin changed; refusing to replace ${pkg.slug}/${old.path}`);
+        if(!current)resultByPath.set(old.path,old);
+      }
+      result.files=[...resultByPath.values()].sort((a,b)=>a.path.localeCompare(b.path));
+      result.sourceBytes=result.files.reduce((sum,file)=>sum+file.sourceSize,0);
       pkg.files = result.files.map(file => ({ ...file, sha256: file.sourceSha256, size: file.sourceSize, appliedChanges: [] }));
       pkg.totalFiles = pkg.files.length;
       pkg.totalSourceBytes = result.sourceBytes;
@@ -932,6 +995,7 @@ async function buildMode(selectedSlugs = null) {
         const bytes = await downloadPinnedFile(pkg, file);
         originalByPath.set(file.path, bytes);
         localBySourceUrl.set(canonicalSourceUrl(file.url), file.path);
+        if(file.originalRuntimeReference)localBySourceUrl.set(canonicalSourceUrl(file.originalRuntimeReference),file.path);
         if (file.finalUrl) localBySourceUrl.set(canonicalSourceUrl(file.finalUrl), file.path);
       }
       const targetRoot = await ensurePackageOutputAllowed(pkg);
@@ -964,7 +1028,7 @@ async function buildMode(selectedSlugs = null) {
         sourceEntryUrl: pkg.entryUrl,
         sourceEntrySha256: entry.sourceSha256,
         bridge: { path: 'bridge.js', sha256: bridgeSha256, copied: true },
-        runtimeSecurity: { hostCsp: 'Archive-host CSP restricts script/connect/image/media to same-origin plus data/blob; no visitor-side package downloads or remote asset proxy.', advertisingAnalytics: 'Known advertising/analytics scripts and Cloudflare per-request beacon tags are removed/normalized; remaining external connections are blocked by archive CSP.', externalRuntimeServices: pkg.externalDependencies || [] },
+        runtimeSecurity: { hostCsp: 'Archive-host CSP isolates scripts and local media; HTTPS/WSS service connections are allowed from the separate game origin. Assets are deployment files, not visitor-side package downloads.', advertisingAnalytics: 'Known advertising/analytics scripts and Cloudflare per-request beacon tags are removed/normalized; external service availability remains subject to the isolated archive CSP and upstream provider.', externalRuntimeServices: pkg.externalDependencies || [] },
         contentHeaders: artifacts.filter(file => file.contentEncoding && file.contentEncoding !== 'identity').map(file => ({ path: file.path, contentType: file.contentType, contentEncoding: file.contentEncoding })),
         files: artifacts,
       };
