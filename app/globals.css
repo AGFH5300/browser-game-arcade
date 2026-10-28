@@ -131,3 +131,6 @@ h2{font-size:22px;letter-spacing:-.45px}
  .mobile-site-search button{height:38px;width:42px}
 }
 @media(max-width:650px){.nav{top:117px}.mobile-site-search{padding:7px 13px;height:55px}.nav.is-open{z-index:60}}
+
+/* Game JS diagnostics are opt-in, not an unsolicited yellow warning. */
+.game-diagnostics{background:var(--surface);border:1px solid var(--line);color:var(--muted);border-radius:10px;padding:12px 16px;margin-top:9px;font-size:12px}.game-diagnostics strong{color:var(--text)}.game-diagnostics p{overflow-wrap:anywhere;margin:6px 0}
