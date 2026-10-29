@@ -15,7 +15,7 @@ test('Deep Dive now uses a never-before-cached game entrypoint with versioned as
  assert.match(html,/reference-art\.css\?ref=20261029c/);
  assert.match(html,/dd-nav-toggle/);
  assert.match(html,/pixel-ui\.css\?arcade=20261029d/);
- assert.match(html,/game\.js\?parity=20261029b/);
+ assert.match(html,/game\.js\?archive=20261029a/);
  assert.match(html,/party\.js\?reef=20261029a/);
  assert.match(html,/class="dd-logo"|src="\.\/game\.js/);
 });

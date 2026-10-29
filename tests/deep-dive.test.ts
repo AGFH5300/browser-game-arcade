@@ -66,7 +66,9 @@ test('solo game and original multiplayer scripts parse and have complete mode co
  assert(source.includes('sidequest:deep-dive:player:v1'));
  assert(source.includes('Date.now()+25000'));
  assert(source.includes('.slice(0,7).map(q=>q.id)'));
- assert(!source.includes('active.misses>=3'));
+ assert(source.includes('active.misses>=3'));
+ assert(source.includes('startArchiveEndless'));
+ assert(source.includes('loadArchiveManifest'));
  assert(source.includes("timeZone:'America/New_York'"));
  assert(source.includes("data-action=\"archive\""));
  assert(source.includes('startArchive'));

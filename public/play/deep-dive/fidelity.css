@@ -1,0 +1,81 @@
+/* Deep Dive fidelity pass: motion, depth and archive screen.
+   Uses the local reference assets already inventoried with provenance. */
+@font-face{font-family:DeepDivePixel;src:url('./reference-art/VT323.woff2') format('woff2');font-display:swap}
+:root{--f-aqua:#51e4fa;--f-ink:#061227;--f-pink:#ff5c92;--f-border:#1b5579}
+body:has(.dd-archive),body:has(.worlds-grid){background:#020b1d}
+.dd-archive{min-height:100svh;padding:56px clamp(18px,5vw,75px);color:#dff6ff;
+  background:linear-gradient(180deg,#001022cf,#07172df7),url('./reference-assets/gen/optimized/v1/bg-mid.webp') center top/cover fixed}
+.dd-archive .page-title{padding:10px 0 22px;max-width:900px}
+.dd-archive .page-title .eyebrow{font:23px DeepDivePixel,monospace;letter-spacing:.24em;color:#5ae7fb}
+.dd-archive .page-title h1{font:clamp(49px,6.2vw,82px)/.95 DeepDivePixel,monospace;letter-spacing:.02em;color:#e5fbff}
+.dd-archive .page-title h1 em{font-style:normal;color:#59e3fa;text-shadow:3px 3px #e94a85}
+.dd-archive .page-title p{font:clamp(18px,2vw,23px)/1.23 DeepDivePixel,monospace;color:#a3c5df;max-width:890px}
+.dd-archive-month{margin:29px 0 32px}
+.dd-archive-month h2{font:30px DeepDivePixel,monospace;letter-spacing:.16em;color:#b2effe;
+  border-bottom:2px dashed #315978;padding-bottom:8px;margin:0 0 13px;text-transform:uppercase}
+.dd-archive-month h2 small{font-size:18px;color:#76a2c3;letter-spacing:.06em}
+.dd-archive-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(147px,1fr));gap:11px}
+.dd-archive-date{display:flex;flex-direction:column;text-align:left;gap:3px;background:#091d37ed;color:#dcf6ff;
+  border:2px solid #296087;min-height:90px;padding:11px 13px;font-family:DeepDivePixel,monospace;border-radius:0;
+  box-shadow:3px 4px 0 #010816;transition:transform .12s ease,background .12s ease,box-shadow .12s ease}
+.dd-archive-date strong{font-size:26px;line-height:.9;color:#5ae7fa}
+.dd-archive-date span{font-size:21px;letter-spacing:.04em}
+.dd-archive-date small{font-size:16px;color:#89acc6}
+.dd-archive-date:hover,.dd-archive-date:focus-visible{background:#103758;border-color:#ff699b;
+  box-shadow:0 0 0 1px #ff699b,0 0 16px #ff699b38;transform:translateY(-2px)}
+.dd-archive-date:active{transform:translateY(2px)}
+.page:has(.worlds-grid){min-height:100svh;padding:25px clamp(15px,4vw,60px) 45px;
+  background:linear-gradient(180deg,#061022dd,#08162bef),url('./reference-assets/gen/optimized/v1/bg-mid.webp') center top/cover fixed}
+.page:has(.worlds-grid) .page-title h1{font:clamp(45px,5vw,74px) DeepDivePixel,monospace;color:#ddf9ff;letter-spacing:.04em}
+.page:has(.worlds-grid) .page-title p{font:21px/1.25 DeepDivePixel,monospace;color:#b4d4e9}
+.page:has(.worlds-grid) .page-title .eyebrow{font:20px DeepDivePixel,monospace;color:#55e7f8}
+.page:has(.worlds-grid) .surface-card{border-radius:0;background:#08182de8;border:2px solid #305c83}
+.worlds-grid .world-card{border-radius:0;background:#07162cef;background-size:cover;background-position:center;
+  border:2px solid #36708d;box-shadow:4px 5px 0 #010a1b;min-height:255px;position:relative;overflow:hidden;
+  transition:border-color .15s,transform .15s}
+.worlds-grid .world-card:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,#061429ad,#061429f4)}
+.worlds-grid .world-card>*{position:relative}
+.worlds-grid .world-card:nth-child(1){background-image:url('./reference-assets/gen/optimized/v1/cards/geography.webp')}
+.worlds-grid .world-card:nth-child(4){background-image:url('./reference-assets/gen/optimized/v1/cards/movies.webp')}
+.worlds-grid .world-card:nth-child(6){background-image:url('./reference-assets/gen/optimized/v1/cards/sports.webp')}
+.worlds-grid .world-card:nth-child(9){background-image:url('./reference-assets/gen/optimized/v1/cards/lexicon.webp')}
+.worlds-grid .world-card:nth-child(2),.worlds-grid .world-card:nth-child(3){background-image:url('./reference-assets/gen/optimized/v1/cards/classic.webp')}
+.worlds-grid .world-card:nth-child(5){background-image:url('./reference-assets/gen/optimized/v1/cards/music.webp')}
+.worlds-grid .world-card h3{font:33px DeepDivePixel,monospace;letter-spacing:.07em;color:#ebfaff}
+.worlds-grid .world-card p{font:19px/1.2 DeepDivePixel,monospace;color:#afc9e3}
+.worlds-grid .world-card:hover{transform:translateY(-3px);border-color:#61eaf8}
+.worlds-grid .chapter{font:20px DeepDivePixel,monospace;border-radius:0}
+.dd-game-screen .dd-game-fish{animation:dd-fish-float 3.3s ease-in-out infinite!important}
+.dd-game-screen .dd-game-sea{background-size:100% 100%,100% 100%!important}
+.dd-game-screen .dd-game-prompt{animation:dd-prompt-arrive .42s steps(5,end) both}
+.dd-game-screen .dd-game-clock.warn{animation:dd-clock-alert .75s steps(2,end) infinite}
+.dd-reveal-screen .dd-reveal-spark{animation:dd-tier-burst .6s steps(6,end) both}
+.dd-reveal-screen .dd-reveal-score{animation:dd-score-arrive .48s cubic-bezier(.16,.95,.32,1.25) .18s both}
+.deep-home .dd-title-group{animation:dd-title-arrive .7s steps(7,end) both}
+.deep-home .dd-bubbles{animation:bubbleMove 5s ease-in-out infinite,dd-bubble-fade 6s ease-in-out infinite}
+.deep-home .dd-sea:not(.dd-game-sea):before{animation:dd-water-shimmer 8s steps(8,end) infinite}
+.deep-home .dd-party-btn:active,.deep-home .dd-begin:active{transform:translateY(3px)!important}
+@keyframes dd-title-arrive{from{opacity:.2;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes dd-prompt-arrive{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes dd-fish-float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-11px) rotate(2deg)}}
+@keyframes dd-tier-burst{0%{transform:scale(.5) rotate(-15deg);opacity:.25}70%{transform:scale(1.24) rotate(5deg)}100%{transform:scale(1) rotate(0);opacity:1}}
+@keyframes dd-score-arrive{from{opacity:0;transform:translateY(15px) scale(.8)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes dd-clock-alert{0%,100%{filter:brightness(1)}50%{filter:brightness(1.8)}}
+@keyframes dd-bubble-fade{0%,100%{opacity:.4}45%{opacity:.9}}
+@keyframes dd-water-shimmer{0%,100%{opacity:.13}50%{opacity:.22}}
+@media(max-width:650px){
+ .dd-archive{padding:27px 14px 45px}
+ .dd-archive-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .dd-archive-date{padding:9px;min-height:81px}
+ .dd-archive-date span{font-size:18px}.dd-archive-date small{font-size:13px}
+ .page:has(.worlds-grid){padding:20px 14px 40px}
+ .worlds-grid .world-card{min-height:205px}
+}
+@media(prefers-reduced-motion:reduce){
+ .deep-home .dd-title-group,.deep-home .dd-sea:not(.dd-game-sea):before,
+ .deep-home .dd-bubbles,.dd-game-screen .dd-game-fish,.dd-game-screen .dd-game-prompt,
+ .dd-game-screen .dd-game-clock.warn,.dd-reveal-screen .dd-reveal-spark,.dd-reveal-screen .dd-reveal-score{
+ animation:none!important
+ }
+ .dd-archive-date,.worlds-grid .world-card{transition:none!important}
+}

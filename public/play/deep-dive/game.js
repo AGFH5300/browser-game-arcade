@@ -72,6 +72,7 @@
   if(!Array.isArray(profile.history))profile.history=[];
   let active=read(ACTIVE);
   let bank=[],byId=new Map(),themes=[],sourceDaily=null,sourceError='';
+  let archiveManifest=[], archiveCache=new Map(), archiveError='';
   const dailyDate=()=>sourceDaily?.date||utc();
   const dailyKey=()=>sourceDaily?'source:'+sourceDaily.date:utc();
 
@@ -155,13 +156,76 @@
     </section>`;
   }
   function renderArchive(){
-    const today=utc(),rows=[];
-    for(let i=1;i<=30;i++){
-      const date=new Date(Date.parse(today+'T12:00:00Z')-i*86400000).toISOString().slice(0,10);
-      const times=profile.history.filter(x=>x.mode==='archive'&&x.day===date).length;
-      rows.push('<button type="button" class="btn small ghost" data-action="startArchive" data-day="'+date+'">'+date+(times?' · played '+times+'×':'')+'</button>');
+    if(!archiveManifest.length)
+      return '<section class="page dd-archive"><div class="page-title"><span class="eyebrow">DAILY ARCHIVE</span><h1>Historical <em>dives.</em></h1><p>No verified historical snapshots loaded. '+safe(archiveError||'Please reload the game.')+'</p></div></section>';
+    const groups=new Map();
+    for(const rec of [...archiveManifest].reverse()){
+      const month=rec.date.slice(0,7);
+      if(!groups.has(month))groups.set(month,[]);
+      groups.get(month).push(rec);
     }
-    return '<section class="page"><div class="page-title"><span class="eyebrow">THE ARCHIVE</span><h1>Revisit past <em>dives.</em></h1><p>Practice any of the last 30 puzzle dates with Deep Dive\'s independent questions. This is not Krillion\'s historical answer archive. Archive results do not change your daily streak.</p></div><div class="surface-card"><div class="result-actions" style="flex-wrap:wrap;justify-content:flex-start">'+rows.join('')+'</div></div></section>';
+    const months=[...groups].map(([month,dates])=>{
+      const heading=new Date(month+'-01T12:00:00Z').toLocaleDateString('en-US',{month:'long',year:'numeric',timeZone:'UTC'});
+      return '<section class="dd-archive-month"><h2>'+safe(heading)+' <small>'+dates.length+' dives</small></h2><div class="dd-archive-grid">'+
+        dates.map(rec=>{
+          const count=profile.history.filter(x=>x.mode==='archive'&&x.day===rec.date).length;
+          return '<button type="button" class="dd-archive-date" data-action="startArchive" data-day="'+safe(rec.date)+'"><strong>#'+Number(rec.dayNumber)+'</strong><span>'+safe(rec.date)+'</span><small>'+Number(rec.acceptedAnswers).toLocaleString('en-US')+' answers'+(count?' · '+count+' played':'')+'</small></button>';
+        }).join('')+'</div></section>';
+    }).join('');
+    return '<section class="page dd-archive"><div class="page-title"><span class="eyebrow">THE DAILY ARCHIVE</span><h1>Revisit past <em>dives.</em></h1><p>'+archiveManifest.length+' recovered historical dives · '+(archiveManifest.length*7)+' original prompts. Every archived answer has its recorded rarity score. Choose a date to practice. These are publicly published historical snapshots from an independent archive, not access to the publisher’s locked archive or private answer service.</p></div>'+months+'</section>';
+  }
+  async function loadArchiveManifest(){
+    try{
+      const response=await fetch('./recovered/archive/manifest.json',{cache:'force-cache'});
+      if(!response.ok)throw Error('archive manifest HTTP '+response.status);
+      const manifest=await response.json();
+      if(!Array.isArray(manifest.dates)||manifest.dates.length<100)throw Error('archive collection incomplete');
+      archiveManifest=manifest.dates.filter(r=>/^2026-\d{2}-\d{2}$/.test(r.date)&&r.prompts===7&&r.acceptedAnswers>0).map(r=>({...r,dayNumber:Math.round((Date.parse(r.date+'T12:00:00Z')-Date.parse('2026-07-16T12:00:00Z'))/86400000)+1}));
+    }catch(e){archiveError='Archive data unavailable. '+(e?.message||'');console.warn(archiveError)}
+  }
+  async function loadArchiveSheet(day){
+    if(archiveCache.has(day))return archiveCache.get(day);
+    if(!archiveManifest.some(r=>r.date===day))throw Error('Date not in verified archive');
+    const response=await fetch('./recovered/archive/'+encodeURIComponent(day)+'.json',{cache:'force-cache'});
+    if(!response.ok)throw Error('Snapshot HTTP '+response.status);
+    const data=await response.json();
+    if(data.date!==day||!Array.isArray(data.questions)||data.questions.length!==7)throw Error('Invalid snapshot');
+    const ids=[];
+    for(const source of data.questions){
+      if(!/^archive:2026-\d{2}-\d{2}:p[1-7]$/.test(source.id)||!Array.isArray(source.answers)||!source.answers.length)throw Error('Invalid archived question');
+      const answers=[],answerIndex=new Map();
+      for(const entry of source.answers){
+        if(!Array.isArray(entry)||typeof entry[0]!=='string')continue;
+        const tier=TIERS.findIndex(t=>t.score===entry[1]);
+        if(tier<0)continue;
+        const value={value:entry[0],tier,aliases:[],quip:'',source:'published-archive-snapshot'};
+        answers.push(value);
+        const key=norm(value.value);
+        if(key&&!answerIndex.has(key))answerIndex.set(key,value);
+      }
+      if(!answers.length)throw Error('Empty archived answer set');
+      byId.set(source.id,{id:source.id,theme:'Archive #'+data.dayNumber,prompt:source.text,answers,answerIndex});
+      ids.push(source.id);
+    }
+    archiveCache.set(day,ids);
+    return ids;
+  }
+  async function startHistorical(day){
+    if(!archiveManifest.some(r=>r.date===day)){notify('That archived date is unavailable.');return}
+    try{
+      await loadArchiveSheet(day);
+      start('archive','',0,day);
+    }catch(e){notify('Archive could not load. Please retry.');console.error('Archive load error:',e)}
+  }
+  async function startArchiveEndless(){
+    if(!archiveManifest.length){start('endless');return}
+    try{
+      const day=utc(),selection=shuffle(archiveManifest,day+':endless:'+Date.now()).slice(0,9);
+      const ids=[];
+      for(const row of selection)ids.push(...await loadArchiveSheet(row.date));
+      if(ids.length<50)throw Error('Less than 50 archived prompts available');
+      start('endless','',0,'',shuffle(ids,day+':prompts:'+Date.now()).slice(0,50));
+    }catch(e){notify('Could not prepare 50-prompt challenge');console.error('Unlimited load error:',e)}
   }
   function renderStats(){
     const hist=profile.history.slice(0,15),dailyDays=Object.keys(profile.daily).length,
@@ -178,24 +242,23 @@
     <div class="result-actions">${button('daily','Return to the surface','ghost')}${button('startEndless','Practice now','primary')}</div>
     </section>`;
   }
-  function start(mode,world='',chapter=0,archiveDate=''){
+  function start(mode,world='',chapter=0,archiveDate='',forcedIds=[]){
     if(mode==='daily'&&dailyDone()){currentView='daily';render();return}
     const day=mode==='daily'?dailyDate():utc();
     let ids=[];
     if(mode==='daily')ids=todaysQuestions();
     if(mode==='archive'){
-      const age=Math.round((Date.parse(day+'T12:00:00Z')-Date.parse(archiveDate+'T12:00:00Z'))/86400000);
-      if(!/^\d{4}-\d{2}-\d{2}$/.test(archiveDate)||!Number.isInteger(age)||age<1||age>30){notify('Archive date unavailable.');return}
-      ids=todaysQuestions(archiveDate);
+      ids=archiveCache.get(archiveDate)||[];
+      if(ids.length!==7){notify('Load the historical snapshot first.');return}
     }
-    if(mode==='endless')ids=shuffle(bank,'endless:'+day+':'+Date.now()).slice(0,7).map(q=>q.id);
+    if(mode==='endless')ids=forcedIds.length?forcedIds:shuffle(bank,'endless:'+day+':'+Date.now()).slice(0,7).map(q=>q.id);
     if(mode==='world'){
       if(!WORLDS.some(w=>w[0]===world)||!Number.isInteger(chapter)||chapter<0||chapter>4)return;
       if(profile.pearls<UNLOCK[chapter]||(chapter>0&&!Number.isFinite(profile.worldRecords[world+':'+(chapter-1)]))){notify('Complete the previous chapter and earn more pearls first.');return}
       ids=shuffle(bank.filter(q=>q.theme===world),world+':chapter:'+chapter).slice(0,7).map(q=>q.id);
     }
     if(!ids.length)return;
-    active={mode,world,chapter,source:mode==='daily'&&sourceDaily?'krillion-reveal':'sidequest',day:mode==='archive'?archiveDate:day,ids,index:0,phase:'question',deadline:Date.now()+25000,results:[],score:0,misses:0,startedAt:Date.now()};
+    active={mode,world,chapter,source:mode==='archive'||(mode==='endless'&&forcedIds.length)?'published-archive-snapshot':mode==='daily'&&sourceDaily?'krillion-reveal':'sidequest',day:mode==='archive'?archiveDate:day,ids,index:0,phase:'question',deadline:Date.now()+25000,results:[],score:0,misses:0,startedAt:Date.now()};
     save();currentView=mode==='world'?'worlds':mode==='endless'?'endless':mode==='archive'?'archive':'daily';render();
   }
   function currentQ(){return byId.get(active.ids[active.index])}
@@ -203,13 +266,16 @@
   function frameHeading(){return active.mode==='daily'?'DAILY DISCOVERY':active.mode==='endless'?'THE ENDLESS EXPEDITION':safe(active.world.toUpperCase()+' · CHAPTER '+(active.chapter+1))}
   function arcadeHud(){
     const n=currentTotal(),idx=active.index;
-    const dots=active.ids.map((id,i)=>{
+    const firstVisible=active.ids.length>14?Math.max(0,Math.min(idx-5,active.ids.length-14)):0;
+    const visibleIds=active.ids.length>14?active.ids.slice(firstVisible,firstVisible+14):active.ids;
+    const dots=visibleIds.map((id,offset)=>{
+      const i=offset+firstVisible;
       const prior=active.results[i],tier=prior?.tier;
       const color=prior&&tier!==null&&tier!==undefined?TIERS[tier].color:prior?'#284c6b':i===idx?'#ff5288':'#091b38';
       return `<i class="dd-hud-dot" style="--dot:${color}" title="Round ${i+1}"></i>`;
     }).join('');
     return `<div class="dd-hud"><div class="dd-hud-box"><span>DEPTH</span><strong>${format(active.score*10)}<small>m</small></strong></div>
-      <div class="dd-hud-progress"><div class="dd-hud-dots">${dots}</div><small>PROMPT ${idx+1} OF ${n}</small></div>
+      <div class="dd-hud-progress"><div class="dd-hud-dots">${dots}</div><small>PROMPT ${idx+1} OF ${n}${active.mode==='endless'?' · '+Math.max(0,3-active.misses)+' LIVES':''}</small></div>
       <div class="dd-hud-box dd-hud-score"><span>SCORE</span><strong>${format(active.score)}</strong></div></div>`;
   }
   function renderQuestion(){
@@ -248,7 +314,7 @@
           <p class="dd-reveal-score">+${last.points} <span>POINTS</span></p>
           <p class="dd-reveal-depth">▼ ${format(last.points*10)} METRES DESCENDED</p>
           <p class="dd-reveal-caption">${safe(explain)}</p>
-          ${button('next',active.index+1>=currentTotal()?'VIEW DIVE RESULTS →':'NEXT DESCENT →','primary')}
+          ${button('next',(active.index+1>=currentTotal()||(active.mode==='endless'&&active.misses>=3))?'VIEW DIVE RESULTS →':'NEXT DESCENT →','primary')}
         </div>
       </div></section>`;
   }
@@ -299,7 +365,7 @@
   }
   function next(){
     if(!active||active.phase!=='reveal')return;
-    if(active.index+1>=active.ids.length){conclude();return}
+    if(active.index+1>=active.ids.length||(active.mode==='endless'&&active.misses>=3)){conclude();return}
     active.index++;active.phase='question';active.deadline=Date.now()+25000;save();render();
   }
   function updateClock(){
@@ -328,7 +394,7 @@
       <div class="summary-score">−${format(r.score*10)}<span> m</span></div><p class="lead">You've earned <strong style="color:var(--sun)">${format(r.score)} points</strong> and the same number of pearls. ${isDaily?'Today’s shared challenge is complete. Your result is saved in this browser.':'Another voyage is always waiting.'}</p>
       <div class="summary-rounds" aria-label="Score by prompt">${resultDots(r.results)}</div>
       <div class="result-actions">${button('share','Copy your result','primary')}${button('daily','Return to surface','ghost')}${button('startEndless','Play endless','ghost')}</div>
-      <p class="helper">${r.source==='krillion-reveal'?'Scores and result messages from the publisher’s public reveal; extra autocorrect aliases are not included.':'Independent Sidequest prompts with estimated rarity.'} Progress stays on this device.</p>
+      <p class="helper">${r.source==='krillion-reveal'?'Scores and result messages from the publisher’s public reveal; extra autocorrect aliases are not included.':(r.source==='published-archive-snapshot'?'Recorded answer scores from the independent historical snapshot. Scores and aliases may differ from the publisher’s present validator.':'Independent Sidequest prompts with estimated rarity.')} Progress stays on this device.</p>
       </div><div class="ocean-display">${bubbles()}<div class="diver-mark" aria-hidden="true">✶</div><div class="ocean-caption"><span>YOU REACHED</span><strong>${format(r.score)} points</strong></div></div>
       </div></section>`;
     root.dataset.share=text;
@@ -347,7 +413,7 @@
     else if(currentView==='archive')root.innerHTML=renderArchive();
     else if(currentView==='stats')root.innerHTML=renderStats();
     else if(currentView==='daily')root.innerHTML=renderHome();
-    else if(currentView==='endless')root.innerHTML=`<section class="page"><div class="home-hero"><div><span class="eyebrow">ENDLESS EXPEDITION</span><h1 class="section-heading">How deep can <em>you go?</em></h1><p class="lead">Each endless dive has seven questions with 25 seconds per answer. Play another dive whenever you like.</p><div class="hero-actions">${button('startEndless','Begin an endless run','primary')}${button('daily','Back to daily','ghost')}</div><p class="helper">7 prompts per dive <span class="divider-dot">·</span> 25 seconds each <span class="divider-dot">·</span> Unlimited attempts</p></div><div class="ocean-display">${bubbles()}<div class="diver-mark">∞</div><div class="ocean-caption"><span>YOUR RECORD</span><strong>${format(profile.endlessBest)} pts</strong></div></div></div></section>`;
+    else if(currentView==='endless')root.innerHTML=`<section class="page"><div class="home-hero"><div><span class="eyebrow">ENDLESS EXPEDITION</span><h1 class="section-heading">How deep can <em>you go?</em></h1><p class="lead">Each extended dive draws up to 50 published historical prompts. You have 25 seconds per answer and three lives. Every zero-point round costs a life.</p><div class="hero-actions">${button('startEndless','Begin an endless run','primary')}${button('daily','Back to daily','ghost')}</div><p class="helper">Up to 50 prompts per dive <span class="divider-dot">·</span> Three lives <span class="divider-dot">·</span> Unlimited attempts</p></div><div class="ocean-display">${bubbles()}<div class="diver-mark">∞</div><div class="ocean-caption"><span>YOUR RECORD</span><strong>${format(profile.endlessBest)} pts</strong></div></div></div></section>`;
     root.focus({preventScroll:true});
   }
   root.addEventListener('submit',e=>{if(e.target.id!=='answer-form')return;e.preventDefault();submit(e.target)});
@@ -355,8 +421,8 @@
     const b=e.target.closest('button[data-action]');if(!b||b.disabled)return;
     switch(b.dataset.action){
       case 'startDaily':if(active?.mode==='daily'){currentView='daily';render()}else start('daily');break;
-      case 'startEndless':if(active?.mode==='endless'){currentView='endless';render()}else start('endless');break;
-      case 'startArchive':start('archive','',0,b.dataset.day||'');break;
+      case 'startEndless':if(active?.mode==='endless'){currentView='endless';render()}else void startArchiveEndless();break;
+      case 'startArchive':void startHistorical(b.dataset.day||'');break;
       case 'startWorld':{
         const world=b.dataset.world,chapter=Number(b.dataset.chapter);
         if(active?.mode==='world'&&active.world===world&&active.chapter===chapter){currentView='worlds';render()}else start('world',world,chapter);break;
@@ -423,7 +489,13 @@
     themes=Array.isArray(data.themes)?data.themes:WORLDS.map(w=>w[0]);
     byId=new Map(bank.map(q=>[q.id,q]));
     if(byId.size!==bank.length||themes.some(t=>bank.filter(q=>q.theme===t).length<7))throw Error('Incomplete question-bank themes');
-    await loadSourceDaily();
+    await Promise.all([loadSourceDaily(),loadArchiveManifest()]);
+    if(active&&['archive','endless'].includes(active.mode)){
+      const days=[...new Set(active.ids.filter(id=>id.startsWith('archive:')).map(id=>id.split(':')[1]))];
+      for(const d of days){
+        try{await loadArchiveSheet(d)}catch(e){console.warn('Could not resume source-backed dive for',d,e)}
+      }
+    }
     oldActiveCheck();render();
   }).catch(e=>{
     root.innerHTML=`<div class="notice" style="margin:35px 0"><strong>We couldn’t load the question bank.</strong><p>${safe(e.message)}</p><button class="btn" type="button" onclick="location.reload()">Try again</button></div>`;
