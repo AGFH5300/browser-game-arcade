@@ -18,6 +18,9 @@ const inviteCode=()=>Array.from({length:7},()=>INVITE_CHARS[randomInt(INVITE_CHA
 const uuid=(v:string)=>/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(v);
 // PolyTrack 0.6.3 checks .error, not .reason, and closes on missing .error.
 const err=(error:string)=>({type:'error',version:GAME_VERSION,error});
+// Sidequest guest identity only: never claim upstream Kodub moderation.
+// Native host requires a non-null nickname to initialize peer sessions.
+const HOST_GUEST_NICKNAME='Anonymous';
 
 export function attachPrivatePolytrackSocket(ws:Ws,role:Role){
   const channel=randomUUID();
@@ -48,7 +51,7 @@ export function attachPrivatePolytrackSocket(ws:Ws,role:Role){
           RETURNING invite_code,invite_key`;
         if(existing.length){
           send({type:'createInvite',version:GAME_VERSION,inviteCode:existing[0].invite_code,
-            key:existing[0].invite_key,timeoutMilliseconds:INVITE_TTL_MS,censoredNickname:null});
+            key:existing[0].invite_key,timeoutMilliseconds:INVITE_TTL_MS,censoredNickname:HOST_GUEST_NICKNAME});
           return;
         }
       }
@@ -60,7 +63,7 @@ export function attachPrivatePolytrackSocket(ws:Ws,role:Role){
           ON CONFLICT DO NOTHING RETURNING invite_code`;
         if(result.length){
           send({type:'createInvite',version:GAME_VERSION,inviteCode:code,key,
-            timeoutMilliseconds:INVITE_TTL_MS,censoredNickname:null});
+            timeoutMilliseconds:INVITE_TTL_MS,censoredNickname:HOST_GUEST_NICKNAME});
           return;
         }
       }

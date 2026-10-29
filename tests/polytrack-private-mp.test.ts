@@ -63,3 +63,10 @@ test('pilot signaling server matches original client heartbeat and wire packets'
  assert(server.includes('packetQueue=packetQueue.then(()=>handle(packet))'));
  assert(server.includes("type:'iceCandidate',version:GAME_VERSION"));
 });
+
+test('private host always receives a local guest nickname when Kodub profile fails',()=>{
+ const server=readFileSync('lib/polytrack-mp-server.ts','utf8');
+ assert(server.includes("const HOST_GUEST_NICKNAME='Anonymous'"));
+ assert.equal((server.match(/censoredNickname:HOST_GUEST_NICKNAME/g)||[]).length,2);
+ assert(!server.includes('censoredNickname:null'));
+});
