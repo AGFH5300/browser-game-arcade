@@ -58,7 +58,7 @@ test('active site loads archive and visual animation sheet',()=>{
   const game=readFileSync('public/play/deep-dive/game.js','utf8');
   const css=readFileSync('public/play/deep-dive/fidelity.css','utf8');
   assert(html.includes('./fidelity.css?release=20261029a'));
-  assert(html.includes('./game.js?parity=20261029p2fixed'));
+  assert(html.includes('./game.js?parity=20261030pass3validated'));
   for(const feature of ['loadArchiveManifest','loadArchiveSheet','startHistorical','startArchiveEndless'])
     assert(game.includes(feature));
   assert(game.includes('active.misses>=3'));
