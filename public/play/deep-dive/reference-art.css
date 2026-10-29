@@ -55,3 +55,6 @@
  .deep-home .dd-rules{margin-bottom:50px!important}
  .deep-home .dd-party-btn{margin-left:0!important;margin-right:auto!important}
 }
+.dd-source-note{font:17px/1.25 "ReferenceVT323","VT323",monospace;color:#90c8d4;letter-spacing:.1em;text-align:center;margin:9px 0}
+@media(max-height:850px){.dd-source-note{font-size:14px;margin:6px 0}.deep-home .dd-sea-stats{margin-top:6px!important}}
+@media(max-width:650px){.dd-source-note{font-size:13px;margin:8px 4px}}
