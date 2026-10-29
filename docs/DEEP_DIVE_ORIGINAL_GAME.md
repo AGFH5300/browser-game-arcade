@@ -1,3 +1,7 @@
+# Historical archive — superseded original Sidequest prototype
+
+> Historical record only. The former standalone prototype entry points index.html and index-arcade.html have been removed and their URLs redirect to index-public-art.html. Their UI must not be used for current QA. This document describes the original independent prototype, not the present source-based reconstruction. Its claims about not copying public visuals no longer describe the currently deployed game. The authored question bank remains in use by independently controlled Party and practice modes; removing it would break those functions.
+
 # Deep Dive — Sidequest Original Trivia and Puffer Party
 
 This is a new browser game built for Sidequest. Its original artwork, UI, software and starting question bank are not copied from any other game. The user reports the Krillion publisher granted permission; no proprietary question export was provided.
@@ -22,7 +26,7 @@ The initial question bank has 90 originally written prompts across nine themes, 
 Solo progression and unfinished game are in browser localStorage and are not shared across devices. Multiplayer session credentials stay in sessionStorage. The user-provided Reddit link could not be retrieved in available browsing and no quotes or comments were copied from it. Questions and rarity values from the original Krillion site were not bulk-extracted or represented as official.
 
 ## Runtime
-- Game entrypoint: /play/deep-dive/index.html
+- Historical game entrypoint: /play/deep-dive/index.html (retired; redirects to /play/deep-dive/index-public-art.html)
 - Server: /api/deep-dive/party
 - Party database table: public.deep_dive_party_rooms
 - Exact local Deep Dive entrypoint has same-origin iframe privileges; this is not granted to untrusted game URLs.
