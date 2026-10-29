@@ -192,9 +192,14 @@
   function roundTierLines(prevM){
     return TIERS.map((t,i)=>tierLineMarkup(prevM,t,true,i*90)).join('');
   }
+  const PRACTICE_THEMES={Geography:'atlas',Sports:'gauntlet',Arts:'hollywood',Words:'lexicon'};
   function worldForMode(){
     if(active?.mode==='starter')return STARTER_WORLDS[active.world]||'ocean';
+    if(active?.mode==='world')return PRACTICE_THEMES[active.world]||'ocean';
     return 'ocean';
+  }
+  function themedConfig(id){
+    return window.DeepDiveThemes?.config(id)||{height:DW.WORLD_H,floorTop:DW.FLOOR_TOP,scenery:[]};
   }
   function correctionPanel(c){
     return `<div class="dd-preview-pill dd-correction-panel"><span class="dd-correction-change"><span>“${safe(c.raw)}”</span><span class="dd-correction-arrow" aria-hidden="true"> → </span><span class="sr-only">corrects to </span><b>“${safe(c.canonical)}”</b></span><span class="dd-correction-hint">submit again to confirm · or edit</span></div>`;
@@ -245,6 +250,12 @@
         <div class="dd-free-pack-top"><span>PUBLIC STARTER</span><span>${playable}/7 VERIFIED</span></div>
         <h3>${safe(label)}</h3><p>${safe(desc)}</p>
         <small>${format(answerCount)} recorded answers · ${playable} verified prompts</small>
+        ${mode==='unlimited'?'':`<details class="dd-public-chapters"><summary>30 CHAPTER SERIES · CHAPTER 1 RECOVERED</summary>
+          <div class="dd-public-chapter-list" role="group" aria-label="${safe(label)} chapter index">
+            ${Array.from({length:30},(_,i)=>`<button type="button" ${i===0&&playable?'data-action="startStarter" data-starter="'+safe(mode)+'"':'disabled'} title="${i===0?(playable?'Play recovered first chapter':'First chapter not fully verified'):'Chapter '+(i+1)+' answer data not recovered'}" aria-label="Chapter ${i+1} ${i===0&&playable?'playable':'not available'}">${i+1}</button>`).join('')}
+          </div>
+          <p>Original 30-chapter structure is publicly listed. Only the first chapter has recovered source-backed answers; remaining chapters are not available in this reconstruction.</p>
+        </details>`}
         <button type="button" class="dd-free-pack-play" data-action="startStarter" data-starter="${mode}" ${playable?'':'disabled'}>
           ${playable?'PLAY RECOVERED ROUNDS →':'ANSWER DATA NOT VERIFIED'}
         </button></article>`;
@@ -433,13 +444,15 @@
     const chipText=tier?'\u201c'+safe(last.answer).toUpperCase()+'\u201d':last?(last.reason==='Timeout'?'NO ANSWER':'NOTHING LANDED'):'';
     const sub=tier?(last.quip||tier.blurb):last?(last.reason==='Timeout'?'the clock beat you to it.':'never made it onto the reef.'):'';
     const pillLeft=Math.max(0,Math.ceil(((active.previewEnds||Date.now())-Date.now())/1000));
-    return `<section class="page deep-home dd-game-screen${feedback?' dd-reveal-screen':''}${active.mode==='starter'?' dd-free-starter-play':''}" data-phase="${active.phase}" data-world="${worldForMode()}" data-pack="${active.mode==='starter'?safe(active.world):''}" data-zone="${depthZone()}">
+    const worldId=worldForMode(),worldMeta=themedConfig(worldId);
+    return `<section class="page deep-home dd-game-screen${feedback?' dd-reveal-screen':''}${active.mode==='starter'?' dd-free-starter-play':''}" data-phase="${active.phase}" data-world="${worldId}" data-world-height="${worldMeta.height}" data-pack="${active.mode==='starter'?safe(active.world):''}" data-zone="${depthZone()}">
       <div class="dd-stage">
         <div class="dd-sea dd-game-sea"></div>
-        <div class="dd-world">
+        <div class="dd-world" style="--dd-world-height:${worldMeta.height}px">
           <div class="dd-world-surface-sky" aria-hidden="true"></div>
           ${worldSurface(currentTotal())}
-          <img class="dd-floor" src="${WORLD_FLOORS[worldForMode()]||WORLD_FLOORS.ocean}" alt="" loading="lazy" style="--y:${DW.FLOOR_TOP}px">
+          ${window.DeepDiveThemes?.scenery(worldId)||''}
+          <img class="dd-floor" src="${WORLD_FLOORS[worldId]||WORLD_FLOORS.ocean}" alt="" loading="lazy" style="--y:${worldMeta.floorTop}px">
           ${worldFacts()}
           ${feedback&&tier?roundTierLines(prevM):''}
           <div class="dd-game-prompt dd-card" style="--y:${baseY}px;animation-delay:.45s"><span class="dd-prompt-label rnd">PROMPT ${round+1} OF ${currentTotal()}${active.mode==='daily'?'':(' · '+safe(q.theme))}</span>
@@ -635,6 +648,24 @@
     cam.snapTo(A.feedback-2*finalM);
     cam.goTo(A.done,{dur:3400});
   }
+  function scoreTrail(results){
+    const scores=results.map(x=>Math.max(0,Math.min(100,Number(x.points)||0)));
+    if(!scores.length)return '';
+    const unit=scores.length>1?436/(scores.length-1):0;
+    const pts=scores.map((score,i)=>({x:22+i*unit,y:24+(100-score)*1.09,score}));
+    const path=pts.map(p=>p.x.toFixed(1)+','+p.y.toFixed(1)).join(' ');
+    return `<div class="dd-score-trail" aria-label="Recorded score for each of your ${scores.length} answers">
+      <div class="dd-score-trail-head"><span>YOUR DIVE LOG · DEEPER = RARER</span><span>${scores.length} ROUNDS</span></div>
+      <svg viewBox="0 0 480 172" role="img" aria-label="Your answer rarity scores, displayed as points from 0 to 100">
+        ${[24,78.5,133].map(y=>`<line class="dd-score-trail-grid" x1="12" x2="469" y1="${y}" y2="${y}"></line>`).join('')}
+        <polyline class="dd-score-trail-line" points="${path}"></polyline>
+        ${pts.map((p,i)=>`<circle class="dd-score-trail-marker" cx="${p.x}" cy="${p.y}" r="4"><title>Round ${i+1}: ${p.score} points</title></circle>
+          <text class="dd-score-trail-point-label" x="${p.x}" y="${Math.max(12,p.y-10)}" text-anchor="middle">${p.score}</text>
+          <text class="dd-score-trail-round" x="${p.x}" y="165" text-anchor="middle">${i+1}</text>`).join('')}
+      </svg>
+      <p class="dd-score-trail-note">Your recorded answers only · not a global percentile</p>
+    </div>`;
+  }
   function renderSummary(r){
     clearInterval(ticker);if(doneTick)clearInterval(doneTick);doneTick=null;syncHead();
     const isDaily=r.mode==='daily',max=r.count*100,finalM=Math.round(r.score*10);
@@ -653,12 +684,16 @@
     const best=profile.history.reduce((m,x)=>Math.max(m,x.score||0),0);
     const rating=Number(profile.ratings?.[utc()]||0);
     const zone=finalM>=4000?'abyss':finalM>=1200?'midnight':finalM>=300?'deep':'surface';
-    root.innerHTML=`<section class="page deep-home dd-game-screen dd-done-screen" data-phase="done" data-world="ocean" data-zone="${zone}">
+    const doneWorld=r.mode==='starter'?STARTER_WORLDS[r.world]||'ocean':r.mode==='world'?PRACTICE_THEMES[r.world]||'ocean':'ocean';
+    const doneConfig=themedConfig(doneWorld);
+    root.innerHTML=`<section class="page deep-home dd-game-screen dd-done-screen" data-phase="done" data-world="${doneWorld}" data-zone="${zone}">
       <div class="dd-stage">
         <div class="dd-sea dd-game-sea"></div>
-        <div class="dd-world">
+        <div class="dd-world" style="--dd-world-height:${doneConfig.height}px">
+          <div class="dd-world-surface-sky" aria-hidden="true"></div>
           ${worldSurface(r.count)}
-          <img class="dd-floor" src="${WORLD_FLOORS.ocean}" alt="" loading="lazy" style="--y:${DW.FLOOR_TOP}px">
+          ${window.DeepDiveThemes?.scenery(doneWorld)||''}
+          <img class="dd-floor" src="${WORLD_FLOORS[doneWorld]||WORLD_FLOORS.ocean}" alt="" loading="lazy" style="--y:${doneConfig.floorTop}px">
           ${worldFacts()}
         </div>
         ${gameOverlays()}
@@ -669,6 +704,7 @@
       <div class="dd-done"><div class="dd-done-inner">
         <div class="dd-done-head"><span class="dd-done-krill">KRILLION</span><span class="dd-done-sub">${diveNo}</span></div>
         <div class="dd-done-score"><span class="big">${format(r.score)}</span><span class="m">−${format(finalM)}m</span></div>
+        ${scoreTrail(r.results)}
         <div class="dd-done-bands"><h3>THE BEARING</h3>${BEARING.map(bearingRow).join('')}</div>
         <div class="dd-done-catch"><h3>THE CATCH · DEEPER = RARER</h3>${r.results.map(catchRow).join('')}</div>
         <div class="dd-done-log"><h3>LOGBOOK</h3><p>STREAK ${format(profile.streak)} · PLAYED ${format(profile.runs)} · AVG ${format(avg)} · BEST ${format(best)}</p><p class="dd-next-dive">NEXT DIVE IN <b id="dd-next-dive">--:--:--</b></p></div>
