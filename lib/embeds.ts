@@ -28,6 +28,24 @@ const archivedGames: [string, TrustedPublisher][] = carlwalksGameUrls.map(url =>
 }]);
 
 const publishers = new Map<string, TrustedPublisher>([
+  ['https://skribbl.io/', {
+    name: 'Skribbl.io', privacyUrl: 'https://skribbl.io/', externalOnly: true,
+    disclosure: 'Official third-party multiplayer or geography game; Sidequest opens the creator website in a new tab without embedding or copying its content.',
+  }],
+  ['https://poki.com/en/g/tag', {
+    name: 'Poki', privacyUrl: 'https://poki.com/en/g/tag', externalOnly: true,
+    disclosure: 'Official third-party multiplayer or geography game; Sidequest opens the creator website in a new tab without embedding or copying its content.',
+  }],
+  ['https://www.worldguessr.com/', {
+    name: 'WorldGuessr', privacyUrl: 'https://www.worldguessr.com/', externalOnly: true,
+    disclosure: 'Official third-party multiplayer or geography game; Sidequest opens the creator website in a new tab without embedding or copying its content.',
+  }],
+  ['https://krillion.io/', {
+    name: 'Krillion', privacyUrl: 'https://krillion.io/privacy',
+    externalOnly: true,
+    disclosure: 'The original Krillion creator disallows third-party embedding. Open its official site in a new tab; Krillion manages scoring, accounts, progress and optional purchases.',
+  }],
+
   ...archivedGames,
   ...referenceEntrypoints.map((url):[string,TrustedPublisher]=>[url,{
     name:url.includes('miniplay.com')?'MiniPlay':url.includes('dashnet.org')?'DashNet / Orteil':'Game provider',privacyUrl:new URL(url).origin,

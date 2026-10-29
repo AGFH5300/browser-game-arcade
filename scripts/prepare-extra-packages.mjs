@@ -150,12 +150,36 @@ async function transformSnowRider(packageRoot) {
   html = replaceRequired(html, /<script\b[^>]*>[\s\S]*?window\.location\s*=\s*["']https:\/\/snowrider3d\.ubg235\.com\/["'];?[\s\S]*?<\/script\s*>/gi, '', 'Snow Rider 3D portal redirect');
   html = replaceRequired(html, /<script\b[^>]*\bsrc=["']js\/analytics_ubg_v1_4\.js["'][^>]*>\s*<\/script\s*>/gi, '', 'Snow Rider 3D analytics tag');
   if (/ubg235|analytics_ubg_v1_4/i.test(html)) throw new Error('Snow Rider 3D entry still refers to a portal redirect or analytics dependency.');
-  html = html.replace('</head>', '    <script src="bridge.js"></script>\n</head>');
+  // The pinned community mirror has the complete Unity runtime/build assets,
+  // but its HTML omitted the UnityLoader and UnityProgress bootstrap entirely.
+  // Without it the container stays blank with no network or console errors.
+  // Restore the published Unity WebGL bootstrap using ONLY the existing pinned
+  // files. Do not import third-party ads, analytics or the portal redirect.
+  if (/UnityLoader\.instantiate|<script[^>]+Build\/UnityLoader\.js/i.test(html))
+    throw new Error('Snow Rider source bootstrap changed; inspect before patching.');
+  const loaderBootstrap = [
+    '    <script src="bridge.js"></script>',
+    '    <script src="TemplateData/UnityProgress.js"></script>',
+    '    <script src="Build/UnityLoader.js"></script>',
+    '    <script>',
+    '      window.addEventListener("DOMContentLoaded", function () {',
+    '        try {',
+    '          window.gameInstance = UnityLoader.instantiate("gameContainer", "Build/SnowRider3D-gd-1.json", { onProgress: UnityProgress, Module: { onRuntimeInitialized: function () { UnityProgress(window.gameInstance, "complete"); } } });',
+    '        } catch (error) {',
+    '          console.error("Snow Rider Unity startup failed", error);',
+    '          var box = document.getElementById("gameContainer");',
+    '          if (box) box.textContent = "Snow Rider failed to start. Try restarting the game."; ',
+    '        }',
+    '      });',
+    '    </script>',
+  ].join('\n');
+  html = html.replace('</head>', loaderBootstrap + '\n</head>');
+  if (!html.includes('UnityLoader.instantiate("gameContainer"')) throw new Error('Snow Rider bootstrap was not written.');
   await writeFile(entry, html);
   const bridge = await readFile(bridgeSource);
   await writeFile(safeChild(packageRoot, 'bridge.js'), bridge);
   return {
-    index: 'Removed the inline portal redirect and analytics loader. Unity game code and build payload were not patched.',
+    index: 'Removed redirect/analytics; restored missing local UnityLoader/UnityProgress startup bootstrap while keeping game payload unchanged.',
     bridge: 'Added the repository audio bridge so the player mute control can reach the local game.',
     generatedFiles: [{ path: 'bridge.js', size: bridge.length, sha256: localSha(bridge) }],
   };
