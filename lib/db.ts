@@ -2,8 +2,9 @@ import { neon } from '@neondatabase/serverless';
 import type { Game } from './types';
 import originalGames from '../data/seed-games.json';
 import referenceGames from '../data/reference-games.json';
+import addedGames from '../data/added-games.json';
 // Reference updates keep existing identities while adding the complete collection.
-const seedGames=[...new Map([...originalGames,...referenceGames].map(g=>[g.slug,g])).values()];
+const seedGames=[...new Map([...originalGames,...referenceGames,...addedGames].map(g=>[g.slug,g])).values()];
 
 export const getDb = () => {
   if (!process.env.DATABASE_URL) throw new Error('DATABASE_URL is not configured');

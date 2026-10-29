@@ -28,6 +28,12 @@ const archivedGames: [string, TrustedPublisher][] = carlwalksGameUrls.map(url =>
 }]);
 
 const publishers = new Map<string, TrustedPublisher>([
+  ['https://krillion.io/', {
+    name: 'Krillion', privacyUrl: 'https://krillion.io/privacy',
+    externalOnly: true,
+    disclosure: 'The original Krillion creator disallows third-party embedding. Open its official site in a new tab; Krillion manages scoring, accounts, progress and optional purchases.',
+  }],
+
   ...archivedGames,
   ...referenceEntrypoints.map((url):[string,TrustedPublisher]=>[url,{
     name:url.includes('miniplay.com')?'MiniPlay':url.includes('dashnet.org')?'DashNet / Orteil':'Game provider',privacyUrl:new URL(url).origin,
