@@ -8,6 +8,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import net from 'node:net';
 import { LEVEL_DEVIL_POKI_GUEST, FORTZONE_GAMEPUSH_GUEST } from './portal-guest-adapters.mjs';
+import { parseSafeRewrite } from './parse-safe-js-rewrite.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SOURCE_FILE = path.join(ROOT, 'scripts/reference-package-sources.json');
@@ -535,6 +536,13 @@ function rewriteTextReferences(text, extension, fileUrl, resolveLocalUrl) {
     const quoted = /(["'`])((?:\\.|(?!\1)[^\\])*?)\1/g;
     output = output.replace(quoted, (all, quote, value) => {
       const unescaped = normalizeReference(value).replace(/\\u002[fF]/g, '/').replace(/\\x2[fF]/g, '/');
+      // A quoted punctuation token like "?" or a regex fragment is not an
+      // asset URL. Resolving it against this script's own URL can mistakenly
+      // map it to ./jquery.js? and silently corrupt valid JS despite passing
+      // syntax checks. Accept ONLY paths to recognized static file types.
+      const assetPath = unescaped.split(/[?#]/,1)[0];
+      if(!assetPath || !STATIC_EXTENSIONS.has(path.posix.extname(assetPath).toLowerCase()) ||
+         /[\r\n]/.test(unescaped) || unescaped.length>2048) return all;
       const local = resolveLocalUrl(unescaped, fileUrl, { onlyStatic: true });
       if (!local) return all;
       return `${quote}${value.includes('\\/') ? local.replaceAll('/', '\\/') : local}${quote}`;
@@ -720,6 +728,7 @@ function makeArtifactTransforms(pkg, file, bytes, bridgeBytes, localBySourceUrl,
     const textBytes = normalizeCloudflareAnalytics(entityBytes, type);
     if (!textBytes.equals(entityBytes)) mods.push('Normalized per-request Cloudflare analytics beacon tags before artifact generation.');
     let text = textBytes.toString('utf8');
+    const pinnedSourceText = text;
     if(pkg.slug==='house-of-hazards' && file.path===requiredEntryPath(pkg)) {
       const removed=shellRedirectRemoved(text,'/cloak.js');text=removed.html;
       if(removed.removed)mods.push('Removed the documented missing portal-only /cloak.js script; game SDK and payload unchanged.');
@@ -754,6 +763,25 @@ function makeArtifactTransforms(pkg, file, bytes, bridgeBytes, localBySourceUrl,
         const scriptExt = /json/.test(type) ? '.json' : '.js';
         return `<script${attrs}>${rewriteTextReferences(script, scriptExt, fileUrl, resolveLocalUrl)}</script>`;
       });
+      if(pkg.slug==='ice-dodo' && file.path===requiredEntryPath(pkg)) {
+        // Vanilla Ice Dodo assumes browser chrome namespace exists, as in
+        // Chrome desktop, but in Chromium headless/Safari it can be absent.
+        // Supply an empty namespace only when missing; preserve upstream
+        // extension detection and the original SRI-verified jQuery bytes.
+        const previous=text;
+        text=text.replace(/<head\b[^>]*>/i,head=>head+
+          '\n<script>window.chrome = window.chrome || {};<\/script>');
+        if(text===previous)throw new Error('Ice Dodo head missing for browser namespace guard');
+        mods.push('Added safe absent-chrome namespace compatibility in isolated Ice Dodo entry.');
+      }
+      if(pkg.slug==='subway-surfers' && file.path===requiredEntryPath(pkg)) {
+        // Legacy 4399 embed assigns document.domain; sandboxed frames throw a
+        // SecurityError before Unity can start. It is unnecessary here.
+        const before=text;
+        text=text.replace(/document\.domain\s*=\s*['"]4399\.com['"]\s*;?/g,'void 0;');
+        if(text===before)throw new Error('Subway Surfers document.domain guard signature changed');
+        mods.push('Removed forbidden legacy document.domain assignment from local game.');
+      }
       if(pkg.slug==='granny' && file.path===requiredEntryPath(pkg)) {
         // Upstream Granny page tries to set #logo.style although #logo is
         // absent in its shipped markup. Don't throw during startup.
@@ -784,10 +812,11 @@ function makeArtifactTransforms(pkg, file, bytes, bridgeBytes, localBySourceUrl,
       // Use a bounded local guest adapter; never claim ads, accounts or scores work.
       text=LEVEL_DEVIL_POKI_GUEST;
       mods.push('Replaced missing Poki core loader with local ad-free guest compatibility.');
-    } else if (pkg.slug==='ovo' && file.path==='c2runtime.js') {
-      // Construct 2 uses expressions like typeof x === "undefined" ? 200 : 0.
-      // Generic URL rewriting interpreted the expression tail as a URL query,
-      // injecting ./c2runtime.js?%20200... and producing invalid JavaScript.
+    } else if (file.path==='c2runtime.js') {
+      // Construct 2 has valid expressions like typeof x === "undefined" ? 200 : 0.
+      // Rewriting arbitrary JS strings as URL references corrupts the ternary
+      // into invalid syntax. Confirmed for Angry Heroes and Eggy Car as well
+      // as the previously protected OvO. Keep the pinned, valid original.
       mods.push('Preserved original valid Construct 2 runtime; skipped unsafe generic JS string rewriting.');
     } else {
       text = rewriteTextReferences(text, extension, fileUrl, resolveLocalUrl);
@@ -797,6 +826,13 @@ function makeArtifactTransforms(pkg, file, bytes, bridgeBytes, localBySourceUrl,
         const fixed=text.replace(/\.split\(["']\.\/master-loader\.js["']\)/g, '.split("master-loader.js")');
         if(fixed!==text)mods.push('Restored loader script URL delimiter for correct Unity asset base path.');
         text=fixed;
+      }
+    }
+    if (['.js','.cjs'].includes(extension) && text !== pinnedSourceText) {
+      const safety = parseSafeRewrite(pinnedSourceText,text);
+      if(safety.restored) {
+        text=safety.text;
+        mods.push('Reverted a JS URL rewrite that introduced a syntax error; preserved pinned source JavaScript.');
       }
     }
     transformed = encodeContentEncoding(Buffer.from(text, 'utf8'), contentEncoding);

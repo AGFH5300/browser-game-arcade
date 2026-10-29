@@ -22,7 +22,7 @@ test('critical page-one runtime files are pinned, required and integrity checked
 });
 test('page-one transforms target broken Unity loader roots and keep Construct 2 parser intact',()=>{
  const code=readFileSync('scripts/prepare-reference-packages.mjs','utf8');
- assert(code.includes("pkg.slug==='ovo' && file.path==='c2runtime.js'"));
+ assert(code.includes("file.path==='c2runtime.js'"));
  assert(code.includes("['rocket-league','subway-surfers'].includes(pkg.slug)"));
  assert(code.includes("pkg.slug==='granny'"));
  assert(code.includes("if (name==='data' && tagName!=='object') return full;"));

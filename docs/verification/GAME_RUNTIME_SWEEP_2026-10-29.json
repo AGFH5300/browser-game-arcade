@@ -1,0 +1,1848 @@
+{
+  "date": "2026-10-29",
+  "scope": "Pre-fix production short startup checks on 118 local reference games and 12 new Gamerias. Static and first-level network success does not certify gameplay.",
+  "limitations": [
+    "Some missing iframes were caused by headless graphics resource exhaustion; retest in fresh sessions",
+    "External ads, analytics and gameplay dependencies may have runtime network errors",
+    "No manual victory/restart/mobile/save/audio certification",
+    "External provider frames and old puzzle games not rerun in this sweep",
+    "Sanitized output excludes user tokens and query strings"
+  ],
+  "results": [
+    {
+      "slug": "survival-race",
+      "group": "page-one",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_warning",
+      "failure_categories": [
+        "other_console_warning"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 14
+    },
+    {
+      "slug": "fortzone-battle-royale",
+      "group": "page-one",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 11
+    },
+    {
+      "slug": "crazy-cattle-3d",
+      "group": "page-one",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 10
+    },
+    {
+      "slug": "snow-rider-3d",
+      "group": "page-one",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 11
+    },
+    {
+      "slug": "eaglercraft",
+      "group": "page-one",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 10
+    },
+    {
+      "slug": "drift-hunters",
+      "group": "page-one",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 10
+    },
+    {
+      "slug": "granny",
+      "group": "page-one",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_missing_assets",
+      "failure_categories": [
+        "resource_load",
+        "other_console_warning"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/granny/StreamingAssets/Audio/Audio/_Done/RatDie_MP3.mp3",
+        "/play/archives/granny/StreamingAssets/Audio/Audio/_Done/RatNoise_MP3.mp3"
+      ],
+      "observed_seconds": 12
+    },
+    {
+      "slug": "granny-2",
+      "group": "page-one",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_warning",
+      "failure_categories": [
+        "other_console_warning",
+        "resource_load"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 14
+    },
+    {
+      "slug": "slope-2",
+      "group": "page-one",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_warning",
+      "failure_categories": [
+        "other_console_warning"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 10
+    },
+    {
+      "slug": "slope-3",
+      "group": "page-one",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_warning",
+      "failure_categories": [
+        "other_console_warning"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 11
+    },
+    {
+      "slug": "a-small-world-cup",
+      "group": "page-one",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_warning",
+      "failure_categories": [
+        "other_console_warning"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 11
+    },
+    {
+      "slug": "traffic-jam-3d",
+      "group": "page-one",
+      "player_http": 200,
+      "iframe_attached": false,
+      "canvas_count": null,
+      "runtime_status": "inconclusive_environment_or_loading",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 16
+    },
+    {
+      "slug": "highway-traffic",
+      "group": "page-one",
+      "player_http": 200,
+      "iframe_attached": false,
+      "canvas_count": null,
+      "runtime_status": "inconclusive_environment_or_loading",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 16
+    },
+    {
+      "slug": "geometry-dash-subzero",
+      "group": "page-one",
+      "player_http": 200,
+      "iframe_attached": false,
+      "canvas_count": null,
+      "runtime_status": "inconclusive_environment_or_loading",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 16
+    },
+    {
+      "slug": "geometry-dash-hyper-wave",
+      "group": "page-one",
+      "player_http": 200,
+      "iframe_attached": false,
+      "canvas_count": null,
+      "runtime_status": "inconclusive_environment_or_loading",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 16
+    },
+    {
+      "slug": "among-us",
+      "group": "page-one",
+      "player_http": 200,
+      "iframe_attached": false,
+      "canvas_count": null,
+      "runtime_status": "inconclusive_environment_or_loading",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 16
+    },
+    {
+      "slug": "ovo",
+      "group": "page-one",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_warning",
+      "failure_categories": [
+        "other_console_warning",
+        "resource_load"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 10
+    },
+    {
+      "slug": "rocket-league",
+      "group": "page-one",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_exception",
+      "failure_categories": [
+        "content_security_policy",
+        "resource_load",
+        "other_console_warning",
+        "uncaught_js"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/rocket-league/lng.txt",
+        "/play/archives/rocket-league/screenshots/2-small.jpg",
+        "/play/archives/rocket-league/screenshots/2.jpg",
+        "/play/archives/rocket-league/screenshots/2.png",
+        "/play/archives/rocket-league/screenshots/3-small.jpg",
+        "/play/archives/rocket-league/screenshots/4-small.jpg"
+      ],
+      "observed_seconds": 10
+    },
+    {
+      "slug": "subway-surfers",
+      "group": "page-one",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "runtime_exception",
+      "failure_categories": [
+        "uncaught_js",
+        "resource_load"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/subway-surfers/torus-bold-webfont.woff2"
+      ],
+      "observed_seconds": 10
+    },
+    {
+      "slug": "level-devil",
+      "group": "page-one",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_missing_assets",
+      "failure_categories": [
+        "other_console_warning",
+        "resource_load"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/level-devil/assets/sfx/sound-1077.mp3",
+        "/play/archives/level-devil/assets/sfx/sound-1079.mp3",
+        "/play/archives/level-devil/assets/sfx/sound-566.mp3",
+        "/play/archives/level-devil/assets/sfx/sound-568.mp3",
+        "/play/archives/level-devil/assets/sfx/sound-720.mp3",
+        "/play/archives/level-devil/assets/sfx/sound-721.mp3",
+        "/play/archives/level-devil/assets/sfx/sound-726.mp3",
+        "/play/archives/level-devil/assets/sfx/sound-730.mp3",
+        "/play/archives/level-devil/assets/sfx/sound-732.mp3",
+        "/play/archives/level-devil/assets/sfx/sound-734.mp3",
+        "/play/archives/level-devil/assets/sfx/sound-736.mp3",
+        "/play/archives/level-devil/assets/sfx/sound-741.mp3"
+      ],
+      "observed_seconds": 10
+    },
+    {
+      "slug": "polytrack",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_warning",
+      "failure_categories": [
+        "resource_load",
+        "other_console_warning"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 7
+    },
+    {
+      "slug": "drive-mad",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": false,
+      "canvas_count": null,
+      "runtime_status": "inconclusive_environment_or_loading",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 8
+    },
+    {
+      "slug": "slope",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_exception",
+      "failure_categories": [
+        "other_console_warning",
+        "uncaught_js",
+        "content_security_policy"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 10
+    },
+    {
+      "slug": "fnaf",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "five-nights-at-freddys-2",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "five-nights-at-freddys-3",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "five-nights-at-freddys-4",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "moto-x3m",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": false,
+      "canvas_count": null,
+      "runtime_status": "inconclusive_environment_or_loading",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 8
+    },
+    {
+      "slug": "basketball-stars",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_exception",
+      "failure_categories": [
+        "uncaught_js"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "run-3",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_warning",
+      "failure_categories": [
+        "other_console_warning"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "geometry-dash",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_exception",
+      "failure_categories": [
+        "other_console_warning",
+        "uncaught_js"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "retro-bowl",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": false,
+      "canvas_count": null,
+      "runtime_status": "inconclusive_environment_or_loading",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 8
+    },
+    {
+      "slug": "stickman-hook",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_warning",
+      "failure_categories": [
+        "resource_load",
+        "other_console_warning"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "fireboy-and-watergirl-1",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "runtime_exception",
+      "failure_categories": [
+        "uncaught_js"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "fireboy-and-watergirl-2",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_exception",
+      "failure_categories": [
+        "content_security_policy",
+        "resource_load",
+        "uncaught_js"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/fireboy-and-watergirl-2/assets/json/contracted.json",
+        "/play/archives/fireboy-and-watergirl-2/assets/json/domains.json",
+        "/play/archives/fireboy-and-watergirl-2/assets/json/internal.json",
+        "/play/archives/fireboy-and-watergirl-2/assets/json/sitelock.json",
+        "/play/archives/fireboy-and-watergirl-2/assets/json/special.json",
+        "/play/archives/fireboy-and-watergirl-2/data/light/temple.json./fireboy-and-watergirl-light-temple.min.jsv=watchdocs"
+      ],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "time-shooter-2",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_missing_assets",
+      "failure_categories": [
+        "resource_load",
+        "other_console_warning"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/time-shooter-2/TimeShooter2.jpg"
+      ],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "time-shooter-3",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_missing_assets",
+      "failure_categories": [
+        "resource_load",
+        "other_console_warning"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/time-shooter-3/Build/TimeShooter3_GD.jpg"
+      ],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "angry-heroes",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_exception",
+      "failure_categories": [
+        "uncaught_js",
+        "other_console_warning"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "drift-boss",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 2,
+      "runtime_status": "runtime_exception",
+      "failure_categories": [
+        "resource_load",
+        "other_console_warning",
+        "uncaught_js"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/drift-boss/media/audio/bgm.mp3",
+        "/play/archives/drift-boss/media/audio/chest-big.ogg",
+        "/play/archives/drift-boss/media/audio/chest-small.ogg",
+        "/play/archives/drift-boss/media/audio/crash.ogg",
+        "/play/archives/drift-boss/media/audio/engine-in.ogg",
+        "/play/archives/drift-boss/media/audio/engine-out.ogg",
+        "/play/archives/drift-boss/media/audio/engine.ogg",
+        "/play/archives/drift-boss/media/audio/opening/kittyopening.ogg",
+        "/play/archives/drift-boss/media/audio/opening/opening.ogg",
+        "/play/archives/drift-boss/media/audio/play/static.ogg",
+        "/play/archives/drift-boss/media/audio/reward.ogg",
+        "/play/archives/drift-boss/media/audio/skid1.ogg"
+      ],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "bitlife-life-simulator",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_warning",
+      "failure_categories": [
+        "content_security_policy"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "eggy-car",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_exception",
+      "failure_categories": [
+        "uncaught_js"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "happy-wheels",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "blade-ball",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "paper-io",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_exception",
+      "failure_categories": [
+        "uncaught_js",
+        "other_console_warning"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "tiny-fishing",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": null,
+      "runtime_status": "runtime_exception",
+      "failure_categories": [
+        "resource_load",
+        "other_console_warning",
+        "audio_decode",
+        "uncaught_js"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/tiny-fishing/html5game/snd_boost.ogg",
+        "/play/archives/tiny-fishing/html5game/snd_butClick.ogg",
+        "/play/archives/tiny-fishing/html5game/snd_buyForCoins.ogg",
+        "/play/archives/tiny-fishing/html5game/snd_catchPop.ogg",
+        "/play/archives/tiny-fishing/html5game/snd_fishReel.ogg",
+        "/play/archives/tiny-fishing/html5game/snd_levComplBest.ogg",
+        "/play/archives/tiny-fishing/html5game/snd_musicBackground.ogg",
+        "/play/archives/tiny-fishing/html5game/snd_openPrize.ogg",
+        "/play/archives/tiny-fishing/html5game/snd_pop.ogg",
+        "/play/archives/tiny-fishing/html5game/snd_splash1.ogg",
+        "/play/archives/tiny-fishing/html5game/snd_splash2.ogg",
+        "/play/archives/tiny-fishing/html5game/snd_startFishing.ogg"
+      ],
+      "observed_seconds": 242
+    },
+    {
+      "slug": "snake-io",
+      "group": "remaining-reference",
+      "player_http": 0,
+      "iframe_attached": false,
+      "canvas_count": null,
+      "runtime_status": "inconclusive_environment_or_loading",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 0
+    },
+    {
+      "slug": "blockpost",
+      "group": "remaining-reference",
+      "player_http": 0,
+      "iframe_attached": false,
+      "canvas_count": null,
+      "runtime_status": "inconclusive_environment_or_loading",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 0
+    },
+    {
+      "slug": "house-of-hazards",
+      "group": "remaining-reference",
+      "player_http": 0,
+      "iframe_attached": false,
+      "canvas_count": null,
+      "runtime_status": "inconclusive_environment_or_loading",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 0
+    },
+    {
+      "slug": "getaway-shootout",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 6
+    },
+    {
+      "slug": "rooftop-snipers",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "gun-mayhem-2",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "hole-io",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": false,
+      "canvas_count": null,
+      "runtime_status": "inconclusive_environment_or_loading",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 8
+    },
+    {
+      "slug": "escape-road",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 2,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "crossy-road",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_exception",
+      "failure_categories": [
+        "uncaught_js",
+        "content_security_policy"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "color-tunnel",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_missing_assets",
+      "failure_categories": [
+        "resource_load",
+        "other_console_warning"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/color-tunnel/TemplateData/gears.gif",
+        "/play/archives/color-tunnel/js/main.min.js"
+      ],
+      "observed_seconds": 6
+    },
+    {
+      "slug": "icy-purple-head",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_missing_assets",
+      "failure_categories": [
+        "resource_load",
+        "other_console_warning"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/icy-purple-head/media/click.ogg",
+        "/play/archives/icy-purple-head/media/fingerhit.ogg",
+        "/play/archives/icy-purple-head/media/iceclick.ogg",
+        "/play/archives/icy-purple-head/media/levelend.ogg",
+        "/play/archives/icy-purple-head/media/levelendclick.ogg",
+        "/play/archives/icy-purple-head/media/loose.ogg",
+        "/play/archives/icy-purple-head/media/stick.ogg",
+        "/play/archives/icy-purple-head/media/theme.ogg",
+        "/play/archives/icy-purple-head/media/win.ogg",
+        "/play/archives/icy-purple-head/media/wood%20hit.ogg"
+      ],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "tanuki-sunset",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "gunspin",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": false,
+      "canvas_count": null,
+      "runtime_status": "inconclusive_environment_or_loading",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 8
+    },
+    {
+      "slug": "hover-racer-drive",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "madalin-stunt-cars-2",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": false,
+      "canvas_count": null,
+      "runtime_status": "inconclusive_environment_or_loading",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 8
+    },
+    {
+      "slug": "slowroads-io",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "runtime_exception",
+      "failure_categories": [
+        "uncaught_js"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "cut-the-rope",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": false,
+      "canvas_count": null,
+      "runtime_status": "inconclusive_environment_or_loading",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 8
+    },
+    {
+      "slug": "bottle-flip-3d",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "return-man-2",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "cluster-rush",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_missing_assets",
+      "failure_categories": [
+        "other_console_warning",
+        "resource_load"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/cluster-rush/Release/NG.mem"
+      ],
+      "observed_seconds": 6
+    },
+    {
+      "slug": "death-run-3d",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_warning",
+      "failure_categories": [
+        "other_console_warning",
+        "content_security_policy"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 6
+    },
+    {
+      "slug": "burrito-bison-launcha-libre",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_warning",
+      "failure_categories": [
+        "content_security_policy"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "fall-boys",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_missing_assets",
+      "failure_categories": [
+        "resource_load"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/fall-boys/css/progressEmpty.Dark.png",
+        "/play/archives/fall-boys/css/progressFull.Dark.png",
+        "/play/archives/fall-boys/icons/128.png"
+      ],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "brawl-guys",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_exception",
+      "failure_categories": [
+        "other_console_warning",
+        "resource_load",
+        "uncaught_js"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/brawl-guys/media/bang_05.ogg",
+        "/play/archives/brawl-guys/media/click_003.ogg",
+        "/play/archives/brawl-guys/media/glass_004.ogg",
+        "/play/archives/brawl-guys/media/oho.ogg",
+        "/play/archives/brawl-guys/media/select_001.ogg",
+        "/play/archives/brawl-guys/media/select_003.ogg",
+        "/play/archives/brawl-guys/media/select_007.ogg",
+        "/play/archives/brawl-guys/media/shot_03.ogg",
+        "/play/archives/brawl-guys/media/winner.ogg",
+        "/play/archives/brawl-guys/media/you_lose.ogg"
+      ],
+      "observed_seconds": 6
+    },
+    {
+      "slug": "ice-dodo",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_exception",
+      "failure_categories": [
+        "other_console_warning",
+        "uncaught_js"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "friday-night-funkin",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_exception",
+      "failure_categories": [
+        "other_console_warning",
+        "resource_load",
+        "uncaught_js"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/friday-night-funkin/assets/data/characters/bf-car.json",
+        "/play/archives/friday-night-funkin/assets/data/characters/bf-christmas.json",
+        "/play/archives/friday-night-funkin/assets/data/characters/bf-dark.json",
+        "/play/archives/friday-night-funkin/assets/data/characters/bf-pixel.json",
+        "/play/archives/friday-night-funkin/assets/data/characters/bf.json",
+        "/play/archives/friday-night-funkin/assets/data/characters/dad.json",
+        "/play/archives/friday-night-funkin/assets/data/characters/darnell-blazin.json",
+        "/play/archives/friday-night-funkin/assets/data/characters/darnell.json",
+        "/play/archives/friday-night-funkin/assets/data/characters/gf-car.json",
+        "/play/archives/friday-night-funkin/assets/data/characters/gf-christmas.json",
+        "/play/archives/friday-night-funkin/assets/data/characters/gf-dark.json",
+        "/play/archives/friday-night-funkin/assets/data/characters/gf-pixel.json"
+      ],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "papas-pizzeria",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "papas-freezeria",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_exception",
+      "failure_categories": [
+        "content_security_policy",
+        "resource_load",
+        "other_console_warning",
+        "uncaught_js"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/papas-freezeria/assets/builtins/avmplus.abc",
+        "/play/archives/papas-freezeria/assets/builtins/builtin.abc",
+        "/play/archives/papas-freezeria/assets/builtins/playerglobal.abcs",
+        "/play/archives/papas-freezeria/assets/builtins/playerglobal.json",
+        "/play/archives/papas-freezeria/https%3A%2F%2Fbrowser-game-arcade.vercel.app%2F",
+        "/play/archives/papas-freezeria/lng.txt"
+      ],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "x-trench-run",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": false,
+      "canvas_count": null,
+      "runtime_status": "inconclusive_environment_or_loading",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 8
+    },
+    {
+      "slug": "bloxorz",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "helix-jump",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_warning",
+      "failure_categories": [
+        "resource_load",
+        "other_console_warning"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 9
+    },
+    {
+      "slug": "shortcut-race",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_exception",
+      "failure_categories": [
+        "uncaught_js"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "lows-adventure-2",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": false,
+      "canvas_count": null,
+      "runtime_status": "inconclusive_environment_or_loading",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 8
+    },
+    {
+      "slug": "creative-kill-chamber",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "vex-4",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": false,
+      "canvas_count": null,
+      "runtime_status": "inconclusive_environment_or_loading",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 8
+    },
+    {
+      "slug": "vex-5",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_warning",
+      "failure_categories": [
+        "content_security_policy"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 6
+    },
+    {
+      "slug": "tomb-of-the-mask",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_warning",
+      "failure_categories": [
+        "content_security_policy"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "big-tower-tiny-square",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 6
+    },
+    {
+      "slug": "choppy-orc",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_exception",
+      "failure_categories": [
+        "resource_load",
+        "uncaught_js"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/choppy-orc/media/attack.ogg",
+        "/play/archives/choppy-orc/media/axeback.ogg",
+        "/play/archives/choppy-orc/media/axethrow.ogg",
+        "/play/archives/choppy-orc/media/damsel.ogg",
+        "/play/archives/choppy-orc/media/gameend.ogg",
+        "/play/archives/choppy-orc/media/hitwall.ogg",
+        "/play/archives/choppy-orc/media/jump60.ogg",
+        "/play/archives/choppy-orc/media/powerup3.ogg",
+        "/play/archives/choppy-orc/media/powerup4.ogg",
+        "/play/archives/choppy-orc/media/powerup5.ogg",
+        "/play/archives/choppy-orc/media/step.ogg",
+        "/play/archives/choppy-orc/media/teleport.ogg"
+      ],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "pizza-tower",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_exception",
+      "failure_categories": [
+        "uncaught_js"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "temple-run-2",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "ricochet-arrow",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_missing_assets",
+      "failure_categories": [
+        "resource_load",
+        "other_console_warning"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/ricochet-arrow/media/arrow-nock.webm",
+        "/play/archives/ricochet-arrow/media/arrow_end.webm",
+        "/play/archives/ricochet-arrow/media/arrow_shot.webm",
+        "/play/archives/ricochet-arrow/media/autohit.webm",
+        "/play/archives/ricochet-arrow/media/bones.webm",
+        "/play/archives/ricochet-arrow/media/click_001.webm",
+        "/play/archives/ricochet-arrow/media/drop_001.webm",
+        "/play/archives/ricochet-arrow/media/error_007.webm",
+        "/play/archives/ricochet-arrow/media/round_end.webm",
+        "/play/archives/ricochet-arrow/media/theme-2.webm"
+      ],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "ragdoll-hit",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_exception",
+      "failure_categories": [
+        "resource_load",
+        "other_console_warning"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/ragdoll-hit/null.html",
+        "/play/archives/ragdoll-hit/null.json"
+      ],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "big-shot-boxing",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_missing_assets",
+      "failure_categories": [
+        "resource_load",
+        "other_console_warning"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/big-shot-boxing/poki-sdk-core-v2.263.0.js"
+      ],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "plant-vs-zombies",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "runtime_missing_assets",
+      "failure_categories": [
+        "resource_load",
+        "other_console_warning"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/plant-vs-zombies/images/interface/AirRaid.png",
+        "/play/archives/plant-vs-zombies/images/interface/FB.png",
+        "/play/archives/plant-vs-zombies/images/interface/HypnoHysteria.png",
+        "/play/archives/plant-vs-zombies/images/interface/RainingSeeds.png",
+        "/play/archives/plant-vs-zombies/images/interface/Stargazing.png",
+        "/play/archives/plant-vs-zombies/images/interface/SunPower.png",
+        "/play/archives/plant-vs-zombies/images/interface/Unsodded.png",
+        "/play/archives/plant-vs-zombies/images/interface/Vasebreaker.png",
+        "/play/archives/plant-vs-zombies/images/interface/WJY.png",
+        "/play/archives/plant-vs-zombies/images/interface/huo1.png",
+        "/play/archives/plant-vs-zombies/images/interface/izombie.png",
+        "/play/archives/plant-vs-zombies/images/interface/wall1.png"
+      ],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "jelly-truck",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "worlds-hardest-game",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 2,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "2048-cupcakes",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "runtime_warning",
+      "failure_categories": [
+        "content_security_policy"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "fruit-merge",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "block-blast",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_warning",
+      "failure_categories": [
+        "other_console_warning"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "tetris",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": false,
+      "canvas_count": null,
+      "runtime_status": "inconclusive_environment_or_loading",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 8
+    },
+    {
+      "slug": "bubble-shooter",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_exception",
+      "failure_categories": [
+        "resource_load",
+        "uncaught_js"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/bubble-shooter/assets/bootstrap/CLICK_TILE.mp3./main-html.js",
+        "/play/archives/bubble-shooter/assets/bootstrap/TURN.png./main-html.js",
+        "/play/archives/bubble-shooter/assets/bootstrap/Thumbs.db./main-html.js",
+        "/play/archives/bubble-shooter/assets/bootstrap/button_menu.png./main-html.js",
+        "/play/archives/bubble-shooter/assets/bootstrap/buttonfont/Thumbs.db./main-html.js",
+        "/play/archives/bubble-shooter/assets/bootstrap/buttonfont/font.fnt./main-html.js",
+        "/play/archives/bubble-shooter/assets/bootstrap/buttonfont/font.png./main-html.js",
+        "/play/archives/bubble-shooter/assets/bootstrap/game_bg_hd.png./main-html.js",
+        "/play/archives/bubble-shooter/assets/bootstrap/gameboss.png./main-html.js",
+        "/play/archives/bubble-shooter/assets/bootstrap/language.xml./main-html.js",
+        "/play/archives/bubble-shooter/assets/bootstrap/squidbyte.png./main-html.js"
+      ],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "pac-man",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "runtime_missing_assets",
+      "failure_categories": [
+        "content_security_policy",
+        "resource_load"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/pac-man/app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_down.svg",
+        "/play/archives/pac-man/app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_down_angry.svg",
+        "/play/archives/pac-man/app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_down_annoyed.svg",
+        "/play/archives/pac-man/app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_right.svg",
+        "/play/archives/pac-man/app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_right_angry.svg",
+        "/play/archives/pac-man/app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_up.svg",
+        "/play/archives/pac-man/app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_up_angry.svg",
+        "/play/archives/pac-man/app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_up_annoyed.svg",
+        "/play/archives/pac-man/app/style/graphics/spriteSheets/characters/pacman/arrow_down.svg",
+        "/play/archives/pac-man/app/style/graphics/spriteSheets/characters/pacman/arrow_left.svg",
+        "/play/archives/pac-man/app/style/graphics/spriteSheets/characters/pacman/arrow_right.svg",
+        "/play/archives/pac-man/app/style/graphics/spriteSheets/characters/pacman/pacman_death.svg"
+      ],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "super-mario-bros",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_exception",
+      "failure_categories": [
+        "uncaught_js",
+        "resource_load"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/super-mario-bros/Sounds/Sounds/mp3/Bump.mp3",
+        "/play/archives/super-mario-bros/Sounds/Sounds/mp3/Pause.mp3",
+        "/play/archives/super-mario-bros/Sounds/Sounds/ogg/Hurry.ogg",
+        "/play/archives/super-mario-bros/Sounds/Sounds/ogg/Pause.ogg",
+        "/play/archives/super-mario-bros/Sounds/Sounds/ogg/Player%20Dies.ogg",
+        "/play/archives/super-mario-bros/Sounds/Sounds/ogg/Powerup%20Appears.ogg",
+        "/play/archives/super-mario-bros/Sounds/Themes/mp3/Hurry%20Sky.mp3",
+        "/play/archives/super-mario-bros/Sounds/Themes/mp3/Hurry%20Star.mp3",
+        "/play/archives/super-mario-bros/Sounds/Themes/mp3/Star.mp3"
+      ],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "idle-breakout",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_missing_assets",
+      "failure_categories": [
+        "resource_load"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/idle-breakout/assets/save.dat"
+      ],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "gladihoppers",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "runtime_missing_assets",
+      "failure_categories": [
+        "resource_load",
+        "other_console_warning",
+        "content_security_policy"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/gladihoppers/master-loader.js./unity.js"
+      ],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "warfare-1944",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "age-of-war",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "dino-run",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "learn-to-fly",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "learn-to-fly-2",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "duck-life-4",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "car-rush",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": false,
+      "canvas_count": null,
+      "runtime_status": "inconclusive_environment_or_loading",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 8
+    },
+    {
+      "slug": "wheelie-bike",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_exception",
+      "failure_categories": [
+        "uncaught_js"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 6
+    },
+    {
+      "slug": "clash-blade-io",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_exception",
+      "failure_categories": [
+        "other_console_warning"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "cat-ninja",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_warning",
+      "failure_categories": [
+        "content_security_policy"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "cat-trap",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "runtime_warning",
+      "failure_categories": [
+        "content_security_policy"
+      ],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "sprinter",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_missing_assets",
+      "failure_categories": [
+        "resource_load"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/sprinter/sprites/flag_5.jpg",
+        "/play/archives/sprinter/sprites/flag_runner_1.png",
+        "/play/archives/sprinter/sprites/flag_runner_2.png",
+        "/play/archives/sprinter/sprites/flag_runner_4_game.png",
+        "/play/archives/sprinter/sprites/flag_runner_5.png",
+        "/play/archives/sprinter/sprites/flag_runner_5_game.png",
+        "/play/archives/sprinter/sprites/flag_runner_7_game.png",
+        "/play/archives/sprinter/sprites/runners/poses/runner_0_pose.png",
+        "/play/archives/sprinter/sprites/runners/poses/runner_1_pose.png",
+        "/play/archives/sprinter/sprites/runners/poses/runner_2_pose.png",
+        "/play/archives/sprinter/sprites/runners/poses/runner_7_pose.png",
+        "/play/archives/sprinter/sprites/runners/runner_2.png"
+      ],
+      "observed_seconds": 6
+    },
+    {
+      "slug": "we-become-what-we-behold",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": false,
+      "canvas_count": null,
+      "runtime_status": "inconclusive_environment_or_loading",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 8
+    },
+    {
+      "slug": "master-chess",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_exception",
+      "failure_categories": [
+        "uncaught_js",
+        "other_console_warning",
+        "resource_load"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/master-chess/sounds/click.mp3",
+        "/play/archives/master-chess/sounds/game_over.mp3",
+        "/play/archives/master-chess/sounds/win.mp3"
+      ],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "solitaire",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_exception",
+      "failure_categories": [
+        "resource_load",
+        "uncaught_js"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/solitaire/assets/bootstrap/CLICK_TILE.mp3./main-html.js",
+        "/play/archives/solitaire/assets/bootstrap/TURN.png./main-html.js",
+        "/play/archives/solitaire/assets/bootstrap/buttonfont/font.fnt./main-html.js",
+        "/play/archives/solitaire/assets/bootstrap/buttonfont/font.png./main-html.js",
+        "/play/archives/solitaire/assets/bootstrap/game_bg_hd.png./main-html.js",
+        "/play/archives/solitaire/assets/bootstrap/language.xml./main-html.js",
+        "/play/archives/solitaire/assets/bootstrap/m_but.png./main-html.js",
+        "/play/archives/solitaire/assets/bootstrap/m_but_over.png./main-html.js",
+        "/play/archives/solitaire/assets/bootstrap/m_poollogo.png./main-html.js",
+        "/play/archives/solitaire/assets/bootstrap/squidbyte.png./main-html.js"
+      ],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "word-wipe",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 1,
+      "runtime_status": "runtime_exception",
+      "failure_categories": [
+        "resource_load",
+        "uncaught_js"
+      ],
+      "dynamic_local_404_paths": [
+        "/play/archives/word-wipe/resources/animate/spritesheet/Intro_bitmaps_0.png",
+        "/play/archives/word-wipe/resources/animate/spritesheet/Intro_shapes_0.png",
+        "/play/archives/word-wipe/resources/assets/config/config.json",
+        "/play/archives/word-wipe/resources/assets/texts/en-US.txt"
+      ],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "wordle-unlimited",
+      "group": "remaining-reference",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "papas-burgeria",
+      "group": "gameria",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "papas-taco-mia",
+      "group": "gameria",
+      "player_http": 200,
+      "iframe_attached": false,
+      "canvas_count": null,
+      "runtime_status": "inconclusive_environment_or_loading",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 8
+    },
+    {
+      "slug": "papas-pancakeria",
+      "group": "gameria",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 6
+    },
+    {
+      "slug": "papas-wingeria",
+      "group": "gameria",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 6
+    },
+    {
+      "slug": "papas-hot-doggeria",
+      "group": "gameria",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 6
+    },
+    {
+      "slug": "papas-cupcakeria",
+      "group": "gameria",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 6
+    },
+    {
+      "slug": "papas-pastaria",
+      "group": "gameria",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 6
+    },
+    {
+      "slug": "papas-donuteria",
+      "group": "gameria",
+      "player_http": 200,
+      "iframe_attached": false,
+      "canvas_count": null,
+      "runtime_status": "inconclusive_environment_or_loading",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 8
+    },
+    {
+      "slug": "papas-cheeseria",
+      "group": "gameria",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 6
+    },
+    {
+      "slug": "papas-bakeria",
+      "group": "gameria",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "papas-sushiria",
+      "group": "gameria",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    },
+    {
+      "slug": "papas-scooperia",
+      "group": "gameria",
+      "player_http": 200,
+      "iframe_attached": true,
+      "canvas_count": 0,
+      "runtime_status": "startup_without_observed_error",
+      "failure_categories": [],
+      "dynamic_local_404_paths": [],
+      "observed_seconds": 5
+    }
+  ]
+}
