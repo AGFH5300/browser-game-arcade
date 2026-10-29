@@ -38,5 +38,131 @@
     "createdAt": "2026-10-29T00:00:00.000Z",
     "updatedAt": "2026-10-29T00:00:00.000Z",
     "publishedAt": "2026-10-29T00:00:00.000Z"
+  },
+  {
+    "id": "skribbl-io",
+    "title": "Skribbl.io",
+    "slug": "skribbl-io",
+    "description": "Draw clues and guess what your friends are drawing in live online multiplayer rounds. Create a private room on the official Skribbl.io website and invite friends with a link.",
+    "shortDescription": "Multiplayer drawing and guessing with private rooms.",
+    "categories": [
+      "Multiplayer",
+      "Casual",
+      "HTML5"
+    ],
+    "tags": [
+      "draw",
+      "drawing",
+      "guessing",
+      "friends",
+      "online",
+      "private-room",
+      "official-publisher",
+      "external-game"
+    ],
+    "developer": "Skribbl.io (Mel)",
+    "gameUrl": "https://skribbl.io/",
+    "controls": "Use your mouse, trackpad or touch to draw. Type guesses into the chat and press Enter.",
+    "instructions": "Choose Play at Skribbl.io. Enter a nickname, create or join a room, and take turns drawing and guessing. Private rooms and scoring are managed by Skribbl.io.",
+    "mobile": true,
+    "collections": [
+      "classics",
+      "html5_puzzles"
+    ],
+    "thumbnail": "/covers/skribbl-io.svg",
+    "license": "Publisher-hosted original game — external link",
+    "licenseNotes": "Third-party original game at https://skribbl.io/. Sidequest provides only an outbound link: no game files, accounts, passwords, private lobby data, maps, assets or score storage are hosted or copied. The publisher controls availability, content, advertising and sign-in requirements; there is no implied affiliation.",
+    "engine": "iframe",
+    "sourceUrl": "https://skribbl.io/",
+    "featured": false,
+    "published": true,
+    "displayOrder": 205,
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "publishedAt": "2026-10-29T00:00:00.000Z"
+  },
+  {
+    "id": "tag",
+    "title": "TAG",
+    "slug": "tag",
+    "description": "Fast same-screen multiplayer tag for two to four friends. Whoever is \"it\" when the timer ends loses; chase, dodge and switch roles in a frantic local arena.",
+    "shortDescription": "Chase and dodge in 2–4 player same-keyboard TAG.",
+    "categories": [
+      "Multiplayer",
+      "Action",
+      "HTML5"
+    ],
+    "tags": [
+      "tag",
+      "party",
+      "friends",
+      "local-multiplayer",
+      "same-device",
+      "poki",
+      "official-publisher"
+    ],
+    "developer": "WeLoPlay, hosted by Poki",
+    "gameUrl": "https://poki.com/en/g/tag",
+    "controls": "Player 1: W/A/D. Player 2: arrow keys. Players 3 and 4 use the additional keys shown on the original game screen.",
+    "instructions": "Choose Play at Poki to start TAG on the official game page. Choose 2–4 players on the same computer; the player who is “it” at the end of the round loses. This is same-screen local multiplayer, not internet matchmaking.",
+    "mobile": false,
+    "collections": [
+      "classics",
+      "html5_puzzles"
+    ],
+    "thumbnail": "/covers/tag.svg",
+    "license": "Publisher-hosted original game — external link",
+    "licenseNotes": "Third-party original game at https://poki.com/en/g/tag. Sidequest provides only an outbound link: no game files, accounts, passwords, private lobby data, maps, assets or score storage are hosted or copied. The publisher controls availability, content, advertising and sign-in requirements; there is no implied affiliation.",
+    "engine": "iframe",
+    "sourceUrl": "https://poki.com/en/g/tag",
+    "featured": false,
+    "published": true,
+    "displayOrder": 206,
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "publishedAt": "2026-10-29T00:00:00.000Z"
+  },
+  {
+    "id": "worldguessr",
+    "title": "WorldGuessr",
+    "slug": "worldguessr",
+    "description": "A free worldwide Street View guessing game. Look around for clues, place a pin where you think you are, and compete with friends in private parties or ranked duels on the official WorldGuessr website.",
+    "shortDescription": "Explore Street View and guess locations for free.",
+    "categories": [
+      "Puzzle",
+      "Multiplayer",
+      "HTML5"
+    ],
+    "tags": [
+      "geography",
+      "geoguessr",
+      "free",
+      "streetview",
+      "world",
+      "map",
+      "online",
+      "multiplayer",
+      "official-publisher"
+    ],
+    "developer": "WorldGuessr independent developer",
+    "gameUrl": "https://www.worldguessr.com/",
+    "controls": "Pan, zoom and move in Street View; click or tap the map to place your guess. Use the controls displayed by the original game.",
+    "instructions": "Choose Play at WorldGuessr. Start a free single-player round, or create a private party to challenge friends. Guess as close as possible to the Street View location.",
+    "mobile": true,
+    "collections": [
+      "classics",
+      "html5_puzzles"
+    ],
+    "thumbnail": "/covers/worldguessr.svg",
+    "license": "Publisher-hosted original game — external link",
+    "licenseNotes": "Third-party original game at https://www.worldguessr.com/. Sidequest provides only an outbound link: no game files, accounts, passwords, private lobby data, maps, assets or score storage are hosted or copied. The publisher controls availability, content, advertising and sign-in requirements; there is no implied affiliation.",
+    "engine": "iframe",
+    "sourceUrl": "https://www.worldguessr.com/",
+    "featured": false,
+    "published": true,
+    "displayOrder": 207,
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "publishedAt": "2026-10-29T00:00:00.000Z"
   }
 ]

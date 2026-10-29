@@ -28,6 +28,18 @@ const archivedGames: [string, TrustedPublisher][] = carlwalksGameUrls.map(url =>
 }]);
 
 const publishers = new Map<string, TrustedPublisher>([
+  ['https://skribbl.io/', {
+    name: 'Skribbl.io', privacyUrl: 'https://skribbl.io/', externalOnly: true,
+    disclosure: 'Official third-party multiplayer or geography game; Sidequest opens the creator website in a new tab without embedding or copying its content.',
+  }],
+  ['https://poki.com/en/g/tag', {
+    name: 'Poki', privacyUrl: 'https://poki.com/en/g/tag', externalOnly: true,
+    disclosure: 'Official third-party multiplayer or geography game; Sidequest opens the creator website in a new tab without embedding or copying its content.',
+  }],
+  ['https://www.worldguessr.com/', {
+    name: 'WorldGuessr', privacyUrl: 'https://www.worldguessr.com/', externalOnly: true,
+    disclosure: 'Official third-party multiplayer or geography game; Sidequest opens the creator website in a new tab without embedding or copying its content.',
+  }],
   ['https://krillion.io/', {
     name: 'Krillion', privacyUrl: 'https://krillion.io/privacy',
     externalOnly: true,
