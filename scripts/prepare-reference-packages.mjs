@@ -8,6 +8,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import net from 'node:net';
 import { LEVEL_DEVIL_POKI_GUEST, FORTZONE_GAMEPUSH_GUEST } from './portal-guest-adapters.mjs';
+import { parseSafeRewrite } from './parse-safe-js-rewrite.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SOURCE_FILE = path.join(ROOT, 'scripts/reference-package-sources.json');
@@ -720,6 +721,7 @@ function makeArtifactTransforms(pkg, file, bytes, bridgeBytes, localBySourceUrl,
     const textBytes = normalizeCloudflareAnalytics(entityBytes, type);
     if (!textBytes.equals(entityBytes)) mods.push('Normalized per-request Cloudflare analytics beacon tags before artifact generation.');
     let text = textBytes.toString('utf8');
+    const pinnedSourceText = text;
     if(pkg.slug==='house-of-hazards' && file.path===requiredEntryPath(pkg)) {
       const removed=shellRedirectRemoved(text,'/cloak.js');text=removed.html;
       if(removed.removed)mods.push('Removed the documented missing portal-only /cloak.js script; game SDK and payload unchanged.');
@@ -806,6 +808,13 @@ function makeArtifactTransforms(pkg, file, bytes, bridgeBytes, localBySourceUrl,
         const fixed=text.replace(/\.split\(["']\.\/master-loader\.js["']\)/g, '.split("master-loader.js")');
         if(fixed!==text)mods.push('Restored loader script URL delimiter for correct Unity asset base path.');
         text=fixed;
+      }
+    }
+    if (['.js','.cjs'].includes(extension) && text !== pinnedSourceText) {
+      const safety = parseSafeRewrite(pinnedSourceText,text);
+      if(safety.restored) {
+        text=safety.text;
+        mods.push('Reverted a JS URL rewrite that introduced a syntax error; preserved pinned source JavaScript.');
       }
     }
     transformed = encodeContentEncoding(Buffer.from(text, 'utf8'), contentEncoding);
