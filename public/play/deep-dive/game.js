@@ -7,13 +7,28 @@
   const STORAGE='sidequest:deep-dive:player:v1';
   const ACTIVE='sidequest:deep-dive:active:v1';
   const TIERS=[
-    {id:'plankton',label:'Plankton',score:10,color:'#a8cbd0',mark:'🫧'},
-    {id:'tooclever',label:'Too Clever',score:15,color:'#b6eb9a',mark:'🤡'},
-    {id:'schooler',label:'Schooler',score:30,color:'#8ee6d4',mark:'🐟'},
-    {id:'rare',label:'Rare',score:60,color:'#96baff',mark:'🦑'},
-    {id:'deepcut',label:'Deep Cut',score:85,color:'#d2a3ff',mark:'🏮'},
-    {id:'krillion',label:'One in a Krillion',score:100,color:'#ffcf80',mark:'🌟'}
+    {id:'plankton',label:'Plankton',score:10,color:'#a8cbd0',mark:'🫧',depth:.08,blurb:'The answer everyone blurts out.'},
+    {id:'tooclever',label:'Too Clever',score:15,color:'#ff9f43',mark:'🤡',depth:.18,blurb:'A famously obscure pick. Everyone reaches for it.'},
+    {id:'schooler',label:'Schooler',score:30,color:'#8ee6d4',mark:'🐟',depth:.36,blurb:'Solid — swims with the school.'},
+    {id:'rare',label:'Rare',score:60,color:'#96baff',mark:'🦑',depth:.6,blurb:'Genuinely uncommon. Nice pull.'},
+    {id:'deepcut',label:'Deep Cut',score:85,color:'#9d7bff',mark:'🏮',depth:.82,blurb:'True obscurity. Few go this deep.'},
+    {id:'krillion',label:'One in a Krillion',score:100,color:'#ffd166',mark:'🌟',depth:.97,blurb:'The designated gem. Trench floor.'}
   ];
+  const AMBIENT=[
+    [60,'light begins to fade','L'],[200,'most sunlight stops here','R'],
+    [332,'deepest scuba dive ever — 332m','R'],[385,'sperm whales hunt below here','L'],
+    [535,'emperor penguins dive this deep','R'],[660,'pressure: 67x the surface','L'],
+    [800,'siphonophore drift zone','R'],[1040,'THE MIDNIGHT ZONE','L',1],
+    [1240,'anglerfish territory','R'],[1550,'sperm whales duel giant squid here','L'],
+    [1850,'giant squid territory','R'],[2150,'colossal squid eyes: football-sized','L'],
+    [2500,'the water is 2°C and utterly black','R'],[3000,'THE ABYSSAL ZONE','L',1],
+    [3800,'the Titanic rests here — 3,800m','R'],[4400,'cusk eels patrol the plain','L'],
+    [4900,'the abyssal plain stretches out','R'],[5500,'deeper than most submarines survive','L'],
+    [6000,'THE HADAL ZONE','R',1],[6500,'named for Hades. fitting.','L'],
+    [7000,'the trench floor — a perfect dive ends here','R',1]
+  ];
+  const VERDICTS=[[0,'Plankton. Plenty of ocean left down there.'],[151,'Schooler. Swimming with the school.'],[251,'Rare. A genuinely uncommon dive.'],[351,'Deep cut. You went where few go.'],[451,'One in a Krillion. A perfect descent.']];
+  const verdict=score=>[...VERDICTS].reverse().find(v=>score>=v[0])?.[1]||VERDICTS[0][1];
   const WORLDS=[
     ['Geography','◎','Across borders, rivers and mountains'],
     ['Wildlife','◈','Meet the extraordinary natural world'],
@@ -78,7 +93,7 @@
   const dailyKey=()=>sourceDaily?'source:'+sourceDaily.date:utc();
 
   let currentView=window.DeepDiveParty?.preferred()?'party':'daily';
-  let ticker=null,toastTimer=null,transitioning=false;
+  let ticker=null,toastTimer=null,transitioning=false,depthCrank=false,mascotPose='';
   function seed(text){let h=2166136261;for(const ch of text){h^=ch.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0}
   function shuffle(items,text){
     let s=seed(text)||0x123ab4d;
@@ -121,6 +136,16 @@
   function oceanDecor(){
     return `<div class="dd-depth-ticks" aria-hidden="true"><span>000m</span><span>500m</span><span>1000m</span><span>1500m</span><span>2500m</span><span>4000m</span><span>7000m</span></div><div class="dd-fish dd-fish-a" aria-hidden="true">▰◂</div><div class="dd-fish dd-fish-b" aria-hidden="true">◂▰</div><div class="dd-fish dd-fish-c" aria-hidden="true">▰◂</div><div class="dd-bubbles" aria-hidden="true">°<br>°<br>·<br>°<br>·</div>`;
   }
+  function gameOverlays(){
+    return `<div class="dd-vignette" aria-hidden="true"></div><div class="dd-crt" aria-hidden="true"></div><div class="dd-edge" aria-hidden="true"></div>`;
+  }
+  function depthFacts(){
+    const metres=active?.score*10||0,range=720;
+    return AMBIENT.filter(f=>f[0]>metres&&f[0]<=metres+range).map(([d,text,side,major])=>{
+      const top=(22+((d-metres)/range)*70).toFixed(1);
+      return `<div class="dd-amb ${side}${major?' major':''} show" style="top:${top}%"><span class="dash">──</span> ${safe(text)}</div>`;
+    }).join('');
+  }
   function renderHome(){
     const complete=dailyDone(),resume=active?.mode==='daily',date=dailyDate();
     const sourceLabel=sourceDaily?'PUBLIC DAILY #'+sourceDaily.dayNumber+' · '+format(sourceDaily.answerCount)+' PUBLISHER-SCORED ANSWERS':'INDEPENDENT SIDEQUEST DAILY';
@@ -138,9 +163,9 @@
         <div class="dd-sea-center">
           <div class="dd-surface-label">◂ HOW DEEP CAN YOUR KNOWLEDGE GO? ▸</div>
           <details class="dd-rules"><summary>▸ HOW TO PLAY</summary><p>Seven prompts, twenty-five seconds per answer. Choose a correct but unusual answer to descend farther. Accepted responses earn 10–100 points; unrecognized answers can be retried until the timer ends. Every player receives the same daily questions.</p></details>
-          <button type="button" class="dd-party-btn" data-action="party"><span class="dd-party-fish" aria-hidden="true">🐡</span><span>PUFFER PARTY <small>LIVE MULTIPLAYER · 2–8 EXPLORERS</small></span><span class="dd-party-arrow">›</span></button>
+          <button type="button" class="dd-party-btn" data-action="party"><span class="dd-party-tag">BETA · LIMITED TIME</span><span class="dd-party-fish" aria-hidden="true">🐡</span><span>PUFFER PARTY <small class="dd-party-live" id="dd-party-live"><b aria-hidden="true"></b>LIVE MULTIPLAYER · 2–8 EXPLORERS</small></span><span class="dd-party-arrow">›</span></button>
           <button type="button" class="dd-begin" data-action="${primaryAct}">${primaryLabel}</button>
-          <div class="dd-mode-nav"><span class="dd-dive-number">DAILY · ${safe(date)}</span><button type="button" data-action="startEndless">ENDLESS ∞</button><button type="button" data-action="worlds">THEMED WORLDS</button><button type="button" data-action="archive">ARCHIVE</button><button type="button" data-action="stats">LOGBOOK ◷</button></div>
+          <div class="dd-mode-nav"><span class="dd-dive-number">${sourceDaily?'DIVE #'+sourceDaily.dayNumber:'DAILY · '+safe(date)}</span><button type="button" data-action="archive">ARCHIVE ⟲</button><button type="button" data-action="worlds">THEMED PACKS</button><button type="button" data-action="startEndless">UNLIMITED ∞</button></div>
           <p class="dd-source-note">${safe(sourceLabel)}${!sourceDaily&&sourceError?" · "+safe(sourceError):""}</p>
           <div class="dd-sea-stats"><span>◈ ${format(profile.pearls)} PEARLS</span><span>✦ ${format(profile.streak)} DAY STREAK</span><span>${complete?format(complete.score)+' POINTS TODAY':'FREE DAILY DESCENT'}</span></div>
         </div>
@@ -287,6 +312,7 @@
       ids=shuffle(bank.filter(q=>q.theme===world),world+':chapter:'+chapter).slice(0,7).map(q=>q.id);
     }
     if(!ids.length)return;
+    depthCrank=false;mascotPose='';
     window.DeepDiveSfx?.event('begin');
     active={mode,world,chapter,source:mode==='starter'?'published-free-starter-index':mode==='archive'||(mode==='endless'&&forcedIds.length)?'published-archive-snapshot':mode==='daily'&&sourceDaily?'krillion-reveal':'sidequest',day:mode==='archive'?archiveDate:day,ids,index:0,phase:'question',deadline:Date.now()+25000,results:[],score:0,misses:0,startedAt:Date.now()};
     save();currentView=mode==='world'||mode==='starter'?'worlds':mode==='endless'?'endless':mode==='archive'?'archive':'daily';render();
@@ -305,10 +331,11 @@
     const dots=visibleIds.map((id,offset)=>{
       const i=offset+firstVisible;
       const prior=active.results[i],tier=prior?.tier;
+      const state=i===idx?'cur':prior?'done':'';
       const color=prior&&tier!==null&&tier!==undefined?TIERS[tier].color:prior?'#284c6b':i===idx?'#ff5288':'#091b38';
-      return `<i class="dd-hud-dot" style="--dot:${color}" title="Round ${i+1}"></i>`;
+      return `<i class="dd-hud-dot${state?' '+state:''}" style="--dot:${color}" title="Round ${i+1}"></i>`;
     }).join('');
-    return `<div class="dd-hud"><div class="dd-hud-box"><span>DEPTH</span><strong>${format(active.score*10)}<small>m</small></strong></div>
+    return `<div class="dd-hud"><div class="dd-hud-box"><span>DEPTH</span><strong class="dd-hud-depth${depthCrank?' crank':''}">${format(active.score*10)}<small>m</small></strong></div>
       <div class="dd-hud-progress"><div class="dd-hud-dots">${dots}</div><small>${active.phase==='reveal'&&(idx+1>=n||(active.mode==='endless'&&active.misses>=3))?'DIVE COMPLETE':'PROMPT '+(idx+1)+' OF '+n}${active.mode==='endless'?' · '+Math.max(0,3-active.misses)+' LIVES':''}</small></div>
       <div class="dd-hud-box dd-hud-score"><span>SCORE</span><strong>${format(active.score)}</strong></div></div>`;
   }
@@ -316,41 +343,56 @@
     const q=currentQ(),seconds=Math.max(0,Math.ceil((active.deadline-Date.now())/1000));
     return `<section class="page deep-home dd-game-screen ${active.mode==='starter'?'dd-free-starter-play':''}" data-pack="${active.mode==='starter'?safe(active.world):''}" data-zone="${depthZone()}">
       <div class="dd-sky dd-game-sky">${oceanArt()}${arcadeHud()}</div>
-      <div class="dd-sea dd-game-sea">${oceanDecor()}
+      <div class="dd-sea dd-game-sea">${oceanDecor()}${depthFacts()}
         <div class="dd-game-prompt"><span class="dd-prompt-label">PROMPT ${active.index+1} OF ${currentTotal()}${active.mode==='daily'?'':(' · '+safe(q.theme))}</span>
-          <h1 class="dd-prompt-text">${safe(q.prompt)}</h1><p class="dd-prompt-hint">▼ RARER ANSWERS SINK DEEPER ▼</p>
+          <h1 class="dd-prompt-text">${safe(q.prompt)}</h1><p class="dd-prompt-hint">▼ rarer answers sink deeper ▼</p>
         </div>
         <div class="dd-game-fish" aria-hidden="true"></div>
         <div class="dd-game-controls">
-          <div class="dd-game-clock ${seconds<=7?'warn':''}" id="timer" aria-label="Time remaining"><strong id="seconds">${seconds}</strong></div>
           <form class="answer-form dd-answer-form" id="answer-form" autocomplete="off">
-            <div class="dd-answer-line"><input id="answer-input" class="answer-field" maxlength="90" autocapitalize="sentences" spellcheck="false" autocomplete="off" placeholder="type one answer…" aria-label="Your answer" aria-describedby="answer-feedback" required><button type="submit" class="dd-submit">DIVE</button></div>
+            <div class="dd-reject-line" id="dd-reject-line" role="status"></div>
+            <div class="dd-correction-pill" id="dd-correction-pill" role="status"></div>
+            <div class="dd-answer-line"><div class="dd-game-clock ${seconds<=7?'warn':''}" id="timer" aria-label="Time remaining"><strong id="seconds">${seconds}</strong></div><input id="answer-input" class="answer-field" maxlength="90" autocapitalize="sentences" spellcheck="false" autocomplete="off" placeholder="type one answer…" aria-label="Your answer" required><button type="submit" class="dd-submit">DIVE</button>
+              <div class="countdown-bar dd-game-bar" aria-hidden="true"><span id="time-fill" style="width:${seconds*4}%"></span></div></div>
             <div class="feedback" role="status" id="answer-feedback" aria-live="polite"></div>
           </form>
           <button class="dd-skip" type="button" data-action="pass">SKIP</button>
-          <div class="countdown-bar dd-game-bar" aria-hidden="true"><span id="time-fill" style="width:${seconds*4}%"></span></div>
         </div>
+        ${gameOverlays()}
       </div></section>`;
   }
   function renderReveal(){
     const last=active.results[active.results.length-1]||{points:0,answer:'',tier:null,reason:'No answer'};
     const tier=last.tier!==null&&last.tier!==undefined?TIERS[last.tier]:null;
-    const title=tier?tier.label:last.reason==='Timeout'?'Time is up':last.reason==='Pass'?'No discovery this time':'Not accepted';
-    const explain=tier?(last.quip||'Accepted answer · rarity from the archived answer list.'):'No points this round.';
+    const prevMetres=Math.max(0,(active.score-last.points)*10),metres=active.score*10;
+    const tc=tier?`var(--tier-${tier.id})`:'var(--tier-miss)';
+    const sinkPct=Math.min(30,(metres-prevMetres)/2400*30).toFixed(1);
+    const landedTop=tier?`calc(44% + 64px)`:'calc(44% + 58px)';
+    const tierLineTop=tier?`calc(44% + 44px)`:'44%';
+    const chipText=tier?'\u201c'+safe(last.answer).toUpperCase()+'\u201d':last.reason==='Timeout'?'NO ANSWER':'NOTHING LANDED';
+    const sub=tier?(last.quip||tier.blurb):last.reason==='Timeout'?'the clock beat you to it.':'never made it onto the reef.';
     const completed=active.index+1>=currentTotal()||(active.mode==='endless'&&active.misses>=3);
     return `<section class="page deep-home dd-game-screen dd-reveal-screen ${active.mode==='starter'?'dd-free-starter-play':''}" data-pack="${active.mode==='starter'?safe(active.world):''}" data-zone="${depthZone()}">
       <div class="dd-sky dd-game-sky">${oceanArt()}${arcadeHud()}</div>
-      <div class="dd-sea dd-game-sea">${oceanDecor()}
-        <div class="dd-game-fish" aria-hidden="true"></div>
-        <div class="dd-reveal" style="--tier:${tier?tier.color:'#87b8d3'}">
-          <div class="dd-reveal-spark" aria-hidden="true">${tier?.score===10?'◯':tier?.score===15?'◇':tier?.score===30?'◈':tier?.score===60?'✦':tier?.score===85?'◉':tier?.score===100?'★':'×'}</div>
-          <h1 class="dd-reveal-title">${safe(title)}</h1>
-          <p class="dd-reveal-answer">${tier?'“'+safe(last.answer)+'”':safe(last.reason)}</p>
-          <p class="dd-reveal-score">+${last.points} PTS <span>· sink ${format(last.points*10)}m</span></p>
-          <p class="dd-reveal-caption">${safe(explain)}</p>
+      <div class="dd-sea dd-game-sea" style="--dd-sink:${sinkPct}vh">
+        ${oceanDecor()}
+        <div class="dd-dim on" aria-hidden="true"></div>
+        <div class="dd-tierline${tier?' passed':''}" style="--tc:${tc};top:${tierLineTop}"><span class="tag">${tier?safe(tier.label.toUpperCase()):''}</span></div>
+        <div class="dd-game-fish${mascotPose?' '+mascotPose:''}" aria-hidden="true"></div>
+        <div class="dd-chip${tier&&tier.score===100?' gold':''}" style="--cc:${tc}">${chipText}</div>
+        <div class="dd-landed${tier?'':' miss'}" style="--tc:${tc};top:${landedTop}">
+          ${tier?(tier.id==='plankton'||tier.id==='tooclever'
+              ?`<span class="icon dd-tier-emoji" aria-hidden="true">${safe(tier.mark)}</span>`
+              :`<img class="icon" src="./reference-assets/tiers/${tier.id}.png" alt="" loading="lazy">`):''}
+          <div class="tname">${tier?safe(tier.label.toUpperCase()):'NOTHING LANDED'}</div>
+          <div class="tans">${tier?'\u201c'+safe(last.answer)+'\u201d':safe(last.reason==='Timeout'?'the clock beat you to it.':'no answer this round')}</div>
+          <div class="tpts"><b>+${last.points} PTS</b> · sink ${format(last.points*10)}m</div>
+          <div class="tsub">${safe(sub)}</div>
         </div>
-        <div class="dd-feedback-action">${button('next',completed?'SURFACE ▲':'DESCEND ▼','primary')}</div>
-      </div></section>`;
+        ${gameOverlays()}
+      </div>
+      <div class="dd-next-wrap"><button type="button" class="dd-next-btn" data-action="next">${completed?'SURFACE ▲':'DESCEND ▼'}</button></div>
+      </section>`;
   }
   function conclude(){
     if(!active)return;
@@ -378,12 +420,14 @@
     transitioning=true;active.phase='reveal';
     active.results.push(record);active.score+=record.points;
     if(record.points===0)active.misses++;
+    depthCrank=record.points>0;
+    mascotPose=record.points===100?'celebrate':record.points===0?'faint':record.points>=60?(Math.random()<.5?'jet':'chomp'):'dart';
     window.DeepDiveSfx?.event(record.points===0?'miss':record.points===100?'krillion':record.points>=85?'land_big':record.points>=60?'land_small':'tierline');
     clearInterval(ticker);save();transitioning=false;render();
   }
   function pass(reason='Pass'){roundEnd({id:currentQ().id,answer:'',points:0,tier:null,reason})}
   function submit(form){
-    if(!active||active.phase!=='question')return;
+    if(!active||active.phase!=='question'||transitioning)return;
     if(Date.now()>=active.deadline){pass('Timeout');return}
     const input=form.querySelector('#answer-input');
     const answer=String(input?.value||'').trim().slice(0,90);
@@ -392,39 +436,66 @@
     const key=norm(answer),q=currentQ();
     const found=q.answerIndex?.get(key)||findAnswer(q,key);
     if(!found){
+      const line=document.getElementById('dd-reject-line');
+      if(line){
+        line.textContent='\u201c'+answer+'\u201d: no echo, try again';
+        line.classList.remove('dd-reject-shake');void line.offsetWidth;line.classList.add('dd-reject-shake');
+      }
       const feedback=document.getElementById('answer-feedback');
-      feedback.textContent='Not recognized by this question’s curated answer list. Try another answer while time remains.';
-      feedback.classList.remove('ok');
+      if(feedback)feedback.textContent='';
       window.DeepDiveSfx?.event('reject');
+      const field=form.querySelector('.dd-answer-line');
+      if(field){field.classList.remove('dd-reject-shake');void field.offsetWidth;field.classList.add('dd-reject-shake')}
       if(window.DeepDiveReference?.preferences?.clearRejected)input.value='';
       else input.select();
       return;
     }
+    const corrected=!q.answerIndex?.has(key);
     const tier=Math.max(0,Math.min(5,Number(found.tier)||0));
-    roundEnd({id:q.id,answer:found.value,points:TIERS[tier].score,tier,quip:found.quip||'',reason:'Accepted'});
+    const record={id:q.id,answer:found.value,points:TIERS[tier].score,tier,quip:found.quip||'',reason:'Accepted'};
+    if(corrected){
+      const pill=document.getElementById('dd-correction-pill');
+      if(pill)pill.innerHTML=`<span class="dd-correction-panel">${safe(answer)} <span class="dd-correction-arrow">→</span> <b>${safe(found.value)}</b><span class="dd-correction-hint">CLOSEST MATCH ON THE REEF · ACCEPTED</span></span>`;
+      const pending=active;
+      transitioning=true;clearInterval(ticker);
+      setTimeout(()=>{
+        transitioning=false;
+        if(active===pending&&active.phase==='question')roundEnd(record);
+      },650);
+      return;
+    }
+    roundEnd(record);
   }
   function next(){
     if(!active||active.phase!=='reveal'||transitioning)return;
     transitioning=true;
-    const card=root.querySelector('.dd-reveal');
+    const card=root.querySelector('.dd-landed')||root.querySelector('.dd-reveal');
+    const chip=root.querySelector('.dd-chip');
     const leave=()=>{
       transitioning=false;
       if(!active||active.phase!=='reveal')return;
       if(active.index+1>=active.ids.length||(active.mode==='endless'&&active.misses>=3)){conclude();return}
       window.DeepDiveSfx?.event('descend');
-      active.index++;active.phase='question';active.deadline=Date.now()+25000;save();render();
+      depthCrank=false;
+      active.index++;active.phase='question';active.deadline=Date.now()+25000;mascotPose='';save();render();
     };
     if(!card||window.matchMedia('(prefers-reduced-motion: reduce)').matches){leave();return}
     card.classList.add('dd-card-leaving');
+    if(chip)chip.classList.add('dd-chip-leaving');
     setTimeout(leave,280);
   }
   function updateClock(){
     if(!active||active.phase!=='question')return;
     const remain=Math.max(0,active.deadline-Date.now()),s=Math.ceil(remain/1000);
     const el=document.getElementById('seconds'),bar=document.getElementById('time-fill'),timer=document.getElementById('timer');
+    const screen=root.querySelector('.dd-game-screen');
     if(el)el.textContent=String(s);
     if(bar)bar.style.width=(remain/250)+'%';
     if(timer)timer.classList.toggle('warn',s<=7);
+    if(screen){
+      screen.classList.toggle('dd-hot',s<=7);
+      screen.classList.toggle('dd-danger',s<=5);
+    }
     window.DeepDiveSfx?.tick(s);
     if(remain<=0)pass('Timeout');
   }
@@ -442,6 +513,7 @@
       <div><span class="eyebrow">THE END OF YOUR EXPEDITION</span>
       <h1 class="section-heading">What a <em>discovery.</em></h1>
       <p class="lead">${safe(r.label)} · ${safe(r.day)} · ${safe(rating(r.score))} rank</p>
+      <p class="dd-summary-verdict">${safe(verdict(r.score))}</p>
       <div class="summary-score">−${format(r.score*10)}<span> m</span></div><p class="lead">You've earned <strong style="color:var(--sun)">${format(r.score)} points</strong> and the same number of pearls. ${isDaily?'Today’s shared challenge is complete. Your result is saved in this browser.':'Another voyage is always waiting.'}</p>
       <div class="summary-rounds" aria-label="Score by prompt">${resultDots(r.results)}</div>
       <div class="result-actions">${button('share','Copy your result','primary')}${button('daily','Return to surface','ghost')}${button('startEndless','Play endless','ghost')}</div>
@@ -557,6 +629,18 @@
     if(!sheet||!sheet.ids?.length){notify('No validated scored starter rounds for this mode.');return}
     start('starter',mode,0,'',sheet.ids);
   }
+  async function loadPartyLiveCount(){
+    try{
+      const response=await fetch('/api/deep-dive/party?list=1',{cache:'no-store'});
+      if(!response.ok)return;
+      const data=await response.json();
+      const playing=(data.rooms||[]).reduce((n,r)=>n+(r.members||0),0);
+      const el=document.getElementById('dd-party-live');
+      if(el&&playing>0)el.innerHTML='<b aria-hidden="true"></b>'+format(playing)+' IN OPEN LOBBIES';
+    }catch{
+      /* independent backend unreachable from a static context — keep default label */
+    }
+  }
   async function loadSourceDaily(){
     const nyDate=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
     const path=nyDate==='2026-10-29'?'./recovered/2026-10-29.json':'/api/deep-dive/public-daily';
@@ -581,6 +665,7 @@
     byId=new Map(bank.map(q=>[q.id,q]));
     if(byId.size!==bank.length||themes.some(t=>bank.filter(q=>q.theme===t).length<7))throw Error('Incomplete question-bank themes');
     await Promise.all([loadSourceDaily(),loadArchiveManifest(),loadFreeStarters()]);
+    void loadPartyLiveCount();
     if(active&&['archive','endless'].includes(active.mode)){
       const days=[...new Set(active.ids.filter(id=>id.startsWith('archive:')).map(id=>id.split(':')[1]))];
       for(const d of days){
