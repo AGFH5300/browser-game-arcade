@@ -92,6 +92,7 @@ export function getTrustedPublisher(url: string): TrustedPublisher | null {
 }
 
 export function isAllowedEmbedUrl(url: string, configuredHosts = process.env.EMBED_ALLOWED_HOSTS ?? ''): boolean {
+  if(url==='/play/deep-dive/index.html')return true;
   if (getTrustedPublisher(url)||isSidequestArchive(url)) return true;
   try {
     const parsed = new URL(url);
@@ -106,6 +107,10 @@ const isolatedSandbox = 'allow-scripts allow-pointer-lock';
 const publisherSandbox = `${isolatedSandbox} allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms`;
 
 export function getEmbedSandbox(url: string): string {
+  // Our own native Deep Dive game needs same-origin access to its private
+  // Sidequest multiplayer API and browser-local save data. Do not grant this
+  // privilege to external, unknown, or user-provided game URLs.
+  if(url==='/play/deep-dive/index.html')return publisherSandbox;
   return getTrustedPublisher(url)||isSidequestArchive(url) ? publisherSandbox : isolatedSandbox;
 }
 

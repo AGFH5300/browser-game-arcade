@@ -28,7 +28,7 @@
   const UNLOCK=[0,140,420,850,1400];
   const DEFAULT={version:1,pearls:0,streak:0,lastDaily:'',daily:{},worldRecords:{},endlessBest:0,history:[],runs:0};
   const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const norm=s=>String(s||'').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/&/g,' and ').replace(/[^a-z0-9]+/g,' ').replace(/\s+/g,' ').trim().replace(/^the /,'');
+  const norm=s=>String(s||'').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/&/g,' and ').replace(/\+/g,' plus ').replace(/#/g,' sharp ').replace(/[^a-z0-9]+/g,' ').replace(/\s+/g,' ').trim().replace(/^the /,'');
   const utc=()=>new Date().toISOString().slice(0,10);
   const format=(n)=>Number(n||0).toLocaleString('en-US');
   function read(key){try{return JSON.parse(localStorage.getItem(key)||'null')}catch{return null}}
@@ -39,7 +39,7 @@
   if(!Array.isArray(profile.history))profile.history=[];
   let active=read(ACTIVE);
   let bank=[],byId=new Map(),themes=[];
-  let currentView='daily';
+  let currentView=window.DeepDiveParty?.preferred()?'party':'daily';
   let ticker=null,toastTimer=null,transitioning=false;
   function seed(text){let h=2166136261;for(const ch of text){h^=ch.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0}
   function shuffle(items,text){
@@ -91,6 +91,7 @@
       <div class="mode-grid">
         <div class="mode-card"><div class="card-icon">◈</div><h3>Today's dive</h3><span class="tagline">Same seven for everyone</span><p>Seven categories, 25 seconds each. A new shared selection appears at midnight UTC.</p>${button(primaryAct,complete?'See result':resume?'Continue run':'Start daily','small primary')}</div>
         <div class="mode-card"><div class="card-icon">∞</div><h3>Endless</h3><span class="tagline">Practice without limits</span><p>Up to 50 prompts per session. Three unanswered rounds end your run. Come back as often as you like.</p>${button('startEndless','Try endless','small primary')}</div>
+        <div class="mode-card"><div class="card-icon">🐡</div><h3>Puffer Party</h3><span class="tagline">2–8 players · real rooms</span><p>Host a party, invite friends and pass the puffer with rare answers. The last explorer afloat wins!</p>${button('party','Play with friends','small primary')}</div>
         <div class="mode-card"><div class="card-icon">◉</div><h3>Curiosity worlds</h3><span class="tagline">Nine collections · five chapters each</span><p>Explore themed chapters. Earn pearls in every run to open deeper challenges.</p>${button('worlds','Explore worlds','small primary')}</div>
       </div>
     </section>`;
@@ -250,6 +251,7 @@
   }
   function render(){
     clearInterval(ticker);syncHead();oldActiveCheck();
+    if(currentView==='party'){window.DeepDiveParty?.mount({root});return}else window.DeepDiveParty?.unmount();
     if(active&&((currentView==='daily'&&active.mode==='daily')||(currentView==='endless'&&active.mode==='endless')||(currentView==='worlds'&&active.mode==='world'))){
       root.innerHTML=active.phase==='question'?renderQuestion():renderReveal();
       if(active.phase==='question'){
@@ -277,7 +279,7 @@
       case 'dailyResults':{const d=dailyDone();if(d)renderSummary(d);break}
       case 'pass':pass();break;
       case 'next':next();break;
-      case 'daily':case 'endless':case 'worlds':case 'stats':currentView=b.dataset.action;render();break;
+      case 'daily':case 'endless':case 'worlds':case 'stats':case 'party':currentView=b.dataset.action;render();break;
       case 'share':{
         const value=root.dataset.share||'';
         if(navigator.clipboard?.writeText)navigator.clipboard.writeText(value).then(()=>notify('Result copied. Share your discovery!')).catch(()=>notify('Clipboard is unavailable in this browser.'));
