@@ -43,8 +43,8 @@ test('Skribbl.io, TAG and WorldGuessr launch inside Sidequest through reviewed i
   'tag':'https://www.miniplay.com/embed/tag',
   'worldguessr':'https://www.worldguessr.com/'
  };
- assert.equal(addedGames.length,4);
- assert.equal(new Set(addedGames.map(g=>g.slug)).size,4);
+ assert.equal(addedGames.length,5);
+ assert.equal(new Set(addedGames.map(g=>g.slug)).size,5);
  for(const [slug,url] of Object.entries(expected)){
   const game=addedGames.find(g=>g.slug===slug);
   assert(game,slug);

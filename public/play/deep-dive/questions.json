@@ -1,0 +1,5857 @@
+{
+  "title": "Deep Dive—independently authored Sidequest question bank",
+  "version": 1,
+  "editorialRarity": true,
+  "notes": "Recognized answers are an original curated subset; rarity tiers are editorial estimates, not real-time player-frequency rankings.",
+  "themes": [
+    "Geography",
+    "Wildlife",
+    "Science",
+    "Arts",
+    "Food",
+    "Sports",
+    "History",
+    "Tech",
+    "Words"
+  ],
+  "questions": [
+    {
+      "id": "geography-01",
+      "theme": "Geography",
+      "prompt": "Name a country with a Mediterranean coastline.",
+      "answers": [
+        {
+          "value": "Italy",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Spain",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "France",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Greece",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Turkey",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Egypt",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Morocco",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Croatia",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Tunisia",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Algeria",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Cyprus",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Lebanon",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Albania",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Malta",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Montenegro",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Slovenia",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Monaco",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "geography-02",
+      "theme": "Geography",
+      "prompt": "Name a country that the equator passes through.",
+      "answers": [
+        {
+          "value": "Brazil",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Indonesia",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Ecuador",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Colombia",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Kenya",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Uganda",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Somalia",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Gabon",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "DR Congo",
+          "tier": 4,
+          "aliases": [
+            "Democratic Republic of the Congo"
+          ]
+        },
+        {
+          "value": "Republic of the Congo",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Kiribati",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Sao Tome and Principe",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "geography-03",
+      "theme": "Geography",
+      "prompt": "Name a capital city beginning with B.",
+      "answers": [
+        {
+          "value": "Berlin",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Bangkok",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Beijing",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Budapest",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Brussels",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Brasilia",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Bucharest",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Buenos Aires",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Beirut",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Belgrade",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Baku",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Bogota",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Bratislava",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Bern",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Bamako",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Bissau",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "geography-04",
+      "theme": "Geography",
+      "prompt": "Name an island country in the Caribbean.",
+      "answers": [
+        {
+          "value": "Jamaica",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Cuba",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Haiti",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Dominican Republic",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Bahamas",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Barbados",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Trinidad and Tobago",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Saint Lucia",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Grenada",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Dominica",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Antigua and Barbuda",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Saint Kitts and Nevis",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "geography-05",
+      "theme": "Geography",
+      "prompt": "Name a country with a land border with Germany.",
+      "answers": [
+        {
+          "value": "France",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Poland",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Austria",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Netherlands",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Belgium",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Switzerland",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Czech Republic",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Denmark",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Luxembourg",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "geography-06",
+      "theme": "Geography",
+      "prompt": "Name a river that flows through more than one country.",
+      "answers": [
+        {
+          "value": "Nile",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Danube",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Rhine",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Amazon",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Mekong",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Indus",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Euphrates",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Tigris",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Zambezi",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Niger",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Amur",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Sava",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Drava",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Parana",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "geography-07",
+      "theme": "Geography",
+      "prompt": "Name a landlocked African country.",
+      "answers": [
+        {
+          "value": "Ethiopia",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Uganda",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Zimbabwe",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Zambia",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Botswana",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Rwanda",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Mali",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Chad",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Niger",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Burkina Faso",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Lesotho",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Eswatini",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Burundi",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "geography-08",
+      "theme": "Geography",
+      "prompt": "Name an Asian city that has a metro system.",
+      "answers": [
+        {
+          "value": "Tokyo",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Singapore",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Dubai",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Delhi",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Seoul",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Hong Kong",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Bangkok",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Beijing",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Shanghai",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Mumbai",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Kuala Lumpur",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Taipei",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Doha",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Tashkent",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Baku",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "geography-09",
+      "theme": "Geography",
+      "prompt": "Name an Asian mountain range.",
+      "answers": [
+        {
+          "value": "Himalayas",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Urals",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Hindu Kush",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Karakoram",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Tian Shan",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Altai",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Zagros",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Caucasus",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Kunlun",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Pamirs",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "geography-10",
+      "theme": "Geography",
+      "prompt": "Name a country whose English name begins with M.",
+      "answers": [
+        {
+          "value": "Mexico",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Malaysia",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Morocco",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Mongolia",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Malta",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Mali",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Myanmar",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Mozambique",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Malawi",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Madagascar",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Mauritius",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Mauritania",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Montenegro",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Moldova",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Micronesia",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "wildlife-01",
+      "theme": "Wildlife",
+      "prompt": "Name a wild cat species.",
+      "answers": [
+        {
+          "value": "Lion",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Tiger",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Leopard",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Cheetah",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Jaguar",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Cougar",
+          "tier": 2,
+          "aliases": [
+            "Puma"
+          ]
+        },
+        {
+          "value": "Lynx",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Bobcat",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Snow Leopard",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Ocelot",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Serval",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Caracal",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Fishing Cat",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Pallas Cat",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Margay",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "wildlife-02",
+      "theme": "Wildlife",
+      "prompt": "Name a marsupial.",
+      "answers": [
+        {
+          "value": "Kangaroo",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Koala",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Wallaby",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Wombat",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Tasmanian Devil",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Opossum",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Quokka",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Bandicoot",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Bilby",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Numbat",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Sugar Glider",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Cuscus",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Dunnart",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "wildlife-03",
+      "theme": "Wildlife",
+      "prompt": "Name a bird of prey.",
+      "answers": [
+        {
+          "value": "Eagle",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Hawk",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Owl",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Falcon",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Vulture",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Osprey",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Kestrel",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Buzzard",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Harrier",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Kite",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Condor",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Secretarybird",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Caracara",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "wildlife-04",
+      "theme": "Wildlife",
+      "prompt": "Name a sea animal that is not a fish.",
+      "answers": [
+        {
+          "value": "Dolphin",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Whale",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Octopus",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Jellyfish",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Crab",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Lobster",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Sea Turtle",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Starfish",
+          "tier": 3,
+          "aliases": [
+            "Sea Star"
+          ]
+        },
+        {
+          "value": "Sea Urchin",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Coral",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Squid",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Nautilus",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Sea Cucumber",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Krill",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "wildlife-05",
+      "theme": "Wildlife",
+      "prompt": "Name a tree that commonly changes leaf colour in autumn.",
+      "answers": [
+        {
+          "value": "Maple",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Oak",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Birch",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Beech",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Aspen",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Elm",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Ash",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Poplar",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Chestnut",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Ginkgo",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Sweetgum",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Larch",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "wildlife-06",
+      "theme": "Wildlife",
+      "prompt": "Name a primate species or group other than humans.",
+      "answers": [
+        {
+          "value": "Chimpanzee",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Gorilla",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Orangutan",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Baboon",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Macaque",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Lemur",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Gibbon",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Capuchin",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Howler Monkey",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Marmoset",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Tamarin",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Langur",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Mandrill",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Tarsier",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "wildlife-07",
+      "theme": "Wildlife",
+      "prompt": "Name an animal known for camouflage.",
+      "answers": [
+        {
+          "value": "Chameleon",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Octopus",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Cuttlefish",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Stick Insect",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Leaf Insect",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Snow Leopard",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Arctic Fox",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Mantis",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Flounder",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Stonefish",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Pygmy Seahorse",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "wildlife-08",
+      "theme": "Wildlife",
+      "prompt": "Name a species or group of freshwater fish.",
+      "answers": [
+        {
+          "value": "Salmon",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Trout",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Carp",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Catfish",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Bass",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Tilapia",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Pike",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Perch",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Goldfish",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Sturgeon",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Piranha",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Arowana",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Gourami",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "wildlife-09",
+      "theme": "Wildlife",
+      "prompt": "Name a pollinating insect.",
+      "answers": [
+        {
+          "value": "Bee",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Butterfly",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Moth",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Beetle",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Hoverfly",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Wasp",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Ant",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Fly",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Hawk Moth",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Bumblebee",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Fig Wasp",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "wildlife-10",
+      "theme": "Wildlife",
+      "prompt": "Name a large flightless bird.",
+      "answers": [
+        {
+          "value": "Ostrich",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Emu",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Penguin",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Kiwi",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Cassowary",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Rhea",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Weka",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Takahe",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Kakapo",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "science-01",
+      "theme": "Science",
+      "prompt": "Name a noble gas from the periodic table.",
+      "answers": [
+        {
+          "value": "Helium",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Neon",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Argon",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Krypton",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Xenon",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Radon",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Oganesson",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "science-02",
+      "theme": "Science",
+      "prompt": "Name a unit of energy.",
+      "answers": [
+        {
+          "value": "Joule",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Calorie",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Kilowatt-hour",
+          "tier": 1,
+          "aliases": [
+            "kWh"
+          ]
+        },
+        {
+          "value": "Electronvolt",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "British Thermal Unit",
+          "tier": 3,
+          "aliases": [
+            "BTU"
+          ]
+        },
+        {
+          "value": "Erg",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Foot-pound",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Therm",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "science-03",
+      "theme": "Science",
+      "prompt": "Name one of Jupiter's moons.",
+      "answers": [
+        {
+          "value": "Europa",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Io",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Ganymede",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Callisto",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Amalthea",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Himalia",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Elara",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Pasiphae",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Lysithea",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Carme",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Adrastea",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Metis",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "science-04",
+      "theme": "Science",
+      "prompt": "Name an organ of the human digestive system.",
+      "answers": [
+        {
+          "value": "Stomach",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Liver",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Small Intestine",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Large Intestine",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Pancreas",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Gallbladder",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Esophagus",
+          "tier": 3,
+          "aliases": [
+            "Oesophagus"
+          ]
+        },
+        {
+          "value": "Rectum",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Appendix",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Mouth",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Salivary Gland",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "science-05",
+      "theme": "Science",
+      "prompt": "Name a constellation recognized by astronomers.",
+      "answers": [
+        {
+          "value": "Orion",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Ursa Major",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Scorpius",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Leo",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Gemini",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Taurus",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Cassiopeia",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Cygnus",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Andromeda",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Lyra",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Perseus",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Vela",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Pictor",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "science-06",
+      "theme": "Science",
+      "prompt": "Name a technology that generates renewable energy.",
+      "answers": [
+        {
+          "value": "Solar Panel",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Wind Turbine",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Hydroelectric Dam",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Geothermal Plant",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Tidal Turbine",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Wave Energy Converter",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Concentrated Solar Power",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Biogas Digester",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "science-07",
+      "theme": "Science",
+      "prompt": "Name a meteorological cloud classification.",
+      "answers": [
+        {
+          "value": "Cumulus",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Cirrus",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Stratus",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Cumulonimbus",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Altocumulus",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Altostratus",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Nimbostratus",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Stratocumulus",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Cirrostratus",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Cirrocumulus",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "science-08",
+      "theme": "Science",
+      "prompt": "Name a planet or dwarf planet in our solar system.",
+      "answers": [
+        {
+          "value": "Earth",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Mars",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Jupiter",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Saturn",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Venus",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Mercury",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Neptune",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Uranus",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Pluto",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Ceres",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Eris",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Haumea",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Makemake",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "science-09",
+      "theme": "Science",
+      "prompt": "Name a field of study in the natural sciences.",
+      "answers": [
+        {
+          "value": "Biology",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Physics",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Chemistry",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Astronomy",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Geology",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Ecology",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Meteorology",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Oceanography",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Paleontology",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Botany",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Zoology",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Seismology",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "science-10",
+      "theme": "Science",
+      "prompt": "Name a kind of electromagnetic radiation.",
+      "answers": [
+        {
+          "value": "Visible Light",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Radio Waves",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Microwaves",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Infrared",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Ultraviolet",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "X-rays",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Gamma Rays",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "arts-01",
+      "theme": "Arts",
+      "prompt": "Name a famous detective fiction author.",
+      "answers": [
+        {
+          "value": "Agatha Christie",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Arthur Conan Doyle",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Raymond Chandler",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Dorothy L. Sayers",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Dashiell Hammett",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "P. D. James",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Ruth Rendell",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Ngaio Marsh",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "John Dickson Carr",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Josephine Tey",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "arts-02",
+      "theme": "Arts",
+      "prompt": "Name a musical instrument used in orchestras.",
+      "answers": [
+        {
+          "value": "Violin",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Piano",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Flute",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Cello",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Trumpet",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Clarinet",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Oboe",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Bassoon",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Trombone",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Viola",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "French Horn",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Timpani",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Piccolo",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Celesta",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "arts-03",
+      "theme": "Arts",
+      "prompt": "Name a film directed by Steven Spielberg.",
+      "answers": [
+        {
+          "value": "Jurassic Park",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "E.T.",
+          "tier": 0,
+          "aliases": [
+            "ET the Extra-Terrestrial"
+          ]
+        },
+        {
+          "value": "Jaws",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Indiana Jones and the Last Crusade",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Saving Private Ryan",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Schindler's List",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Catch Me If You Can",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "The Terminal",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "War Horse",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "The Fabelmans",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Duel",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "arts-04",
+      "theme": "Arts",
+      "prompt": "Name a traditional dance style.",
+      "answers": [
+        {
+          "value": "Ballet",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Salsa",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Tango",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Flamenco",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Waltz",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Samba",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Bhangra",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Kathak",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Irish Stepdance",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Kizomba",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Bharatanatyam",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Kuchipudi",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "arts-05",
+      "theme": "Arts",
+      "prompt": "Name a book written by Roald Dahl.",
+      "answers": [
+        {
+          "value": "Charlie and the Chocolate Factory",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Matilda",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "The BFG",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "James and the Giant Peach",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Fantastic Mr Fox",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "The Witches",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "The Twits",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "George's Marvellous Medicine",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Danny the Champion of the World",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Esio Trot",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "arts-06",
+      "theme": "Arts",
+      "prompt": "Name a genre of music that developed in the United States.",
+      "answers": [
+        {
+          "value": "Jazz",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Blues",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Hip Hop",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Rock and Roll",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Country",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Gospel",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Disco",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Bluegrass",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Funk",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Ragtime",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "House",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Zydeco",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "arts-07",
+      "theme": "Arts",
+      "prompt": "Name an animated movie starring talking animals.",
+      "answers": [
+        {
+          "value": "The Lion King",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Finding Nemo",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Zootopia",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Madagascar",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Kung Fu Panda",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Ice Age",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Ratatouille",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "The Secret Life of Pets",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Sing",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Over the Hedge",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "The Bad Guys",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "arts-08",
+      "theme": "Arts",
+      "prompt": "Name a painting by Vincent van Gogh.",
+      "answers": [
+        {
+          "value": "The Starry Night",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Sunflowers",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Bedroom in Arles",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Irises",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "The Night Cafe",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Almond Blossoms",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Wheatfield with Crows",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "The Potato Eaters",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Cafe Terrace at Night",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "The Red Vineyard",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "arts-09",
+      "theme": "Arts",
+      "prompt": "Name a play written by William Shakespeare.",
+      "answers": [
+        {
+          "value": "Hamlet",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Romeo and Juliet",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Macbeth",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Othello",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Julius Caesar",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "King Lear",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "A Midsummer Night's Dream",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "The Tempest",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Much Ado About Nothing",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Twelfth Night",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Coriolanus",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "arts-10",
+      "theme": "Arts",
+      "prompt": "Name an instrument in the percussion family.",
+      "answers": [
+        {
+          "value": "Drums",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Cymbals",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Tambourine",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Marimba",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Xylophone",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Timpani",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Triangle",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Gong",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Vibraphone",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Bongo",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Castanets",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Cajon",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "food-01",
+      "theme": "Food",
+      "prompt": "Name a type of pasta.",
+      "answers": [
+        {
+          "value": "Spaghetti",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Penne",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Fusilli",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Macaroni",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Farfalle",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Linguine",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Rigatoni",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Tagliatelle",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Orecchiette",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Pappardelle",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Cavatappi",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Strozzapreti",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "food-02",
+      "theme": "Food",
+      "prompt": "Name a spice commonly used in Indian cooking.",
+      "answers": [
+        {
+          "value": "Turmeric",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Cumin",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Coriander",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Cardamom",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Garam Masala",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Cloves",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Cinnamon",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Mustard Seeds",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Fenugreek",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Asafoetida",
+          "tier": 4,
+          "aliases": [
+            "Hing"
+          ]
+        },
+        {
+          "value": "Ajwain",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Kalonji",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Amchur",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "food-03",
+      "theme": "Food",
+      "prompt": "Name a fruit with a commonly green outer skin.",
+      "answers": [
+        {
+          "value": "Apple",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Pear",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Kiwi",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Lime",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Avocado",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Watermelon",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Green Grape",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Honeydew Melon",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Guava",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Feijoa",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Soursop",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "food-04",
+      "theme": "Food",
+      "prompt": "Name a dish made primarily from rice.",
+      "answers": [
+        {
+          "value": "Risotto",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Biryani",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Fried Rice",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Paella",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Sushi",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Pilaf",
+          "tier": 2,
+          "aliases": [
+            "Pulao"
+          ]
+        },
+        {
+          "value": "Jollof Rice",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Congee",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Arancini",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Kedgeree",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Nasi Lemak",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Bibimbap",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "food-05",
+      "theme": "Food",
+      "prompt": "Name a fermented food.",
+      "answers": [
+        {
+          "value": "Yogurt",
+          "tier": 0,
+          "aliases": [
+            "Yoghurt"
+          ]
+        },
+        {
+          "value": "Cheese",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Sauerkraut",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Kimchi",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Kefir",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Miso",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Tempeh",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Kombucha",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Natto",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Injera",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Tepache",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "food-06",
+      "theme": "Food",
+      "prompt": "Name a kind of bread.",
+      "answers": [
+        {
+          "value": "Baguette",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Naan",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Sourdough",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Pita",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Ciabatta",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Focaccia",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Rye Bread",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Challah",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Brioche",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Lavash",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Soda Bread",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Injera",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Pumpernickel",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "food-07",
+      "theme": "Food",
+      "prompt": "Name a citrus fruit.",
+      "answers": [
+        {
+          "value": "Orange",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Lemon",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Lime",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Grapefruit",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Mandarin",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Tangerine",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Clementine",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Pomelo",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Kumquat",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Bergamot",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Yuzu",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Calamansi",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "food-08",
+      "theme": "Food",
+      "prompt": "Name a vegetable in the cabbage family.",
+      "answers": [
+        {
+          "value": "Broccoli",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Cauliflower",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Cabbage",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Kale",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Brussels Sprouts",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Bok Choy",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Collard Greens",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Mustard Greens",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Kohlrabi",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Romanesco",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Mizuna",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Tatsoi",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "food-09",
+      "theme": "Food",
+      "prompt": "Name a variety of cheese.",
+      "answers": [
+        {
+          "value": "Cheddar",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Mozzarella",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Parmesan",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Brie",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Gouda",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Feta",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Camembert",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Ricotta",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Halloumi",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Gruyere",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Manchego",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Roquefort",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "food-10",
+      "theme": "Food",
+      "prompt": "Name a kind of tea.",
+      "answers": [
+        {
+          "value": "Green Tea",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Black Tea",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Oolong",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "White Tea",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Earl Grey",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Chai",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Pu-erh",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Matcha",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Genmaicha",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Darjeeling",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Gyokuro",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Lapsang Souchong",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "sports-01",
+      "theme": "Sports",
+      "prompt": "Name a sport featured in the Summer Olympics.",
+      "answers": [
+        {
+          "value": "Football",
+          "tier": 0,
+          "aliases": [
+            "Soccer"
+          ]
+        },
+        {
+          "value": "Swimming",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Basketball",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Tennis",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Badminton",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Volleyball",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Archery",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Fencing",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Modern Pentathlon",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Rowing",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Canoe Slalom",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Artistic Swimming",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "sports-02",
+      "theme": "Sports",
+      "prompt": "Name a tennis Grand Slam tournament.",
+      "answers": [
+        {
+          "value": "Wimbledon",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "US Open",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Australian Open",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "French Open",
+          "tier": 4,
+          "aliases": [
+            "Roland-Garros"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sports-03",
+      "theme": "Sports",
+      "prompt": "Name a martial art that originated in East Asia.",
+      "answers": [
+        {
+          "value": "Karate",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Judo",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Taekwondo",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Kung Fu",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Aikido",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Kendo",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Wing Chun",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Jujutsu",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Hapkido",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Sanda",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Iaido",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "sports-04",
+      "theme": "Sports",
+      "prompt": "Name a position in association football.",
+      "answers": [
+        {
+          "value": "Goalkeeper",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Striker",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Defender",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Midfielder",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Winger",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Fullback",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Centre Back",
+          "tier": 3,
+          "aliases": [
+            "Center Back"
+          ]
+        },
+        {
+          "value": "Attacking Midfielder",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Wing-back",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Sweeper",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "False Nine",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "sports-05",
+      "theme": "Sports",
+      "prompt": "Name a distance contested in track athletics.",
+      "answers": [
+        {
+          "value": "100m",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "200m",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "400m",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "800m",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "1500m",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "5000m",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "10000m",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "110m Hurdles",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "3000m Steeplechase",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "400m Hurdles",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "sports-06",
+      "theme": "Sports",
+      "prompt": "Name a sport played with a racket or paddle.",
+      "answers": [
+        {
+          "value": "Tennis",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Badminton",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Table Tennis",
+          "tier": 1,
+          "aliases": [
+            "Ping Pong"
+          ]
+        },
+        {
+          "value": "Squash",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Pickleball",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Padel",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Racquetball",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Real Tennis",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Platform Tennis",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Speedminton",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "sports-07",
+      "theme": "Sports",
+      "prompt": "Name an apparatus or event in gymnastics.",
+      "answers": [
+        {
+          "value": "Floor Exercise",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Vault",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Balance Beam",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Uneven Bars",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Rings",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Parallel Bars",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Pommel Horse",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Horizontal Bar",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Rhythmic Ribbon",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Rhythmic Hoop",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Rhythmic Clubs",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "sports-08",
+      "theme": "Sports",
+      "prompt": "Name a country that has won the men's FIFA World Cup.",
+      "answers": [
+        {
+          "value": "Brazil",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Germany",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Argentina",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "France",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Italy",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Spain",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "England",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Uruguay",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "sports-09",
+      "theme": "Sports",
+      "prompt": "Name an outdoor winter sport.",
+      "answers": [
+        {
+          "value": "Skiing",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Snowboarding",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Ice Skating",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Ice Hockey",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Curling",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Bobsleigh",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Luge",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Skeleton",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Biathlon",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Ski Jumping",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Nordic Combined",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "sports-10",
+      "theme": "Sports",
+      "prompt": "Name a swimming event or stroke.",
+      "answers": [
+        {
+          "value": "Freestyle",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Breaststroke",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Butterfly",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Backstroke",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Individual Medley",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Medley Relay",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Open Water Swimming",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Sidestroke",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "history-01",
+      "theme": "History",
+      "prompt": "Name an ancient Mediterranean civilization.",
+      "answers": [
+        {
+          "value": "Ancient Greece",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Ancient Rome",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Ancient Egypt",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Phoenicia",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Carthage",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Minoans",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Mycenaeans",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Etruscans",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Hittites",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Nabataea",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "history-02",
+      "theme": "History",
+      "prompt": "Name an explorer famous for a sea voyage.",
+      "answers": [
+        {
+          "value": "Christopher Columbus",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Ferdinand Magellan",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Vasco da Gama",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "James Cook",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Zheng He",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Francis Drake",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Abel Tasman",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Henry Hudson",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Juan Sebastian Elcano",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Vitus Bering",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "history-03",
+      "theme": "History",
+      "prompt": "Name an Industrial Revolution-era invention.",
+      "answers": [
+        {
+          "value": "Steam Engine",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Spinning Jenny",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Power Loom",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Locomotive",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Cotton Gin",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Telegraph",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Water Frame",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Bessemer Process",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Jacquard Loom",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Safety Lamp",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "history-04",
+      "theme": "History",
+      "prompt": "Name a city that served as a capital of the Roman Empire.",
+      "answers": [
+        {
+          "value": "Rome",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Constantinople",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Ravenna",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Milan",
+          "tier": 2,
+          "aliases": [
+            "Mediolanum"
+          ]
+        },
+        {
+          "value": "Nicomedia",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Trier",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Sirmium",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "history-05",
+      "theme": "History",
+      "prompt": "Name an ancient writing system.",
+      "answers": [
+        {
+          "value": "Egyptian Hieroglyphs",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Cuneiform",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Latin Alphabet",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Greek Alphabet",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Phoenician Alphabet",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Brahmi",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Linear B",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Oracle Bone Script",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Maya Script",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Runes",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Ogham",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "history-06",
+      "theme": "History",
+      "prompt": "Name a dynasty that ruled China.",
+      "answers": [
+        {
+          "value": "Han",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Tang",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Ming",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Qing",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Song",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Yuan",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Sui",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Jin",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Liao",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Xia",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Shang",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Zhou",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "history-07",
+      "theme": "History",
+      "prompt": "Name a famous building completed before 1600.",
+      "answers": [
+        {
+          "value": "Colosseum",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Great Pyramid of Giza",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Hagia Sophia",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Notre-Dame Cathedral",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Alhambra",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Tower of London",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Pantheon",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Angkor Wat",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Chartres Cathedral",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Palace of the Popes",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "history-08",
+      "theme": "History",
+      "prompt": "Name a pre-modern long-distance trade route.",
+      "answers": [
+        {
+          "value": "Silk Road",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Spice Route",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Incense Route",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Amber Road",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Royal Road",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Trans-Saharan Trade Route",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Tea Horse Road",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Grand Trunk Road",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "King's Highway",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Via Maris",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "history-09",
+      "theme": "History",
+      "prompt": "Name a famous historical ship.",
+      "answers": [
+        {
+          "value": "Titanic",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Mayflower",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "HMS Victory",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Santa Maria",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "HMS Endeavour",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Golden Hind",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Cutty Sark",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "USS Constitution",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Vasa",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Mary Rose",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Batavia",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "history-10",
+      "theme": "History",
+      "prompt": "Name an empire that held territory in Asia.",
+      "answers": [
+        {
+          "value": "Roman Empire",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Mongol Empire",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Ottoman Empire",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Persian Empire",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "British Empire",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Mughal Empire",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Maurya Empire",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Gupta Empire",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Achaemenid Empire",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Seleucid Empire",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Khmer Empire",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Kushan Empire",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "tech-01",
+      "theme": "Tech",
+      "prompt": "Name a programming language.",
+      "answers": [
+        {
+          "value": "Python",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "JavaScript",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Java",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "C++",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "C#",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "C",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Ruby",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Go",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Rust",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Kotlin",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Swift",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "PHP",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Elixir",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Haskell",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Scala",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Fortran",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "COBOL",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Erlang",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "tech-02",
+      "theme": "Tech",
+      "prompt": "Name an operating system.",
+      "answers": [
+        {
+          "value": "Windows",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "macOS",
+          "tier": 0,
+          "aliases": [
+            "Mac OS"
+          ]
+        },
+        {
+          "value": "Linux",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Android",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "iOS",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Ubuntu",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "ChromeOS",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "FreeBSD",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Debian",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Fedora",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Solaris",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Haiku",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "OpenBSD",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "tech-03",
+      "theme": "Tech",
+      "prompt": "Name an open-source web browser.",
+      "answers": [
+        {
+          "value": "Firefox",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Chromium",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Brave",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Vivaldi",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Tor Browser",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "LibreWolf",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Waterfox",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Falkon",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "GNOME Web",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Qutebrowser",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Midori",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "tech-04",
+      "theme": "Tech",
+      "prompt": "Name a digital storage medium.",
+      "answers": [
+        {
+          "value": "SSD",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Hard Disk Drive",
+          "tier": 0,
+          "aliases": [
+            "HDD"
+          ]
+        },
+        {
+          "value": "USB Flash Drive",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "SD Card",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "MicroSD",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Optical Disc",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Magnetic Tape",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Floppy Disk",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Blu-ray Disc",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "NVMe SSD",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Zip Drive",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "CompactFlash",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "tech-05",
+      "theme": "Tech",
+      "prompt": "Name a web markup or stylesheet language.",
+      "answers": [
+        {
+          "value": "HTML",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "CSS",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "XML",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "SVG",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Markdown",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Sass",
+          "tier": 2,
+          "aliases": [
+            "SCSS"
+          ]
+        },
+        {
+          "value": "Less",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "XSLT",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "MathML",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "AsciiDoc",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Pug",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Haml",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "tech-06",
+      "theme": "Tech",
+      "prompt": "Name a common type of computer network.",
+      "answers": [
+        {
+          "value": "Wi-Fi",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Ethernet",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Cellular Network",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "LAN",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "WAN",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Bluetooth",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "VPN",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Mesh Network",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "MAN",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "PAN",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "SAN",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "tech-07",
+      "theme": "Tech",
+      "prompt": "Name a device that can connect to the internet.",
+      "answers": [
+        {
+          "value": "Phone",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Laptop",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Tablet",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Desktop Computer",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Smartwatch",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Smart TV",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Game Console",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Router",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Smart Thermostat",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Security Camera",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Smart Speaker",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "E-reader",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "tech-08",
+      "theme": "Tech",
+      "prompt": "Name a unit of digital information.",
+      "answers": [
+        {
+          "value": "Bit",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Byte",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Kilobyte",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Megabyte",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Gigabyte",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Terabyte",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Petabyte",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Nibble",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Exabyte",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Zettabyte",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Yottabyte",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "tech-09",
+      "theme": "Tech",
+      "prompt": "Name a space mission or spacecraft.",
+      "answers": [
+        {
+          "value": "Apollo 11",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Voyager 1",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Voyager 2",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Hubble Space Telescope",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Cassini",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "New Horizons",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Rosetta",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Juno",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "OSIRIS-REx",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Hayabusa2",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Parker Solar Probe",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "tech-10",
+      "theme": "Tech",
+      "prompt": "Name a wireless communication technology.",
+      "answers": [
+        {
+          "value": "Wi-Fi",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Bluetooth",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "NFC",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "4G",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "5G",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Radio",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Satellite Communication",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Infrared",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Zigbee",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "LoRa",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "RFID",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "UWB",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "words-01",
+      "theme": "Words",
+      "prompt": "Name a language written with the Latin alphabet.",
+      "answers": [
+        {
+          "value": "English",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Spanish",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "French",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "German",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Italian",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Portuguese",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Swahili",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Turkish",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Vietnamese",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Indonesian",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Romanian",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Hungarian",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Basque",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Maltese",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "words-02",
+      "theme": "Words",
+      "prompt": "Name a punctuation mark.",
+      "answers": [
+        {
+          "value": "Comma",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Period",
+          "tier": 0,
+          "aliases": [
+            "Full Stop"
+          ]
+        },
+        {
+          "value": "Question Mark",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Exclamation Mark",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Colon",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Semicolon",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Apostrophe",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Quotation Mark",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Em Dash",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Ellipsis",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Interrobang",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "words-03",
+      "theme": "Words",
+      "prompt": "Name a kind of poem.",
+      "answers": [
+        {
+          "value": "Sonnet",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Haiku",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Limerick",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Ballad",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Ode",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Elegy",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Epic",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Acrostic",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Villanelle",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Sestina",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Ghazal",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Tanka",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "words-04",
+      "theme": "Words",
+      "prompt": "Name a literary genre.",
+      "answers": [
+        {
+          "value": "Fantasy",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Science Fiction",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Mystery",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Romance",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Horror",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Historical Fiction",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Thriller",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Satire",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Magical Realism",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Dystopian Fiction",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Bildungsroman",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "words-05",
+      "theme": "Words",
+      "prompt": "Name a language with more than 100 million native speakers.",
+      "answers": [
+        {
+          "value": "English",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Spanish",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Mandarin Chinese",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Hindi",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Arabic",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Portuguese",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Bengali",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Russian",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Japanese",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Punjabi",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "German",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Javanese",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Marathi",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Telugu",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "words-06",
+      "theme": "Words",
+      "prompt": "Name an English word starting with astro.",
+      "answers": [
+        {
+          "value": "Astronaut",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Astronomy",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Astrophysics",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Astrology",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Astrolabe",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Asteroid",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Astrocyte",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Astrobiology",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Astrometry",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Astrograph",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Astrogeology",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "words-07",
+      "theme": "Words",
+      "prompt": "Name a writing system that is not Latin.",
+      "answers": [
+        {
+          "value": "Arabic Script",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Cyrillic",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Devanagari",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Chinese Characters",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Japanese Kana",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Hangul",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Hebrew Alphabet",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Greek Alphabet",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Ethiopic Script",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Thai Script",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Armenian Alphabet",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Georgian Script",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "words-08",
+      "theme": "Words",
+      "prompt": "Name a figure of speech.",
+      "answers": [
+        {
+          "value": "Metaphor",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Simile",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Hyperbole",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Personification",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Alliteration",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Irony",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Oxymoron",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Metonymy",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Synecdoche",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Anaphora",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Chiasmus",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Litotes",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "words-09",
+      "theme": "Words",
+      "prompt": "Name a word English borrowed from French.",
+      "answers": [
+        {
+          "value": "Ballet",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Restaurant",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Croissant",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Bouquet",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Cafe",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Deja Vu",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Fiance",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Genre",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Entrepreneur",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Rendezvous",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Cul-de-sac",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    },
+    {
+      "id": "words-10",
+      "theme": "Words",
+      "prompt": "Name a language spoken in the Indian subcontinent.",
+      "answers": [
+        {
+          "value": "Hindi",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Bengali",
+          "tier": 0,
+          "aliases": []
+        },
+        {
+          "value": "Tamil",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Punjabi",
+          "tier": 1,
+          "aliases": []
+        },
+        {
+          "value": "Urdu",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Marathi",
+          "tier": 2,
+          "aliases": []
+        },
+        {
+          "value": "Gujarati",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Telugu",
+          "tier": 3,
+          "aliases": []
+        },
+        {
+          "value": "Kannada",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Malayalam",
+          "tier": 4,
+          "aliases": []
+        },
+        {
+          "value": "Kashmiri",
+          "tier": 5,
+          "aliases": []
+        },
+        {
+          "value": "Konkani",
+          "tier": 5,
+          "aliases": []
+        }
+      ]
+    }
+  ]
+}

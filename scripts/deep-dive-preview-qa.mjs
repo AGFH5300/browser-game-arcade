@@ -1,0 +1,62 @@
+import assert from 'node:assert/strict';
+import {chromium} from 'playwright';
+
+const base=process.env.SIDEQUEST_PREVIEW_URL;
+if (!base || !base.startsWith('https://browser-game-arcade-')) throw Error('Set the immutable Sidequest preview URL.');
+const pageUrl=base+'/play/deep-dive/index.html';
+const browser=await chromium.launch({headless:true});
+const first=await browser.newContext({viewport:{width:1280,height:820}});
+const second=await browser.newContext({viewport:{width:1280,height:820}});
+const host=await first.newPage();
+const guest=await second.newPage();
+const faults=[];
+for(const page of [host,guest])page.on('pageerror',err=>faults.push(err.message.slice(0,160)));
+const go=async(page,name)=>{
+ await page.goto(pageUrl,{waitUntil:'domcontentloaded',timeout:35000});
+ await page.locator('#app .nav-pill, .topnav .nav-pill').first().waitFor({timeout:10000});
+ await page.locator('.nav-pill[data-view="party"]').click();
+ await page.locator('#pp-name').fill(name);
+};
+try{
+ const bank=await (await fetch(base+'/play/deep-dive/questions.json')).json();
+ assert.equal(bank.questions.length,90,'Question bank');
+ await go(host,'HostRig'+Date.now().toString().slice(-6));
+ await host.getByRole('button',{name:/Host a party/i}).click();
+ await host.locator('.pp-code').waitFor({timeout:18000});
+ const code=(await host.locator('.pp-code').innerText()).trim();
+ assert.equal(code.length,6,'Host invite code');
+ console.log('HOST_CREATED');
+ await go(guest,'GuestRig'+Date.now().toString().slice(-6));
+ await guest.locator('#pp-code').fill(code);
+ await guest.getByRole('button',{name:/Join room/i}).click();
+ await guest.getByRole('button',{name:/I am ready/i}).waitFor({timeout:15000});
+ await guest.getByRole('button',{name:/I am ready/i}).click();
+ await host.getByRole('button',{name:/Start party/i}).waitFor({state:'visible',timeout:12000});
+ await host.getByRole('button',{name:/Start party/i}).click();
+ await host.locator('.pp-heading h1').waitFor({timeout:15000});
+ await guest.locator('.pp-heading h1').waitFor({timeout:15000});
+ assert.equal(await guest.locator('.pp-heading h1').innerText(),await host.locator('.pp-heading h1').innerText());
+ console.log('TWO_CONTEXTS_LOBBY_AND_GAME_STARTED');
+ const prompt=(await host.locator('.pp-heading h1').innerText()).trim();
+ const question=bank.questions.find(q=>q.prompt===prompt);
+ assert(question,'Prompt matches original bank');
+ await host.locator('#pp-answer-input').waitFor({timeout:9000});
+ const firstAnswer=question.answers[0].value;
+ await host.locator('#pp-answer-input').fill(firstAnswer);
+ await host.locator('#pp-answer button[type=submit]').click();
+ await guest.locator('#pp-answer-input').waitFor({timeout:12000});
+ console.log('HOST_ACCEPTED_GUEST_TURN');
+ await guest.locator('#pp-answer-input').fill(firstAnswer);
+ await guest.locator('#pp-answer button[type=submit]').click();
+ await guest.getByRole('alert').filter({hasText:/already been used/i}).waitFor({timeout:12000});
+ console.log('DUPLICATE_REJECTED');
+ const alternate=question.answers.find(a=>a.value!==firstAnswer)?.value;
+ assert(alternate);
+ await guest.locator('#pp-answer-input').fill(alternate);
+ await guest.locator('#pp-answer button[type=submit]').click();
+ await host.locator('.pp-heading h1').filter({hasNotText:prompt}).waitFor({timeout:12000});
+ assert.equal(faults.length,0,'Browser JS errors: '+faults.join(' / '));
+ console.log('PASS: TWO INDEPENDENT BROWSERS HOST/JOIN, START, ANSWER, DUPLICATE REJECTION, NEXT QUESTION');
+}finally{
+ await first.close();await second.close();await browser.close();
+}
