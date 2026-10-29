@@ -145,3 +145,38 @@ test('multiplayer answer validation accepts unique typos but rejects ambiguous s
  ]};
  assert.equal(findPartyAnswer(ambiguous,'stome'),null);
 });
+
+
+test('Puffer Party supports reference-style avatars and restricted room-size matches',()=>{
+ const now=Date.now(),qids=questions.questions.map((q:PartyQuestion)=>q.id);
+ const host=newRoom('M4FQ2Y','ReefHost',true,now,qids,{avatar:'squid',maxMembers:3,minMembers:3});
+ assert.equal(host.room.maxMembers,3);assert.equal(host.room.minMembers,3);
+ assert.equal(host.room.members[0].avatar,'squid');
+ const one=joinRoom(host.room,'DiverOne',now+1,'angler');
+ assert.equal(host.room.members[1].avatar,'angler');
+ assert.throws(()=>applyAction(host.room,host.id,host.secret,{type:'start'},now+2,questionMap),/At least 3/);
+ const two=joinRoom(host.room,'DiverTwo',now+3,'unknown');
+ assert.equal(host.room.members[2].avatar,'krill');
+ assert.throws(()=>joinRoom(host.room,'Another',now+4),/full/);
+ applyAction(host.room,one.id,one.secret,{type:'ready',ready:true},now+5,questionMap);
+ applyAction(host.room,two.id,two.secret,{type:'ready',ready:true},now+5,questionMap);
+ applyAction(host.room,host.id,host.secret,{type:'start'},now+6,questionMap);
+ assert.equal(host.room.phase,'playing');
+ const publicState=publicRoom(host.room,questionMap);
+ assert.equal(publicState.maxMembers,3);assert.equal(publicState.minMembers,3);
+ assert.equal(publicState.members[0].avatar,'squid');
+ assert(!JSON.stringify(publicState).includes(host.secret));
+});
+
+test('Puffer Party loads local public reef assets with working lobby controls',()=>{
+ const page=readFileSync('public/play/deep-dive/party.js','utf8');
+ const html=readFileSync('public/play/deep-dive/index-public-art.html','utf8');
+ const css=readFileSync('public/play/deep-dive/party-reference.css','utf8');
+ const manifest=JSON.parse(readFileSync('public/play/deep-dive/reference-assets/manifest.json','utf8'));
+ assert.equal(manifest.count,59);
+ assert(manifest.files.every((asset:{localPath:string})=>readFileSync('public/play/deep-dive/reference-assets/'+asset.localPath).length>50));
+ assert(html.includes('party-reference.css?ref=20261029a')&&html.includes('party.js?reef=20261029a'));
+ for(const feature of ['data-party="quickplay"','data-party="avatar"','data-party="capacity"','data-party="createPublic"','pp-public-room','reference-assets'])assert(page.includes(feature),feature);
+ for(const asset of ['reef-d-clean.png','reef-m-clean.png','puffer-sleep.png'])assert(css.includes(asset)||page.includes(asset),asset);
+ assert.doesNotThrow(()=>new vm.Script(page));
+});
