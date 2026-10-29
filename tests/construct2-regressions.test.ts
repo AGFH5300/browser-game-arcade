@@ -20,3 +20,10 @@ test('Subway Surfers removes forbidden document.domain before the game loads',()
  assert(code.includes("pkg.slug==='subway-surfers' && file.path===requiredEntryPath(pkg)"));
  assert(code.includes("if(text===before)throw new Error('Subway Surfers document.domain guard signature changed')"));
 });
+
+test('Ice Dodo safe browser namespace fallback does not tamper with SRI jQuery',()=>{
+ const code=readFileSync('scripts/prepare-reference-packages.mjs','utf8');
+ assert(code.includes("pkg.slug==='ice-dodo' && file.path===requiredEntryPath(pkg)"));
+ assert(code.includes('window.chrome = window.chrome || {}'));
+ assert(code.includes('STATIC_EXTENSIONS.has(path.posix.extname(assetPath).toLowerCase())'));
+});

@@ -763,6 +763,17 @@ function makeArtifactTransforms(pkg, file, bytes, bridgeBytes, localBySourceUrl,
         const scriptExt = /json/.test(type) ? '.json' : '.js';
         return `<script${attrs}>${rewriteTextReferences(script, scriptExt, fileUrl, resolveLocalUrl)}</script>`;
       });
+      if(pkg.slug==='ice-dodo' && file.path===requiredEntryPath(pkg)) {
+        // Vanilla Ice Dodo assumes browser chrome namespace exists, as in
+        // Chrome desktop, but in Chromium headless/Safari it can be absent.
+        // Supply an empty namespace only when missing; preserve upstream
+        // extension detection and the original SRI-verified jQuery bytes.
+        const previous=text;
+        text=text.replace(/<head\b[^>]*>/i,head=>head+
+          '\n<script>window.chrome = window.chrome || {};<\/script>');
+        if(text===previous)throw new Error('Ice Dodo head missing for browser namespace guard');
+        mods.push('Added safe absent-chrome namespace compatibility in isolated Ice Dodo entry.');
+      }
       if(pkg.slug==='subway-surfers' && file.path===requiredEntryPath(pkg)) {
         // Legacy 4399 embed assigns document.domain; sandboxed frames throw a
         // SecurityError before Unity can start. It is unnecessary here.
