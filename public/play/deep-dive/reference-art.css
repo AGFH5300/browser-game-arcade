@@ -1,0 +1,57 @@
+/* Krillion publicly served artwork, as reportedly authorized by the user. */
+@font-face{font-family:"ReferenceVT323";src:url("./reference-art/VT323.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
+:root{--reference-cyan:#4de3ff;--reference-pink:#ff5d8f;--reference-white:#e8f1ff}
+.deep-home{background:#050a14}
+.deep-home .dd-sky{background:url("./reference-art/sky.webp") center center/100% 100% no-repeat!important}
+.deep-home .dd-sky::before{background:repeating-linear-gradient(0deg,#071e280e 0 1px,transparent 1px 3px)!important;opacity:.35}
+.deep-home .dd-cloud,.deep-home .dd-sun,.deep-home .dd-boat,.deep-home .dd-wave{display:none!important}
+.deep-home .dd-sea:not(.dd-game-sea){background:linear-gradient(180deg,#10507898 0%,#050b18e6 27%,#050a14 56%),url("./reference-art/top.webp") center top/100% auto no-repeat!important;box-shadow:none!important}
+.deep-home .dd-depth-ticks{opacity:.65}
+.deep-home .dd-title-group{top:33%}
+.deep-home .dd-logo,.deep-home .dd-logo span{font-family:"ReferenceVT323","VT323",monospace!important;font-size:clamp(73px,9.9vw,126px)!important;line-height:.85!important;letter-spacing:.058em!important;font-weight:400!important;color:var(--reference-white)!important;text-shadow:-4px 3px var(--reference-pink),4px -3px #4de3ffd9,0 0 30px #4de3ff59!important}
+.deep-home .dd-subtitle{font-family:"ReferenceVT323","VT323",monospace!important;color:var(--reference-cyan)!important;font-size:clamp(21px,2.2vw,28px)!important;letter-spacing:.3em!important;text-shadow:0 0 20px #4de3ff59!important}
+.deep-home .dd-tagline{font-family:"ReferenceVT323","VT323",monospace!important;color:#667f9d!important;font-size:clamp(20px,1.8vw,24px)!important;letter-spacing:.06em!important}
+.deep-home .dd-party-btn,.deep-home .dd-begin{font-family:"ReferenceVT323","VT323",monospace!important;border:none!important;background:#101d33!important;color:#e8f1ff!important;box-shadow:0 0 0 3px #050a14,0 0 0 6px var(--reference-cyan),0 6px 0 6px #123048,0 0 26px #4de3ff4d!important;letter-spacing:.14em!important;font-weight:400!important}
+.deep-home .dd-begin{font-size:clamp(23px,3.8vw,30px)!important;height:66px!important;max-width:600px}
+.deep-home .dd-party-btn{font-size:clamp(19px,2.5vw,25px)!important;height:61px!important;max-width:343px}
+.deep-home .dd-party-btn small{font-family:"ReferenceVT323","VT323",monospace!important;font-size:14px!important;letter-spacing:.04em;color:#7798b7!important}
+.deep-home .dd-party-btn:hover,.deep-home .dd-begin:hover{background:#152e4c!important;box-shadow:0 0 0 3px #050a14,0 0 0 6px #ff5d8f,0 6px 0 6px #123048,0 0 30px #ff5d8f66!important}
+.deep-home .dd-party-fish{background-image:url("./reference-art/puffer.png")!important;image-rendering:pixelated}
+.deep-home .dd-mode-nav button,.deep-home .dd-dive-number,.deep-home .dd-rules,.deep-home .dd-surface-label,.deep-home .dd-sea-stats{font-family:"ReferenceVT323","VT323",monospace!important;letter-spacing:.14em!important}
+.deep-home .dd-mode-nav button{font-size:19px!important}.deep-home .dd-rules{font-size:18px!important}
+.deep-home .dd-edition{display:none!important}.deep-home .dd-surface-label{opacity:.65}
+.dd-game-screen .dd-game-sky{background:url("./reference-art/sky.webp") center center/100% 100% no-repeat!important}
+.dd-game-screen .dd-game-sea{background:linear-gradient(180deg,#0a315bc0,#04162ab0),url("./reference-art/top.webp") center top/100% 100% no-repeat!important}
+.dd-game-screen .dd-game-sky .dd-cloud,.dd-game-screen .dd-game-sky .dd-boat,.dd-game-screen .dd-game-sky .dd-sun,.dd-game-screen .dd-game-sky .dd-wave{display:none!important}
+.dd-game-screen .dd-game-fish{background-image:url("./reference-art/puffer.png")!important;filter:none!important}
+.pp-view .pp-puffer{background-image:url("./reference-art/puffer.png")!important;filter:none!important;image-rendering:pixelated}
+@media(min-width:651px){
+ .deep-home .dd-sky:not(.dd-game-sky){height:54svh!important;max-height:none!important;min-height:0!important}
+ .deep-home .dd-sea:not(.dd-game-sea){height:46svh!important;min-height:0!important}
+ .deep-home .dd-sea-center{padding-top:18px!important}
+ .deep-home .dd-party-btn{margin-bottom:24px!important}
+ .deep-home .dd-mode-nav{margin-top:13px!important}
+ .deep-home .dd-sea-stats{margin-top:13px!important}
+ .deep-home .dd-surface-label{display:none}.deep-home .dd-rules{margin-bottom:25px!important}
+}
+@media(max-width:650px){
+ .deep-home .dd-sky:not(.dd-game-sky){height:45svh!important;min-height:0!important}
+ .deep-home .dd-sea:not(.dd-game-sea){min-height:55svh!important;height:auto!important}
+ .deep-home .dd-title-group{top:35%!important}
+ .deep-home .dd-logo,.deep-home .dd-logo span{font-size:clamp(45px,10.8vw,77px)!important;letter-spacing:.01em!important}
+ .deep-home .dd-subtitle{font-size:21px!important;margin:11px 0 5px!important}
+ .deep-home .dd-tagline{font-size:17px!important;margin:7px 0!important}
+ .deep-home .dd-rules{margin:0 auto 19px!important}
+ .deep-home .dd-party-btn{max-width:300px;height:58px!important;margin-bottom:16px!important}
+ .deep-home .dd-begin{height:65px!important}
+ .deep-home .dd-sea-center{padding-top:18px!important}
+ .deep-home .dd-mode-nav button{font-size:15px!important}
+}
+/* Matched against the public 1440×900 rendering captured 2026-10-29. */
+@media(min-width:651px){
+ .deep-home .dd-logo,.deep-home .dd-logo span{font-size:clamp(73px,8.3vw,110px)!important}
+ .deep-home .dd-subtitle{margin-top:28px!important}
+ .deep-home .dd-sea-center{padding-top:37px!important}
+ .deep-home .dd-rules{margin-bottom:50px!important}
+ .deep-home .dd-party-btn{margin-left:0!important;margin-right:auto!important}
+}

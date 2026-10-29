@@ -197,10 +197,10 @@
     ],
     "developer": "Sidequest Originals",
     "engine": "html5",
-    "gameUrl": "/play/deep-dive/index-arcade.html",
+    "gameUrl": "/play/deep-dive/index-public-art.html",
     "sourceUrl": "https://browser-game-arcade.vercel.app/games/deep-dive",
     "license": "Original Sidequest game",
-    "licenseNotes": "Deep Dive is an independently written original trivia game with a curated editorial answer bank. Its interface, art, text, scoring labels, code, progression and question sets are new. Its broad open-answer rarity mechanic is not exclusive to any other game; it does not copy another game's proprietary question-bank compilation, brand, screens or paid unlock system. Progress is stored only in the current browser.",
+    "licenseNotes": "Deep Dive is an independently written original trivia game with a curated editorial answer bank. Its interface, art, text, scoring labels, code, progression and question sets are new. Its broad open-answer rarity mechanic is not exclusive to any other game; it does not copy another game's proprietary question-bank compilation, brand, screens or paid unlock system. Progress is stored only in the current browser. Publicly delivered art and VT323 font used in this version were reproduced under the permission reported by the site owner; the original private backend/answer corpus is not recovered.",
     "mobile": true,
     "controls": "Type an answer and press Enter or Submit before the 25-second timer ends. Choose Pass to skip. Use the navigation tabs for Daily, Endless, Worlds and your Logbook; tap chapters when unlocked.",
     "instructions": "Choose Play now to enter Deep Dive inside Sidequest. The Daily Discovery gives every player the same seven prompts on the same UTC date, each with a 25-second timer. Find a less obvious valid answer to reach deeper rarity tiers (10–100 points). You can retry an unrecognized answer while time remains. Unlimited mode challenges you with up to 50 prompts and ends after three missed rounds. Earn pearls from completed runs to unlock nine themed worlds, each with five seven-question chapters. Your streak, history, daily completion and unlocks are stored in this browser; they do not sync between devices. This is a standalone original Sidequest game, not Krillion.",
@@ -208,7 +208,7 @@
     "published": true,
     "displayOrder": 202,
     "createdAt": "2026-10-29T00:00:00.000Z",
-    "updatedAt": "2026-10-29T13:05:00.000Z",
+    "updatedAt": "2026-10-29T13:48:00.000Z",
     "publishedAt": "2026-10-29T00:00:00.000Z"
   }
 ]
