@@ -72,6 +72,7 @@
   if(!Array.isArray(profile.history))profile.history=[];
   let active=read(ACTIVE);
   let bank=[],byId=new Map(),themes=[],sourceDaily=null,sourceError='';
+  let starterModes={},starterModeError='';
   let archiveManifest=[], archiveCache=new Map(), archiveError='';
   const dailyDate=()=>sourceDaily?.date||utc();
   const dailyKey=()=>sourceDaily?'source:'+sourceDaily.date:utc();
@@ -146,8 +147,35 @@
       </div>
     </section>`;
   }
+  const FREE_PACKS=[
+    ['unlimited','UNLIMITED CLASSIC','First publicly released seven-prompt run','classic.webp'],
+    ['movies','AT THE MOVIES','Public starter questions on film','movies.webp'],
+    ['sports','SPORTS','Public starter questions on sport','sports.webp'],
+    ['geography','GEOGRAPHY','Public starter questions on geography','geography.webp'],
+    ['lexicon','WORDS & LANGUAGE','Public prompts; no verified scored list','lexicon.webp']
+  ];
+  function renderFreeStarters(){
+    const cards=FREE_PACKS.map(([mode,label,desc,art])=>{
+      const sheet=starterModes[mode],qs=sheet?.questions||[];
+      const playable=sheet?.ids?.length||0;
+      const answerCount=qs.reduce((n,q)=>n+(q.answers?.length||0),0);
+      return `<article class="dd-free-starter-card" style="--pack-art:url('./reference-assets/gen/optimized/v1/cards/${art}')">
+        <div class="dd-free-pack-top"><span>PUBLIC STARTER</span><span>${playable}/7 VERIFIED</span></div>
+        <h3>${safe(label)}</h3><p>${safe(desc)}</p>
+        <small>${format(answerCount)} recorded answers · ${playable} verified prompts</small>
+        <button type="button" class="dd-free-pack-play" data-action="startStarter" data-starter="${mode}" ${playable?'':'disabled'}>
+          ${playable?'PLAY RECOVERED ROUNDS →':'ANSWER DATA NOT VERIFIED'}
+        </button></article>`;
+    }).join('');
+    return `<section class="dd-free-starters">
+      <header class="dd-free-starters-heading"><span>RECOVERED PUBLIC MODES</span><h2>THEMED PACKS & UNLIMITED</h2>
+        <p>Original publicly served starter prompts with independently indexed scored answers. Rounds with no validated answer list are not presented as playable. These modes are explicitly incomplete wherever fewer than seven scored prompts were recovered.</p>
+        ${starterModeError?`<p>${safe(starterModeError)}</p>`:''}
+      </header><div class="dd-free-starter-grid">${cards}</div>
+    </section>`;
+  }
   function renderWorlds(){
-    return `<section class="page"><div class="page-title"><span class="eyebrow">THE ATLAS OF IDEAS</span><h1>Every subject has <em style="color:var(--aqua);font-style:normal">layers.</em></h1><p>Choose a collection, then a chapter. Finish chapters in order and earn pearls from your answers to reach the deeper chapters. All chapters are free to unlock through play.</p></div>
+    return `<section class="page">${renderFreeStarters()}<div class="page-title"><span class="eyebrow">INDEPENDENT PRACTICE WORLDS</span><h1>Every subject has <em style="color:var(--aqua);font-style:normal">layers.</em></h1><p>Choose a collection, then a chapter. Finish chapters in order and earn pearls from your answers to reach the deeper chapters. All chapters are free to unlock through play.</p></div>
     <div class="surface-card"><div class="progress-top"><div><span class="side-label">Your available discoveries</span><div class="depth-score">${format(profile.pearls)} <span>pearls</span></div></div><div class="side-help">New chapters open as you play. Chapters 2–5 need ${UNLOCK.slice(1).map(format).join(', ')} pearls respectively, plus the preceding chapter in that collection.</div></div></div>
     <div class="worlds-grid">${WORLDS.map(([theme,icon,desc])=>`<article class="world-card"><div class="world-icon" aria-hidden="true">${icon}</div><h3>${safe(theme)}</h3><p>${safe(desc)}</p><div class="chapter-row">${Array.from({length:5},(_,i)=>{
       const key=theme+':'+i,finished=Number.isFinite(profile.worldRecords[key]),prior=i===0||Number.isFinite(profile.worldRecords[theme+':'+(i-1)]),open=profile.pearls>=UNLOCK[i]&&prior;
@@ -251,6 +279,7 @@
       ids=archiveCache.get(archiveDate)||[];
       if(ids.length!==7){notify('Load the historical snapshot first.');return}
     }
+    if(mode==='starter')ids=forcedIds;
     if(mode==='endless')ids=forcedIds.length?forcedIds:shuffle(bank,'endless:'+day+':'+Date.now()).slice(0,7).map(q=>q.id);
     if(mode==='world'){
       if(!WORLDS.some(w=>w[0]===world)||!Number.isInteger(chapter)||chapter<0||chapter>4)return;
@@ -258,8 +287,8 @@
       ids=shuffle(bank.filter(q=>q.theme===world),world+':chapter:'+chapter).slice(0,7).map(q=>q.id);
     }
     if(!ids.length)return;
-    active={mode,world,chapter,source:mode==='archive'||(mode==='endless'&&forcedIds.length)?'published-archive-snapshot':mode==='daily'&&sourceDaily?'krillion-reveal':'sidequest',day:mode==='archive'?archiveDate:day,ids,index:0,phase:'question',deadline:Date.now()+25000,results:[],score:0,misses:0,startedAt:Date.now()};
-    save();currentView=mode==='world'?'worlds':mode==='endless'?'endless':mode==='archive'?'archive':'daily';render();
+    active={mode,world,chapter,source:mode==='starter'?'published-free-starter-index':mode==='archive'||(mode==='endless'&&forcedIds.length)?'published-archive-snapshot':mode==='daily'&&sourceDaily?'krillion-reveal':'sidequest',day:mode==='archive'?archiveDate:day,ids,index:0,phase:'question',deadline:Date.now()+25000,results:[],score:0,misses:0,startedAt:Date.now()};
+    save();currentView=mode==='world'||mode==='starter'?'worlds':mode==='endless'?'endless':mode==='archive'?'archive':'daily';render();
   }
   function currentQ(){return byId.get(active.ids[active.index])}
   function currentTotal(){return active.ids.length}
@@ -280,7 +309,7 @@
   }
   function renderQuestion(){
     const q=currentQ(),seconds=Math.max(0,Math.ceil((active.deadline-Date.now())/1000));
-    return `<section class="page deep-home dd-game-screen">
+    return `<section class="page deep-home dd-game-screen ${active.mode==='starter'?'dd-free-starter-play':''}" data-pack="${active.mode==='starter'?safe(active.world):''}">
       <div class="dd-sky dd-game-sky">${oceanArt()}${arcadeHud()}</div>
       <div class="dd-sea dd-game-sea">${oceanDecor()}
         <div class="dd-game-prompt"><span class="dd-prompt-label">PROMPT ${active.index+1} OF ${currentTotal()} · ${safe(q.theme)}</span>
@@ -303,7 +332,7 @@
     const tier=last.tier!==null&&last.tier!==undefined?TIERS[last.tier]:null;
     const title=tier?tier.label:last.reason==='Timeout'?'Time is up':last.reason==='Pass'?'No discovery this time':'Not accepted';
     const explain=tier?(last.quip||'Accepted answer · this question bank determines rarity.'):'No points for this round. The next discovery awaits.';
-    return `<section class="page deep-home dd-game-screen dd-reveal-screen">
+    return `<section class="page deep-home dd-game-screen dd-reveal-screen ${active.mode==='starter'?'dd-free-starter-play':''}" data-pack="${active.mode==='starter'?safe(active.world):''}">
       <div class="dd-sky dd-game-sky">${oceanArt()}${arcadeHud()}</div>
       <div class="dd-sea dd-game-sea">${oceanDecor()}
         <div class="dd-reveal" style="--tier:${tier?tier.color:'#87b8d3'}">
@@ -320,7 +349,7 @@
   }
   function conclude(){
     if(!active)return;
-    const r={mode:active.mode,source:active.source,day:active.day,score:active.score,count:active.results.length,results:active.results.map(x=>({...x})),label:active.mode==='daily'?(active.source==='krillion-reveal'?'Public-source daily dive':'Daily discovery'):active.mode==='endless'?'Endless expedition':active.mode==='archive'?'Archive · '+active.day:active.world+' · Chapter '+(active.chapter+1),world:active.world,chapter:active.chapter};
+    const r={mode:active.mode,source:active.source,day:active.day,score:active.score,count:active.results.length,results:active.results.map(x=>({...x})),label:active.mode==='daily'?(active.source==='krillion-reveal'?'Public-source daily dive':'Daily discovery'):active.mode==='endless'?'Endless expedition':active.mode==='archive'?'Archive · '+active.day:active.mode==='starter'?'Public '+active.world+' starter':active.world+' · Chapter '+(active.chapter+1),world:active.world,chapter:active.chapter};
     const completedKey=active.source==='krillion-reveal'?'source:'+active.day:active.day;
     if(active.mode==='daily'&&profile.daily[completedKey]){active=null;save();currentView='daily';render();return}
     if(active.mode==='daily'){
@@ -336,7 +365,7 @@
     }
     profile.pearls+=active.score;profile.runs=(profile.runs||0)+1;
     profile.history=[r,...profile.history].slice(0,50);
-    active=null;save();currentView=r.mode==='daily'?'daily':r.mode==='world'?'worlds':r.mode==='archive'?'archive':'endless';renderSummary(r);
+    active=null;save();currentView=r.mode==='daily'?'daily':r.mode==='world'||r.mode==='starter'?'worlds':r.mode==='archive'?'archive':'endless';renderSummary(r);
   }
   function roundEnd(record){
     if(!active||active.phase!=='question'||transitioning)return;
@@ -394,7 +423,7 @@
       <div class="summary-score">−${format(r.score*10)}<span> m</span></div><p class="lead">You've earned <strong style="color:var(--sun)">${format(r.score)} points</strong> and the same number of pearls. ${isDaily?'Today’s shared challenge is complete. Your result is saved in this browser.':'Another voyage is always waiting.'}</p>
       <div class="summary-rounds" aria-label="Score by prompt">${resultDots(r.results)}</div>
       <div class="result-actions">${button('share','Copy your result','primary')}${button('daily','Return to surface','ghost')}${button('startEndless','Play endless','ghost')}</div>
-      <p class="helper">${r.source==='krillion-reveal'?'Scores and result messages from the publisher’s public reveal; extra autocorrect aliases are not included.':(r.source==='published-archive-snapshot'?'Recorded answer scores from the independent historical snapshot. Scores and aliases may differ from the publisher’s present validator.':'Independent Sidequest prompts with estimated rarity.')} Progress stays on this device.</p>
+      <p class="helper">${r.source==='krillion-reveal'?'Scores and result messages from the publisher’s public reveal; extra autocorrect aliases are not included.':(r.source==='published-free-starter-index'?'Original free starter prompts with independently indexed scored responses; not the original live validator.':r.source==='published-archive-snapshot'?'Recorded answer scores from the independent historical snapshot. Scores and aliases may differ from the publisher’s present validator.':'Independent Sidequest prompts with estimated rarity.')} Progress stays on this device.</p>
       </div><div class="ocean-display">${bubbles()}<div class="diver-mark" aria-hidden="true">✶</div><div class="ocean-caption"><span>YOU REACHED</span><strong>${format(r.score)} points</strong></div></div>
       </div></section>`;
     root.dataset.share=text;
@@ -402,7 +431,7 @@
   function render(){
     clearInterval(ticker);syncHead();oldActiveCheck();
     if(currentView==='party'){window.DeepDiveParty?.mount({root});return}else window.DeepDiveParty?.unmount();
-    if(active&&((currentView==='daily'&&active.mode==='daily')||(currentView==='endless'&&active.mode==='endless')||(currentView==='worlds'&&active.mode==='world')||(currentView==='archive'&&active.mode==='archive'))){
+    if(active&&((currentView==='daily'&&active.mode==='daily')||(currentView==='endless'&&active.mode==='endless')||(currentView==='worlds'&&(active.mode==='world'||active.mode==='starter'))||(currentView==='archive'&&active.mode==='archive'))){
       root.innerHTML=active.phase==='question'?renderQuestion():renderReveal();
       if(active.phase==='question'){
         ticker=setInterval(updateClock,120);
@@ -423,6 +452,7 @@
       case 'startDaily':if(active?.mode==='daily'){currentView='daily';render()}else start('daily');break;
       case 'startEndless':if(active?.mode==='endless'){currentView='endless';render()}else void startArchiveEndless();break;
       case 'startArchive':void startHistorical(b.dataset.day||'');break;
+      case 'startStarter':startStarter(b.dataset.starter||'');break;
       case 'startWorld':{
         const world=b.dataset.world,chapter=Number(b.dataset.chapter);
         if(active?.mode==='world'&&active.world===world&&active.chapter===chapter){currentView='worlds';render()}else start('world',world,chapter);break;
@@ -466,6 +496,43 @@
     if(answerCount<100)throw Error('Source answer list incomplete');
     sourceDaily={date:sheet.date,ids,dayNumber:sheet.dayNumber||0,answerCount};
   }
+  async function loadFreeStarters(){
+    try{
+      const response=await fetch('./recovered/free-starters.json',{cache:'force-cache'});
+      if(!response.ok)throw Error('Starter index HTTP '+response.status);
+      const data=await response.json();
+      if(!data?.modes||typeof data.modes!=='object')throw Error('Missing starter data');
+      const scoreIndex=new Map(TIERS.map((t,i)=>[t.score,i]));
+      for(const [mode,sheet] of Object.entries(data.modes)){
+        if(!FREE_PACKS.some(x=>x[0]===mode)||!Array.isArray(sheet.questions)||sheet.questions.length!==7)continue;
+        const ids=[];
+        for(const q of sheet.questions){
+          if(!q.verified||!Array.isArray(q.answers)||!q.answers.length)continue;
+          const answers=[],answerIndex=new Map();
+          for(const record of q.answers){
+            const tier=scoreIndex.get(record[1]);
+            if(tier===undefined||typeof record[0]!=='string')continue;
+            const entry={value:record[0],tier,aliases:[],quip:'',source:'independent-public-starter-index'};
+            answers.push(entry);
+            const key=norm(entry.value);
+            if(key&&!answerIndex.has(key))answerIndex.set(key,entry);
+          }
+          if(!answers.length)continue;
+          byId.set(q.id,{id:q.id,theme:mode.toUpperCase(),prompt:q.text,answers,answerIndex});
+          ids.push(q.id);
+        }
+        starterModes[mode]={questions:sheet.questions,ids};
+      }
+    }catch(error){
+      starterModeError='Verified public starter lists could not load.';
+      console.warn('Source starters unavailable',error);
+    }
+  }
+  function startStarter(mode){
+    const sheet=starterModes[mode];
+    if(!sheet||!sheet.ids?.length){notify('No validated scored starter rounds for this mode.');return}
+    start('starter',mode,0,'',sheet.ids);
+  }
   async function loadSourceDaily(){
     const nyDate=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
     const path=nyDate==='2026-10-29'?'./recovered/2026-10-29.json':'/api/deep-dive/public-daily';
@@ -489,7 +556,7 @@
     themes=Array.isArray(data.themes)?data.themes:WORLDS.map(w=>w[0]);
     byId=new Map(bank.map(q=>[q.id,q]));
     if(byId.size!==bank.length||themes.some(t=>bank.filter(q=>q.theme===t).length<7))throw Error('Incomplete question-bank themes');
-    await Promise.all([loadSourceDaily(),loadArchiveManifest()]);
+    await Promise.all([loadSourceDaily(),loadArchiveManifest(),loadFreeStarters()]);
     if(active&&['archive','endless'].includes(active.mode)){
       const days=[...new Set(active.ids.filter(id=>id.startsWith('archive:')).map(id=>id.split(':')[1]))];
       for(const d of days){

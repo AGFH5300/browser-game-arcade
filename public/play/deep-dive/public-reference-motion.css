@@ -1,0 +1,112 @@
+/* Publicly delivered Krillion animation keyframes recovered from static CSS.\n   Original files and SHA-256:\n   1pp18n31ii136.css  a5cbeab3c5e2bd404f36094ad578f52788412b97dbf7e380da708679ff5eb998\n   0b3q6y7r_vxf6.css  25a3579392adcc2d8c021c6fd161a2bc7d11a6a40bf7ba32a4186ea3fcc3be9d\n   Integrated into Sidequest on reconstructed (dd-/pp-) DOM selectors. */\n@keyframes ds-shake{0%,to{transform:translate(0)rotate(0)}12%{transform:translate(-10px,5px)rotate(-.6deg)}26%{transform:translate(9px,-6px)rotate(.5deg)}42%{transform:translate(-7px,4px)rotate(-.35deg)}58%{transform:translate(6px,-3px)rotate(.25deg)}76%{transform:translate(-3px,2px)rotate(-.1deg)}}
+@keyframes ds-edge-throb{0%,to{opacity:.15}50%{opacity:.85}}
+@keyframes ds-crt-zap{0%{opacity:.9;transform:translateY(0)}33%{opacity:.2;transform:translateY(2px)}66%{opacity:.7;transform:translateY(-1px)}to{opacity:.45;transform:none}}
+@keyframes ds-bob-l{0%,to{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes ds-title-flicker{0%,93%,95.5%,to{opacity:1}93.6%{opacity:.7}94.4%{opacity:.94}95%{opacity:.62}}
+@keyframes ds-line-flash{0%{filter:brightness(3)}to{filter:brightness()}}
+@keyframes ds-card-in{0%{opacity:0;transform:translateY(46px)scale(.92)}}
+@keyframes ds-card-gone{to{opacity:0;filter:blur(2px);transform:translateY(-28px)scale(.9)}}
+@keyframes ds-gold-pulse{0%,to{box-shadow:0 0 0 3px #ffd166,0 0 26px #ffd16680}50%{box-shadow:0 0 0 3px #ffe9a8,0 0 60px #ffd166e6}}
+@keyframes ds-banner-in{0%{opacity:0;transform:scale(.5)}}
+@keyframes ds-icon-bob{0%,to{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes ds-crank-jolt{0%{transform:translateY(0)}45%{transform:translateY(3px)scale(1.06)}to{transform:translateY(0)}}
+@keyframes ds-dot-pulse{0%,to{transform:scale(1.05)}50%{transform:scale(1.35)}}
+@keyframes ds-score-slam{0%{transform:scale(1)}35%{color:#ffd166;text-shadow:0 0 26px #ffd166e6;transform:scale(1.4)rotate(-2deg)}to{transform:scale(1)}}
+@keyframes ds-sweep-spin{to{transform:rotate(360deg)}}
+@keyframes ds-reject-jolt{0%,to{transform:translate(0)}20%{transform:translate(-8px)}45%{transform:translate(7px)}70%{transform:translate(-4px)}88%{transform:translate(2px)}}
+@keyframes ds-rise-in{0%{opacity:0;transform:translateY(30px)}}
+@keyframes ds-btn-bob{0%,to{transform:translateY(0)}50%{transform:translateY(5px)}}
+@keyframes ds-boot-bob{0%,to{transform:translateY(0)rotate(-4deg)}50%{transform:translateY(-9px)rotate(4deg)}}
+@keyframes ds-boot-pulse{0%,to{opacity:1}50%{opacity:.45}}
+@keyframes ds-gold-breathe{0%,to{opacity:.38;transform:scale(.88)}50%{opacity:.72;transform:scale(1.08)}}
+@keyframes ds-gild{0%{opacity:1;transform:scale(1.7)}55%{opacity:.86;transform:scale(1.18)}to{opacity:.48;transform:scale(.92)}}
+@keyframes ds-swim{0%,to{transform:translateY(0)rotate(-4deg)scaleX(1)}25%{transform:translateY(-7px)rotate(2deg)scaleX(.96)}50%{transform:translateY(-2px)rotate(5deg)scaleX(1)}75%{transform:translateY(-9px)rotate(-2deg)scaleX(.97)}}
+@keyframes ds-loop{0%{transform:rotate(0)translateY(0)scale(1)}30%{transform:rotate(-140deg)translateY(-36px)scale(1.15)}60%{transform:rotate(-280deg)translateY(-16px)scale(1.2)}to{transform:rotate(-360deg)translateY(0)scale(1)}}
+@keyframes ds-faint{0%{opacity:1;transform:rotate(0)translateY(0)}25%{transform:rotate(96deg)translateY(5px)}to{opacity:.65;transform:rotate(178deg)translateY(90px)}}
+@keyframes ds-sad{0%,to{transform:rotate(24deg)translateY(2px)}50%{transform:rotate(30deg)translateY(9px)}}
+@keyframes ds-roll{to{transform:rotate(720deg)}}
+@keyframes ds-dart{0%{transform:translate(0)scaleX(1)rotate(0)}28%{transform:translate(36px)scaleX(1.15)rotate(7deg)}50%{transform:translate(44px)scaleX(-1)rotate(-5deg)}78%{transform:translate(-8px)scaleX(-1.08)rotate(3deg)}to{transform:translate(0)scaleX(1)rotate(0)}}
+@keyframes ds-jet{0%{transform:translateY(0)scale(1)rotate(0)}24%{transform:translateY(8px)scale(1.28,.68)rotate(0)}52%{transform:translateY(-48px)scale(.8,1.32)rotate(-7deg)}76%{transform:translateY(-20px)scale(1.05,.95)rotate(4deg)}to{transform:translateY(0)scale(1)rotate(0)}}
+@keyframes ds-chomp{0%{transform:translate(0)scale(1)rotate(0)}22%{transform:translate(-7px)scale(.9)rotate(7deg)}42%{transform:translate(11px)scale(1.24)rotate(-9deg)}58%{transform:translate(5px)scale(1.02)rotate(-2deg)}74%{transform:translate(9px)scale(1.18)rotate(-7deg)}to{transform:translate(0)scale(1)rotate(0)}}
+@keyframes ds-blub-up{0%{opacity:0;transform:translateY(6px)}20%{opacity:1}to{opacity:0;transform:translateY(-16px)}}
+@keyframes water-drift{0%{transform:translate(-2.4%)translateY(-.5%)}to{transform:translate(2.4%)translateY(.5%)}}
+@keyframes rays-drift{0%{opacity:.75;transform:translate(-3%)}to{opacity:1;transform:translate(3%)}}
+@keyframes sink-to-depth{0%{transform:translateY(0)}to{transform:translateY(var(--sink-to,0px))}}
+@keyframes dropline-grow{0%{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes fade-up{0%{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@keyframes shake{0%,to{transform:translate(0)}20%{transform:translate(-8px)}40%{transform:translate(7px)}60%{transform:translate(-5px)}80%{transform:translate(3px)}}
+@keyframes bloom{0%{opacity:0;filter:brightness(2.5);transform:scale(.6)}60%{opacity:1;transform:scale(1.06)}to{opacity:1;filter:brightness();transform:scale(1)}}
+@keyframes sink{0%{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes glow-pulse{0%,to{opacity:1}50%{opacity:.55}}
+@keyframes hub-go-bob{0%,to{transform:translateY(0)}50%{transform:translateY(3px)}}
+@keyframes hub-charting-pulse{0%,to{opacity:1}50%{opacity:.35}}
+
+:root{--source-ease-io:cubic-bezier(.45,0,.55,1);--source-ease-snap:cubic-bezier(.2,1.5,.4,1)}
+.deep-home .dd-logo{animation:5s step-end infinite ds-title-flicker!important}
+.deep-home .dd-logo span{animation:3.2s ease-in-out infinite ds-bob-l!important;display:inline-block}
+.deep-home .dd-begin{animation:1.9s var(--source-ease-io) infinite ds-btn-bob!important}
+.deep-home .dd-party-btn{animation:ds-btn-bob 2.6s ease-in-out infinite!important}
+.deep-home .dd-sky::before{animation:ds-crt-zap .28s steps(3,end) 1 both}
+.deep-home .dd-sea:not(.dd-game-sea):before{animation:water-drift 6s ease-in-out infinite alternate!important}
+.dd-game-screen .dd-game-fish{animation:ds-swim 2.6s var(--source-ease-io) infinite!important}
+.dd-game-screen .dd-game-prompt{animation:ds-card-in .7s var(--source-ease-snap) backwards!important}
+.dd-game-screen .dd-prompt-text{animation:fade-up .35s ease-out both}
+.dd-game-screen .dd-game-clock.warn{animation:ds-boot-pulse .75s steps(2,end) infinite!important}
+.dd-reveal-screen .dd-reveal{animation:ds-card-in .7s var(--source-ease-snap) backwards!important}
+.dd-reveal-screen .dd-reveal-spark{animation:bloom .5s ease-out both!important}
+.dd-reveal-screen .dd-reveal-score{animation:ds-score-slam .5s var(--source-ease-snap) 1 both!important;display:inline-block}
+.dd-reveal-screen .dd-reveal-title{animation:ds-banner-in .45s var(--source-ease-snap) both}
+.dd-reveal-screen .dd-reveal:has(.dd-reveal-score) .dd-reveal-depth{animation:fade-up .6s ease-out both}
+.pp-view .pp-hero-fish{animation:ds-swim 2.6s var(--source-ease-io) infinite!important}
+.pp-view .pp-active-scene .pp-puffer{animation:ds-swim 2.6s var(--source-ease-io) infinite!important}
+.page:has(.worlds-grid) .world-card:hover{animation:ds-icon-bob .5s ease-in-out 1}
+#app.dd-crt-zap:before{content:"";position:fixed;inset:0;z-index:30;pointer-events:none;background:repeating-linear-gradient(0deg,#00000020 0 1px,transparent 1px 3px);animation:ds-crt-zap .28s steps(3,end) 1 both}
+@media(prefers-reduced-motion:reduce){
+.deep-home .dd-logo,.deep-home .dd-logo span,.deep-home .dd-begin,.deep-home .dd-party-btn,.deep-home .dd-sky::before,
+.deep-home .dd-sea:not(.dd-game-sea):before,.dd-game-screen .dd-game-fish,.dd-game-screen .dd-game-prompt,
+.dd-game-screen .dd-prompt-text,.dd-game-screen .dd-game-clock.warn,.dd-reveal-screen .dd-reveal,
+.dd-reveal-screen .dd-reveal-spark,.dd-reveal-screen .dd-reveal-score,.dd-reveal-screen .dd-reveal-title,
+.dd-reveal-screen .dd-reveal-depth,.pp-view .pp-hero-fish,.pp-view .pp-active-scene .pp-puffer,
+.page:has(.worlds-grid) .world-card:hover,#app.dd-crt-zap:before{animation:none!important}
+}
+
+/* Additional first-party CSS recovered by route crawl (Puffer Party, Unlimited, Packs). */
+/* 1vi73c022xus9.css sha256=5cc04f9f0b41f80a1de8acf2e7b0b96998ff473185dfe43bd8809cc7fe93acb0 */
+@keyframes pf-hit{0%{filter:brightness(3)drop-shadow(0 0 12px #fff);transform:scale(1.35)}18%{filter:brightness(1.6);transform:translate(-6px,-26px)rotate(-160deg)scale(1.1)}55%{transform:translate(2px,-10px)rotate(-320deg)}to{transform:rotate(-360deg)}}
+@keyframes pf-dizzy{0%,to{transform:rotate(-14deg)translateY(2px)}50%{transform:rotate(10deg)translateY(-3px)}}
+@keyframes pf-shake-off{0%{transform:rotate(-14deg)translateY(2px)}40%{transform:rotate(16deg)scale(1.08)}70%{transform:rotate(-8deg)}to{transform:none}}
+@keyframes pf-join{0%{opacity:0;transform:translateY(26px)scale(.2)}}
+@keyframes pf-heart-pop{0%{color:#fff;transform:scale(1.8)}40%{transform:scale(.6)translateY(4px)}to{transform:none}}
+@keyframes pf-heart-gain{0%{transform:scale(.1)}}
+@keyframes pf-blink{50%{opacity:0}}
+@keyframes pf-say-jolt{0%,to{transform:translate(-50%)}20%{transform:translate(calc(-50% - 7px))}45%{transform:translate(calc(6px - 50%))}70%{transform:translate(calc(-50% - 3px))}}
+@keyframes pf-rise{0%{opacity:0;transform:translate(-50%,8px)scale(.6)}15%{opacity:1;transform:translate(-50%)scale(1.1)}70%{opacity:1}to{opacity:0;transform:translate(-50%,-34px)scale(1)}}
+@keyframes pf-newcat{0%{transform:translate(-120vw)}22%,72%{transform:translate(0)}to{transform:translate(120vw)}}
+/* 3j9no1a_hemcb.css sha256=6d828b27ba7ce519b200d4554bc5613dbdf74344e62bf5d207caca19d2b17410 */
+@keyframes dr-card-in{0%{opacity:0;transform:translate(-50%)translateY(46px)scale(.92)}}
+@keyframes dr-card-gone{to{opacity:0;filter:blur(2px);transform:translate(-50%)translateY(-28px)scale(.9)}}
+@keyframes dr-banner-in{0%{opacity:0;transform:translate(-50%)scale(.5)}}
+@keyframes dr-ride{0%,to{transform:translateY(0)rotate(-2deg)}50%{transform:translateY(-3px)rotate(2deg)}}
+@keyframes dr-stunt{0%{transform:translateY(0)rotate(-2deg)scale(1)}14%{transform:translateY(3px)rotate(4deg)scale(1.1,.86)}48%{transform:translateY(-34px)rotate(190deg)scale(.95,1.05)}74%{transform:translateY(-9px)rotate(330deg)scale(1)}86%{transform:translateY(1px)rotate(358deg)scale(1.12,.86)}to{transform:translateY(0)rotate(358deg)scale(1)}}
+/* 240trhd7lpzk0.css sha256=2d5a7310a0f187c988c8ce952fdd150c0fa2b9b6bae1110266b31a22d9c49723 */
+@keyframes gl-card-in{0%{opacity:0;transform:translate(-50%)translateY(46px)scale(.92)}}
+@keyframes gl-card-gone{to{opacity:0;filter:blur(2px);transform:translate(-50%)translateY(-28px)scale(.9)}}
+@keyframes gl-banner-in{0%{opacity:0;transform:translate(-50%)scale(.5)}}
+@keyframes gl-stride{0%,to{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes gl-flip{0%{transform:translateY(0)rotate(0)scale(1)}12%{transform:translateY(4px)rotate(-6deg)scale(1.12,.82)}45%{transform:translateY(-30px)rotate(-200deg)scale(.94,1.06)}72%{transform:translateY(-8px)rotate(-330deg)scale(1)}84%{transform:translateY(2px)rotate(-360deg)scale(1.14,.84)}to{transform:translateY(0)rotate(-360deg)scale(1)}}
+@keyframes gl-heelclick{0%{transform:translateY(0)rotate(-3deg)scale(1)}14%{transform:translateY(3px)rotate(3deg)scale(1.12,.84)}40%{transform:translateY(-26px)rotate(-14deg)scale(.96,1.06)}55%{transform:translateY(-28px)rotate(14deg)scale(.96,1.06)}74%{transform:translateY(-10px)rotate(-370deg)scale(1)}86%{transform:translateY(2px)rotate(-360deg)scale(1.1,.86)}to{transform:translateY(0)rotate(-360deg)scale(1)}}
+@keyframes nb-card-in{0%{opacity:0;transform:translate(-50%)translateY(46px)rotate(2deg)scale(.92)}to{transform:translate(-50%)translateY(0)rotate(-.6deg)scale(1)}}
+@keyframes nb-card-gone{0%{transform:translate(-50%)translateY(0)rotate(-.6deg)scale(1)}to{opacity:0;filter:blur(2px);transform:translate(-50%)translateY(-28px)rotate(1deg)scale(.9)}}
+@keyframes nb-banner-in{0%{opacity:0;transform:translate(-50%)scale(.5)rotate(-3deg)}to{transform:translate(-50%)scale(1)rotate(.4deg)}}
+@keyframes nb-dip{0%{transform:rotate(0)translateY(0)}30%{transform:rotate(-16deg)translateY(-20px)}55%{transform:rotate(10deg)translateY(6px)scale(1.05,.92)}to{transform:rotate(0)translateY(0)}}
+
+.pp-view .pp-public-room{animation:pf-join .55s cubic-bezier(.2,1.4,.4,1) backwards}
+.pp-view .pp-avatar-option.active img{animation:pf-heart-gain .45s ease-out both}
+.pp-view .pp-reef-bubbles{animation:pf-blink 1.9s steps(2,end) infinite}
+.dd-free-starter-play[data-pack=movies] .dd-game-fish{animation:dr-ride 2.2s ease-in-out infinite!important}
+.dd-free-starter-play[data-pack=sports] .dd-game-fish{animation:gl-stride 1.9s ease-in-out infinite!important}
+@media(prefers-reduced-motion:reduce){
+ .pp-view .pp-public-room,.pp-view .pp-avatar-option.active img,.pp-view .pp-reef-bubbles,
+ .dd-free-starter-play[data-pack=movies] .dd-game-fish,
+ .dd-free-starter-play[data-pack=sports] .dd-game-fish{animation:none!important}
+}
