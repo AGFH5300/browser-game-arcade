@@ -18,6 +18,39 @@ export const PARTY_MAX_HEARTS=5;
 export const PARTY_TURNS_CAP=90;
 const TIER_POINTS=[10,15,30,60,85,100] as const;
 export const normalizePartyAnswer=(s:string)=>s.toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/\+/g,' plus ').replace(/#/g,' sharp ').replace(/[^a-z0-9]+/g,' ').replace(/\s+/g,' ').trim();
+type PartyAnswer=PartyQuestion['answers'][number];
+function editDistance(a:string,b:string,max:number):number{
+ if(Math.abs(a.length-b.length)>max)return max+1;
+ let prev=Array.from({length:b.length+1},(_,i)=>i);
+ for(let i=1;i<=a.length;i++){
+  const next=[i];let minimum=next[0];
+  for(let j=1;j<=b.length;j++){
+   next[j]=Math.min(prev[j]+1,next[j-1]+1,prev[j-1]+(a[i-1]===b[j-1]?0:1));
+   minimum=Math.min(minimum,next[j]);
+  }
+  if(minimum>max)return max+1;
+  prev=next;
+ }
+ return prev[b.length];
+}
+/** Canonicalizes exact aliases and uniquely resolvable short typos. Never guesses
+ * between multiple valid answers at the same edit distance. */
+export function findPartyAnswer(question:PartyQuestion,raw:string):PartyAnswer|null{
+ const key=normalizePartyAnswer(raw);
+ if(!key)return null;
+ for(const answer of question.answers)
+  if([answer.value,...(answer.aliases||[])].some(v=>normalizePartyAnswer(v)===key))return answer;
+ if(key.length<5)return null;
+ const limit=key.length>=10?2:1;
+ let match:PartyAnswer|null=null,best=limit+1,ambiguous=false;
+ for(const answer of question.answers)
+  for(const value of [answer.value,...(answer.aliases||[])]){
+   const dist=editDistance(key,normalizePartyAnswer(value),limit);
+   if(dist<best){best=dist;match=answer;ambiguous=false}
+   else if(dist===best&&match!==answer){ambiguous=true}
+  }
+ return best<=limit&&!ambiguous?match:null;
+}
 const message=(room:PartyRoom,kind:PartyEvent['kind'],text:string,now:number)=>{
  room.events=[...room.events,{kind,message:text,time:now}].slice(-36);
 };
@@ -132,7 +165,7 @@ export function applyAction(room:PartyRoom,id:string,secret:string,action:PartyA
   if(!normalized)throw Error('Enter an answer before passing the puffer.');
   const question=questions.get(room.questionIds[room.questionIndex]);
   if(!question)throw Error('Party question unavailable.');
-  const valid=question.answers.find(a=>[a.value,...(a.aliases||[])].some(s=>normalizePartyAnswer(s)===normalized));
+  const valid=findPartyAnswer(question,normalized);
   if(!valid)throw Error('Unrecognized answer. Try another before the puffer bursts.');
   const canonical=normalizePartyAnswer(valid.value);
   if(room.used.includes(canonical))throw Error('That answer has already been used for this question!');

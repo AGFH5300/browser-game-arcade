@@ -12,7 +12,7 @@
     {id:'schooler',label:'Schooler',score:30,color:'#8ee6d4',mark:'🐟'},
     {id:'rare',label:'Rare',score:60,color:'#96baff',mark:'🦑'},
     {id:'deepcut',label:'Deep Cut',score:85,color:'#d2a3ff',mark:'🏮'},
-    {id:'krillion',label:'One in a Krillion',score:100,color:'#ffcf80',mark:'🌟'}
+    {id:'krillion',label:'One in a Deep Dive',score:100,color:'#ffcf80',mark:'🌟'}
   ];
   const WORLDS=[
     ['Geography','◎','Across borders, rivers and mountains'],
@@ -29,8 +29,41 @@
   const DEFAULT={version:1,pearls:0,streak:0,lastDaily:'',daily:{},worldRecords:{},endlessBest:0,history:[],runs:0};
   const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const norm=s=>String(s||'').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/&/g,' and ').replace(/\+/g,' plus ').replace(/#/g,' sharp ').replace(/[^a-z0-9]+/g,' ').replace(/\s+/g,' ').trim().replace(/^the /,'');
-  const utc=()=>new Date().toISOString().slice(0,10);
+  const utc=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+  const rating=score=>score>=450?'One in a Deep Dive':score>=351?'Deep cut':score>=251?'Rare':score>=151?'Schooler':'Plankton';
   const format=(n)=>Number(n||0).toLocaleString('en-US');
+  // Conservative typo tolerance: a unique close match, never an ambiguous guess.
+  function editDistance(a,b,max){
+    if(Math.abs(a.length-b.length)>max)return max+1;
+    let prev=Array.from({length:b.length+1},(_,i)=>i);
+    for(let i=1;i<=a.length;i++){
+      const next=[i];let minimum=next[0];
+      for(let j=1;j<=b.length;j++){
+        next[j]=Math.min(prev[j]+1,next[j-1]+1,prev[j-1]+(a[i-1]===b[j-1]?0:1));
+        minimum=Math.min(minimum,next[j]);
+      }
+      if(minimum>max)return max+1;
+      prev=next;
+    }
+    return prev[b.length];
+  }
+  function findAnswer(question,raw){
+    const key=norm(raw);
+    if(!key)return null;
+    for(const answer of question.answers)
+      if([answer.value,...(answer.aliases||[])].some(value=>norm(value)===key))return answer;
+    if(key.length<5)return null;
+    const limit=key.length>=10?2:1;
+    let match=null,best=limit+1,ambiguous=false;
+    for(const answer of question.answers){
+      for(const value of [answer.value,...(answer.aliases||[])]){
+        const candidate=norm(value),distance=editDistance(key,candidate,limit);
+        if(distance<best){best=distance;match=answer;ambiguous=false}
+        else if(distance===best&&match!==answer){ambiguous=true}
+      }
+    }
+    return best<=limit&&!ambiguous?match:null;
+  }
   function read(key){try{return JSON.parse(localStorage.getItem(key)||'null')}catch{return null}}
   function write(key,value){try{localStorage.setItem(key,JSON.stringify(value));return true}catch{return false}}
   let profile={...DEFAULT,...(read(STORAGE)||{})};
@@ -51,9 +84,9 @@
     for(let i=a.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}
     return a;
   }
-  const todaysQuestions=()=>{
-    if(sourceDaily)return [...sourceDaily.ids];
-    const day=utc(),chosen=shuffle(themes,'daily-theme:'+day).slice(0,7);
+  const todaysQuestions=(day=utc())=>{
+    if(sourceDaily&&day===sourceDaily.date)return [...sourceDaily.ids];
+    const chosen=shuffle(themes,'daily-theme:'+day).slice(0,7);
     return chosen.map(theme=>shuffle(bank.filter(q=>q.theme===theme),'daily:'+day+':'+theme)[0].id);
   };
   function syncHead(){pearlNode.textContent=format(profile.pearls);streakNode.textContent=format(profile.streak);document.querySelectorAll('.nav-pill').forEach(b=>b.classList.toggle('active',b.dataset.view===currentView))}
@@ -105,7 +138,7 @@
           <details class="dd-rules"><summary>▸ HOW TO PLAY</summary><p>Seven prompts, twenty-five seconds per answer. Choose a correct but unusual answer to descend farther. Accepted responses earn 10–100 points; unrecognized answers can be retried until the timer ends. Every player receives the same daily questions.</p></details>
           <button type="button" class="dd-party-btn" data-action="party"><span class="dd-party-fish" aria-hidden="true">🐡</span><span>PUFFER PARTY <small>LIVE MULTIPLAYER · 2–8 EXPLORERS</small></span><span class="dd-party-arrow">›</span></button>
           <button type="button" class="dd-begin" data-action="${primaryAct}">${primaryLabel}</button>
-          <div class="dd-mode-nav"><span class="dd-dive-number">DAILY · ${safe(date)}</span><button type="button" data-action="startEndless">ENDLESS ∞</button><button type="button" data-action="worlds">THEMED WORLDS</button><button type="button" data-action="stats">LOGBOOK ◷</button></div>
+          <div class="dd-mode-nav"><span class="dd-dive-number">DAILY · ${safe(date)}</span><button type="button" data-action="startEndless">ENDLESS ∞</button><button type="button" data-action="worlds">THEMED WORLDS</button><button type="button" data-action="archive">ARCHIVE</button><button type="button" data-action="stats">LOGBOOK ◷</button></div>
           <p class="dd-source-note">${safe(sourceLabel)}${!sourceDaily&&sourceError?" · "+safe(sourceError):""}</p>
           <div class="dd-sea-stats"><span>◈ ${format(profile.pearls)} PEARLS</span><span>✦ ${format(profile.streak)} DAY STREAK</span><span>${complete?format(complete.score)+' POINTS TODAY':'FREE DAILY DESCENT'}</span></div>
         </div>
@@ -120,6 +153,15 @@
       return `<button type="button" class="chapter ${finished?'done':open?'':'locked'}" data-action="startWorld" data-world="${safe(theme)}" data-chapter="${i}" ${open?'':`disabled title="Earn ${UNLOCK[i]} pearls and complete the previous chapter"`} aria-label="${safe(theme)} chapter ${i+1} ${open?'open':'locked'}">${finished?'✓':open?i+1:'⌁'}</button>`
     }).join('')}</div></article>`).join('')}</div>
     </section>`;
+  }
+  function renderArchive(){
+    const today=utc(),rows=[];
+    for(let i=1;i<=30;i++){
+      const date=new Date(Date.parse(today+'T12:00:00Z')-i*86400000).toISOString().slice(0,10);
+      const times=profile.history.filter(x=>x.mode==='archive'&&x.day===date).length;
+      rows.push('<button type="button" class="btn small ghost" data-action="startArchive" data-day="'+date+'">'+date+(times?' · played '+times+'×':'')+'</button>');
+    }
+    return '<section class="page"><div class="page-title"><span class="eyebrow">THE ARCHIVE</span><h1>Revisit past <em>dives.</em></h1><p>Practice any of the last 30 puzzle dates with Deep Dive\'s independent questions. This is not Krillion\'s historical answer archive. Archive results do not change your daily streak.</p></div><div class="surface-card"><div class="result-actions" style="flex-wrap:wrap;justify-content:flex-start">'+rows.join('')+'</div></div></section>';
   }
   function renderStats(){
     const hist=profile.history.slice(0,15),dailyDays=Object.keys(profile.daily).length,
@@ -136,20 +178,25 @@
     <div class="result-actions">${button('daily','Return to the surface','ghost')}${button('startEndless','Practice now','primary')}</div>
     </section>`;
   }
-  function start(mode,world='',chapter=0){
+  function start(mode,world='',chapter=0,archiveDate=''){
     if(mode==='daily'&&dailyDone()){currentView='daily';render();return}
     const day=mode==='daily'?dailyDate():utc();
     let ids=[];
     if(mode==='daily')ids=todaysQuestions();
-    if(mode==='endless')ids=shuffle(bank,'endless:'+day+':'+Date.now()).slice(0,50).map(q=>q.id);
+    if(mode==='archive'){
+      const age=Math.round((Date.parse(day+'T12:00:00Z')-Date.parse(archiveDate+'T12:00:00Z'))/86400000);
+      if(!/^\d{4}-\d{2}-\d{2}$/.test(archiveDate)||!Number.isInteger(age)||age<1||age>30){notify('Archive date unavailable.');return}
+      ids=todaysQuestions(archiveDate);
+    }
+    if(mode==='endless')ids=shuffle(bank,'endless:'+day+':'+Date.now()).slice(0,7).map(q=>q.id);
     if(mode==='world'){
       if(!WORLDS.some(w=>w[0]===world)||!Number.isInteger(chapter)||chapter<0||chapter>4)return;
       if(profile.pearls<UNLOCK[chapter]||(chapter>0&&!Number.isFinite(profile.worldRecords[world+':'+(chapter-1)]))){notify('Complete the previous chapter and earn more pearls first.');return}
       ids=shuffle(bank.filter(q=>q.theme===world),world+':chapter:'+chapter).slice(0,7).map(q=>q.id);
     }
     if(!ids.length)return;
-    active={mode,world,chapter,source:mode==='daily'&&sourceDaily?'krillion-reveal':'sidequest',day,ids,index:0,phase:'question',deadline:Date.now()+25000,results:[],score:0,misses:0,startedAt:Date.now()};
-    save();currentView=mode==='world'?'worlds':mode==='endless'?'endless':'daily';render();
+    active={mode,world,chapter,source:mode==='daily'&&sourceDaily?'krillion-reveal':'sidequest',day:mode==='archive'?archiveDate:day,ids,index:0,phase:'question',deadline:Date.now()+25000,results:[],score:0,misses:0,startedAt:Date.now()};
+    save();currentView=mode==='world'?'worlds':mode==='endless'?'endless':mode==='archive'?'archive':'daily';render();
   }
   function currentQ(){return byId.get(active.ids[active.index])}
   function currentTotal(){return active.ids.length}
@@ -201,13 +248,13 @@
           <p class="dd-reveal-score">+${last.points} <span>POINTS</span></p>
           <p class="dd-reveal-depth">▼ ${format(last.points*10)} METRES DESCENDED</p>
           <p class="dd-reveal-caption">${safe(explain)}</p>
-          ${button('next',active.index+1>=currentTotal()||active.mode==='endless'&&active.misses>=3?'VIEW DIVE RESULTS →':'NEXT DESCENT →','primary')}
+          ${button('next',active.index+1>=currentTotal()?'VIEW DIVE RESULTS →':'NEXT DESCENT →','primary')}
         </div>
       </div></section>`;
   }
   function conclude(){
     if(!active)return;
-    const r={mode:active.mode,source:active.source,day:active.day,score:active.score,count:active.results.length,results:active.results.map(x=>({...x})),label:active.mode==='daily'?(active.source==='krillion-reveal'?'Public-source daily dive':'Daily discovery'):active.mode==='endless'?'Endless expedition':active.world+' · Chapter '+(active.chapter+1),world:active.world,chapter:active.chapter};
+    const r={mode:active.mode,source:active.source,day:active.day,score:active.score,count:active.results.length,results:active.results.map(x=>({...x})),label:active.mode==='daily'?(active.source==='krillion-reveal'?'Public-source daily dive':'Daily discovery'):active.mode==='endless'?'Endless expedition':active.mode==='archive'?'Archive · '+active.day:active.world+' · Chapter '+(active.chapter+1),world:active.world,chapter:active.chapter};
     const completedKey=active.source==='krillion-reveal'?'source:'+active.day:active.day;
     if(active.mode==='daily'&&profile.daily[completedKey]){active=null;save();currentView='daily';render();return}
     if(active.mode==='daily'){
@@ -223,7 +270,7 @@
     }
     profile.pearls+=active.score;profile.runs=(profile.runs||0)+1;
     profile.history=[r,...profile.history].slice(0,50);
-    active=null;save();currentView=r.mode==='daily'?'daily':r.mode==='world'?'worlds':'endless';renderSummary(r);
+    active=null;save();currentView=r.mode==='daily'?'daily':r.mode==='world'?'worlds':r.mode==='archive'?'archive':'endless';renderSummary(r);
   }
   function roundEnd(record){
     if(!active||active.phase!=='question'||transitioning)return;
@@ -240,7 +287,7 @@
     const answer=String(input?.value||'').trim().slice(0,90);
     if(!answer)return;
     const key=norm(answer),q=currentQ();
-    const found=q.answerIndex?.get(key)||q.answers.find(a=>[a.value,...(a.aliases||[])].some(t=>norm(t)===key));
+    const found=q.answerIndex?.get(key)||findAnswer(q,key);
     if(!found){
       const feedback=document.getElementById('answer-feedback');
       feedback.textContent='Not recognized by this question’s curated answer list. Try another answer while time remains.';
@@ -252,7 +299,7 @@
   }
   function next(){
     if(!active||active.phase!=='reveal')return;
-    if(active.index+1>=active.ids.length||(active.mode==='endless'&&active.misses>=3)){conclude();return}
+    if(active.index+1>=active.ids.length){conclude();return}
     active.index++;active.phase='question';active.deadline=Date.now()+25000;save();render();
   }
   function updateClock(){
@@ -277,7 +324,7 @@
     root.innerHTML=`<section class="page"><div class="home-hero">
       <div><span class="eyebrow">THE END OF YOUR EXPEDITION</span>
       <h1 class="section-heading">What a <em>discovery.</em></h1>
-      <p class="lead">${safe(r.label)} · ${safe(r.day)}</p>
+      <p class="lead">${safe(r.label)} · ${safe(r.day)} · ${safe(rating(r.score))} rank</p>
       <div class="summary-score">−${format(r.score*10)}<span> m</span></div><p class="lead">You've earned <strong style="color:var(--sun)">${format(r.score)} points</strong> and the same number of pearls. ${isDaily?'Today’s shared challenge is complete. Your result is saved in this browser.':'Another voyage is always waiting.'}</p>
       <div class="summary-rounds" aria-label="Score by prompt">${resultDots(r.results)}</div>
       <div class="result-actions">${button('share','Copy your result','primary')}${button('daily','Return to surface','ghost')}${button('startEndless','Play endless','ghost')}</div>
@@ -289,7 +336,7 @@
   function render(){
     clearInterval(ticker);syncHead();oldActiveCheck();
     if(currentView==='party'){window.DeepDiveParty?.mount({root});return}else window.DeepDiveParty?.unmount();
-    if(active&&((currentView==='daily'&&active.mode==='daily')||(currentView==='endless'&&active.mode==='endless')||(currentView==='worlds'&&active.mode==='world'))){
+    if(active&&((currentView==='daily'&&active.mode==='daily')||(currentView==='endless'&&active.mode==='endless')||(currentView==='worlds'&&active.mode==='world')||(currentView==='archive'&&active.mode==='archive'))){
       root.innerHTML=active.phase==='question'?renderQuestion():renderReveal();
       if(active.phase==='question'){
         ticker=setInterval(updateClock,120);
@@ -297,9 +344,10 @@
         updateClock();
       }
     }else if(currentView==='worlds')root.innerHTML=renderWorlds();
+    else if(currentView==='archive')root.innerHTML=renderArchive();
     else if(currentView==='stats')root.innerHTML=renderStats();
     else if(currentView==='daily')root.innerHTML=renderHome();
-    else if(currentView==='endless')root.innerHTML=`<section class="page"><div class="home-hero"><div><span class="eyebrow">ENDLESS EXPEDITION</span><h1 class="section-heading">How deep can <em>you go?</em></h1><p class="lead">Explore up to 50 independently written prompts. Three missed questions end the run, but your curiosity never has to.</p><div class="hero-actions">${button('startEndless','Begin an endless run','primary')}${button('daily','Back to daily','ghost')}</div><p class="helper">50 prompts maximum <span class="divider-dot">·</span> Three misses <span class="divider-dot">·</span> Unlimited attempts</p></div><div class="ocean-display">${bubbles()}<div class="diver-mark">∞</div><div class="ocean-caption"><span>YOUR RECORD</span><strong>${format(profile.endlessBest)} pts</strong></div></div></div></section>`;
+    else if(currentView==='endless')root.innerHTML=`<section class="page"><div class="home-hero"><div><span class="eyebrow">ENDLESS EXPEDITION</span><h1 class="section-heading">How deep can <em>you go?</em></h1><p class="lead">Each endless dive has seven questions with 25 seconds per answer. Play another dive whenever you like.</p><div class="hero-actions">${button('startEndless','Begin an endless run','primary')}${button('daily','Back to daily','ghost')}</div><p class="helper">7 prompts per dive <span class="divider-dot">·</span> 25 seconds each <span class="divider-dot">·</span> Unlimited attempts</p></div><div class="ocean-display">${bubbles()}<div class="diver-mark">∞</div><div class="ocean-caption"><span>YOUR RECORD</span><strong>${format(profile.endlessBest)} pts</strong></div></div></div></section>`;
     root.focus({preventScroll:true});
   }
   root.addEventListener('submit',e=>{if(e.target.id!=='answer-form')return;e.preventDefault();submit(e.target)});
@@ -308,6 +356,7 @@
     switch(b.dataset.action){
       case 'startDaily':if(active?.mode==='daily'){currentView='daily';render()}else start('daily');break;
       case 'startEndless':if(active?.mode==='endless'){currentView='endless';render()}else start('endless');break;
+      case 'startArchive':start('archive','',0,b.dataset.day||'');break;
       case 'startWorld':{
         const world=b.dataset.world,chapter=Number(b.dataset.chapter);
         if(active?.mode==='world'&&active.world===world&&active.chapter===chapter){currentView='worlds';render()}else start('world',world,chapter);break;
@@ -316,7 +365,7 @@
       case 'dailyResults':{const d=dailyDone();if(d)renderSummary(d);break}
       case 'pass':pass();break;
       case 'next':next();break;
-      case 'daily':case 'endless':case 'worlds':case 'stats':case 'party':currentView=b.dataset.action;render();break;
+      case 'daily':case 'endless':case 'worlds':case 'archive':case 'stats':case 'party':currentView=b.dataset.action;render();break;
       case 'share':{
         const value=root.dataset.share||'';
         if(navigator.clipboard?.writeText)navigator.clipboard.writeText(value).then(()=>notify('Result copied. Share your discovery!')).catch(()=>notify('Clipboard is unavailable in this browser.'));
