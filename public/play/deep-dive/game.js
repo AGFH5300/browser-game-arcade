@@ -49,8 +49,8 @@
     for(let i=a.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}
     return a;
   }
-  const todaysQuestions=()=>{
-    const day=dayKey(),chosen=shuffle(themes,'daily-theme:'+day).slice(0,7);
+  const todaysQuestions=(day=dayKey())=>{
+    const chosen=shuffle(themes,'daily-theme:'+day).slice(0,7);
     return chosen.map(theme=>shuffle(bank.filter(q=>q.theme===theme),'daily:'+day+':'+theme)[0].id);
   };
   function syncHead(){pearlNode.textContent=format(profile.pearls);streakNode.textContent=format(profile.streak);document.querySelectorAll('.nav-pill').forEach(b=>b.classList.toggle('active',b.dataset.view===currentView))}
@@ -99,7 +99,7 @@
           <details class="dd-rules"><summary>▸ HOW TO PLAY</summary><p>Seven prompts, twenty-five seconds per answer. Choose a correct but unusual answer to descend farther. Accepted responses earn 10–100 points; unrecognized answers can be retried until the timer ends. Every player receives the same daily questions.</p></details>
           <button type="button" class="dd-party-btn" data-action="party"><span class="dd-party-fish" aria-hidden="true">🐡</span><span>PUFFER PARTY <small>LIVE MULTIPLAYER · 2–8 EXPLORERS</small></span><span class="dd-party-arrow">›</span></button>
           <button type="button" class="dd-begin" data-action="${primaryAct}">${primaryLabel}</button>
-          <div class="dd-mode-nav"><span class="dd-dive-number">DAILY · ${safe(date)}</span><button type="button" data-action="startEndless">ENDLESS ∞</button><button type="button" data-action="worlds">THEMED WORLDS</button><button type="button" data-action="stats">LOGBOOK ◷</button></div>
+          <div class="dd-mode-nav"><span class="dd-dive-number">DAILY · ${safe(date)}</span><button type="button" data-action="startEndless">ENDLESS ∞</button><button type="button" data-action="worlds">THEMED WORLDS</button><button type="button" data-action="archive">ARCHIVE</button><button type="button" data-action="stats">LOGBOOK ◷</button></div>
           <div class="dd-sea-stats"><span>◈ ${format(profile.pearls)} PEARLS</span><span>✦ ${format(profile.streak)} DAY STREAK</span><span>${complete?format(complete.score)+' POINTS TODAY':'FREE DAILY DESCENT'}</span></div>
         </div>
       </div>
@@ -113,6 +113,15 @@
       return `<button type="button" class="chapter ${finished?'done':open?'':'locked'}" data-action="startWorld" data-world="${safe(theme)}" data-chapter="${i}" ${open?'':`disabled title="Earn ${UNLOCK[i]} pearls and complete the previous chapter"`} aria-label="${safe(theme)} chapter ${i+1} ${open?'open':'locked'}">${finished?'✓':open?i+1:'⌁'}</button>`
     }).join('')}</div></article>`).join('')}</div>
     </section>`;
+  }
+  function renderArchive(){
+    const today=dayKey(),rows=[];
+    for(let i=1;i<=30;i++){
+      const date=new Date(Date.parse(today+'T12:00:00Z')-i*86400000).toISOString().slice(0,10);
+      const times=profile.history.filter(x=>x.mode==='archive'&&x.day===date).length;
+      rows.push('<button type="button" class="btn small ghost" data-action="startArchive" data-day="'+date+'">'+date+(times?' · played '+times+'×':'')+'</button>');
+    }
+    return '<section class="page"><div class="page-title"><span class="eyebrow">THE ARCHIVE</span><h1>Revisit past <em>dives.</em></h1><p>Practice any of the last 30 puzzle dates with Deep Dive\'s independent questions. This is not Krillion\'s historical answer archive. Archive results do not change your daily streak.</p></div><div class="surface-card"><div class="result-actions" style="flex-wrap:wrap;justify-content:flex-start">'+rows.join('')+'</div></div></section>';
   }
   function renderStats(){
     const hist=profile.history.slice(0,15),dailyDays=Object.keys(profile.daily).length,
@@ -129,11 +138,16 @@
     <div class="result-actions">${button('daily','Return to the surface','ghost')}${button('startEndless','Practice now','primary')}</div>
     </section>`;
   }
-  function start(mode,world='',chapter=0){
+  function start(mode,world='',chapter=0,archiveDate=''){
     if(mode==='daily'&&dailyDone()){currentView='daily';render();return}
     const day=dayKey();
     let ids=[];
     if(mode==='daily')ids=todaysQuestions();
+    if(mode==='archive'){
+      const age=Math.round((Date.parse(day+'T12:00:00Z')-Date.parse(archiveDate+'T12:00:00Z'))/86400000);
+      if(!/^\d{4}-\d{2}-\d{2}$/.test(archiveDate)||!Number.isInteger(age)||age<1||age>30){notify('Archive date unavailable.');return}
+      ids=todaysQuestions(archiveDate);
+    }
     if(mode==='endless')ids=shuffle(bank,'endless:'+day+':'+Date.now()).slice(0,7).map(q=>q.id);
     if(mode==='world'){
       if(!WORLDS.some(w=>w[0]===world)||!Number.isInteger(chapter)||chapter<0||chapter>4)return;
@@ -141,8 +155,8 @@
       ids=shuffle(bank.filter(q=>q.theme===world),world+':chapter:'+chapter).slice(0,7).map(q=>q.id);
     }
     if(!ids.length)return;
-    active={mode,world,chapter,day,ids,index:0,phase:'question',deadline:Date.now()+25000,results:[],score:0,misses:0,startedAt:Date.now()};
-    save();currentView=mode==='world'?'worlds':mode==='endless'?'endless':'daily';render();
+    active={mode,world,chapter,day:mode==='archive'?archiveDate:day,ids,index:0,phase:'question',deadline:Date.now()+25000,results:[],score:0,misses:0,startedAt:Date.now()};
+    save();currentView=mode==='world'?'worlds':mode==='endless'?'endless':mode==='archive'?'archive':'daily';render();
   }
   function currentQ(){return byId.get(active.ids[active.index])}
   function currentTotal(){return active.ids.length}
@@ -200,7 +214,7 @@
   }
   function conclude(){
     if(!active)return;
-    const r={mode:active.mode,day:active.day,score:active.score,count:active.results.length,results:active.results.map(x=>({...x})),label:active.mode==='daily'?'Daily discovery':active.mode==='endless'?'Endless expedition':active.world+' · Chapter '+(active.chapter+1),world:active.world,chapter:active.chapter};
+    const r={mode:active.mode,day:active.day,score:active.score,count:active.results.length,results:active.results.map(x=>({...x})),label:active.mode==='daily'?'Daily discovery':active.mode==='endless'?'Endless expedition':active.mode==='archive'?'Archive · '+active.day:active.world+' · Chapter '+(active.chapter+1),world:active.world,chapter:active.chapter};
     if(active.mode==='daily'&&profile.daily[active.day]){active=null;save();currentView='daily';render();return}
     if(active.mode==='daily'){
       profile.daily[active.day]=r;
@@ -215,7 +229,7 @@
     }
     profile.pearls+=active.score;profile.runs=(profile.runs||0)+1;
     profile.history=[r,...profile.history].slice(0,50);
-    active=null;save();currentView=r.mode==='daily'?'daily':r.mode==='world'?'worlds':'endless';renderSummary(r);
+    active=null;save();currentView=r.mode==='daily'?'daily':r.mode==='world'?'worlds':r.mode==='archive'?'archive':'endless';renderSummary(r);
   }
   function roundEnd(record){
     if(!active||active.phase!=='question'||transitioning)return;
@@ -281,7 +295,7 @@
   function render(){
     clearInterval(ticker);syncHead();oldActiveCheck();
     if(currentView==='party'){window.DeepDiveParty?.mount({root});return}else window.DeepDiveParty?.unmount();
-    if(active&&((currentView==='daily'&&active.mode==='daily')||(currentView==='endless'&&active.mode==='endless')||(currentView==='worlds'&&active.mode==='world'))){
+    if(active&&((currentView==='daily'&&active.mode==='daily')||(currentView==='endless'&&active.mode==='endless')||(currentView==='worlds'&&active.mode==='world')||(currentView==='archive'&&active.mode==='archive'))){
       root.innerHTML=active.phase==='question'?renderQuestion():renderReveal();
       if(active.phase==='question'){
         ticker=setInterval(updateClock,120);
@@ -289,6 +303,7 @@
         updateClock();
       }
     }else if(currentView==='worlds')root.innerHTML=renderWorlds();
+    else if(currentView==='archive')root.innerHTML=renderArchive();
     else if(currentView==='stats')root.innerHTML=renderStats();
     else if(currentView==='daily')root.innerHTML=renderHome();
     else if(currentView==='endless')root.innerHTML=`<section class="page"><div class="home-hero"><div><span class="eyebrow">ENDLESS EXPEDITION</span><h1 class="section-heading">How deep can <em>you go?</em></h1><p class="lead">Each endless dive has seven questions with 25 seconds per answer. Play another dive whenever you like.</p><div class="hero-actions">${button('startEndless','Begin an endless run','primary')}${button('daily','Back to daily','ghost')}</div><p class="helper">7 prompts per dive <span class="divider-dot">·</span> 25 seconds each <span class="divider-dot">·</span> Unlimited attempts</p></div><div class="ocean-display">${bubbles()}<div class="diver-mark">∞</div><div class="ocean-caption"><span>YOUR RECORD</span><strong>${format(profile.endlessBest)} pts</strong></div></div></div></section>`;
@@ -300,6 +315,7 @@
     switch(b.dataset.action){
       case 'startDaily':if(active?.mode==='daily'){currentView='daily';render()}else start('daily');break;
       case 'startEndless':if(active?.mode==='endless'){currentView='endless';render()}else start('endless');break;
+      case 'startArchive':start('archive','',0,b.dataset.day||'');break;
       case 'startWorld':{
         const world=b.dataset.world,chapter=Number(b.dataset.chapter);
         if(active?.mode==='world'&&active.world===world&&active.chapter===chapter){currentView='worlds';render()}else start('world',world,chapter);break;
@@ -308,7 +324,7 @@
       case 'dailyResults':{const d=dailyDone();if(d)renderSummary(d);break}
       case 'pass':pass();break;
       case 'next':next();break;
-      case 'daily':case 'endless':case 'worlds':case 'stats':case 'party':currentView=b.dataset.action;render();break;
+      case 'daily':case 'endless':case 'worlds':case 'archive':case 'stats':case 'party':currentView=b.dataset.action;render();break;
       case 'share':{
         const value=root.dataset.share||'';
         if(navigator.clipboard?.writeText)navigator.clipboard.writeText(value).then(()=>notify('Result copied. Share your discovery!')).catch(()=>notify('Clipboard is unavailable in this browser.'));
