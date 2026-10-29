@@ -2,7 +2,7 @@
   "source": "Public assets normally served by https://krillion.io, reportedly authorized by site creator per Sidequest owner",
   "retrievedOn": "2026-10-29",
   "origin": "https://krillion.io",
-  "count": 59,
+  "count": 60,
   "missing": [],
   "files": [
     {
@@ -94,6 +94,12 @@
       "localPath": "gen/optimized/v1/cards/movies.webp",
       "bytes": 66452,
       "sha256": "a55589b177bcb71c885557c01e81c9397818eced9df0eec590066aa71c501e63"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/cards/music.webp",
+      "localPath": "gen/optimized/v1/cards/music.webp",
+      "bytes": 65520,
+      "sha256": "5a5ec76d2a72eb8b73fddc824003e47a197aaed3b03c51ce38c5b72b4d2f00f1"
     },
     {
       "sourcePath": "/gen/optimized/v1/cards/sports.webp",
