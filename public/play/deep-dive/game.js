@@ -12,7 +12,7 @@
     {id:'schooler',label:'Schooler',score:30,color:'#8ee6d4',mark:'🐟'},
     {id:'rare',label:'Rare',score:60,color:'#96baff',mark:'🦑'},
     {id:'deepcut',label:'Deep Cut',score:85,color:'#d2a3ff',mark:'🏮'},
-    {id:'krillion',label:'One in a Deep Dive',score:100,color:'#ffcf80',mark:'🌟'}
+    {id:'krillion',label:'One in a Krillion',score:100,color:'#ffcf80',mark:'🌟'}
   ];
   const WORLDS=[
     ['Geography','◎','Across borders, rivers and mountains'],
@@ -30,7 +30,7 @@
   const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const norm=s=>String(s||'').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/&/g,' and ').replace(/\+/g,' plus ').replace(/#/g,' sharp ').replace(/[^a-z0-9]+/g,' ').replace(/\s+/g,' ').trim().replace(/^the /,'');
   const utc=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
-  const rating=score=>score>=450?'One in a Deep Dive':score>=351?'Deep cut':score>=251?'Rare':score>=151?'Schooler':'Plankton';
+  const rating=score=>score>=450?'One in a Krillion':score>=351?'Deep cut':score>=251?'Rare':score>=151?'Schooler':'Plankton';
   const format=(n)=>Number(n||0).toLocaleString('en-US');
   // Conservative typo tolerance: a unique close match, never an ambiguous guess.
   function editDistance(a,b,max){
@@ -130,8 +130,8 @@
     return `<section class="page deep-home">
       <div class="dd-sky">${oceanArt()}
         <div class="dd-title-group"><p class="dd-edition">A SIDEQUEST ORIGINAL · ${safe(date)}</p>
-          <h1 class="dd-logo" aria-label="Deep Dive">DEEP <span>DIVE</span></h1>
-          <p class="dd-subtitle">THE DAILY DIVE</p><p class="dd-tagline">7 prompts · 25 seconds each · unusual answers sink deeper</p>
+          <h1 class="dd-logo" aria-label="Unofficial Krillion recreation">${window.DeepDiveReference?.titleMarkup?.()||"KRILLION"}</h1>
+          <p class="dd-subtitle">THE DAILY DIVE</p><p class="dd-tagline">7 prompts · 25 seconds each · rarer answers sink deeper</p>
         </div>
       </div>
       <div class="dd-sea">${oceanDecor()}
@@ -287,12 +287,17 @@
       ids=shuffle(bank.filter(q=>q.theme===world),world+':chapter:'+chapter).slice(0,7).map(q=>q.id);
     }
     if(!ids.length)return;
+    window.DeepDiveSfx?.event('begin');
     active={mode,world,chapter,source:mode==='starter'?'published-free-starter-index':mode==='archive'||(mode==='endless'&&forcedIds.length)?'published-archive-snapshot':mode==='daily'&&sourceDaily?'krillion-reveal':'sidequest',day:mode==='archive'?archiveDate:day,ids,index:0,phase:'question',deadline:Date.now()+25000,results:[],score:0,misses:0,startedAt:Date.now()};
     save();currentView=mode==='world'||mode==='starter'?'worlds':mode==='endless'?'endless':mode==='archive'?'archive':'daily';render();
   }
   function currentQ(){return byId.get(active.ids[active.index])}
   function currentTotal(){return active.ids.length}
   function frameHeading(){return active.mode==='daily'?'DAILY DISCOVERY':active.mode==='endless'?'THE ENDLESS EXPEDITION':safe(active.world.toUpperCase()+' · CHAPTER '+(active.chapter+1))}
+  function depthZone(){
+    const metres=(active?.score||0)*10;
+    return metres>=4000?'abyss':metres>=1200?'midnight':metres>=300?'deep':'surface';
+  }
   function arcadeHud(){
     const n=currentTotal(),idx=active.index;
     const firstVisible=active.ids.length>14?Math.max(0,Math.min(idx-5,active.ids.length-14)):0;
@@ -304,22 +309,22 @@
       return `<i class="dd-hud-dot" style="--dot:${color}" title="Round ${i+1}"></i>`;
     }).join('');
     return `<div class="dd-hud"><div class="dd-hud-box"><span>DEPTH</span><strong>${format(active.score*10)}<small>m</small></strong></div>
-      <div class="dd-hud-progress"><div class="dd-hud-dots">${dots}</div><small>PROMPT ${idx+1} OF ${n}${active.mode==='endless'?' · '+Math.max(0,3-active.misses)+' LIVES':''}</small></div>
+      <div class="dd-hud-progress"><div class="dd-hud-dots">${dots}</div><small>${active.phase==='reveal'&&(idx+1>=n||(active.mode==='endless'&&active.misses>=3))?'DIVE COMPLETE':'PROMPT '+(idx+1)+' OF '+n}${active.mode==='endless'?' · '+Math.max(0,3-active.misses)+' LIVES':''}</small></div>
       <div class="dd-hud-box dd-hud-score"><span>SCORE</span><strong>${format(active.score)}</strong></div></div>`;
   }
   function renderQuestion(){
     const q=currentQ(),seconds=Math.max(0,Math.ceil((active.deadline-Date.now())/1000));
-    return `<section class="page deep-home dd-game-screen ${active.mode==='starter'?'dd-free-starter-play':''}" data-pack="${active.mode==='starter'?safe(active.world):''}">
+    return `<section class="page deep-home dd-game-screen ${active.mode==='starter'?'dd-free-starter-play':''}" data-pack="${active.mode==='starter'?safe(active.world):''}" data-zone="${depthZone()}">
       <div class="dd-sky dd-game-sky">${oceanArt()}${arcadeHud()}</div>
       <div class="dd-sea dd-game-sea">${oceanDecor()}
-        <div class="dd-game-prompt"><span class="dd-prompt-label">PROMPT ${active.index+1} OF ${currentTotal()} · ${safe(q.theme)}</span>
+        <div class="dd-game-prompt"><span class="dd-prompt-label">PROMPT ${active.index+1} OF ${currentTotal()}${active.mode==='daily'?'':(' · '+safe(q.theme))}</span>
           <h1 class="dd-prompt-text">${safe(q.prompt)}</h1><p class="dd-prompt-hint">▼ RARER ANSWERS SINK DEEPER ▼</p>
         </div>
         <div class="dd-game-fish" aria-hidden="true"></div>
         <div class="dd-game-controls">
           <div class="dd-game-clock ${seconds<=7?'warn':''}" id="timer" aria-label="Time remaining"><strong id="seconds">${seconds}</strong></div>
           <form class="answer-form dd-answer-form" id="answer-form" autocomplete="off">
-            <div class="dd-answer-line"><input id="answer-input" class="answer-field" maxlength="90" autocapitalize="sentences" spellcheck="false" autocomplete="off" placeholder="type one answer…" aria-label="Your answer" aria-describedby="answer-feedback" required><button type="submit" class="dd-submit">DIVE ↧</button></div>
+            <div class="dd-answer-line"><input id="answer-input" class="answer-field" maxlength="90" autocapitalize="sentences" spellcheck="false" autocomplete="off" placeholder="type one answer…" aria-label="Your answer" aria-describedby="answer-feedback" required><button type="submit" class="dd-submit">DIVE</button></div>
             <div class="feedback" role="status" id="answer-feedback" aria-live="polite"></div>
           </form>
           <button class="dd-skip" type="button" data-action="pass">SKIP</button>
@@ -331,20 +336,20 @@
     const last=active.results[active.results.length-1]||{points:0,answer:'',tier:null,reason:'No answer'};
     const tier=last.tier!==null&&last.tier!==undefined?TIERS[last.tier]:null;
     const title=tier?tier.label:last.reason==='Timeout'?'Time is up':last.reason==='Pass'?'No discovery this time':'Not accepted';
-    const explain=tier?(last.quip||'Accepted answer · this question bank determines rarity.'):'No points for this round. The next discovery awaits.';
-    return `<section class="page deep-home dd-game-screen dd-reveal-screen ${active.mode==='starter'?'dd-free-starter-play':''}" data-pack="${active.mode==='starter'?safe(active.world):''}">
+    const explain=tier?(last.quip||'Accepted answer · rarity from the archived answer list.'):'No points this round.';
+    const completed=active.index+1>=currentTotal()||(active.mode==='endless'&&active.misses>=3);
+    return `<section class="page deep-home dd-game-screen dd-reveal-screen ${active.mode==='starter'?'dd-free-starter-play':''}" data-pack="${active.mode==='starter'?safe(active.world):''}" data-zone="${depthZone()}">
       <div class="dd-sky dd-game-sky">${oceanArt()}${arcadeHud()}</div>
       <div class="dd-sea dd-game-sea">${oceanDecor()}
+        <div class="dd-game-fish" aria-hidden="true"></div>
         <div class="dd-reveal" style="--tier:${tier?tier.color:'#87b8d3'}">
-          <div class="dd-reveal-spark">${tier?tier.mark:'×'}</div>
-          <span class="dd-prompt-label">${tier?'ANSWER ACCEPTED':'ROUND COMPLETE'}</span>
+          <div class="dd-reveal-spark" aria-hidden="true">${tier?.score===10?'◯':tier?.score===15?'◇':tier?.score===30?'◈':tier?.score===60?'✦':tier?.score===85?'◉':tier?.score===100?'★':'×'}</div>
           <h1 class="dd-reveal-title">${safe(title)}</h1>
-          <p class="dd-reveal-answer">${tier?'↳ '+safe(last.answer):safe(last.reason)}</p>
-          <p class="dd-reveal-score">+${last.points} <span>POINTS</span></p>
-          <p class="dd-reveal-depth">▼ ${format(last.points*10)} METRES DESCENDED</p>
+          <p class="dd-reveal-answer">${tier?'“'+safe(last.answer)+'”':safe(last.reason)}</p>
+          <p class="dd-reveal-score">+${last.points} PTS <span>· sink ${format(last.points*10)}m</span></p>
           <p class="dd-reveal-caption">${safe(explain)}</p>
-          ${button('next',(active.index+1>=currentTotal()||(active.mode==='endless'&&active.misses>=3))?'VIEW DIVE RESULTS →':'NEXT DESCENT →','primary')}
         </div>
+        <div class="dd-feedback-action">${button('next',completed?'SURFACE ▲':'DESCEND ▼','primary')}</div>
       </div></section>`;
   }
   function conclude(){
@@ -365,6 +370,7 @@
     }
     profile.pearls+=active.score;profile.runs=(profile.runs||0)+1;
     profile.history=[r,...profile.history].slice(0,50);
+    window.DeepDiveSfx?.event('surface');
     active=null;save();currentView=r.mode==='daily'?'daily':r.mode==='world'||r.mode==='starter'?'worlds':r.mode==='archive'?'archive':'endless';renderSummary(r);
   }
   function roundEnd(record){
@@ -372,6 +378,7 @@
     transitioning=true;active.phase='reveal';
     active.results.push(record);active.score+=record.points;
     if(record.points===0)active.misses++;
+    window.DeepDiveSfx?.event(record.points===0?'miss':record.points===100?'krillion':record.points>=85?'land_big':record.points>=60?'land_small':'tierline');
     clearInterval(ticker);save();transitioning=false;render();
   }
   function pass(reason='Pass'){roundEnd({id:currentQ().id,answer:'',points:0,tier:null,reason})}
@@ -381,21 +388,35 @@
     const input=form.querySelector('#answer-input');
     const answer=String(input?.value||'').trim().slice(0,90);
     if(!answer)return;
+    window.DeepDiveSfx?.event('submit_soft');
     const key=norm(answer),q=currentQ();
     const found=q.answerIndex?.get(key)||findAnswer(q,key);
     if(!found){
       const feedback=document.getElementById('answer-feedback');
       feedback.textContent='Not recognized by this question’s curated answer list. Try another answer while time remains.';
       feedback.classList.remove('ok');
-      input.select();return;
+      window.DeepDiveSfx?.event('reject');
+      if(window.DeepDiveReference?.preferences?.clearRejected)input.value='';
+      else input.select();
+      return;
     }
     const tier=Math.max(0,Math.min(5,Number(found.tier)||0));
     roundEnd({id:q.id,answer:found.value,points:TIERS[tier].score,tier,quip:found.quip||'',reason:'Accepted'});
   }
   function next(){
-    if(!active||active.phase!=='reveal')return;
-    if(active.index+1>=active.ids.length||(active.mode==='endless'&&active.misses>=3)){conclude();return}
-    active.index++;active.phase='question';active.deadline=Date.now()+25000;save();render();
+    if(!active||active.phase!=='reveal'||transitioning)return;
+    transitioning=true;
+    const card=root.querySelector('.dd-reveal');
+    const leave=()=>{
+      transitioning=false;
+      if(!active||active.phase!=='reveal')return;
+      if(active.index+1>=active.ids.length||(active.mode==='endless'&&active.misses>=3)){conclude();return}
+      window.DeepDiveSfx?.event('descend');
+      active.index++;active.phase='question';active.deadline=Date.now()+25000;save();render();
+    };
+    if(!card||window.matchMedia('(prefers-reduced-motion: reduce)').matches){leave();return}
+    card.classList.add('dd-card-leaving');
+    setTimeout(leave,280);
   }
   function updateClock(){
     if(!active||active.phase!=='question')return;
@@ -404,6 +425,7 @@
     if(el)el.textContent=String(s);
     if(bar)bar.style.width=(remain/250)+'%';
     if(timer)timer.classList.toggle('warn',s<=7);
+    window.DeepDiveSfx?.tick(s);
     if(remain<=0)pass('Timeout');
   }
   function resultDots(results){
@@ -443,6 +465,8 @@
     else if(currentView==='stats')root.innerHTML=renderStats();
     else if(currentView==='daily')root.innerHTML=renderHome();
     else if(currentView==='endless')root.innerHTML=`<section class="page"><div class="home-hero"><div><span class="eyebrow">ENDLESS EXPEDITION</span><h1 class="section-heading">How deep can <em>you go?</em></h1><p class="lead">Each extended dive draws up to 50 published historical prompts. You have 25 seconds per answer and three lives. Every zero-point round costs a life.</p><div class="hero-actions">${button('startEndless','Begin an endless run','primary')}${button('daily','Back to daily','ghost')}</div><p class="helper">Up to 50 prompts per dive <span class="divider-dot">·</span> Three lives <span class="divider-dot">·</span> Unlimited attempts</p></div><div class="ocean-display">${bubbles()}<div class="diver-mark">∞</div><div class="ocean-caption"><span>YOUR RECORD</span><strong>${format(profile.endlessBest)} pts</strong></div></div></div></section>`;
+    window.DeepDiveScene?.refresh?.();
+    window.DeepDiveScene?.setDepth(active?.score||0);
     root.focus({preventScroll:true});
   }
   root.addEventListener('submit',e=>{if(e.target.id!=='answer-form')return;e.preventDefault();submit(e.target)});

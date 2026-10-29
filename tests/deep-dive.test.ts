@@ -129,7 +129,7 @@ test('the server rejects unauthorized players and accepts chat without exposing 
 
 test('Krillion-style rarity bands and complete seven-question dives are wired into solo UI',()=>{
  const source=readFileSync('public/play/deep-dive/game.js','utf8');
- const tiers=['Plankton','Too Clever','Schooler','Rare','Deep Cut','One in a Deep Dive'];
+ const tiers=['Plankton','Too Clever','Schooler','Rare','Deep Cut','One in a Krillion'];
  for(const label of tiers) assert(source.includes("label:'"+label+"'"),label);
  assert(source.includes('score>=450'));
  assert(source.includes("mode==='endless'"));
