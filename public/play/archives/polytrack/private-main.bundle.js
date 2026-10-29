@@ -3,7 +3,7 @@ import { ActivePolyModLoader } from "./PolyModLoader.js";
 ActivePolyModLoader.initStorage(localStorage);
 console.log(window.pmlversion);
 window.polyModLoader = ActivePolyModLoader;
-ActivePolyModLoader.importMods()
+Promise.resolve() /* Sidequest multiplayer: vanilla mode, no external mods */
   .then(() => {
     ActivePolyModLoader.getFromPolyTrackGlobal = (text) => {
       return eval(text);

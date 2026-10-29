@@ -12,6 +12,11 @@ for(const endpoint of hosts){
  if(before<0||index-before>340)throw Error('Unexpected PolyTrack multiplayer endpoint layout '+endpoint);
  copy=copy.slice(0,before)+'(window.location.origin + "/api/polytrack-mp/")'+copy.slice(before+'"https://vps.kodub.com/"'.length);
 }
+// Isolated multiplayer pilot: prevent remote mod CDN failure from
+// blocking the vanilla PolyTrack game's startup.
+const externalModCall='ActivePolyModLoader.importMods()';
+if(copy.split(externalModCall).length!==2)throw Error('Unexpected PolyModLoader import position');
+copy=copy.replace(externalModCall,'Promise.resolve() /* Sidequest multiplayer: vanilla mode, no external mods */');
 if(copy===source)throw Error('Missing replacements');
 const html=await readFile(root+'index.html','utf8');
 if(!html.includes('main.bundle.js'))throw Error('Missing base bundle script');

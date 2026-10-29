@@ -68,3 +68,9 @@ rows require a scheduled pruning job for long-running usage.
 - Rerun with: `node scripts/smoke-polytrack-private-mp.cjs https://browser-game-arcade-9qgvgjb04-dxbavg-7923s-projects.vercel.app`
 - Remaining: real WebGL game startup, two-player WebRTC peer-to-peer racing, NAT/TURN reliability, reconnection, rate limits/abuse defense and cross-device manual test.
 - If successful: use a separate, opt-in Sidequest Multiplayer menu item; never overwrite the existing single-player PolyTrack until rollout is verified.
+
+## 29 October 2026: native signaling and vanilla startup repair
+
+The stock join client sends version/candidate without type/session, often before an answer. We now process signals in order and associate candidate messages with the join socket's room session. The host ping receives pong and server errors use the correct error field. Two independent WebSocket clients and two real native RTCPeerConnections confirmed offer/answer, trickle ICE, connected state, and data-channel echo on the preview. This is not yet two physical devices or full game racing.
+
+In headless Chromium, the optional external PolyModLoader manifest failed certificate validation and stalled the game on the loading-mods overlay. The pilot-only bundle bypasses the external mod import and runs vanilla PolyTrack; production single-player and saved data are untouched. Third-party mods are not supported in this private multiplayer pilot.
