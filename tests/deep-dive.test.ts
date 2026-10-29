@@ -20,7 +20,7 @@ const questionMap=new Map<string,PartyQuestion>(questions.questions.map((q:Party
 test('Deep Dive is registered as a native in-frame Sidequest original',()=>{
  assert(game);assert.equal(gameSchema.safeParse(game).success,true);
  assert.equal(game.engine,'html5');
- assert.equal(game.gameUrl,'/play/deep-dive/index-arcade.html');
+ assert.equal(game.gameUrl,'/play/deep-dive/index-public-art.html');
  assert(isAllowedEmbedUrl(game.gameUrl));
  assert(getEmbedSandbox(game.gameUrl).includes('allow-same-origin'));
  assert.equal(game.published,true);

@@ -7,11 +7,12 @@ import {getEmbedSandbox,isAllowedEmbedUrl} from '../lib/embeds';
 test('Deep Dive now uses a never-before-cached game entrypoint with versioned assets',()=>{
  const game=added.find(g=>g.slug==='deep-dive');
  assert(game);
- assert.equal(game.gameUrl,'/play/deep-dive/index-arcade.html');
+ assert.equal(game.gameUrl,'/play/deep-dive/index-public-art.html');
  assert(isAllowedEmbedUrl(game.gameUrl));
  assert(getEmbedSandbox(game.gameUrl).includes('allow-same-origin'));
  assert(!isAllowedEmbedUrl('/play/deep-dive/not-allowed.html'));
- const html=readFileSync('public/play/deep-dive/index-arcade.html','utf8');
+ const html=readFileSync('public/play/deep-dive/index-public-art.html','utf8');
+ assert.match(html,/reference-art\.css\?ref=20261029b/);
  assert.match(html,/dd-nav-toggle/);
  assert.match(html,/pixel-ui\.css\?arcade=20261029d/);
  assert.match(html,/game\.js\?arcade=20261029d/);

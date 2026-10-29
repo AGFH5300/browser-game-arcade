@@ -1,0 +1,36 @@
+{
+  "source": "https://krillion.io/",
+  "sourceNote": "Publicly served files retrieved 2026-10-29 for the reportedly authorized Deep Dive reconstruction",
+  "files": [
+    {
+      "filename": "VT323.woff2",
+      "size": 7192,
+      "sha256": "043a60145af2ddbcd0a6452625cb0bfc4e18b222c76dcd1d4a0106715472faba"
+    },
+    {
+      "filename": "sky.webp",
+      "size": 40218,
+      "sha256": "d3efded204f673cce41a0bceecdcf6dde3d20fe88754ae2ad474b28dd8fefca6"
+    },
+    {
+      "filename": "top.webp",
+      "size": 84294,
+      "sha256": "1b6d43be3117a2e943d7fe103c01804baad046b3a001e9c1cd60082f61284c8c"
+    },
+    {
+      "filename": "trench.webp",
+      "size": 112290,
+      "sha256": "c7d07c5d4bc942ea9e280afc13828dc93c1234fe2b07f27551c17e6ec1e42171"
+    },
+    {
+      "filename": "puffer.png",
+      "size": 14521,
+      "sha256": "3a7da476e1c3c89b7f8a1d6d78d7110dda0931a82bac0b8d4fa7acb29bd2475e"
+    },
+    {
+      "filename": "mid.webp",
+      "size": 87524,
+      "sha256": "b974175c8ba092b153a6292688ad038983d740f0cda9ed651f8c1f73cfebe1c3"
+    }
+  ]
+}
