@@ -173,7 +173,7 @@ test('Puffer Party loads local public reef assets with working lobby controls',(
  const html=readFileSync('public/play/deep-dive/index-public-art.html','utf8');
  const css=readFileSync('public/play/deep-dive/party-reference.css','utf8');
  const manifest=JSON.parse(readFileSync('public/play/deep-dive/reference-assets/manifest.json','utf8'));
- assert.equal(manifest.count,59);
+ assert.equal(manifest.count,60);
  assert(manifest.files.every((asset:{localPath:string})=>readFileSync('public/play/deep-dive/reference-assets/'+asset.localPath).length>50));
  assert(html.includes('party-reference.css?ref=20261029a')&&html.includes('party.js?reef=20261029a'));
  for(const feature of ['data-party="quickplay"','data-party="avatar"','data-party="capacity"','data-party="createPublic"','pp-public-room','reference-assets'])assert(page.includes(feature),feature);

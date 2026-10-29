@@ -4,7 +4,7 @@ The Sidequest owner reports the original creator authorized use of publicly deli
 
 ## Public game asset inventory
 
-`public/play/deep-dive/reference-assets/manifest.json` records **59 publicly served files**, **11,245,012 source bytes**, complete source paths, local paths, and SHA-256 hashes. The asset batch downloaded successfully, including desktop/mobile original reef art, sleeping/active puffer frames, rank sprite art, ocean/pack covers, and scenic backgrounds. The assets were recovered from paths referenced by publicly delivered JavaScript/CSS and normal `/party` browser requests; no restricted endpoints or account credentials were used.
+`public/play/deep-dive/reference-assets/manifest.json` records **60 publicly served files**, **11,245,012 source bytes in the initial 59-file batch plus one additional Music pack cover**, complete source paths, local paths, and SHA-256 hashes. The asset batch downloaded successfully, including desktop/mobile original reef art, sleeping/active puffer frames, rank sprite art, ocean/pack covers, and scenic backgrounds. The assets were recovered from paths referenced by publicly delivered JavaScript/CSS and normal `/party` browser requests; no restricted endpoints or account credentials were used.
 
 The existing title-screen original sky, ocean, puffer, font are retained under `reference-art/`. The newly recovered images live under `reference-assets/` and are served from Sidequest, not hotlinked from the publisher.
 
@@ -27,3 +27,5 @@ The existing title-screen original sky, ocean, puffer, font are retained under `
 ## Verification
 
 Run `npm run typecheck && npm run lint && npm test`. Visual checks: 1440×900 and 390×844, both using local recovered artwork; browser test both manual public rooms and Puffer Party live match through a Vercel preview before merging.
+
+Additional live public-page audit: `/`, `/party`, `/packs`, `/unlimited/classic`, and `/archive` all rendered HTTP 200. Their visible image/font requests included one additional `/gen/optimized/v1/cards/music.webp`, recovered in the follow-up. The original font is already present in `reference-art/VT323.woff2`, so this is not a missing font.
