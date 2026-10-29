@@ -20,11 +20,11 @@ The original public GET endpoints for Unlimited 1 and Movies/Sports/Geography/Wo
 | Mode | Original prompts | Questions with indexed scores | Recorded answer rows |
 | --- | ---: | ---: | ---: |
 | Unlimited Classic starter | 7 | 7 | 318 |
-| Movies starter | 7 | 5 | 193 |
-| Sports starter | 7 | 4 | 141 |
-| Geography starter | 7 | 3 | 148 |
+| Movies starter | 7 | 6 | 199 |
+| Sports starter | 7 | 5 | 149 |
+| Geography starter | 7 | 7 | 279 |
 | Words & Language starter | 7 | 0 | 0 |
-| TOTAL | 35 | 19 | 800 |
+| TOTAL | 35 | 25 | 945 |
 
 The Sidequest source-backed starter interface plays only prompts with recorded scored answers. Missing pack answer banks are visibly marked incomplete, and Words & Language is disabled. These archived lists may not include every alias or accepted answer of the actual server and may have historical scoring differences. They cannot be called the complete original 30-chapter packs.
 

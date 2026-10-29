@@ -13,6 +13,16 @@ COMPANION="https://krillion-game.com"
 OFFICIAL="https://krillion.io"
 MODES=("unlimited","movies","sports","geography","lexicon")
 SCORES={10,15,30,60,85,100}
+# Search index is token-based: complete prompts sometimes miss entries that shorter
+# distinctive phrases find. Never relax exact prompt-ID AND full-text validation.
+SHORT_TERMS={
+    "movies:1:r7":"Bond film",
+    "sports:1:r7":"soccer World Cup",
+    "geography:1:r2":"national capital",
+    "geography:1:r4":"flag includes",
+    "geography:1:r5":"English name contains",
+    "geography:1:r7":"border with Germany",
+}
 def get(url,params=None):
     res=requests.get(url,params=params,timeout=20,headers={"User-Agent":"Sidequest-Public-Reference-Inspection/1.0"})
     res.raise_for_status()
@@ -24,6 +34,9 @@ def fetch_one(mode,source):
         return {"id":ident,"text":text,"answers":[],"verified":False,"reason":"No independently published scored answer sheet located"}
     suggested=get(COMPANION+"/api/suggest/",{"q":text,"mode":mode}).json().get("results",[])
     exact=[x for x in suggested if x.get("id")==ident and x.get("text")==text]
+    if not exact and ident in SHORT_TERMS:
+        suggested=get(COMPANION+"/api/suggest/",{"q":SHORT_TERMS[ident],"mode":mode}).json().get("results",[])
+        exact=[x for x in suggested if x.get("id")==ident and x.get("text")==text]
     if len(exact)!=1 or not exact[0].get("archive"):
         return {"id":ident,"text":text,"answers":[],"verified":False,"reason":"No exact independent answer index match"}
     url=COMPANION+exact[0]["archive"]

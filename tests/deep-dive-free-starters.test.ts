@@ -24,7 +24,7 @@ test('publicly accessible first game prompts are captured for five free modes',(
 });
 test('verified public starter answer rows have exact score tiers and source citations',()=>{
  const scoreSet=new Set([10,15,30,60,85,100]);
- const expected:Record<string,[number,number]>={unlimited:[7,318],movies:[5,193],sports:[4,141],geography:[3,148],lexicon:[0,0]};
+ const expected:Record<string,[number,number]>={unlimited:[7,318],movies:[6,199],sports:[5,149],geography:[7,279],lexicon:[0,0]};
  for(const [mode,[expectedQuestions,expectedAnswers]] of Object.entries(expected)){
   const qs=data.modes[mode].questions;
   assert.equal(qs.filter(x=>x.verified).length,expectedQuestions);
