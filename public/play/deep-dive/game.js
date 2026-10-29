@@ -375,7 +375,7 @@
     }
   });
   document.querySelectorAll('.nav-pill').forEach(b=>b.addEventListener('click',()=>{
-    currentView=b.dataset.view;render();
+    document.querySelector('.dd-nav-toggle')?.removeAttribute('open');currentView=b.dataset.view;render();
   }));
   document.getElementById('home-link').addEventListener('click',e=>{e.preventDefault();currentView='daily';render()});
   function addPublicSheet(sheet){

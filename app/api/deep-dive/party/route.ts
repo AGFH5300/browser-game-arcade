@@ -61,7 +61,7 @@ export async function GET(request:NextRequest){
    );
    return ok({rooms:rows.map(r=>{
     const s=r.state as PartyRoom;
-    return {code:String(r.room_code),members:s.members.length,host:s.members.find(x=>x.id===s.hostId)?.name||'Host',created:s.created};
+    return {code:String(r.room_code),members:s.members.length,maxMembers:s.maxMembers||8,minMembers:s.minMembers||2,host:s.members.find(x=>x.id===s.hostId)?.name||'Host',created:s.created};
    })});
   }
   const code=validCode(request.nextUrl.searchParams.get('code'));
@@ -83,7 +83,9 @@ export async function POST(request:NextRequest){
    const sql=getDb();
    for(let tryCount=0;tryCount<4;tryCount++){
     const code=makeCode(),now=Date.now();
-    const {room,id,secret}=newRoom(code,body.name,body.publicRoom===true,now,shuffleQuestionIds(code+':'+now));
+    const maxMembers=[2,3,6,8].includes(Number(body.maxMembers))?Number(body.maxMembers):8;
+    const minMembers=maxMembers===6?4:maxMembers===8?2:maxMembers;
+    const {room,id,secret}=newRoom(code,body.name,body.publicRoom===true,now,shuffleQuestionIds(code+':'+now),{maxMembers,minMembers,avatar:body.avatar});
     const rows=await sql.query(
      'INSERT INTO deep_dive_party_rooms (room_code,state,revision) VALUES ($1,$2::jsonb,0) ON CONFLICT (room_code) DO NOTHING RETURNING room_code',
      [code,JSON.stringify(room)]
@@ -100,7 +102,7 @@ export async function POST(request:NextRequest){
    const now=Date.now(),room=row.state;
    if(type==='join'){
     if(typeof body.name!=='string'||body.name.length>45)return error('Enter a nickname between 2 and 24 characters.');
-    const {id,secret}=joinRoom(room,body.name,now);
+    const {id,secret}=joinRoom(room,body.name,now,body.avatar);
     if(await commit(code,row.revision,room))return ok({room:publicRoom(room,questions),playerId:id,secret});
     continue;
    }

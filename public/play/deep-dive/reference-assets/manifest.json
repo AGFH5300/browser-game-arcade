@@ -1,0 +1,363 @@
+{
+  "source": "Public assets normally served by https://krillion.io, reportedly authorized by site creator per Sidequest owner",
+  "retrievedOn": "2026-10-29",
+  "origin": "https://krillion.io",
+  "count": 59,
+  "missing": [],
+  "files": [
+    {
+      "sourcePath": "/gen/optimized/v1/atlas/scene-alps.webp",
+      "localPath": "gen/optimized/v1/atlas/scene-alps.webp",
+      "bytes": 118202,
+      "sha256": "f62ae8885a4a45280912483b352a740cae0b5067acc5af2cb045682fecbdab10"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/atlas/scene-amazon.webp",
+      "localPath": "gen/optimized/v1/atlas/scene-amazon.webp",
+      "bytes": 168746,
+      "sha256": "a33b52ed09846ab0022cb47faa211546edae92372ec7796486c506285501a602"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/atlas/scene-antarctica.webp",
+      "localPath": "gen/optimized/v1/atlas/scene-antarctica.webp",
+      "bytes": 276088,
+      "sha256": "cb393c19467c4e3341c3508bd5fe5e965b4be9f3729e27a4fdb6ebc5dbfec946"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/atlas/scene-canyon.webp",
+      "localPath": "gen/optimized/v1/atlas/scene-canyon.webp",
+      "bytes": 182836,
+      "sha256": "a87e5c2ab49e2a0a65b889a67b0c10681b320b0e652a0c55e7c39791927d20ee"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/atlas/scene-greatwall.webp",
+      "localPath": "gen/optimized/v1/atlas/scene-greatwall.webp",
+      "bytes": 228636,
+      "sha256": "ddc13c2a84fcabffb65e0bc5f3ea337d58e7b18bdfeb18295afb8509b0374b31"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/atlas/scene-outback.webp",
+      "localPath": "gen/optimized/v1/atlas/scene-outback.webp",
+      "bytes": 135776,
+      "sha256": "8683084ea730af0bf5415025af9292cdb8653a16cf33241b7defdd3e1839dcab"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/atlas/scene-savanna.webp",
+      "localPath": "gen/optimized/v1/atlas/scene-savanna.webp",
+      "bytes": 272766,
+      "sha256": "fd1be96b6e1724ebac9c0874709579c913fe6796d2112be7519fdc477d9b04db"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/bg-mid.webp",
+      "localPath": "gen/optimized/v1/bg-mid.webp",
+      "bytes": 87524,
+      "sha256": "b974175c8ba092b153a6292688ad038983d740f0cda9ed651f8c1f73cfebe1c3"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/bg-sky.webp",
+      "localPath": "gen/optimized/v1/bg-sky.webp",
+      "bytes": 40218,
+      "sha256": "d3efded204f673cce41a0bceecdcf6dde3d20fe88754ae2ad474b28dd8fefca6"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/bg-top.webp",
+      "localPath": "gen/optimized/v1/bg-top.webp",
+      "bytes": 84294,
+      "sha256": "1b6d43be3117a2e943d7fe103c01804baad046b3a001e9c1cd60082f61284c8c"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/bg-trench.webp",
+      "localPath": "gen/optimized/v1/bg-trench.webp",
+      "bytes": 112290,
+      "sha256": "c7d07c5d4bc942ea9e280afc13828dc93c1234fe2b07f27551c17e6ec1e42171"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/cards/classic.webp",
+      "localPath": "gen/optimized/v1/cards/classic.webp",
+      "bytes": 20088,
+      "sha256": "f2ec16649d523e19c6c04fc6c47d241e0206a2fc37877cd06f9151363df062a9"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/cards/geography.webp",
+      "localPath": "gen/optimized/v1/cards/geography.webp",
+      "bytes": 25640,
+      "sha256": "5901ad6cb45eafd40fd71a35a152722d216bbc30169345614190c26b855a667e"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/cards/lexicon.webp",
+      "localPath": "gen/optimized/v1/cards/lexicon.webp",
+      "bytes": 9002,
+      "sha256": "42b93e57ba19bdb7afabf1f095cedcb660a6ad361c036fd474e999c610403daf"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/cards/movies.webp",
+      "localPath": "gen/optimized/v1/cards/movies.webp",
+      "bytes": 66452,
+      "sha256": "a55589b177bcb71c885557c01e81c9397818eced9df0eec590066aa71c501e63"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/cards/sports.webp",
+      "localPath": "gen/optimized/v1/cards/sports.webp",
+      "bytes": 66048,
+      "sha256": "95cf2efb715217af07e5ec03c8377cca1579deb7428e4f0b46c9b628202160da"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/gauntlet/bowl-far.webp",
+      "localPath": "gen/optimized/v1/gauntlet/bowl-far.webp",
+      "bytes": 65160,
+      "sha256": "b5a98229fbe9ffbbe01effae95b6bbb28543c306c08e47c8cf6d5fa5b1300f64"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/gauntlet/floor-clay.webp",
+      "localPath": "gen/optimized/v1/gauntlet/floor-clay.webp",
+      "bytes": 156232,
+      "sha256": "62d0215ca33a0ebe0f1701edc7b3a33e7b281eec6cb64dc4c8c0637ea9ffa267"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/gauntlet/floor-gridiron.webp",
+      "localPath": "gen/optimized/v1/gauntlet/floor-gridiron.webp",
+      "bytes": 245838,
+      "sha256": "46c1c41e2d66640d0c684e99b64aa4d3bf2fea84b1ca7b7bce4c90616b68a319"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/gauntlet/floor-ice.webp",
+      "localPath": "gen/optimized/v1/gauntlet/floor-ice.webp",
+      "bytes": 277018,
+      "sha256": "5ee41283278a5def9abc4dbb945d465fc59077cc6b9c75fe858100955a45d5c0"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/gauntlet/floor-pitch.webp",
+      "localPath": "gen/optimized/v1/gauntlet/floor-pitch.webp",
+      "bytes": 147686,
+      "sha256": "ac0d6932b42e7ba9ab710ccb4f7b6041d1482e8fe085acdba256da19ede2e7be"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/gauntlet/floor-pool.webp",
+      "localPath": "gen/optimized/v1/gauntlet/floor-pool.webp",
+      "bytes": 190212,
+      "sha256": "c6c225ba0def38e0c9f8c4b9c5b7455023dcefca7949e6a57ab1d0b2ae37581d"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/gauntlet/floor-track.webp",
+      "localPath": "gen/optimized/v1/gauntlet/floor-track.webp",
+      "bytes": 299110,
+      "sha256": "d4060ae44f388f1684881392e4d173a760636140640ebbb5a4198db9cb968b45"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/gauntlet/podium.webp",
+      "localPath": "gen/optimized/v1/gauntlet/podium.webp",
+      "bytes": 128174,
+      "sha256": "00e205e6c996c70b7e977d796e1f13eac619a892745294c0bba38b4d7104650b"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/gauntlet/tunnel.webp",
+      "localPath": "gen/optimized/v1/gauntlet/tunnel.webp",
+      "bytes": 114402,
+      "sha256": "9e82a35fe66a234335f1495b574fd0a5e73f69d3c55cbf5875fbedf1ad00a63c"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/hollywood/bg-far.webp",
+      "localPath": "gen/optimized/v1/hollywood/bg-far.webp",
+      "bytes": 61084,
+      "sha256": "159b1c9e84253314d60d4856eab53ce4b5c7daebe83526a528fc34faa50d2362"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/hollywood/bg-mid-b.webp",
+      "localPath": "gen/optimized/v1/hollywood/bg-mid-b.webp",
+      "bytes": 254528,
+      "sha256": "59dacc7e868ec0890455ff19c8af9bd9d65dc05fa1d3d4069fe67f0e29014ce2"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/hollywood/bg-mid-c.webp",
+      "localPath": "gen/optimized/v1/hollywood/bg-mid-c.webp",
+      "bytes": 176042,
+      "sha256": "2b0460d8e93258bfe2470f6da6618f19d19ffd63c9368b950baa6f1ecb5d42f0"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/hollywood/bg-mid-hills-b.webp",
+      "localPath": "gen/optimized/v1/hollywood/bg-mid-hills-b.webp",
+      "bytes": 162734,
+      "sha256": "259914bb1d26f80e1a84c9df0da562161bf9526b89301245bc8921553b78c77d"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/hollywood/bg-mid-hills.webp",
+      "localPath": "gen/optimized/v1/hollywood/bg-mid-hills.webp",
+      "bytes": 78318,
+      "sha256": "e5a9b5bb58afc672dcccf348ba912ba9c3bb68e0972541a56d5de4209a2cb0cf"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/hollywood/bg-mid-neon-b.webp",
+      "localPath": "gen/optimized/v1/hollywood/bg-mid-neon-b.webp",
+      "bytes": 353564,
+      "sha256": "5925b2dc845ca571077db3f91cd87c35b4a039344cbf5ce4098b970e31eb13f1"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/hollywood/bg-mid-neon.webp",
+      "localPath": "gen/optimized/v1/hollywood/bg-mid-neon.webp",
+      "bytes": 293206,
+      "sha256": "c8747e9a4950cdfdfa74bb85be70a17b671381accf52441898f2df500d3ad043"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/hollywood/bg-mid.webp",
+      "localPath": "gen/optimized/v1/hollywood/bg-mid.webp",
+      "bytes": 210492,
+      "sha256": "82809b5da1c3068ac619223c5ded4e2ac47bcd527d57f6778db39e23659b5221"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/hollywood/gate.webp",
+      "localPath": "gen/optimized/v1/hollywood/gate.webp",
+      "bytes": 129706,
+      "sha256": "4f5136c42ba3bb92be24db38eb3879e033abc172aba84dd85464ac0521fc8e69"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/hollywood/hills.webp",
+      "localPath": "gen/optimized/v1/hollywood/hills.webp",
+      "bytes": 239366,
+      "sha256": "ab2fceb4b35d853f6fde5478a1afa399f598c1532ec70b5ad542bc24f9ac9e35"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/hollywood/premiere.webp",
+      "localPath": "gen/optimized/v1/hollywood/premiere.webp",
+      "bytes": 282346,
+      "sha256": "badfceef9742b48a08e2c35448d7f13039d1b2706ce7e208b512aa710b72bbe3"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/lexicon/desk-landscape.webp",
+      "localPath": "gen/optimized/v1/lexicon/desk-landscape.webp",
+      "bytes": 468332,
+      "sha256": "69f9ba60ab89327946ccc44ac284bf2631552d2b20eff3bcd7dff3b145cc88f7"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/lexicon/desk-portrait.webp",
+      "localPath": "gen/optimized/v1/lexicon/desk-portrait.webp",
+      "bytes": 413508,
+      "sha256": "fd527458d95c77e891226166d5d5944491a292ea64da45a6b657c003ec1b24d8"
+    },
+    {
+      "sourcePath": "/gen/optimized/v1/lexicon/notebook.webp",
+      "localPath": "gen/optimized/v1/lexicon/notebook.webp",
+      "bytes": 144422,
+      "sha256": "90d4e84506fed6e5d38fdbe3c83529fc546d8f5f1738dd5b6528f4c901d9a83c"
+    },
+    {
+      "sourcePath": "/gen/party/puffer-0.png",
+      "localPath": "gen/party/puffer-0.png",
+      "bytes": 14521,
+      "sha256": "3a7da476e1c3c89b7f8a1d6d78d7110dda0931a82bac0b8d4fa7acb29bd2475e"
+    },
+    {
+      "sourcePath": "/gen/party/puffer-1.png",
+      "localPath": "gen/party/puffer-1.png",
+      "bytes": 26561,
+      "sha256": "e25373431cf4a0ab455aaf26f91e894411587ab5c43bbd4ed7f9f595870e0a14"
+    },
+    {
+      "sourcePath": "/gen/party/puffer-2.png",
+      "localPath": "gen/party/puffer-2.png",
+      "bytes": 43845,
+      "sha256": "59ffb70c059b319a8d67b5c1adb8be85985f7cbfded1385de902e5ebc9b9d3f9"
+    },
+    {
+      "sourcePath": "/gen/party/puffer-3.png",
+      "localPath": "gen/party/puffer-3.png",
+      "bytes": 43651,
+      "sha256": "74f4398ae255eb06730264e0def07744e44d7d7bacf1dd88ea0274198cb48844"
+    },
+    {
+      "sourcePath": "/gen/party/puffer-sleep.png",
+      "localPath": "gen/party/puffer-sleep.png",
+      "bytes": 331549,
+      "sha256": "4a57901e6362a4404abcf05485d3b23d6f969110a98b5ddcfbc2998328d13f97"
+    },
+    {
+      "sourcePath": "/gen/party/reef-d-clean.png",
+      "localPath": "gen/party/reef-d-clean.png",
+      "bytes": 1879164,
+      "sha256": "5a77633c5974a91698b63bdcb80bf0da62b17068d4b51f91dd2d2158ef3f8b77"
+    },
+    {
+      "sourcePath": "/gen/party/reef-m-clean.png",
+      "localPath": "gen/party/reef-m-clean.png",
+      "bytes": 1784679,
+      "sha256": "b14a8f1e97bcc5f9f41656d5a5bd561908a29d1f338582585c44dcb3462f00f3"
+    },
+    {
+      "sourcePath": "/tiers/deepcut-gold.png",
+      "localPath": "tiers/deepcut-gold.png",
+      "bytes": 25690,
+      "sha256": "3d2c16662c6168b2d1fab61efa87d798756502559a7dd2af73ed300f1b887550"
+    },
+    {
+      "sourcePath": "/tiers/deepcut.png",
+      "localPath": "tiers/deepcut.png",
+      "bytes": 33622,
+      "sha256": "e277e22dddb88c124f877a6770c3878da3aefa272594bd01eaf2d1c03e57bc2e"
+    },
+    {
+      "sourcePath": "/tiers/evil-krill-gold-v2.png",
+      "localPath": "tiers/evil-krill-gold-v2.png",
+      "bytes": 27679,
+      "sha256": "48f1f9473085f4659d2c75343f3e2b1300ab97794b59b2d0b331b029f80852fc"
+    },
+    {
+      "sourcePath": "/tiers/evil-krill-white-v2.png",
+      "localPath": "tiers/evil-krill-white-v2.png",
+      "bytes": 15825,
+      "sha256": "09f53be38c01e0b18bb9cc8cbf60f6461a21a9dc6cdd807026d0b163102be32f"
+    },
+    {
+      "sourcePath": "/tiers/krillion-gold.png",
+      "localPath": "tiers/krillion-gold.png",
+      "bytes": 23838,
+      "sha256": "731314f3058880e45ae2bdceaa1405dee4a1b603359c16e1f3b6697087a791cf"
+    },
+    {
+      "sourcePath": "/tiers/krillion-halloween-2026-gold.png",
+      "localPath": "tiers/krillion-halloween-2026-gold.png",
+      "bytes": 31447,
+      "sha256": "855c45db802b96976ba3a8a6a183cdef92fbdf6a85f7df7ac1ca118e05fc6e9b"
+    },
+    {
+      "sourcePath": "/tiers/krillion-halloween-2026.png",
+      "localPath": "tiers/krillion-halloween-2026.png",
+      "bytes": 30112,
+      "sha256": "e8083956f2e22acafaabbefd256f8fdba4ac4bbb55e7fee7fcbd2fa5fd3eb2ef"
+    },
+    {
+      "sourcePath": "/tiers/krillion.png",
+      "localPath": "tiers/krillion.png",
+      "bytes": 23876,
+      "sha256": "d49ce39bfc67662302818102b4ea65d02ac0009fb26686de2aca211c30802aa8"
+    },
+    {
+      "sourcePath": "/tiers/rare-gold.png",
+      "localPath": "tiers/rare-gold.png",
+      "bytes": 24736,
+      "sha256": "570317f388af84bab456ea602a0cf6ae9117cf9959bdef99f9d5e5b75e754f87"
+    },
+    {
+      "sourcePath": "/tiers/rare.png",
+      "localPath": "tiers/rare.png",
+      "bytes": 29398,
+      "sha256": "66f8ed212ef3af289b5e9722a76f2910960b9f1f3b2cececa62cc1b841e6ca81"
+    },
+    {
+      "sourcePath": "/tiers/schooler-gold.png",
+      "localPath": "tiers/schooler-gold.png",
+      "bytes": 18278,
+      "sha256": "6866c0172d29e27492ffa6c2157544dc32e61ef8f7276aed36be83f9ea9a227e"
+    },
+    {
+      "sourcePath": "/tiers/schooler.png",
+      "localPath": "tiers/schooler.png",
+      "bytes": 22651,
+      "sha256": "681c4fc59a6e69f56177c2ad60141e0ae7b300e93c5ca4e6f7a0aea1a630c7cb"
+    },
+    {
+      "sourcePath": "/water-bg.webp",
+      "localPath": "water-bg.webp",
+      "bytes": 27804,
+      "sha256": "de12bf25b6da550e2c6937e2bf06f6ba7ff45dd6d4a0357b494a9a57baae6ef9"
+    }
+  ]
+}
