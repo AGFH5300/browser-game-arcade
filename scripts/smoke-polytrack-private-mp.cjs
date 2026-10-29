@@ -4,6 +4,7 @@ const origin=process.argv[2];
 if(!origin?.startsWith('https://browser-game-arcade-'))throw Error('Missing Sidequest preview origin');
 const base=origin.replace('https:','wss:')+'/api/polytrack-mp/v6/multiplayer/';
 const clients=[];let host,join,code,sess,phases=[],done=false;
+const maybeFinish=()=>{if(['offer-delivered','answer-delivered','join-ice-delivered','host-ice-delivered','pong-delivered'].every(x=>phases.includes(x)))finish();};
 const send=(ws,o)=>ws.send(JSON.stringify({version:'0.6.3',...o}));
 const finish=(error)=>{
  if(done)return;done=true;
@@ -25,18 +26,21 @@ host.on('message',raw=>{
  const msg=JSON.parse(raw.toString());
  if(msg.type==='createInvite'){
   code=msg.inviteCode;phases.push('invite-created');
+  send(host,{type:'ping'});
   join=newSocket('join');
   join.on('open',()=>{
    phases.push('join-connected');
    send(join,{inviteCode:code,offer:'v=0\\r\\na=ice-ufrag:test',nickname:'Pilot Tester',countryCode:'AE',carStyle:'demo-style',mods:[]});
+   // Exact PolyTrack 0.6.3 join-client wire format: NO type or session.
+   send(join,{candidate:{candidate:'candidate:joiner-test',sdpMid:'0',sdpMLineIndex:0}});
+   send(join,{candidate:null});
   });
   join.on('message',raw=>{
    const m=JSON.parse(raw.toString());
    if(m.type==='acceptJoin'){
-    phases.push('answer-delivered');
-    send(join,{type:'iceCandidate',session:sess,candidate:{candidate:'candidate:fake',sdpMid:'0',sdpMLineIndex:0}});
+    phases.push('answer-delivered');maybeFinish();
    }else if(m.type==='iceCandidate'){
-    phases.push('host-ice-delivered');finish();
+    phases.push('host-ice-delivered');maybeFinish();
    }else if(m.type==='error')finish(Error('Join error '+JSON.stringify(m)));
   });
  }else if(msg.type==='joinInvite'){
@@ -44,6 +48,7 @@ host.on('message',raw=>{
    send(host,{type:'acceptJoin',session:sess,answer:'v=0\\r\\na=ice-ufrag:answer',mods:[],isModsVanillaCompatible:true,clientId:2});
  }else if(msg.type==='iceCandidate'){
    phases.push('join-ice-delivered');
-   send(host,{type:'iceCandidate',session:sess,candidate:{candidate:'candidate:host-fake',sdpMid:'0',sdpMLineIndex:0}});
- }else if(msg.type==='error')finish(Error('Host error '+JSON.stringify(msg)));
+   send(host,{type:'iceCandidate',session:sess,candidate:{candidate:'candidate:host-fake',sdpMid:'0',sdpMLineIndex:0}});maybeFinish();
+ }else if(msg.type==='pong'){phases.push('pong-delivered');maybeFinish();}
+ else if(msg.type==='error')finish(Error('Host error '+JSON.stringify(msg)));
 });
