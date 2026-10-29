@@ -1,0 +1,27 @@
+name: Deep Dive two-browser preview QA
+
+on:
+  push:
+    branches:
+      - feature/deep-dive-original-game-20261029
+
+permissions:
+  contents: read
+
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install isolated Playwright test runner
+        run: npm install --no-save --ignore-scripts playwright@1.56.1
+      - name: Install browser runtime
+        run: npx playwright install --with-deps chromium
+      - name: Exercise real preview in two independent browser contexts
+        env:
+          SIDEQUEST_PREVIEW_URL: https://browser-game-arcade-4waxv52er-dxbavg-7923s-projects.vercel.app
+        run: node scripts/deep-dive-preview-qa.mjs
