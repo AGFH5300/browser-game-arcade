@@ -7,12 +7,12 @@
   const STORAGE='sidequest:deep-dive:player:v1';
   const ACTIVE='sidequest:deep-dive:active:v1';
   const TIERS=[
-    {label:'Shoreline',score:10,color:'#a8cbd0',mark:'◌'},
-    {label:'Brightwater',score:15,color:'#b6eb9a',mark:'◇'},
-    {label:'The reef',score:30,color:'#8ee6d4',mark:'✦'},
-    {label:'Blue twilight',score:60,color:'#96baff',mark:'◆'},
-    {label:'The abyss',score:85,color:'#d2a3ff',mark:'✶'},
-    {label:'New discovery',score:100,color:'#ffcf80',mark:'★'}
+    {label:'Plankton',score:10,color:'#a8cbd0',mark:'◌'},
+    {label:'Too clever',score:15,color:'#b6eb9a',mark:'◇'},
+    {label:'Schooler',score:30,color:'#8ee6d4',mark:'✦'},
+    {label:'Rare',score:60,color:'#96baff',mark:'◆'},
+    {label:'Deep cut',score:85,color:'#d2a3ff',mark:'✶'},
+    {label:'One in a Deep Dive',score:100,color:'#ffcf80',mark:'★'}
   ];
   const WORLDS=[
     ['Geography','◎','Across borders, rivers and mountains'],
@@ -29,7 +29,8 @@
   const DEFAULT={version:1,pearls:0,streak:0,lastDaily:'',daily:{},worldRecords:{},endlessBest:0,history:[],runs:0};
   const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const norm=s=>String(s||'').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/&/g,' and ').replace(/\+/g,' plus ').replace(/#/g,' sharp ').replace(/[^a-z0-9]+/g,' ').replace(/\s+/g,' ').trim().replace(/^the /,'');
-  const utc=()=>new Date().toISOString().slice(0,10);
+  const dayKey=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+  const rating=score=>score>=450?'One in a Deep Dive':score>=351?'Deep cut':score>=251?'Rare':score>=151?'Schooler':'Plankton';
   const format=(n)=>Number(n||0).toLocaleString('en-US');
   function read(key){try{return JSON.parse(localStorage.getItem(key)||'null')}catch{return null}}
   function write(key,value){try{localStorage.setItem(key,JSON.stringify(value));return true}catch{return false}}
@@ -49,7 +50,7 @@
     return a;
   }
   const todaysQuestions=()=>{
-    const day=utc(),chosen=shuffle(themes,'daily-theme:'+day).slice(0,7);
+    const day=dayKey(),chosen=shuffle(themes,'daily-theme:'+day).slice(0,7);
     return chosen.map(theme=>shuffle(bank.filter(q=>q.theme===theme),'daily:'+day+':'+theme)[0].id);
   };
   function syncHead(){pearlNode.textContent=format(profile.pearls);streakNode.textContent=format(profile.streak);document.querySelectorAll('.nav-pill').forEach(b=>b.classList.toggle('active',b.dataset.view===currentView))}
@@ -62,10 +63,10 @@
     return `<button class="btn ${secondary}" type="button" data-action="${action}" ${attr}>${label}</button>`;
   }
   function bubbles(){return '<div aria-hidden="true"><i class="bubble"></i><i class="bubble"></i><i class="bubble"></i></div>'}
-  function dailyDone(){return profile.daily[utc()]||null}
+  function dailyDone(){return profile.daily[dayKey()]||null}
   function oldActiveCheck(){
     if(!active)return;
-    if(active.mode==='daily'&&active.day!==utc()){active=null;save();return}
+    if(active.mode==='daily'&&active.day!==dayKey()){active=null;save();return}
     if(!Array.isArray(active.ids)||!active.ids.length||active.ids.some(id=>!byId.has(id))||!Number.isInteger(active.index)){
       active=null;save();return
     }
@@ -82,7 +83,7 @@
     return `<div class="dd-depth-ticks" aria-hidden="true"><span>000m</span><span>500m</span><span>1000m</span><span>1500m</span><span>2500m</span><span>4000m</span><span>7000m</span></div><div class="dd-fish dd-fish-a" aria-hidden="true">▰◂</div><div class="dd-fish dd-fish-b" aria-hidden="true">◂▰</div><div class="dd-fish dd-fish-c" aria-hidden="true">▰◂</div><div class="dd-bubbles" aria-hidden="true">°<br>°<br>·<br>°<br>·</div>`;
   }
   function renderHome(){
-    const complete=dailyDone(),resume=active?.mode==='daily',date=utc();
+    const complete=dailyDone(),resume=active?.mode==='daily',date=dayKey();
     const primaryLabel=resume?'▼ CONTINUE DESCENT ▼':complete?'▼ VIEW DIVE RESULTS ▼':'▼ BEGIN DESCENT ▼';
     const primaryAct=resume?'resume':complete?'dailyResults':'startDaily';
     return `<section class="page deep-home">
@@ -130,10 +131,10 @@
   }
   function start(mode,world='',chapter=0){
     if(mode==='daily'&&dailyDone()){currentView='daily';render();return}
-    const day=utc();
+    const day=dayKey();
     let ids=[];
     if(mode==='daily')ids=todaysQuestions();
-    if(mode==='endless')ids=shuffle(bank,'endless:'+day+':'+Date.now()).slice(0,50).map(q=>q.id);
+    if(mode==='endless')ids=shuffle(bank,'endless:'+day+':'+Date.now()).slice(0,7).map(q=>q.id);
     if(mode==='world'){
       if(!WORLDS.some(w=>w[0]===world)||!Number.isInteger(chapter)||chapter<0||chapter>4)return;
       if(profile.pearls<UNLOCK[chapter]||(chapter>0&&!Number.isFinite(profile.worldRecords[world+':'+(chapter-1)]))){notify('Complete the previous chapter and earn more pearls first.');return}
@@ -181,7 +182,7 @@
     const last=active.results[active.results.length-1]||{points:0,answer:'',tier:null,reason:'No answer'};
     const tier=last.tier!==null&&last.tier!==undefined?TIERS[last.tier]:null;
     const title=tier?tier.label:last.reason==='Timeout'?'Time is up':last.reason==='Pass'?'No discovery this time':'Not accepted';
-    const explain=tier?'Accepted answer · original editorial rarity tier.':'No points for this round. The next discovery awaits.';
+    const explain=tier?'Accepted answer · Deep Dive curated rarity tier.':'No points for this round. The next discovery awaits.';
     return `<section class="page deep-home dd-game-screen dd-reveal-screen">
       <div class="dd-sky dd-game-sky">${oceanArt()}${arcadeHud()}</div>
       <div class="dd-sea dd-game-sea">${oceanDecor()}
@@ -193,7 +194,7 @@
           <p class="dd-reveal-score">+${last.points} <span>POINTS</span></p>
           <p class="dd-reveal-depth">▼ ${format(last.points*10)} METRES DESCENDED</p>
           <p class="dd-reveal-caption">${safe(explain)}</p>
-          ${button('next',active.index+1>=currentTotal()||active.mode==='endless'&&active.misses>=3?'VIEW DIVE RESULTS →':'NEXT DESCENT →','primary')}
+          ${button('next',active.index+1>=currentTotal()?'VIEW DIVE RESULTS →':'NEXT DESCENT →','primary')}
         </div>
       </div></section>`;
   }
@@ -243,7 +244,7 @@
   }
   function next(){
     if(!active||active.phase!=='reveal')return;
-    if(active.index+1>=active.ids.length||(active.mode==='endless'&&active.misses>=3)){conclude();return}
+    if(active.index+1>=active.ids.length){conclude();return}
     active.index++;active.phase='question';active.deadline=Date.now()+25000;save();render();
   }
   function updateClock(){
@@ -268,7 +269,7 @@
     root.innerHTML=`<section class="page"><div class="home-hero">
       <div><span class="eyebrow">THE END OF YOUR EXPEDITION</span>
       <h1 class="section-heading">What a <em>discovery.</em></h1>
-      <p class="lead">${safe(r.label)} · ${safe(r.day)}</p>
+      <p class="lead">${safe(r.label)} · ${safe(r.day)} · ${safe(rating(r.score))} rank</p>
       <div class="summary-score">−${format(r.score*10)}<span> m</span></div><p class="lead">You've earned <strong style="color:var(--sun)">${format(r.score)} points</strong> and the same number of pearls. ${isDaily?'Today’s shared challenge is complete. Your result is saved in this browser.':'Another voyage is always waiting.'}</p>
       <div class="summary-rounds" aria-label="Score by prompt">${resultDots(r.results)}</div>
       <div class="result-actions">${button('share','Copy your result','primary')}${button('daily','Return to surface','ghost')}${button('startEndless','Play endless','ghost')}</div>
@@ -290,7 +291,7 @@
     }else if(currentView==='worlds')root.innerHTML=renderWorlds();
     else if(currentView==='stats')root.innerHTML=renderStats();
     else if(currentView==='daily')root.innerHTML=renderHome();
-    else if(currentView==='endless')root.innerHTML=`<section class="page"><div class="home-hero"><div><span class="eyebrow">ENDLESS EXPEDITION</span><h1 class="section-heading">How deep can <em>you go?</em></h1><p class="lead">Explore up to 50 independently written prompts. Three missed questions end the run, but your curiosity never has to.</p><div class="hero-actions">${button('startEndless','Begin an endless run','primary')}${button('daily','Back to daily','ghost')}</div><p class="helper">50 prompts maximum <span class="divider-dot">·</span> Three misses <span class="divider-dot">·</span> Unlimited attempts</p></div><div class="ocean-display">${bubbles()}<div class="diver-mark">∞</div><div class="ocean-caption"><span>YOUR RECORD</span><strong>${format(profile.endlessBest)} pts</strong></div></div></div></section>`;
+    else if(currentView==='endless')root.innerHTML=`<section class="page"><div class="home-hero"><div><span class="eyebrow">ENDLESS EXPEDITION</span><h1 class="section-heading">How deep can <em>you go?</em></h1><p class="lead">Each endless dive has seven questions with 25 seconds per answer. Play another dive whenever you like.</p><div class="hero-actions">${button('startEndless','Begin an endless run','primary')}${button('daily','Back to daily','ghost')}</div><p class="helper">7 prompts per dive <span class="divider-dot">·</span> 25 seconds each <span class="divider-dot">·</span> Unlimited attempts</p></div><div class="ocean-display">${bubbles()}<div class="diver-mark">∞</div><div class="ocean-caption"><span>YOUR RECORD</span><strong>${format(profile.endlessBest)} pts</strong></div></div></div></section>`;
     root.focus({preventScroll:true});
   }
   root.addEventListener('submit',e=>{if(e.target.id!=='answer-form')return;e.preventDefault();submit(e.target)});
