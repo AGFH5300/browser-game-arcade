@@ -73,26 +73,34 @@
       active=null;save();return
     }
   }
+  function oceanArt(){
+    return `<div class="dd-cloud dd-cloud-a" aria-hidden="true"></div><div class="dd-cloud dd-cloud-b" aria-hidden="true"></div><div class="dd-sun" aria-hidden="true"></div>
+      <svg class="dd-boat" viewBox="0 0 232 95" aria-hidden="true" style="image-rendering:pixelated"><g shape-rendering="crispEdges" fill="#08243d"><rect x="36" y="65" width="154" height="13"/><rect x="47" y="78" width="133" height="7"/><rect x="58" y="53" width="97" height="12"/><rect x="70" y="38" width="63" height="17"/><rect x="98" y="28" width="15" height="10"/><rect x="87" y="7" width="6" height="36"/><rect x="22" y="67" width="17" height="10"/><rect x="189" y="64" width="16" height="10"/><rect x="55" y="55" width="6" height="14"/></g><path d="M93 8h31v17H93z" fill="#ff527d" shape-rendering="crispEdges"/><path d="M124 8v17h-6V8" fill="#e93167" shape-rendering="crispEdges"/><g fill="#6df0f0" shape-rendering="crispEdges"><rect x="65" y="69" width="9" height="5"/><rect x="93" y="69" width="9" height="5"/><rect x="125" y="69" width="9" height="5"/><rect x="149" y="69" width="9" height="5"/></g></svg>
+      <div class="dd-wave" aria-hidden="true"></div>`;
+  }
+  function oceanDecor(){
+    return `<div class="dd-depth-ticks" aria-hidden="true"><span>000m</span><span>500m</span><span>1000m</span><span>1500m</span><span>2500m</span><span>4000m</span><span>7000m</span></div><div class="dd-fish dd-fish-a" aria-hidden="true">▰◂</div><div class="dd-fish dd-fish-b" aria-hidden="true">◂▰</div><div class="dd-fish dd-fish-c" aria-hidden="true">▰◂</div><div class="dd-bubbles" aria-hidden="true">°<br>°<br>·<br>°<br>·</div>`;
+  }
   function renderHome(){
     const complete=dailyDone(),resume=active?.mode==='daily',date=utc();
-    const primaryLabel=resume?'↳ Continue today’s dive':complete?'✓ View today’s results':'↧ Begin today’s dive';
+    const primaryLabel=resume?'▼ CONTINUE DESCENT ▼':complete?'▼ VIEW DIVE RESULTS ▼':'▼ BEGIN DESCENT ▼';
     const primaryAct=resume?'resume':complete?'dailyResults':'startDaily';
-    const displayScore=complete?`${complete.score} <span style="font-size:13px;color:#a9d5c5">pts</span>`:'7 × 25s';
-    return `<section class="page">
-      <div class="home-hero"><div>
-        <span class="eyebrow">THE DAILY DISCOVERY · ${safe(date)}</span>
-        <h1 class="section-heading">Think beyond<br>the <em>obvious.</em></h1>
-        <p class="lead">One good answer takes you somewhere. An answer no one thinks of takes you further. Find your rarest discoveries across seven daily prompts.</p>
-        <div class="hero-actions">${button(primaryAct,primaryLabel,'primary')}${button('startEndless','↗ Try endless','ghost')}</div>
-        <p class="helper">One shared set per UTC day <span class="divider-dot">•</span> No account needed <span class="divider-dot">•</span> Independently written questions</p>
-        <div class="metric-strip"><div class="metric"><strong>07</strong><span>Prompts</span></div><div class="metric"><strong>25s</strong><span>Per answer</span></div><div class="metric"><strong>${displayScore}</strong><span>${complete?'Your score':'Your chance'}</span></div></div>
-      </div><div class="ocean-display">${bubbles()}<div class="rays"></div><div class="diver-mark" aria-hidden="true">✦</div><div class="ocean-caption"><span>SCATTERED KNOWLEDGE · HIDDEN DEPTHS</span><strong>Discover more.</strong></div></div></div>
-      <section class="band"><div class="band-heading"><h2>Six levels of discovery</h2><span>Correct answers score more as they become less expected</span></div><div class="tier-row">${parts()}</div></section>
-      <div class="mode-grid">
-        <div class="mode-card"><div class="card-icon">◈</div><h3>Today's dive</h3><span class="tagline">Same seven for everyone</span><p>Seven categories, 25 seconds each. A new shared selection appears at midnight UTC.</p>${button(primaryAct,complete?'See result':resume?'Continue run':'Start daily','small primary')}</div>
-        <div class="mode-card"><div class="card-icon">∞</div><h3>Endless</h3><span class="tagline">Practice without limits</span><p>Up to 50 prompts per session. Three unanswered rounds end your run. Come back as often as you like.</p>${button('startEndless','Try endless','small primary')}</div>
-        <div class="mode-card"><div class="card-icon">🐡</div><h3>Puffer Party</h3><span class="tagline">2–8 players · real rooms</span><p>Host a party, invite friends and pass the puffer with rare answers. The last explorer afloat wins!</p>${button('party','Play with friends','small primary')}</div>
-        <div class="mode-card"><div class="card-icon">◉</div><h3>Curiosity worlds</h3><span class="tagline">Nine collections · five chapters each</span><p>Explore themed chapters. Earn pearls in every run to open deeper challenges.</p>${button('worlds','Explore worlds','small primary')}</div>
+    return `<section class="page deep-home">
+      <div class="dd-sky">${oceanArt()}
+        <div class="dd-title-group"><p class="dd-edition">A SIDEQUEST ORIGINAL · ${safe(date)}</p>
+          <h1 class="dd-logo" aria-label="Deep Dive">DEEP <span>DIVE</span></h1>
+          <p class="dd-subtitle">THE DAILY DIVE</p><p class="dd-tagline">7 prompts · 25 seconds each · unusual answers sink deeper</p>
+        </div>
+      </div>
+      <div class="dd-sea">${oceanDecor()}
+        <div class="dd-sea-center">
+          <div class="dd-surface-label">◂ HOW DEEP CAN YOUR KNOWLEDGE GO? ▸</div>
+          <details class="dd-rules"><summary>▸ HOW TO PLAY</summary><p>Seven prompts, twenty-five seconds per answer. Choose a correct but unusual answer to descend farther. Accepted responses earn 10–100 points; unrecognized answers can be retried until the timer ends. Every player receives the same daily questions.</p></details>
+          <button type="button" class="dd-party-btn" data-action="party"><span class="dd-party-fish" aria-hidden="true">🐡</span><span>PUFFER PARTY <small>LIVE MULTIPLAYER · 2–8 EXPLORERS</small></span><span class="dd-party-arrow">›</span></button>
+          <button type="button" class="dd-begin" data-action="${primaryAct}">${primaryLabel}</button>
+          <div class="dd-mode-nav"><span class="dd-dive-number">DAILY · ${safe(date)}</span><button type="button" data-action="startEndless">ENDLESS ∞</button><button type="button" data-action="worlds">THEMED WORLDS</button><button type="button" data-action="stats">LOGBOOK ◷</button></div>
+          <div class="dd-sea-stats"><span>◈ ${format(profile.pearls)} PEARLS</span><span>✦ ${format(profile.streak)} DAY STREAK</span><span>${complete?format(complete.score)+' POINTS TODAY':'FREE DAILY DESCENT'}</span></div>
+        </div>
       </div>
     </section>`;
   }
@@ -138,36 +146,56 @@
   function currentQ(){return byId.get(active.ids[active.index])}
   function currentTotal(){return active.ids.length}
   function frameHeading(){return active.mode==='daily'?'DAILY DISCOVERY':active.mode==='endless'?'THE ENDLESS EXPEDITION':safe(active.world.toUpperCase()+' · CHAPTER '+(active.chapter+1))}
+  function arcadeHud(){
+    const n=currentTotal(),idx=active.index;
+    const dots=active.ids.map((id,i)=>{
+      const prior=active.results[i],tier=prior?.tier;
+      const color=prior&&tier!==null&&tier!==undefined?TIERS[tier].color:prior?'#284c6b':i===idx?'#ff5288':'#091b38';
+      return `<i class="dd-hud-dot" style="--dot:${color}" title="Round ${i+1}"></i>`;
+    }).join('');
+    return `<div class="dd-hud"><div class="dd-hud-box"><span>DEPTH</span><strong>${format(active.score*10)}<small>m</small></strong></div>
+      <div class="dd-hud-progress"><div class="dd-hud-dots">${dots}</div><small>PROMPT ${idx+1} OF ${n}</small></div>
+      <div class="dd-hud-box dd-hud-score"><span>SCORE</span><strong>${format(active.score)}</strong></div></div>`;
+  }
   function renderQuestion(){
-    const q=currentQ(),idx=active.index,n=currentTotal(),seconds=Math.max(0,Math.ceil((active.deadline-Date.now())/1000)),
-    dots=active.ids.map((id,i)=>`<span class="${i<idx?'done':i===idx?'now':''}"></span>`).join('');
-    return `<section class="page game-layout"><div class="question-card">
-      <div class="progress-top"><span class="round-label">${frameHeading()}</span><span class="prompt-index">PROMPT ${idx+1} OF ${n}</span></div><div class="progress-dots">${dots}</div>
-      <span class="eyebrow" style="display:block;margin-top:29px">${safe(q.theme)} · Open answer</span>
-      <h1 class="question-copy">${safe(q.prompt)}</h1><div class="subprompt">Think of the less obvious correct answer. You can retry an unrecognized answer while time remains.</div>
-      <form class="answer-form" id="answer-form" autocomplete="off">
-        <label for="answer-input" class="answer-label">Your discovery</label>
-        <div class="answer-line"><input id="answer-input" class="answer-field" maxlength="90" autocapitalize="sentences" spellcheck="false" autocomplete="off" placeholder="Type your answer…" aria-describedby="answer-feedback" required><button type="submit" class="btn primary">Submit ↗</button></div>
-        <div class="feedback" role="status" id="answer-feedback" aria-live="polite"></div>
-      </form>
-      <div class="round-actions"><span class="round-note">The answer list is curated. Rarity is editorial, not a live count of player responses.</span>${button('pass','Pass for 0 points','small ghost')}</div>
-      <div class="countdown-bar" aria-hidden="true"><span id="time-fill" style="width:${seconds*4}%"></span></div></div>
-      <aside class="sidepanel"><div><span class="side-label">Your depth</span><div class="depth-score">−${format(active.score*10)}<span>m</span></div><div class="depth-rail"><span class="depth-point" style="--depth:${Math.min(92,active.score/(currentTotal()*100)*92)}%"></span></div></div><div><span class="side-label">Time remaining</span><div class="timer ${seconds<=7?'warn':''}" id="timer">◴ <strong id="seconds">${seconds}</strong>s</div><p class="side-help">Accepted answers earn <strong>10–100 points</strong>. Your current run has ${active.misses} missed ${active.misses===1?'prompt':'prompts'}.</p></div></aside>
-    </section>`;
+    const q=currentQ(),seconds=Math.max(0,Math.ceil((active.deadline-Date.now())/1000));
+    return `<section class="page deep-home dd-game-screen">
+      <div class="dd-sky dd-game-sky">${oceanArt()}${arcadeHud()}</div>
+      <div class="dd-sea dd-game-sea">${oceanDecor()}
+        <div class="dd-game-prompt"><span class="dd-prompt-label">PROMPT ${active.index+1} OF ${currentTotal()} · ${safe(q.theme)}</span>
+          <h1 class="dd-prompt-text">${safe(q.prompt)}</h1><p class="dd-prompt-hint">▼ RARER ANSWERS SINK DEEPER ▼</p>
+        </div>
+        <div class="dd-game-fish" aria-hidden="true"></div>
+        <div class="dd-game-controls">
+          <div class="dd-game-clock ${seconds<=7?'warn':''}" id="timer" aria-label="Time remaining"><strong id="seconds">${seconds}</strong></div>
+          <form class="answer-form dd-answer-form" id="answer-form" autocomplete="off">
+            <div class="dd-answer-line"><input id="answer-input" class="answer-field" maxlength="90" autocapitalize="sentences" spellcheck="false" autocomplete="off" placeholder="type one answer…" aria-label="Your answer" aria-describedby="answer-feedback" required><button type="submit" class="dd-submit">DIVE ↧</button></div>
+            <div class="feedback" role="status" id="answer-feedback" aria-live="polite"></div>
+          </form>
+          <button class="dd-skip" type="button" data-action="pass">SKIP</button>
+          <div class="countdown-bar dd-game-bar" aria-hidden="true"><span id="time-fill" style="width:${seconds*4}%"></span></div>
+        </div>
+      </div></section>`;
   }
   function renderReveal(){
     const last=active.results[active.results.length-1]||{points:0,answer:'',tier:null,reason:'No answer'};
     const tier=last.tier!==null&&last.tier!==undefined?TIERS[last.tier]:null;
     const title=tier?tier.label:last.reason==='Timeout'?'Time is up':last.reason==='Pass'?'No discovery this time':'Not accepted';
-    const explain=tier?'That answer belongs to an editorial rarity band: it is a valid answer our original question bank recognizes.':'You can continue to the next prompt. Other accepted answers in our bank may score differently.';
-    return `<section class="page game-layout"><div class="question-card"><div class="progress-top"><span class="round-label">${frameHeading()}</span><span class="prompt-index">PROMPT ${active.index+1} OF ${currentTotal()}</span></div>
-    <div class="result-card" style="margin-top:33px;--tier:${tier?tier.color:'#90a3ab'}">
-      <div class="result-symbol" aria-hidden="true">${tier?tier.mark:'×'}</div><span class="eyebrow">${tier?'ANSWER ACCEPTED':'ROUND COMPLETE'}</span>
-      <h1 class="result-name">${safe(title)}</h1><p class="result-answer">${tier?`Your answer: <strong>${safe(last.answer)}</strong>`:safe(last.reason)}</p>
-      <div class="result-points">${tier?'◈ Earned ':'◌ Earned '}<strong>+${last.points}</strong> points</div>
-      <p class="result-explain">${safe(explain)}</p>
-      ${button('next',active.index+1>=currentTotal()||active.mode==='endless'&&active.misses>=3?'See your results →':'Next discovery →','primary')}
-    </div></div><aside class="sidepanel"><div><span class="side-label">Depth reached</span><div class="depth-score">−${format(active.score*10)} <span>m</span></div><div class="depth-rail"><span class="depth-point" style="--depth:${Math.min(92,active.score/(currentTotal()*100)*92)}%"></span></div></div><p class="side-help">Your score is based on our curated accepted-answer tiers—not guessed crowd percentages.</p></aside></section>`;
+    const explain=tier?'Accepted answer · original editorial rarity tier.':'No points for this round. The next discovery awaits.';
+    return `<section class="page deep-home dd-game-screen dd-reveal-screen">
+      <div class="dd-sky dd-game-sky">${oceanArt()}${arcadeHud()}</div>
+      <div class="dd-sea dd-game-sea">${oceanDecor()}
+        <div class="dd-reveal" style="--tier:${tier?tier.color:'#87b8d3'}">
+          <div class="dd-reveal-spark">${tier?tier.mark:'×'}</div>
+          <span class="dd-prompt-label">${tier?'ANSWER ACCEPTED':'ROUND COMPLETE'}</span>
+          <h1 class="dd-reveal-title">${safe(title)}</h1>
+          <p class="dd-reveal-answer">${tier?'↳ '+safe(last.answer):safe(last.reason)}</p>
+          <p class="dd-reveal-score">+${last.points} <span>POINTS</span></p>
+          <p class="dd-reveal-depth">▼ ${format(last.points*10)} METRES DESCENDED</p>
+          <p class="dd-reveal-caption">${safe(explain)}</p>
+          ${button('next',active.index+1>=currentTotal()||active.mode==='endless'&&active.misses>=3?'VIEW DIVE RESULTS →':'NEXT DESCENT →','primary')}
+        </div>
+      </div></section>`;
   }
   function conclude(){
     if(!active)return;

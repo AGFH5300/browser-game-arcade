@@ -35,3 +35,6 @@ CREATE TABLE IF NOT EXISTS public.deep_dive_party_rooms (
  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
  updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
+
+## Pixel-art interface redesign (29 Oct 2026)
+The original generic card/dashboard design was replaced with a complete ocean arcade skin inspired by the *genre* of pixel underwater trivia games. The implementation uses independently authored SVG sprites, layered CSS oceans, clouds, depth markings and original pixel puffer art. The Daily menu prominently shows a surface boat, animated sea and large Begin Descent / Puffer Party buttons. During play, a compact HUD floats above the surface while the prompt, fish and answer/timer controls remain within the underwater field. Answer reveal and themed/multiplayer screens use the same pixel style. The existing game mechanics, local storage keys, Neon's multiplayer API and answer bank are unchanged. Desktop 1440x900 and mobile 390x844 Chromium verified: home, question and reveal show with no page JS exceptions or horizontal overflow.
