@@ -28,6 +28,17 @@ const archivedGames: [string, TrustedPublisher][] = carlwalksGameUrls.map(url =>
 }]);
 
 const publishers = new Map<string, TrustedPublisher>([
+  // These exact paths are listed as public iframe embed URLs on each Miniplay game page.
+  // Do not allow arbitrary paths/query strings or silently proxy their traffic.
+  ...([
+    ['https://www.miniplay.com/embed/skribbl-io','Skribbl.io'],
+    ['https://www.miniplay.com/embed/tag','TAG'],
+  ] as const).map(([url,title]):[string,TrustedPublisher]=>[url,{
+    name: 'Miniplay',
+    privacyUrl: 'https://www.miniplay.com/privacy',
+    disclosure: title+' is loaded from the reviewed Miniplay iframe endpoint. Network filtering or provider changes may prevent it from loading; the original creator link remains available.',
+  }]),
+
   ['https://skribbl.io/', {
     name: 'Skribbl.io', privacyUrl: 'https://skribbl.io/', externalOnly: true,
     disclosure: 'Official third-party multiplayer or geography game; Sidequest opens the creator website in a new tab without embedding or copying its content.',
@@ -37,8 +48,10 @@ const publishers = new Map<string, TrustedPublisher>([
     disclosure: 'Official third-party multiplayer or geography game; Sidequest opens the creator website in a new tab without embedding or copying its content.',
   }],
   ['https://www.worldguessr.com/', {
-    name: 'WorldGuessr', privacyUrl: 'https://www.worldguessr.com/', externalOnly: true,
-    disclosure: 'Official third-party multiplayer or geography game; Sidequest opens the creator website in a new tab without embedding or copying its content.',
+    name: 'WorldGuessr', privacyUrl: 'https://www.worldguessr.com/privacy',
+    // The user reports publisher permission. This host currently returns no
+    // X-Frame-Options / frame-ancestors restriction; keep it publisher-hosted.
+    disclosure: 'The user reports permission to embed the publisher-hosted WorldGuessr game; accounts, maps, daily rounds and multiplayer remain with WorldGuessr.',
   }],
   ['https://krillion.io/', {
     name: 'Krillion', privacyUrl: 'https://krillion.io/privacy',
