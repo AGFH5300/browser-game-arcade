@@ -36,11 +36,11 @@ test('original Krillion opens in a separate tab; no blocked cross-site iframe',a
  assert(!markup.includes('<iframe'));
 });
 
-test('Skribbl, TAG and WorldGuessr link to the original live games without broken embeds',async()=>{
+test('Skribbl.io, TAG and WorldGuessr launch inside Sidequest through reviewed iframe hosts',async()=>{
  const {Player}=await import('../components/player');
  const expected:Record<string,string>={
-  'skribbl-io':'https://skribbl.io/',
-  'tag':'https://poki.com/en/g/tag',
+  'skribbl-io':'https://www.miniplay.com/embed/skribbl-io',
+  'tag':'https://www.miniplay.com/embed/tag',
   'worldguessr':'https://www.worldguessr.com/'
  };
  assert.equal(addedGames.length,4);
@@ -49,17 +49,32 @@ test('Skribbl, TAG and WorldGuessr link to the original live games without broke
   const game=addedGames.find(g=>g.slug===slug);
   assert(game,slug);
   assert.equal(game.gameUrl,url);
-  assert(gameSchema.safeParse(game).success,slug);
-  assert.equal(getTrustedPublisher(url)?.externalOnly,true,slug);
+  assert.equal(gameSchema.safeParse(game).success,true,slug);
+  assert.equal(getTrustedPublisher(url)?.externalOnly,undefined,slug);
   assert(isAllowedEmbedUrl(url),slug);
   assert(!isAllowedEmbedUrl(url+'?override=1'),slug);
   assert(!getEmbedSandbox(url+'?override=1').includes('allow-same-origin'),slug);
   assert.match(readFileSync('public'+game.thumbnail,'utf8'),/<svg\b/);
-  assert(selectGames([{...game,playCount:0,likes:0} as Game],{q:game.title}).total===1,slug);
+  assert.equal(selectGames([{...game,playCount:0,likes:0} as Game],{q:game.title}).total,1,slug);
   const markup=renderToStaticMarkup(createElement(Player,{game:{...game,playCount:0,likes:0} as Game}));
-  assert(markup.includes('target="_blank"'),slug);
-  assert(!markup.includes('<iframe'),slug);
+  assert(markup.includes('Play now'),slug);
+  assert(!markup.includes('Play at '+getTrustedPublisher(url)?.name),slug);
  }
+ const playerSource=readFileSync('components/player.tsx','utf8');
+ assert(playerSource.includes("['skribbl-io','tag','worldguessr'].includes(game.slug)"));
+ assert(playerSource.includes('Game not loading? Open the creator'));
  assert.match(addedGames.find(g=>g.slug==='tag')!.instructions,/same computer/);
  assert.match(addedGames.find(g=>g.slug==='worldguessr')!.description,/Street View/);
+});
+test('unreviewed embed paths on Miniplay are never granted publisher privileges',()=>{
+ for(const url of [
+  'https://www.miniplay.com/embed/',
+  'https://www.miniplay.com/embed/skribbl-io/extra',
+  'https://www.miniplay.com/embed/tag?unsafe=1',
+  'https://www.miniplay.com/embed/openguessr-geo-guessing',
+ ]){
+  assert.equal(isAllowedEmbedUrl(url,''),false,url);
+  assert.equal(getTrustedPublisher(url),null,url);
+  assert(!getEmbedSandbox(url).includes('allow-same-origin'),url);
+ }
 });
