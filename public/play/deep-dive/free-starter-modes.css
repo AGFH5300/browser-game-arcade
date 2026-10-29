@@ -1,0 +1,37 @@
+/* Free source-backed starter packs. Original public art, Sidequest-only implementation. */
+.dd-free-starters{padding:34px clamp(12px,4vw,52px) 48px;background:#041020 url('./reference-assets/gen/optimized/v1/bg-mid.webp') center/cover;border-bottom:2px solid #24557b}
+.dd-free-starters-heading{max-width:920px;margin:0 auto 23px;text-align:center;font-family:ReferenceVT323,monospace}
+.dd-free-starters-heading>span{font-size:21px;color:#5cecff;letter-spacing:.24em}
+.dd-free-starters-heading h2{font:clamp(38px,5vw,61px)/1 ReferenceVT323,monospace;letter-spacing:.1em;margin:5px 0 9px;color:#f1f9ff;text-shadow:3px 3px #ff5496,-2px -2px #47e8f3}
+.dd-free-starters-heading p{font-size:20px;line-height:1.18;color:#a4c6db;letter-spacing:.02em}
+.dd-free-starter-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:14px;max-width:1250px;margin:auto}
+.dd-free-starter-card{position:relative;overflow:hidden;min-height:235px;display:flex;flex-direction:column;align-items:flex-start;text-align:left;padding:15px;border:2px solid #335b85;box-shadow:4px 5px 0 #030917;background:#081a30 url('./reference-assets/gen/optimized/v1/cards/classic.webp') center/cover}
+.dd-free-starter-card:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#08152aaa,#031022fb);pointer-events:none}
+.dd-free-starter-card>*{position:relative;z-index:1}
+.dd-free-pack-top{display:flex;justify-content:space-between;gap:5px;width:100%;font:14px/1.05 ReferenceVT323,monospace;color:#67e3fc;letter-spacing:.06em}
+.dd-free-starter-card h3{font:clamp(25px,2.1vw,33px)/.95 ReferenceVT323,monospace;margin:24px 0 8px;color:#f8f9ff;letter-spacing:.1em}
+.dd-free-starter-card p{font:19px/1.05 ReferenceVT323,monospace;color:#a1c4dc;margin:0 0 10px}
+.dd-free-starter-card>small{font:15px ReferenceVT323,monospace;color:#b8d8ef;margin-top:auto;margin-bottom:12px}
+.dd-free-pack-play{font:19px/1 ReferenceVT323,monospace;padding:10px 7px;width:100%;border-radius:0;border:2px solid #53e0f4;background:#0a1d37;color:#defaff;box-shadow:3px 4px 0 #021122;letter-spacing:.09em;cursor:pointer;transition:background .12s,transform .12s}
+.dd-free-pack-play:not(:disabled):hover{background:#17496d;transform:translateY(-2px);border-color:#ff689e}
+.dd-free-pack-play:disabled{cursor:not-allowed;opacity:.55;border-color:#45627b}
+.dd-free-starter-card:has(.dd-free-pack-play:not(:disabled)):hover{border-color:#54dff4;box-shadow:0 0 20px #38ceea39}
+.dd-free-starter-play[data-pack="movies"] .dd-game-sky{background:linear-gradient(180deg,#00102330,#000b1b99),url('./reference-assets/gen/optimized/v1/hollywood/bg-far.webp') center/cover!important}
+.dd-free-starter-play[data-pack="movies"] .dd-game-sea{background:linear-gradient(180deg,#050e1dd0,#030b19e8),url('./reference-assets/gen/optimized/v1/hollywood/bg-mid.webp') center/cover!important}
+.dd-free-starter-play[data-pack="sports"] .dd-game-sky{background:linear-gradient(180deg,#03162b77,#041428b0),url('./reference-assets/gen/optimized/v1/gauntlet/tunnel.webp') center/cover!important}
+.dd-free-starter-play[data-pack="sports"] .dd-game-sea{background:linear-gradient(180deg,#020e20d9,#030a19ea),url('./reference-assets/gen/optimized/v1/gauntlet/floor-track.webp') center/cover!important}
+.dd-free-starter-play[data-pack="geography"] .dd-game-sky{background:linear-gradient(180deg,#07243a37,#092139a0),url('./reference-assets/gen/optimized/v1/atlas/scene-alps.webp') center/cover!important}
+.dd-free-starter-play[data-pack="geography"] .dd-game-sea{background:linear-gradient(180deg,#07243acb,#010818ed),url('./reference-assets/gen/optimized/v1/atlas/scene-amazon.webp') center/cover!important}
+@media(max-width:650px){
+ .dd-free-starters{padding:26px 13px 35px}
+ .dd-free-starter-grid{grid-template-columns:1fr 1fr;gap:9px}
+ .dd-free-starter-card{min-height:218px;padding:10px}
+ .dd-free-pack-top{font-size:11px}
+ .dd-free-starter-card h3{font-size:23px;margin-top:20px}
+ .dd-free-starter-card p{font-size:16px}
+ .dd-free-starter-card>small{font-size:13px}
+ .dd-free-pack-play{font-size:15px;min-height:46px;padding:7px 3px}
+ .dd-free-starters-heading p{font-size:19px}
+}
+@media(max-width:360px){.dd-free-starter-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.dd-free-pack-play{transition:none!important}}
