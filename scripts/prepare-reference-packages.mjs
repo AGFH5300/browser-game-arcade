@@ -754,6 +754,14 @@ function makeArtifactTransforms(pkg, file, bytes, bridgeBytes, localBySourceUrl,
         const scriptExt = /json/.test(type) ? '.json' : '.js';
         return `<script${attrs}>${rewriteTextReferences(script, scriptExt, fileUrl, resolveLocalUrl)}</script>`;
       });
+      if(pkg.slug==='subway-surfers' && file.path===requiredEntryPath(pkg)) {
+        // Legacy 4399 embed assigns document.domain; sandboxed frames throw a
+        // SecurityError before Unity can start. It is unnecessary here.
+        const before=text;
+        text=text.replace(/document\.domain\s*=\s*['"]4399\.com['"]\s*;?/g,'void 0;');
+        if(text===before)throw new Error('Subway Surfers document.domain guard signature changed');
+        mods.push('Removed forbidden legacy document.domain assignment from local game.');
+      }
       if(pkg.slug==='granny' && file.path===requiredEntryPath(pkg)) {
         // Upstream Granny page tries to set #logo.style although #logo is
         // absent in its shipped markup. Don't throw during startup.
@@ -784,10 +792,11 @@ function makeArtifactTransforms(pkg, file, bytes, bridgeBytes, localBySourceUrl,
       // Use a bounded local guest adapter; never claim ads, accounts or scores work.
       text=LEVEL_DEVIL_POKI_GUEST;
       mods.push('Replaced missing Poki core loader with local ad-free guest compatibility.');
-    } else if (pkg.slug==='ovo' && file.path==='c2runtime.js') {
-      // Construct 2 uses expressions like typeof x === "undefined" ? 200 : 0.
-      // Generic URL rewriting interpreted the expression tail as a URL query,
-      // injecting ./c2runtime.js?%20200... and producing invalid JavaScript.
+    } else if (file.path==='c2runtime.js') {
+      // Construct 2 has valid expressions like typeof x === "undefined" ? 200 : 0.
+      // Rewriting arbitrary JS strings as URL references corrupts the ternary
+      // into invalid syntax. Confirmed for Angry Heroes and Eggy Car as well
+      // as the previously protected OvO. Keep the pinned, valid original.
       mods.push('Preserved original valid Construct 2 runtime; skipped unsafe generic JS string rewriting.');
     } else {
       text = rewriteTextReferences(text, extension, fileUrl, resolveLocalUrl);
