@@ -21,9 +21,14 @@ export function parseSignal(raw:unknown,role:Role):Packet|null{
   if(e.version!==GAME_VERSION)return null;
   if(role==='host'&&e.type==='createInvite')return e.key===undefined||e.key===null||str(e.key,100)?e as Packet:null;
   if(role==='join'&&!('type' in e)){
+    // Native 0.6.3 candidates have neither type nor session.
+    if('candidate' in e)return e.candidate===null ||
+      (typeof e.candidate==='object' && !Array.isArray(e.candidate))
+      ?{...e,type:'joinIceCandidate'} as Packet:null;
     return str(e.inviteCode,8)&&str(e.offer,26_000)&&str(e.nickname,48)
       &&str(e.carStyle,4096)?{...e,type:'join'} as Packet:null;
   }
+  if(role==='host'&&e.type==='ping')return e as Packet;
   if((e.type==='iceCandidate'||e.type==='acceptJoin'||e.type==='declineJoin')
       &&str(e.session,80)){
     if(e.type==='acceptJoin'&&!str(e.answer,26_000))return null;
