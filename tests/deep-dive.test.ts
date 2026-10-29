@@ -8,7 +8,7 @@ import {getEmbedSandbox,isAllowedEmbedUrl} from '../lib/embeds';
 import {selectGames} from '../lib/catalogue';
 import type {Game} from '../lib/types';
 import {
- newRoom,joinRoom,applyAction,expireTurn,publicRoom,normalizePartyAnswer,
+ newRoom,joinRoom,applyAction,expireTurn,publicRoom,normalizePartyAnswer,findPartyAnswer,
  type PartyQuestion
 } from '../lib/deep-dive-party';
 
@@ -65,7 +65,11 @@ test('solo game and original multiplayer scripts parse and have complete mode co
  const source=readFileSync('public/play/deep-dive/game.js','utf8');
  assert(source.includes('sidequest:deep-dive:player:v1'));
  assert(source.includes('Date.now()+25000'));
- assert(source.includes('active.misses>=3'));
+ assert(source.includes('.slice(0,7).map(q=>q.id)'));
+ assert(!source.includes('active.misses>=3'));
+ assert(source.includes("timeZone:'America/New_York'"));
+ assert(source.includes("data-action=\"archive\""));
+ assert(source.includes('startArchive'));
  assert(source.includes('profile.worldRecords'));
  assert(source.includes('profile.pearls+=active.score'));
  assert(source.includes("currentView==='party'"));
@@ -119,4 +123,25 @@ test('the server rejects unauthorized players and accepts chat without exposing 
  applyAction(room,id,secret,{type:'chat',text:'hello'},now+2000,questionMap);
  assert.equal(room.messages[0].text,'hello');
  assert.throws(()=>applyAction(room,id,secret,{type:'chat',text:'too fast'},now+2500,questionMap),/quickly/);
+});
+
+test('Krillion-style rarity bands and complete seven-question dives are wired into solo UI',()=>{
+ const source=readFileSync('public/play/deep-dive/game.js','utf8');
+ const tiers=['Plankton','Too clever','Schooler','Rare','Deep cut','One in a Deep Dive'];
+ for(const label of tiers) assert(source.includes("label:'"+label+"'"),label);
+ assert(source.includes('score>=450'));
+ assert(source.includes("mode==='endless'"));
+ assert(source.includes(".slice(0,7).map(q=>q.id)"));
+ assert(source.includes('renderArchive()'));
+});
+
+test('multiplayer answer validation accepts unique typos but rejects ambiguous spellings',()=>{
+ const q=questionMap.get('geography-01');assert(q);
+ assert.equal(findPartyAnswer(q,'Frnce')?.value,'France');
+ assert.equal(findPartyAnswer(q,'france')?.value,'France');
+ assert.equal(findPartyAnswer(q,'n') ,null);
+ const ambiguous:PartyQuestion={id:'test',prompt:'Name one',theme:'Words',answers:[
+  {value:'stone',tier:0},{value:'stove',tier:0}
+ ]};
+ assert.equal(findPartyAnswer(ambiguous,'stome'),null);
 });
