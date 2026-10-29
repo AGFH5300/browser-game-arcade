@@ -1,0 +1,108 @@
+/* Pass 4 results: source-style narrow overlay, original ocean visible behind.
+ * Player chart uses only known local round scores; the source's server-fed
+ * percentile/other-player distribution is deliberately not invented.
+ */
+.dd-done-screen.dd-game-screen .dd-hud{display:none!important}
+.dd-done-screen .dd-done{
+ position:absolute;inset:0;z-index:20;overflow-y:auto;overscroll-behavior:contain;
+ background:linear-gradient(180deg,rgba(2,8,20,.48) 0%,rgba(2,8,20,.66) 50%,rgba(2,7,18,.86) 100%);
+ scrollbar-color:#1c5269 #071124;
+}
+.dd-done-screen .dd-done-inner{
+ box-sizing:border-box;
+ width:min(480px,calc(100% - 22px));max-width:480px;
+ margin:0 auto;padding:26px 10px 65px!important;
+ color:#e8f1ff;font-family:"ReferenceVT323",monospace;
+}
+.dd-done-screen .dd-done-head{display:flex;gap:10px;align-items:center;justify-content:space-between}
+.dd-done-screen .dd-done-krill{
+ color:#e6fbff;font-size:28px!important;letter-spacing:.03em;
+ text-shadow:-2px 1px #ff5d8f,2px -1px #4de3ff;
+}
+.dd-done-screen .dd-done-sub{font-size:12px!important;letter-spacing:.16em}
+.dd-done-screen .dd-done-score{margin:10px 0 12px!important;gap:14px;align-items:baseline}
+.dd-done-screen .dd-done-score .big{font-size:68px!important;line-height:.94}
+.dd-done-screen .dd-done-score .m{font-size:20px!important;color:#4de3ff}
+.dd-done-screen .dd-done-bands,
+.dd-done-screen .dd-done-catch,
+.dd-done-screen .dd-done-log{
+ border:0!important;box-shadow:none!important;background:transparent!important;
+ padding:0!important;margin:20px 0 10px!important;
+}
+.dd-done-screen .dd-done h3{
+ display:flex;align-items:center;gap:10px;
+ margin:15px 0 8px!important;font:13px "ReferenceVT323",monospace!important;
+ color:#9eaeca;letter-spacing:.18em;
+}
+.dd-done-screen .dd-done h3::after{content:"";height:1px;flex:1;background:#47718a55}
+.dd-done-screen .dd-bearing-row{
+ display:grid;grid-template-columns:62px minmax(0,1fr);gap:12px;
+ border-bottom:1px solid #526c7b47;padding:8px 0!important;
+}
+.dd-done-screen .dd-bearing-row b{width:auto!important;font-size:15px!important;color:#7392af}
+.dd-done-screen .dd-bearing-row span{font-size:17px!important;color:#8aa3bc}
+.dd-done-screen .dd-bearing-row.hit b{color:#56d7f4}
+.dd-done-screen .dd-bearing-row.hit span{color:#edf7ff;text-shadow:0 0 6px #75d6ff55}
+.dd-done-screen .dd-catch-row{
+ border-bottom:1px dashed #4b708244;gap:9px;padding:8px 0!important
+}
+.dd-done-screen .dd-catch-row .p small{color:#85a4bb}
+.dd-done-screen .dd-catch-row .p b{font-size:18px!important}
+.dd-done-screen .dd-catch-row .pts{font-size:18px!important}
+.dd-done-screen .dd-done-log p{margin:8px 0;color:#a3b9cc;font-size:17px}
+.dd-done-screen .dd-done .result-actions{
+ display:grid!important;grid-template-columns:1fr 1fr;gap:10px!important;margin:23px 0 22px!important
+}
+.dd-done-screen .dd-done .result-actions button{
+ min-height:42px;padding:8px;font:17px "ReferenceVT323",monospace;letter-spacing:.09em;
+ border-radius:0
+}
+.dd-done-screen .dd-done-rate .dd-rate-row{justify-content:center;gap:10px}
+.dd-done-screen .dd-done-rate .dd-rate{width:46px;height:44px}
+.dd-done-screen .dd-done .helper{font-size:14px;line-height:1.15;opacity:.8;margin-top:22px}
+.dd-done-screen .dd-score-trail{margin:17px 0 23px;color:#8bc6db}
+.dd-done-screen .dd-score-trail-head{display:flex;justify-content:space-between;gap:8px;
+ font:13px "ReferenceVT323",monospace;letter-spacing:.14em;color:#8fa7c0}
+.dd-done-screen .dd-score-trail-head span:last-child{color:#4de3ff}
+.dd-done-screen .dd-score-trail svg{display:block;width:100%;height:auto;max-height:168px;margin:8px 0 2px}
+.dd-done-screen .dd-score-trail-grid{stroke:#537d8b55;stroke-width:1;stroke-dasharray:4 6}
+.dd-done-screen .dd-score-trail-line{fill:none;stroke:#4de3ff;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 4px #4de3ff88)}
+.dd-done-screen .dd-score-trail-marker{fill:#ff5d8f;stroke:#f8d7e3;stroke-width:1}
+.dd-done-screen .dd-score-trail-point-label{font:15px "ReferenceVT323",monospace;fill:#c7def0}
+.dd-done-screen .dd-score-trail-round{font:13px "ReferenceVT323",monospace;fill:#7c9ab4}
+.dd-done-screen .dd-score-trail-note{margin:2px 0 6px;font:15px "ReferenceVT323",monospace;color:#849db3}
+.dd-done-screen .dd-world-surface-sky{
+ position:absolute!important;top:-51svh!important;height:51svh!important;
+ left:0;right:0;display:block!important;pointer-events:none;
+ background:url("./reference-art/sky.webp") center center/100% 100% no-repeat;
+ image-rendering:pixelated;opacity:.88;
+}
+.dd-done-screen .dd-world .dd-surface{opacity:.19;visibility:visible!important}
+.dd-done-screen .dd-game-fish.gold{position:absolute;top:72px!important;
+ left:auto!important;right:clamp(20px,14vw,225px)!important;z-index:3!important}
+@media(max-width:650px){
+ .dd-done-screen .dd-done-inner{padding:18px 6px 55px!important;width:calc(100% - 22px)}
+ .dd-done-screen .dd-done-head{flex-wrap:wrap}
+ .dd-done-screen .dd-done-krill{font-size:25px!important}
+ .dd-done-screen .dd-done-sub{font-size:12px!important}
+ .dd-done-screen .dd-done-score .big{font-size:58px!important}
+ .dd-done-screen .dd-done-score .m{font-size:18px!important}
+ .dd-done-screen .dd-score-trail{margin:12px 0 17px}
+ .dd-done-screen .dd-done .result-actions{grid-template-columns:1fr 1fr}
+ .dd-done-screen .dd-game-fish.gold{right:8px!important;top:62px!important;width:36px!important;height:36px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ .dd-done-screen .dd-score-trail-line{filter:none}
+}
+
+/* Keep viewport controls clear of live results content. */
+@media(min-width:651px){
+ .dd-done-screen .dd-game-fish.gold{right:clamp(150px,24vw,350px)!important;top:70px!important}
+}
+@media(max-width:650px){
+ .dd-done-screen .dd-done-score{padding-left:45px!important}
+ .dd-done-screen .dd-score-trail-head span:last-child{display:none}
+ .dd-done-screen .dd-game-fish.gold{
+   right:110px!important;top:78px!important;width:36px!important;height:36px!important
+ }
+}

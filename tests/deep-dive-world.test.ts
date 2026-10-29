@@ -68,7 +68,7 @@ test('game drives the original phase machine preview -> answering -> feedback ->
     'the clock starts in',
     'descending \u00b7 the clock starts in',
     'data-phase="${active.phase}"',
-    'data-world="${worldForMode()}"',
+    'data-world="${worldId}"',
     'SURFACE \u25b2',
     "'DIVE COMPLETE'",
     'dd-preview-pill',
@@ -105,7 +105,7 @@ test('two-step answer corrections, reject copy and sonar dock match the original
 
 test('world markup renders inside one 14,800px column with world-anchored elements',()=>{
   for(const feature of [
-    'class="dd-world"',
+    'class="dd-world" style="--dd-world-height:',
     'worldSurface(',
     'worldFacts()',
     'dd-floor',
@@ -184,10 +184,10 @@ test('wardrobe streak gates and Puffer Party capacity match the original',()=>{
 test('pass-3 assets load last and in the right order',()=>{
   assert(html.includes('./reference-pass3.css?release=20261030validated'));
   assert(html.includes('./reference-world.js?version=20261030b'));
-  assert(html.includes('./game.js?parity=20261030pass3validated'));
+  assert(html.includes('./game.js?parity=20261030pass4a'));
   assert(html.indexOf('reference-parity-2.css')<html.indexOf('reference-pass3.css'));
   assert(html.indexOf('reference-parity-2.css')<html.indexOf('reference-pass3.css')&&html.indexOf('reference-pass3.css')<html.indexOf('</head>'));
-  assert(html.indexOf('reference-world.js')<html.indexOf('game.js?parity=20261030pass3validated'));
+  assert(html.indexOf('reference-world.js')<html.indexOf('game.js?parity=20261030pass4a'));
   assert(html.indexOf('reference-interface.js')<html.indexOf('reference-world.js'));
   assert(html.includes('data-phase="boot"'));
 });

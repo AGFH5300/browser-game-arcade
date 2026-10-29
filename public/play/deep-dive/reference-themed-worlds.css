@@ -1,0 +1,82 @@
+/* Pass 4: Themed public free worlds — the actual 16,400px world length,
+ * sourced art scenes anchored to camera coordinates, distinct from ocean.
+ * Image placement is reconstructed from observable artwork, not original
+ * publisher's private level data.
+ */
+.dd-game-screen .dd-world{
+  height:var(--dd-world-height,14800px)!important;
+  --dd-theme:#4de3ff;
+}
+.dd-game-screen[data-world="hollywood"] .dd-world{--dd-theme:#df9afb}
+.dd-game-screen[data-world="gauntlet"] .dd-world{--dd-theme:#7de7a0}
+.dd-game-screen[data-world="atlas"] .dd-world{--dd-theme:#84cfff}
+.dd-game-screen[data-world="lexicon"] .dd-world{--dd-theme:#f6c482}
+.dd-game-screen .dd-world-setpiece{
+  position:absolute;top:var(--y,0px)!important;
+  left:0;width:100%;height:auto;max-height:1050px;
+  object-fit:cover;object-position:top center;
+  opacity:.66;z-index:0;image-rendering:pixelated;
+  filter:brightness(.75) contrast(1.08);
+  pointer-events:none;
+}
+.dd-game-screen .dd-world-setpiece.dd-world-far{
+  max-height:960px;opacity:.62;
+}
+.dd-game-screen .dd-world-setpiece.dd-world-gate{
+  max-height:1250px;opacity:.74;
+}
+.dd-game-screen .dd-world-setpiece.dd-world-mid{
+  max-height:1020px;opacity:.58;
+}
+.dd-game-screen .dd-world-setpiece.dd-world-floor-scene{max-height:1300px;opacity:.50}
+.dd-game-screen[data-world="hollywood"] .dd-world-setpiece{filter:brightness(.74) saturate(1.25)}
+.dd-game-screen[data-world="gauntlet"] .dd-world-setpiece{filter:brightness(.72) saturate(1.1)}
+.dd-game-screen[data-world="atlas"] .dd-world-setpiece{filter:brightness(.70) saturate(1.05)}
+.dd-game-screen[data-world="lexicon"] .dd-world-setpiece{filter:brightness(.64) sepia(.12)}
+.dd-game-screen[data-world="hollywood"] .dd-game-prompt,
+.dd-game-screen[data-world="gauntlet"] .dd-game-prompt,
+.dd-game-screen[data-world="atlas"] .dd-game-prompt,
+.dd-game-screen[data-world="lexicon"] .dd-game-prompt{border-color:var(--dd-theme)!important}
+.dd-game-screen[data-world="hollywood"] .dd-hud-progress small,
+.dd-game-screen[data-world="gauntlet"] .dd-hud-progress small,
+.dd-game-screen[data-world="atlas"] .dd-hud-progress small,
+.dd-game-screen[data-world="lexicon"] .dd-hud-progress small{color:var(--dd-theme)!important}
+.dd-game-screen[data-world="hollywood"] .dd-world-surface-sky,
+.dd-game-screen[data-world="gauntlet"] .dd-world-surface-sky,
+.dd-game-screen[data-world="atlas"] .dd-world-surface-sky,
+.dd-game-screen[data-world="lexicon"] .dd-world-surface-sky{display:none!important}
+.dd-game-screen[data-world="hollywood"] .dd-amb,
+.dd-game-screen[data-world="gauntlet"] .dd-amb,
+.dd-game-screen[data-world="atlas"] .dd-amb,
+.dd-game-screen[data-world="lexicon"] .dd-amb{position:absolute;z-index:2}
+.dd-game-screen[data-world="hollywood"] .dd-stage{background:linear-gradient(180deg,#1a092b,#0d0618 50%,#040513)}
+.dd-game-screen[data-world="gauntlet"] .dd-stage{background:linear-gradient(180deg,#09271b,#05160e 50%,#030914)}
+.dd-game-screen[data-world="atlas"] .dd-stage{background:linear-gradient(180deg,#0b2642,#091629 50%,#030b15)}
+.dd-game-screen[data-world="lexicon"] .dd-stage{background:linear-gradient(180deg,#251a0b,#1a130a 50%,#060b13)}
+.dd-game-screen[data-world="hollywood"] .dd-floor,
+.dd-game-screen[data-world="gauntlet"] .dd-floor,
+.dd-game-screen[data-world="atlas"] .dd-floor,
+.dd-game-screen[data-world="lexicon"] .dd-floor{top:var(--y,15620px)!important}
+.dd-free-starter-card .dd-public-chapters{width:100%;margin:10px 0 2px;font:17px ReferenceVT323,monospace}
+.dd-free-starter-card .dd-public-chapters summary{
+  cursor:pointer;color:#74dfe9;letter-spacing:.08em;
+  padding:5px 0;outline-offset:4px;
+}
+.dd-free-starter-card .dd-public-chapters .dd-public-chapter-list{
+  display:grid;grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:4px;margin:9px 0;
+}
+.dd-public-chapter-list button{
+  min-height:30px;padding:2px 0;
+  background:#091a2e;color:#7890a7;
+  border:1px solid #234564;font:15px ReferenceVT323,monospace;
+}
+.dd-public-chapter-list button:not(:disabled){color:#eaffff;border-color:#4ce0ec;cursor:pointer}
+.dd-public-chapter-list button:not(:disabled):hover{background:#174365}
+.dd-public-chapter-list button:disabled{cursor:not-allowed;opacity:.7}
+.dd-public-chapters p{font:14px/1.15 ReferenceVT323,monospace;color:#9aaec8;margin:7px 0}
+@media(max-width:650px){
+ .dd-game-screen .dd-world-setpiece{max-height:820px}
+ .dd-free-starter-card .dd-public-chapters .dd-public-chapter-list{grid-template-columns:repeat(5,minmax(0,1fr))}
+}
+@media(prefers-reduced-motion:reduce){.dd-game-screen .dd-world-setpiece{animation:none!important}}
