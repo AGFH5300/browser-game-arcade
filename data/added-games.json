@@ -197,7 +197,7 @@
     ],
     "developer": "Sidequest Originals",
     "engine": "html5",
-    "gameUrl": "/play/deep-dive/index.html",
+    "gameUrl": "/play/deep-dive/index-arcade.html",
     "sourceUrl": "https://browser-game-arcade.vercel.app/games/deep-dive",
     "license": "Original Sidequest game",
     "licenseNotes": "Deep Dive is an independently written original trivia game with a curated editorial answer bank. Its interface, art, text, scoring labels, code, progression and question sets are new. Its broad open-answer rarity mechanic is not exclusive to any other game; it does not copy another game's proprietary question-bank compilation, brand, screens or paid unlock system. Progress is stored only in the current browser.",
@@ -208,7 +208,7 @@
     "published": true,
     "displayOrder": 202,
     "createdAt": "2026-10-29T00:00:00.000Z",
-    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T13:05:00.000Z",
     "publishedAt": "2026-10-29T00:00:00.000Z"
   }
 ]
