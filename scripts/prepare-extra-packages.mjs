@@ -164,7 +164,7 @@ async function transformSnowRider(packageRoot) {
     '    <script>',
     '      window.addEventListener("DOMContentLoaded", function () {',
     '        try {',
-    '          window.gameInstance = UnityLoader.instantiate("gameContainer", "Build/SnowRider3D-gd-1.json", { onProgress: UnityProgress });',
+    '          window.gameInstance = UnityLoader.instantiate("gameContainer", "Build/SnowRider3D-gd-1.json", { onProgress: UnityProgress, Module: { onRuntimeInitialized: function () { UnityProgress(window.gameInstance, "complete"); } } });',
     '        } catch (error) {',
     '          console.error("Snow Rider Unity startup failed", error);',
     '          var box = document.getElementById("gameContainer");',
