@@ -1,0 +1,536 @@
+{
+  "source": "Independent archived snapshots at krilliongame.com (not live official API)",
+  "firstDate": "2026-07-16",
+  "lastDate": "2026-10-28",
+  "importedDates": 105,
+  "prompts": 735,
+  "acceptedAnswerRows": 499704,
+  "dates": [
+    {
+      "date": "2026-07-16",
+      "prompts": 7,
+      "acceptedAnswers": 364
+    },
+    {
+      "date": "2026-07-17",
+      "prompts": 7,
+      "acceptedAnswers": 520
+    },
+    {
+      "date": "2026-07-18",
+      "prompts": 7,
+      "acceptedAnswers": 461
+    },
+    {
+      "date": "2026-07-19",
+      "prompts": 7,
+      "acceptedAnswers": 365
+    },
+    {
+      "date": "2026-07-20",
+      "prompts": 7,
+      "acceptedAnswers": 470
+    },
+    {
+      "date": "2026-07-21",
+      "prompts": 7,
+      "acceptedAnswers": 543
+    },
+    {
+      "date": "2026-07-22",
+      "prompts": 7,
+      "acceptedAnswers": 428
+    },
+    {
+      "date": "2026-07-23",
+      "prompts": 7,
+      "acceptedAnswers": 362
+    },
+    {
+      "date": "2026-07-24",
+      "prompts": 7,
+      "acceptedAnswers": 429
+    },
+    {
+      "date": "2026-07-25",
+      "prompts": 7,
+      "acceptedAnswers": 431
+    },
+    {
+      "date": "2026-07-26",
+      "prompts": 7,
+      "acceptedAnswers": 400
+    },
+    {
+      "date": "2026-07-27",
+      "prompts": 7,
+      "acceptedAnswers": 343
+    },
+    {
+      "date": "2026-07-28",
+      "prompts": 7,
+      "acceptedAnswers": 579
+    },
+    {
+      "date": "2026-07-29",
+      "prompts": 7,
+      "acceptedAnswers": 400
+    },
+    {
+      "date": "2026-07-30",
+      "prompts": 7,
+      "acceptedAnswers": 413
+    },
+    {
+      "date": "2026-07-31",
+      "prompts": 7,
+      "acceptedAnswers": 498
+    },
+    {
+      "date": "2026-08-01",
+      "prompts": 7,
+      "acceptedAnswers": 387
+    },
+    {
+      "date": "2026-08-02",
+      "prompts": 7,
+      "acceptedAnswers": 496
+    },
+    {
+      "date": "2026-08-03",
+      "prompts": 7,
+      "acceptedAnswers": 394
+    },
+    {
+      "date": "2026-08-04",
+      "prompts": 7,
+      "acceptedAnswers": 319
+    },
+    {
+      "date": "2026-08-05",
+      "prompts": 7,
+      "acceptedAnswers": 295
+    },
+    {
+      "date": "2026-08-06",
+      "prompts": 7,
+      "acceptedAnswers": 448
+    },
+    {
+      "date": "2026-08-07",
+      "prompts": 7,
+      "acceptedAnswers": 374
+    },
+    {
+      "date": "2026-08-08",
+      "prompts": 7,
+      "acceptedAnswers": 594
+    },
+    {
+      "date": "2026-08-09",
+      "prompts": 7,
+      "acceptedAnswers": 319
+    },
+    {
+      "date": "2026-08-10",
+      "prompts": 7,
+      "acceptedAnswers": 236
+    },
+    {
+      "date": "2026-08-11",
+      "prompts": 7,
+      "acceptedAnswers": 612
+    },
+    {
+      "date": "2026-08-12",
+      "prompts": 7,
+      "acceptedAnswers": 552
+    },
+    {
+      "date": "2026-08-13",
+      "prompts": 7,
+      "acceptedAnswers": 789
+    },
+    {
+      "date": "2026-08-14",
+      "prompts": 7,
+      "acceptedAnswers": 497
+    },
+    {
+      "date": "2026-08-15",
+      "prompts": 7,
+      "acceptedAnswers": 439
+    },
+    {
+      "date": "2026-08-16",
+      "prompts": 7,
+      "acceptedAnswers": 469
+    },
+    {
+      "date": "2026-08-17",
+      "prompts": 7,
+      "acceptedAnswers": 414
+    },
+    {
+      "date": "2026-08-18",
+      "prompts": 7,
+      "acceptedAnswers": 644
+    },
+    {
+      "date": "2026-08-19",
+      "prompts": 7,
+      "acceptedAnswers": 304
+    },
+    {
+      "date": "2026-08-20",
+      "prompts": 7,
+      "acceptedAnswers": 595
+    },
+    {
+      "date": "2026-08-21",
+      "prompts": 7,
+      "acceptedAnswers": 684
+    },
+    {
+      "date": "2026-08-22",
+      "prompts": 7,
+      "acceptedAnswers": 866
+    },
+    {
+      "date": "2026-08-23",
+      "prompts": 7,
+      "acceptedAnswers": 1489
+    },
+    {
+      "date": "2026-08-24",
+      "prompts": 7,
+      "acceptedAnswers": 622
+    },
+    {
+      "date": "2026-08-25",
+      "prompts": 7,
+      "acceptedAnswers": 2182
+    },
+    {
+      "date": "2026-08-26",
+      "prompts": 7,
+      "acceptedAnswers": 1366
+    },
+    {
+      "date": "2026-08-27",
+      "prompts": 7,
+      "acceptedAnswers": 1295
+    },
+    {
+      "date": "2026-08-28",
+      "prompts": 7,
+      "acceptedAnswers": 2152
+    },
+    {
+      "date": "2026-08-29",
+      "prompts": 7,
+      "acceptedAnswers": 1841
+    },
+    {
+      "date": "2026-08-30",
+      "prompts": 7,
+      "acceptedAnswers": 1916
+    },
+    {
+      "date": "2026-08-31",
+      "prompts": 7,
+      "acceptedAnswers": 1257
+    },
+    {
+      "date": "2026-09-01",
+      "prompts": 7,
+      "acceptedAnswers": 6352
+    },
+    {
+      "date": "2026-09-02",
+      "prompts": 7,
+      "acceptedAnswers": 3655
+    },
+    {
+      "date": "2026-09-03",
+      "prompts": 7,
+      "acceptedAnswers": 2267
+    },
+    {
+      "date": "2026-09-04",
+      "prompts": 7,
+      "acceptedAnswers": 2000
+    },
+    {
+      "date": "2026-09-05",
+      "prompts": 7,
+      "acceptedAnswers": 1829
+    },
+    {
+      "date": "2026-09-06",
+      "prompts": 7,
+      "acceptedAnswers": 3779
+    },
+    {
+      "date": "2026-09-07",
+      "prompts": 7,
+      "acceptedAnswers": 5590
+    },
+    {
+      "date": "2026-09-08",
+      "prompts": 7,
+      "acceptedAnswers": 3642
+    },
+    {
+      "date": "2026-09-09",
+      "prompts": 7,
+      "acceptedAnswers": 4770
+    },
+    {
+      "date": "2026-09-10",
+      "prompts": 7,
+      "acceptedAnswers": 3473
+    },
+    {
+      "date": "2026-09-11",
+      "prompts": 7,
+      "acceptedAnswers": 2228
+    },
+    {
+      "date": "2026-09-12",
+      "prompts": 7,
+      "acceptedAnswers": 3359
+    },
+    {
+      "date": "2026-09-13",
+      "prompts": 7,
+      "acceptedAnswers": 2277
+    },
+    {
+      "date": "2026-09-14",
+      "prompts": 7,
+      "acceptedAnswers": 1616
+    },
+    {
+      "date": "2026-09-15",
+      "prompts": 7,
+      "acceptedAnswers": 790
+    },
+    {
+      "date": "2026-09-16",
+      "prompts": 7,
+      "acceptedAnswers": 847
+    },
+    {
+      "date": "2026-09-17",
+      "prompts": 7,
+      "acceptedAnswers": 4089
+    },
+    {
+      "date": "2026-09-18",
+      "prompts": 7,
+      "acceptedAnswers": 1083
+    },
+    {
+      "date": "2026-09-19",
+      "prompts": 7,
+      "acceptedAnswers": 2194
+    },
+    {
+      "date": "2026-09-20",
+      "prompts": 7,
+      "acceptedAnswers": 1545
+    },
+    {
+      "date": "2026-09-21",
+      "prompts": 7,
+      "acceptedAnswers": 1606
+    },
+    {
+      "date": "2026-09-22",
+      "prompts": 7,
+      "acceptedAnswers": 3035
+    },
+    {
+      "date": "2026-09-23",
+      "prompts": 7,
+      "acceptedAnswers": 7677
+    },
+    {
+      "date": "2026-09-24",
+      "prompts": 7,
+      "acceptedAnswers": 11274
+    },
+    {
+      "date": "2026-09-25",
+      "prompts": 7,
+      "acceptedAnswers": 4092
+    },
+    {
+      "date": "2026-09-26",
+      "prompts": 7,
+      "acceptedAnswers": 4965
+    },
+    {
+      "date": "2026-09-27",
+      "prompts": 7,
+      "acceptedAnswers": 2622
+    },
+    {
+      "date": "2026-09-28",
+      "prompts": 7,
+      "acceptedAnswers": 4865
+    },
+    {
+      "date": "2026-09-29",
+      "prompts": 7,
+      "acceptedAnswers": 4036
+    },
+    {
+      "date": "2026-09-30",
+      "prompts": 7,
+      "acceptedAnswers": 3744
+    },
+    {
+      "date": "2026-10-01",
+      "prompts": 7,
+      "acceptedAnswers": 52173
+    },
+    {
+      "date": "2026-10-02",
+      "prompts": 7,
+      "acceptedAnswers": 3455
+    },
+    {
+      "date": "2026-10-03",
+      "prompts": 7,
+      "acceptedAnswers": 5445
+    },
+    {
+      "date": "2026-10-04",
+      "prompts": 7,
+      "acceptedAnswers": 7091
+    },
+    {
+      "date": "2026-10-05",
+      "prompts": 7,
+      "acceptedAnswers": 18414
+    },
+    {
+      "date": "2026-10-06",
+      "prompts": 7,
+      "acceptedAnswers": 1844
+    },
+    {
+      "date": "2026-10-07",
+      "prompts": 7,
+      "acceptedAnswers": 13183
+    },
+    {
+      "date": "2026-10-08",
+      "prompts": 7,
+      "acceptedAnswers": 3987
+    },
+    {
+      "date": "2026-10-09",
+      "prompts": 7,
+      "acceptedAnswers": 27817
+    },
+    {
+      "date": "2026-10-10",
+      "prompts": 7,
+      "acceptedAnswers": 28296
+    },
+    {
+      "date": "2026-10-11",
+      "prompts": 7,
+      "acceptedAnswers": 5036
+    },
+    {
+      "date": "2026-10-12",
+      "prompts": 7,
+      "acceptedAnswers": 16815
+    },
+    {
+      "date": "2026-10-13",
+      "prompts": 7,
+      "acceptedAnswers": 9054
+    },
+    {
+      "date": "2026-10-14",
+      "prompts": 7,
+      "acceptedAnswers": 9195
+    },
+    {
+      "date": "2026-10-15",
+      "prompts": 7,
+      "acceptedAnswers": 4651
+    },
+    {
+      "date": "2026-10-16",
+      "prompts": 7,
+      "acceptedAnswers": 3348
+    },
+    {
+      "date": "2026-10-17",
+      "prompts": 7,
+      "acceptedAnswers": 4107
+    },
+    {
+      "date": "2026-10-18",
+      "prompts": 7,
+      "acceptedAnswers": 25250
+    },
+    {
+      "date": "2026-10-19",
+      "prompts": 7,
+      "acceptedAnswers": 8746
+    },
+    {
+      "date": "2026-10-20",
+      "prompts": 7,
+      "acceptedAnswers": 17111
+    },
+    {
+      "date": "2026-10-21",
+      "prompts": 7,
+      "acceptedAnswers": 3796
+    },
+    {
+      "date": "2026-10-22",
+      "prompts": 7,
+      "acceptedAnswers": 15062
+    },
+    {
+      "date": "2026-10-23",
+      "prompts": 7,
+      "acceptedAnswers": 11242
+    },
+    {
+      "date": "2026-10-24",
+      "prompts": 7,
+      "acceptedAnswers": 32759
+    },
+    {
+      "date": "2026-10-25",
+      "prompts": 7,
+      "acceptedAnswers": 13601
+    },
+    {
+      "date": "2026-10-26",
+      "prompts": 7,
+      "acceptedAnswers": 12581
+    },
+    {
+      "date": "2026-10-27",
+      "prompts": 7,
+      "acceptedAnswers": 4162
+    },
+    {
+      "date": "2026-10-28",
+      "prompts": 7,
+      "acceptedAnswers": 4329
+    }
+  ],
+  "failures": []
+}
