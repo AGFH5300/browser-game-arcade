@@ -3,7 +3,7 @@ import {chromium} from 'playwright';
 
 const base=process.env.SIDEQUEST_PREVIEW_URL;
 if (!base || !base.startsWith('https://browser-game-arcade-')) throw Error('Set the immutable Sidequest preview URL.');
-const pageUrl=base+'/play/deep-dive/index.html';
+const pageUrl=base+'/play/deep-dive/index-public-art.html';
 const browser=await chromium.launch({headless:true});
 const first=await browser.newContext({viewport:{width:1280,height:820}});
 const second=await browser.newContext({viewport:{width:1280,height:820}});

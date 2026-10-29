@@ -75,7 +75,7 @@ test('solo game and original multiplayer scripts parse and have complete mode co
  assert(source.includes('profile.worldRecords'));
  assert(source.includes('profile.pearls+=active.score'));
  assert(source.includes("currentView==='party'"));
- const html=readFileSync('public/play/deep-dive/index.html','utf8');
+ const html=readFileSync('public/play/deep-dive/index-public-art.html','utf8');
  assert(html.includes('party.js')&&html.includes('game.js')&&html.includes('Puffer Party'));
 });
 

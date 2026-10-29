@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import vm from 'node:vm';
 const game=readFileSync('public/play/deep-dive/game.js','utf8');
-const html=readFileSync('public/play/deep-dive/index.html','utf8');
+const html=readFileSync('public/play/deep-dive/index-public-art.html','utf8');
 const skin=readFileSync('public/play/deep-dive/pixel-ui.css','utf8');
 
 test('Deep Dive has a pixel-art arcade home screen, not the old dashboard',()=>{
@@ -18,7 +18,7 @@ test('Deep Dive has a pixel-art arcade home screen, not the old dashboard',()=>{
  assert.match(skin,/\.dd-logo\{/);
  assert.match(skin,/\.dd-depth-ticks/);
  assert.match(skin,/\.dd-game-fish/);
- assert.match(readFileSync('public/play/deep-dive/puffer-pixel.svg','utf8'),/^<svg/);
+ assert.match(skin,/reference-art\/puffer\.png/);
 });
 test('Game controls and multiplayer logic remain accessible after visual overhaul',()=>{
  assert.doesNotThrow(()=>new vm.Script(game));
