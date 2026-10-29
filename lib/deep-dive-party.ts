@@ -15,7 +15,7 @@ export type PartyRoom={
 export type PartyQuestion={id:string;prompt:string;theme:string;answers:{value:string;tier:number;aliases?:string[]}[]};
 export type PartyAction={type:'ready'|'start'|'answer'|'pass'|'chat'|'leave';name?:string;answer?:string;text?:string;ready?:boolean};
 export const PARTY_TURN_MS=18000;
-export const PARTY_MAX_MEMBERS=8;
+export const PARTY_MAX_MEMBERS=16;
 export const PARTY_HEART_GOAL=120;
 export const PARTY_MAX_HEARTS=5;
 export const PARTY_TURNS_CAP=90;
@@ -73,7 +73,7 @@ export function makeCode():string{
 }
 export function newRoom(code:string,nickname:string,publicRoom:boolean,now:number,questionIds:string[],options:{avatar?:unknown;maxMembers?:number;minMembers?:number}={}):{room:PartyRoom;secret:string;id:string}{
  const secret=makeToken(),id=makeToken();
- const maxMembers=Number.isInteger(options.maxMembers)?Math.max(2,Math.min(8,options.maxMembers!)):8;
+ const maxMembers=Number.isInteger(options.maxMembers)?Math.max(2,Math.min(16,options.maxMembers!)):16;
  const minMembers=Number.isInteger(options.minMembers)?Math.max(2,Math.min(maxMembers,options.minMembers!)):2;
  const host:PartyMember={id,secret,name:validNickname(nickname),avatar:validatePartyAvatar(options.avatar),hearts:3,energy:0,score:0,ready:true,joined:now,lastMessage:0};
  return {secret,id,room:{code,hostId:id,publicRoom,maxMembers,minMembers,phase:'lobby',members:[host],messages:[],events:[],questionIds,questionIndex:0,turnId:null,turns:0,used:[],deadline:null,winnerId:null,created:now}};

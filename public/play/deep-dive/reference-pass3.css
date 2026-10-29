@@ -1,0 +1,267 @@
+/* Deep Dive parity pass 3 — scroll-world engine, phase machine, sonar dock,
+ * two-step corrections and the original end screen.
+ * Reconstructed from the original public client (krillion.io guest sessions,
+ * 2026-10-29, desktop 1440x900 + mobile 390x844; bundles 2_ns9yberwasa.js,
+ * 1klevf566y93_.js; CSS chunk 1pp18n31ii136) and mapped onto the Sidequest
+ * dd-* DOM. Loads after reference-parity-2.css and overrides its
+ * fixed-viewport reveal assumptions with true world coordinates.
+ *
+ * Key recovered geometry (see reference-world.js for evidence):
+ *   world height 14,800px · 2px per metre · floor at 14,020px
+ *   round base = 2*prevDepthM · tier lines at base + score/100*2000
+ *   chip spawns base+180 → sinks to its line · miss banner base+80
+ *   camera: translate3d(0, anchor-2*depth, 0) + idle drift
+ */
+:root{
+  --p3-cyan:#4de3ff;--p3-pink:#ff5d8f;--p3-white:#e8f1ff;--p3-grey:#7d93b8;
+  --p3-panel:#101d33;--p3-panel2:#0b1526;--p3-ink:#050a14;--p3-ring:#060d1a;--p3-ring2:#1b3050;
+}
+
+/* ============ full-bleed game stage ============ */
+.page.deep-home.dd-game-screen{
+  position:relative!important;height:100svh!important;min-height:560px!important;
+  padding:0!important;margin:0!important;overflow:hidden!important;background:#030b16!important;
+}
+.dd-game-screen .dd-stage{position:absolute;inset:0;overflow:hidden;z-index:1}
+.dd-game-screen .dd-stage.dd-stage-shake{animation:dd-stage-jolt .65s linear 1}
+@keyframes dd-stage-jolt{
+  0%,100%{transform:translate(0,0)}10%{transform:translate(-2px,1px)}20%{transform:translate(2px,-1px)}
+  30%{transform:translate(-3px,2px)}40%{transform:translate(3px,1px)}55%{transform:translate(-2px,-2px)}
+  70%{transform:translate(2px,2px)}85%{transform:translate(-1px,1px)}
+}
+.dd-game-screen .dd-sea{position:absolute;inset:0;z-index:0}
+.dd-game-screen[data-zone="surface"] .dd-stage{background:linear-gradient(180deg,#0d4a74 0%,#0a3a5e 34%,#072a4a 68%,#041a33 100%)}
+.dd-game-screen[data-zone="deep"] .dd-stage{background:linear-gradient(180deg,#072a4a 0%,#05203c 40%,#031529 100%)}
+.dd-game-screen[data-zone="midnight"] .dd-stage{background:linear-gradient(180deg,#031529 0%,#020d1c 55%,#010714 100%)}
+.dd-game-screen[data-zone="abyss"] .dd-stage{background:linear-gradient(180deg,#020d1c 0%,#01050f 60%,#000309 100%)}
+
+/* ============ the 14,800px world column ============ */
+.dd-game-screen .dd-world{
+  position:absolute;left:0;right:0;top:0;height:14800px;z-index:1;
+  will-change:transform;transform:translate3d(0,0,0);contain:layout style;
+}
+.dd-world>*{position:absolute}
+.dd-world .dd-surface{
+  top:var(--y,-336px);height:200px;left:0;right:0;text-align:center;
+  color:var(--p3-white);font-family:"ReferenceVT323",monospace;pointer-events:none;
+}
+.dd-world .dd-title{font-size:clamp(72px,11vw,124px);line-height:.94;letter-spacing:.02em;
+  text-shadow:0 0 34px #4de3ff40,3px 0 #ff5d8f33,-3px 0 #4de3ff33}
+.dd-world .dd-title span{display:inline-block;animation:dd-title-bob 2.6s ease-in-out infinite}
+@keyframes dd-title-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.dd-world .dd-tagline{letter-spacing:.5em;font-size:20px;color:var(--p3-cyan);margin-top:6px}
+.dd-world .dd-subline{letter-spacing:.14em;font-size:16px;color:var(--p3-grey);margin-top:4px}
+.dd-world .dd-floor{
+  top:var(--y,14020px)!important;left:0;width:100%;height:961px;object-fit:cover;
+  image-rendering:pixelated;opacity:.9;
+}
+.dd-game-screen .dd-amb{top:var(--y,0px)!important;white-space:nowrap}
+
+/* ============ world-anchored question card ============ */
+.dd-game-screen .dd-game-prompt{
+  top:var(--y,0px)!important;animation:dd-card-in .7s cubic-bezier(.2,1.5,.4,1) backwards!important;
+}
+@keyframes dd-card-in{0%{opacity:0;transform:translateY(-26px)}100%{opacity:1;transform:translateY(0)}}
+
+/* ============ tier lines (all six, 90ms stagger via inline delay) ============ */
+.dd-reveal-screen .dd-tierline{
+  top:var(--y,0px)!important;animation:none!important;opacity:0;transition:opacity .55s ease-out;
+}
+.dd-reveal-screen .dd-tierline.lit{opacity:1}
+.dd-reveal-screen .dd-tierline .tag img,.dd-reveal-screen .dd-tierline .tag i{
+  height:16px;width:auto;display:inline-block;vertical-align:-3px;margin-right:7px;image-rendering:pixelated;font-style:normal;
+}
+.dd-reveal-screen .dd-tierline .tag i{width:auto;height:auto;font-size:13px}
+
+/* ============ answer chip: spawns 180px low, sinks onto its line ============ */
+.dd-reveal-screen .dd-chip{
+  top:var(--y,0px)!important;transform:translate(-50%,var(--chip-drop,0px))!important;
+  transition:transform 2.8s cubic-bezier(.3,.7,.3,1);
+}
+.dd-reveal-screen .dd-landed{top:var(--y,0px)!important}
+
+/* ============ sonar dock (slides up only for answering) ============ */
+.dd-game-screen .dd-dock{
+  position:absolute!important;left:0!important;right:0!important;bottom:0!important;z-index:10;margin:0!important;max-width:none!important;
+  padding:10px 12px calc(12px + env(safe-area-inset-bottom))!important;
+  background:linear-gradient(180deg,#0b152600,#050a14eb 26%);
+  transform:translateY(120%);transition:transform .55s cubic-bezier(.2,1.5,.4,1);
+}
+.dd-game-screen[data-phase="answering"] .dd-dock{transform:none}
+.dd-dock-inner{align-items:center;gap:10px;max-width:600px;margin:0 auto;display:flex}
+.dd-sonar-wrap{flex:none;width:58px;height:58px;position:relative}
+.dd-sonar-scope{
+  background:radial-gradient(circle,#0b1526f2 40%,#101d33e6 100%);border-radius:50%;
+  position:absolute;inset:0;overflow:hidden;
+  box-shadow:0 0 0 2px var(--p3-ring),0 0 0 4px var(--p3-ring2),0 0 18px #4de3ff33,inset 0 0 14px #4de3ff24;
+}
+.dd-sonar-scope:before{content:"";border:1px solid #4de3ff38;border-radius:50%;position:absolute;inset:8px}
+.dd-sweep{
+  transform-origin:0;background:linear-gradient(90deg,#4de3ffe6,#0000);width:50%;height:2px;
+  animation:dd-sweep-spin 2.4s linear infinite;position:absolute;top:50%;left:50%;box-shadow:0 0 8px #4de3ffcc;
+}
+@keyframes dd-sweep-spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.dd-hot .dd-sweep{animation-duration:.7s}
+.dd-time-digits{
+  color:var(--p3-cyan);text-shadow:0 0 12px #4de3ffb3;font-variant-numeric:tabular-nums;
+  justify-content:center;align-items:center;font-size:26px;display:flex;position:absolute;inset:0;
+  font-family:"ReferenceVT323",monospace;
+}
+.dd-hot .dd-time-digits,.dd-sonar-wrap.warn .dd-time-digits{color:var(--p3-pink);text-shadow:0 0 16px #ff5d8fe6}
+.dd-input-col{flex:1;position:relative;min-width:0}
+.dd-dock .dd-input{
+  width:100%!important;display:block!important;
+  background:#0b1526e6!important;border:2px solid var(--p3-ring2)!important;border-radius:0!important;
+  color:var(--p3-white)!important;caret-color:var(--p3-pink)!important;letter-spacing:.04em!important;
+  font-family:"ReferenceVT323",monospace!important;font-size:26px!important;
+  padding:9px 10px 13px!important;height:auto!important;min-height:0!important;box-shadow:none!important;
+  transition:border-color .25s;
+}
+.dd-dock .dd-input:focus{border-color:#4de3ffa6!important;outline:none}
+.dd-game-screen.dd-hot .dd-dock .dd-input{border-color:var(--p3-pink)!important}
+.dd-fuse{position:absolute;left:0;right:0;bottom:8px;height:4px;background:#0a1322;box-shadow:0 0 0 2px var(--p3-ring)}
+.dd-fuse-fill{height:100%;background:var(--p3-cyan);transform-origin:0;display:block}
+.dd-game-screen.dd-hot .dd-fuse-fill{background:var(--p3-pink)}
+.dd-dock .dd-dive-btn{
+  flex:none!important;min-height:0!important;
+  background:var(--p3-pink)!important;color:var(--p3-ink)!important;border:0!important;border-radius:0!important;
+  letter-spacing:.12em!important;font-family:"ReferenceVT323",monospace!important;font-size:21px!important;
+  padding:11px 16px 9px!important;box-shadow:0 0 0 2px var(--p3-ink),0 3px 0 2px #7d1d3c,0 0 16px #ff5d8f73!important;
+}
+.dd-dock .dd-dive-btn:active{transform:translateY(2px);box-shadow:0 0 0 2px var(--p3-ink),0 1px 0 2px #7d1d3c}
+.dd-dock .dd-dive-btn:disabled{filter:saturate(.35) brightness(.75);cursor:not-allowed}
+.dd-dock .dd-skip{
+  display:block;margin:6px auto 0;background:none!important;border:none!important;color:var(--p3-grey);
+  font:13px "ReferenceVT323",monospace;letter-spacing:.22em;cursor:pointer;padding:2px 8px;opacity:.7;
+}
+.dd-dock .dd-skip:hover{color:var(--p3-white);opacity:1}
+
+/* ============ reject line + correction preview (root-level, above dock) ============ */
+.dd-game-screen .dd-reject{
+  position:absolute;left:0;right:0;bottom:118px;z-index:11;text-align:center;pointer-events:none;
+  letter-spacing:.08em;color:var(--tier-tooclever,#ff9f43);text-shadow:0 1px #0009;
+  font:16px "ReferenceVT323",monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.dd-reject-shake{animation:dd-reject-jolt .4s linear}
+@keyframes dd-reject-jolt{0%,100%{transform:translateX(0)}15%{transform:translateX(-7px)}30%{transform:translateX(6px)}45%{transform:translateX(-5px)}60%{transform:translateX(4px)}75%{transform:translateX(-2px)}}
+.dd-game-screen .dd-correction{position:absolute;left:0;right:0;bottom:112px;z-index:11;display:flex;justify-content:center;pointer-events:none}
+.dd-correction .dd-preview-pill{
+  display:inline-flex;align-items:baseline;gap:4px;background:#0b1526eb;color:var(--p3-white);
+  padding:9px 18px 8px;max-width:min(92%,600px);white-space:normal;overflow-wrap:anywhere;
+  font:20px/1.2 "ReferenceVT323",monospace;box-shadow:0 0 0 2px var(--p3-ring),0 0 0 4px var(--p3-ring2);
+}
+.dd-correction .dd-correction-change b{color:var(--p3-cyan);font-weight:400}
+.dd-correction .dd-correction-arrow{color:var(--p3-grey)}
+.dd-correction .dd-correction-hint{display:block;width:100%;text-align:center;letter-spacing:.1em;margin-top:5px;font-size:14px;color:var(--p3-grey)}
+
+/* ============ preview pill ("descending · the clock starts in N") ============ */
+.dd-game-screen .dd-preview-pill:not(.dd-correction-panel){
+  position:absolute;left:50%;bottom:118px;transform:translateX(-50%);z-index:11;
+  background:#0b1526eb;color:var(--p3-white);padding:9px 18px 8px;white-space:nowrap;
+  font:19px "ReferenceVT323",monospace;letter-spacing:.06em;
+  box-shadow:0 0 0 2px var(--p3-ring),0 0 0 4px var(--p3-ring2);
+}
+.dd-game-screen .dd-preview-pill b{color:var(--p3-cyan);font-weight:400;font-variant-numeric:tabular-nums}
+@media(max-width:650px){
+  .dd-game-screen .dd-reject{bottom:104px;font-size:14px}
+  .dd-game-screen .dd-correction{bottom:98px}
+  .dd-correction .dd-preview-pill{font-size:16px}
+  .dd-game-screen .dd-preview-pill:not(.dd-correction-panel){bottom:104px;font-size:16px}
+  .dd-sonar-wrap{width:48px;height:48px}
+  .dd-time-digits{font-size:21px}
+  .dd-dock .dd-input{font-size:21px;padding:8px 8px 12px}
+  .dd-dock .dd-dive-btn{font-size:18px;padding:10px 13px 8px}
+}
+
+/* ============ urgency-driven edge glow + flash ============ */
+.dd-game-screen .dd-flash{
+  position:absolute;inset:0;z-index:11;pointer-events:none;opacity:0;
+  background:rgba(61,79,110,.5);transition:opacity 200ms ease-out;
+}
+.dd-game-screen .dd-flash.gold{background:rgba(255,209,102,.35);transition-duration:220ms}
+.dd-game-screen .dd-flash.on{animation:dd-flash-fire .24s ease-out 1}
+@keyframes dd-flash-fire{0%{opacity:1}100%{opacity:0}}
+
+/* ============ mascot blub bubble + moods ============ */
+.dd-game-screen .dd-game-fish{position:absolute;z-index:7}
+.dd-game-screen .dd-blub{
+  position:absolute;left:calc(100% + 6px);top:-8px;font:12px "ReferenceVT323",monospace;
+  background:#0b1526e6;color:var(--p3-cyan);padding:2px 7px 1px;border:1px solid var(--p3-ring2);
+  white-space:nowrap;opacity:0;transform:translateY(5px);transition:.25s;pointer-events:none;
+}
+.dd-game-screen .dd-game-fish:hover .dd-blub,.dd-game-screen .dd-game-fish.dd-mascot-poked .dd-blub{opacity:1;transform:none}
+.dd-game-screen .dd-game-fish.sad{filter:saturate(.45) brightness(.85)}
+.dd-game-screen .dd-game-fish.gold{filter:brightness(1.12) drop-shadow(0 0 14px #ffd16699)}
+@media(max-width:650px){.dd-game-screen .dd-blub{display:none}}
+
+/* ============ HUD inside the stage ============ */
+.dd-game-screen .dd-hud{z-index:9}
+@media(max-width:650px){
+  .dd-game-screen .dd-hud{top:8px!important;width:calc(100% - 20px)!important;gap:5px!important}
+  .dd-game-screen .dd-hud-box{min-width:70px!important;min-height:44px!important;padding:4px 7px!important}
+  .dd-game-screen .dd-hud-box strong{font-size:14px!important;margin-top:3px!important}
+  .dd-game-screen .dd-hud-dot{width:10px!important;height:11px!important}
+  .dd-game-screen .dd-hud-progress small{font-size:11px!important;letter-spacing:0!important}
+}
+
+/* ============ done screen: world behind, scrolling results panel ============ */
+.dd-done{
+  position:absolute;inset:0;z-index:20;overflow-y:auto;overscroll-behavior:contain;
+  background:linear-gradient(180deg,#02060f00 0%,#02060fd9 34%,#020711 60%);
+  font-family:"ReferenceVT323",monospace;color:var(--p3-white);
+}
+.dd-done-inner{max-width:680px;margin:0 auto;padding:46% 18px 90px}
+@media(max-width:650px){.dd-done-inner{padding-top:52%}}
+.dd-done-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.dd-done-krill{font-size:34px;letter-spacing:.06em;text-shadow:0 0 16px #4de3ff40}
+.dd-done-sub{letter-spacing:.14em;color:var(--p3-grey);font-size:14px;text-transform:uppercase}
+.dd-done-score{display:flex;align-items:baseline;gap:10px;margin:14px 0 18px}
+.dd-done-score .big{font-size:76px;line-height:.9;color:var(--p3-white);font-variant-numeric:tabular-nums}
+.dd-done-score .m{color:var(--p3-cyan);font-size:22px;letter-spacing:.08em}
+.dd-done h3{font-size:14px;letter-spacing:.24em;color:var(--p3-grey);margin:22px 0 8px;font-weight:400}
+.dd-done-bands,.dd-done-catch,.dd-done-log{
+  background:#0b1526d9;border:1px solid var(--p3-ring2);padding:10px 14px;margin-bottom:12px;
+}
+.dd-bearing-row{display:flex;gap:10px;align-items:baseline;padding:5px 2px;border-bottom:1px dashed #12233d}
+.dd-bearing-row:last-child{border-bottom:0}
+.dd-bearing-row b{flex:none;width:70px;color:var(--p3-grey);font-weight:400;font-size:15px}
+.dd-bearing-row span{color:#9fb4d6;font-size:17px}
+.dd-bearing-row.hit b{color:var(--p3-cyan)}
+.dd-bearing-row.hit span{color:var(--p3-white);text-shadow:0 0 12px #4de3ff59}
+.dd-catch-row{display:flex;gap:10px;align-items:center;padding:7px 2px;border-bottom:1px dashed #12233d}
+.dd-catch-row:last-child{border-bottom:0}
+.dd-catch-row .n{flex:none;width:20px;color:var(--p3-grey);font-size:16px}
+.dd-catch-row .p{flex:1;min-width:0}
+.dd-catch-row .p small{display:block;color:var(--p3-grey);font-size:14px;letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dd-catch-row .p b{color:var(--p3-white);font-weight:400;font-size:17px}
+.dd-catch-row .pts{flex:none;color:var(--tier,var(--p3-white));font-size:16px}
+.dd-done-log p{color:#9fb4d6;font-size:16px;letter-spacing:.06em}
+.dd-done-log .dd-next-dive{color:var(--p3-grey)}
+.dd-done-log .dd-next-dive b{color:var(--p3-cyan);font-weight:400;font-variant-numeric:tabular-nums}
+.dd-done .result-actions{margin:16px 0 6px}
+.dd-done-rate .dd-rate-row{display:flex;gap:8px}
+.dd-done-rate .dd-rate{
+  width:44px;height:44px;background:#0b1526d9;border:1px solid var(--p3-ring2);color:var(--p3-grey);
+  font:22px "ReferenceVT323",monospace;cursor:pointer;
+}
+.dd-done-rate .dd-rate:hover{border-color:#4de3ffa6;color:var(--p3-white)}
+.dd-done-rate .dd-rate.on{background:var(--p3-cyan);color:var(--p3-ink);border-color:var(--p3-cyan)}
+.dd-done .helper{color:var(--p3-grey);font-size:13px;letter-spacing:.03em;margin-top:14px;line-height:1.5}
+
+/* ============ themed world tints (starter packs) ============ */
+.dd-game-screen[data-world="hollywood"] .dd-stage{background:linear-gradient(180deg,#251a3f 0%,#1c1030 40%,#12081f 100%)}
+.dd-game-screen[data-world="hollywood"] .dd-floor{filter:sepia(.35) saturate(1.25) brightness(.85)}
+.dd-game-screen[data-world="hollywood"] .dd-amb{color:#c3a6d8}
+.dd-game-screen[data-world="gauntlet"] .dd-stage{background:linear-gradient(180deg,#0a3324 0%,#07261b 45%,#041710 100%)}
+.dd-game-screen[data-world="gauntlet"] .dd-amb{color:#8fc9a8}
+.dd-game-screen[data-world="atlas"] .dd-stage{background:linear-gradient(180deg,#0b3352 0%,#082744 40%,#041526 100%)}
+.dd-game-screen[data-world="lexicon"] .dd-stage{background:linear-gradient(180deg,#33290f 0%,#241c0c 45%,#161005 100%)}
+.dd-game-screen[data-world="lexicon"] .dd-amb{color:#d8c3a6}
+
+/* ============ reduced motion guards ============ */
+@media(prefers-reduced-motion:reduce){
+  .dd-game-screen .dd-dock,.dd-reveal-screen .dd-chip{transition:none}
+  .dd-sweep{animation-duration:6s}
+  .dd-world .dd-title span{animation:none}
+  .dd-game-screen .dd-stage.dd-stage-shake,.dd-reject-shake{animation:none}
+}
