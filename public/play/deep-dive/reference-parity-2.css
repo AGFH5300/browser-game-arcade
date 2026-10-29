@@ -1,0 +1,338 @@
+/* Deep Dive parity pass 2 — reconstructed from the original public client
+ * (bundle 1klevf566y93_.js sha256 edd9f7d2…, CSS chunks 1pp18n31ii136 / 0b3q6y7r_vxf6),
+ * mapped onto the Sidequest dd-* DOM. Functional parity layer; loads last.
+ *
+ * Implements: HUD pods + sonar ring timer, prompt card, dock wash + fuse,
+ * reject message + shake, correction pill, reveal sequence (dim → chip sink →
+ * tier line → landed banner → next), vignette/CRT/edge-danger overlays,
+ * depth ambient facts, tier line milestones, mascot event poses.
+ */
+:root{
+  --pd-cyan:#4de3ff;--pd-pink:#ff5d8f;--pd-white:#e8f1ff;--pd-grey:#7d93b8;
+  --pd-panel:#101d33;--pd-panel2:#0b1526;--pd-ink:#050a14;--pd-ring:#060d1a;--pd-ring2:#1b3050;
+  --pd-ease-snap:cubic-bezier(.2,1.5,.4,1);--pd-ease-io:cubic-bezier(.45,0,.55,1);
+  --tier-plankton:#a8cbd0;--tier-tooclever:#ff9f43;--tier-schooler:#8ee6d4;
+  --tier-rare:#96baff;--tier-deepcut:#9d7bff;--tier-krillion:#ffd166;--tier-miss:#ff5d8f;
+}
+
+/* ============ overlays: vignette, CRT, edge danger, dim ============ */
+.dd-game-screen .dd-vignette,.dd-reveal-screen .dd-vignette{
+  content:"";position:absolute;inset:0;z-index:5;pointer-events:none;opacity:.25;
+  background:radial-gradient(at 50% 45%,#0000 55%,#02040ad9 100%);transition:opacity 2s
+}
+.dd-game-screen .dd-crt,.dd-reveal-screen .dd-crt{
+  position:absolute;inset:0;z-index:12;pointer-events:none;opacity:.45;
+  background:repeating-linear-gradient(0deg,#0000002e 0 1px,#0000 1px 3px)
+}
+.dd-game-screen .dd-edge,.dd-reveal-screen .dd-edge{
+  position:absolute;inset:0;z-index:8;pointer-events:none;opacity:0;
+  box-shadow:inset 0 0 90px 18px #ff5d8f99;transition:opacity .3s
+}
+.dd-game-screen.dd-danger .dd-edge{opacity:1;animation:ds-edge-throb .55s var(--pd-ease-io) infinite}
+.dd-reveal-screen .dd-dim{
+  position:fixed;inset:0;z-index:6;pointer-events:none;background:#02040ad0;
+  opacity:0;transition:opacity .9s ease-out
+}
+.dd-reveal-screen .dd-dim.on{opacity:1}
+@media(prefers-reduced-motion:reduce){
+  .dd-game-screen.dd-danger .dd-edge{animation:none;opacity:.7}
+  .dd-reveal-screen .dd-dim{transition:none;opacity:1}
+}
+
+/* ============ HUD pods (ds-pod parity) — desktop; mobile keeps the
+ * previously browser-tested compact HUD from pixel-ui.css ============ */
+@media(min-width:651px){
+.dd-hud{max-width:720px!important;left:0;right:0;margin:0 auto!important;padding:8px 10px 0!important;gap:8px!important}
+.dd-hud .dd-hud-box{
+  background:linear-gradient(#101d33eb,#0b1526eb)!important;min-width:86px;
+  padding:5px 10px 6px!important;border:0!important;border-radius:0!important;
+  box-shadow:0 0 0 2px #060d1a,0 0 0 4px #1b3050,inset 0 2px #e8f1ff0f!important
+}
+.dd-hud .dd-hud-box>span{letter-spacing:.3em!important;color:#7d93b8!important;font-size:10px!important;font-family:"ReferenceVT323",monospace!important}
+.dd-hud .dd-hud-box strong{
+  font-family:"ReferenceVT323",monospace!important;font-weight:400!important;
+  font-size:25px!important;line-height:1!important;font-variant-numeric:tabular-nums;
+  color:#4de3ff!important;text-shadow:0 0 12px #4de3ff8c!important
+}
+.dd-hud .dd-hud-score{text-align:right}
+.dd-hud .dd-hud-score strong{color:#ff5d8f!important;text-shadow:0 0 12px #ff5d8f8c!important}
+.dd-hud .dd-hud-box strong.crank{animation:ds-crank-jolt .12s var(--pd-ease-snap) 1}
+.dd-hud-progress{background:none!important;border:0!important;box-shadow:none!important}
+.dd-hud-dots{gap:6px!important;display:flex}
+.dd-hud-dots .dd-hud-dot{
+  width:10px!important;height:10px!important;border-radius:0!important;--dot:#12233d;
+  background:var(--dot)!important;box-shadow:0 0 0 2px #060d1a!important;border:0!important;
+  transition:background .4s,box-shadow .4s,transform .4s var(--pd-ease-snap)
+}
+.dd-hud-dots .dd-hud-dot.cur{--dot:#ff5d8f!important;box-shadow:0 0 0 2px #060d1a,0 0 10px #ff5d8fd9!important;animation:ds-dot-pulse 1.4s var(--pd-ease-io) infinite}
+.dd-hud-dots .dd-hud-dot.done{--dot:#ffd166!important;box-shadow:0 0 0 2px #060d1a,0 0 8px #ffd166b3!important}
+.dd-hud-progress>small{letter-spacing:.22em!important;font-size:11px!important;color:#7d93b8!important;font-family:"ReferenceVT323",monospace!important}
+}
+
+/* ============ prompt card (ds-card parity) ============ */
+.dd-game-screen .dd-game-prompt{
+  background:#101d33ed!important;width:480px!important;max-width:calc(100% - 40px)!important;
+  left:calc(50% - 264px)!important;right:auto!important;position:absolute!important;
+  margin:0!important;padding:22px 26px 20px!important;text-align:left!important;
+  box-shadow:0 0 0 3px #4de3ff40,0 0 50px #0009,inset 0 0 34px #050a1499!important;
+  animation:.7s cubic-bezier(.2,1.5,.4,1) backwards ds-card-in!important;
+  top:clamp(-4px,.4svh,6px)!important
+}
+.dd-game-screen .dd-game-prompt:after{
+  content:"";pointer-events:none;opacity:.06;position:absolute;inset:0;
+  background:repeating-linear-gradient(0deg,#0000 0 2px,#e8f1ff 2px 3px)
+}
+.dd-game-screen .dd-prompt-label{
+  color:#ff5d8f!important;letter-spacing:.32em!important;font-size:16px!important;
+  font-family:"ReferenceVT323",monospace!important;display:block!important
+}
+.dd-game-screen .dd-prompt-text{
+  max-width:none!important;font-family:"ReferenceVT323",monospace!important;
+  font-size:clamp(28px,8vw,40px)!important;line-height:1.02!important;
+  color:#e8f1ff!important;text-shadow:0 0 16px #e8f1ff40,2px 0 #ff5d8f2e,-2px 0 #4de3ff2e!important;
+  margin:6px 0 8px!important;animation:fade-up .35s ease-out both
+}
+.dd-game-screen .dd-prompt-hint{
+  color:#7d93b8!important;letter-spacing:.14em!important;font-size:15px!important;
+  font-family:"ReferenceVT323",monospace!important;margin:0!important
+}
+@media(max-width:650px){
+  .dd-game-screen .dd-game-prompt{left:12px!important;width:auto!important;top:clamp(-4px,.4svh,6px)!important;padding:16px 16px 14px!important}
+  .dd-game-screen .dd-prompt-label{font-size:13px!important}
+  .dd-game-screen .dd-prompt-text{font-size:clamp(24px,7.4vw,32px)!important}
+}
+.app-shell:has(.dd-game-screen) .dd-nav-toggle{top:81px!important}
+.app-shell:has(.dd-reveal-screen) .dd-nav-toggle{top:81px!important}
+@media(max-width:650px){.app-shell:has(.dd-game-screen) .dd-nav-toggle,.app-shell:has(.dd-reveal-screen) .dd-nav-toggle{top:64px!important}}
+
+/* ============ dock: input, fuse, timer, dive button ============ */
+.dd-game-screen .dd-game-controls{
+  background:linear-gradient(180deg,#0b152600,#050a14eb 26%)!important;
+  left:0!important;right:0!important;bottom:0!important;width:100%!important;
+  transform:none!important;max-width:none!important;
+  padding:10px 12px calc(12px + env(safe-area-inset-bottom))!important;margin:0!important
+}
+.dd-game-screen .dd-answer-form{max-width:600px!important;margin:0 auto!important;display:block!important;position:relative!important}
+.dd-game-screen .dd-answer-line{display:flex!important;gap:10px!important;align-items:center!important;position:relative!important}
+.dd-game-screen .dd-answer-line .answer-field{
+  background:#0b1526e6!important;border:2px solid #1b3050!important;border-radius:0!important;
+  color:#e8f1ff!important;caret-color:#ff5d8f!important;letter-spacing:.04em!important;
+  font-family:"ReferenceVT323",monospace!important;font-size:26px!important;
+  padding:9px 10px 7px!important;height:auto!important;box-shadow:none!important;transition:border-color .25s
+}
+.dd-game-screen .dd-answer-line .answer-field:focus{border-color:#4de3ffa6!important;box-shadow:none!important;outline:none}
+.dd-game-screen.dd-hot .dd-answer-line .answer-field{border-color:#ff5d8f!important}
+.dd-game-screen .dd-answer-line .answer-field::placeholder{color:#7d93b8;opacity:.55}
+.dd-game-screen .dd-submit{
+  background:#ff5d8f!important;color:#050a14!important;border:0!important;border-radius:0!important;
+  letter-spacing:.12em!important;font-family:"ReferenceVT323",monospace!important;font-size:21px!important;
+  padding:11px 16px 9px!important;height:auto!important;flex:none!important;
+  box-shadow:0 0 0 2px #050a14,0 3px 0 2px #7d1d3c,0 0 16px #ff5d8f73!important
+}
+.dd-game-screen .dd-submit:active{transform:translateY(2px);box-shadow:0 0 0 2px #050a14,0 1px 0 2px #7d1d3c}
+.dd-game-screen .dd-game-clock{
+  width:58px!important;height:58px!important;flex:none!important;border-radius:50%!important;
+  background:radial-gradient(circle,#0b1526f2 40%,#101d33e6 100%)!important;border:0!important;
+  box-shadow:0 0 0 2px #060d1a,0 0 0 4px #1b3050,0 0 18px #4de3ff33,inset 0 0 14px #4de3ff24!important;
+  display:grid;place-items:center;margin:0 10px 0 0!important
+}
+.dd-game-screen .dd-game-clock:before{
+  content:"";position:absolute;inset:8px;border:1px solid #4de3ff38;border-radius:50%
+}
+.dd-game-screen .dd-game-clock strong{
+  font-family:"ReferenceVT323",monospace!important;font-weight:400!important;
+  color:#4de3ff!important;text-shadow:0 0 12px #4de3ffb3!important;
+  font-size:26px!important;font-variant-numeric:tabular-nums;position:relative;z-index:1
+}
+.dd-game-screen .dd-game-clock.warn strong{color:#ff5d8f!important;text-shadow:0 0 16px #ff5d8fe6!important}
+.dd-game-screen .dd-game-clock.warn{animation:none!important}
+/* fuse: 4px countdown bar 8px under the input */
+.dd-game-screen .dd-answer-line{padding-bottom:16px}
+.dd-game-screen .dd-game-bar{
+  display:block!important;position:absolute!important;left:68px!important;right:0!important;bottom:8px!important;
+  width:auto!important;height:4px!important;background:#0a1322!important;box-shadow:0 0 0 2px #060d1a!important;overflow:hidden;margin:0!important
+}
+.dd-game-screen .dd-game-bar>span{background:#4de3ff!important;transform-origin:0;transition:width .15s linear;display:block;height:100%}
+.dd-game-screen.dd-hot .dd-game-bar>span{background:#ff5d8f!important}
+@media(max-width:650px){
+  .dd-game-screen .dd-answer-line .answer-field{font-size:21px!important}
+  .dd-game-screen .dd-submit{font-size:18px!important;padding:10px 13px 8px!important}
+  .dd-game-screen .dd-game-clock{width:48px!important;height:48px!important;margin-right:6px!important}
+  .dd-game-screen .dd-game-clock strong{font-size:22px!important}
+  .dd-game-screen .dd-game-bar{left:60px!important}
+}
+
+/* ============ rejection + correction (ds-reject / ds-correction) ============ */
+.dd-game-screen .feedback{position:static!important}
+.dd-reject-line{
+  position:absolute;left:0;right:0;bottom:calc(100% + 4px);z-index:10;
+  text-align:center;letter-spacing:.08em;color:var(--tier-tooclever,#ff9f43);
+  text-shadow:0 1px #0009;pointer-events:none;font-size:16px;
+  font-family:"ReferenceVT323",monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis
+}
+.dd-reject-shake{animation:.4s linear ds-reject-jolt}
+.dd-correction-pill{
+  position:absolute;left:0;right:0;bottom:calc(100% + 4px);z-index:10;
+  display:flex;justify-content:center;pointer-events:none
+}
+.dd-correction-panel{
+  text-align:center;letter-spacing:.04em;background:#0b1526eb;color:#e8f1ff;white-space:normal;
+  overflow-wrap:anywhere;max-width:100%;padding:10px 18px 8px;font-size:20px;line-height:1.2;
+  font-family:"ReferenceVT323",monospace;box-shadow:0 0 0 2px #060d1a,0 0 0 4px #1b3050
+}
+.dd-correction-panel b{color:#4de3ff;font-weight:400}
+.dd-correction-hint{letter-spacing:.1em;margin-top:5px;font-size:14px;display:block;color:#7d93b8}
+@media(max-width:650px){.dd-reject-line,.dd-correction-pill{bottom:calc(100% + 2px)}}
+
+/* ============ reveal sequence (chip → tier line → landed) ============ */
+.dd-reveal-screen .dd-game-sky::before{background:#02040ad0!important;opacity:1!important;animation:none!important}
+.dd-reveal-screen .dd-game-fish{
+  z-index:7!important;
+  top:calc(44% - 84px)!important;left:50%!important;margin-left:-31px!important;
+  width:62px!important;height:66px!important;transform:none!important
+}
+/* The original scrolls a 14,800px world column; this fixed-viewport reconstruction
+ * conveys the descent via dim + depth counter crank + zone backgrounds instead.
+ * The container transform was removed to avoid seam artifacts (see handoff notes). */
+.dd-reveal-screen .dd-tierline{
+  position:absolute;left:8px;right:54px;height:0;z-index:7;
+  border-top:2px dashed #7d93b85c;opacity:0;
+  animation:fade-up .6s ease-out .5s forwards
+}
+.dd-reveal-screen .dd-tierline.passed{border-top-color:var(--tc);box-shadow:0 0 16px var(--tc);animation:fade-up .6s ease-out .5s forwards,ds-line-flash .9s ease-out 1.1s}
+.dd-reveal-screen .dd-tierline .tag{
+  position:absolute;top:-20px;right:0;display:flex;align-items:center;gap:6px;
+  letter-spacing:.12em;color:var(--tc,#7d93b8cc);font:13px "ReferenceVT323",monospace;text-shadow:0 1px #0009
+}
+.dd-reveal-screen .dd-chip{
+  position:absolute;z-index:7;top:44%;left:50%;transform:translateX(-50%);
+  letter-spacing:.06em;white-space:nowrap;color:var(--cc,#4de3ff);
+  background:#101d33f2;padding:8px 16px 6px;font-size:28px;line-height:1;
+  font-family:"ReferenceVT323",monospace;text-shadow:0 0 10px var(--cc,#4de3ff);
+  box-shadow:0 0 0 3px var(--cc,#4de3ff),0 0 26px var(--cc,#4de3ff)
+}
+.dd-reveal-screen .dd-chip:after{content:"▼";opacity:.8;margin-left:9px;font-size:18px}
+.dd-reveal-screen .dd-chip.gold{animation:ds-gold-pulse 1s var(--pd-ease-io) infinite}
+.dd-reveal-screen .dd-landed{
+  text-align:center;z-index:7;position:absolute;left:10px;right:52px;
+  margin:0!important;padding:0!important;border:0!important;background:none!important;
+  animation:.8s cubic-bezier(.2,1.7,.4,1) 1.45s backwards ds-banner-in
+}
+.dd-reveal-screen .dd-landed img.icon{
+  width:66px;height:66px;filter:drop-shadow(0 0 20px var(--tc));animation:2.6s ease-in-out infinite ds-icon-bob;display:inline-block;image-rendering:pixelated
+}
+.dd-reveal-screen .dd-landed .tname{
+  letter-spacing:.12em;color:var(--tc);text-shadow:0 0 22px var(--tc),0 3px 0 #0009;
+  font-family:"ReferenceVT323",monospace;font-size:clamp(28px,8.5vw,44px);line-height:1;margin-top:4px
+}
+.dd-reveal-screen .dd-landed .tans{color:#e8f1ff;letter-spacing:.08em;margin-top:2px;font:19px "ReferenceVT323",monospace}
+.dd-reveal-screen .dd-landed .tpts{color:#e8f1ff;margin-top:4px;font:22px "ReferenceVT323",monospace}
+.dd-reveal-screen .dd-landed .tpts b{color:var(--tc);font-weight:400}
+.dd-reveal-screen .dd-landed .tsub{color:#7d93b8;letter-spacing:.14em;margin-top:4px;font:14px "ReferenceVT323",monospace}
+.dd-reveal-screen .dd-landed.miss img.icon{display:none}
+.dd-reveal-screen .dd-landed.miss .tname{color:var(--tier-miss);text-shadow:0 0 22px #ff5d8f80,0 3px 0 #0009}
+.dd-reveal-screen .dd-next-wrap{
+  position:fixed!important;left:0;right:0;bottom:0;z-index:10;display:flex;justify-content:center;
+  padding:10px 12px calc(16px + env(safe-area-inset-bottom));
+  background:linear-gradient(180deg,#0b152600,#050a14eb 30%);
+  animation:ds-rise-in .5s var(--pd-ease-snap) 1.9s backwards
+}
+.dd-reveal-screen .dd-next-btn{
+  letter-spacing:.14em;color:#e8f1ff;cursor:pointer;background:#101d33;border:none;
+  padding:12px 30px 10px;font-size:22px;font-family:"ReferenceVT323",monospace;
+  box-shadow:0 0 0 3px #050a14,0 0 0 6px #4de3ff,0 5px 0 6px #123048,0 0 22px #4de3ff4d;white-space:nowrap
+}
+.dd-reveal-screen .dd-next-btn:hover{box-shadow:0 0 0 3px #050a14,0 0 0 6px #ff5d8f,0 5px 0 6px #123048,0 0 30px #ff5d8f80}
+.dd-reveal-screen .dd-next-btn:active{transform:translateY(3px)}
+@media(max-width:650px){
+  .dd-reveal-screen .dd-game-fish{top:calc(42% - 64px)!important;width:43px!important;height:43px!important;margin-left:-21px!important}
+  .dd-reveal-screen .dd-chip{font-size:21px;top:42%}
+  .dd-reveal-screen .dd-landed{left:8px;right:40px}
+  .dd-reveal-screen .dd-landed img.icon{width:52px;height:52px}
+  .dd-reveal-screen .dd-next-btn{font-size:19px;padding:11px 24px 9px}
+}
+@media(prefers-reduced-motion:reduce){
+  .dd-reveal-screen .dd-landed,.dd-reveal-screen .dd-tierline,.dd-reveal-screen .dd-next-wrap{animation-delay:0s}
+  .dd-reveal-screen .dd-landed img.icon{animation:none}
+}
+
+/* ============ leaving transitions for reveal elements ============ */
+.dd-reveal-screen .dd-landed.dd-card-leaving{animation:.28s ease-in forwards ds-card-gone}
+.dd-reveal-screen .dd-chip.dd-chip-leaving{animation:.28s ease-in forwards ds-card-gone}
+.dd-reveal-screen .dd-tierline.dd-card-leaving{opacity:0;transition:opacity .28s}
+@media(prefers-reduced-motion:reduce){
+  .dd-reveal-screen .dd-landed.dd-card-leaving,.dd-reveal-screen .dd-chip.dd-chip-leaving{animation:none;opacity:0}
+}
+
+/* ============ ambient depth facts ============ */
+.dd-game-screen .dd-amb,.dd-reveal-screen .dd-amb{
+  position:absolute;z-index:2;color:#7d93b8;letter-spacing:.06em;white-space:nowrap;
+  text-shadow:0 2px #00000080;font-size:17px;font-family:"ReferenceVT323",monospace;
+  opacity:0;transition:opacity .6s ease-out;pointer-events:none
+}
+.dd-game-screen .dd-amb.show,.dd-reveal-screen .dd-amb.show{opacity:.85}
+.dd-game-screen .dd-amb.L{left:5%}
+.dd-game-screen .dd-amb.R{text-align:right;right:96px}
+.dd-game-screen .dd-amb.major{color:#4de3ff;letter-spacing:.2em;text-shadow:0 0 12px #4de3ff73;font-size:19px}
+.dd-game-screen .dd-amb .dash{color:#7d93b873}
+@media(max-width:650px){
+  .dd-game-screen .dd-amb{font-size:14px}
+  .dd-game-screen .dd-amb.R{right:52px}
+  .dd-game-screen .dd-amb.major{font-size:15px}
+}
+
+/* ============ mascot event poses ============ */
+.dd-game-screen .dd-game-fish.celebrate{animation:ds-loop 1.2s cubic-bezier(.3,.1,.3,1) 1!important}
+.dd-game-screen .dd-game-fish.faint{animation:ds-faint 1.1s ease-in 1 forwards!important}
+.dd-game-screen .dd-game-fish.dart{animation:ds-dart 1.6s ease-in-out 1!important}
+.dd-game-screen .dd-game-fish.jet{animation:ds-jet 1.4s var(--pd-ease-io) 1!important}
+.dd-game-screen .dd-game-fish.chomp{animation:ds-chomp 1.5s ease-in-out 1!important}
+
+/* ============ mobile summary/home-hero overflow fix (pre-existing defect) ============ */
+@media(max-width:950px){.home-hero{grid-template-columns:minmax(0,1fr)}}
+.home-hero .section-heading,.page-title h1{overflow-wrap:anywhere}
+@media(max-width:650px){
+  .summary-score{font-size:clamp(38px,11vw,60px)!important}
+}
+
+/* ============ home screen parity ============ */
+.deep-home .dd-logo,.deep-home .dd-logo span{font-size:clamp(58px,8.6vw,124px)!important}
+.deep-home .dd-tagline{font-size:clamp(14px,4vw,20px)!important;margin-top:10px!important}
+.deep-home .dd-subtitle{font-size:clamp(18px,5.4vw,28px)!important;margin-top:6px!important}
+.deep-home .dd-mode-nav{display:flex;align-items:center;gap:8px}
+.deep-home .dd-mode-nav button{
+  background:#0b1526d9!important;border:1px solid #1b3050!important;border-radius:0!important;
+  color:#7d93b8!important;padding:5px 12px 3px!important;font-size:15px!important;transition:color .2s,border-color .2s
+}
+.deep-home .dd-mode-nav button:hover{color:#e8f1ff!important;border-color:#4de3ffa6!important}
+.deep-home .dd-dive-number{font-size:15px!important;letter-spacing:.14em!important;margin-right:auto!important}
+.dd-party-tag{
+  position:absolute;top:-9px;left:14px;background:#4de3ff;color:#050a14;
+  font:12px/1 "ReferenceVT323",monospace;letter-spacing:.14em;padding:3px 8px 2px;z-index:2
+}
+.dd-party-live{display:inline-flex;align-items:center;gap:5px;color:#7d93b8;font-size:14px!important;letter-spacing:.04em}
+.dd-party-live b{color:#4de3ff;font-weight:400;font-variant-numeric:tabular-nums;display:inline-block;width:7px;height:7px;background:#4de3ff;border-radius:50%}
+.deep-home .dd-party-btn small{font-size:14px!important}
+@media(prefers-reduced-motion:reduce){
+  .dd-game-screen .dd-game-bar>span{transition:none}
+}
+/* Verified Z.ai integration fixes: HUD centering, input-width fuse, tier images. */
+@media(min-width:651px){
+  .dd-game-screen .dd-hud,.dd-reveal-screen .dd-hud{
+    position:absolute!important;left:50%!important;right:auto!important;
+    width:min(720px,calc(100% - 32px))!important;
+    margin:0!important;transform:translateX(-50%)!important;
+    display:flex!important;justify-content:space-between!important
+  }
+}
+.dd-game-screen .dd-answer-line{position:relative!important}
+.dd-game-screen .dd-answer-line .dd-game-bar{
+  position:absolute!important;left:68px!important;right:0!important;
+  bottom:4px!important;width:auto!important;height:4px!important;margin:0!important
+}
+.dd-reveal-screen .dd-landed .dd-tier-emoji{
+  display:inline-grid;place-items:center;font-size:clamp(28px,6vw,46px);line-height:1;image-rendering:auto
+}
+.dd-summary-verdict{margin:3px 0 16px;color:var(--aqua,#4de3ff);letter-spacing:.07em}
+@media(max-width:650px){.dd-game-screen .dd-answer-line .dd-game-bar{left:60px!important}}
+@media(prefers-reduced-motion:reduce){.dd-reveal-screen .dd-next-wrap{animation:none!important}}
