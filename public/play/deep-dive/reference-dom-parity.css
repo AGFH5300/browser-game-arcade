@@ -259,3 +259,45 @@
  .dd-game-screen .dd-game-controls{bottom:77px!important}
  .dd-game-screen .dd-game-clock{flex-shrink:0}
 }
+
+/* Question-screen alignment measured against the original public 1360×900
+ * gameplay capture. Confined to desktop so the tested mobile view is intact. */
+@media (min-width: 901px) and (min-height: 700px) {
+  .deep-home.dd-game-screen .dd-game-sky {
+    height: 23.6svh !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+  .deep-home.dd-game-screen .dd-game-sea {
+    height: 76.4svh !important;
+    min-height: 0 !important;
+  }
+  .deep-home.dd-game-screen .dd-hud {
+    width: min(700px, calc(100% - 48px)) !important;
+    top: 8px !important;
+  }
+  .deep-home.dd-game-screen .dd-hud-box {
+    flex: 0 0 120px;
+    min-width: 120px !important;
+    min-height: 56px !important;
+    padding: 7px 9px !important;
+  }
+  .deep-home.dd-game-screen .dd-game-prompt {
+    padding-top: 0 !important;
+    transform: translateY(-7px);
+  }
+  .deep-home.dd-game-screen .dd-prompt-text {
+    font-size: 34px !important;
+    line-height: 1.15 !important;
+    max-width: 465px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .deep-home.dd-game-screen .dd-prompt-hint {
+    text-transform: lowercase !important;
+    letter-spacing: .09em !important;
+  }
+  .deep-home.dd-game-screen .dd-game-controls {
+    bottom: 104px !important;
+  }
+}
