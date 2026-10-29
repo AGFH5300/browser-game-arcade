@@ -32,6 +32,38 @@
   const dayKey=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
   const rating=score=>score>=450?'One in a Deep Dive':score>=351?'Deep cut':score>=251?'Rare':score>=151?'Schooler':'Plankton';
   const format=(n)=>Number(n||0).toLocaleString('en-US');
+  // Conservative typo tolerance: a unique close match, never an ambiguous guess.
+  function editDistance(a,b,max){
+    if(Math.abs(a.length-b.length)>max)return max+1;
+    let prev=Array.from({length:b.length+1},(_,i)=>i);
+    for(let i=1;i<=a.length;i++){
+      const next=[i];let minimum=next[0];
+      for(let j=1;j<=b.length;j++){
+        next[j]=Math.min(prev[j]+1,next[j-1]+1,prev[j-1]+(a[i-1]===b[j-1]?0:1));
+        minimum=Math.min(minimum,next[j]);
+      }
+      if(minimum>max)return max+1;
+      prev=next;
+    }
+    return prev[b.length];
+  }
+  function findAnswer(question,raw){
+    const key=norm(raw);
+    if(!key)return null;
+    for(const answer of question.answers)
+      if([answer.value,...(answer.aliases||[])].some(value=>norm(value)===key))return answer;
+    if(key.length<5)return null;
+    const limit=key.length>=10?2:1;
+    let match=null,best=limit+1,ambiguous=false;
+    for(const answer of question.answers){
+      for(const value of [answer.value,...(answer.aliases||[])]){
+        const candidate=norm(value),distance=editDistance(key,candidate,limit);
+        if(distance<best){best=distance;match=answer;ambiguous=false}
+        else if(distance===best&&match!==answer){ambiguous=true}
+      }
+    }
+    return best<=limit&&!ambiguous?match:null;
+  }
   function read(key){try{return JSON.parse(localStorage.getItem(key)||'null')}catch{return null}}
   function write(key,value){try{localStorage.setItem(key,JSON.stringify(value));return true}catch{return false}}
   let profile={...DEFAULT,...(read(STORAGE)||{})};
@@ -246,7 +278,7 @@
     const answer=String(input?.value||'').trim().slice(0,90);
     if(!answer)return;
     const key=norm(answer),q=currentQ();
-    const found=q.answers.find(a=>[a.value,...(a.aliases||[])].some(t=>norm(t)===key));
+    const found=findAnswer(q,key);
     if(!found){
       const feedback=document.getElementById('answer-feedback');
       feedback.textContent='Not recognized by this question’s curated answer list. Try another answer while time remains.';
