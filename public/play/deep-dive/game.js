@@ -437,6 +437,7 @@
       <div class="dd-stage">
         <div class="dd-sea dd-game-sea"></div>
         <div class="dd-world">
+          <div class="dd-world-surface-sky" aria-hidden="true"></div>
           ${worldSurface(currentTotal())}
           <img class="dd-floor" src="${WORLD_FLOORS[worldForMode()]||WORLD_FLOORS.ocean}" alt="" loading="lazy" style="--y:${DW.FLOOR_TOP}px">
           ${worldFacts()}

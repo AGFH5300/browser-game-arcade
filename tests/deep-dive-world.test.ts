@@ -182,12 +182,21 @@ test('wardrobe streak gates and Puffer Party capacity match the original',()=>{
 });
 
 test('pass-3 assets load last and in the right order',()=>{
-  assert(html.includes('./reference-pass3.css?release=20261030b'));
+  assert(html.includes('./reference-pass3.css?release=20261030validated'));
   assert(html.includes('./reference-world.js?version=20261030b'));
-  assert(html.includes('./game.js?parity=20261030pass3'));
+  assert(html.includes('./game.js?parity=20261030pass3validated'));
   assert(html.indexOf('reference-parity-2.css')<html.indexOf('reference-pass3.css'));
   assert(html.indexOf('reference-parity-2.css')<html.indexOf('reference-pass3.css')&&html.indexOf('reference-pass3.css')<html.indexOf('</head>'));
-  assert(html.indexOf('reference-world.js')<html.indexOf('game.js?parity=20261030pass3'));
+  assert(html.indexOf('reference-world.js')<html.indexOf('game.js?parity=20261030pass3validated'));
   assert(html.indexOf('reference-interface.js')<html.indexOf('reference-world.js'));
   assert(html.includes('data-phase="boot"'));
+});
+
+
+test("first-round surface sky is world-anchored and game title does not obscure HUD",()=>{
+  assert(game.includes('class="dd-world-surface-sky"'));
+  assert(css.includes('.dd-world-surface-sky{'));
+  assert(css.includes('top:-23svh;height:23svh'));
+  assert(css.includes('reference-art/sky.webp'));
+  assert(css.includes('.dd-world .dd-surface{visibility:hidden}'));
 });

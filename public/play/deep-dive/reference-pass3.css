@@ -265,3 +265,13 @@
   .dd-world .dd-title span{animation:none}
   .dd-game-screen .dd-stage.dd-stage-shake,.dd-reject-shake{animation:none}
 }
+
+/* First-round sky is a world-anchored graphic; it exits on descent. */
+.dd-game-screen:not(.dd-done-screen) .dd-world-surface-sky{
+position:absolute;top:-23svh;height:23svh;left:0;right:0;
+background:url("./reference-art/sky.webp") center center/100% 100% no-repeat;
+image-rendering:pixelated;z-index:0;pointer-events:none}
+.dd-game-screen:not(.dd-done-screen) .dd-world-surface-sky::after{
+content:"";position:absolute;height:3px;left:0;right:0;bottom:0;
+background:#0c5470;box-shadow:0 2px 0 #4ba5bc}
+.dd-game-screen:not(.dd-done-screen) .dd-world .dd-surface{visibility:hidden}
