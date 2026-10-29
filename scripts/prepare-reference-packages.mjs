@@ -536,6 +536,13 @@ function rewriteTextReferences(text, extension, fileUrl, resolveLocalUrl) {
     const quoted = /(["'`])((?:\\.|(?!\1)[^\\])*?)\1/g;
     output = output.replace(quoted, (all, quote, value) => {
       const unescaped = normalizeReference(value).replace(/\\u002[fF]/g, '/').replace(/\\x2[fF]/g, '/');
+      // A quoted punctuation token like "?" or a regex fragment is not an
+      // asset URL. Resolving it against this script's own URL can mistakenly
+      // map it to ./jquery.js? and silently corrupt valid JS despite passing
+      // syntax checks. Accept ONLY paths to recognized static file types.
+      const assetPath = unescaped.split(/[?#]/,1)[0];
+      if(!assetPath || !STATIC_EXTENSIONS.has(path.posix.extname(assetPath).toLowerCase()) ||
+         /[\r\n]/.test(unescaped) || unescaped.length>2048) return all;
       const local = resolveLocalUrl(unescaped, fileUrl, { onlyStatic: true });
       if (!local) return all;
       return `${quote}${value.includes('\\/') ? local.replaceAll('/', '\\/') : local}${quote}`;
