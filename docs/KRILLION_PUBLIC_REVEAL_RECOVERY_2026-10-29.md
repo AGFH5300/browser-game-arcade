@@ -25,3 +25,10 @@ The user reports that the original creator gave permission to reproduce public g
 ## Explicit limitations
 - This is NOT a byte-identical full implementation of the publisher's server-side game. Private scoring services, paid game sets, fuzzy autocorrect aliases, account features and original Puffer Party backend are not recovered.
 - Reuse is based on the permission reported by the user; additional publisher terms should be checked before commercial redistribution.
+
+## Unlimited Classic Game 1 public reveal
+After playing all seven rounds of the publisher's freely accessible Unlimited Game 1 in headless Chromium, the publicly readable endpoint GET /api/unlimited/1/reveal returned seven rounds and 6,337 exact accepted answers, each with its original tier, score and one-line explanation. This was 331,413 response bytes. Normal gameplay submissions of Ramen, Gorilla, Eleven, Coffee, Merlot, Wow and Japan all returned accepted responses; this completion scored 70 points and depth 700m.
+
+Deep Dive now includes this as a separate playable CLASSIC #1 mode with the 6,337 publicly revealed answer records. The data is in public/play/deep-dive/recovered/unlimited-1.json and is scored locally. Games 2 onward remain unavailable without the publisher's paid unlock: no bypass or invented answer sets are included.
+
+Total original publisher-sourced accepted answer records imported across current Daily and Unlimited Classic Game 1: 23,064.
