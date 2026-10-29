@@ -31,7 +31,7 @@ test('versioned exact-art player keeps own-origin multiplayer permissions withou
  assert(getEmbedSandbox(game.gameUrl).includes('allow-same-origin'));
  assert(!getEmbedSandbox('/play/deep-dive/reference-art/secret.html').includes('allow-same-origin'));
  const html=readFileSync('public/play/deep-dive/index-public-art.html','utf8');
- assert(html.includes('reference-art.css?ref=20261029b'));
+ assert(html.includes('reference-art.css?ref=20261029c'));
  assert(html.includes('party.js?arcade=20261029d'));
- assert(html.includes('game.js?arcade=20261029d'));
+ assert(html.includes('game.js?source=20261029'));
 });

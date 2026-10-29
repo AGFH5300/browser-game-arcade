@@ -12,10 +12,10 @@ test('Deep Dive now uses a never-before-cached game entrypoint with versioned as
  assert(getEmbedSandbox(game.gameUrl).includes('allow-same-origin'));
  assert(!isAllowedEmbedUrl('/play/deep-dive/not-allowed.html'));
  const html=readFileSync('public/play/deep-dive/index-public-art.html','utf8');
- assert.match(html,/reference-art\.css\?ref=20261029b/);
+ assert.match(html,/reference-art\.css\?ref=20261029c/);
  assert.match(html,/dd-nav-toggle/);
  assert.match(html,/pixel-ui\.css\?arcade=20261029d/);
- assert.match(html,/game\.js\?arcade=20261029d/);
+ assert.match(html,/game\.js\?source=20261029/);
  assert.match(html,/party\.js\?arcade=20261029d/);
  assert.match(html,/class="dd-logo"|src="\.\/game\.js/);
 });

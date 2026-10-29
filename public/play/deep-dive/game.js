@@ -7,12 +7,12 @@
   const STORAGE='sidequest:deep-dive:player:v1';
   const ACTIVE='sidequest:deep-dive:active:v1';
   const TIERS=[
-    {label:'Shoreline',score:10,color:'#a8cbd0',mark:'◌'},
-    {label:'Brightwater',score:15,color:'#b6eb9a',mark:'◇'},
-    {label:'The reef',score:30,color:'#8ee6d4',mark:'✦'},
-    {label:'Blue twilight',score:60,color:'#96baff',mark:'◆'},
-    {label:'The abyss',score:85,color:'#d2a3ff',mark:'✶'},
-    {label:'New discovery',score:100,color:'#ffcf80',mark:'★'}
+    {id:'plankton',label:'Plankton',score:10,color:'#a8cbd0',mark:'🫧'},
+    {id:'tooclever',label:'Too Clever',score:15,color:'#b6eb9a',mark:'🤡'},
+    {id:'schooler',label:'Schooler',score:30,color:'#8ee6d4',mark:'🐟'},
+    {id:'rare',label:'Rare',score:60,color:'#96baff',mark:'🦑'},
+    {id:'deepcut',label:'Deep Cut',score:85,color:'#d2a3ff',mark:'🏮'},
+    {id:'krillion',label:'One in a Krillion',score:100,color:'#ffcf80',mark:'🌟'}
   ];
   const WORLDS=[
     ['Geography','◎','Across borders, rivers and mountains'],
@@ -38,7 +38,10 @@
   if(!profile.worldRecords||typeof profile.worldRecords!=='object')profile.worldRecords={};
   if(!Array.isArray(profile.history))profile.history=[];
   let active=read(ACTIVE);
-  let bank=[],byId=new Map(),themes=[];
+  let bank=[],byId=new Map(),themes=[],sourceDaily=null,sourceError='';
+  const dailyDate=()=>sourceDaily?.date||utc();
+  const dailyKey=()=>sourceDaily?'source:'+sourceDaily.date:utc();
+
   let currentView=window.DeepDiveParty?.preferred()?'party':'daily';
   let ticker=null,toastTimer=null,transitioning=false;
   function seed(text){let h=2166136261;for(const ch of text){h^=ch.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0}
@@ -49,6 +52,7 @@
     return a;
   }
   const todaysQuestions=()=>{
+    if(sourceDaily)return [...sourceDaily.ids];
     const day=utc(),chosen=shuffle(themes,'daily-theme:'+day).slice(0,7);
     return chosen.map(theme=>shuffle(bank.filter(q=>q.theme===theme),'daily:'+day+':'+theme)[0].id);
   };
@@ -62,10 +66,11 @@
     return `<button class="btn ${secondary}" type="button" data-action="${action}" ${attr}>${label}</button>`;
   }
   function bubbles(){return '<div aria-hidden="true"><i class="bubble"></i><i class="bubble"></i><i class="bubble"></i></div>'}
-  function dailyDone(){return profile.daily[utc()]||null}
+  function dailyDone(){return profile.daily[dailyKey()]||null}
   function oldActiveCheck(){
     if(!active)return;
-    if(active.mode==='daily'&&active.day!==utc()){active=null;save();return}
+    if(active.mode==='daily'&&active.day!==dailyDate()){active=null;save();return}
+    if(active.mode==='daily'&&sourceDaily&&active.source!=='krillion-reveal'){active=null;save();return}
     if(!Array.isArray(active.ids)||!active.ids.length||active.ids.some(id=>!byId.has(id))||!Number.isInteger(active.index)){
       active=null;save();return
     }
@@ -82,7 +87,9 @@
     return `<div class="dd-depth-ticks" aria-hidden="true"><span>000m</span><span>500m</span><span>1000m</span><span>1500m</span><span>2500m</span><span>4000m</span><span>7000m</span></div><div class="dd-fish dd-fish-a" aria-hidden="true">▰◂</div><div class="dd-fish dd-fish-b" aria-hidden="true">◂▰</div><div class="dd-fish dd-fish-c" aria-hidden="true">▰◂</div><div class="dd-bubbles" aria-hidden="true">°<br>°<br>·<br>°<br>·</div>`;
   }
   function renderHome(){
-    const complete=dailyDone(),resume=active?.mode==='daily',date=utc();
+    const complete=dailyDone(),resume=active?.mode==='daily',date=dailyDate();
+    const sourceLabel=sourceDaily?'PUBLIC DAILY #'+sourceDaily.dayNumber+' · '+format(sourceDaily.answerCount)+' PUBLISHER-SCORED ANSWERS':'INDEPENDENT SIDEQUEST DAILY';
+
     const primaryLabel=resume?'▼ CONTINUE DESCENT ▼':complete?'▼ VIEW DIVE RESULTS ▼':'▼ BEGIN DESCENT ▼';
     const primaryAct=resume?'resume':complete?'dailyResults':'startDaily';
     return `<section class="page deep-home">
@@ -99,6 +106,7 @@
           <button type="button" class="dd-party-btn" data-action="party"><span class="dd-party-fish" aria-hidden="true">🐡</span><span>PUFFER PARTY <small>LIVE MULTIPLAYER · 2–8 EXPLORERS</small></span><span class="dd-party-arrow">›</span></button>
           <button type="button" class="dd-begin" data-action="${primaryAct}">${primaryLabel}</button>
           <div class="dd-mode-nav"><span class="dd-dive-number">DAILY · ${safe(date)}</span><button type="button" data-action="startEndless">ENDLESS ∞</button><button type="button" data-action="worlds">THEMED WORLDS</button><button type="button" data-action="stats">LOGBOOK ◷</button></div>
+          <p class="dd-source-note">${safe(sourceLabel)}${!sourceDaily&&sourceError?" · "+safe(sourceError):""}</p>
           <div class="dd-sea-stats"><span>◈ ${format(profile.pearls)} PEARLS</span><span>✦ ${format(profile.streak)} DAY STREAK</span><span>${complete?format(complete.score)+' POINTS TODAY':'FREE DAILY DESCENT'}</span></div>
         </div>
       </div>
@@ -130,7 +138,7 @@
   }
   function start(mode,world='',chapter=0){
     if(mode==='daily'&&dailyDone()){currentView='daily';render();return}
-    const day=utc();
+    const day=mode==='daily'?dailyDate():utc();
     let ids=[];
     if(mode==='daily')ids=todaysQuestions();
     if(mode==='endless')ids=shuffle(bank,'endless:'+day+':'+Date.now()).slice(0,50).map(q=>q.id);
@@ -140,7 +148,7 @@
       ids=shuffle(bank.filter(q=>q.theme===world),world+':chapter:'+chapter).slice(0,7).map(q=>q.id);
     }
     if(!ids.length)return;
-    active={mode,world,chapter,day,ids,index:0,phase:'question',deadline:Date.now()+25000,results:[],score:0,misses:0,startedAt:Date.now()};
+    active={mode,world,chapter,source:mode==='daily'&&sourceDaily?'krillion-reveal':'sidequest',day,ids,index:0,phase:'question',deadline:Date.now()+25000,results:[],score:0,misses:0,startedAt:Date.now()};
     save();currentView=mode==='world'?'worlds':mode==='endless'?'endless':'daily';render();
   }
   function currentQ(){return byId.get(active.ids[active.index])}
@@ -181,7 +189,7 @@
     const last=active.results[active.results.length-1]||{points:0,answer:'',tier:null,reason:'No answer'};
     const tier=last.tier!==null&&last.tier!==undefined?TIERS[last.tier]:null;
     const title=tier?tier.label:last.reason==='Timeout'?'Time is up':last.reason==='Pass'?'No discovery this time':'Not accepted';
-    const explain=tier?'Accepted answer · original editorial rarity tier.':'No points for this round. The next discovery awaits.';
+    const explain=tier?(last.quip||'Accepted answer · this question bank determines rarity.'):'No points for this round. The next discovery awaits.';
     return `<section class="page deep-home dd-game-screen dd-reveal-screen">
       <div class="dd-sky dd-game-sky">${oceanArt()}${arcadeHud()}</div>
       <div class="dd-sea dd-game-sea">${oceanDecor()}
@@ -199,10 +207,11 @@
   }
   function conclude(){
     if(!active)return;
-    const r={mode:active.mode,day:active.day,score:active.score,count:active.results.length,results:active.results.map(x=>({...x})),label:active.mode==='daily'?'Daily discovery':active.mode==='endless'?'Endless expedition':active.world+' · Chapter '+(active.chapter+1),world:active.world,chapter:active.chapter};
-    if(active.mode==='daily'&&profile.daily[active.day]){active=null;save();currentView='daily';render();return}
+    const r={mode:active.mode,source:active.source,day:active.day,score:active.score,count:active.results.length,results:active.results.map(x=>({...x})),label:active.mode==='daily'?(active.source==='krillion-reveal'?'Public-source daily dive':'Daily discovery'):active.mode==='endless'?'Endless expedition':active.world+' · Chapter '+(active.chapter+1),world:active.world,chapter:active.chapter};
+    const completedKey=active.source==='krillion-reveal'?'source:'+active.day:active.day;
+    if(active.mode==='daily'&&profile.daily[completedKey]){active=null;save();currentView='daily';render();return}
     if(active.mode==='daily'){
-      profile.daily[active.day]=r;
+      profile.daily[completedKey]=r;
       const yesterday=new Date(Date.parse(active.day+'T00:00:00Z')-86400000).toISOString().slice(0,10);
       profile.streak=profile.lastDaily===yesterday?profile.streak+1:1;
       profile.lastDaily=active.day;
@@ -231,7 +240,7 @@
     const answer=String(input?.value||'').trim().slice(0,90);
     if(!answer)return;
     const key=norm(answer),q=currentQ();
-    const found=q.answers.find(a=>[a.value,...(a.aliases||[])].some(t=>norm(t)===key));
+    const found=q.answerIndex?.get(key)||q.answers.find(a=>[a.value,...(a.aliases||[])].some(t=>norm(t)===key));
     if(!found){
       const feedback=document.getElementById('answer-feedback');
       feedback.textContent='Not recognized by this question’s curated answer list. Try another answer while time remains.';
@@ -239,7 +248,7 @@
       input.select();return;
     }
     const tier=Math.max(0,Math.min(5,Number(found.tier)||0));
-    roundEnd({id:q.id,answer:found.value,points:TIERS[tier].score,tier,reason:'Accepted'});
+    roundEnd({id:q.id,answer:found.value,points:TIERS[tier].score,tier,quip:found.quip||'',reason:'Accepted'});
   }
   function next(){
     if(!active||active.phase!=='reveal')return;
@@ -272,7 +281,7 @@
       <div class="summary-score">−${format(r.score*10)}<span> m</span></div><p class="lead">You've earned <strong style="color:var(--sun)">${format(r.score)} points</strong> and the same number of pearls. ${isDaily?'Today’s shared challenge is complete. Your result is saved in this browser.':'Another voyage is always waiting.'}</p>
       <div class="summary-rounds" aria-label="Score by prompt">${resultDots(r.results)}</div>
       <div class="result-actions">${button('share','Copy your result','primary')}${button('daily','Return to surface','ghost')}${button('startEndless','Play endless','ghost')}</div>
-      <p class="helper">Scoring uses original editorial rarity tiers, not live player popularity. Your progress stays on this device.</p>
+      <p class="helper">${r.source==='krillion-reveal'?'Scores and result messages from the publisher’s public reveal; extra autocorrect aliases are not included.':'Independent Sidequest prompts with estimated rarity.'} Progress stays on this device.</p>
       </div><div class="ocean-display">${bubbles()}<div class="diver-mark" aria-hidden="true">✶</div><div class="ocean-caption"><span>YOU REACHED</span><strong>${format(r.score)} points</strong></div></div>
       </div></section>`;
     root.dataset.share=text;
@@ -320,12 +329,52 @@
     currentView=b.dataset.view;render();
   }));
   document.getElementById('home-link').addEventListener('click',e=>{e.preventDefault();currentView='daily';render()});
-  fetch('./questions.json',{cache:'force-cache'}).then(r=>{if(!r.ok)throw Error('Question bank request failed: '+r.status);return r.json()}).then(data=>{
+  function addPublicSheet(sheet){
+    if(!sheet||!Array.isArray(sheet.prompts)||sheet.prompts.length!==7||typeof sheet.date!=='string')throw Error('Invalid source sheet');
+    const ids=[],seen=new Set(),tierIds=TIERS.map(t=>t.id);let answerCount=0;
+    for(const p of sheet.prompts){
+      if(typeof p.id!=='string'||typeof p.text!=='string'||!Array.isArray(p.answers)||p.answers.length<10)throw Error('Incomplete source data');
+      const id='recovered:'+sheet.date+':'+p.id;
+      if(seen.has(id))throw Error('Duplicate prompt');seen.add(id);
+      const answers=[],answerIndex=new Map();
+      for(const a of p.answers){
+        const tier=tierIds.indexOf(a.tier);
+        if(tier<0||a.score!==TIERS[tier].score||typeof a.answer!=='string'||!a.answer)throw Error('Invalid tier data');
+        const entry={value:a.answer,tier,aliases:[],quip:a.quip||'',source:'krillion-public-reveal'};
+        answers.push(entry);
+        const key=norm(entry.value);
+        if(key&&!answerIndex.has(key))answerIndex.set(key,entry);
+      }
+      answerCount+=answers.length;ids.push(id);
+      byId.set(id,{id,theme:'Daily',prompt:p.text,answers,answerIndex});
+    }
+    if(answerCount<100)throw Error('Source answer list incomplete');
+    sourceDaily={date:sheet.date,ids,dayNumber:sheet.dayNumber||0,answerCount};
+  }
+  async function loadSourceDaily(){
+    const nyDate=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+    const path=nyDate==='2026-10-29'?'./recovered/2026-10-29.json':'/api/deep-dive/public-daily';
+    try{
+      const ctrl=new AbortController(),timeout=setTimeout(()=>ctrl.abort(),9500);
+      let response;
+      try{response=await fetch(path,{signal:ctrl.signal,cache:nyDate==='2026-10-29'?'force-cache':'no-store'})}finally{clearTimeout(timeout)}
+      if(!response.ok)throw Error('Publisher sheet HTTP '+response.status);
+      const data=await response.json();
+      if(nyDate==='2026-10-29'){data.source='krillion-public-reveal';data.dayNumber=106}
+      if(data.date!==nyDate)throw Error('Source daily not yet updated');
+      addPublicSheet(data);
+    }catch(error){
+      sourceError='Official source temporarily unavailable, independent practice still playable';
+      console.warn('Deep Dive public daily unavailable:',error?.message||error);
+    }
+  }
+  fetch('./questions.json',{cache:'force-cache'}).then(r=>{if(!r.ok)throw Error('Question bank request failed: '+r.status);return r.json()}).then(async data=>{
     if(!Array.isArray(data.questions)||data.questions.length<70)throw Error('Question bank incomplete');
     bank=data.questions;
     themes=Array.isArray(data.themes)?data.themes:WORLDS.map(w=>w[0]);
     byId=new Map(bank.map(q=>[q.id,q]));
     if(byId.size!==bank.length||themes.some(t=>bank.filter(q=>q.theme===t).length<7))throw Error('Incomplete question-bank themes');
+    await loadSourceDaily();
     oldActiveCheck();render();
   }).catch(e=>{
     root.innerHTML=`<div class="notice" style="margin:35px 0"><strong>We couldn’t load the question bank.</strong><p>${safe(e.message)}</p><button class="btn" type="button" onclick="location.reload()">Try again</button></div>`;
