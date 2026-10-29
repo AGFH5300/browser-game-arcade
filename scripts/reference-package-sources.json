@@ -15184,7 +15184,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/level-devil/assets/sfx/sound-1077.mp3",
           "wireSha256": "6a5cd74d298c062a8151b8451299d99c81d1e4ba7fccf20041fc6f4d96ad70c1",
-          "wireSize": 828708
+          "wireSize": 828708,
+          "sha256": "6a5cd74d298c062a8151b8451299d99c81d1e4ba7fccf20041fc6f4d96ad70c1",
+          "size": 828708,
+          "appliedChanges": []
         },
         {
           "path": "assets/sfx/sound-1079.mp3",
@@ -15198,7 +15201,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/level-devil/assets/sfx/sound-1079.mp3",
           "wireSha256": "bdd222519af65beccca1ba7c0001a4309450c175450d2cc3af6a4571f516cfe4",
-          "wireSize": 817736
+          "wireSize": 817736,
+          "sha256": "bdd222519af65beccca1ba7c0001a4309450c175450d2cc3af6a4571f516cfe4",
+          "size": 817736,
+          "appliedChanges": []
         },
         {
           "path": "assets/sfx/sound-566.mp3",
@@ -15212,7 +15218,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/level-devil/assets/sfx/sound-566.mp3",
           "wireSha256": "9e60d8b131b558d82234a40060005c608322edb4bb2e8b17b4d1ddae0b25c7a2",
-          "wireSize": 8150
+          "wireSize": 8150,
+          "sha256": "9e60d8b131b558d82234a40060005c608322edb4bb2e8b17b4d1ddae0b25c7a2",
+          "size": 8150,
+          "appliedChanges": []
         },
         {
           "path": "assets/sfx/sound-568.mp3",
@@ -15226,7 +15235,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/level-devil/assets/sfx/sound-568.mp3",
           "wireSha256": "00e021690ee9d5f52b98f235b4d1e28bb5261cf9a0ede643568fb37f7dba90c5",
-          "wireSize": 16300
+          "wireSize": 16300,
+          "sha256": "00e021690ee9d5f52b98f235b4d1e28bb5261cf9a0ede643568fb37f7dba90c5",
+          "size": 16300,
+          "appliedChanges": []
         },
         {
           "path": "assets/sfx/sound-720.mp3",
@@ -15240,7 +15252,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/level-devil/assets/sfx/sound-720.mp3",
           "wireSha256": "abf4ec239a237cb5855b298589a7a728b6bc00dc469e91c45fb6b8fbaaab9083",
-          "wireSize": 1567
+          "wireSize": 1567,
+          "sha256": "abf4ec239a237cb5855b298589a7a728b6bc00dc469e91c45fb6b8fbaaab9083",
+          "size": 1567,
+          "appliedChanges": []
         },
         {
           "path": "assets/sfx/sound-721.mp3",
@@ -15254,7 +15269,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/level-devil/assets/sfx/sound-721.mp3",
           "wireSha256": "209fa4c05b98590220b66a350728bbf63f024aac2f465dc717648b56bad2e91d",
-          "wireSize": 1880
+          "wireSize": 1880,
+          "sha256": "209fa4c05b98590220b66a350728bbf63f024aac2f465dc717648b56bad2e91d",
+          "size": 1880,
+          "appliedChanges": []
         },
         {
           "path": "assets/sfx/sound-726.mp3",
@@ -15268,7 +15286,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/level-devil/assets/sfx/sound-726.mp3",
           "wireSha256": "104be40c1df598283037787215e849ddab83b2ee919651d7116c6158461d6407",
-          "wireSize": 5955
+          "wireSize": 5955,
+          "sha256": "104be40c1df598283037787215e849ddab83b2ee919651d7116c6158461d6407",
+          "size": 5955,
+          "appliedChanges": []
         },
         {
           "path": "assets/sfx/sound-730.mp3",
@@ -15282,7 +15303,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/level-devil/assets/sfx/sound-730.mp3",
           "wireSha256": "1b59ad130bce76cfe054127425db5465e38aea8b38122458c90428b96989da9c",
-          "wireSize": 9090
+          "wireSize": 9090,
+          "sha256": "1b59ad130bce76cfe054127425db5465e38aea8b38122458c90428b96989da9c",
+          "size": 9090,
+          "appliedChanges": []
         },
         {
           "path": "assets/sfx/sound-732.mp3",
@@ -15296,7 +15320,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/level-devil/assets/sfx/sound-732.mp3",
           "wireSha256": "93c960fb6c8bbcdbae80b1e6243f0bbc077adf2f1f7f432c3c35a1a9fe118eb6",
-          "wireSize": 3134
+          "wireSize": 3134,
+          "sha256": "93c960fb6c8bbcdbae80b1e6243f0bbc077adf2f1f7f432c3c35a1a9fe118eb6",
+          "size": 3134,
+          "appliedChanges": []
         },
         {
           "path": "assets/sfx/sound-734.mp3",
@@ -15310,7 +15337,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/level-devil/assets/sfx/sound-734.mp3",
           "wireSha256": "5749473edf0afb2bfe81b7527fec6729786f5d75f3f14cdcd06a7e1bb6ba8bbf",
-          "wireSize": 9717
+          "wireSize": 9717,
+          "sha256": "5749473edf0afb2bfe81b7527fec6729786f5d75f3f14cdcd06a7e1bb6ba8bbf",
+          "size": 9717,
+          "appliedChanges": []
         },
         {
           "path": "assets/sfx/sound-736.mp3",
@@ -15324,7 +15354,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/level-devil/assets/sfx/sound-736.mp3",
           "wireSha256": "b66c16703d79b96a6d03a11120db78ab04c8002b01f67e9c6782d5909ac7b5c8",
-          "wireSize": 10971
+          "wireSize": 10971,
+          "sha256": "b66c16703d79b96a6d03a11120db78ab04c8002b01f67e9c6782d5909ac7b5c8",
+          "size": 10971,
+          "appliedChanges": []
         },
         {
           "path": "assets/sfx/sound-741.mp3",
@@ -15338,7 +15371,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/level-devil/assets/sfx/sound-741.mp3",
           "wireSha256": "cef942121c665cc21a5399d14ae5f124c146634cdb71efde5fdc10f0c2d309de",
-          "wireSize": 2507
+          "wireSize": 2507,
+          "sha256": "cef942121c665cc21a5399d14ae5f124c146634cdb71efde5fdc10f0c2d309de",
+          "size": 2507,
+          "appliedChanges": []
         },
         {
           "path": "assets/sfx/sound-742.mp3",
@@ -15352,7 +15388,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/level-devil/assets/sfx/sound-742.mp3",
           "wireSha256": "54c466334e79b72f18ddf777bbef35e6bce33bfbe5a427a910d29562ed3886a8",
-          "wireSize": 11284
+          "wireSize": 11284,
+          "sha256": "54c466334e79b72f18ddf777bbef35e6bce33bfbe5a427a910d29562ed3886a8",
+          "size": 11284,
+          "appliedChanges": []
         },
         {
           "path": "assets/sfx/sound-858.mp3",
@@ -15366,7 +15405,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/level-devil/assets/sfx/sound-858.mp3",
           "wireSha256": "32d01eeb52a5b6b3c54368912f498bb0c413628ec89262ff69cbe71451debfb0",
-          "wireSize": 5850
+          "wireSize": 5850,
+          "sha256": "32d01eeb52a5b6b3c54368912f498bb0c413628ec89262ff69cbe71451debfb0",
+          "size": 5850,
+          "appliedChanges": []
         },
         {
           "path": "assets/sfx/sound-890.mp3",
@@ -15380,7 +15422,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/level-devil/assets/sfx/sound-890.mp3",
           "wireSha256": "0c334be63309e46518b88dd13dfda7d7fe45bdbb9149e23777415577ec2f1185",
-          "wireSize": 4178
+          "wireSize": 4178,
+          "sha256": "0c334be63309e46518b88dd13dfda7d7fe45bdbb9149e23777415577ec2f1185",
+          "size": 4178,
+          "appliedChanges": []
         }
       ],
       "totalFiles": 19,
@@ -20633,7 +20678,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/fireboy-and-watergirl-2/assets/json/contracted.json",
           "wireSha256": "1bfa020bb0f3432f8faa626fa0c1aec920404fc2d03b2c8cfef7543c54460874",
-          "wireSize": 948
+          "wireSize": 948,
+          "sha256": "1bfa020bb0f3432f8faa626fa0c1aec920404fc2d03b2c8cfef7543c54460874",
+          "size": 948,
+          "appliedChanges": []
         },
         {
           "path": "assets/json/domains.json",
@@ -20647,7 +20695,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/fireboy-and-watergirl-2/assets/json/domains.json",
           "wireSha256": "3d5ab7c79e844cbc75c24e9737673de535402339c865ce5968ddbd0fc26163c6",
-          "wireSize": 8092
+          "wireSize": 8092,
+          "sha256": "3d5ab7c79e844cbc75c24e9737673de535402339c865ce5968ddbd0fc26163c6",
+          "size": 8092,
+          "appliedChanges": []
         },
         {
           "path": "assets/json/internal.json",
@@ -20661,7 +20712,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/fireboy-and-watergirl-2/assets/json/internal.json",
           "wireSha256": "b135f4f30db915c7df00d561b30161f1c38ecb240676759d6d2cc3baf15aeb03",
-          "wireSize": 1241
+          "wireSize": 1241,
+          "sha256": "b135f4f30db915c7df00d561b30161f1c38ecb240676759d6d2cc3baf15aeb03",
+          "size": 1241,
+          "appliedChanges": []
         },
         {
           "path": "assets/json/sitelock.json",
@@ -20675,7 +20729,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/fireboy-and-watergirl-2/assets/json/sitelock.json",
           "wireSha256": "223db9b067398ebd8d58254b80ca209240563a7dbc2f9f2668a0dfa2970c14c8",
-          "wireSize": 1176
+          "wireSize": 1176,
+          "sha256": "223db9b067398ebd8d58254b80ca209240563a7dbc2f9f2668a0dfa2970c14c8",
+          "size": 1176,
+          "appliedChanges": []
         },
         {
           "path": "assets/json/special.json",
@@ -20689,7 +20746,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/fireboy-and-watergirl-2/assets/json/special.json",
           "wireSha256": "3ff09b2bd5f7ba1868f8f564e6c41f9799b53209e1fb8f0ac6209200d130ef40",
-          "wireSize": 1102
+          "wireSize": 1102,
+          "sha256": "3ff09b2bd5f7ba1868f8f564e6c41f9799b53209e1fb8f0ac6209200d130ef40",
+          "size": 1102,
+          "appliedChanges": []
         }
       ],
       "totalFiles": 88,
@@ -25004,7 +25064,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/drift-boss/media/audio/bgm.mp3",
           "wireSha256": "54de8bb7f9e30ced4532e140ff38b4cf72b25d723a5a6a75324446210b02759e",
-          "wireSize": 456535
+          "wireSize": 456535,
+          "sha256": "54de8bb7f9e30ced4532e140ff38b4cf72b25d723a5a6a75324446210b02759e",
+          "size": 456535,
+          "appliedChanges": []
         },
         {
           "path": "media/audio/chest-big.ogg",
@@ -25018,7 +25081,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/drift-boss/media/audio/chest-big.ogg",
           "wireSha256": "aaee7d06a535c463f399347b9a60fa3f60e1a14c3c910e36222c76b81add75ce",
-          "wireSize": 33532
+          "wireSize": 33532,
+          "sha256": "aaee7d06a535c463f399347b9a60fa3f60e1a14c3c910e36222c76b81add75ce",
+          "size": 33532,
+          "appliedChanges": []
         },
         {
           "path": "media/audio/chest-small.ogg",
@@ -25032,7 +25098,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/drift-boss/media/audio/chest-small.ogg",
           "wireSha256": "8950ee8df1135589e55f050f5055a93fc797cc6cb9fc5be189df76592e335490",
-          "wireSize": 38855
+          "wireSize": 38855,
+          "sha256": "8950ee8df1135589e55f050f5055a93fc797cc6cb9fc5be189df76592e335490",
+          "size": 38855,
+          "appliedChanges": []
         },
         {
           "path": "media/audio/crash.ogg",
@@ -25046,7 +25115,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/drift-boss/media/audio/crash.ogg",
           "wireSha256": "891f1f5b6307a73c5dd7f104056deb6667c5dbafd0fcbbff7147aaff3cda80c3",
-          "wireSize": 17945
+          "wireSize": 17945,
+          "sha256": "891f1f5b6307a73c5dd7f104056deb6667c5dbafd0fcbbff7147aaff3cda80c3",
+          "size": 17945,
+          "appliedChanges": []
         },
         {
           "path": "media/audio/engine-in.ogg",
@@ -25060,7 +25132,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/drift-boss/media/audio/engine-in.ogg",
           "wireSha256": "8c287d21a2daba7c8b4ff945da7224be5480d766a1eda1054199e6238bc3c29f",
-          "wireSize": 11619
+          "wireSize": 11619,
+          "sha256": "8c287d21a2daba7c8b4ff945da7224be5480d766a1eda1054199e6238bc3c29f",
+          "size": 11619,
+          "appliedChanges": []
         },
         {
           "path": "media/audio/engine-out.ogg",
@@ -25074,7 +25149,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/drift-boss/media/audio/engine-out.ogg",
           "wireSha256": "6dd5d146ace3b70362dc9a32864d0a6bbabafbed7ed3f519a80cb98c0a8365c2",
-          "wireSize": 11382
+          "wireSize": 11382,
+          "sha256": "6dd5d146ace3b70362dc9a32864d0a6bbabafbed7ed3f519a80cb98c0a8365c2",
+          "size": 11382,
+          "appliedChanges": []
         },
         {
           "path": "media/audio/engine.ogg",
@@ -25088,7 +25166,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/drift-boss/media/audio/engine.ogg",
           "wireSha256": "a451b6524fd86c44b241bc583f19cf8b5ce1763ffc239b85602160bf2167475b",
-          "wireSize": 38649
+          "wireSize": 38649,
+          "sha256": "a451b6524fd86c44b241bc583f19cf8b5ce1763ffc239b85602160bf2167475b",
+          "size": 38649,
+          "appliedChanges": []
         },
         {
           "path": "media/audio/opening/kittyopening.ogg",
@@ -25102,7 +25183,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/drift-boss/media/audio/opening/kittyopening.ogg",
           "wireSha256": "48517e5b3f856a07483c9b367959a140ca2b9eb85350082a076bdf1cdb246012",
-          "wireSize": 11690
+          "wireSize": 11690,
+          "sha256": "48517e5b3f856a07483c9b367959a140ca2b9eb85350082a076bdf1cdb246012",
+          "size": 11690,
+          "appliedChanges": []
         },
         {
           "path": "media/audio/opening/opening.ogg",
@@ -25116,7 +25200,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/drift-boss/media/audio/opening/opening.ogg",
           "wireSha256": "c07726b60359c8de3e80764287e4e378d77261f77ad352d43d3777069eb7c7a5",
-          "wireSize": 7867
+          "wireSize": 7867,
+          "sha256": "c07726b60359c8de3e80764287e4e378d77261f77ad352d43d3777069eb7c7a5",
+          "size": 7867,
+          "appliedChanges": []
         },
         {
           "path": "media/audio/play/static.ogg",
@@ -25130,7 +25217,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/drift-boss/media/audio/play/static.ogg",
           "wireSha256": "1f026ff08f193151fb8f6d6c531442a7e2c04e1b57bd2e3030457a07f93a291f",
-          "wireSize": 5632
+          "wireSize": 5632,
+          "sha256": "1f026ff08f193151fb8f6d6c531442a7e2c04e1b57bd2e3030457a07f93a291f",
+          "size": 5632,
+          "appliedChanges": []
         },
         {
           "path": "media/audio/reward.ogg",
@@ -25144,7 +25234,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/drift-boss/media/audio/reward.ogg",
           "wireSha256": "1e2433da96dc2449eae1eb33007a4eb524953e1510c102d6b00ae52a6eb70d2b",
-          "wireSize": 23109
+          "wireSize": 23109,
+          "sha256": "1e2433da96dc2449eae1eb33007a4eb524953e1510c102d6b00ae52a6eb70d2b",
+          "size": 23109,
+          "appliedChanges": []
         },
         {
           "path": "media/audio/skid1.ogg",
@@ -25158,7 +25251,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/drift-boss/media/audio/skid1.ogg",
           "wireSha256": "2f5e51dadfd4c5336672ac98e20fd4c3fb0f5c6fab64543a90d5302c0a8c71ab",
-          "wireSize": 25909
+          "wireSize": 25909,
+          "sha256": "2f5e51dadfd4c5336672ac98e20fd4c3fb0f5c6fab64543a90d5302c0a8c71ab",
+          "size": 25909,
+          "appliedChanges": []
         },
         {
           "path": "media/audio/skid2.ogg",
@@ -25172,7 +25268,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/drift-boss/media/audio/skid2.ogg",
           "wireSha256": "c0dacf1ed77381a472b1f37113cf318204e53819f92206b94587d519d70347c5",
-          "wireSize": 26019
+          "wireSize": 26019,
+          "sha256": "c0dacf1ed77381a472b1f37113cf318204e53819f92206b94587d519d70347c5",
+          "size": 26019,
+          "appliedChanges": []
         },
         {
           "path": "media/audio/skid3.ogg",
@@ -25186,7 +25285,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/drift-boss/media/audio/skid3.ogg",
           "wireSha256": "529b470e86b13b8cd2ac38b53a9262984ad5d7e91e83815d5a8081a21b2c34a4",
-          "wireSize": 25905
+          "wireSize": 25905,
+          "sha256": "529b470e86b13b8cd2ac38b53a9262984ad5d7e91e83815d5a8081a21b2c34a4",
+          "size": 25905,
+          "appliedChanges": []
         }
       ],
       "totalFiles": 25,
@@ -31231,7 +31333,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/color-tunnel/TemplateData/gears.gif",
           "wireSha256": "83c90f7138acfc695744d78e543a86b4161aafa25aeb39a7e6491d77cb193877",
-          "wireSize": 474270
+          "wireSize": 474270,
+          "sha256": "83c90f7138acfc695744d78e543a86b4161aafa25aeb39a7e6491d77cb193877",
+          "size": 474270,
+          "appliedChanges": []
         },
         {
           "path": "js/main.min.js",
@@ -31245,7 +31350,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/color-tunnel/js/main.min.js",
           "wireSha256": "64a10e22c1dba762318a7377ed02894f5baf489c443db1636116d198d5c7067f",
-          "wireSize": 608587
+          "wireSize": 608587,
+          "sha256": "64a10e22c1dba762318a7377ed02894f5baf489c443db1636116d198d5c7067f",
+          "size": 608587,
+          "appliedChanges": []
         }
       ],
       "totalFiles": 10,
@@ -32066,7 +32174,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/icy-purple-head/media/click.ogg",
           "wireSha256": "2e402ec94a08e6ed5c6e1c1ed8bdf562c647a3675e39b8a8a63f701a3768997f",
-          "wireSize": 6709
+          "wireSize": 6709,
+          "sha256": "2e402ec94a08e6ed5c6e1c1ed8bdf562c647a3675e39b8a8a63f701a3768997f",
+          "size": 6709,
+          "appliedChanges": []
         },
         {
           "path": "media/iceclick.ogg",
@@ -32080,7 +32191,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/icy-purple-head/media/iceclick.ogg",
           "wireSha256": "6fc138ca2e2b3a9c7ebad1bd0dbb449dc8b04a18a4e8ceb27d5fd8e53df24baa",
-          "wireSize": 13129
+          "wireSize": 13129,
+          "sha256": "6fc138ca2e2b3a9c7ebad1bd0dbb449dc8b04a18a4e8ceb27d5fd8e53df24baa",
+          "size": 13129,
+          "appliedChanges": []
         },
         {
           "path": "media/levelend.ogg",
@@ -32094,7 +32208,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/icy-purple-head/media/levelend.ogg",
           "wireSha256": "a290a56d0da93ff2e9a63e2d209c35300d9fe1ebb69ab046539d23ae6617a2d4",
-          "wireSize": 25754
+          "wireSize": 25754,
+          "sha256": "a290a56d0da93ff2e9a63e2d209c35300d9fe1ebb69ab046539d23ae6617a2d4",
+          "size": 25754,
+          "appliedChanges": []
         },
         {
           "path": "media/levelendclick.ogg",
@@ -32108,7 +32225,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/icy-purple-head/media/levelendclick.ogg",
           "wireSha256": "57619d90bfaaa4be9c75070596db4953e01038a00973c9857897035747873100",
-          "wireSize": 14906
+          "wireSize": 14906,
+          "sha256": "57619d90bfaaa4be9c75070596db4953e01038a00973c9857897035747873100",
+          "size": 14906,
+          "appliedChanges": []
         },
         {
           "path": "media/loose.ogg",
@@ -32122,7 +32242,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/icy-purple-head/media/loose.ogg",
           "wireSha256": "3572257d3505a127dfbd0efc34cf1a5d02b01364b2e0e50450c725bd067ff91f",
-          "wireSize": 14660
+          "wireSize": 14660,
+          "sha256": "3572257d3505a127dfbd0efc34cf1a5d02b01364b2e0e50450c725bd067ff91f",
+          "size": 14660,
+          "appliedChanges": []
         },
         {
           "path": "media/stick.ogg",
@@ -32136,7 +32259,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/icy-purple-head/media/stick.ogg",
           "wireSha256": "c6f4a08ce0f64fd75dda8aad23450631d2abc1de497215329e9bc47c2ada0366",
-          "wireSize": 7528
+          "wireSize": 7528,
+          "sha256": "c6f4a08ce0f64fd75dda8aad23450631d2abc1de497215329e9bc47c2ada0366",
+          "size": 7528,
+          "appliedChanges": []
         },
         {
           "path": "media/theme.ogg",
@@ -32150,7 +32276,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/icy-purple-head/media/theme.ogg",
           "wireSha256": "0ac2f0e525dfc7ffa5d0a0d99855f964a471e3f78923976287592e302cedf6ff",
-          "wireSize": 905841
+          "wireSize": 905841,
+          "sha256": "0ac2f0e525dfc7ffa5d0a0d99855f964a471e3f78923976287592e302cedf6ff",
+          "size": 905841,
+          "appliedChanges": []
         },
         {
           "path": "media/win.ogg",
@@ -32164,7 +32293,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/icy-purple-head/media/win.ogg",
           "wireSha256": "2e67321acfa9c51cfa83149ddd60203cdb423048f38582aebef3e9ed689615b1",
-          "wireSize": 37300
+          "wireSize": 37300,
+          "sha256": "2e67321acfa9c51cfa83149ddd60203cdb423048f38582aebef3e9ed689615b1",
+          "size": 37300,
+          "appliedChanges": []
         },
         {
           "path": "media/wood hit.ogg",
@@ -32178,7 +32310,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/icy-purple-head/media/wood%20hit.ogg",
           "wireSha256": "e5f360f4a6b55ee92fb89011d8797ca9ee9c7d1866f127c7af18825b7f8a9988",
-          "wireSize": 12644
+          "wireSize": 12644,
+          "sha256": "e5f360f4a6b55ee92fb89011d8797ca9ee9c7d1866f127c7af18825b7f8a9988",
+          "size": 12644,
+          "appliedChanges": []
         }
       ],
       "totalFiles": 50,
@@ -39506,7 +39641,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/brawl-guys/media/bang_05.ogg",
           "wireSha256": "6881ae4a9ca936916322162cbc13dfcf180a35b99e9b84048988161234bfa83c",
-          "wireSize": 45926
+          "wireSize": 45926,
+          "sha256": "6881ae4a9ca936916322162cbc13dfcf180a35b99e9b84048988161234bfa83c",
+          "size": 45926,
+          "appliedChanges": []
         },
         {
           "path": "media/click_003.ogg",
@@ -39520,7 +39658,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/brawl-guys/media/click_003.ogg",
           "wireSha256": "2fa929138bc3a0f432696588f66eac94b8f6d463905ec8808c6461ce4b054292",
-          "wireSize": 4371
+          "wireSize": 4371,
+          "sha256": "2fa929138bc3a0f432696588f66eac94b8f6d463905ec8808c6461ce4b054292",
+          "size": 4371,
+          "appliedChanges": []
         },
         {
           "path": "media/glass_004.ogg",
@@ -39534,7 +39675,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/brawl-guys/media/glass_004.ogg",
           "wireSha256": "2379b58f953e3d86982aa8cddcae763022c6258e9820171bf905ce58b4e97766",
-          "wireSize": 8323
+          "wireSize": 8323,
+          "sha256": "2379b58f953e3d86982aa8cddcae763022c6258e9820171bf905ce58b4e97766",
+          "size": 8323,
+          "appliedChanges": []
         },
         {
           "path": "media/oho.ogg",
@@ -39548,7 +39692,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/brawl-guys/media/oho.ogg",
           "wireSha256": "c5196e95e67f23e5e919b8919eb039a02f9624e22d9c464130e39a4c1777c21d",
-          "wireSize": 9565
+          "wireSize": 9565,
+          "sha256": "c5196e95e67f23e5e919b8919eb039a02f9624e22d9c464130e39a4c1777c21d",
+          "size": 9565,
+          "appliedChanges": []
         },
         {
           "path": "media/select_001.ogg",
@@ -39562,7 +39709,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/brawl-guys/media/select_001.ogg",
           "wireSha256": "aec0c31ea934a35936ae0d2ab8fac8123c93aa5647f935853a58dbaf90278b7a",
-          "wireSize": 5468
+          "wireSize": 5468,
+          "sha256": "aec0c31ea934a35936ae0d2ab8fac8123c93aa5647f935853a58dbaf90278b7a",
+          "size": 5468,
+          "appliedChanges": []
         },
         {
           "path": "media/select_003.ogg",
@@ -39576,7 +39726,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/brawl-guys/media/select_003.ogg",
           "wireSha256": "9a612fd2f513d52a296906b41071c990f75defe56be3bee60d2d4e2423b51b8b",
-          "wireSize": 6901
+          "wireSize": 6901,
+          "sha256": "9a612fd2f513d52a296906b41071c990f75defe56be3bee60d2d4e2423b51b8b",
+          "size": 6901,
+          "appliedChanges": []
         },
         {
           "path": "media/select_007.ogg",
@@ -39590,7 +39743,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/brawl-guys/media/select_007.ogg",
           "wireSha256": "cd4390dd2b24f09016a5fa1be63334fa0f1859811f4cf29c02e8e2750f6a2cd0",
-          "wireSize": 6580
+          "wireSize": 6580,
+          "sha256": "cd4390dd2b24f09016a5fa1be63334fa0f1859811f4cf29c02e8e2750f6a2cd0",
+          "size": 6580,
+          "appliedChanges": []
         },
         {
           "path": "media/shot_03.ogg",
@@ -39604,7 +39760,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/brawl-guys/media/shot_03.ogg",
           "wireSha256": "f3cfbf0af36a717ff9c8f58640f181db7b73266e8263591014d453c4e77c6418",
-          "wireSize": 17081
+          "wireSize": 17081,
+          "sha256": "f3cfbf0af36a717ff9c8f58640f181db7b73266e8263591014d453c4e77c6418",
+          "size": 17081,
+          "appliedChanges": []
         },
         {
           "path": "media/winner.ogg",
@@ -39618,7 +39777,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/brawl-guys/media/winner.ogg",
           "wireSha256": "109cf00bedc2dc6579dac8096c9026c66f5946074bf3d1586bc09366b6581357",
-          "wireSize": 22319
+          "wireSize": 22319,
+          "sha256": "109cf00bedc2dc6579dac8096c9026c66f5946074bf3d1586bc09366b6581357",
+          "size": 22319,
+          "appliedChanges": []
         },
         {
           "path": "media/you_lose.ogg",
@@ -39632,7 +39794,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/brawl-guys/media/you_lose.ogg",
           "wireSha256": "b21aab4d4897f6d331fc354a4827edd56ab621a2a74dbbffd123e379d2f0c858",
-          "wireSize": 20539
+          "wireSize": 20539,
+          "sha256": "b21aab4d4897f6d331fc354a4827edd56ab621a2a74dbbffd123e379d2f0c858",
+          "size": 20539,
+          "appliedChanges": []
         }
       ],
       "totalFiles": 80,
@@ -40054,7 +40219,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/ice-dodo/assets/skins/dodo.png",
           "wireSha256": "d5dc702e951b433c36a7ded8210adba561c8ee960e6953bdd7369ece6314f3f7",
-          "wireSize": 201
+          "wireSize": 201,
+          "sha256": "d5dc702e951b433c36a7ded8210adba561c8ee960e6953bdd7369ece6314f3f7",
+          "size": 201,
+          "appliedChanges": []
         },
         {
           "path": "assets/skins/moon.png",
@@ -40068,7 +40236,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/ice-dodo/assets/skins/moon.png",
           "wireSha256": "4b1eebacd36df01c7fa9f4ea356d7839d1de08748f8b33c1a6524f0cee1ed5df",
-          "wireSize": 5760
+          "wireSize": 5760,
+          "sha256": "4b1eebacd36df01c7fa9f4ea356d7839d1de08748f8b33c1a6524f0cee1ed5df",
+          "size": 5760,
+          "appliedChanges": []
         },
         {
           "path": "assets/skins/tweet.png",
@@ -40082,7 +40253,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/ice-dodo/assets/skins/tweet.png",
           "wireSha256": "16e9691545fe18aad70e7251f6200bbf752a878161e843c6a3212c197dcb7cc3",
-          "wireSize": 2262
+          "wireSize": 2262,
+          "sha256": "16e9691545fe18aad70e7251f6200bbf752a878161e843c6a3212c197dcb7cc3",
+          "size": 2262,
+          "appliedChanges": []
         }
       ],
       "totalFiles": 19,
@@ -42846,7 +43020,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/friday-night-funkin/assets/data/characters/bf-car.json",
           "wireSha256": "21b4a2fc7a343b2aaa48caa9be86d481a8c483dc7b2f7cbd47e0b2671261898a",
-          "wireSize": 2356
+          "wireSize": 2356,
+          "sha256": "21b4a2fc7a343b2aaa48caa9be86d481a8c483dc7b2f7cbd47e0b2671261898a",
+          "size": 2356,
+          "appliedChanges": []
         },
         {
           "path": "assets/data/characters/bf-christmas.json",
@@ -42860,7 +43037,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/friday-night-funkin/assets/data/characters/bf-christmas.json",
           "wireSha256": "8c294cdc7edf9d31a6b533ba0fbc29f89de57fbd1aa49225c298d5875f5b1686",
-          "wireSize": 2095
+          "wireSize": 2095,
+          "sha256": "8c294cdc7edf9d31a6b533ba0fbc29f89de57fbd1aa49225c298d5875f5b1686",
+          "size": 2095,
+          "appliedChanges": []
         },
         {
           "path": "assets/data/characters/bf-dark.json",
@@ -42874,7 +43054,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/friday-night-funkin/assets/data/characters/bf-dark.json",
           "wireSha256": "01535d8a1bcb32536d1031a67eb077c39e0e5675e419802f8e80c36cada766d8",
-          "wireSize": 1621
+          "wireSize": 1621,
+          "sha256": "01535d8a1bcb32536d1031a67eb077c39e0e5675e419802f8e80c36cada766d8",
+          "size": 1621,
+          "appliedChanges": []
         },
         {
           "path": "assets/data/characters/bf-pixel.json",
@@ -42888,7 +43071,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/friday-night-funkin/assets/data/characters/bf-pixel.json",
           "wireSha256": "643f43dd9c091ebff875c06dc66e9522e9525aee16a723bfc335a5c89a1e7a43",
-          "wireSize": 1835
+          "wireSize": 1835,
+          "sha256": "643f43dd9c091ebff875c06dc66e9522e9525aee16a723bfc335a5c89a1e7a43",
+          "size": 1835,
+          "appliedChanges": []
         },
         {
           "path": "assets/data/characters/bf.json",
@@ -42902,7 +43088,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/friday-night-funkin/assets/data/characters/bf.json",
           "wireSha256": "76c1d7c48f384b8c55b0cbac24ddcf7a9e4e905f5ee5430e610e0514278b39b9",
-          "wireSize": 1767
+          "wireSize": 1767,
+          "sha256": "76c1d7c48f384b8c55b0cbac24ddcf7a9e4e905f5ee5430e610e0514278b39b9",
+          "size": 1767,
+          "appliedChanges": []
         },
         {
           "path": "assets/data/characters/dad.json",
@@ -42916,7 +43105,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/friday-night-funkin/assets/data/characters/dad.json",
           "wireSha256": "a963407c463c8e5bf63e90a591ab5cfbe98c15446bba29c56512a53332fa7ba8",
-          "wireSize": 1061
+          "wireSize": 1061,
+          "sha256": "a963407c463c8e5bf63e90a591ab5cfbe98c15446bba29c56512a53332fa7ba8",
+          "size": 1061,
+          "appliedChanges": []
         },
         {
           "path": "assets/data/characters/darnell-blazin.json",
@@ -42930,7 +43122,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/friday-night-funkin/assets/data/characters/darnell-blazin.json",
           "wireSha256": "c39b643cc9bc8e4946eaee22ef7c570980731fe68ab91b636ed337888273c3e1",
-          "wireSize": 1987
+          "wireSize": 1987,
+          "sha256": "c39b643cc9bc8e4946eaee22ef7c570980731fe68ab91b636ed337888273c3e1",
+          "size": 1987,
+          "appliedChanges": []
         },
         {
           "path": "assets/data/characters/darnell.json",
@@ -42944,7 +43139,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/friday-night-funkin/assets/data/characters/darnell.json",
           "wireSha256": "67b7cb03a6393c142ab683dbc99c4548223b534815a7994f6749d7018499f816",
-          "wireSize": 1529
+          "wireSize": 1529,
+          "sha256": "67b7cb03a6393c142ab683dbc99c4548223b534815a7994f6749d7018499f816",
+          "size": 1529,
+          "appliedChanges": []
         },
         {
           "path": "assets/data/characters/gf-car.json",
@@ -42958,7 +43156,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/friday-night-funkin/assets/data/characters/gf-car.json",
           "wireSha256": "505a3335721467b1ac48e7034b6bc9be2b52644671734491ce9fd26bd42b9788",
-          "wireSize": 843
+          "wireSize": 843,
+          "sha256": "505a3335721467b1ac48e7034b6bc9be2b52644671734491ce9fd26bd42b9788",
+          "size": 843,
+          "appliedChanges": []
         },
         {
           "path": "assets/data/characters/gf-christmas.json",
@@ -42972,7 +43173,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/friday-night-funkin/assets/data/characters/gf-christmas.json",
           "wireSha256": "ca22f1793290c46e9db6bee5606785dfd92e4e0cb3bd71a2518d57da55789a86",
-          "wireSize": 1024
+          "wireSize": 1024,
+          "sha256": "ca22f1793290c46e9db6bee5606785dfd92e4e0cb3bd71a2518d57da55789a86",
+          "size": 1024,
+          "appliedChanges": []
         },
         {
           "path": "assets/data/characters/gf-dark.json",
@@ -42986,7 +43190,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/friday-night-funkin/assets/data/characters/gf-dark.json",
           "wireSha256": "33283c44c9aa02c9ef449550765b9fa620ee011b30fe7b228e2ead03b0d36e54",
-          "wireSize": 948
+          "wireSize": 948,
+          "sha256": "33283c44c9aa02c9ef449550765b9fa620ee011b30fe7b228e2ead03b0d36e54",
+          "size": 948,
+          "appliedChanges": []
         },
         {
           "path": "assets/data/characters/gf-pixel.json",
@@ -43000,7 +43207,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/friday-night-funkin/assets/data/characters/gf-pixel.json",
           "wireSha256": "09710a368cc66c199c2d64f4c2f5d40ad7ea01fa11f6d790cf5c8f0cabf82a64",
-          "wireSize": 553
+          "wireSize": 553,
+          "sha256": "09710a368cc66c199c2d64f4c2f5d40ad7ea01fa11f6d790cf5c8f0cabf82a64",
+          "size": 553,
+          "appliedChanges": []
         },
         {
           "path": "assets/data/characters/gf.json",
@@ -43014,7 +43224,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/friday-night-funkin/assets/data/characters/gf.json",
           "wireSha256": "962d22ed64216602716cc57815f847b68cf699621710be1d4429575118f0a58c",
-          "wireSize": 1459
+          "wireSize": 1459,
+          "sha256": "962d22ed64216602716cc57815f847b68cf699621710be1d4429575118f0a58c",
+          "size": 1459,
+          "appliedChanges": []
         },
         {
           "path": "assets/music/chartEditorLoop/chartEditorLoop.mp3",
@@ -43028,7 +43241,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/friday-night-funkin/assets/music/chartEditorLoop/chartEditorLoop.mp3",
           "wireSha256": "7cd83e56203e6493fa3e0b0f3a56a91fd1a8a0992b77462d4f0501e446e25e49",
-          "wireSize": 954093
+          "wireSize": 954093,
+          "sha256": "7cd83e56203e6493fa3e0b0f3a56a91fd1a8a0992b77462d4f0501e446e25e49",
+          "size": 954093,
+          "appliedChanges": []
         },
         {
           "path": "assets/music/freakyMenu/freakyMenu.mp3",
@@ -43042,7 +43258,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/friday-night-funkin/assets/music/freakyMenu/freakyMenu.mp3",
           "wireSha256": "d2efe741a428f6345ea80895c50a36894dcfb65eb93234d4f270c3a06ed05a2e",
-          "wireSize": 2712181
+          "wireSize": 2712181,
+          "sha256": "d2efe741a428f6345ea80895c50a36894dcfb65eb93234d4f270c3a06ed05a2e",
+          "size": 2712181,
+          "appliedChanges": []
         }
       ],
       "totalFiles": 148,
@@ -43292,7 +43511,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/papas-freezeria/assets/builtins/avmplus.abc",
           "wireSha256": "3ae3ebb1268f00cffd089ccb0afc69ade73117ec68ac9cb916248f47849ff9f6",
-          "wireSize": 520
+          "wireSize": 520,
+          "sha256": "3ae3ebb1268f00cffd089ccb0afc69ade73117ec68ac9cb916248f47849ff9f6",
+          "size": 520,
+          "appliedChanges": []
         },
         {
           "path": "assets/builtins/builtin.abc",
@@ -43306,7 +43528,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/papas-freezeria/assets/builtins/builtin.abc",
           "wireSha256": "097dae8f925f65b9e5bf974e24e4c0646423dfdb991ba342ba98e52f4d23299d",
-          "wireSize": 21973
+          "wireSize": 21973,
+          "sha256": "097dae8f925f65b9e5bf974e24e4c0646423dfdb991ba342ba98e52f4d23299d",
+          "size": 21973,
+          "appliedChanges": []
         },
         {
           "path": "assets/builtins/playerglobal.abcs",
@@ -43320,7 +43545,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/papas-freezeria/assets/builtins/playerglobal.abcs",
           "wireSha256": "d57eae50397029e58844bf3efa2ba17390da8d8dce1c9d0c374ec2ea2144186b",
-          "wireSize": 183917
+          "wireSize": 183917,
+          "sha256": "d57eae50397029e58844bf3efa2ba17390da8d8dce1c9d0c374ec2ea2144186b",
+          "size": 183917,
+          "appliedChanges": []
         },
         {
           "path": "assets/builtins/playerglobal.json",
@@ -43334,7 +43562,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/papas-freezeria/assets/builtins/playerglobal.json",
           "wireSha256": "279669a50f81f90b5aae3c42aaa6af3168ba79aabd99be395dee650c86173b9b",
-          "wireSize": 54402
+          "wireSize": 54402,
+          "sha256": "279669a50f81f90b5aae3c42aaa6af3168ba79aabd99be395dee650c86173b9b",
+          "size": 54402,
+          "appliedChanges": []
         },
         {
           "path": "lng.txt",
@@ -43348,7 +43579,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/papas-freezeria/lng.txt",
           "wireSha256": "a87ef7b2a413f234985afa048f77baf7911825ddda1a8b3610fecdd2c3093272",
-          "wireSize": 94
+          "wireSize": 94,
+          "sha256": "a87ef7b2a413f234985afa048f77baf7911825ddda1a8b3610fecdd2c3093272",
+          "size": 94,
+          "appliedChanges": []
         }
       ],
       "totalFiles": 12,
@@ -47918,7 +48152,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/choppy-orc/media/attack.ogg",
           "wireSha256": "b64032d6e8fb3f082c534c6bb2531aee3eed5d3107a0a6bc1baadc75947618d2",
-          "wireSize": 5223
+          "wireSize": 5223,
+          "sha256": "b64032d6e8fb3f082c534c6bb2531aee3eed5d3107a0a6bc1baadc75947618d2",
+          "size": 5223,
+          "appliedChanges": []
         },
         {
           "path": "media/axeback.ogg",
@@ -47932,7 +48169,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/choppy-orc/media/axeback.ogg",
           "wireSha256": "490f3259998eb1c0c55ca900569afa0aa1b6a6ad5aa57aea17e15beb12b5d628",
-          "wireSize": 18621
+          "wireSize": 18621,
+          "sha256": "490f3259998eb1c0c55ca900569afa0aa1b6a6ad5aa57aea17e15beb12b5d628",
+          "size": 18621,
+          "appliedChanges": []
         },
         {
           "path": "media/axethrow.ogg",
@@ -47946,7 +48186,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/choppy-orc/media/axethrow.ogg",
           "wireSha256": "332c12ffd76b21e21e77748df0ed3a3b0687d3f83590ac96ddd00718af949cee",
-          "wireSize": 6028
+          "wireSize": 6028,
+          "sha256": "332c12ffd76b21e21e77748df0ed3a3b0687d3f83590ac96ddd00718af949cee",
+          "size": 6028,
+          "appliedChanges": []
         },
         {
           "path": "media/damsel.ogg",
@@ -47960,7 +48203,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/choppy-orc/media/damsel.ogg",
           "wireSha256": "51b1702ebf8dc47b591a0af84263cc1041eaf794fc7bc5ca9eed2a21126ba08b",
-          "wireSize": 7679
+          "wireSize": 7679,
+          "sha256": "51b1702ebf8dc47b591a0af84263cc1041eaf794fc7bc5ca9eed2a21126ba08b",
+          "size": 7679,
+          "appliedChanges": []
         },
         {
           "path": "media/gameend.ogg",
@@ -47974,7 +48220,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/choppy-orc/media/gameend.ogg",
           "wireSha256": "7ceef71a0acb8b89c63ada224a2b36c599801fb1a7321c979d04120918efdbd0",
-          "wireSize": 8972
+          "wireSize": 8972,
+          "sha256": "7ceef71a0acb8b89c63ada224a2b36c599801fb1a7321c979d04120918efdbd0",
+          "size": 8972,
+          "appliedChanges": []
         },
         {
           "path": "media/hitwall.ogg",
@@ -47988,7 +48237,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/choppy-orc/media/hitwall.ogg",
           "wireSha256": "19d8557c8c29e0aa3108c7e827819ec37d71de06ad215654a0d97cea627d6e77",
-          "wireSize": 5632
+          "wireSize": 5632,
+          "sha256": "19d8557c8c29e0aa3108c7e827819ec37d71de06ad215654a0d97cea627d6e77",
+          "size": 5632,
+          "appliedChanges": []
         },
         {
           "path": "media/jump60.ogg",
@@ -48002,7 +48254,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/choppy-orc/media/jump60.ogg",
           "wireSha256": "5f674da4ec39f7dc7a4521dc3c5baf8944956e236385fa63efa8ba464a248e87",
-          "wireSize": 6146
+          "wireSize": 6146,
+          "sha256": "5f674da4ec39f7dc7a4521dc3c5baf8944956e236385fa63efa8ba464a248e87",
+          "size": 6146,
+          "appliedChanges": []
         },
         {
           "path": "media/powerup3.ogg",
@@ -48016,7 +48271,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/choppy-orc/media/powerup3.ogg",
           "wireSha256": "06f2081950664858a4833c4e661be7475519d712ddc3c88f04144571f10822fb",
-          "wireSize": 10970
+          "wireSize": 10970,
+          "sha256": "06f2081950664858a4833c4e661be7475519d712ddc3c88f04144571f10822fb",
+          "size": 10970,
+          "appliedChanges": []
         },
         {
           "path": "media/powerup4.ogg",
@@ -48030,7 +48288,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/choppy-orc/media/powerup4.ogg",
           "wireSha256": "3908c5ab1f46b89aef604258e8d6ddb4e4e6fd0ca60164315d83ce0996005619",
-          "wireSize": 10363
+          "wireSize": 10363,
+          "sha256": "3908c5ab1f46b89aef604258e8d6ddb4e4e6fd0ca60164315d83ce0996005619",
+          "size": 10363,
+          "appliedChanges": []
         },
         {
           "path": "media/powerup5.ogg",
@@ -48044,7 +48305,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/choppy-orc/media/powerup5.ogg",
           "wireSha256": "0523bf4221f1da8f8aa882c8060c0fa2526d1a802a942c4f4445238dcb4fd712",
-          "wireSize": 10009
+          "wireSize": 10009,
+          "sha256": "0523bf4221f1da8f8aa882c8060c0fa2526d1a802a942c4f4445238dcb4fd712",
+          "size": 10009,
+          "appliedChanges": []
         },
         {
           "path": "media/step.ogg",
@@ -48058,7 +48322,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/choppy-orc/media/step.ogg",
           "wireSha256": "189c1ff403c17cdf606e229c46a6abc891f3ba92c45481a7ab1da717824c3a03",
-          "wireSize": 4730
+          "wireSize": 4730,
+          "sha256": "189c1ff403c17cdf606e229c46a6abc891f3ba92c45481a7ab1da717824c3a03",
+          "size": 4730,
+          "appliedChanges": []
         },
         {
           "path": "media/teleport.ogg",
@@ -48072,7 +48339,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/choppy-orc/media/teleport.ogg",
           "wireSha256": "8b03d49d472e7e8ea0c2f30f50bc70a5650a5425de886dbc2384334478d05482",
-          "wireSize": 5412
+          "wireSize": 5412,
+          "sha256": "8b03d49d472e7e8ea0c2f30f50bc70a5650a5425de886dbc2384334478d05482",
+          "size": 5412,
+          "appliedChanges": []
         }
       ],
       "totalFiles": 49,
@@ -51613,7 +51883,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/ricochet-arrow/media/arrow-nock.webm",
           "wireSha256": "70e7b5ae44645279a5555670dd936745b20f3c3cf6b6f44f55e22e187bfbfa76",
-          "wireSize": 3946
+          "wireSize": 3946,
+          "sha256": "70e7b5ae44645279a5555670dd936745b20f3c3cf6b6f44f55e22e187bfbfa76",
+          "size": 3946,
+          "appliedChanges": []
         }
       ],
       "totalFiles": 36,
@@ -51804,7 +52077,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/big-shot-boxing/poki-sdk-core-v2.263.0.js",
           "wireSha256": "5d250815f2f286ab2bf13e449856c797ece58835a5e4df33ec23d3d7613b7c28",
-          "wireSize": 173232
+          "wireSize": 173232,
+          "sha256": "5d250815f2f286ab2bf13e449856c797ece58835a5e4df33ec23d3d7613b7c28",
+          "size": 173232,
+          "appliedChanges": []
         }
       ],
       "totalFiles": 6,
@@ -59591,7 +59867,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/plant-vs-zombies/images/interface/AirRaid.png",
           "wireSha256": "da59037517323d5cac1b100d8791533f3ad315f4be2d4e8c3ab7d5b4f4b97e76",
-          "wireSize": 22527
+          "wireSize": 22527,
+          "sha256": "da59037517323d5cac1b100d8791533f3ad315f4be2d4e8c3ab7d5b4f4b97e76",
+          "size": 22527,
+          "appliedChanges": []
         },
         {
           "path": "images/interface/FB.png",
@@ -59605,7 +59884,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/plant-vs-zombies/images/interface/FB.png",
           "wireSha256": "768dd75a44724a8b75e3ce05afbca02763c7cde696b84af2854665e23847d382",
-          "wireSize": 7960
+          "wireSize": 7960,
+          "sha256": "768dd75a44724a8b75e3ce05afbca02763c7cde696b84af2854665e23847d382",
+          "size": 7960,
+          "appliedChanges": []
         },
         {
           "path": "images/interface/HypnoHysteria.png",
@@ -59619,7 +59901,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/plant-vs-zombies/images/interface/HypnoHysteria.png",
           "wireSha256": "ae25e211dead1136d1abd0678868bc9196c79304c7045d2beded02f1c2799841",
-          "wireSize": 10982
+          "wireSize": 10982,
+          "sha256": "ae25e211dead1136d1abd0678868bc9196c79304c7045d2beded02f1c2799841",
+          "size": 10982,
+          "appliedChanges": []
         },
         {
           "path": "images/interface/RainingSeeds.png",
@@ -59633,7 +59918,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/plant-vs-zombies/images/interface/RainingSeeds.png",
           "wireSha256": "dbadbaf06940f010b513d321af45dcc0f88f380802a394a626a121efb1ab49fe",
-          "wireSize": 10168
+          "wireSize": 10168,
+          "sha256": "dbadbaf06940f010b513d321af45dcc0f88f380802a394a626a121efb1ab49fe",
+          "size": 10168,
+          "appliedChanges": []
         },
         {
           "path": "images/interface/Stargazing.png",
@@ -59647,7 +59935,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/plant-vs-zombies/images/interface/Stargazing.png",
           "wireSha256": "62a288f80cd5e3eff8f271d5737a1c3cabfd7f7446ec3546395bf44deb43891a",
-          "wireSize": 22527
+          "wireSize": 22527,
+          "sha256": "62a288f80cd5e3eff8f271d5737a1c3cabfd7f7446ec3546395bf44deb43891a",
+          "size": 22527,
+          "appliedChanges": []
         },
         {
           "path": "images/interface/SunPower.png",
@@ -59661,7 +59952,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/plant-vs-zombies/images/interface/SunPower.png",
           "wireSha256": "dbf9001fb2e2e1995ca083f7781717dac13d968648fa730be51ab0ddfadb0a22",
-          "wireSize": 14590
+          "wireSize": 14590,
+          "sha256": "dbf9001fb2e2e1995ca083f7781717dac13d968648fa730be51ab0ddfadb0a22",
+          "size": 14590,
+          "appliedChanges": []
         },
         {
           "path": "images/interface/Unsodded.png",
@@ -59675,7 +59969,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/plant-vs-zombies/images/interface/Unsodded.png",
           "wireSha256": "870b8bc95405a559e95ffc218c53a749c061072c2ac49d2b66bb5ab85fc252ca",
-          "wireSize": 22527
+          "wireSize": 22527,
+          "sha256": "870b8bc95405a559e95ffc218c53a749c061072c2ac49d2b66bb5ab85fc252ca",
+          "size": 22527,
+          "appliedChanges": []
         },
         {
           "path": "images/interface/Vasebreaker.png",
@@ -59689,7 +59986,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/plant-vs-zombies/images/interface/Vasebreaker.png",
           "wireSha256": "ab563ca16b7140f6aba8873c7746e5bef7435f97679a673b25fda1aaac0c5bc3",
-          "wireSize": 8735
+          "wireSize": 8735,
+          "sha256": "ab563ca16b7140f6aba8873c7746e5bef7435f97679a673b25fda1aaac0c5bc3",
+          "size": 8735,
+          "appliedChanges": []
         },
         {
           "path": "images/interface/WJY.png",
@@ -59703,7 +60003,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/plant-vs-zombies/images/interface/WJY.png",
           "wireSha256": "7552d17074ac293b1faabf2d20608c13369330d8fa462f642c858c7c4990f6ea",
-          "wireSize": 8671
+          "wireSize": 8671,
+          "sha256": "7552d17074ac293b1faabf2d20608c13369330d8fa462f642c858c7c4990f6ea",
+          "size": 8671,
+          "appliedChanges": []
         },
         {
           "path": "images/interface/huo1.png",
@@ -59717,7 +60020,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/plant-vs-zombies/images/interface/huo1.png",
           "wireSha256": "3a8748761d65ae9facaaba29482a9c8ca4b1c14891952936dd2afe29fe344f1e",
-          "wireSize": 22527
+          "wireSize": 22527,
+          "sha256": "3a8748761d65ae9facaaba29482a9c8ca4b1c14891952936dd2afe29fe344f1e",
+          "size": 22527,
+          "appliedChanges": []
         },
         {
           "path": "images/interface/izombie.png",
@@ -59731,7 +60037,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/plant-vs-zombies/images/interface/izombie.png",
           "wireSha256": "e29a022373cbcd64c368f3a4a8da9b1f15d33c50912d5402d9e60199fc402d7e",
-          "wireSize": 3086
+          "wireSize": 3086,
+          "sha256": "e29a022373cbcd64c368f3a4a8da9b1f15d33c50912d5402d9e60199fc402d7e",
+          "size": 3086,
+          "appliedChanges": []
         },
         {
           "path": "images/interface/wall1.png",
@@ -59745,7 +60054,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/plant-vs-zombies/images/interface/wall1.png",
           "wireSha256": "84e51f9bbe16b300b8cf2ae44df5935042cca55a0e42fadb49e8b15d7318ac56",
-          "wireSize": 12366
+          "wireSize": 12366,
+          "sha256": "84e51f9bbe16b300b8cf2ae44df5935042cca55a0e42fadb49e8b15d7318ac56",
+          "size": 12366,
+          "appliedChanges": []
         },
         {
           "path": "images/interface/wall2.png",
@@ -59759,7 +60071,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/plant-vs-zombies/images/interface/wall2.png",
           "wireSha256": "d7aabd637f6771c31807138770716ffc82a2e4664a2710401b471929305505f9",
-          "wireSize": 14047
+          "wireSize": 14047,
+          "sha256": "d7aabd637f6771c31807138770716ffc82a2e4664a2710401b471929305505f9",
+          "size": 14047,
+          "appliedChanges": []
         },
         {
           "path": "images/interface/wang.png",
@@ -59773,7 +60088,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/plant-vs-zombies/images/interface/wang.png",
           "wireSha256": "0317be436320799bfb340de8ccdce41842a453cdf9b26f429a936f13874c57ec",
-          "wireSize": 12617
+          "wireSize": 12617,
+          "sha256": "0317be436320799bfb340de8ccdce41842a453cdf9b26f429a936f13874c57ec",
+          "size": 12617,
+          "appliedChanges": []
         },
         {
           "path": "images/interface/wang0.png",
@@ -59787,7 +60105,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/plant-vs-zombies/images/interface/wang0.png",
           "wireSha256": "be239d017634a988a1f0b08761495b588a48a2912ca2f7d420de18c4363ba9a6",
-          "wireSize": 11655
+          "wireSize": 11655,
+          "sha256": "be239d017634a988a1f0b08761495b588a48a2912ca2f7d420de18c4363ba9a6",
+          "size": 11655,
+          "appliedChanges": []
         },
         {
           "path": "level/0.js",
@@ -59801,7 +60122,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/plant-vs-zombies/level/0.js",
           "wireSha256": "11d36c285ffcc2b22e40897a99af16af26e49b444e0063812506fca68531e208",
-          "wireSize": 4386
+          "wireSize": 4386,
+          "sha256": "11d36c285ffcc2b22e40897a99af16af26e49b444e0063812506fca68531e208",
+          "size": 4386,
+          "appliedChanges": []
         }
       ],
       "totalFiles": 462,
@@ -66948,7 +67272,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/pac-man/app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_down.svg",
           "wireSha256": "54d57cb3a1673a0ae1c4fc76199683d2f55db1c99e00e397d42c85cca0fde0de",
-          "wireSize": 819
+          "wireSize": 819,
+          "sha256": "54d57cb3a1673a0ae1c4fc76199683d2f55db1c99e00e397d42c85cca0fde0de",
+          "size": 819,
+          "appliedChanges": []
         },
         {
           "path": "app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_down_angry.svg",
@@ -66962,7 +67289,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/pac-man/app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_down_angry.svg",
           "wireSha256": "bde68ac23b8382598bd0096aa106afddb12dba5af2de322e33f356be8d08063a",
-          "wireSize": 1058
+          "wireSize": 1058,
+          "sha256": "bde68ac23b8382598bd0096aa106afddb12dba5af2de322e33f356be8d08063a",
+          "size": 1058,
+          "appliedChanges": []
         },
         {
           "path": "app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_down_annoyed.svg",
@@ -66976,7 +67306,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/pac-man/app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_down_annoyed.svg",
           "wireSha256": "8bbf1f9515898bc072a6ddc32e2b986b9fd188b83a233ab72919ddd94202402a",
-          "wireSize": 1020
+          "wireSize": 1020,
+          "sha256": "8bbf1f9515898bc072a6ddc32e2b986b9fd188b83a233ab72919ddd94202402a",
+          "size": 1020,
+          "appliedChanges": []
         },
         {
           "path": "app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_right.svg",
@@ -66990,7 +67323,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/pac-man/app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_right.svg",
           "wireSha256": "52d11184a82f7cc322025a1d23460927853d598483665e896d10e5cd295a91b7",
-          "wireSize": 808
+          "wireSize": 808,
+          "sha256": "52d11184a82f7cc322025a1d23460927853d598483665e896d10e5cd295a91b7",
+          "size": 808,
+          "appliedChanges": []
         },
         {
           "path": "app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_right_angry.svg",
@@ -67004,7 +67340,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/pac-man/app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_right_angry.svg",
           "wireSha256": "9b86df8eb86f6926aeb1f4eddb8ed73cbf5d22930fc42b2ee8cab55e8d45e4b7",
-          "wireSize": 1049
+          "wireSize": 1049,
+          "sha256": "9b86df8eb86f6926aeb1f4eddb8ed73cbf5d22930fc42b2ee8cab55e8d45e4b7",
+          "size": 1049,
+          "appliedChanges": []
         },
         {
           "path": "app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_up.svg",
@@ -67018,7 +67357,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/pac-man/app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_up.svg",
           "wireSha256": "546d098719f94b5331d39921fc1185c2b5da13fe9ab3fd1e8372f424dd442e82",
-          "wireSize": 807
+          "wireSize": 807,
+          "sha256": "546d098719f94b5331d39921fc1185c2b5da13fe9ab3fd1e8372f424dd442e82",
+          "size": 807,
+          "appliedChanges": []
         },
         {
           "path": "app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_up_angry.svg",
@@ -67032,7 +67374,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/pac-man/app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_up_angry.svg",
           "wireSha256": "1f43c953c23b5e82e6ccf3d98371a3e0d8e326a3abdfd032d417933548c29aea",
-          "wireSize": 1046
+          "wireSize": 1046,
+          "sha256": "1f43c953c23b5e82e6ccf3d98371a3e0d8e326a3abdfd032d417933548c29aea",
+          "size": 1046,
+          "appliedChanges": []
         },
         {
           "path": "app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_up_annoyed.svg",
@@ -67046,7 +67391,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/pac-man/app/style/graphics/spriteSheets/characters/ghosts/blinky/blinky_up_annoyed.svg",
           "wireSha256": "b7182f1c6ae9d830c46e05ea95e6e36c8f11f2ff27eab95fa458914165b1d026",
-          "wireSize": 1008
+          "wireSize": 1008,
+          "sha256": "b7182f1c6ae9d830c46e05ea95e6e36c8f11f2ff27eab95fa458914165b1d026",
+          "size": 1008,
+          "appliedChanges": []
         },
         {
           "path": "app/style/graphics/spriteSheets/characters/pacman/arrow_down.svg",
@@ -67060,7 +67408,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/pac-man/app/style/graphics/spriteSheets/characters/pacman/arrow_down.svg",
           "wireSha256": "c2079885030a6579df056f08456c18f8ad857d03473ed180a4d8fa5b0fea11fb",
-          "wireSize": 186
+          "wireSize": 186,
+          "sha256": "c2079885030a6579df056f08456c18f8ad857d03473ed180a4d8fa5b0fea11fb",
+          "size": 186,
+          "appliedChanges": []
         },
         {
           "path": "app/style/graphics/spriteSheets/characters/pacman/arrow_left.svg",
@@ -67074,7 +67425,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/pac-man/app/style/graphics/spriteSheets/characters/pacman/arrow_left.svg",
           "wireSha256": "64feae415654b2c82f764603e9d3bdf443bab419437f0d7c824d09605792ef97",
-          "wireSize": 167
+          "wireSize": 167,
+          "sha256": "64feae415654b2c82f764603e9d3bdf443bab419437f0d7c824d09605792ef97",
+          "size": 167,
+          "appliedChanges": []
         },
         {
           "path": "app/style/graphics/spriteSheets/characters/pacman/arrow_right.svg",
@@ -67088,7 +67442,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/pac-man/app/style/graphics/spriteSheets/characters/pacman/arrow_right.svg",
           "wireSha256": "5ec03a7261de2249dedcee1e6b2f5f2d36aa5f1a1765dc6c434fd88538c98773",
-          "wireSize": 174
+          "wireSize": 174,
+          "sha256": "5ec03a7261de2249dedcee1e6b2f5f2d36aa5f1a1765dc6c434fd88538c98773",
+          "size": 174,
+          "appliedChanges": []
         },
         {
           "path": "app/style/graphics/spriteSheets/characters/pacman/pacman_death.svg",
@@ -67102,7 +67459,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/pac-man/app/style/graphics/spriteSheets/characters/pacman/pacman_death.svg",
           "wireSha256": "efb252252e8bb72409abd777ccd28a2ce2746578dcd488b0898a5683399483eb",
-          "wireSize": 1803
+          "wireSize": 1803,
+          "sha256": "efb252252e8bb72409abd777ccd28a2ce2746578dcd488b0898a5683399483eb",
+          "size": 1803,
+          "appliedChanges": []
         },
         {
           "path": "app/style/graphics/spriteSheets/characters/pacman/pacman_left.svg",
@@ -67116,7 +67476,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/pac-man/app/style/graphics/spriteSheets/characters/pacman/pacman_left.svg",
           "wireSha256": "48e5ed3f9ce1e07fbedafe131baf7bb8944cddbda7ed0b0e2e13f31e84799653",
-          "wireSize": 893
+          "wireSize": 893,
+          "sha256": "48e5ed3f9ce1e07fbedafe131baf7bb8944cddbda7ed0b0e2e13f31e84799653",
+          "size": 893,
+          "appliedChanges": []
         },
         {
           "path": "app/style/graphics/spriteSheets/characters/pacman/pacman_up.svg",
@@ -67130,7 +67493,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/pac-man/app/style/graphics/spriteSheets/characters/pacman/pacman_up.svg",
           "wireSha256": "ecb57431fb3d22753bc46fc1d8a2e68935fbc559b8a7b4ecaa6de4691e60de29",
-          "wireSize": 899
+          "wireSize": 899,
+          "sha256": "ecb57431fb3d22753bc46fc1d8a2e68935fbc559b8a7b4ecaa6de4691e60de29",
+          "size": 899,
+          "appliedChanges": []
         }
       ],
       "totalFiles": 29,
@@ -77092,7 +77458,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/master-chess/sounds/click.mp3",
           "wireSha256": "9b2681bd9960a7394b2b61e8a8b48069eeaa7192673915dcda727e014e081ce2",
-          "wireSize": 4587
+          "wireSize": 4587,
+          "sha256": "9b2681bd9960a7394b2b61e8a8b48069eeaa7192673915dcda727e014e081ce2",
+          "size": 4587,
+          "appliedChanges": []
         },
         {
           "path": "sounds/game_over.mp3",
@@ -77106,7 +77475,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/master-chess/sounds/game_over.mp3",
           "wireSha256": "c6b68cc545bda046944cba297380814b4082fdde7f9c8c7a1f11839ae134652c",
-          "wireSize": 44931
+          "wireSize": 44931,
+          "sha256": "c6b68cc545bda046944cba297380814b4082fdde7f9c8c7a1f11839ae134652c",
+          "size": 44931,
+          "appliedChanges": []
         },
         {
           "path": "sounds/win.mp3",
@@ -77120,7 +77492,10 @@
           "evidence": "runtime-browser-404-verified-source-2026-10-29",
           "finalUrl": "https://watchdocumentaries.com/wp-content/uploads/games/master-chess/sounds/win.mp3",
           "wireSha256": "69bda79ac47c3ef3ceaace4e73ff4b9395a163ce9166d76433c7154afc746f92",
-          "wireSize": 36049
+          "wireSize": 36049,
+          "sha256": "69bda79ac47c3ef3ceaace4e73ff4b9395a163ce9166d76433c7154afc746f92",
+          "size": 36049,
+          "appliedChanges": []
         }
       ],
       "totalFiles": 94,
