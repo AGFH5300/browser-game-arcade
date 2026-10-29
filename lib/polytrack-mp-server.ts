@@ -10,18 +10,21 @@ type Ws={
   close:(code?:number,reason?:string)=>void;
   on:(e:'message'|'close'|'error',listener:(...args:unknown[])=>void)=>unknown;
 };
-const MAX_FRAMES_PER_SECOND=24;
+const MAX_FRAMES_PER_SECOND=48;
 const RATE_WINDOW_MS=1000;
 const POLL_MS=1100;
 const INVITE_CHARS='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
 const inviteCode=()=>Array.from({length:7},()=>INVITE_CHARS[randomInt(INVITE_CHARS.length)]).join('');
 const uuid=(v:string)=>/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(v);
-const err=(reason:string)=>({type:'error',version:GAME_VERSION,reason});
+// PolyTrack 0.6.3 checks .error, not .reason, and closes on missing .error.
+const err=(error:string)=>({type:'error',version:GAME_VERSION,error});
 
 export function attachPrivatePolytrackSocket(ws:Ws,role:Role){
   const channel=randomUUID();
   let latest=0,processing=false,closed=false,attempts=0,createdInvites=0;
   let frames=0,frameWindow=Date.now();
+  let joiningSession:string|null=null;
+  let packetQueue=Promise.resolve();
   const sql=getDb();
   const send=(packet:unknown)=>{
     if(!closed&&ws.readyState===1)ws.send(JSON.stringify(packet));
@@ -31,6 +34,10 @@ export function attachPrivatePolytrackSocket(ws:Ws,role:Role){
       VALUES (${recipient},${JSON.stringify(payload)}::jsonb,now()+interval '25 minute')`;
   }
   async function handle(packet:Packet){
+    if(packet.type==='ping'&&role==='host'){
+      send({type:'pong',version:GAME_VERSION});
+      return;
+    }
     if(packet.type==='createInvite'&&role==='host'){
       if(++createdInvites>5)return send(err('Room creation limit reached'));
       const supplied=typeof packet.key==='string'&&uuid(packet.key)?packet.key:null;
@@ -72,6 +79,7 @@ export function attachPrivatePolytrackSocket(ws:Ws,role:Role){
       await sql`INSERT INTO sidequest_polytrack_sessions
         (session_id,invite_code,host_channel,join_channel,expires_at)
         VALUES (${session},${code},${host},${channel},now()+interval '20 minute')`;
+      joiningSession=session;
       await queue(host,{
         type:'joinInvite',version:GAME_VERSION,session,
         offer:packet.offer,nickname:packet.nickname,
@@ -79,6 +87,19 @@ export function attachPrivatePolytrackSocket(ws:Ws,role:Role){
         mods:Array.isArray(packet.mods)?packet.mods:[],
         isModsVanillaCompatible:true,
         iceServers:ICE_SERVERS
+      });
+      return;
+    }
+    if(packet.type==='joinIceCandidate'&&role==='join'){
+      // FIFO processing ensures the join session exists before ICE arrives.
+      if(!joiningSession)return send(err('No active join session'));
+      const sessions=await sql`SELECT host_channel FROM sidequest_polytrack_sessions
+        WHERE session_id=${joiningSession} AND join_channel=${channel}
+          AND expires_at>now() LIMIT 1`;
+      if(!sessions.length)return send(err('Join session expired'));
+      await queue(String(sessions[0].host_channel),{
+        type:'iceCandidate',version:GAME_VERSION,
+        session:joiningSession,candidate:packet.candidate
       });
       return;
     }
@@ -106,7 +127,11 @@ export function attachPrivatePolytrackSocket(ws:Ws,role:Role){
     if(++frames>MAX_FRAMES_PER_SECOND){ws.close(1008,'Rate limit');return}
     const packet=parseSignal(args[0],role);
     if(!packet){send(err('Invalid or unsupported packet'));return}
-    void handle(packet).catch(()=>send(err('Signaling service temporarily unavailable')));
+    // Native joiners send offer and candidate messages rapidly in one tick.
+    packetQueue=packetQueue.then(()=>handle(packet)).catch(error=>{
+      console.error('[polytrack-private-mp] signaling packet failed',error instanceof Error?error.name:'unknown');
+      send(err('Signaling service temporarily unavailable'));
+    });
   });
   const interval=setInterval(()=>{
     if(closed||processing||ws.readyState!==1)return;
