@@ -1,0 +1,261 @@
+/* Original-client DOM and layout parity iteration: 2026-10-29.
+ * Derived from public Krillion browser screenshots, computed CSS, and bundled UI.
+ * This still runs Sidequest's independent local validator/backend.
+ */
+.deep-home{overflow:hidden}
+.deep-home .dd-reference-sea-canvas{
+  position:absolute;inset:0;display:block;width:100%;height:100%;pointer-events:none;
+  image-rendering:pixelated;z-index:2;opacity:.9
+}
+.deep-home .dd-logo{white-space:nowrap;line-height:.92!important}
+.deep-home .dd-logo span{
+  display:inline-block!important;
+  animation:ds-bob-l 3.2s ease-in-out infinite,ds-title-flicker 5s step-end infinite!important
+}
+.deep-home .dd-reference-utility{
+  position:absolute;z-index:32;top:80px;
+  right:max(12px,calc((100% - 1060px)/2));display:flex;flex-direction:column;gap:3px;
+  align-items:flex-end;color:#c5e4f6;font-family:ReferenceVT323,monospace
+}
+.deep-home .dd-reference-utility>button,.deep-home .dd-reference-preferences>summary{
+  display:grid;place-items:center;list-style:none;cursor:pointer;padding:0;
+  color:#b7d9ed;font:23px/1 ReferenceVT323,monospace;
+  width:38px;height:32px;background:#183247d9;border:2px solid #071a30;
+  box-shadow:inset 0 0 0 1px #59849a88;transition:background .12s,color .12s
+}
+.deep-home .dd-reference-preferences>summary::-webkit-details-marker{display:none}
+.deep-home .dd-reference-utility>button:hover,
+.deep-home .dd-reference-preferences>summary:hover,
+.deep-home .dd-reference-preferences[open]>summary{
+  background:#173c57;color:#64edfe;border-color:#44a4c5
+}
+.deep-home .dd-reference-preferences{position:relative}
+.deep-home .dd-reference-settings-panel{
+  position:absolute;z-index:42;right:44px;top:0;width:262px;padding:15px;
+  border:2px solid #52d5ee;box-shadow:4px 5px 0 #031224;
+  background:#0a1930f5;color:#d7f8ff;font:19px/1.15 ReferenceVT323,monospace
+}
+.dd-reference-settings-panel strong{display:block;color:#4ee4fb;letter-spacing:.16em;margin-bottom:12px}
+.dd-reference-settings-panel label{display:flex;gap:8px;align-items:center;margin:9px 0}
+.dd-reference-settings-panel input[type=checkbox]{accent-color:#59e8f6;width:19px;height:19px}
+.dd-reference-settings-panel label:has(select){display:block}
+.dd-reference-settings-panel select{display:block;width:100%;margin:5px 0 0;background:#071426;
+  border:1px solid #61cde9;color:#d4edff;font:19px ReferenceVT323,monospace;padding:6px}
+.dd-game-screen .dd-reference-utility{top:81px}
+.dd-game-screen .dd-game-fish{
+  background-image:var(--dd-mascot-image,url('./reference-assets/tiers/krillion.png'))!important;
+  background-size:contain!important;background-position:center!important;cursor:pointer;
+  filter:drop-shadow(0 0 12px #ff5d8f73)!important;opacity:1!important
+}
+.dd-game-screen .dd-game-fish:focus-visible{outline:2px solid #4de3ff;outline-offset:4px}
+.dd-game-screen .dd-game-fish.dd-mascot-poked{animation:ds-roll .9s cubic-bezier(.3,.1,.3,1) 1!important}
+.dd-game-screen .dd-game-fish::after{content:'blub!';position:absolute;top:-30px;left:50%;
+  color:#e8f1ff;background:#081e34;border:1px solid #4de3ff;padding:1px 6px;
+  font:20px ReferenceVT323,monospace;opacity:0;transform:translateX(-50%);
+  white-space:nowrap;pointer-events:none}
+.dd-game-screen .dd-game-fish.dd-mascot-poked::after{animation:dd-speech-fade .9s ease-out}
+@keyframes dd-speech-fade{
+  0%,80%{opacity:1;transform:translate(-50%,-8px)}
+  100%{opacity:0;transform:translate(-50%,-14px)}
+}
+.dd-colorblind .dd-hud-dot{border:2px solid white!important}
+.dd-colorblind .dd-reveal{box-shadow:0 0 0 3px white!important}
+.dd-low-power .dd-reference-sea-canvas{opacity:.7}
+.dd-low-power .dd-game-fish{animation:none!important}
+@media (min-width:651px) and (min-height:701px){
+  .deep-home .dd-sky:not(.dd-game-sky){height:56.5svh!important}
+  .deep-home .dd-sea:not(.dd-game-sea){height:43.5svh!important}
+  .app-shell:has(.deep-home) .dd-nav-toggle{left:max(0px,calc((100vw - 1060px)/2))!important}
+}
+@media(max-width:650px){
+  .deep-home .dd-reference-utility{top:53px;right:8px}
+  .deep-home .dd-reference-utility>button,.deep-home .dd-reference-preferences>summary{width:31px;height:30px;font-size:19px}
+  .deep-home .dd-reference-settings-panel{width:min(255px,calc(100vw - 68px));right:36px}
+  .deep-home .dd-logo{letter-spacing:-.035em!important}
+  .deep-home .dd-logo span{font-size:clamp(42px,11vw,65px)!important;letter-spacing:-.035em!important}
+  .dd-game-screen .dd-game-fish{width:56px!important;height:56px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ .deep-home .dd-logo span,.dd-game-screen .dd-game-fish.dd-mascot-poked,
+ .dd-game-screen .dd-game-fish.dd-mascot-poked::after{animation:none!important}
+ .deep-home .dd-reference-utility>button,.deep-home .dd-reference-preferences>summary{transition:none}
+}
+
+/* The live client moves its ocean world downward as scores accumulate.
+ * Reconstructed depth-zone transitions retain fixed HUD/input while the
+ * scenery changes between published original background assets. */
+.dd-game-screen .dd-game-fish{z-index:4!important}
+.dd-reveal-screen .dd-reveal{z-index:5}
+.dd-game-screen[data-zone="deep"] .dd-game-sky{
+ background:linear-gradient(180deg,#063c61,#052843)!important;
+}
+.dd-game-screen[data-zone="deep"] .dd-game-sea{
+ background:linear-gradient(180deg,#08243a80,#041322d0),
+ url('./reference-assets/gen/optimized/v1/bg-mid.webp') center/cover!important;
+}
+.dd-game-screen[data-zone="midnight"] .dd-game-sky{
+ background:linear-gradient(180deg,#041c36,#030e24)!important;
+}
+.dd-game-screen[data-zone="midnight"] .dd-game-sea{
+ background:linear-gradient(180deg,#071426be,#030914df),
+ url('./reference-assets/gen/optimized/v1/bg-trench.webp') center/cover!important;
+}
+.dd-game-screen[data-zone="abyss"] .dd-game-sky{
+ background:linear-gradient(180deg,#010918,#010615)!important;
+}
+.dd-game-screen[data-zone="abyss"] .dd-game-sea{
+ background:linear-gradient(180deg,#010714e0,#010411f5),
+ url('./reference-assets/gen/optimized/v1/bg-trench.webp') center/cover!important;
+}
+.dd-game-screen[data-zone="deep"] .dd-reference-sea-canvas,
+.dd-game-screen[data-zone="midnight"] .dd-reference-sea-canvas,
+.dd-game-screen[data-zone="abyss"] .dd-reference-sea-canvas{opacity:.55}
+.dd-reveal.dd-card-leaving{animation:ds-card-gone .28s ease-in forwards!important}
+.dd-game-screen .dd-game-fish:focus-visible{z-index:6!important}
+@media(max-width:650px){.dd-reveal-screen .dd-game-fish{left:3%!important;top:63%!important;width:42px!important;height:42px!important}}
+@media(prefers-reduced-motion:reduce){.dd-reveal.dd-card-leaving{animation:none!important}}
+
+/* Original floating-feedback composition observed at the end of public free
+ * Unlimited Classic Game 1: no modal card, feedback centered in moving ocean. */
+.dd-reveal-screen[data-zone="deep"],
+.dd-reveal-screen[data-zone="midnight"],
+.dd-reveal-screen[data-zone="abyss"]{
+  background:linear-gradient(180deg,#071527,#030916 72%,#01040d)!important
+}
+.dd-reveal-screen[data-zone="deep"] .dd-game-sky,
+.dd-reveal-screen[data-zone="midnight"] .dd-game-sky,
+.dd-reveal-screen[data-zone="abyss"] .dd-game-sky,
+.dd-reveal-screen[data-zone="deep"] .dd-game-sea,
+.dd-reveal-screen[data-zone="midnight"] .dd-game-sea,
+.dd-reveal-screen[data-zone="abyss"] .dd-game-sea{
+  background:transparent!important;box-shadow:none!important
+}
+.dd-reveal-screen .dd-reveal{
+  position:absolute!important;top:clamp(45px,7.5vh,79px)!important;left:50%;right:auto;
+  width:min(600px,calc(100% - 55px))!important;margin:0!important;padding:0 6px!important;
+  border:0!important;box-shadow:none!important;
+  background:transparent!important;
+  transform:translateX(-50%);z-index:5!important;text-align:center
+}
+.dd-reveal-screen .dd-reveal-spark{
+  width:65px!important;height:57px!important;display:grid;place-items:center;
+  background:radial-gradient(circle at 40% 35%,#b5faff6e,#337fa64f 50%,transparent 75%)!important;
+  box-shadow:none!important;border:0!important;margin:0 auto 20px!important;
+  color:#9fe8f8!important;font:57px/1 ReferenceVT323,monospace!important;
+  filter:drop-shadow(0 0 15px #49ddff99)
+}
+.dd-reveal-screen .dd-reveal-title{
+  color:var(--tier,#e8f1ff)!important;font:clamp(36px,4.1vw,51px)/1 ReferenceVT323,monospace!important;
+  letter-spacing:.21em!important;text-transform:uppercase;margin:3px 0 17px!important;
+  text-shadow:0 0 14px currentColor!important
+}
+.dd-reveal-screen .dd-reveal-answer{
+  color:#e8f1ff!important;font:clamp(22px,2.4vw,28px)/1.1 ReferenceVT323,monospace!important;
+  letter-spacing:.04em;margin:0 auto 20px!important;text-shadow:0 0 12px #bed8ffbb
+}
+.dd-reveal-screen .dd-reveal-score{
+  color:#b9cce0!important;font:clamp(23px,2.5vw,29px)/1.1 ReferenceVT323,monospace!important;
+  letter-spacing:.07em;margin:0 0 15px!important;
+  text-shadow:0 0 9px #8bcdf977
+}
+.dd-reveal-screen .dd-reveal-score span{font:inherit!important;color:inherit!important}
+.dd-reveal-screen .dd-reveal-caption{
+  max-width:480px;margin:8px auto 0!important;color:#8dadd3!important;
+  font:19px/1.2 ReferenceVT323,monospace!important;letter-spacing:.08em
+}
+.dd-reveal-screen .dd-feedback-action{
+  position:fixed;z-index:10;left:50%;bottom:18px;transform:translateX(-50%);
+  width:min(194px,calc(100% - 26px))
+}
+.dd-reveal-screen .dd-feedback-action .btn{
+  width:100%;height:64px;display:grid;place-items:center;padding:8px!important;
+  border:0!important;background:#101d33!important;
+  font:24px ReferenceVT323,monospace!important;letter-spacing:.18em!important;
+  color:#e8f1ff!important;white-space:nowrap;
+  box-shadow:0 0 0 3px #050a14,0 0 0 6px #4de3ff,0 6px 0 6px #123048,0 0 26px #4de3ff4d!important
+}
+.dd-reveal-screen .dd-feedback-action .btn:hover{
+  background:#183653!important;box-shadow:0 0 0 3px #050a14,0 0 0 6px #ff5d8f,0 6px 0 6px #123048!important
+}
+.dd-reveal-screen .dd-reveal-score,.dd-reveal-screen .dd-reveal-caption{animation:fade-up .4s ease-out both}
+.dd-reveal-screen .dd-game-sea .dd-depth-ticks{opacity:.45;top:0}
+@media(max-width:650px){
+ .dd-reveal-screen .dd-reveal{top:clamp(42px,8vh,74px)!important}
+ .dd-reveal-screen .dd-reveal-title{font-size:35px!important;letter-spacing:.12em!important}
+ .dd-reveal-screen .dd-reveal-caption{font-size:17px!important}
+ .dd-reveal-screen .dd-reveal-spark{margin-bottom:12px!important}
+ .dd-reveal-screen .dd-feedback-action{bottom:19px}
+ .dd-reveal-screen .dd-feedback-action .btn{height:54px;font-size:20px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ .dd-reveal-screen .dd-reveal-score,.dd-reveal-screen .dd-reveal-caption{animation:none!important}
+}
+
+/* Remove the old Sidequest decorative horizontal grid in the submerged
+ * reference stages; the publisher's scene uses a smooth particle ocean. */
+.dd-reveal-screen[data-zone="deep"] .dd-game-sea::before,
+.dd-reveal-screen[data-zone="deep"] .dd-game-sea::after,
+.dd-reveal-screen[data-zone="midnight"] .dd-game-sea::before,
+.dd-reveal-screen[data-zone="midnight"] .dd-game-sea::after,
+.dd-reveal-screen[data-zone="abyss"] .dd-game-sea::before,
+.dd-reveal-screen[data-zone="abyss"] .dd-game-sea::after{display:none!important}
+.dd-reveal-screen .dd-game-fish{
+  top:clamp(2px,3vh,27px)!important;left:18%!important;
+  width:62px!important;height:66px!important
+}
+@media(max-width:650px){
+ .dd-reveal-screen .dd-game-fish{top:15px!important;left:7%!important;width:43px!important;height:43px!important}
+}
+
+/* Moving depth ruler at the viewport edge, as in the public source dive. */
+.dd-game-screen .dd-game-sea .dd-depth-ticks{
+  right:12px!important;width:32px!important;opacity:.68!important;
+  top:-24svh!important;height:100svh!important;z-index:4!important;
+  border-left:1px solid #6183a26b!important;
+}
+.dd-game-screen .dd-game-sea .dd-depth-ticks.dd-dynamic-depth{
+  display:block!important;padding:0!important;
+  background:repeating-linear-gradient(180deg,transparent 0 18px,#6896ad88 19px 20px,transparent 21px 22px) left/6px 100% no-repeat;
+}
+.dd-depth-ticks.dd-dynamic-depth .dd-depth-offset{
+  position:absolute!important;display:block;width:82px;right:11px;
+  margin:0!important;color:#688bad!important;
+  font:15px ReferenceVT323,monospace!important;letter-spacing:.08em;text-align:right;
+  transform:translateY(-50%);white-space:nowrap
+}
+.dd-depth-ticks.dd-dynamic-depth .dd-depth-you{
+  position:absolute!important;right:14px;width:73px;
+  color:#ff5d8f!important;font:19px ReferenceVT323,monospace!important;
+  letter-spacing:.06em;transform:translateY(-50%);text-align:right;white-space:nowrap
+}
+.dd-depth-ticks.dd-dynamic-depth span::before{display:none}
+@media(max-width:650px){
+ .dd-game-screen .dd-game-sea .dd-depth-ticks{right:8px!important;top:-27svh!important;opacity:.5!important}
+ .dd-depth-ticks.dd-dynamic-depth .dd-depth-offset{font-size:12px!important}
+ .dd-depth-ticks.dd-dynamic-depth .dd-depth-you{font-size:15px!important}
+}
+
+/* Gameplay screenshot comparison against original public question frame:
+ * align prompt width, lower third answer controls, and compact top HUD. */
+@media(min-width:651px) and (min-height:701px){
+ .dd-game-screen .dd-hud{top:9px!important}
+ .dd-game-screen .dd-game-prompt{
+   max-width:500px!important;width:calc(100% - 35px)!important;
+   left:0!important;padding:25px 0 0!important;margin:0 auto!important
+ }
+ .dd-game-screen .dd-prompt-text{max-width:495px;font-size:clamp(33px,3.15vw,43px)!important;line-height:1.09!important}
+ .dd-game-screen .dd-game-controls{
+   width:min(625px,calc(100% - 45px))!important;
+   bottom:104px!important
+ }
+}
+.dd-game-screen .dd-skip,.dd-game-screen .dd-game-bar{display:none!important}
+.dd-game-screen .dd-answer-line .answer-field:focus{
+ border-color:#4de3ff!important;box-shadow:0 0 0 2px #4de3ff55!important;
+}
+@media(max-width:650px){
+ .dd-game-screen .dd-game-prompt{max-width:calc(100% - 36px)!important;padding:25px 0 0!important;left:0!important}
+ .dd-game-screen .dd-prompt-text{max-width:100%;line-height:1.1!important}
+ .dd-game-screen .dd-game-controls{bottom:77px!important}
+ .dd-game-screen .dd-game-clock{flex-shrink:0}
+}
