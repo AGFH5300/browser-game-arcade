@@ -1,0 +1,80 @@
+# Sidequest-only PolyTrack Multiplayer — pilot
+
+## Why
+Kodub will not add Sidequest's origin to its live multiplayer API allowlist.
+This implementation **never contacts Kodub multiplayer, ICE-server, or signaling endpoints**.
+It creates separate Sidequest invite codes and rooms, preserving the
+PolyTrack 0.6.3 peer-to-peer WebRTC game protocol.
+
+## Current status
+**Preview-only experimental code. A two-WebSocket signaling smoke test PASSED on the real Vercel preview, but actual peer-to-peer gameplay is NOT verified or activated in the live Sidequest game.**
+The current production PolyTrack single-player game must not be modified
+until two real clients can create, join, connect, and race reliably.
+
+## Files
+- `lib/polytrack-mp.ts`: packet parsing, exact allowed origins, protocol
+- `lib/polytrack-mp-server.ts`: host/join signaling, room/event relay via Neon
+- `app/api/polytrack-mp/v6/multiplayer/{host,join}`: WebSocket endpoints on Vercel
+- `app/api/polytrack-mp/v6/iceServers`: pilot STUN config with CORS
+- `docs/POLYTRACK_PRIVATE_MP_SCHEMA.sql`: three independent tables
+- `public/play/archives/polytrack/private-mp.html`: pilot entrypoint
+- `public/play/archives/polytrack/private-main.bundle.js`: patched game
+  client; original game binary untouched. Only the 3 WS/ICE endpoint
+  strings are replaced. Profile, track and leaderboard APIs still target
+  Kodub and may return 403.
+
+## Deployment
+Requires `@vercel/functions`. Preview endpoints are enabled only for
+`VERCEL_ENV=preview`. Production endpoints require explicit server
+configuration `POLYTRACK_PRIVATE_MP_ENABLED=true`. No feature flag is
+currently enabled in production.
+
+The pilot origin must be a deployment of the Sidequest Vercel project or
+the known isolated game asset host. Never allow arbitrary `Origin`.
+
+Apply `docs/POLYTRACK_PRIVATE_MP_SCHEMA.sql` only to a user-authorized
+database. Neon events are retained for at most 25 minutes, but expiry
+rows require a scheduled pruning job for long-running usage.
+
+## First verification
+1. Confirm a two-WebSocket smoke test: host sends `createInvite` and gets
+   `inviteCode`; join sends its WebRTC offer; host receives `joinInvite`;
+   host sends `acceptJoin`, join receives answer; both exchange
+   `iceCandidate` packets.
+2. Test in actual WebGL browser on two devices or network connections,
+   starting with the pilot `private-mp.html` URL.
+3. Verify two-way peer-to-peer game state, session cleanup, reconnection,
+   origin enforcement, error handling and limits.
+4. Use production Neon schema only after verifying on preview.
+5. Add TURN relay service if players behind restrictive NAT cannot connect.
+   STUN-only is not guaranteed to work on every network.
+6. Measure polling overhead; polling Neon once per second per connected
+   socket is acceptable for a tiny pilot but not efficient at large scale.
+   For broad release, switch to dedicated durable pub/sub.
+
+## Limits
+- Sidequest rooms are NOT Kodub's official multiplayer network.
+- No connection to original invite rooms, profile sharing, or leaderboards.
+- 8-player room cap, 20-minute room TTL, basic socket-message rate limiting.
+- Not a production-grade abuse-defense and scaling layer.
+- Does not disguise requests or circumvent Kodub's access restrictions.
+
+## Verified checkpoint, 28 October 2026
+- Vercel preview: https://browser-game-arcade-9qgvgjb04-dxbavg-7923s-projects.vercel.app
+- Pilot game: https://browser-game-arcade-9qgvgjb04-dxbavg-7923s-projects.vercel.app/play/archives/polytrack/private-mp.html
+- Production PolyTrack is unchanged.
+- Neon pilot tables (three independent tables) created; no existing game data altered.
+- Tested with two independent WebSocket clients: host opened, invite code created, join opened, WebRTC offer delivered, answer delivered, joining-side candidate delivered to host, host-side candidate delivered to joining client. **PASS**.
+- Rerun with: `node scripts/smoke-polytrack-private-mp.cjs https://browser-game-arcade-9qgvgjb04-dxbavg-7923s-projects.vercel.app`
+- Remaining: real WebGL game startup, two-player WebRTC peer-to-peer racing, NAT/TURN reliability, reconnection, rate limits/abuse defense and cross-device manual test.
+- If successful: use a separate, opt-in Sidequest Multiplayer menu item; never overwrite the existing single-player PolyTrack until rollout is verified.
+
+## 29 October 2026: native signaling and vanilla startup repair
+
+The stock join client sends version/candidate without type/session, often before an answer. We now process signals in order and associate candidate messages with the join socket's room session. The host ping receives pong and server errors use the correct error field. Two independent WebSocket clients and two real native RTCPeerConnections confirmed offer/answer, trickle ICE, connected state, and data-channel echo on the preview. This is not yet two physical devices or full game racing.
+
+In headless Chromium, the optional external PolyModLoader manifest failed certificate validation and stalled the game on the loading-mods overlay. The pilot-only bundle bypasses the external mod import and runs vanilla PolyTrack; production single-player and saved data are untouched. Third-party mods are not supported in this private multiplayer pilot.
+
+## Two-browser browser test: missing host nickname
+
+Headless Chromium successfully opened the real host and join menus, created an invite, accepted it on a second independent browser context, transferred native candidates and answers, and started the joiner in the race. However, the host crashed with the exact game exception Host censored nickname is not initialized because official Kodub profile lookups failed TLS certificate validation. The private Sidequest createInvite reply now includes a generic local guest nickname Anonymous instead of null. This does not claim to be an official moderated profile. Repeat full browser join test to verify the host no longer crashes.
