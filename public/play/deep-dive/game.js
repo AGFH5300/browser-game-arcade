@@ -38,11 +38,11 @@
   if(!profile.worldRecords||typeof profile.worldRecords!=='object')profile.worldRecords={};
   if(!Array.isArray(profile.history))profile.history=[];
   let active=read(ACTIVE);
-  let bank=[],byId=new Map(),themes=[],sourceDaily=null,sourceError='';
+  let bank=[],byId=new Map(),themes=[],sourceDaily=null,sourceClassic=null,sourceError='';
   const dailyDate=()=>sourceDaily?.date||utc();
   const dailyKey=()=>sourceDaily?'source:'+sourceDaily.date:utc();
 
-  let currentView=window.DeepDiveParty?.preferred()?'party':'daily';
+  let currentView=window.DeepDiveParty?.preferred()?'party':active?.mode==='classic'?'classic':'daily';
   let ticker=null,toastTimer=null,transitioning=false;
   function seed(text){let h=2166136261;for(const ch of text){h^=ch.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0}
   function shuffle(items,text){
@@ -105,7 +105,7 @@
           <details class="dd-rules"><summary>▸ HOW TO PLAY</summary><p>Seven prompts, twenty-five seconds per answer. Choose a correct but unusual answer to descend farther. Accepted responses earn 10–100 points; unrecognized answers can be retried until the timer ends. Every player receives the same daily questions.</p></details>
           <button type="button" class="dd-party-btn" data-action="party"><span class="dd-party-fish" aria-hidden="true">🐡</span><span>PUFFER PARTY <small>LIVE MULTIPLAYER · 2–8 EXPLORERS</small></span><span class="dd-party-arrow">›</span></button>
           <button type="button" class="dd-begin" data-action="${primaryAct}">${primaryLabel}</button>
-          <div class="dd-mode-nav"><span class="dd-dive-number">DAILY · ${safe(date)}</span><button type="button" data-action="startEndless">ENDLESS ∞</button><button type="button" data-action="worlds">THEMED WORLDS</button><button type="button" data-action="stats">LOGBOOK ◷</button></div>
+          <div class="dd-mode-nav"><span class="dd-dive-number">DAILY · ${safe(date)}</span><button type="button" data-action="startClassic">CLASSIC #1</button><button type="button" data-action="startEndless">ENDLESS ∞</button><button type="button" data-action="worlds">THEMED WORLDS</button><button type="button" data-action="stats">LOGBOOK ◷</button></div>
           <p class="dd-source-note">${safe(sourceLabel)}${!sourceDaily&&sourceError?" · "+safe(sourceError):""}</p>
           <div class="dd-sea-stats"><span>◈ ${format(profile.pearls)} PEARLS</span><span>✦ ${format(profile.streak)} DAY STREAK</span><span>${complete?format(complete.score)+' POINTS TODAY':'FREE DAILY DESCENT'}</span></div>
         </div>
@@ -141,6 +141,7 @@
     const day=mode==='daily'?dailyDate():utc();
     let ids=[];
     if(mode==='daily')ids=todaysQuestions();
+    if(mode==='classic'){if(!sourceClassic){notify('Source-backed Classic #1 unavailable.');return}ids=[...sourceClassic.ids]}
     if(mode==='endless')ids=shuffle(bank,'endless:'+day+':'+Date.now()).slice(0,50).map(q=>q.id);
     if(mode==='world'){
       if(!WORLDS.some(w=>w[0]===world)||!Number.isInteger(chapter)||chapter<0||chapter>4)return;
@@ -148,12 +149,12 @@
       ids=shuffle(bank.filter(q=>q.theme===world),world+':chapter:'+chapter).slice(0,7).map(q=>q.id);
     }
     if(!ids.length)return;
-    active={mode,world,chapter,source:mode==='daily'&&sourceDaily?'krillion-reveal':'sidequest',day,ids,index:0,phase:'question',deadline:Date.now()+25000,results:[],score:0,misses:0,startedAt:Date.now()};
-    save();currentView=mode==='world'?'worlds':mode==='endless'?'endless':'daily';render();
+    active={mode,world,chapter,source:(mode==='daily'&&sourceDaily||mode==='classic'&&sourceClassic)?'krillion-reveal':'sidequest',day,ids,index:0,phase:'question',deadline:Date.now()+25000,results:[],score:0,misses:0,startedAt:Date.now()};
+    save();currentView=mode==='world'?'worlds':mode==='endless'?'endless':mode==='classic'?'classic':'daily';render();
   }
   function currentQ(){return byId.get(active.ids[active.index])}
   function currentTotal(){return active.ids.length}
-  function frameHeading(){return active.mode==='daily'?'DAILY DISCOVERY':active.mode==='endless'?'THE ENDLESS EXPEDITION':safe(active.world.toUpperCase()+' · CHAPTER '+(active.chapter+1))}
+  function frameHeading(){return active.mode==='classic'?'UNLIMITED CLASSIC #1':active.mode==='daily'?'DAILY DISCOVERY':active.mode==='endless'?'THE ENDLESS EXPEDITION':safe(active.world.toUpperCase()+' · CHAPTER '+(active.chapter+1))}
   function arcadeHud(){
     const n=currentTotal(),idx=active.index;
     const dots=active.ids.map((id,i)=>{
@@ -207,7 +208,7 @@
   }
   function conclude(){
     if(!active)return;
-    const r={mode:active.mode,source:active.source,day:active.day,score:active.score,count:active.results.length,results:active.results.map(x=>({...x})),label:active.mode==='daily'?(active.source==='krillion-reveal'?'Public-source daily dive':'Daily discovery'):active.mode==='endless'?'Endless expedition':active.world+' · Chapter '+(active.chapter+1),world:active.world,chapter:active.chapter};
+    const r={mode:active.mode,source:active.source,day:active.day,score:active.score,count:active.results.length,results:active.results.map(x=>({...x})),label:active.mode==='classic'?'Unlimited Classic · Game 1':active.mode==='daily'?(active.source==='krillion-reveal'?'Public-source daily dive':'Daily discovery'):active.mode==='endless'?'Endless expedition':active.world+' · Chapter '+(active.chapter+1),world:active.world,chapter:active.chapter};
     const completedKey=active.source==='krillion-reveal'?'source:'+active.day:active.day;
     if(active.mode==='daily'&&profile.daily[completedKey]){active=null;save();currentView='daily';render();return}
     if(active.mode==='daily'){
@@ -289,7 +290,7 @@
   function render(){
     clearInterval(ticker);syncHead();oldActiveCheck();
     if(currentView==='party'){window.DeepDiveParty?.mount({root});return}else window.DeepDiveParty?.unmount();
-    if(active&&((currentView==='daily'&&active.mode==='daily')||(currentView==='endless'&&active.mode==='endless')||(currentView==='worlds'&&active.mode==='world'))){
+    if(active&&((currentView==='daily'&&active.mode==='daily')||(currentView==='classic'&&active.mode==='classic')||(currentView==='endless'&&active.mode==='endless')||(currentView==='worlds'&&active.mode==='world'))){
       root.innerHTML=active.phase==='question'?renderQuestion():renderReveal();
       if(active.phase==='question'){
         ticker=setInterval(updateClock,120);
@@ -298,7 +299,7 @@
       }
     }else if(currentView==='worlds')root.innerHTML=renderWorlds();
     else if(currentView==='stats')root.innerHTML=renderStats();
-    else if(currentView==='daily')root.innerHTML=renderHome();
+    else if(currentView==='daily'||currentView==='classic')root.innerHTML=renderHome();
     else if(currentView==='endless')root.innerHTML=`<section class="page"><div class="home-hero"><div><span class="eyebrow">ENDLESS EXPEDITION</span><h1 class="section-heading">How deep can <em>you go?</em></h1><p class="lead">Explore up to 50 independently written prompts. Three missed questions end the run, but your curiosity never has to.</p><div class="hero-actions">${button('startEndless','Begin an endless run','primary')}${button('daily','Back to daily','ghost')}</div><p class="helper">50 prompts maximum <span class="divider-dot">·</span> Three misses <span class="divider-dot">·</span> Unlimited attempts</p></div><div class="ocean-display">${bubbles()}<div class="diver-mark">∞</div><div class="ocean-caption"><span>YOUR RECORD</span><strong>${format(profile.endlessBest)} pts</strong></div></div></div></section>`;
     root.focus({preventScroll:true});
   }
@@ -307,6 +308,7 @@
     const b=e.target.closest('button[data-action]');if(!b||b.disabled)return;
     switch(b.dataset.action){
       case 'startDaily':if(active?.mode==='daily'){currentView='daily';render()}else start('daily');break;
+      case 'startClassic':if(active?.mode==='classic'){currentView='classic';render()}else start('classic');break;
       case 'startEndless':if(active?.mode==='endless'){currentView='endless';render()}else start('endless');break;
       case 'startWorld':{
         const world=b.dataset.world,chapter=Number(b.dataset.chapter);
@@ -329,12 +331,12 @@
     currentView=b.dataset.view;render();
   }));
   document.getElementById('home-link').addEventListener('click',e=>{e.preventDefault();currentView='daily';render()});
-  function addPublicSheet(sheet){
+  function addPublicSheet(sheet,mode='daily'){
     if(!sheet||!Array.isArray(sheet.prompts)||sheet.prompts.length!==7||typeof sheet.date!=='string')throw Error('Invalid source sheet');
     const ids=[],seen=new Set(),tierIds=TIERS.map(t=>t.id);let answerCount=0;
     for(const p of sheet.prompts){
       if(typeof p.id!=='string'||typeof p.text!=='string'||!Array.isArray(p.answers)||p.answers.length<10)throw Error('Incomplete source data');
-      const id='recovered:'+sheet.date+':'+p.id;
+      const id=(mode==='classic'?'classic:':'recovered:')+sheet.date+':'+p.id;
       if(seen.has(id))throw Error('Duplicate prompt');seen.add(id);
       const answers=[],answerIndex=new Map();
       for(const a of p.answers){
@@ -349,7 +351,8 @@
       byId.set(id,{id,theme:'Daily',prompt:p.text,answers,answerIndex});
     }
     if(answerCount<100)throw Error('Source answer list incomplete');
-    sourceDaily={date:sheet.date,ids,dayNumber:sheet.dayNumber||0,answerCount};
+    if(mode==='classic')sourceClassic={date:sheet.date,ids,answerCount};
+    else sourceDaily={date:sheet.date,ids,dayNumber:sheet.dayNumber||0,answerCount};
   }
   async function loadSourceDaily(){
     const nyDate=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
@@ -368,6 +371,17 @@
       console.warn('Deep Dive public daily unavailable:',error?.message||error);
     }
   }
+  async function loadSourceClassic(){
+    try{
+      const response=await fetch('./recovered/unlimited-1.json',{cache:'force-cache'});
+      if(!response.ok)throw Error('Classic #1 source HTTP '+response.status);
+      const raw=await response.json();
+      if(!Array.isArray(raw.rounds)||raw.rounds.length!==7)throw Error('Classic source incomplete');
+      addPublicSheet({date:'unlimited-1',prompts:raw.rounds.map(x=>({id:x.round,text:x.text,answers:x.answers}))},'classic');
+    }catch(error){
+      console.warn('Deep Dive classic source unavailable:',error?.message||error);
+    }
+  }
   fetch('./questions.json',{cache:'force-cache'}).then(r=>{if(!r.ok)throw Error('Question bank request failed: '+r.status);return r.json()}).then(async data=>{
     if(!Array.isArray(data.questions)||data.questions.length<70)throw Error('Question bank incomplete');
     bank=data.questions;
@@ -375,6 +389,7 @@
     byId=new Map(bank.map(q=>[q.id,q]));
     if(byId.size!==bank.length||themes.some(t=>bank.filter(q=>q.theme===t).length<7))throw Error('Incomplete question-bank themes');
     await loadSourceDaily();
+    await loadSourceClassic();
     oldActiveCheck();render();
   }).catch(e=>{
     root.innerHTML=`<div class="notice" style="margin:35px 0"><strong>We couldn’t load the question bank.</strong><p>${safe(e.message)}</p><button class="btn" type="button" onclick="location.reload()">Try again</button></div>`;
