@@ -516,7 +516,7 @@
     const sub=tier?(last.quip||tier.blurb):last?(last.reason==='Timeout'?'the clock beat you to it.':'never made it onto the reef.'):'';
     const pillLeft=Math.max(0,Math.ceil(((active.previewEnds||Date.now())-Date.now())/1000));
     const worldId=worldForMode(),worldMeta=themedConfig(worldId);
-    return `<section class="page deep-home dd-game-screen${feedback?' dd-reveal-screen':''}${revealActive?' dd-reveal-pending':''}${active.mode==='starter'?' dd-free-starter-play':''}" data-phase="${active.phase}" data-world="${worldId}" data-world-height="${worldMeta.height}" data-pack="${active.mode==='starter'?safe(active.world):''}" data-zone="${depthZone()}">
+    return `<section class="page deep-home dd-game-screen${feedback?' dd-reveal-screen':''}${revealActive?' dd-reveal-pending':''}${active.mode==='starter'?' dd-free-starter-play':''}" data-phase="${active.phase}" data-world="${worldId}" data-world-height="${worldMeta.height}" data-pack="${active.mode==='starter'?safe(active.world):''}" data-zone="${depthZone()}" style="--reveal-ms:${active.revealDuration||3400}ms">
       <div class="dd-stage">
         <div class="dd-sea dd-game-sea"></div>
         <div class="dd-world" style="--dd-world-height:${worldMeta.height}px">
