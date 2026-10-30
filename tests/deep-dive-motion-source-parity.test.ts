@@ -34,7 +34,7 @@ test('descent synchronizes tier animation, card exit and landing reveal',()=>{
   assert(home.includes('active.revealStartedAt=Date.now()'));
   assert(home.includes('if(!active||active.phase!==\'feedback\'||transitioning||revealPending())return'));
   assert(descent.includes('dd-source-landing-appear'));
-  assert(descent.includes('dd-source-prompt-exit'));
+  assert(descent.includes('ds-card-gone 600ms ease-in 450ms'));
 });
 
 test('ocean renderer uses source frame caps and exponential camera follow',()=>{
