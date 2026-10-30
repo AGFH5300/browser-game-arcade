@@ -114,6 +114,18 @@
 .pp-view .pp-arena{z-index:1}
 @keyframes dd-reef-drift{to{background-position:0 -130px,0 -170px}}
 
+.pp-view .pp-rated-unavailable,.pp-view .pp-rated-unavailable:hover{
+ color:#73849d!important;border-color:#344a60!important;background:#0c1a30!important;
+ box-shadow:1px 2px 0 #020b18!important;cursor:not-allowed;opacity:.7}
+.pp-view .pp-host-panel .pp-check{display:flex;align-items:center;gap:9px;margin:12px 0 0;color:#9fbacf;font-size:14px;line-height:1.2}
+.pp-view .pp-host-panel .pp-check input{accent-color:#4de3ff}
+.pp-view .pp-join-panel .pp-join-form{margin-top:5px}
+.pp-view .pp-join-panel .pp-join-form input{text-transform:uppercase;letter-spacing:.17em}
+/* Restore the source's unobtrusive menu on the Archive too. */
+body:has(.dd-archive) .topbar{top:9px;left:23px;transform:none;width:calc(100% - 46px);min-height:43px;pointer-events:none}
+body:has(.dd-archive) .topbar .identity,body:has(.dd-archive) .header-stats{display:none}
+body:has(.dd-archive) .dd-nav-toggle{pointer-events:auto}
+
 /* Archive: one underwater visual system, not an unstyled disconnected list. */
 .dd-archive.page{
  position:relative;isolation:isolate;min-height:100svh;
