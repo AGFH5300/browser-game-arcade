@@ -50,7 +50,7 @@
     '<div class="ds-social-card"><h2>PRIVACY</h2><label class="ds-social-checkbox"><input id="ds-social-share" type="checkbox" '+(profile.shareAnswers?'checked':'')+'> SHARE MY DAILY ANSWERS WITH FRIENDS</label><p>Friends can see your score only after finishing their own Daily Dive. Your password and account history are never shared.</p>'+
     button('logout','SIGN OUT','muted')+'</div></div>')+'</section>';
  };
- const paint=()=>{if(!mounted||!root||!document.querySelector('.nav-pill[data-view="'+view+'"].active'))return;root.innerHTML=profile?signedIn():login()};
+ const paint=()=>{if(!mounted||!root||!['account','friends'].includes(document.querySelector('.nav-pill.active')?.dataset.view))return;root.innerHTML=profile?signedIn():login()};
  const refresh=async()=>{
   try{const data=await request('me');profile=data.account||null;error='';if(profile){const [f,l,r]=await Promise.allSettled([request('friends'),request('leaderboard'),request('rankings')]);friends=f.status==='fulfilled'?f.value.friends:[];standings=l.status==='fulfilled'?l.value:null;rankings=r.status==='fulfilled'?r.value.rankings:[]}
   }catch(e){error=e.message||'Account service is unavailable'}finally{paint();document.dispatchEvent(new CustomEvent('deepdive:account-updated'))}
@@ -68,7 +68,11 @@
   const b=e.target.closest('[data-social]');if(!b)return;
   const action=b.dataset.social;
   if(action==='loginMode'||action==='registerMode'){loginMode=action==='loginMode'?'login':'register';error='';paint();return}
-  if(action==='viewFriends'||action==='viewAccount'){view=action==='viewFriends'?'friends':'account';paint();return}
+  if(action==='viewFriends'||action==='viewAccount'){
+   const destination=action==='viewFriends'?'friends':'account';
+   document.querySelector('.nav-pill[data-view="'+destination+'"]')?.click();
+   return;
+  }
   if(action==='copyInvite'){const el=document.getElementById('ds-social-invite');try{await navigator.clipboard.writeText(el.value);message='Invite link copied'}catch{el.select();message='Select and copy the invitation link'}paint();return}
   if(action==='rotateInvite'){if(confirm('Replace your current invite link? Old links will no longer work.'))void post('rotateInvite',{});return}
   if(action==='logout'){void post('logout',{});return}
