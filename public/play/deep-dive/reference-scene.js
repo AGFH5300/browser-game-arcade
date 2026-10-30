@@ -62,7 +62,10 @@
      const waveY=x=>relativeY+3*Math.sin(.02*x+1.6*time)+2.4*Math.sin(.011*x-time);
      ctx.fillStyle='#1a527a';ctx.beginPath();ctx.moveTo(0,relativeY);
      for(let x=0;x<=w+8;x+=8)ctx.lineTo(x,waveY(x));
-     ctx.lineTo(w,relativeY+30);ctx.lineTo(0,relativeY+30);ctx.closePath();ctx.fill();
+     // During a descent the surface can rise above the initial 23vh sky/sea seam.
+     // Fill the entire exposed seam, otherwise a pale horizontal gap remains.
+     const seamBottom=Math.max(relativeY+30,Math.round(h*.235)+5);
+     ctx.lineTo(w,seamBottom);ctx.lineTo(0,seamBottom);ctx.closePath();ctx.fill();
      ctx.beginPath();
      for(let x=0;x<=w+8;x+=8){if(x===0)ctx.moveTo(x,waveY(x));else ctx.lineTo(x,waveY(x))}
      ctx.strokeStyle='rgba(232,241,255,.6)';ctx.lineWidth=2;ctx.stroke();
