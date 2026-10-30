@@ -65,3 +65,16 @@ Original mobile completed-results reference at 390×844 was compared against Sid
 **No exact-pixel certificate:** the reference animations generate time-dependent/random content. An original-to-original capture also changes pixels unless clock and random seeds are frozen. The original worldwide percentage curve, live player count, paid questions, account provider, archive paywall and publisher matchmaking are different or excluded by explicit project scope. The objective here is to match controllable visual geometry and motion without fabricating unavailable stats or silently substituting the original backend.
 
 **Release verification:** every intermediate branch version must pass the existing unit/regression and syntax checks; the final merge is separate from this report. Release must not be represented as a 1:1, pixel-perfect copy without additional matching evidence.
+
+
+## Third pass: source canvas + HUD, 31 October 2026
+
+- The source first-round scene was verified to paint the boat **inside its ocean canvas**, not as a DOM SVG. Replacing Sidequest's independent SVG approximation with a transparent sprite isolated from the public screenshot improved the 165×92 pixel crop at 1440×900: mean RGB difference **38.40 → 8.72/255**, and within-12-channel pixels **59.82% → 79.18%**. The asset is embedded in `reference-boat-sprite-20261031.css`; mobile still uses the vector because the 390px source frame has not been independently matched.
+- Controlled HUD comparisons with identical source and local viewports found original HUD top **y=0** vs earlier local **y=9**, original question top **y=213** vs local **y=207**. The corrected Chromium DOM measurements now agree at **HUD y=0, depth pod y=8, question y=213**.
+- The active-gameplay utility bar now shows Sound only, matching the source; Settings and Merch remain accessible on non-game screens.
+- Eliminating the previous blue embossed frame around the gameplay HUD decreased measured mean RGB error in the 721×86 top-HUD crop **18.07 → 15.25/255**. The tested variant uses flat ink-blue pods rather than a double outline.
+- An API-slow startup check exposed a prolonged boot screen; the validated local question bank now renders the first screen within a short fixed timeout while optional remote source requests finish. No source data is invented.
+- Desktop and 390×844 mobile simulated **seven-round end-to-end gameplay flows both reached results with zero page exceptions** when the remote daily API was deliberately unavailable; this validates offline fallback mechanics, not any third-party scoring equivalence.
+- The original first-round sea is a dynamic `canvas.ds-sea` and the independent Sidequest uses a `canvas.dd-reference-sea-canvas`. Exact animations still require frozen time/seed and side-by-side keyframe instrumentation to produce an objective pass certificate.
+
+**Status:** materially closer in measured regions; still **not** globally pixel-perfect or animation-perfect. Preserve the draft PR until all required screens and transitions are checked.
