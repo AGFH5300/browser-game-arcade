@@ -29,7 +29,7 @@ test('preferences have canonical persistent keys and legacy migration',()=>{
 
 test('Settings can open on pages without the home utility, and closes accessibly',()=>{
  assert(menu.includes('window.DeepDiveReference?.openSettings?.()'));
- assert(controls.includes('openSettings,'));
+ assert(controls.includes('openSettings(){')||controls.includes('  openSettings\n'));
  assert(controls.includes('dd-global-settings'));
  assert(controls.includes('syncChecks()'));
  assert(controls.includes('closeGlobalSettings()'));
