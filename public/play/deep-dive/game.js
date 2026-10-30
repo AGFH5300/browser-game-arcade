@@ -528,7 +528,7 @@
           <img class="dd-floor" src="${WORLD_FLOORS[worldId]||WORLD_FLOORS.ocean}" alt="" loading="lazy" style="--y:${worldMeta.floorTop}px">
           ${worldFacts()}
           ${feedback&&tier?roundTierLines(prevM):''}
-          ${feedback?'':`<div class="dd-game-prompt dd-card" style="--y:${baseY}px;animation-delay:.45s"><span class="dd-prompt-label rnd">PROMPT ${round+1} OF ${currentTotal()}${active.mode==='daily'?'':(' · '+safe(q.theme))}</span>
+          ${feedback&&(!revealPending()||Date.now()-active.revealStartedAt>=1050)?'':`<div class="dd-game-prompt dd-card" style="--y:${baseY}px;animation-delay:.45s"><span class="dd-prompt-label rnd">PROMPT ${round+1} OF ${currentTotal()}${active.mode==='daily'?'':(' · '+safe(q.theme))}</span>
             <h1 class="dd-prompt-text prompt">${safe(q.prompt)}</h1><p class="dd-prompt-hint hint">▼ rarer answers sink deeper ▼</p></div>`}
           ${feedback&&tier?`<div class="dd-chip${tier.score===100?' gold':''}" style="--cc:${tc};--y:${lineY}px" data-y="${lineY}" data-spawn="${spawnY}">${chipText}</div>`:''}
           ${feedback?`<div class="dd-landed${tier?'':' miss'}" style="--tc:${tc};--y:${lineY}px">
@@ -578,7 +578,7 @@
     active=null;save();currentView=r.mode==='daily'?'daily':r.mode==='world'||r.mode==='starter'?'worlds':r.mode==='archive'?'archive':'endless';renderSummary(r);
   }
   const SOURCE_TIER_MS=[3400,3000,3000,3400,4300,4600];
-  const revealDurationFor=record=>record&&record.points>0?SOURCE_TIER_MS[Math.max(0,Math.min(5,Number(record.tier)||0))]:1800;
+  const revealDurationFor=record=>(record&&record.points>0?SOURCE_TIER_MS[Math.max(0,Math.min(5,Number(record.tier)||0))]:1800)+500;
   const revealPending=()=>active?.phase==='feedback'&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&Date.now()-(Number(active.revealStartedAt)||0)<(Number(active.revealDuration)||0);
   function roundEnd(record){
     if(!active||active.phase!=='answering'||transitioning)return;
@@ -916,6 +916,10 @@
       if(active.phase==='feedback'){
         if(revealPending()){
           const started=active.revealStartedAt;
+          if(Date.now()-started<1050)setTimeout(()=>{
+            if(active?.phase==='feedback'&&active.revealStartedAt===started)root.querySelector('.dd-reveal-pending .dd-game-prompt')?.remove();
+          },Math.max(0,1050-(Date.now()-started)));
+
           revealTimer=setTimeout(()=>{
             if(!active||active.phase!=='feedback'||active.revealStartedAt!==started)return;
             root.querySelector('.dd-reveal-pending')?.classList.remove('dd-reveal-pending');
