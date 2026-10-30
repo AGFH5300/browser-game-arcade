@@ -43,9 +43,9 @@ test('every newly rendered themed scene is an existing recovered public asset',(
 
 test('the themed chapter catalog shows 30 slots without inventing unrecovered questions',()=>{
  assert(game.includes('length:30'));
- assert(game.includes('30 CHAPTER SERIES'));
+ assert(game.includes('30 CHAPTERS'));
  assert(game.includes('Chapter '+String(1))===false);
- assert(game.includes('remaining chapters are not available in this reconstruction'));
+ assert(game.includes('other chapters are not represented as playable'));
  assert(game.includes('i===0&&playable'));
  assert(game.includes('PRACTICE_THEMES'));
 });
@@ -67,7 +67,7 @@ test('pass-4 additions load in correct order and guard reduced motion',()=>{
  }
  assert(html.indexOf('reference-pass3.css')<html.indexOf('reference-themed-worlds.css'));
  assert(html.indexOf('reference-themed-worlds.css')<html.indexOf('reference-results-parity.css'));
- assert(html.indexOf('reference-themed-worlds.js')<html.indexOf('game.js?parity=20261030pass4a'));
+ assert(html.indexOf('reference-themed-worlds.js')<html.indexOf('game.js?parity=20261030pass5a'));
  assert(themeCss.includes('prefers-reduced-motion'));
  assert(resultCss.includes('prefers-reduced-motion'));
 });

@@ -49,7 +49,7 @@
     ['Words','✎','The places that language takes us']
   ];
   const UNLOCK=[0,140,420,850,1400];
-  const DEFAULT={version:1,pearls:0,streak:0,lastDaily:'',daily:{},worldRecords:{},endlessBest:0,history:[],runs:0,ratings:{},tourSeen:0};
+  const DEFAULT={version:1,pearls:0,streak:0,lastDaily:'',daily:{},worldRecords:{},endlessBest:0,unlimitedGameId:1,history:[],runs:0,ratings:{},tourSeen:0};
   const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const norm=s=>String(s||'').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/&/g,' and ').replace(/\+/g,' plus ').replace(/#/g,' sharp ').replace(/[^a-z0-9]+/g,' ').replace(/\s+/g,' ').trim().replace(/^the /,'');
   const utc=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
@@ -58,15 +58,19 @@
   // Conservative typo tolerance: a unique close match, never an ambiguous guess.
   function editDistance(a,b,max){
     if(Math.abs(a.length-b.length)>max)return max+1;
-    let prev=Array.from({length:b.length+1},(_,i)=>i);
+    // Restricted Damerau-Levenshtein: an adjacent character transposition
+    // is a single typo. Never score it automatically without confirmation.
+    let prev2=null,prev=Array.from({length:b.length+1},(_,i)=>i);
     for(let i=1;i<=a.length;i++){
-      const next=[i];let minimum=next[0];
+      const row=[i];let minimum=i;
       for(let j=1;j<=b.length;j++){
-        next[j]=Math.min(prev[j]+1,next[j-1]+1,prev[j-1]+(a[i-1]===b[j-1]?0:1));
-        minimum=Math.min(minimum,next[j]);
+        let distance=Math.min(prev[j]+1,row[j-1]+1,prev[j-1]+(a[i-1]===b[j-1]?0:1));
+        if(prev2&&i>1&&j>1&&a[i-1]===b[j-2]&&a[i-2]===b[j-1])
+          distance=Math.min(distance,prev2[j-2]+1);
+        row[j]=distance;if(distance<minimum)minimum=distance;
       }
       if(minimum>max)return max+1;
-      prev=next;
+      prev2=prev;prev=row;
     }
     return prev[b.length];
   }
@@ -76,7 +80,9 @@
     for(const answer of question.answers)
       if([answer.value,...(answer.aliases||[])].some(value=>norm(value)===key))return answer;
     if(key.length<5)return null;
-    const limit=key.length>=10?2:1;
+    // The verified original answer spellings remain the only scoring source.
+    // Unique, plausible close spellings require a second explicit confirmation.
+    const limit=key.length>=18?3:key.length>=10?2:1;
     let match=null,best=limit+1,ambiguous=false;
     for(const answer of question.answers){
       for(const value of [answer.value,...(answer.aliases||[])]){
@@ -100,7 +106,7 @@
   const dailyDate=()=>sourceDaily?.date||utc();
   const dailyKey=()=>sourceDaily?'source:'+sourceDaily.date:utc();
 
-  let currentView=window.DeepDiveParty?.preferred()?'party':'daily';
+  let currentView=window.DeepDiveParty?.preferred()?'party':active?.mode==='endless'?'endless':active?.mode==='archive'?'archive':active?.mode==='world'||active?.mode==='starter'?'worlds':'daily';
   let ticker=null,toastTimer=null,transitioning=false,depthCrank=false,mascotPose='',correction=null,rejectMsg='',lastPhase='',doneTick=null;
   function seed(text){let h=2166136261;for(const ch of text){h^=ch.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0}
   function shuffle(items,text){
@@ -204,28 +210,28 @@
   function correctionPanel(c){
     return `<div class="dd-preview-pill dd-correction-panel"><span class="dd-correction-change"><span>“${safe(c.raw)}”</span><span class="dd-correction-arrow" aria-hidden="true"> → </span><span class="sr-only">corrects to </span><b>“${safe(c.canonical)}”</b></span><span class="dd-correction-hint">submit again to confirm · or edit</span></div>`;
   }
-  function renderHome(){
-    const complete=dailyDone(),resume=active?.mode==='daily',date=dailyDate();
+  function renderHome(isEndless=false){
+    const complete=isEndless?null:dailyDone(),resume=active?.mode===(isEndless?'endless':'daily'),date=dailyDate();
     const sourceLabel=sourceDaily?'PUBLIC DAILY #'+sourceDaily.dayNumber+' · '+format(sourceDaily.answerCount)+' PUBLISHER-SCORED ANSWERS':'INDEPENDENT SIDEQUEST DAILY';
 
     const primaryLabel=resume?'▼ CONTINUE DESCENT ▼':complete?'▼ VIEW DIVE RESULTS ▼':'▼ BEGIN DESCENT ▼';
-    const primaryAct=resume?'resume':complete?'dailyResults':'startDaily';
-    return `<section class="page deep-home" data-phase="intro" data-world="ocean">
+    const primaryAct=resume?'resume':complete?'dailyResults':isEndless?'startEndless':'startDaily';
+    return `<section class="page deep-home" data-phase="intro" data-mode="${isEndless?'endless':'daily'}" data-world="ocean">
       <div class="dd-sky">${oceanArt()}
-        <div class="dd-title-group"><p class="dd-edition">A SIDEQUEST ORIGINAL · ${safe(date)}</p>
-          <h1 class="dd-logo" aria-label="Unofficial Krillion recreation">${window.DeepDiveReference?.titleMarkup?.()||"KRILLION"}</h1>
-          <p class="dd-subtitle">THE DAILY DIVE</p><p class="dd-tagline">7 prompts · 25 seconds each · rarer answers sink deeper</p>
+        <div class="dd-title-group">
+          <h1 class="dd-logo" aria-label="Krillion public reference recreation">${window.DeepDiveReference?.titleMarkup?.()||"KRILLION"}</h1>
+          <p class="dd-subtitle">${isEndless?'THE ENDLESS DIVE':'THE DAILY DIVE'}</p><p class="dd-tagline">${isEndless?'dive after dive · rarer answers sink deeper':'7 prompts · 25 seconds each · rarer answers sink deeper'}</p>
         </div>
       </div>
       <div class="dd-sea">${oceanDecor()}
         <div class="dd-sea-center">
           <div class="dd-surface-label">◂ HOW DEEP CAN YOUR KNOWLEDGE GO? ▸</div>
-          <details class="dd-rules"><summary>▸ HOW TO PLAY</summary><p>Seven prompts, twenty-five seconds per answer. Choose a correct but unusual answer to descend farther. Accepted responses earn 10–100 points; unrecognized answers can be retried until the timer ends. Every player receives the same daily questions.</p></details>
-          <button type="button" class="dd-party-btn" data-action="party"><span class="dd-party-tag">BETA · LIMITED TIME</span><span class="dd-party-fish" aria-hidden="true">🐡</span><span>PUFFER PARTY <small class="dd-party-live" id="dd-party-live"><b aria-hidden="true"></b>LIVE MULTIPLAYER · 2–16 PLAYERS</small></span><span class="dd-party-arrow">›</span></button>
+          <details class="dd-rules"><summary>▸ ${isEndless?'OPEN THE DIVE LOG ∞':'HOW TO PLAY'}</summary>${isEndless?`<div class="dd-source-howto dd-endless-log"><p>THE DIVE LOG</p><p>${format(profile.history.filter(x=>x.mode==='endless').length)} COMPLETED ENDLESS DIVES.</p><p>BEST: ${format(profile.endlessBest||0)} POINTS. NEXT: DIVE #${format(profile.unlimitedGameId||1)}.</p><p>EACH SEVEN-PROMPT DIVE IS SAVED ON THIS BROWSER.</p></div>`:`<div class="dd-source-howto"><p>7 PROMPTS A DAY. SAME FOR EVERYONE.</p><p>25 SECONDS TO NAME ONE THING.</p><p>RARE ANSWERS SCORE BIG. OBVIOUS ONES FLOAT.</p><p>THE PICK THAT FEELS CLEVER? THE SCHOOL THOUGHT OF IT TOO.</p><p>EVERY POINT SINKS YOU 10 METRES. 700 IS THE TRENCH.</p><p>ONE DIVE PER DAY. NO SECOND CHANCES.</p></div>`}</details>
+          <a class="dd-home-privacy" href="/privacy">Privacy</a>
+          ${isEndless?'':`<button type="button" class="dd-party-btn" data-action="party"><span class="dd-party-tag">BETA · LIMITED TIME</span><span class="dd-party-fish" aria-hidden="true">🐡</span><span>PUFFER PARTY <small class="dd-party-live" id="dd-party-live"><b aria-hidden="true"></b>LIVE MULTIPLAYER · 2–16 PLAYERS</small></span><span class="dd-party-arrow">›</span></button>`}
           <button type="button" class="dd-begin" data-action="${primaryAct}">${primaryLabel}</button>
-          <div class="dd-mode-nav"><span class="dd-dive-number">${sourceDaily?'DIVE #'+sourceDaily.dayNumber:'DAILY · '+safe(date)}</span><button type="button" data-action="archive">ARCHIVE ⟲</button><button type="button" data-action="worlds">THEMED PACKS</button><button type="button" data-action="startEndless">UNLIMITED ∞</button></div>
-          <p class="dd-source-note">${safe(sourceLabel)}${!sourceDaily&&sourceError?" · "+safe(sourceError):""}</p>
-          <div class="dd-sea-stats"><span>◈ ${format(profile.pearls)} PEARLS</span><span>✦ ${format(profile.streak)} DAY STREAK</span><span>${complete?format(complete.score)+' POINTS TODAY':'FREE DAILY DESCENT'}</span></div>
+          <div class="dd-mode-nav"><span class="dd-dive-number">${isEndless?'ENDLESS DIVE #'+format(profile.unlimitedGameId||1):sourceDaily?'DIVE #'+sourceDaily.dayNumber:'DAILY · '+safe(date)}</span><button type="button" data-action="archive">ARCHIVE ⟲</button>${isEndless?`<button type="button" data-action="daily">TODAY'S DIVE</button>`:`<button type="button" data-action="worlds">THEMED PACKS</button><button type="button" data-action="endless">UNLIMITED ∞</button>`}</div>
+          ${!isEndless&&!sourceDaily&&sourceError?`<p class="dd-source-note">${safe(sourceError)}</p>`:''}
         </div>
       </div>
     </section>`;
@@ -242,39 +248,43 @@
     ['lexicon','WORDS & LANGUAGE','Public prompts; no verified scored list','lexicon.webp']
   ];
   function renderFreeStarters(){
-    const cards=FREE_PACKS.map(([mode,label,desc,art])=>{
-      const sheet=starterModes[mode],qs=sheet?.questions||[];
-      const playable=sheet?.ids?.length||0;
-      const answerCount=qs.reduce((n,q)=>n+(q.answers?.length||0),0);
-      return `<article class="dd-free-starter-card" style="--pack-art:url('./reference-assets/gen/optimized/v1/cards/${art}')">
-        <div class="dd-free-pack-top"><span>PUBLIC STARTER</span><span>${playable}/7 VERIFIED</span></div>
-        <h3>${safe(label)}</h3><p>${safe(desc)}</p>
-        <small>${format(answerCount)} recorded answers · ${playable} verified prompts</small>
-        ${mode==='unlimited'?'':`<details class="dd-public-chapters"><summary>30 CHAPTER SERIES · CHAPTER 1 RECOVERED</summary>
-          <div class="dd-public-chapter-list" role="group" aria-label="${safe(label)} chapter index">
-            ${Array.from({length:30},(_,i)=>`<button type="button" ${i===0&&playable?'data-action="startStarter" data-starter="'+safe(mode)+'"':'disabled'} title="${i===0?(playable?'Play recovered first chapter':'First chapter not fully verified'):'Chapter '+(i+1)+' answer data not recovered'}" aria-label="Chapter ${i+1} ${i===0&&playable?'playable':'not available'}">${i+1}</button>`).join('')}
-          </div>
-          <p>Original 30-chapter structure is publicly listed. Only the first chapter has recovered source-backed answers; remaining chapters are not available in this reconstruction.</p>
-        </details>`}
-        <button type="button" class="dd-free-pack-play" data-action="startStarter" data-starter="${mode}" ${playable?'':'disabled'}>
-          ${playable?'PLAY RECOVERED ROUNDS →':'ANSWER DATA NOT VERIFIED'}
-        </button></article>`;
+    const packs=[
+      ['lexicon','FREE FOR NOW · BETA','Words & Language (English)','30 chapters · fill the notebook, word by word','OPEN THE NOTEBOOK →','lexicon.webp'],
+      ['movies','NOW SHOWING','AT THE MOVIES','30 pictures · a night drive down the boulevard','TAKE THE DRIVE →','movies.webp'],
+      ['sports','GAME ON','SPORTS','30 games · run the gauntlet, court to podium','TAKE THE TUNNEL ↓','sports.webp'],
+      ['geography','PASSPORT READY','GEOGRAPHY','30 expeditions · around the world in seven answers','SET OUT →','geography.webp']
+    ];
+    const cards=packs.map(([mode,kicker,title,subtitle,cta,art])=>{
+      const sheet=starterModes[mode],playable=sheet?.ids?.length||0;
+      return `<article class="dd-source-pack" data-pack="${mode}">
+        <div class="dd-source-pack-banner"><img src="./reference-assets/gen/optimized/v1/cards/${art}" alt="" loading="lazy"><span>${kicker}</span></div>
+        <div class="dd-source-pack-body"><h2>${safe(title)}</h2><p>${safe(subtitle)}</p>
+          <button type="button" class="dd-source-pack-link" data-action="startStarter" data-starter="${mode}" ${playable?'':'disabled'}>${playable?safe(cta):'SOURCE ANSWERS NOT VERIFIED'}</button>
+          <details class="dd-public-chapters"><summary>30 CHAPTERS · ${playable?'STARTER PLAYABLE':'SCORING UNVERIFIED'}</summary>
+            <div class="dd-public-chapter-list" role="group" aria-label="${safe(title)} chapters">
+              ${Array.from({length:30},(_,i)=>`<button type="button" ${i===0&&playable?'data-action="startStarter" data-starter="'+safe(mode)+'"':'disabled'} aria-label="Chapter ${i+1} ${i===0&&playable?'available':'not verified'}">${i+1}</button>`).join('')}
+            </div><p>Only the first source-backed chapter has recovered validated answers. The other chapters are not represented as playable.</p>
+          </details>
+        </div>
+      </article>`;
     }).join('');
-    return `<section class="dd-free-starters">
-      <header class="dd-free-starters-heading"><span>RECOVERED PUBLIC MODES</span><h2>THEMED PACKS & UNLIMITED</h2>
-        <p>Original publicly served starter prompts with independently indexed scored answers. Rounds with no validated answer list are not presented as playable. These modes are explicitly incomplete wherever fewer than seven scored prompts were recovered.</p>
-        ${starterModeError?`<p>${safe(starterModeError)}</p>`:''}
-      </header><div class="dd-free-starter-grid">${cards}</div>
+    return `<section class="dd-source-packs">
+      <header class="dd-source-packs-header"><strong class="dd-logo">KRILLION</strong><p>THEMED PACKS · BEYOND THE DAILY DIVE</p></header>
+      <div class="dd-source-pack-list">${cards}
+        <article class="dd-source-pack dd-coming-soon"><div class="dd-source-pack-body"><span>COMING SOON</span><h2>MUSIC</h2><p>from the charts to the deep cuts</p><small>MORE PACKS ARE BEING CHARTED…</small></div></article>
+      </div>
+      <footer class="dd-source-packs-footer"><p>THE LOGBOOK · YOUR UNLOCKS, KEPT</p><p>Every aired daily, resurfaceable.</p><button type="button" data-action="archive">ARCHIVE ⟲</button><button type="button" data-action="daily">← TODAY'S DIVE</button></footer>
+      ${starterModeError?`<p class="helper">${safe(starterModeError)}</p>`:''}
     </section>`;
   }
   function renderWorlds(){
-    return `<section class="page">${renderFreeStarters()}<div class="page-title"><span class="eyebrow">INDEPENDENT PRACTICE WORLDS</span><h1>Every subject has <em style="color:var(--aqua);font-style:normal">layers.</em></h1><p>Choose a collection, then a chapter. Finish chapters in order and earn pearls from your answers to reach the deeper chapters. All chapters are free to unlock through play.</p></div>
+    return `<section class="page dd-packs-page">${renderFreeStarters()}<details class="dd-practice-collapse"><summary>EXTRA SIDEQUEST PRACTICE WORLDS (INDEPENDENT)</summary><div class="page-title"><span class="eyebrow">INDEPENDENT PRACTICE WORLDS</span><h1>Every subject has <em style="color:var(--aqua);font-style:normal">layers.</em></h1><p>Choose a collection, then a chapter. Finish chapters in order and earn pearls from your answers to reach the deeper chapters. All chapters are free to unlock through play.</p></div>
     <div class="surface-card"><div class="progress-top"><div><span class="side-label">Your available discoveries</span><div class="depth-score">${format(profile.pearls)} <span>pearls</span></div></div><div class="side-help">New chapters open as you play. Chapters 2–5 need ${UNLOCK.slice(1).map(format).join(', ')} pearls respectively, plus the preceding chapter in that collection.</div></div></div>
     <div class="worlds-grid">${WORLDS.map(([theme,icon,desc])=>`<article class="world-card"><div class="world-icon" aria-hidden="true">${icon}</div><h3>${safe(theme)}</h3><p>${safe(desc)}</p><div class="chapter-row">${Array.from({length:5},(_,i)=>{
       const key=theme+':'+i,finished=Number.isFinite(profile.worldRecords[key]),prior=i===0||Number.isFinite(profile.worldRecords[theme+':'+(i-1)]),open=profile.pearls>=UNLOCK[i]&&prior;
       return `<button type="button" class="chapter ${finished?'done':open?'':'locked'}" data-action="startWorld" data-world="${safe(theme)}" data-chapter="${i}" ${open?'':`disabled title="Earn ${UNLOCK[i]} pearls and complete the previous chapter"`} aria-label="${safe(theme)} chapter ${i+1} ${open?'open':'locked'}">${finished?'✓':open?i+1:'⌁'}</button>`
     }).join('')}</div></article>`).join('')}</div>
-    </section>`;
+    </details></section>`;
   }
   function renderArchive(){
     if(!archiveManifest.length)
@@ -289,8 +299,9 @@
       const heading=new Date(month+'-01T12:00:00Z').toLocaleDateString('en-US',{month:'long',year:'numeric',timeZone:'UTC'});
       return '<section class="dd-archive-month"><h2>'+safe(heading)+' <small>'+dates.length+' dives</small></h2><div class="dd-archive-grid">'+
         dates.map(rec=>{
-          const count=profile.history.filter(x=>x.mode==='archive'&&x.day===rec.date).length;
-          return '<button type="button" class="dd-archive-date" data-action="startArchive" data-day="'+safe(rec.date)+'"><strong>#'+Number(rec.dayNumber)+'</strong><span>'+safe(rec.date)+'</span><small>'+Number(rec.acceptedAnswers).toLocaleString('en-US')+' answers'+(count?' · '+count+' played':'')+'</small></button>';
+          const played=profile.history.filter(x=>x.mode==='archive'&&x.day===rec.date);
+          const best=played.length?Math.max(...played.map(x=>Number(x.score)||0)):null;
+          return '<button type="button" class="dd-archive-date" data-action="startArchive" data-day="'+safe(rec.date)+'"><strong>#'+Number(rec.dayNumber)+'</strong><span>'+safe(rec.date)+'</span><small>'+Number(rec.acceptedAnswers).toLocaleString('en-US')+' answers'+(best!==null?' · BEST '+best+' PTS':'')+'</small></button>';
         }).join('')+'</div></section>';
     }).join('');
     return '<section class="page dd-archive"><div class="page-title"><span class="eyebrow">THE DAILY ARCHIVE</span><h1>Revisit past <em>dives.</em></h1><p>'+archiveManifest.length+' recovered historical dives · '+(archiveManifest.length*7)+' original prompts. Every archived answer has its recorded rarity score. Choose a date to practice. These are publicly published historical snapshots from an independent archive, not access to the publisher’s locked archive or private answer service.</p></div>'+months+'</section>';
@@ -338,6 +349,36 @@
       start('archive','',0,day);
     }catch(e){notify('Archive could not load. Please retry.');console.error('Archive load error:',e)}
   }
+  async function startPublicUnlimited(){
+    const gameId=Math.max(1,Math.min(1000000,Math.trunc(Number(profile.unlimitedGameId)||1)));
+    try{
+      let ids=[];
+      if(gameId===1&&starterModes.unlimited?.ids?.length===7){
+        ids=[...starterModes.unlimited.ids];
+      }else if(archiveManifest.length>=3){
+        // Repeatable local combination for each game ID. Do not claim
+        // equivalence to the publisher's unrecovered gameId library.
+        const dates=shuffle(archiveManifest,'sidequest-unlimited-days:'+gameId).slice(0,3);
+        const pool=[];
+        for(const day of dates)pool.push(...await loadArchiveSheet(day.date));
+        ids=shuffle(pool,'sidequest-unlimited-rounds:'+gameId).slice(0,7);
+      }
+      if(ids.length!==7){
+        ids=shuffle(bank,'sidequest-unlimited-fallback:'+gameId).slice(0,7).map(q=>q.id);
+      }
+      start('endless','',0,'',ids);
+      if(active){
+        active.unlimitedGameId=gameId;
+        active.source=gameId===1&&starterModes.unlimited?.ids?.length===7
+          ?'published-free-starter-index':ids.some(id=>id.startsWith('archive:'))
+            ?'published-archive-snapshot':'sidequest';
+        save();
+      }
+    }catch(error){
+      console.error('Could not prepare free Unlimited game '+gameId,error);
+      notify('Could not prepare this Unlimited dive. Please retry.');
+    }
+  }
   async function startArchiveEndless(){
     if(!archiveManifest.length){start('endless');return}
     try{
@@ -384,7 +425,7 @@
     window.DeepDiveSfx?.event('begin');
     /* Pass 3 phase machine: every round opens in preview (the original's
        3-second "descending · the clock starts in N" pill) before answering. */
-    active={mode,world,chapter,source:mode==='starter'?'published-free-starter-index':mode==='archive'||(mode==='endless'&&forcedIds.length)?'published-archive-snapshot':mode==='daily'&&sourceDaily?'krillion-reveal':'sidequest',day:mode==='archive'?archiveDate:day,ids,index:0,phase:'preview',previewEnds:Date.now()+(profile.tourSeen?3000:5200),deadline:0,results:[],score:0,misses:0,startedAt:Date.now()};
+    active={mode,world,chapter,source:mode==='starter'||(mode==='endless'&&forcedIds.length===7)?'published-free-starter-index':mode==='archive'||(mode==='endless'&&forcedIds.length)?'published-archive-snapshot':mode==='daily'&&sourceDaily?'krillion-reveal':'sidequest',day:mode==='archive'?archiveDate:day,ids,index:0,phase:'preview',previewEnds:Date.now()+(profile.tourSeen?3000:5200),deadline:0,results:[],score:0,misses:0,startedAt:Date.now()};
     save();currentView=mode==='world'||mode==='starter'?'worlds':mode==='endless'?'endless':mode==='archive'?'archive':'daily';render();
   }
   function currentQ(){return byId.get(active.ids[active.index])}
@@ -399,7 +440,7 @@
     /* During feedback the original advances the dots and prompt counter to the
        UPCOMING round (observed live: feedback after round 2 shows "PROMPT 3 OF 7"). */
     const curIdx=active.phase==='feedback'?active.index+1:active.index;
-    const done=active.phase==='feedback'&&(active.index+1>=n||(active.mode==='endless'&&active.misses>=3));
+    const done=active.phase==='feedback'&&(active.index+1>=n||(active.mode==='endless'&&active.ids.length>7&&active.misses>=3));
     const firstVisible=active.ids.length>14?Math.max(0,Math.min(curIdx-5,active.ids.length-14)):0;
     const visibleIds=active.ids.length>14?active.ids.slice(firstVisible,firstVisible+14):active.ids;
     const dots=visibleIds.map((id,offset)=>{
@@ -410,7 +451,7 @@
       return `<i class="dd-hud-dot${state?' '+state:''}" style="--dot:${color}" title="Round ${i+1}"></i>`;
     }).join('');
     return `<div class="dd-hud"><div class="dd-hud-box"><span>DEPTH</span><strong class="dd-hud-depth${depthCrank?' crank':''}">${format(active.score*10)}<small>m</small></strong></div>
-      <div class="dd-hud-progress"><div class="dd-hud-dots">${dots}</div><small>${done?'DIVE COMPLETE':'PROMPT '+(curIdx+1)+' OF '+n}${active.mode==='endless'?' · '+Math.max(0,3-active.misses)+' LIVES':''}</small></div>
+      <div class="dd-hud-progress"><div class="dd-hud-dots">${dots}</div><small>${done?'DIVE COMPLETE':'PROMPT '+(curIdx+1)+' OF '+n}${active.mode==='endless'&&active.ids.length>7?' · '+Math.max(0,3-active.misses)+' LIVES':''}</small></div>
       <div class="dd-hud-box dd-hud-score"><span>SCORE</span><strong>${format(active.score)}</strong></div></div>`;
   }
   function dockMarkup(seconds){
@@ -437,7 +478,7 @@
     const prevM=feedback?metresBeforeRound(round):metresSoFar();
     const baseY=Math.round(DW.roundBase(prevM));
     const seconds=Math.max(0,Math.ceil(((active.deadline||Date.now())-Date.now())/1000));
-    const completed=feedback&&(active.index+1>=currentTotal()||(active.mode==='endless'&&active.misses>=3));
+    const completed=feedback&&(active.index+1>=currentTotal()||(active.mode==='endless'&&active.ids.length>7&&active.misses>=3));
     const tc=tier?`var(--tier-${tier.id})`:'var(--tier-miss)';
     const lineY=tier?Math.round(DW.tierLineY(prevM,tier.score)):Math.round(DW.missBannerY(prevM));
     const spawnY=Math.round(DW.chipSpawnY(prevM));
@@ -482,7 +523,7 @@
   }
   function conclude(){
     if(!active)return;
-    const r={mode:active.mode,source:active.source,day:active.day,score:active.score,count:active.results.length,results:active.results.map(x=>({...x})),label:active.mode==='daily'?(active.source==='krillion-reveal'?'Public-source daily dive':'Daily discovery'):active.mode==='endless'?'Endless expedition':active.mode==='archive'?'Archive · '+active.day:active.mode==='starter'?'Public '+active.world+' starter':active.world+' · Chapter '+(active.chapter+1),world:active.world,chapter:active.chapter};
+    const r={mode:active.mode,source:active.source,day:active.day,score:active.score,count:active.results.length,unlimitedGameId:active.unlimitedGameId||1,results:active.results.map(x=>({...x})),label:active.mode==='daily'?(active.source==='krillion-reveal'?'Public-source daily dive':'Daily discovery'):active.mode==='endless'?'Endless expedition':active.mode==='archive'?'Archive · '+active.day:active.mode==='starter'?'Public '+active.world+' starter':active.world+' · Chapter '+(active.chapter+1),world:active.world,chapter:active.chapter};
     const completedKey=active.source==='krillion-reveal'?'source:'+active.day:active.day;
     if(active.mode==='daily'&&profile.daily[completedKey]){active=null;save();currentView='daily';render();return}
     if(active.mode==='daily'){
@@ -499,6 +540,7 @@
     profile.pearls+=active.score;profile.runs=(profile.runs||0)+1;
     profile.history=[r,...profile.history].slice(0,50);
     window.DeepDiveSfx?.event('surface');
+    if(r.mode==='endless')profile.unlimitedGameId=Math.max(1,Number(profile.unlimitedGameId)||1,Number(r.unlimitedGameId||1)+1);
     active=null;save();currentView=r.mode==='daily'?'daily':r.mode==='world'||r.mode==='starter'?'worlds':r.mode==='archive'?'archive':'endless';renderSummary(r);
   }
   function roundEnd(record){
@@ -570,7 +612,7 @@
     const leave=()=>{
       transitioning=false;
       if(!active||active.phase!=='feedback')return;
-      if(active.index+1>=active.ids.length||(active.mode==='endless'&&active.misses>=3)){conclude();return}
+      if(active.index+1>=active.ids.length||(active.mode==='endless'&&active.ids.length>7&&active.misses>=3)){conclude();return}
       window.DeepDiveSfx?.event('descend');
       depthCrank=false;
       active.index++;active.phase='preview';active.previewEnds=Date.now()+(profile.tourSeen?3000:5200);active.deadline=0;mascotPose='';correction=null;rejectMsg='';save();render();
@@ -648,29 +690,58 @@
     cam.snapTo(A.feedback-2*finalM);
     cam.goTo(A.done,{dur:3400});
   }
+  function localResultCurve(r){
+    const max=Math.max(700,r.count*100);
+    const history=profile.history.filter(h=>h.mode===r.mode&&Number.isFinite(h.score)&&h.count===r.count);
+    const values=history.map(h=>h.score).slice(0,50);
+    const x=v=>18+436*Math.max(0,Math.min(1,v/max));
+    const histogram=Array.from({length:65},(_,i)=>{
+      const n=i/64*max;
+      // For fewer than five saved personal runs, show a clearly identified
+      // reference-shaped curve, never an invented global percentile.
+      const density=values.length>=5
+        ?values.reduce((sum,v)=>sum+Math.exp(-Math.pow((n-v)/(max*.13),2)/2),0)
+        :Math.exp(-Math.pow((n-max*.40)/(max*.16),2)/2);
+      return {x:x(n),d:density};
+    });
+    const highest=Math.max(...histogram.map(p=>p.d),.0001);
+    const path=histogram.map((p,i)=>(i?'L':'M')+p.x.toFixed(1)+','+(126-(p.d/highest)*92).toFixed(1)).join(' ');
+    return `<div class="dd-personal-distribution">
+      <svg viewBox="0 0 480 157" role="img" aria-label="${values.length>=5?'Saved personal score distribution':'Illustrative comparison curve: no global player data'}">
+        <path d="M18 127 H454" stroke="#5687a1" stroke-width="1" fill="none"></path>
+        ${path?`<path class="dd-personal-curve" d="${path}"></path>`:''}
+        <line x1="${x(r.score)}" x2="${x(r.score)}" y1="34" y2="127" stroke="#ff5b91" stroke-width="1.5" stroke-dasharray="3 3"></line>
+        <circle cx="${x(r.score)}" cy="54" r="4" fill="#ff5b91"></circle>
+        <text x="${x(r.score)}" y="30" text-anchor="middle" fill="#ff5b91" font-size="15">YOU</text>
+        ${[0,.25,.5,.75,1].map(t=>`<text x="${x(t*max)}" y="149" text-anchor="middle" fill="#83a5bf" font-size="13">${Math.round(t*max)}</text>`).join('')}
+      </svg>
+      <p>${values.length>=5?'DISTRIBUTION OF '+values.length+' SAVED LOCAL DIVES' :'REFERENCE CURVE ONLY · YOUR SCORE'}</p>
+      <small>Illustrative shape only · Krillion player percentile unavailable</small>
+    </div>`;
+  }
   function scoreTrail(results){
     const scores=results.map(x=>Math.max(0,Math.min(100,Number(x.points)||0)));
     if(!scores.length)return '';
     const unit=scores.length>1?436/(scores.length-1):0;
-    const pts=scores.map((score,i)=>({x:22+i*unit,y:24+(100-score)*1.09,score}));
-    const path=pts.map(p=>p.x.toFixed(1)+','+p.y.toFixed(1)).join(' ');
+    const pts=scores.map((score,i)=>({x:22+i*unit,y:22+(score/100)*210,score,
+      color:results[i].tier!==null&&results[i].tier!==undefined?TIERS[results[i].tier].color:'#627891'}));
     return `<div class="dd-score-trail" aria-label="Recorded score for each of your ${scores.length} answers">
-      <div class="dd-score-trail-head"><span>YOUR DIVE LOG · DEEPER = RARER</span><span>${scores.length} ROUNDS</span></div>
-      <svg viewBox="0 0 480 172" role="img" aria-label="Your answer rarity scores, displayed as points from 0 to 100">
-        ${[24,78.5,133].map(y=>`<line class="dd-score-trail-grid" x1="12" x2="469" y1="${y}" y2="${y}"></line>`).join('')}
-        <polyline class="dd-score-trail-line" points="${path}"></polyline>
-        ${pts.map((p,i)=>`<circle class="dd-score-trail-marker" cx="${p.x}" cy="${p.y}" r="4"><title>Round ${i+1}: ${p.score} points</title></circle>
-          <text class="dd-score-trail-point-label" x="${p.x}" y="${Math.max(12,p.y-10)}" text-anchor="middle">${p.score}</text>
-          <text class="dd-score-trail-round" x="${p.x}" y="165" text-anchor="middle">${i+1}</text>`).join('')}
+      <div class="dd-score-trail-head"><span>DIVE LOG · DEEPER = RARER</span><span>${scores.length} ROUNDS</span></div>
+      <svg viewBox="0 0 480 269" role="img" aria-label="Seven actual rarity score depths, from 0 to 100">
+        ${[0,25,50,75,100].map(n=>`<line class="dd-score-trail-grid" x1="24" x2="467" y1="${22+n*2.1}" y2="${22+n*2.1}"></line><text class="dd-depth-tick-label" x="17" y="${27+n*2.1}" text-anchor="end">-${n}</text>`).join('')}
+        ${pts.map((p,i)=>`<line class="dd-score-trail-stem" x1="${p.x}" x2="${p.x}" y1="22" y2="${p.y}" stroke="${p.color}"></line><circle class="dd-score-trail-marker" cx="${p.x}" cy="${p.y}" r="5" fill="${p.color}"><title>Round ${i+1}: ${p.score} points</title></circle>
+          <text class="dd-score-trail-point-label" x="${p.x}" y="${Math.min(244,p.y+19)}" text-anchor="middle">${p.score}</text>
+          <text class="dd-score-trail-round" x="${p.x}" y="258" text-anchor="middle">${i+1}</text>`).join('')}
       </svg>
-      <p class="dd-score-trail-note">Your recorded answers only · not a global percentile</p>
+      <p class="dd-score-trail-note">Your recorded answers · not a global percentile</p>
     </div>`;
   }
   function renderSummary(r){
     clearInterval(ticker);if(doneTick)clearInterval(doneTick);doneTick=null;syncHead();
     const isDaily=r.mode==='daily',max=r.count*100,finalM=Math.round(r.score*10);
-    const diveNo=isDaily&&r.source==='krillion-reveal'&&sourceDaily?'DIVE #'+sourceDaily.dayNumber+' COMPLETE':isDaily?'DAILY DIVE COMPLETE':r.mode==='endless'?'ENDLESS DIVE COMPLETE':r.mode==='archive'?'ARCHIVE DIVE · '+safe(r.day).toUpperCase()+' COMPLETE':r.mode==='starter'?safe((r.world||'').toUpperCase())+' STARTER COMPLETE':safe(r.world.toUpperCase())+' · CHAPTER '+((r.chapter||0)+1)+' COMPLETE';
-    const text=`Deep Dive · ${r.label} · ${r.day}\n${r.score}/${max} points · ${format(r.score*10)}m of depth\n${r.results.map(x=>x.points?'◆':'◇').join('')}\nPlay on Sidequest`;
+    const diveNo=isDaily&&r.source==='krillion-reveal'&&sourceDaily?'DIVE #'+sourceDaily.dayNumber+' COMPLETE':isDaily?'DAILY DIVE COMPLETE':r.mode==='endless'?'ENDLESS DIVE #'+format(r.unlimitedGameId||1)+' COMPLETE':r.mode==='archive'?'ARCHIVE DIVE · '+safe(r.day).toUpperCase()+' COMPLETE':r.mode==='starter'?safe((r.world||'').toUpperCase())+' STARTER COMPLETE':safe(r.world.toUpperCase())+' · CHAPTER '+((r.chapter||0)+1)+' COMPLETE';
+    const puzzle=r.mode==='daily'&&sourceDaily?'#'+sourceDaily.dayNumber:r.mode==='endless'?'∞#'+(r.unlimitedGameId||1):r.mode==='archive'?'#'+String(r.day):safe(r.world||r.mode).toUpperCase();
+    const text=`Krillion ${puzzle} 🦐\n${r.score}/${max} · ${format(r.score*10)}m\n${r.results.map(x=>x.tier!==null&&x.tier!==undefined?TIERS[x.tier].mark:'⬛').join('')}\nIndependent recreation: https://browser-game-arcade.vercel.app/games/deep-dive`;
     const bearingRow=b=>{
       const hit=r.score>=b[0]&&r.score<=b[1];
       return `<div class="dd-bearing-row${hit?' hit':''}"><b>${b[1]===Infinity?'450+':b[0]+'–'+b[1]}</b><span>${safe(b[2])}</span></div>`;
@@ -701,10 +772,15 @@
         <div class="dd-hud"><div class="dd-hud-box"><span>DEPTH</span><strong class="dd-hud-depth crank">${format(finalM)}<small>m</small></strong></div><div class="dd-hud-progress"><div class="dd-hud-dots">${r.results.map(x=>`<i class="dd-hud-dot done" style="--dot:${x.tier!==null&&x.tier!==undefined?TIERS[x.tier].color:'#284c6b'}"></i>`).join('')}</div><small>DIVE COMPLETE</small></div><div class="dd-hud-box dd-hud-score"><span>SCORE</span><strong>${format(r.score)}</strong></div></div>
         <div class="dd-game-fish gold" title="a friend" aria-hidden="true"><span class="dd-blub">blub!</span></div>
       </div>
-      <div class="dd-done"><div class="dd-done-inner">
+      <div class="dd-done">
+        <div class="dd-result-surface-decor" aria-hidden="true">
+          ${oceanArt()}
+          <div class="dd-result-ghost"><strong>KRILLION</strong><small>THE DAILY DIVE</small></div>
+        </div>
+        <div class="dd-done-inner">
         <div class="dd-done-head"><span class="dd-done-krill">KRILLION</span><span class="dd-done-sub">${diveNo}</span></div>
         <div class="dd-done-score"><span class="big">${format(r.score)}</span><span class="m">−${format(finalM)}m</span></div>
-        ${scoreTrail(r.results)}
+        ${localResultCurve(r)}\n        ${scoreTrail(r.results)}
         <div class="dd-done-bands"><h3>THE BEARING</h3>${BEARING.map(bearingRow).join('')}</div>
         <div class="dd-done-catch"><h3>THE CATCH · DEEPER = RARER</h3>${r.results.map(catchRow).join('')}</div>
         <div class="dd-done-log"><h3>LOGBOOK</h3><p>STREAK ${format(profile.streak)} · PLAYED ${format(profile.runs)} · AVG ${format(avg)} · BEST ${format(best)}</p><p class="dd-next-dive">NEXT DIVE IN <b id="dd-next-dive">--:--:--</b></p></div>
@@ -782,19 +858,36 @@
       else if(currentView==='archive')root.innerHTML=renderArchive();
       else if(currentView==='stats')root.innerHTML=renderStats();
       else if(currentView==='daily')root.innerHTML=renderHome();
-      else if(currentView==='endless')root.innerHTML=`<section class="page"><div class="home-hero"><div><span class="eyebrow">ENDLESS EXPEDITION</span><h1 class="section-heading">How deep can <em>you go?</em></h1><p class="lead">Each extended dive draws up to 50 published historical prompts. You have 25 seconds per answer and three lives. Every zero-point round costs a life.</p><div class="hero-actions">${button('startEndless','Begin an endless run','primary')}${button('daily','Back to daily','ghost')}</div><p class="helper">Up to 50 prompts per dive <span class="divider-dot">·</span> Three lives <span class="divider-dot">·</span> Unlimited attempts</p></div><div class="ocean-display">${bubbles()}<div class="diver-mark">∞</div><div class="ocean-caption"><span>YOUR RECORD</span><strong>${format(profile.endlessBest)} pts</strong></div></div></div></section>`;
+      else if(currentView==='endless')root.innerHTML=renderHome(true);
     }
     window.DeepDiveScene?.refresh?.();
     window.DeepDiveScene?.setDepth(active?.score||0);
     root.focus({preventScroll:true});
   }
   root.addEventListener('submit',e=>{if(e.target.id!=='answer-form')return;e.preventDefault();submit(e.target)});
-  root.addEventListener('input',e=>{if(e.target?.id==='answer-input')syncDiveBtn(e.target.closest('form'))});
+  root.addEventListener('input',e=>{
+    if(e.target?.id!=='answer-input')return;
+    const input=e.target;
+    // Once a player edits the proposed correction, it is not preapproved.
+    if(correction&&norm(input.value)!==norm(correction.canonical)){
+      correction=null;
+      const panel=document.getElementById('answer-correction');
+      if(panel)panel.replaceChildren();
+    }
+    // The original rejection line resets when the user starts changing input.
+    if(rejectMsg){
+      rejectMsg='';
+      const line=document.getElementById('dd-reject-line');
+      if(line){line.textContent='';line.classList.remove('dd-reject-shake')}
+    }
+    syncDiveBtn(input.closest('form'));
+  });
   root.addEventListener('click',e=>{
     const b=e.target.closest('button[data-action]');if(!b||b.disabled)return;
     switch(b.dataset.action){
       case 'startDaily':if(active?.mode==='daily'){currentView='daily';render()}else start('daily');break;
-      case 'startEndless':if(active?.mode==='endless'){currentView='endless';render()}else void startArchiveEndless();break;
+      case 'startEndless':if(active?.mode==='endless'){currentView='endless';render()}else void startPublicUnlimited();break;
+      case 'startLongPractice':void startArchiveEndless();break;
       case 'startArchive':void startHistorical(b.dataset.day||'');break;
       case 'startStarter':startStarter(b.dataset.starter||'');break;
       case 'startWorld':{
@@ -816,8 +909,17 @@
       }
       case 'share':{
         const value=root.dataset.share||'';
-        if(navigator.clipboard?.writeText)navigator.clipboard.writeText(value).then(()=>notify('Result copied. Share your discovery!')).catch(()=>notify('Clipboard is unavailable in this browser.'));
-        else notify('Clipboard is unavailable in this browser.');
+        const copyFallback=()=>{
+          const node=document.createElement('textarea');node.value=value;
+          node.setAttribute('readonly','');node.style.position='fixed';node.style.opacity='0';
+          document.body.append(node);node.select();
+          let ok=false;try{ok=document.execCommand('copy')}catch{}
+          node.remove();
+          notify(ok?'Result copied.':'Unable to copy automatically. Please select and copy the result manually.');
+        };
+        if(navigator.clipboard?.writeText)
+          navigator.clipboard.writeText(value).then(()=>notify('Result copied.')).catch(copyFallback);
+        else copyFallback();
         break;
       }
     }
