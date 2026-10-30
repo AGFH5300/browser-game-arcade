@@ -247,7 +247,7 @@
       <div class="dd-sea">${oceanDecor()}
         <div class="dd-sea-center">
           <div class="dd-surface-label">◂ HOW DEEP CAN YOUR KNOWLEDGE GO? ▸</div>
-          <details class="dd-rules"><summary>▸ ${isEndless?'OPEN THE DIVE LOG ∞':'HOW TO PLAY'}</summary>${isEndless?`<div class="dd-source-howto dd-endless-log"><p>THE DIVE LOG · THE ENDLESS DIVE</p><p>${format(endlessDone)}/76 charted · replays keep your best</p><p>SELECT A DIVE · YOUR FREE PRACTICE, NO UNLOCK REQUIRED</p><div class="dd-endless-chooser" role="group" aria-label="Choose an Unlimited dive">${log}</div><p>BEST ${format(profile.endlessBest||0)} · NEXT #${format(profile.unlimitedGameId||1)}. AVAILABLE QUESTIONS COMBINE PUBLIC ARCHIVE PUZZLES, NOT THE PUBLISHER'S PAID GAME SET.</p></div>`:`<div class="dd-source-howto"><p>7 PROMPTS A DAY. SAME FOR EVERYONE.</p><p>25 SECONDS TO NAME ONE THING.</p><p>RARE ANSWERS SCORE BIG. OBVIOUS ONES FLOAT.</p><p>THE PICK THAT FEELS CLEVER? THE SCHOOL THOUGHT OF IT TOO.</p><p>EVERY POINT SINKS YOU 10 METRES. 700 IS THE TRENCH.</p><p>ONE DIVE PER DAY. NO SECOND CHANCES.</p></div>`}</details>
+          <details class="dd-rules"><summary>▸ ${isEndless?'OPEN THE DIVE LOG ∞':'HOW TO PLAY'}</summary>${isEndless?`<div class="dd-source-howto dd-endless-log"><p>THE DIVE LOG · THE ENDLESS DIVE</p><p>${format(endlessDone)}/76 charted · replays keep your best</p><p>SELECT A DIVE · YOUR FREE PRACTICE, NO UNLOCK REQUIRED</p><div class="dd-endless-chooser" role="group" aria-label="Choose an Unlimited dive">${log}</div><p>BEST ${format(profile.endlessBest||0)} · NEXT #${format(profile.unlimitedGameId||1)}. DIVES 3–4 USE PUBLIC REVEAL DATA; DIVES 5+ USE INDEPENDENT PRACTICE WITH ESTIMATED / MIXED-SOURCE SCORES, NOT THE PUBLISHER'S PAID GAME SET.</p></div>`:`<div class="dd-source-howto"><p>7 PROMPTS A DAY. SAME FOR EVERYONE.</p><p>25 SECONDS TO NAME ONE THING.</p><p>RARE ANSWERS SCORE BIG. OBVIOUS ONES FLOAT.</p><p>THE PICK THAT FEELS CLEVER? THE SCHOOL THOUGHT OF IT TOO.</p><p>EVERY POINT SINKS YOU 10 METRES. 700 IS THE TRENCH.</p><p>ONE DIVE PER DAY. NO SECOND CHANCES.</p></div>`}</details>
           <a class="dd-home-privacy" href="/privacy">Privacy</a>
           ${isEndless?'':`<button type="button" class="dd-party-btn" data-action="party"><span class="dd-party-tag">BETA · LIMITED TIME</span><span class="dd-party-fish" aria-hidden="true">🐡</span><span>PUFFER PARTY</span><span class="dd-party-arrow" aria-hidden="true">›</span></button>`}
           <button type="button" class="dd-begin" data-action="${primaryAct}">${primaryLabel}</button>
@@ -416,6 +416,55 @@
     for(const q of loads)byId.set(q.id,q);
     return loads.map(q=>q.id);
   }
+  // Recovered community/scored master: a separate, explicitly independent
+  // practice mode. The original Krillion's validator and empirical rarity are
+  // NOT claimed for these records. Loads only seven answer files at a time.
+  async function loadIndependentPracticeUnlimited(gameId){
+    if(gameId<5)return [];
+    const root='./recovered/independent-bank/';
+    const response=await fetch(root+'manifest.json',{cache:'force-cache'});
+    if(!response.ok)throw Error('Independent practice index unavailable');
+    const manifest=await response.json();
+    if(manifest.source!=='sidequest-independently-recovered-practice'||
+      manifest.originalPublisherAcceptanceVerified!==false||
+      manifest.allScoresEmpiricallyCalibrated!==false||
+      !Array.isArray(manifest.questions)||manifest.questions.length!==952)
+      throw Error('Independent practice provenance invalid');
+    const cycleSize=Math.ceil(manifest.questions.length/7);
+    const cycle=Math.floor((gameId-5)/cycleSize);
+    const start=((gameId-5)%cycleSize)*7;
+    const chosen=shuffle(manifest.questions,'independent-recovered-cycle:'+cycle).slice(start,start+7);
+    if(chosen.length!==7)throw Error('Independent practice cycle incomplete');
+    const loaded=await Promise.all(chosen.map(async item=>{
+      if(!/^KR\d{4}$/.test(item.id)||item.file!==item.id+'.json')
+        throw Error('Independent question metadata invalid');
+      const response=await fetch(root+item.file,{cache:'force-cache'});
+      if(!response.ok)throw Error('Independent question could not load: '+item.id);
+      const pack=await response.json();
+      if(pack.id!==item.id||pack.prompt!==item.question||
+        pack.source!==manifest.source||
+        pack.originalPublisherAcceptanceVerified!==false||
+        pack.allScoresEmpiricallyCalibrated!==false||
+        !Array.isArray(pack.answers)||pack.answers.length!==item.answerCount)
+        throw Error('Independent question schema invalid: '+item.id);
+      const answers=[],answerIndex=new Map();
+      for(const record of pack.answers){
+        if(!Array.isArray(record)||record.length!==3||
+          typeof record[0]!=='string'||!record[0]||
+          !Number.isInteger(record[1])||record[1]<0||record[1]>5||
+          typeof record[2]!=='string')throw Error('Invalid independent candidate');
+        const entry={value:record[0],tier:record[1],aliases:[],
+          source:'sidequest-recovered-estimated',provenance:record[2]};
+        const key=norm(entry.value);
+        if(!key||answerIndex.has(key))throw Error('Ambiguous independent answer');
+        answerIndex.set(key,entry);answers.push(entry);
+      }
+      if(answers.length<1)throw Error('Empty independent question '+item.id);
+      return {id:item.id,prompt:pack.prompt,theme:'Independent',answers,answerIndex};
+    }));
+    for(const q of loaded)byId.set(q.id,q);
+    return loaded.map(q=>q.id);
+  }
   async function startPublicUnlimited(){
     const gameId=Math.max(1,Math.min(1000000,Math.trunc(Number(profile.unlimitedGameId)||1)));
     try{
@@ -424,6 +473,8 @@
         ids=[...starterModes.unlimited.ids];
       }else if(gameId===3||gameId===4){
         ids=await loadPublisherVerifiedUnlimited(gameId);
+      }else if(gameId>=5){
+        ids=await loadIndependentPracticeUnlimited(gameId);
       }else if(archiveManifest.length>=3){
         // Repeatable local combination for each game ID. Do not claim
         // equivalence to the publisher's unrecovered gameId library.
@@ -439,9 +490,10 @@
       if(active){
         active.unlimitedGameId=gameId;
         active.source=gameId===1&&starterModes.unlimited?.ids?.length===7
-          ?'published-free-starter-index':ids.every(id=>/^KR07\d{2}$/.test(id))
-            ?'krillion-public-publisher-reveal':ids.some(id=>id.startsWith('archive:'))
-              ?'published-archive-snapshot':'sidequest';
+          ?'published-free-starter-index':gameId>=5
+            ?'sidequest-independent-practice':gameId===3||gameId===4
+              ?'krillion-public-publisher-reveal':ids.some(id=>id.startsWith('archive:'))
+                ?'published-archive-snapshot':'sidequest';
         save();
       }
     }catch(error){
@@ -681,7 +733,7 @@
       return;
     }
     rejectMsg='';correction=null;
-    roundEnd({id:q.id,answer:found.value,points:TIERS[tier].score,tier,quip:found.quip||'',reason:'Accepted',estimated:found.source==='sidequest-common-supplement'});
+    roundEnd({id:q.id,answer:found.value,points:TIERS[tier].score,tier,quip:found.quip||'',reason:'Accepted',estimated:found.source==='sidequest-common-supplement'||found.source==='sidequest-recovered-estimated'});
   }
   function next(){
     if(!active||active.phase!=='feedback'||transitioning||revealPending())return;
@@ -832,7 +884,7 @@
       const q=byId.get(res.id);
       const recovered=Array.isArray(q?.answers)?[...q.answers].sort((a,b)=>b.tier-a.tier||a.value.localeCompare(b.value)):[];
       const answerIcon=t?(icon(t)?`<img class="dd-tier-icon" src="./reference-assets/tiers/${icon(t)}" alt="">`:`<i class="dd-tier-mark" aria-hidden="true">${t.mark}</i>`):'';
-      return `<details class="dd-catch-row" data-question-id="${safe(res.id)}"><summary><span class="n">${i+1}</span>${answerIcon}<span class="p"><small>${safe(q?.prompt||'')}</small><b>${t?'\u201c'+safe(res.answer)+'\u201d'+(res.estimated?' · EST.':''):'×'}</b></span><span class="pts" style="--tier:${t?t.color:'#536e7a'}">${t?'+'+res.points:'0'}</span><i class="dd-catch-expand" aria-hidden="true"></i></summary><div class="dd-catch-answers"><div class="dd-catch-filters"><input class="dd-catch-search" type="search" placeholder="Search answers" aria-label="Search recovered answers"><select class="dd-catch-tier" aria-label="Filter recovered answers by tier"><option value="">All tiers</option>${TIERS.map((tier,index)=>`<option value="${index}">${safe(tier.label)}</option>`).join('')}</select></div><small class="dd-catch-recovered-count">${recovered.some(a=>a.source==='sidequest-common-supplement')?'RECOVERED + INDEPENDENT COMMON ANSWERS':'RECOVERED ANSWERS'} · ${recovered.length}</small><ul></ul><p class="dd-catch-shown" hidden></p></div></details>`;
+      return `<details class="dd-catch-row" data-question-id="${safe(res.id)}"><summary><span class="n">${i+1}</span>${answerIcon}<span class="p"><small>${safe(q?.prompt||'')}</small><b>${t?'\u201c'+safe(res.answer)+'\u201d'+(res.estimated?' · EST.':''):'×'}</b></span><span class="pts" style="--tier:${t?t.color:'#536e7a'}">${t?'+'+res.points:'0'}</span><i class="dd-catch-expand" aria-hidden="true"></i></summary><div class="dd-catch-answers"><div class="dd-catch-filters"><input class="dd-catch-search" type="search" placeholder="Search answers" aria-label="Search recovered answers"><select class="dd-catch-tier" aria-label="Filter recovered answers by tier"><option value="">All tiers</option>${TIERS.map((tier,index)=>`<option value="${index}">${safe(tier.label)}</option>`).join('')}</select></div><small class="dd-catch-recovered-count">${recovered.some(a=>a.source==='sidequest-common-supplement')?'RECOVERED + INDEPENDENT COMMON ANSWERS':recovered.some(a=>a.source==='sidequest-recovered-estimated')?'INDEPENDENT PRACTICE · ORIGINAL ACCEPTANCE / RARITY NOT VERIFIED':'RECOVERED ANSWERS'} · ${recovered.length}</small><ul></ul><p class="dd-catch-shown" hidden></p></div></details>`;
     };
     const avg=profile.history.length?Math.round(profile.history.reduce((s,x)=>s+(x.score||0),0)/profile.history.length):0;
     const best=profile.history.reduce((m,x)=>Math.max(m,x.score||0),0);
