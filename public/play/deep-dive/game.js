@@ -695,19 +695,18 @@
     const history=profile.history.filter(h=>h.mode===r.mode&&Number.isFinite(h.score)&&h.count===r.count);
     const values=history.map(h=>h.score).slice(0,50);
     const x=v=>18+436*Math.max(0,Math.min(1,v/max));
-    const histogram=Array.from({length:65},(_,i)=>{
-      const n=i/64*max;
-      // For fewer than five saved personal runs, show a clearly identified
-      // reference-shaped curve, never an invented global percentile.
-      const density=values.length>=5
-        ?values.reduce((sum,v)=>sum+Math.exp(-Math.pow((n-v)/(max*.13),2)/2),0)
-        :Math.exp(-Math.pow((n-max*.40)/(max*.16),2)/2);
-      return {x:x(n),d:density};
-    });
-    const highest=Math.max(...histogram.map(p=>p.d),.0001);
-    const path=histogram.map((p,i)=>(i?'L':'M')+p.x.toFixed(1)+','+(126-(p.d/highest)*92).toFixed(1)).join(' ');
+    let path='';
+    if(values.length>=5){
+      const histogram=Array.from({length:65},(_,i)=>{
+        const n=i/64*max;
+        const density=values.reduce((sum,v)=>sum+Math.exp(-Math.pow((n-v)/(max*.13),2)/2),0);
+        return {x:x(n),d:density};
+      });
+      const highest=Math.max(...histogram.map(p=>p.d),.0001);
+      path=histogram.map((p,i)=>(i?'L':'M')+p.x.toFixed(1)+','+(126-(p.d/highest)*92).toFixed(1)).join(' ');
+    }
     return `<div class="dd-personal-distribution">
-      <svg viewBox="0 0 480 157" role="img" aria-label="${values.length>=5?'Saved personal score distribution':'Illustrative comparison curve: no global player data'}">
+      <svg viewBox="0 0 480 157" role="img" aria-label="${values.length>=5?'Distribution of saved local runs':'Player distribution unavailable'}">
         <path d="M18 127 H454" stroke="#5687a1" stroke-width="1" fill="none"></path>
         ${path?`<path class="dd-personal-curve" d="${path}"></path>`:''}
         <line x1="${x(r.score)}" x2="${x(r.score)}" y1="34" y2="127" stroke="#ff5b91" stroke-width="1.5" stroke-dasharray="3 3"></line>
@@ -715,23 +714,23 @@
         <text x="${x(r.score)}" y="30" text-anchor="middle" fill="#ff5b91" font-size="15">YOU</text>
         ${[0,.25,.5,.75,1].map(t=>`<text x="${x(t*max)}" y="149" text-anchor="middle" fill="#83a5bf" font-size="13">${Math.round(t*max)}</text>`).join('')}
       </svg>
-      <p>${values.length>=5?'DISTRIBUTION OF '+values.length+' SAVED LOCAL DIVES' :'REFERENCE CURVE ONLY · YOUR SCORE'}</p>
-      <small>Illustrative shape only · Krillion player percentile unavailable</small>
+      <p>${values.length>=5?'DISTRIBUTION OF '+values.length+' SAVED LOCAL RUNS':'Player distribution unavailable'}</p>
+      ${values.length>=5?'':'<small>Saved local runs appear here after five comparable dives.</small>'}
     </div>`;
   }
   function scoreTrail(results){
     const scores=results.map(x=>Math.max(0,Math.min(100,Number(x.points)||0)));
     if(!scores.length)return '';
-    const unit=scores.length>1?436/(scores.length-1):0;
-    const pts=scores.map((score,i)=>({x:22+i*unit,y:22+(score/100)*210,score,
+    const unit=446/scores.length;
+    const icon=t=>t.id==='plankton'?'plankton.png':t.icon;
+    const pts=scores.map((score,i)=>({x:34+(i+.5)*unit,y:12+(score/100)*256,score,tier:results[i].tier,
       color:results[i].tier!==null&&results[i].tier!==undefined?TIERS[results[i].tier].color:'#627891'}));
     return `<div class="dd-score-trail" aria-label="Recorded score for each of your ${scores.length} answers">
       <div class="dd-score-trail-head"><span>DIVE LOG · DEEPER = RARER</span><span>${scores.length} ROUNDS</span></div>
       <svg viewBox="0 0 480 269" role="img" aria-label="Seven actual rarity score depths, from 0 to 100">
-        ${[0,25,50,75,100].map(n=>`<line class="dd-score-trail-grid" x1="24" x2="467" y1="${22+n*2.1}" y2="${22+n*2.1}"></line><text class="dd-depth-tick-label" x="17" y="${27+n*2.1}" text-anchor="end">-${n}</text>`).join('')}
-        ${pts.map((p,i)=>`<line class="dd-score-trail-stem" x1="${p.x}" x2="${p.x}" y1="22" y2="${p.y}" stroke="${p.color}"></line><circle class="dd-score-trail-marker" cx="${p.x}" cy="${p.y}" r="5" fill="${p.color}"><title>Round ${i+1}: ${p.score} points</title></circle>
-          <text class="dd-score-trail-point-label" x="${p.x}" y="${Math.min(244,p.y+19)}" text-anchor="middle">${p.score}</text>
-          <text class="dd-score-trail-round" x="${p.x}" y="258" text-anchor="middle">${i+1}</text>`).join('')}
+        ${[0,25,50,75,100].map(n=>`<line class="dd-score-trail-grid" x1="24" x2="467" y1="${12+n*2.56}" y2="${12+n*2.56}"></line><text class="dd-depth-tick-label" x="17" y="${17+n*2.56}" text-anchor="end">${n===0?'0m':'-'+n}</text>`).join('')}
+        ${pts.map((p,i)=>`<line class="dd-score-trail-stem" x1="${p.x}" x2="${p.x}" y1="12" y2="${p.y}" stroke="${p.color}"></line>${p.tier===null||p.tier===undefined?`<text class="dd-score-trail-marker dd-score-trail-miss" x="${p.x}" y="${p.y+5}" text-anchor="middle">×</text>`:icon(TIERS[p.tier])?`<image class="dd-score-trail-marker" href="./reference-assets/tiers/${icon(TIERS[p.tier])}" x="${p.x-9}" y="${p.y-9}" width="18" height="18"><title>Round ${i+1}: ${p.score} points</title></image>`:`<text class="dd-score-trail-marker" x="${p.x}" y="${p.y+5}" text-anchor="middle">${TIERS[p.tier].mark}<title>Round ${i+1}: ${p.score} points</title></text>`}
+          <text class="dd-score-trail-round" x="${p.x}" y="282" text-anchor="middle">${i+1}</text>`).join('')}
       </svg>
       <p class="dd-score-trail-note">Your recorded answers · not a global percentile</p>
     </div>`;
@@ -742,14 +741,19 @@
     const diveNo=isDaily&&r.source==='krillion-reveal'&&sourceDaily?'DIVE #'+sourceDaily.dayNumber+' COMPLETE':isDaily?'DAILY DIVE COMPLETE':r.mode==='endless'?'ENDLESS DIVE #'+format(r.unlimitedGameId||1)+' COMPLETE':r.mode==='archive'?'ARCHIVE DIVE · '+safe(r.day).toUpperCase()+' COMPLETE':r.mode==='starter'?safe((r.world||'').toUpperCase())+' STARTER COMPLETE':safe(r.world.toUpperCase())+' · CHAPTER '+((r.chapter||0)+1)+' COMPLETE';
     const puzzle=r.mode==='daily'&&sourceDaily?'#'+sourceDaily.dayNumber:r.mode==='endless'?'∞#'+(r.unlimitedGameId||1):r.mode==='archive'?'#'+String(r.day):safe(r.world||r.mode).toUpperCase();
     const text=`Krillion ${puzzle} 🦐\n${r.score}/${max} · ${format(r.score*10)}m\n${r.results.map(x=>x.tier!==null&&x.tier!==undefined?TIERS[x.tier].mark:'⬛').join('')}\nIndependent recreation: https://browser-game-arcade.vercel.app/games/deep-dive`;
+    const icon=t=>t.id==='plankton'?'plankton.png':t.icon;
     const bearingRow=b=>{
       const hit=r.score>=b[0]&&r.score<=b[1];
-      return `<div class="dd-bearing-row${hit?' hit':''}"><b>${b[1]===Infinity?'450+':b[0]+'–'+b[1]}</b><span>${safe(b[2])}</span></div>`;
+      const tier=TIERS[[0,2,3,4,5][BEARING.indexOf(b)]];
+      const tierMark=icon(tier)?`<img class="dd-tier-icon" src="./reference-assets/tiers/${icon(tier)}" alt="">`:`<i class="dd-tier-mark" aria-hidden="true">${tier.mark}</i>`;
+      return `<div class="dd-bearing-row${hit?' hit':''}">${tierMark}<b>${b[1]===Infinity?'450+':b[0]+'–'+b[1]}</b><span>${safe(b[2])}</span></div>`;
     };
     const catchRow=(res,i)=>{
       const t=res.tier!==null&&res.tier!==undefined?TIERS[res.tier]:null;
       const q=byId.get(res.id);
-      return `<div class="dd-catch-row"><span class="n">${i+1}</span><div class="p"><small>${safe(q?.prompt||'')}</small><b>${t?'\u201c'+safe(res.answer)+'\u201d':'—'}</b></div><span class="pts" style="--tier:${t?t.color:'#536e7a'}">${t?t.mark+' +'+res.points:'+0'}</span></div>`;
+      const recovered=Array.isArray(q?.answers)?[...q.answers].sort((a,b)=>b.tier-a.tier||a.value.localeCompare(b.value)):[];
+      const answerIcon=t?(icon(t)?`<img class="dd-tier-icon" src="./reference-assets/tiers/${icon(t)}" alt="">`:`<i class="dd-tier-mark" aria-hidden="true">${t.mark}</i>`):'';
+      return `<details class="dd-catch-row" data-question-id="${safe(res.id)}"><summary><span class="n">${i+1}</span>${answerIcon}<span class="p"><small>${safe(q?.prompt||'')}</small><b>${t?'\u201c'+safe(res.answer)+'\u201d':'×'}</b></span><span class="pts" style="--tier:${t?t.color:'#536e7a'}">${t?'+'+res.points:'0'}</span><i class="dd-catch-expand" aria-hidden="true"></i></summary><div class="dd-catch-answers"><div class="dd-catch-filters"><input class="dd-catch-search" type="search" placeholder="Search answers" aria-label="Search recovered answers"><select class="dd-catch-tier" aria-label="Filter recovered answers by tier"><option value="">All tiers</option>${TIERS.map((tier,index)=>`<option value="${index}">${safe(tier.label)}</option>`).join('')}</select></div><small class="dd-catch-recovered-count">RECOVERED ANSWERS · ${recovered.length}</small><ul></ul><p class="dd-catch-shown" hidden></p></div></details>`;
     };
     const avg=profile.history.length?Math.round(profile.history.reduce((s,x)=>s+(x.score||0),0)/profile.history.length):0;
     const best=profile.history.reduce((m,x)=>Math.max(m,x.score||0),0);
@@ -774,7 +778,6 @@
       </div>
       <div class="dd-done">
         <div class="dd-result-surface-decor" aria-hidden="true">
-          ${oceanArt()}
           <div class="dd-result-ghost"><strong>KRILLION</strong><small>THE DAILY DIVE</small></div>
         </div>
         <div class="dd-done-inner">
@@ -782,9 +785,9 @@
         <div class="dd-done-score"><span class="big">${format(r.score)}</span><span class="m">−${format(finalM)}m</span></div>
         ${localResultCurve(r)}\n        ${scoreTrail(r.results)}
         <div class="dd-done-bands"><h3>THE BEARING</h3>${BEARING.map(bearingRow).join('')}</div>
-        <div class="dd-done-catch"><h3>THE CATCH · DEEPER = RARER</h3>${r.results.map(catchRow).join('')}</div>
+        <div class="result-actions"><div class="dd-result-primary-actions">${button('share','COPY RESULT','primary')}${button('startEndless','KEEP DIVING ∞','ghost')}</div><div class="dd-result-secondary-actions">${button('archive','ARCHIVE ⟲','ghost')}${button('worlds','THEMED PACKS →','ghost')}</div></div>
+        <div class="dd-done-catch"><h3>THE CATCH · TAP A ROUND FOR EVERY ANSWER</h3>${r.results.map(catchRow).join('')}</div>
         <div class="dd-done-log"><h3>LOGBOOK</h3><p>STREAK ${format(profile.streak)} · PLAYED ${format(profile.runs)} · AVG ${format(avg)} · BEST ${format(best)}</p><p class="dd-next-dive">NEXT DIVE IN <b id="dd-next-dive">--:--:--</b></p></div>
-        <div class="result-actions">${button('share','COPY RESULT','primary')}${button('startEndless','KEEP DIVING ∞','ghost')}${button('archive','ARCHIVE ⟲','ghost')}${button('worlds','THEMED PACKS →','ghost')}</div>
         <div class="dd-done-rate"><h3>HOW WAS THAT DIVE? 1 = MEH · 5 = GREAT</h3><div class="dd-rate-row">${[1,2,3,4,5].map(n=>`<button type="button" class="dd-rate${rating>=n?' on':''}" data-action="rate" data-rating="${n}" aria-label="Rate ${n} out of 5">${n}</button>`).join('')}</div></div>
         <p class="helper">${r.source==='krillion-reveal'?'Scores and result messages from the publisher’s public reveal; extra autocorrect aliases are not included.':(r.source==='published-free-starter-index'?'Original free starter prompts with independently indexed scored responses; not the original live validator.':r.source==='published-archive-snapshot'?'Recorded answer scores from the independent historical snapshot. Scores and aliases may differ from the publisher’s present validator.':'Independent Sidequest prompts with estimated rarity.')} Progress stays on this device.</p>
       </div></div>
@@ -794,6 +797,23 @@
     window.DeepDiveScene?.setDepth(r.score);
     startDoneCamera(finalM);
     startNextDiveTicker();
+  }
+  function renderCatchAnswers(row){
+    if(!row?.open||!row.classList.contains('dd-catch-row'))return;
+    const q=byId.get(row.dataset.questionId),answers=Array.isArray(q?.answers)?[...q.answers].sort((a,b)=>b.tier-a.tier||a.value.localeCompare(b.value)):[];
+    const list=row.querySelector('.dd-catch-answers ul'),search=row.querySelector('.dd-catch-search'),tierSelect=row.querySelector('.dd-catch-tier');
+    const count=row.querySelector('.dd-catch-recovered-count'),shown=row.querySelector('.dd-catch-shown');
+    if(!list||!count||!shown)return;
+    const query=norm(search?.value||''),tierFilter=tierSelect?.value===''?null:Number(tierSelect?.value);
+    const filtered=answers.filter(answer=>(tierFilter===null||answer.tier===tierFilter)&&(!query||norm(answer.value+' '+(answer.quip||'')).includes(query)));
+    const visible=filtered.slice(0,100),icon=t=>t.id==='plankton'?'plankton.png':t.icon;
+    list.innerHTML=visible.map(answer=>{
+      const t=TIERS[answer.tier],image=icon(t),mark=image?`<img class="dd-tier-icon" src="./reference-assets/tiers/${image}" alt="">`:`<i class="dd-tier-mark" aria-hidden="true">${t.mark}</i>`;
+      return `<li><span class="dd-catch-answer-main">${mark}<b>${safe(answer.value)}</b><strong>${t.score}</strong></span>${answer.quip?`<small class="dd-catch-answer-quip">${safe(answer.quip)}</small>`:''}</li>`;
+    }).join('');
+    count.textContent=`RECOVERED ANSWERS · ${answers.length}`;
+    shown.hidden=filtered.length>0&&filtered.length<=visible.length;
+    shown.textContent=filtered.length?`SHOWING ${visible.length} OF ${filtered.length} MATCHING ANSWERS`:'NO MATCHING RECOVERED ANSWERS';
   }
   function hookWorldCamera(animate){
     /* Camera targets recovered live: answering anchor ≈23% of stage height,
@@ -866,6 +886,9 @@
   }
   root.addEventListener('submit',e=>{if(e.target.id!=='answer-form')return;e.preventDefault();submit(e.target)});
   root.addEventListener('input',e=>{
+    if(e.target?.matches?.('.dd-catch-search')){
+      const row=e.target.closest('.dd-catch-row');if(row?.open)renderCatchAnswers(row);return;
+    }
     if(e.target?.id!=='answer-input')return;
     const input=e.target;
     // Once a player edits the proposed correction, it is not preapproved.
@@ -882,6 +905,13 @@
     }
     syncDiveBtn(input.closest('form'));
   });
+  root.addEventListener('change',e=>{
+    if(!e.target?.matches?.('.dd-catch-tier'))return;
+    const row=e.target.closest('.dd-catch-row');if(row?.open)renderCatchAnswers(row);
+  });
+  root.addEventListener('toggle',e=>{
+    const row=e.target;if(row?.matches?.('.dd-catch-row')&&row.open)renderCatchAnswers(row);
+  },true);
   root.addEventListener('click',e=>{
     const b=e.target.closest('button[data-action]');if(!b||b.disabled)return;
     switch(b.dataset.action){
@@ -909,16 +939,21 @@
       }
       case 'share':{
         const value=root.dataset.share||'';
+        const copied=()=>{
+          b.textContent='COPIED ✓';
+          notify('Result copied.');
+          setTimeout(()=>{if(b.isConnected)b.textContent='COPY RESULT'},2200);
+        };
         const copyFallback=()=>{
           const node=document.createElement('textarea');node.value=value;
           node.setAttribute('readonly','');node.style.position='fixed';node.style.opacity='0';
           document.body.append(node);node.select();
           let ok=false;try{ok=document.execCommand('copy')}catch{}
           node.remove();
-          notify(ok?'Result copied.':'Unable to copy automatically. Please select and copy the result manually.');
+          if(ok)copied();else notify('Unable to copy automatically. Please select and copy the result manually.');
         };
         if(navigator.clipboard?.writeText)
-          navigator.clipboard.writeText(value).then(()=>notify('Result copied.')).catch(copyFallback);
+          navigator.clipboard.writeText(value).then(copied).catch(copyFallback);
         else copyFallback();
         break;
       }

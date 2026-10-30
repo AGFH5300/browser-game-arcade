@@ -2,7 +2,7 @@
   "source": "Public assets normally served by https://krillion.io, reportedly authorized by site creator per Sidequest owner",
   "retrievedOn": "2026-10-29",
   "origin": "https://krillion.io",
-  "count": 60,
+  "count": 61,
   "missing": [],
   "files": [
     {
@@ -364,6 +364,13 @@
       "localPath": "water-bg.webp",
       "bytes": 27804,
       "sha256": "de12bf25b6da550e2c6937e2bf06f6ba7ff45dd6d4a0357b494a9a57baae6ef9"
+    },
+    {
+      "sourcePath": "/tiers/plankton.png",
+      "localPath": "tiers/plankton.png",
+      "bytes": 30392,
+      "sha256": "1f919d23c4017ffb2021f717b7dc6c4daeff835bd34d63d640fc43fa8903c32d",
+      "retrievedOn": "2026-10-30"
     }
   ]
 }
