@@ -10,10 +10,10 @@ const AVATARS=[['krill','KRILL',0,'/tiers/krillion.png'],['schooler','SCHOOLER',
 const ASSET='./reference-assets';
 function avatarUrl(id){return ASSET+(AVATARS.find(a=>a[0]===id)||AVATARS[0])[3]}
 function streak(){try{return Math.max(0,Number(JSON.parse(localStorage.getItem('sidequest:deep-dive:player:v1')||'{}').streak)||0)}catch{return 0}}
-function choices(){const days=streak();return AVATARS.map(([id,label,needed])=>'<button type="button" class="pp-avatar-option '+(id===selectedAvatar?'active':'')+'" data-party="avatar" data-avatar="'+id+'" '+(needed>days?'disabled title="Unlock at a '+needed+' day daily streak"':'')+' aria-pressed="'+(id===selectedAvatar)+'"><img src="'+avatarUrl(id)+'" alt="" loading="lazy"><span>'+label+'</span>'+(needed>days?'<small>'+needed+'-day</small>':'<small>READY</small>')+'</button>').join('')}
+function choices(){const days=streak();return AVATARS.map(([id,label,needed])=>'<button type="button" class="pp-avatar-option '+(id===selectedAvatar?'active':'')+'" data-party="avatar" data-avatar="'+id+'" '+(needed>0?'disabled title="Verified accounts are required for this character"':'')+' aria-pressed="'+(id===selectedAvatar)+'"><img src="'+avatarUrl(id)+'" alt="" loading="lazy"><span>'+label+'</span>'+(needed>days?'<small>'+needed+'-day</small>':'<small>READY</small>')+'</button>').join('')}
 function heading(subtitle){return '<header class="pp-scene-header"><button type="button" class="pp-sound-toggle" data-party="sound" title="Toggle game sounds">SOUND</button><h1 class="pp-scene-brand">KRILLION</h1><p class="pp-scene-name">PUFFER PARTY</p><p class="pp-scene-tagline">pass the puffer · don\'t let it pop on you</p><p class="pp-scene-desc">'+subtitle+'</p></header>'}
 function rememberIdentity(){name=(document.getElementById('pp-name')?.value||name).trim().slice(0,24);try{sessionStorage.setItem('sidequest:party-name',name)}catch{}}
-try{name=sessionStorage.getItem('sidequest:party-name')||name;const a=sessionStorage.getItem('sidequest:party-avatar');if(AVATARS.some(v=>v[0]===a))selectedAvatar=a;const cap=Number(sessionStorage.getItem('sidequest:party-capacity'));if([2,3,6,8].includes(cap))selectedCapacity=cap}catch{}
+try{name=sessionStorage.getItem('sidequest:party-name')||name;const a=sessionStorage.getItem('sidequest:party-avatar');if(a==='krill')selectedAvatar=a;const cap=Number(sessionStorage.getItem('sidequest:party-capacity'));if([2,3,6,8].includes(cap))selectedCapacity=cap}catch{}
 function restore(){try{auth=JSON.parse(sessionStorage.getItem('sidequest:party-auth:'+code)||'null')}catch{auth=null}}
 if(code)restore();
 const me=()=>room?.members.find(m=>m.id===auth?.id);
@@ -37,7 +37,7 @@ function home(){
    <div class="pp-foyer-left">
     <div class="pp-panel pp-identity-panel"><div class="pp-panel-title">WHO'S PLAYING <details><summary>HOW TO PLAY</summary><p>Each player starts with three hearts. Name an unused correct answer within 18 seconds to pass the puffer. Lose a heart if you pass or run out of time. Earn a bonus heart every 120 rarity points, up to five. Last one afloat wins.</p></details></div>
      <label for="pp-name" class="pp-panel-label">YOUR NAME</label><input id="pp-name" class="answer-field pp-wide" autocomplete="nickname" maxlength="24" placeholder="what the reef calls you" value="${esc(name)}">
-     <div class="pp-avatar-grid" aria-label="Character selection">${choices()}</div><p class="pp-avatar-help">Characters unlock as your Deep Dive daily streak grows.</p>
+     <div class="pp-avatar-grid" aria-label="Character selection">${choices()}</div><p class="pp-avatar-help">Only the Krill is available in anonymous rooms. Other characters require verified streaks (account sync is not available yet).</p>
     </div>
     <div class="pp-panel pp-play-panel"><div class="pp-panel-title">PLAY NOW <span>2–16 PLAYERS</span></div>
      <div class="pp-capacity-grid" role="group" aria-label="Preferred room size">${[[2,'1V1'],[3,'3S'],[6,'4–6'],[8,'8 PLAYERS']].map(([cap,label])=>`<button type="button" class="pp-capacity ${selectedCapacity===cap?'selected':''}" data-party="capacity" data-capacity="${cap}" aria-pressed="${selectedCapacity===cap}">${label}</button>`).join('')}</div>
@@ -122,8 +122,8 @@ async function quickPlay(){
 function onClick(e){
  const b=e.target.closest('[data-party]');if(!b)return;
  const a=b.dataset.party;
- if(a==='avatar'){const next=b.dataset.avatar,locked=AVATARS.find(x=>x[0]===next);if(locked&&locked[2]<=streak()){selectedAvatar=next;sessionStorage.setItem('sidequest:party-avatar',next);render()}}
- if(a==='capacity'){const n=Number(b.dataset.capacity);if([2,3,6,8].includes(n)){selectedCapacity=n;sessionStorage.setItem('sidequest:party-capacity',String(n));render()}}
+ if(a==='avatar'){const next=b.dataset.avatar,locked=AVATARS.find(x=>x[0]===next);if(locked&&locked[2]===0){rememberIdentity();selectedAvatar=next;sessionStorage.setItem('sidequest:party-avatar',next);render()}}
+ if(a==='capacity'){const n=Number(b.dataset.capacity);if([2,3,6,8].includes(n)){rememberIdentity();publicFlag=Boolean(document.getElementById('pp-public')?.checked);selectedCapacity=n;sessionStorage.setItem('sidequest:party-capacity',String(n));render()}}
  if(a==='quickplay')quickPlay();
  if(a==='create'||a==='createPublic'){rememberIdentity();publicFlag=a==='createPublic'||Boolean(document.getElementById('pp-public')?.checked);act({type:'create',name,publicRoom:publicFlag,maxMembers:selectedCapacity,avatar:selectedAvatar})}
  if(a==='join'){
@@ -141,6 +141,9 @@ function onClick(e){
  if(a==='dismiss'){err='';render()}
  if(a==='copy'){navigator.clipboard?.writeText(location.origin+'/games/deep-dive?party='+code).then(()=>{err='Invite link copied!';render()}).catch(()=>{err='Share this code: '+code;render()})}
 }
+function onChange(e){
+ if(e.target?.id==='pp-public'){publicFlag=Boolean(e.target.checked)}
+}
 function onSubmit(e){
  if(e.target.id==='pp-answer'){e.preventDefault();send('answer',{answer:document.getElementById('pp-answer-input')?.value||''})}
  if(e.target.id==='pp-chat'){e.preventDefault();const text=document.getElementById('pp-message')?.value||'';if(text.trim())send('chat',{text})}
@@ -148,7 +151,7 @@ function onSubmit(e){
 window.DeepDiveParty={
  preferred:()=>Boolean(code),
  mount({root:where}){
-  if(root!==where){root=where;if(!root.dataset.partyWired){root.dataset.partyWired='1';root.addEventListener('click',onClick);root.addEventListener('submit',onSubmit)}}
+  if(root!==where){root=where;if(!root.dataset.partyWired){root.dataset.partyWired='1';root.addEventListener('click',onClick);root.addEventListener('submit',onSubmit);root.addEventListener('change',onChange)}}
   render();poll();clearInterval(timer);timer=setInterval(()=>{clock();poll()},1500);
  },
  unmount(){clearInterval(timer);timer=null;root=null}
