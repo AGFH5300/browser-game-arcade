@@ -3,11 +3,11 @@ import {randomBytes} from 'node:crypto';
 export type PartyAvatar='krill'|'schooler'|'squid'|'angler'|'evil';
 export const PARTY_AVATARS=['krill','schooler','squid','angler','evil'] as const;
 export const validatePartyAvatar=(value:unknown):PartyAvatar=>typeof value==='string'&&PARTY_AVATARS.some(x=>x===value)?value as PartyAvatar:'krill';
-export type PartyMember={id:string;secret:string;name:string;avatar?:PartyAvatar;hearts:number;energy:number;score:number;ready:boolean;joined:number;lastMessage:number};
+export type PartyMember={id:string;secret:string;name:string;accountId?:string;avatar?:PartyAvatar;hearts:number;energy:number;score:number;ready:boolean;joined:number;lastMessage:number};
 export type PartyMessage={name:string;text:string;time:number};
 export type PartyEvent={message:string;time:number;kind:'turn'|'answer'|'system'|'timeout'|'winner'};
 export type PartyRoom={
- code:string;hostId:string;publicRoom:boolean;maxMembers?:number;minMembers?:number;phase:'lobby'|'playing'|'finished';
+ code:string;hostId:string;publicRoom:boolean;rated?:boolean;maxMembers?:number;minMembers?:number;phase:'lobby'|'playing'|'finished';
  members:PartyMember[];messages:PartyMessage[];events:PartyEvent[];
  questionIds:string[];questionIndex:number;turnId:string|null;turns:number;
  used:string[];deadline:number|null;winnerId:string|null;created:number;
@@ -71,20 +71,20 @@ export function makeCode():string{
  const b=randomBytes(6);
  return Array.from(b,v=>alphabet[v%alphabet.length]).join('');
 }
-export function newRoom(code:string,nickname:string,publicRoom:boolean,now:number,questionIds:string[],options:{avatar?:unknown;maxMembers?:number;minMembers?:number}={}):{room:PartyRoom;secret:string;id:string}{
+export function newRoom(code:string,nickname:string,publicRoom:boolean,now:number,questionIds:string[],options:{avatar?:unknown;maxMembers?:number;minMembers?:number;accountId?:string}={}):{room:PartyRoom;secret:string;id:string}{
  const secret=makeToken(),id=makeToken();
  const maxMembers=Number.isInteger(options.maxMembers)?Math.max(2,Math.min(16,options.maxMembers!)):16;
  const minMembers=Number.isInteger(options.minMembers)?Math.max(2,Math.min(maxMembers,options.minMembers!)):2;
- const host:PartyMember={id,secret,name:validNickname(nickname),avatar:validatePartyAvatar(options.avatar),hearts:3,energy:0,score:0,ready:true,joined:now,lastMessage:0};
+ const host:PartyMember={id,secret,name:validNickname(nickname),accountId:options.accountId,avatar:validatePartyAvatar(options.avatar),hearts:3,energy:0,score:0,ready:true,joined:now,lastMessage:0};
  return {secret,id,room:{code,hostId:id,publicRoom,maxMembers,minMembers,phase:'lobby',members:[host],messages:[],events:[],questionIds,questionIndex:0,turnId:null,turns:0,used:[],deadline:null,winnerId:null,created:now}};
 }
-export function joinRoom(room:PartyRoom,nickname:string,now:number,avatar?:unknown):{secret:string;id:string}{
+export function joinRoom(room:PartyRoom,nickname:string,now:number,avatar?:unknown,accountId?:string):{secret:string;id:string}{
  if(room.phase!=='lobby')throw Error('This room has already started.');
  if(room.members.length>=(room.maxMembers||PARTY_MAX_MEMBERS))throw Error('The room is full.');
  const name=validNickname(nickname);
  if(room.members.some(p=>p.name.toLowerCase()===name.toLowerCase()))throw Error('That nickname is already in this room.');
  const secret=makeToken(),id=makeToken();
- room.members.push({id,secret,name,avatar:validatePartyAvatar(avatar),hearts:3,energy:0,score:0,ready:false,joined:now,lastMessage:0});
+ room.members.push({id,secret,name,accountId,avatar:validatePartyAvatar(avatar),hearts:3,energy:0,score:0,ready:false,joined:now,lastMessage:0});
  message(room,'system',name+' joined the room',now);
  return {id,secret};
 }
