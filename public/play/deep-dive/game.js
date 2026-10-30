@@ -553,6 +553,7 @@
     profile.history=[r,...profile.history].slice(0,50);
     window.DeepDiveSfx?.event('surface');
     if(r.mode==='endless')profile.unlimitedGameId=Math.max(1,Number(profile.unlimitedGameId)||1,Number(r.unlimitedGameId||1)+1);
+    if(r.mode==='daily'&&r.source==='krillion-reveal')void window.DeepDiveSocial?.syncDaily?.(r);
     active=null;save();currentView=r.mode==='daily'?'daily':r.mode==='world'||r.mode==='starter'?'worlds':r.mode==='archive'?'archive':'endless';renderSummary(r);
   }
   function roundEnd(record){
@@ -857,6 +858,9 @@
   function render(){
     clearInterval(ticker);if(doneTick)clearInterval(doneTick);doneTick=null;syncHead();oldActiveCheck();
     if(currentView==='party'){window.DeepDiveParty?.mount({root});lastPhase='';return}else window.DeepDiveParty?.unmount();
+    if(currentView==='friends'||currentView==='account'){
+      window.DeepDiveSocial?.mount({root,view:currentView});lastPhase='';return;
+    }
     if(active&&((currentView==='daily'&&active.mode==='daily')||(currentView==='endless'&&active.mode==='endless')||(currentView==='worlds'&&(active.mode==='world'||active.mode==='starter'))||(currentView==='archive'&&active.mode==='archive'))){
       const animate=lastPhase!==''&&lastPhase!==active.phase;
       try{
