@@ -29,12 +29,44 @@
  };
  const get=(key,def='')=>{try{return localStorage.getItem(prefKey+key)||def}catch{return def}};
  const put=(key,value)=>{try{localStorage.setItem(prefKey+key,value)}catch{}};
- const preferences={contrast:get('contrast')==='1',lowPower:get('low-power')==='1',clearRejected:get('clear-rejected')==='1',answerCorrections:get('answer-corrections')!=='0',character:get('character','krillion')};
+ // Legacy builds wrote camelCase while reading kebab-case. Migrate those values before mounting.
+ const preferenceKeys={lowPower:'low-power',contrast:'contrast',clearRejected:'clear-rejected',answerCorrections:'answer-corrections'};
+ const saved=(camel,fallback)=>{const key=preferenceKeys[camel];const canonical=get(key,'');
+   return canonical!==''?canonical:get(camel,fallback);
+ };
+ const preferences={contrast:saved('contrast','0')==='1',lowPower:saved('lowPower','0')==='1',clearRejected:saved('clearRejected','0')==='1',answerCorrections:saved('answerCorrections','1')!=='0',character:get('character','krillion')};
  if(!characters.some(x=>x[0]===preferences.character))preferences.character='krillion';
+ const settingsFields=()=>'<strong>GAME SETTINGS</strong>'+
+      '<label><input type="checkbox" data-dd-setting="lowPower"> Low-power mode</label>'+
+      '<label><input type="checkbox" data-dd-setting="contrast"> Colorblind mode</label>'+
+      '<label><input type="checkbox" data-dd-setting="answerCorrections"> Answer corrections</label>'+
+      '<label><input type="checkbox" data-dd-setting="clearRejected"> Clear rejected entries</label>'+
+      '<label>Choose a dive buddy<select data-dd-character>'+
+      characters.map(x=>'<option value="'+x[0]+'">'+x[1]+'</option>').join('')+
+      '</select></label>';
+ const closeGlobalSettings=()=>{
+   const overlay=document.getElementById('dd-global-settings');
+   if(overlay){overlay.remove();document.querySelector('.dd-nav-toggle>summary')?.focus({preventScroll:true})}
+ };
+ function openSettings(){
+   const homeSettings=app.querySelector('.dd-reference-preferences>summary');
+   if(homeSettings){homeSettings.click();return}
+   if(document.getElementById('dd-global-settings')){closeGlobalSettings();return}
+   const overlay=document.createElement('div');
+   overlay.id='dd-global-settings';overlay.className='dd-global-settings';
+   overlay.setAttribute('role','presentation');
+   overlay.innerHTML='<div class="dd-global-settings-scrim" data-dd-close-settings></div>'+
+     '<section class="dd-global-settings-dialog" role="dialog" aria-modal="true" aria-label="Game settings">'+
+     '<div class="dd-global-settings-head"><b>KRILLION</b><button type="button" data-dd-close-settings aria-label="Close settings">×</button></div>'+
+     '<div class="dd-reference-settings-panel">'+settingsFields()+'</div></section>';
+   document.body.append(overlay);syncChecks();
+   overlay.querySelector('[data-dd-close-settings]')?.focus({preventScroll:true});
+ }
  window.DeepDiveReference={
   titleMarkup(){return [...'KRILLION'].map((letter,i)=>'<span style="animation-delay:'+(i*.18).toFixed(2)+'s">'+letter+'</span>').join('')},
   preferences,
-  get mascot(){return characters.find(x=>x[0]===preferences.character)||characters[0]}
+  get mascot(){return characters.find(x=>x[0]===preferences.character)||characters[0]},
+  openSettings
  };
  function apply(){
    document.documentElement.classList.toggle('dd-colorblind',preferences.contrast);
@@ -43,10 +75,10 @@
    app.style.setProperty('--dd-mascot-image',"url('./reference-assets/tiers/"+name+"')");
  }
  function syncChecks(){
-   app.querySelectorAll('[data-dd-setting]').forEach(el=>{
+   document.querySelectorAll('[data-dd-setting]').forEach(el=>{
      if(el.type==='checkbox')el.checked=Boolean(preferences[el.dataset.ddSetting]);
    });
-   const select=app.querySelector('[data-dd-character]');
+   const select=document.querySelector('[data-dd-character]');
    if(select){
      const streak=unlockedStreak();
      [...select.options].forEach(opt=>{
@@ -70,14 +102,7 @@
      tools.className='dd-reference-utility';
      tools.innerHTML='<button type="button" data-dd-sound title="Toggle sound" aria-label="Mute sound" aria-pressed="true">'+pixelIcon('sound')+'</button>'+
       '<details class="dd-reference-preferences"><summary title="Settings" aria-label="Settings">'+pixelIcon('settings')+'</summary>'+
-      '<div class="dd-reference-settings-panel"><strong>GAME SETTINGS</strong>'+
-      '<label><input type="checkbox" data-dd-setting="lowPower"> Low-power mode</label>'+
-      '<label><input type="checkbox" data-dd-setting="contrast"> Colorblind mode</label>'+
-      '<label><input type="checkbox" data-dd-setting="answerCorrections"> Answer corrections</label>'+
-      '<label><input type="checkbox" data-dd-setting="clearRejected"> Clear rejected entries</label>'+
-      '<label>Choose a dive buddy<select data-dd-character>'+
-      characters.map(x=>'<option value="'+x[0]+'">'+x[1]+'</option>').join('')+
-      '</select></label></div></details>'+
+      '<div class="dd-reference-settings-panel">'+settingsFields()+'</div></details>'+
       '<a class="dd-utility-merch" href="https://shop.krillion.io/" target="_blank" rel="noopener noreferrer" title="Merch" aria-label="Krillion merchandise">'+pixelIcon('merch')+'</a>';
      scene.append(tools);
    }
@@ -88,9 +113,9 @@
    syncChecks();
    window.DeepDiveScene?.refresh?.();
  }
- app.addEventListener('change',e=>{
+ document.addEventListener('change',e=>{
    const el=e.target.closest('[data-dd-setting], [data-dd-character]');if(!el)return;
-   if(el.dataset.ddSetting){preferences[el.dataset.ddSetting]=el.checked;put(el.dataset.ddSetting,el.checked?'1':'0')}
+   if(el.dataset.ddSetting){preferences[el.dataset.ddSetting]=el.checked;put(preferenceKeys[el.dataset.ddSetting]||el.dataset.ddSetting,el.checked?'1':'0')}
    if(el.dataset.ddCharacter!==undefined){preferences.character=el.value;put('character',el.value);window.DeepDiveSfx?.event('category')}
    apply();
  });
@@ -102,6 +127,8 @@
    const buddy=e.target.closest('.dd-game-fish[role=button]');
    if(buddy){buddy.classList.remove('dd-mascot-poked');void buddy.offsetWidth;buddy.classList.add('dd-mascot-poked');window.DeepDiveSfx?.event('blub');}
  });
+ document.addEventListener('click',e=>{if(e.target.closest('#dd-global-settings [data-dd-close-settings]'))closeGlobalSettings()});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('dd-global-settings')){e.preventDefault();closeGlobalSettings()}});
  app.addEventListener('keydown',e=>{
    if((e.key==='Enter'||e.key===' ')&&e.target.matches('.dd-game-fish[role=button]')){e.preventDefault();e.target.click()}
  });
