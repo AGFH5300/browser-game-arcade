@@ -541,6 +541,7 @@
           </div>`:''}
         </div>
         ${gameOverlays()}
+        <div class="dd-mobile-scenery" aria-hidden="true"><div class="dd-mobile-clouds"></div><div class="dd-mobile-coral"></div></div>
         <div class="dd-flash${feedback?' on':''}" aria-hidden="true"></div>
         ${arcadeHud()}
         <div class="dd-game-fish${mascotPose?' '+mascotPose:''}${feedback&&!tier?' sad':''}${tier&&tier.score===100?' gold':''}" title="a friend" aria-hidden="true"><span class="dd-blub">blub!</span></div>
@@ -805,6 +806,7 @@
           ${worldFacts()}
         </div>
         ${gameOverlays()}
+        <div class="dd-mobile-scenery" aria-hidden="true"><div class="dd-mobile-clouds"></div><div class="dd-mobile-coral"></div></div>
         <div class="dd-flash gold on" aria-hidden="true"></div>
         <div class="dd-hud"><div class="dd-hud-box"><span>DEPTH</span><strong class="dd-hud-depth crank">${format(finalM)}<small>m</small></strong></div><div class="dd-hud-progress"><div class="dd-hud-dots">${r.results.map(x=>`<i class="dd-hud-dot done" style="--dot:${x.tier!==null&&x.tier!==undefined?TIERS[x.tier].color:'#284c6b'}"></i>`).join('')}</div><small>DIVE COMPLETE</small></div><div class="dd-hud-box dd-hud-score"><span>SCORE</span><strong>${format(r.score)}</strong></div></div>
         <div class="dd-game-fish gold" title="a friend" aria-hidden="true"><span class="dd-blub">blub!</span></div>
