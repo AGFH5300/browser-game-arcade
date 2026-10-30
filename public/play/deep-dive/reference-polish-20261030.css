@@ -1,0 +1,180 @@
+/* Visual fidelity refinements from 30 Oct original/Sidequest comparisons.
+   Deliberately scoped: keep the fixed full-height dive stage untouched. */
+:root{--dd-polish-cyan:#4de3ff;--dd-polish-ink:#08172b}
+
+/* Original first-load state: 'descending…' over a moving dark-water scene. */
+.dd-boot-screen{
+ position:fixed;inset:0;z-index:1000;display:grid;place-items:center;
+ background:radial-gradient(ellipse at 50% 2%,#174b70 0%,#092743 40%,#030c1c 86%);
+ color:#e6f1fd;overflow:hidden;isolation:isolate;
+ transition:opacity .45s ease,visibility .45s ease
+}
+.dd-boot-screen::before{content:"";position:absolute;inset:-10%;opacity:.18;pointer-events:none;
+ background:repeating-linear-gradient(0deg,#77c8dc22 0 1px,transparent 1px 4px),
+ radial-gradient(ellipse at 45% 15%,#4bdcf452,transparent 60%);
+ animation:dd-boot-current 6s ease-in-out infinite alternate}
+.dd-boot-screen[data-complete=true]{opacity:0;visibility:hidden;pointer-events:none}
+.dd-boot-inner{position:relative;text-align:center;display:flex;flex-direction:column;align-items:center;gap:13px;padding:24px}
+.dd-boot-brand{font:clamp(52px,9vw,108px)/.9 "ReferenceVT323",monospace;letter-spacing:.055em;
+ color:#e8f1ff;text-shadow:-3px 3px #ff5d8f,3px -2px #4de3ff}
+.dd-boot-mascot{width:72px;height:72px;object-fit:contain;image-rendering:pixelated;
+ animation:ds-boot-bob 2.2s ease-in-out infinite}
+.dd-boot-message{font:24px/1 "ReferenceVT323",monospace;letter-spacing:.28em;color:#8edff2;
+ animation:ds-boot-pulse 1.7s steps(2,end) infinite}
+.dd-boot-track{position:relative;width:170px;height:3px;background:#143b56;margin-top:5px;overflow:hidden}
+.dd-boot-track::after{content:"";display:block;width:45%;height:100%;background:#4de3ff;animation:dd-boot-progress 1.35s ease-in-out infinite}
+@keyframes dd-boot-progress{from{transform:translateX(-100%)}to{transform:translateX(340%)}}
+@keyframes dd-boot-current{to{transform:translate(2%,1%)}}
+
+/* Source-like animated ocean, using the bundled original surface artwork.
+   The canvas already animates fish and bubbles; this adds visible water motion. */
+.deep-home[data-phase=intro] .dd-sky:not(.dd-game-sky){background:none!important;isolation:isolate}
+.deep-home[data-phase=intro] .dd-sky:not(.dd-game-sky)::after{
+ content:"";position:absolute;inset:-7px -2%;z-index:0;pointer-events:none;
+ background:url('./reference-art/sky.webp') center bottom/100% auto no-repeat;
+ animation:dd-sky-swell 9s ease-in-out infinite alternate;
+ will-change:transform
+}
+.deep-home[data-phase=intro] .dd-sky .dd-title-group{z-index:5}
+.deep-home[data-phase=intro] .dd-sea:not(.dd-game-sea){isolation:isolate;overflow:hidden}
+.deep-home[data-phase=intro] .dd-sea:not(.dd-game-sea)::after{
+ content:"";position:absolute;inset:0 -3%;z-index:1;pointer-events:none;opacity:.25;
+ background:radial-gradient(ellipse 24% 2.5% at 25% 0%,#b2edf4aa,transparent),
+ radial-gradient(ellipse 19% 1.9% at 70% .5%,#8ccbd86d,transparent),
+ repeating-linear-gradient(177deg,transparent 0 35px,#275c7022 37px,transparent 41px);
+ animation:dd-water-current 7s ease-in-out infinite alternate;
+}
+.deep-home[data-phase=intro] .dd-reference-sea-canvas{opacity:1!important;z-index:2}
+.deep-home[data-phase=intro] .dd-sea-center{z-index:4}
+@keyframes dd-sky-swell{0%{transform:translate3d(-.2%,0,0) scale(1.006)}100%{transform:translate3d(.2%,3px,0) scale(1.012)}}
+@keyframes dd-water-current{0%{transform:translate3d(-1.7%,1px,0);opacity:.17}100%{transform:translate3d(1.7%,-2px,0);opacity:.31}}
+/* Deliberate staggered buoyancy/chromatic glitch, not a unified bouncing title. */
+.deep-home[data-phase=intro] .dd-logo{animation:ds-title-flicker 7.4s step-end infinite!important}
+.deep-home[data-phase=intro] .dd-logo span{
+ display:inline-block!important;
+ animation:dd-letter-float 4.3s ease-in-out infinite,ds-title-flicker 7.4s step-end infinite!important
+}
+.deep-home[data-phase=intro] .dd-logo span:nth-child(2n){animation-duration:4.8s,7.4s!important}
+.deep-home[data-phase=intro] .dd-logo span:nth-child(3n){animation-duration:3.9s,7.4s!important}
+@keyframes dd-letter-float{0%,100%{transform:translateY(0)}35%{transform:translateY(-6px)}68%{transform:translateY(3px)}}
+
+/* Functional pixel-art sound, settings, and merchandise controls. */
+.deep-home .dd-reference-utility{gap:5px!important;align-items:stretch!important}
+.deep-home .dd-reference-utility>button,.deep-home .dd-reference-preferences>summary,
+.deep-home .dd-reference-utility>.dd-utility-merch{
+ box-sizing:border-box;display:grid;place-items:center;list-style:none;
+ width:43px;height:38px;padding:4px!important;cursor:pointer;
+ border:3px solid #0a1a30!important;background:#203a4eeb!important;
+ box-shadow:inset 0 0 0 1px #688da2!important;color:#a8c5da!important;
+ text-decoration:none;border-radius:0
+}
+.deep-home .dd-reference-utility svg{display:block;width:26px;height:26px;fill:currentColor;image-rendering:pixelated}
+.deep-home .dd-reference-utility>button:hover,.deep-home .dd-reference-preferences>summary:hover,
+.deep-home .dd-reference-utility>.dd-utility-merch:hover{color:#4de3ff!important;background:#173a55!important}
+.deep-home .dd-reference-preferences{height:38px}
+.deep-home .dd-reference-utility .dd-reference-settings-panel{right:50px;top:0}
+
+/* Source's restrained side-panel proportions on Party rather than giant inputs. */
+.pp-view .pp-arena{max-width:1690px;padding:66px clamp(25px,4vw,72px) 70px}
+.pp-view .pp-scene-header{margin:1px auto 19px;max-width:700px}
+.pp-view .pp-scene-brand{font-size:clamp(54px,5.2vw,79px)!important;letter-spacing:.065em}
+.pp-view .pp-scene-name{font-size:23px;letter-spacing:.34em;margin:6px 0 3px}
+.pp-view .pp-scene-tagline{font-size:17px;letter-spacing:.12em}
+.pp-view .pp-scene-desc{font-size:19px;line-height:1.2;max-width:620px;margin:9px auto 0}
+.pp-view .pp-ocean-foyer{max-width:1480px;grid-template-columns:minmax(290px,410px) minmax(130px,1fr) minmax(290px,410px);
+ gap:clamp(20px,3vw,55px);margin-top:22px}
+.pp-view .pp-panel{padding:13px 16px;border-color:#173453;background:#071327e9}
+.pp-view .pp-panel-title{font-size:16px;letter-spacing:.17em;margin-bottom:11px;padding-bottom:9px}
+.pp-view .pp-panel-label{font-size:12px;margin-bottom:6px}
+.pp-view .pp-identity-panel .pp-wide{font-size:21px;height:47px;padding:7px 10px}
+.pp-view .pp-avatar-option{min-height:75px;padding:5px 1px;gap:2px}
+.pp-view .pp-avatar-option img{width:32px;height:34px}
+.pp-view .pp-avatar-option span{font-size:11px}
+.pp-view .pp-avatar-option small{font-size:10px}
+.pp-view .pp-avatar-help{font-size:12px;margin-top:7px}
+.pp-view .pp-capacity-grid{gap:7px;margin-bottom:12px}
+.pp-view .pp-capacity{font-size:16px;padding:9px 0;min-height:43px}
+.pp-view .pp-game-button{font-size:18px!important;min-height:48px;padding:6px!important}
+.pp-view .pp-caption{font-size:12px;margin-top:9px}
+.pp-view .pp-foyer-center{min-height:330px}
+.pp-view .pp-hero-fish{width:min(85%,190px);max-height:175px}
+.pp-view .pp-fish-shadow{width:86px;height:18px}
+.pp-view .pp-public-panel{min-height:300px;max-height:605px}
+.pp-view .pp-sound-toggle{font-size:14px;padding:5px 7px}
+.pp-view .pp-join-form input{font-size:18px}
+.pp-view .pp-join-form .pp-game-button{min-width:106px;font-size:16px!important}
+/* The original reef is textured throughout; retain a stable image but gently
+   move fine particles above it, including when public room list is empty. */
+.pp-view{background-size:cover;background-position:center top}
+.pp-view::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+ background:radial-gradient(circle at 35% 40%,#afedff6b 0 1px,transparent 2px),
+ radial-gradient(circle at 70% 65%,#91deff77 0 1px,transparent 2px);
+ background-size:110px 130px,160px 170px;opacity:.25;
+ animation:dd-reef-drift 11s linear infinite}
+.pp-view .pp-arena{z-index:1}
+@keyframes dd-reef-drift{to{background-position:0 -130px,0 -170px}}
+
+/* Archive: one underwater visual system, not an unstyled disconnected list. */
+.dd-archive.page{
+ position:relative;isolation:isolate;min-height:100svh;
+ padding:0 0 75px!important;
+ background:linear-gradient(180deg,#70b4d2 0,#0d527a 255px,#08223e 500px,#030b1c 1100px,#030b1c 100%)!important;
+ color:#eaf5ff;overflow:hidden
+}
+.dd-archive.page::before{content:"";position:absolute;inset:0 0 auto;height:390px;z-index:-1;
+ background:url('./reference-art/sky.webp') center bottom/cover no-repeat;opacity:.48;
+ animation:dd-sky-swell 10s ease-in-out infinite alternate}
+.dd-archive.page::after{content:"";position:absolute;inset:250px 0 0;z-index:-1;
+ background:url('./reference-art/top.webp') center top/100% auto no-repeat;opacity:.2;pointer-events:none}
+.dd-archive-hero{text-align:center;padding:97px 18px 42px;position:relative}
+.dd-archive-brand{font:clamp(52px,8vw,94px)/.95 "ReferenceVT323",monospace;
+ letter-spacing:.07em;margin:0;color:#e8f1ff;text-shadow:-3px 3px #ff5d8f,3px -2px #4de3ff}
+.dd-archive-eyebrow{font:clamp(18px,2.8vw,28px) "ReferenceVT323",monospace;letter-spacing:.33em;color:#4de3ff;margin:16px 0 8px}
+.dd-archive-intro{font:18px/1.25 "ReferenceVT323",monospace;color:#b2d5e7;letter-spacing:.04em;max-width:690px;margin:8px auto}
+.dd-archive-content{position:relative;width:min(1040px,calc(100% - 36px));margin:auto;display:grid;gap:22px}
+.dd-archive-month{padding:18px 22px;background:#07182edd;border:2px solid #28577b;
+ box-shadow:4px 5px 0 #030917}
+.dd-archive-month h2{font:25px "ReferenceVT323",monospace;letter-spacing:.1em;color:#d8efff;
+ margin:0 0 12px;padding-bottom:10px;border-bottom:1px dashed #41617b}
+.dd-archive-month h2 small{font-size:15px;color:#7fa4be;letter-spacing:.06em}
+.dd-archive-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(126px,1fr));gap:9px}
+.dd-archive-grid .dd-archive-date{min-height:80px;padding:10px 8px!important;border:2px solid #244e6f!important;
+ background:#0c213a!important;color:#dcefff!important;text-align:left;box-shadow:2px 3px 0 #020917}
+.dd-archive-date strong{font:23px "ReferenceVT323",monospace;color:#66e5f6;letter-spacing:.06em}
+.dd-archive-date span,.dd-archive-date small{display:block;font:14px/1.1 "ReferenceVT323",monospace;letter-spacing:.035em;color:#b4cbdc}
+.dd-archive-date small{font-size:12px;color:#779cb5;margin-top:3px}
+.dd-archive-grid .dd-archive-date:hover{border-color:#4de3ff!important;background:#123756!important;transform:translateY(-1px)}
+.dd-archive-return{margin:0 auto 10px;display:block;padding:9px 15px;font:18px "ReferenceVT323",monospace;
+ color:#e9faff;background:#0b1b32;border:2px solid #4de3ff;cursor:pointer}
+@media(max-width:850px){
+ .pp-view .pp-arena{padding:64px 15px 45px}
+ .pp-view .pp-ocean-foyer{grid-template-columns:1fr minmax(0,1fr);gap:16px}
+ .pp-view .pp-foyer-center{grid-column:2;grid-row:1;min-height:240px}
+ .pp-view .pp-public-panel{grid-column:1/-1;min-height:200px}
+ .pp-view .pp-scene-brand{font-size:clamp(48px,8vw,71px)!important}
+}
+@media(max-width:650px){
+ .deep-home .dd-reference-utility{gap:3px!important}
+ .deep-home .dd-reference-utility>button,.deep-home .dd-reference-preferences>summary,
+ .deep-home .dd-reference-utility>.dd-utility-merch{width:32px;height:31px;padding:4px!important;border-width:2px!important}
+ .deep-home .dd-reference-utility svg{width:20px;height:20px}
+ .deep-home .dd-reference-preferences{height:31px}
+ .pp-view .pp-arena{padding:76px 13px 42px}
+ .pp-view .pp-ocean-foyer{grid-template-columns:1fr}
+ .pp-view .pp-foyer-center{grid-column:1;grid-row:auto;min-height:180px}
+ .pp-view .pp-hero-fish{width:140px}
+ .pp-view .pp-public-panel{grid-column:1}
+ .pp-view .pp-scene-brand{font-size:clamp(44px,10vw,66px)!important}
+ .pp-view .pp-scene-desc{font-size:17px}
+ .dd-archive-hero{padding-top:85px}
+ .dd-archive-month{padding:13px}
+ .dd-archive-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(prefers-reduced-motion:reduce){
+ .dd-boot-screen::before,.dd-boot-mascot,.dd-boot-message,.dd-boot-track::after,
+ .deep-home[data-phase=intro] .dd-sky:not(.dd-game-sky)::after,
+ .deep-home[data-phase=intro] .dd-sea:not(.dd-game-sea)::after,
+ .deep-home[data-phase=intro] .dd-logo,.deep-home[data-phase=intro] .dd-logo span,
+ .pp-view::after,.dd-archive.page::before{animation:none!important}
+ .dd-boot-screen{transition:none!important}
+}
