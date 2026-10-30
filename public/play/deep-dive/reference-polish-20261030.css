@@ -97,7 +97,7 @@
 .pp-view .pp-game-button{font-size:18px!important;min-height:48px;padding:6px!important}
 .pp-view .pp-caption{font-size:12px;margin-top:9px}
 .pp-view .pp-foyer-center{min-height:330px}
-.pp-view .pp-hero-fish{width:min(85%,190px);max-height:175px}
+.pp-view .pp-hero-fish{width:min(75%,145px);max-height:142px}
 .pp-view .pp-fish-shadow{width:86px;height:18px}
 .pp-view .pp-public-panel{min-height:300px;max-height:605px}
 .pp-view .pp-sound-toggle{font-size:14px;padding:5px 7px}
@@ -105,7 +105,7 @@
 .pp-view .pp-join-form .pp-game-button{min-width:106px;font-size:16px!important}
 /* The original reef is textured throughout; retain a stable image but gently
    move fine particles above it, including when public room list is empty. */
-.pp-view{background-size:cover;background-position:center top}
+.pp-view{background:linear-gradient(180deg,#04112408,#030a192d),url('./reference-assets/gen/party/reef-d-clean.png') center top/cover no-repeat!important}
 .pp-view::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
  background:radial-gradient(circle at 35% 40%,#afedff6b 0 1px,transparent 2px),
  radial-gradient(circle at 70% 65%,#91deff77 0 1px,transparent 2px);
@@ -159,6 +159,7 @@
  .deep-home .dd-reference-utility>.dd-utility-merch{width:32px;height:31px;padding:4px!important;border-width:2px!important}
  .deep-home .dd-reference-utility svg{width:20px;height:20px}
  .deep-home .dd-reference-preferences{height:31px}
+ .pp-view{background:linear-gradient(180deg,#04112408,#030a192d),url('./reference-assets/gen/party/reef-m-clean.png') center top/cover no-repeat!important}
  .pp-view .pp-arena{padding:76px 13px 42px}
  .pp-view .pp-ocean-foyer{grid-template-columns:1fr}
  .pp-view .pp-foyer-center{grid-column:1;grid-row:auto;min-height:180px}
