@@ -7,7 +7,7 @@
  const query=new URLSearchParams(location.search);
  try{if(!query.get('friend')&&parent!==window)query.set('friend',new URLSearchParams(parent.location.search).get('friend')||'')}catch{}
  let profile=null,friends=[],standings=null,rankings=[],view='friends',loginMode='login',loading=false,error='',message='',initialFriend=String(query.get('friend')||'').slice(0,128),wired=false;
- const state={get profile(){return profile}};
+ // Profile getters stay live after login, not a snapshot taken during script evaluation.
  const request=async(action,body=null)=>{
   const url=API+(body?'':'?action='+encodeURIComponent(action));
   const response=await fetch(url,{method:body?'POST':'GET',credentials:'same-origin',cache:'no-store',headers:body?{'Content-Type':'application/json'}:undefined,body:body?JSON.stringify({action,...body}):undefined});
@@ -96,6 +96,6 @@
   view=nextView==='account'?'account':'friends';error='';message='';
   paint();void refresh();
  };
- window.DeepDiveSocial={...state,mount,refresh,syncDaily};
+ window.DeepDiveSocial={get profile(){return profile},mount,refresh,syncDaily};
  void refresh();
 })();
