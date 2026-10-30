@@ -222,3 +222,11 @@ body:has(.ds-social-page) .header-stats{display:none!important}
  /* The first surface round has no depth-lore captions in the original. */
  .dd-game-screen[data-world="ocean"][data-zone="surface"] .dd-amb{display:none!important}
 }
+
+/* Original active dive HUD displays only Sound at upper right. Settings
+   and merchandise return on landing/results; preserve keyboard access
+   to the remaining audio toggle. */
+.dd-game-screen:not(.dd-done-screen) .dd-reference-utility .dd-reference-preferences,
+.dd-game-screen:not(.dd-done-screen) .dd-reference-utility .dd-utility-merch{
+ display:none!important;
+}
