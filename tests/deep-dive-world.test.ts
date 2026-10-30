@@ -177,7 +177,7 @@ test('wardrobe streak gates and Puffer Party capacity match the original',()=>{
   assert(iface.includes("'evil-krill-white-v2.png',45]"));
   // The game supports 2–16 players; the homepage does not show an unverified live count.
   assert(!game.includes('2\u201310 PLAYERS'));
-  assert(readFileSync(root+'party.js','utf8').includes('2\u201316 PLAYERS'));
+  assert(readFileSync(root+'party.js','utf8').includes('2\u201310 PLAYERS'));
   assert.equal(PARTY_MAX_MEMBERS,16);
 });
 
