@@ -27,19 +27,20 @@ test('all imported answers preserve six publisher tiers and exclude candidate so
    assert(answer.value.length>=2);
    assert(Number.isInteger(answer.tier)&&answer.tier>=0&&answer.tier<=5);
    assert.equal(answer.source,'krillion-public-publisher-reveal');
-   const key=answer.value.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'');
+   const key=answer.value.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').replace(/\s+/g,' ').trim();
    assert(!seen.has(key),item.id+' '+answer.value);
    seen.add(key);
   }
   n+=data.answers.length;
  }
- assert.equal(n,48095);
+ assert.equal(n,48103);
 });
 test('conflicting original scores are excluded from playable import',()=>{
  const conflicts=JSON.parse(fs.readFileSync(path.join(root,'source-score-conflicts.json'),'utf8'));
- assert.equal(conflicts.length,3);
+ assert.equal(conflicts.length,2);
  const disputed=JSON.parse(fs.readFileSync(path.join(root,'KR0745.json'),'utf8'));
- assert(!disputed.answers.some((a:{value:string})=>a.value==='Dum-E'));
+ assert(disputed.answers.some((a:{value:string;tier:number})=>a.value==='Dum-E'&&a.tier===3));
+ assert(disputed.answers.some((a:{value:string;tier:number})=>a.value==='Dume'&&a.tier===4));
 });
 test('game only activates the publisher source in Unlimited 3-4 and retains original independent packs',()=>{
  const source=fs.readFileSync('public/play/deep-dive/game.js','utf8');

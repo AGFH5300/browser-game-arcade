@@ -4,8 +4,8 @@ This staging branch extends the independently developed Sidequest Deep Dive repl
 
 ## Provenance and scope
 - The local recovered master contains 952 questions and 556,845 scored entries including historical scores, free-mode samples and provisional additions.
-- **Only** `status: "publisher"` records are eligible for this branch's game-facing import. There are 14 qualifying questions and 48,095 individually imported answers.
-- Two one-character entries were withheld, as was `Dum-E` because its source assigns conflicting score tiers. The disputed records are retained in `source-score-conflicts.json`.
+- **Only** `status: "publisher"` records are eligible for this branch's game-facing import. There are 14 qualifying questions and 48,103 individually imported answers.
+- Two one-character source entries were withheld. Distinct `Dume` (85) and `Dum-E` (60) entries are retained rather than conflated by over-aggressive punctuation normalization. The withheld records are listed in `source-score-conflicts.json`.
 - The publisher import was generated from the 31 October local master using `scripts/krillion-import-publisher.mjs`. No provider API keys or private database connection strings are included.
 - Source: original publicly revealed Krillion answer lists, observed and recovered under the user's authorized research; `https://krillion.io/`. Original publisher score tiers are preserved.
 - The import does **not** claim the entire bank is fully source-verified. Historical/community records and all AI/manual/corpus/GBIF estimated scoring are excluded from game-facing question packs here.

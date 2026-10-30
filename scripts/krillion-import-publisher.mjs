@@ -13,7 +13,7 @@ if(!input||!fs.existsSync(input))throw Error('Provide existing recovered 952-que
 const records=JSON.parse(fs.readFileSync(input,'utf8'));
 if(!Array.isArray(records)||records.length!==952)throw Error('Unexpected question bank size');
 const TIERS={10:0,15:1,30:2,60:3,85:4,100:5};
-const norm=s=>s.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'');
+const norm=s=>s.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').replace(/\s+/g,' ').trim();
 const manifest={version:1,source:'krillion-public-publisher-reveal',importPolicy:'publisher_status_only',
   provisionalAnswersIncluded:false,questions:[]};
 const conflicts=[];

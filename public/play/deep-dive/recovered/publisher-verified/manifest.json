@@ -23,7 +23,7 @@
     {
       "id": "KR0737",
       "question": "Name a strategy board game",
-      "answerCount": 8044,
+      "answerCount": 8048,
       "file": "KR0737.json",
       "status": "publisher",
       "source": "krillion-public-publisher-reveal"
@@ -87,7 +87,7 @@
     {
       "id": "KR0745",
       "question": "Name a non-human character from Star Wars, the MCU, or Lord of the Rings",
-      "answerCount": 16872,
+      "answerCount": 16876,
       "file": "KR0745.json",
       "status": "publisher",
       "source": "krillion-public-publisher-reveal"
