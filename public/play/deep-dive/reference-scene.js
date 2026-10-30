@@ -83,11 +83,28 @@
      const y=((p.y*h+time*(4+(p.size*3))+depth*.08)%(h+15));
      ctx.fillRect(Math.round(x),Math.round(y),p.size,p.size);
    }
-   fish.forEach(([fx,fy,size,speed],i)=>{
-     const drift=(time*speed*28)%w;
-     const x=((fx*w+drift+w)%w),y=fy*h+Math.sin(time*.95+i)*3;
-     drawFish(Math.round(x),Math.round(y),size,i%3===0);
-   });
+   if(game){
+     // Source client's nine small fish migrate around the 85m marker;
+     // positions follow the moving depth column rather than a fixed screen row.
+     const yWorld=(game.querySelector('.dd-world')?.getBoundingClientRect().top??208)-rect.top;
+     for(let i=0;i<9;i++){
+       const x=((26*time+46*i+i*i*7)%(w+360)+(w+360))%(w+360)-180;
+       const y=yWorld+170+12*Math.sin(2*time+i)+(i%3)*14;
+       if(y>0&&y<h)drawFish(x,y,16,false);
+     }
+     // Secondary silhouettes at deeper levels retain parallax and bidirectional motion.
+     fish.slice(9).forEach(([fx,fy,size,speed],i)=>{
+       const drift=(time*speed*390)%w;
+       const x=((fx*w+drift+w)%w),y=fy*h+Math.sin(time*.95+i)*3;
+       drawFish(Math.round(x),Math.round(y),size,i%3===0);
+     });
+   }else{
+     fish.forEach(([fx,fy,size,speed],i)=>{
+       const drift=(time*speed*390)%w;
+       const x=((fx*w+drift+w)%w),y=fy*h+Math.sin(time*.95+i)*3;
+       drawFish(Math.round(x),Math.round(y),size,i%3===0);
+     });
+   }
    ctx.strokeStyle='rgba(84,172,205,.22)';
    bubbles.forEach((p,i)=>{
      const y=((p.y*h-time*p.speed*18+h*4)%(h+12));
