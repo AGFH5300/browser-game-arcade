@@ -23,7 +23,8 @@ test('result actions follow bearing and precede expandable recovered catch answe
  assert(bearing>=0&&actions>bearing&&catchStart>actions,'actions sit between bearing and catch');
  assert.match(game,/const catchRow=\(res,i\)=>\{/);
  assert.match(game,/<details class="dd-catch-row" data-question-id="\$\{safe\(res\.id\)\}"><summary>/);
- assert.match(game,/RECOVERED ANSWERS · \$\{recovered\.length\}/);
+ assert.match(game,/RECOVERED \+ INDEPENDENT COMMON ANSWERS/);
+ assert.match(game,/RECOVERED ANSWERS/);
  assert.match(game,/\[\.\.\.q\.answers\]\.sort\(\(a,b\)=>b\.tier-a\.tier\|\|a\.value\.localeCompare\(b\.value\)\)/);
  assert.match(game,/const icon=t=>t\.id==='plankton'\?'plankton\.png':t\.icon/);
  assert.match(game,/class="dd-catch-search" type="search"/);
