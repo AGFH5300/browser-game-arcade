@@ -7,12 +7,12 @@ const manifest=JSON.parse(fs.readFileSync(path.join(root,'manifest.json'),'utf8'
 function normalize(s:string){
  return s.normalize('NFKD').toLowerCase().replace(/[\u0300-\u036f]/g,'')
    .replace(/&/g,' and ').replace(/\+/g,' plus ').replace(/#/g,' sharp ')
-   .replace(/[^a-z0-9]+/g,' ').replace(/\s+/g,' ').trim().replace(/^the /,'');
+   .replace(/[^a-z0-9]+/g,' ').replace(/\s+/g,' ').trim();
 }
 test('independent bank has exactly 952 explicitly non-publisher practice questions',()=>{
  assert.equal(manifest.questions.length,952);
  assert.equal(manifest.questionCount,952);
- assert.equal(manifest.answerCount,560461);
+ assert.equal(manifest.answerCount,560469);
  assert.equal(manifest.source,'sidequest-independently-recovered-practice');
  assert.equal(manifest.originalPublisherAcceptanceVerified,false);
  assert.equal(manifest.allScoresEmpiricallyCalibrated,false);
@@ -66,4 +66,15 @@ test('mixed provenance is visibly disclosed and independent scores flagged as es
  assert.match(game,/allScoresEmpiricallyCalibrated!==false/);
  assert.match(game,/sidequest-recovered-estimated/);
  assert.match(game,/INDEPENDENT PRACTICE · ORIGINAL ACCEPTANCE \/ RARITY NOT VERIFIED/);
+});
+test('strict matching keeps distinct films and character names with different scores',()=>{
+ const examples:[string,string,string][]=[['KR0934','Predator','The Predator'],['KR0837','Suicide Squad','The Suicide Squad'],['KR0745','Dume','Dum-E']];
+ for(const [id,left,right] of examples){
+  const p=JSON.parse(fs.readFileSync(path.join(root,id+'.json'),'utf8'));
+  const a=p.answers.find((r:[string,number,string])=>r[0]===left);
+  const b=p.answers.find((r:[string,number,string])=>r[0]===right);
+  assert(a&&b,id+' both distinct entries present');
+  assert.notEqual(a[1],b[1],id+' independent stored scores remain distinct');
+  assert.notEqual(normalize(left),normalize(right),id+' strict normalized names differ');
+ }
 });

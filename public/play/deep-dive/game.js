@@ -52,6 +52,9 @@
   const DEFAULT={version:1,pearls:0,streak:0,lastDaily:'',daily:{},worldRecords:{},endlessBest:0,unlimitedGameId:1,history:[],runs:0,ratings:{},tourSeen:0};
   const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const norm=s=>String(s||'').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/&/g,' and ').replace(/\+/g,' plus ').replace(/#/g,' sharp ').replace(/[^a-z0-9]+/g,' ').replace(/\s+/g,' ').trim().replace(/^the /,'');
+  // Unlike permissive historical matching, strict question-scoped lookup keeps
+  // genuinely different titles such as "Predator" and "The Predator" distinct.
+  const strictNorm=s=>String(s||'').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/&/g,' and ').replace(/\+/g,' plus ').replace(/#/g,' sharp ').replace(/[^a-z0-9]+/g,' ').replace(/\s+/g,' ').trim();
   const utc=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
   const rating=score=>score>=450?'One in a Krillion':score>=351?'Deep cut':score>=251?'Rare':score>=151?'Schooler':'Plankton';
   const format=(n)=>Number(n||0).toLocaleString('en-US');
@@ -447,7 +450,7 @@
         pack.allScoresEmpiricallyCalibrated!==false||
         !Array.isArray(pack.answers)||pack.answers.length!==item.answerCount)
         throw Error('Independent question schema invalid: '+item.id);
-      const answers=[],answerIndex=new Map();
+      const answers=[],answerIndex=new Map(),strictAnswerIndex=new Map();
       for(const record of pack.answers){
         if(!Array.isArray(record)||record.length!==3||
           typeof record[0]!=='string'||!record[0]||
@@ -455,12 +458,15 @@
           typeof record[2]!=='string')throw Error('Invalid independent candidate');
         const entry={value:record[0],tier:record[1],aliases:[],
           source:'sidequest-recovered-estimated',provenance:record[2]};
-        const key=norm(entry.value);
-        if(!key||answerIndex.has(key))throw Error('Ambiguous independent answer');
-        answerIndex.set(key,entry);answers.push(entry);
+        const key=norm(entry.value),strictKey=strictNorm(entry.value);
+        if(!key||!strictKey||strictAnswerIndex.has(strictKey))
+          throw Error('Duplicate independent answer');
+        strictAnswerIndex.set(strictKey,entry);
+        if(!answerIndex.has(key))answerIndex.set(key,entry);
+        answers.push(entry);
       }
       if(answers.length<1)throw Error('Empty independent question '+item.id);
-      return {id:item.id,prompt:pack.prompt,theme:'Independent',answers,answerIndex};
+      return {id:item.id,prompt:pack.prompt,theme:'Independent',answers,answerIndex,strictAnswerIndex};
     }));
     for(const q of loaded)byId.set(q.id,q);
     return loaded.map(q=>q.id);
@@ -699,7 +705,8 @@
     if(!answer)return;
     window.DeepDiveSfx?.event('submit_soft');
     const key=norm(answer),q=currentQ();
-    const found=q.answerIndex?.get(key)||findAnswer(q,key);
+    const found=q.strictAnswerIndex?.get(strictNorm(answer))||
+      q.answerIndex?.get(key)||findAnswer(q,key);
     if(!found){
       rejectMsg='\u201c'+answer+'\u201d: no echo. try again';
       const line=document.getElementById('dd-reject-line');

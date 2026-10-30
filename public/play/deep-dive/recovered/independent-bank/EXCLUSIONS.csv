@@ -1,13 +1,5 @@
 question_id,answer,reason
-KR0165,Three Little Pigs,same normalized answer and score as another entry
-KR0764,The Flying Dutchman,same normalized answer and score as another entry
-KR0837,The Suicide Squad,conflicting score across equivalent normalized entries
-KR0837,Suicide Squad,conflicting score across equivalent normalized entries
-KR0886,Black Eyed Peas,same normalized answer and score as another entry
 KR0905,Austin & Ally,conflicting score across equivalent normalized entries
 KR0905,Austin and Ally,conflicting score across equivalent normalized entries
 KR0905,The Suite Life of Zack & Cody,conflicting score across equivalent normalized entries
 KR0905,The Suite Life of Zack and Cody,conflicting score across equivalent normalized entries
-KR0934,Predator,conflicting score across equivalent normalized entries
-KR0934,The Predator,conflicting score across equivalent normalized entries
-KR0934,The Tall Man,same normalized answer and score as another entry
