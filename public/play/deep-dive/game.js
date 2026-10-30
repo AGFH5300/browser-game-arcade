@@ -171,7 +171,7 @@
      Source first-round ruler crosses the surface at y≈208 and advances with
      camera descent; these markings are informative only, not interactive. */
   function oceanRuler(depth=0,showCurrent=false){
-    const ticks=Array.from({length:55},(_,i)=>{
+    const ticks=Array.from({length:75},(_,i)=>{
       const depth=i*100;
       return `<span class="dd-ruler-major" style="top:${depth*2}px"><span>${depth===0?'0m':'-'+depth+'m'}</span></span>`;
     }).join('');
