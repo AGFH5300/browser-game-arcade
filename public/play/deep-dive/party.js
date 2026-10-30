@@ -32,14 +32,14 @@ function chat(){
 }
 function home(){
  return `<section class="pp-arena">
-  ${heading('Krillion’s multiplayer category game. Name a valid answer and pass the puffer before it pops. Play with friends or join a public room. Last one floating wins.')}
+  ${heading('Krillion’s multiplayer category game. Name an answer and pass the puffer before it pops. Play with friends or join a public room. Last one floating wins.')}
   <div class="pp-ocean-foyer">
    <div class="pp-foyer-left">
     <div class="pp-panel pp-identity-panel"><div class="pp-panel-title">WHO'S PLAYING <details><summary>HOW TO PLAY</summary><p>Each player starts with three hearts. Name an unused correct answer within 18 seconds to pass the puffer. Lose a heart if you pass or run out of time. Earn a bonus heart every 120 rarity points, up to five. Last one afloat wins.</p></details></div>
-     <label for="pp-name" class="pp-panel-label">YOUR NAME</label><input id="pp-name" class="answer-field pp-wide" autocomplete="nickname" maxlength="24" placeholder="what the reef calls you" value="${esc(name)}">
+     <label for="pp-name" class="pp-panel-label">YOUR NAME</label><input id="pp-name" class="answer-field pp-wide" autocomplete="nickname" maxlength="24" placeholder="what the ring calls you" value="${name==='Explorer'?'':esc(name)}">
      <div class="pp-avatar-grid" aria-label="Character selection">${choices()}</div><p class="pp-avatar-help">Characters unlock from your verified account daily streak. Sign in through MY KRILLION to use earned characters.</p>
     </div>
-    <div class="pp-panel pp-play-panel"><div class="pp-panel-title">PLAY NOW <span>2–10 PLAYERS</span></div>
+    <div class="pp-panel pp-play-panel"><div class="pp-panel-title">PLAY NOW <span>RATING ${Number(window.DeepDiveSocial?.profile?.rating)||1200}</span></div>
      <div class="pp-capacity-grid" role="group" aria-label="Preferred room size">${[[2,'1V1'],[3,'3S'],[6,'4–6'],[10,'8–10']].map(([cap,label])=>`<button type="button" class="pp-capacity ${selectedCapacity===cap?'selected':''}" data-party="capacity" data-capacity="${cap}" aria-pressed="${selectedCapacity===cap}">${label}</button>`).join('')}</div>
      <div class="pp-play-buttons"><button type="button" class="pp-game-button" data-party="${ratedQueue?'cancelRated':'rated'}">${ratedQueue?'◀ CANCEL SEARCH':'▶ RATED ◀'}</button><button type="button" class="pp-game-button" data-party="quickplay">QUICK PLAY</button></div>
      <p class="pp-caption">${ratedQueue?'SEARCHING NEAR YOUR RATING…':window.DeepDiveSocial?.profile?'RATED 1V1 · ELO '+window.DeepDiveSocial.profile.rating+' · QUICK PLAY IS UNRATED':'SIGN IN FOR RATED MATCHMAKING · QUICK PLAY IS UNRATED'}</p>

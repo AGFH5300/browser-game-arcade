@@ -32,7 +32,9 @@
  const chipSpawnY = (prevM) => roundBase(prevM) + CHIP_SPAWN_OFFSET;
  const missBannerY = (prevM) => roundBase(prevM) + MISS_OFFSET;
  const anchorsFor = (stageH) => ({
-   answering: stageH * 0.23,
+   // Mobile public canvas anchors the first surface wave near y=177/844 (21%),
+   // while the desktop original anchors it near y=207/900 (23%).
+   answering: stageH * (typeof innerWidth==='number'&&innerWidth<=650?0.21:0.23),
    feedback: stageH * 0.378,
    miss: stageH * 0.29,
    done: stageH * 0.51

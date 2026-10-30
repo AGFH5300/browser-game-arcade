@@ -1,0 +1,278 @@
+/* Visual corrections measured against the publicly rendered Krillion at 1440×900
+   and 390×844, 31 October 2026. Keep gameplay and Party state unaffected. */
+@media(max-width:650px){
+ /* The previous 45svh sky left 99px of the original sky out, and the
+    animated background had an uncovered 180px black band at the top. */
+ .deep-home[data-phase="intro"] .dd-sky:not(.dd-game-sky){
+  height:56.75svh!important;min-height:0!important;
+  background:linear-gradient(180deg,#76b9d3 0%,#95d0e7 45%,#cfedf4 100%)!important;
+ }
+ .deep-home[data-phase="intro"] .dd-sky:not(.dd-game-sky)::after{
+  background-size:100% auto!important;background-position:center bottom!important;
+ }
+ .deep-home[data-phase="intro"] .dd-sea:not(.dd-game-sea){height:auto!important;min-height:43.25svh!important}
+ .deep-home[data-phase="intro"] .dd-title-group{top:32.6%!important;left:16px!important;right:16px!important}
+ .deep-home[data-phase="intro"] .dd-logo,.deep-home[data-phase="intro"] .dd-logo span{
+  font-size:57px!important;letter-spacing:.12em!important;line-height:.74!important;
+ }
+ .deep-home[data-phase="intro"] .dd-subtitle{font-size:21px!important;margin:21px 0 5px!important}
+ .deep-home[data-phase="intro"] .dd-sea-center{padding-top:18px!important}
+ .deep-home[data-phase="intro"] .dd-rules{margin:0 auto 14px!important}
+ .deep-home[data-phase="intro"] .dd-party-btn{margin-bottom:33px!important;margin-left:-6px!important;margin-right:auto!important;height:60px!important;width:343px!important;max-width:calc(100% + 6px)!important}
+ .deep-home[data-phase="intro"] .dd-begin{height:59px!important;max-width:none!important}
+ .deep-home[data-phase="intro"] .dd-mode-nav{display:grid!important;grid-template-columns:1fr 1.2fr 1.15fr!important;grid-auto-rows:auto!important;align-items:center!important;justify-items:stretch!important;gap:9px 8px!important;width:100%!important;margin-top:6px!important}
+ .deep-home[data-phase="intro"] .dd-mode-nav button{font-size:15px!important;white-space:nowrap!important;min-width:0!important;width:100%!important;padding:6px 3px!important;letter-spacing:.055em!important}
+ .deep-home[data-phase="intro"] .dd-dive-number{letter-spacing:.12em!important;grid-column:1/-1!important;justify-self:start!important}
+ /* Source mobile reef: the identity card begins about y370 rather than y460. */
+ .pp-view .pp-ocean-foyer{margin-top:7px!important}
+ .pp-view .pp-foyer-center{min-height:94px!important;height:94px!important;flex:none!important}
+ .pp-view .pp-hero-fish{position:absolute!important;top:-91px!important;width:106px!important;max-height:95px!important}
+ .pp-view .pp-fish-shadow{top:-13px!important}
+ .pp-view .pp-reef-bubbles{top:-78px!important}
+ .pp-view .pp-identity-panel{margin-top:0!important;min-height:245px!important}
+ .pp-view .pp-arena{padding-left:10px!important;padding-right:10px!important}
+ .pp-view .pp-panel{padding:20px 15px 4px!important}
+ .pp-view .pp-identity-panel .pp-wide{font-size:22px!important}
+ .pp-view .pp-caption{font-size:12px!important}
+ .pp-view .pp-avatar-help{display:none!important}
+ .pp-view .pp-sound-toggle{display:none!important}
+ .pp-view .pp-avatar-grid{margin-bottom:-10px!important}
+ .pp-view .pp-avatar-option{height:88px!important;min-height:88px!important}
+}
+@media(min-width:651px){
+ .deep-home[data-phase="intro"] .dd-logo{transform:translateY(-7px)!important}
+ .deep-home[data-phase="intro"] .dd-subtitle{transform:translateY(-3px)!important}
+}
+/* Original Friends and My Krillion guest pages use a left-aligned 712px content
+   column; Sidequest keeps its own account form and authentication labels. */
+body:has(.ds-social-page) .topbar .identity,
+body:has(.ds-social-page) .header-stats{display:none!important}
+.ds-social-page{background:linear-gradient(180deg,#0d1c32,#04070e)!important;padding-top:58px!important}
+.ds-social-page>header{text-align:left!important;max-width:712px!important;margin:0 auto 36px!important}
+.ds-social-page>header>span{
+ font-size:25px!important;text-shadow:none!important;color:#ff5d8f!important;
+ letter-spacing:.16em!important;margin-bottom:53px!important
+}
+.ds-social-page>header>small{font-size:14px!important;letter-spacing:.16em!important;margin:0 0 20px!important}
+.ds-social-page>header>h1{font-size:58px!important;margin:0!important}
+.ds-social-gate .ds-social-card{max-width:712px!important;margin:0 auto!important;
+ background:#071322f2!important;border:1px solid #1d3347!important;box-shadow:none!important;padding:24px!important}
+.ds-social-page .ds-social-card p{line-height:1.3!important}
+@media(max-width:650px){
+ .ds-social-page{padding:52px 16px 55px!important}
+ .ds-social-page>header>span{margin-bottom:43px!important;font-size:23px!important}
+ .ds-social-page>header>h1{font-size:48px!important}
+ .ds-social-page>header{margin-bottom:24px!important}
+ .ds-social-gate .ds-social-card{padding:18px!important}
+}
+
+/* Original desktop Party panels begin at y=300 (1440×900), not y=286. */
+@media(min-width:1100px){.pp-view .pp-ocean-foyer{margin-top:42px!important}}
+
+/* First gameplay round: original Krillion uses a cloud-free pale sky with
+   a blue water column; the prior scene repeated the decorative homepage
+   artwork and large reef silhouettes, creating a measurable mismatch. */
+.dd-game-screen[data-world="ocean"] .dd-world-surface-sky{
+ background:linear-gradient(180deg,#d5e9f4 0%,#e2f1f8 44%,#f8ffff 100%)!important;
+}
+.dd-game-screen[data-world="ocean"] .dd-game-sea{
+ background:linear-gradient(180deg,#c9e2ea 0%,#e8f7fb 23%,
+ #105076 23.45%,#13466b 52%,#1a4e75 78%,#060e1e 83%,#040a16 100%)!important;
+ box-shadow:none!important;
+}
+.dd-game-screen[data-world="ocean"] .dd-world-surface-boat{
+ position:absolute;top:-78px;left:calc(50% - 431px);width:195px;height:95px;transform:scale(.93,1.45);transform-origin:left bottom;
+ pointer-events:none;z-index:2;
+}
+.dd-game-screen[data-world="ocean"] .dd-world-surface-boat .dd-boat{
+ width:195px;height:95px;display:block!important;overflow:visible;image-rendering:pixelated;
+}
+@media(max-width:650px){
+ .dd-game-screen[data-world="ocean"] .dd-world-surface-boat{
+ left:calc(50% - 122px);transform:scale(.48);transform-origin:left bottom;
+ }
+}
+/* Results overlay is part of the world, not the fixed question card. */
+.dd-reveal-screen[data-world="ocean"] .dd-landed{
+ text-align:center!important;left:10px!important;right:52px!important;
+}
+
+/* Recorded first-round accepted-answer reveal: the original tier banner is
+   approx 85px above the previously rendered Sidequest banner at 1440×900. */
+@media(min-width:651px){
+ .dd-reveal-screen[data-world="ocean"] .dd-landed{
+  top:calc(var(--y,0px) - 75px)!important;
+ }
+}
+@keyframes dd-parity-chip-fade{0%,65%{opacity:1}100%{opacity:0}}
+.dd-reveal-screen[data-world="ocean"] .dd-chip{
+ animation:dd-parity-chip-fade 1.7s ease-in forwards!important;
+}
+
+/* Source-observed first-round 1440×900 ocean palette:
+   water stays deep blue to y≈732, then transitions to black. */
+@media(min-width:651px) and (min-height:701px){
+ .dd-game-screen[data-world="ocean"] .dd-game-sea{
+  height:100svh!important;min-height:100svh!important;
+  background:linear-gradient(180deg,
+   #b6d3dd 0%,#d3e7ec 23.05%,#1c527b 23.4%,
+   #133657 39%,#153c60 49%,#194b72 69%,
+   #164167 81%,#071423 83%,#050b16 100%)!important;
+  box-shadow:none!important;
+ }
+ .dd-game-screen[data-world="ocean"][data-phase="answering"] .dd-dock{
+  bottom:58px!important;
+ }
+ .dd-game-screen[data-world="ocean"][data-phase="answering"] .dd-game-fish,
+ .dd-game-screen[data-world="ocean"][data-phase="preview"] .dd-game-fish{
+  top:625px!important;left:215px!important;
+ }
+ .app-shell:has(.dd-game-screen) .dd-nav-toggle{translate:-52px -10px}
+ .dd-game-screen .dd-hud .dd-hud-box{min-width:120px!important;width:120px!important}
+}
+/* A real 100m world ruler, unlike the earlier empty div (no ticks were
+   present in the rendered first-round DOM). Positioned at original x≈1245. */
+.dd-game-screen[data-world="ocean"] .dd-world-ruler{
+ position:absolute;top:0;right:13.5%;width:0;
+ height:14800px;z-index:3;pointer-events:none;
+ border-right:1px solid #95b7c166;
+ background:repeating-linear-gradient(180deg,
+  transparent 0px,transparent 18px,#91b4be8a 19px,#91b4be8a 20px,
+  transparent 21px,transparent 22px) right/6px 100% no-repeat;
+}
+.dd-world-ruler .dd-ruler-major{
+ position:absolute;right:-4px;height:1px;width:13px;
+ border-top:1px solid #91b6c08a;
+ font:11px/1 "ReferenceVT323",monospace;
+ letter-spacing:.02em;color:#799db6a6;
+}
+.dd-world-ruler .dd-ruler-major span{position:absolute;right:16px;top:-6px;white-space:nowrap}
+@media(max-width:650px){
+ .dd-game-screen[data-world="ocean"] .dd-world-ruler{right:13px;opacity:.7}
+ .dd-world-ruler .dd-ruler-major{font-size:10px}
+}
+
+.dd-world-ruler .dd-ruler-you{
+ position:absolute;right:-15px;width:69px;min-height:18px;
+ transform:translateY(-50%);white-space:nowrap;
+ color:#ff5d8f;text-align:right;
+ font:13px/18px "ReferenceVT323",monospace;
+ letter-spacing:.14em;text-shadow:0 0 11px #ff5d8f;
+}
+.dd-world-ruler .dd-ruler-you b{font-size:16px;font-weight:400}
+@media(min-width:651px) and (min-height:701px){
+ .dd-game-screen[data-world="ocean"] .dd-dock .dd-submit{
+  width:78px!important;min-width:78px!important;flex:0 0 78px!important;
+ }
+}
+
+/* The old .dart mascot animation translated the krill across the centered
+   answer title; the original has it left of the Plankton result. */
+@media(min-width:1100px) and (min-height:700px){
+ .dd-reveal-screen[data-world="ocean"] .dd-game-fish{
+  position:absolute!important;top:205px!important;left:335px!important;
+  transform:none!important;animation:none!important;
+ }
+}
+
+/* Source accepted-answer reveal at 1440×900:
+   tier title y≈325, answer y≈381, points y≈428,
+   quip y≈468 and DESCEND control y≈734. */
+@media(min-width:1100px) and (min-height:701px){
+ .dd-reveal-screen[data-world="ocean"] .dd-landed .dd-tier-emoji,
+ .dd-reveal-screen[data-world="ocean"] .dd-landed img.icon{
+  transform:translateY(-28px)!important;
+ }
+ .dd-reveal-screen[data-world="ocean"] .dd-landed .tans{margin-top:20px!important}
+ .dd-reveal-screen[data-world="ocean"] .dd-landed .tpts{margin-top:24px!important}
+ .dd-reveal-screen[data-world="ocean"] .dd-landed .tsub{margin-top:25px!important}
+ .dd-reveal-screen[data-world="ocean"] .dd-next-wrap{bottom:94px!important}
+}
+
+/* Source mobile completion screen (390×844, original browser capture):
+   waterline ≈495px; ghost brand ≈168px; Bearing begins ≈660px.
+   Keep Sidequest's truthful personal-score text in place of the publisher's
+   unavailable global distribution data. */
+@media(max-width:650px){
+ .dd-done-screen .dd-done{
+  background-position:
+    center 0,
+    center calc(58.6svh - 50.654vw),
+    center 58.6svh,
+    center 0!important;
+ }
+ .dd-done-screen .dd-result-ghost{top:18.9svh!important}
+ .dd-done-screen .dd-result-ghost strong{font-size:64px!important}
+ .dd-done-screen .dd-done-krill{font-size:30px!important}
+ .dd-done-screen .dd-score-trail{margin-bottom:110px!important}
+}
+
+/* The publisher keeps the result score left anchored on narrow screens,
+   independent of the number of score digits. */
+@media(max-width:650px){
+ .dd-done-screen .dd-done-score .big{transform:translateX(-34px)!important}
+}
+
+/* First-round coordinates measured in source and local Chromium at 1440×900:
+   original HUD top 0, reconstructed top 9; original question y=213,
+   reconstructed question y=207. */
+@media(min-width:1100px) and (min-height:700px){
+ .dd-game-screen[data-world="ocean"] .dd-hud{top:0!important}
+ .dd-game-screen[data-world="ocean"] .dd-game-prompt{margin-top:6px!important}
+ /* The first surface round has no depth-lore captions in the original. */
+ .dd-game-screen[data-world="ocean"][data-zone="surface"] .dd-amb{display:none!important}
+}
+
+/* Original active dive HUD displays only Sound at upper right. Settings
+   and merchandise return on landing/results; preserve keyboard access
+   to the remaining audio toggle. */
+.dd-game-screen:not(.dd-done-screen) .dd-reference-utility .dd-reference-preferences,
+.dd-game-screen:not(.dd-done-screen) .dd-reference-utility .dd-utility-merch{
+ display:none!important;
+}
+
+/* Controlled 1440×900 HUD crop comparison: removing Sidequest's embossed
+   blue double-border reduces mean RGB error from 18.07 to 15.25/255.
+   The original HUD pods are flat ink-blue pixel panels. */
+@media(min-width:651px){
+ .dd-game-screen[data-world="ocean"] .dd-hud .dd-hud-box{
+  background:#101d33!important;
+  outline:none!important;
+  box-shadow:none!important;
+ }
+}
+
+/* Mobile original gameplay measurements at 390×844:
+   waterline y177, question card [12,172,316,180], mascot [18,591,65,65],
+   depth/score panels [10,8,86,51] / [294,8,86,51],
+   input dock top 714 and inner top 724. Camera anchor is set in
+   reference-world.js (0.21×844) to retain the same world geometry. */
+@media(max-width:650px){
+ .dd-game-screen[data-world="ocean"] .dd-hud{
+  left:0!important;right:0!important;top:0!important;
+  width:100%!important;max-width:none!important;
+  padding:8px 10px 0!important;transform:none!important;
+ }
+ .dd-game-screen[data-world="ocean"] .dd-hud .dd-hud-box{
+  width:86px!important;min-width:86px!important;
+  min-height:51px!important;
+ }
+ .dd-game-screen[data-world="ocean"] .dd-hud-progress{
+  width:106px!important;max-width:106px!important;
+  flex:0 0 106px!important;
+ }
+ .dd-game-screen[data-world="ocean"]:not(.dd-done-screen) .dd-game-prompt{
+  margin-top:-6px!important;
+  left:12px!important;right:auto!important;
+  width:316px!important;max-width:calc(100% - 74px)!important;
+  padding-left:18px!important;padding-right:18px!important;
+ }
+ .dd-game-screen[data-world="ocean"][data-phase="answering"] .dd-game-fish,
+ .dd-game-screen[data-world="ocean"][data-phase="preview"] .dd-game-fish{
+  left:18px!important;top:70%!important;
+  width:65px!important;height:65px!important;
+ }
+ .dd-game-screen[data-world="ocean"][data-phase="answering"] .dd-dock{
+  bottom:11px!important;
+ }
+}

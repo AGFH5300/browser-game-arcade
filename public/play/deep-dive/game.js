@@ -167,6 +167,17 @@
     }).join('');
     return `<div class="dd-depth-ticks" aria-hidden="true">${ticks}</div><div class="dd-fish dd-fish-a" aria-hidden="true">▰◂</div><div class="dd-fish dd-fish-b" aria-hidden="true">◂▰</div><div class="dd-fish dd-fish-c" aria-hidden="true">▰◂</div><div class="dd-bubbles" aria-hidden="true">°<br>°<br>·<br>°<br>·</div>`;
   }
+  /* Fixed-depth world ruler, anchored to the moving 2px/metre ocean world.
+     Source first-round ruler crosses the surface at y≈208 and advances with
+     camera descent; these markings are informative only, not interactive. */
+  function oceanRuler(depth=0,showCurrent=false){
+    const ticks=Array.from({length:75},(_,i)=>{
+      const depth=i*100;
+      return `<span class="dd-ruler-major" style="top:${depth*2}px"><span>${depth===0?'0m':'-'+depth+'m'}</span></span>`;
+    }).join('');
+    const you=showCurrent?`<span class="dd-ruler-you" style="top:${Math.max(0,depth)*2}px">YOU <b>◀</b></span>`:'';
+    return `<div class="dd-world-ruler" aria-hidden="true">${ticks}${you}</div>`;
+  }
   function gameOverlays(){
     return `<div class="dd-vignette" aria-hidden="true"></div><div class="dd-crt" aria-hidden="true"></div><div class="dd-edge" aria-hidden="true"></div>`;
   }
@@ -509,15 +520,17 @@
         <div class="dd-sea dd-game-sea"></div>
         <div class="dd-world" style="--dd-world-height:${worldMeta.height}px">
           <div class="dd-world-surface-sky" aria-hidden="true"></div>
+          ${worldId==='ocean'?'<div class="dd-world-surface-boat" aria-hidden="true">'+(oceanArt().match(/<svg class="dd-boat"[\s\S]*?<\/svg>/)||[''])[0]+'</div>':''}
           ${worldSurface(currentTotal())}
+          ${worldId==='ocean'?oceanRuler(metresSoFar(),feedback):''}
           ${window.DeepDiveThemes?.scenery(worldId)||''}
           <img class="dd-floor" src="${WORLD_FLOORS[worldId]||WORLD_FLOORS.ocean}" alt="" loading="lazy" style="--y:${worldMeta.floorTop}px">
           ${worldFacts()}
           ${feedback&&tier?roundTierLines(prevM):''}
-          <div class="dd-game-prompt dd-card" style="--y:${baseY}px;animation-delay:.45s"><span class="dd-prompt-label rnd">PROMPT ${round+1} OF ${currentTotal()}${active.mode==='daily'?'':(' · '+safe(q.theme))}</span>
-            <h1 class="dd-prompt-text prompt">${safe(q.prompt)}</h1><p class="dd-prompt-hint hint">▼ rarer answers sink deeper ▼</p></div>
+          ${feedback?'':`<div class="dd-game-prompt dd-card" style="--y:${baseY}px;animation-delay:.45s"><span class="dd-prompt-label rnd">PROMPT ${round+1} OF ${currentTotal()}${active.mode==='daily'?'':(' · '+safe(q.theme))}</span>
+            <h1 class="dd-prompt-text prompt">${safe(q.prompt)}</h1><p class="dd-prompt-hint hint">▼ rarer answers sink deeper ▼</p></div>`}
           ${feedback&&tier?`<div class="dd-chip${tier.score===100?' gold':''}" style="--cc:${tc};--y:${lineY}px" data-y="${lineY}" data-spawn="${spawnY}">${chipText}</div>`:''}
-          ${feedback?`<div class="dd-landed${tier?'':' miss'}" style="--tc:${tc};top:${lineY}px">
+          ${feedback?`<div class="dd-landed${tier?'':' miss'}" style="--tc:${tc};--y:${lineY}px">
             ${tier?(tier.id==='plankton'||tier.id==='tooclever'
               ?`<span class="icon dd-tier-emoji" aria-hidden="true">${safe(tier.mark)}</span>`
               :`<img class="icon" src="./reference-assets/tiers/${tier.id}.png" alt="" loading="lazy">`):''}
@@ -528,6 +541,7 @@
           </div>`:''}
         </div>
         ${gameOverlays()}
+        <div class="dd-mobile-scenery" aria-hidden="true"><div class="dd-mobile-clouds"></div><div class="dd-mobile-coral"></div></div>
         <div class="dd-flash${feedback?' on':''}" aria-hidden="true"></div>
         ${arcadeHud()}
         <div class="dd-game-fish${mascotPose?' '+mascotPose:''}${feedback&&!tier?' sad':''}${tier&&tier.score===100?' gold':''}" title="a friend" aria-hidden="true"><span class="dd-blub">blub!</span></div>
@@ -603,7 +617,7 @@
       syncDiveBtn(form);
       return;
     }
-    const corrected=!q.answerIndex?.has(key);
+    const corrected=!q.answerIndex?.has(key)&&norm(found.value)!==key;
     const tier=Math.max(0,Math.min(5,Number(found.tier)||0));
     /* Original answer corrections are a TWO-STEP preview (settings copy:
        "Preview corrected answers before scoring. Off accepts them immediately."):
@@ -786,11 +800,13 @@
         <div class="dd-world" style="--dd-world-height:${doneConfig.height}px">
           <div class="dd-world-surface-sky" aria-hidden="true"></div>
           ${worldSurface(r.count)}
+          ${doneWorld==='ocean'?oceanRuler(finalM,true):''}
           ${window.DeepDiveThemes?.scenery(doneWorld)||''}
           <img class="dd-floor" src="${WORLD_FLOORS[doneWorld]||WORLD_FLOORS.ocean}" alt="" loading="lazy" style="--y:${doneConfig.floorTop}px">
           ${worldFacts()}
         </div>
         ${gameOverlays()}
+        <div class="dd-mobile-scenery" aria-hidden="true"><div class="dd-mobile-clouds"></div><div class="dd-mobile-coral"></div></div>
         <div class="dd-flash gold on" aria-hidden="true"></div>
         <div class="dd-hud"><div class="dd-hud-box"><span>DEPTH</span><strong class="dd-hud-depth crank">${format(finalM)}<small>m</small></strong></div><div class="dd-hud-progress"><div class="dd-hud-dots">${r.results.map(x=>`<i class="dd-hud-dot done" style="--dot:${x.tier!==null&&x.tier!==undefined?TIERS[x.tier].color:'#284c6b'}"></i>`).join('')}</div><small>DIVE COMPLETE</small></div><div class="dd-hud-box dd-hud-score"><span>SCORE</span><strong>${format(r.score)}</strong></div></div>
         <div class="dd-game-fish gold" title="a friend" aria-hidden="true"><span class="dd-blub">blub!</span></div>
@@ -1089,7 +1105,16 @@
     themes=Array.isArray(data.themes)?data.themes:WORLDS.map(w=>w[0]);
     byId=new Map(bank.map(q=>[q.id,q]));
     if(byId.size!==bank.length||themes.some(t=>bank.filter(q=>q.theme===t).length<7))throw Error('Incomplete question-bank themes');
+    // Render a responsive first screen even when a remote daily/archive service
+    // is slow: the local question pack is already validated at this point.
+    // Delayed remote data is merged once it arrives without blocking first paint.
+    let sourcesComplete=false;
+    const firstPaintTimer=!active?setTimeout(()=>{
+      if(!sourcesComplete&&!active)render();
+    },1700):null;
     await Promise.all([loadSourceDaily(),loadArchiveManifest(),loadFreeStarters()]);
+    sourcesComplete=true;
+    if(firstPaintTimer!==null)clearTimeout(firstPaintTimer);
     if(active&&['archive','endless'].includes(active.mode)){
       const days=[...new Set(active.ids.filter(id=>id.startsWith('archive:')).map(id=>id.split(':')[1]))];
       for(const d of days){
