@@ -12,7 +12,7 @@ const paths=new Set(manifest.files.map((x:{localPath:string})=>x.localPath));
 test('Z.ai parity stylesheets load in order and the modified game uses a fresh cache key',()=>{
  assert(html.includes('./reference-parity-2.css?release=20261029p2fixed'));
  assert(html.includes('./reference-pass3.css?release=20261030validated'));
- assert(html.includes('./game.js?parity=20261030pass5results1'));
+ assert(html.includes('./game.js?parity=20261030pass5results2'));
  assert(html.indexOf('reference-dom-parity.css')<html.indexOf('reference-parity-2.css'));
  assert(html.indexOf('reference-parity-2.css')<html.indexOf('reference-pass3.css'));
 });
@@ -24,8 +24,8 @@ test('HUD stays recentered and the countdown fuse lives in the input column',()=
  assert.match(game,/<button type="submit" class="dd-submit dd-dive-btn"[^>]*>DIVE<\/button>/);
 });
 test('all referenced tier image paths exist; low tiers use a safe fallback',()=>{
- for(const id of ['schooler','rare','deepcut','krillion'])assert(paths.has('tiers/'+id+'.png'));
- for(const id of ['plankton','tooclever'])assert(!paths.has('tiers/'+id+'.png'));
+ for(const id of ['plankton','schooler','rare','deepcut','krillion'])assert(paths.has('tiers/'+id+'.png'));
+ assert(!paths.has('tiers/tooclever.png'));
  assert(game.includes("tier.id==='plankton'||tier.id==='tooclever'"));
  assert(game.includes('dd-tier-emoji'));
 });
