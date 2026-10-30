@@ -89,8 +89,8 @@ export async function POST(request:NextRequest){
    const sql=getDb();
    for(let tryCount=0;tryCount<4;tryCount++){
     const code=makeCode(),now=Date.now();
-    const maxMembers=[2,3,6,8].includes(Number(body.maxMembers))?Number(body.maxMembers):8;
-    const minMembers=maxMembers===6?4:maxMembers===8?2:maxMembers;
+    const maxMembers=[2,3,6,8,10].includes(Number(body.maxMembers))?Number(body.maxMembers):8;
+    const minMembers=maxMembers===6?4:maxMembers===10?8:maxMembers===8?2:maxMembers;
     const {room,id,secret}=newRoom(code,body.name,body.publicRoom===true,now,shuffleQuestionIds(code+':'+now),{maxMembers,minMembers,avatar:body.avatar,accountId:account?.id});
     const rows=await sql.query(
      'INSERT INTO deep_dive_party_rooms (room_code,state,revision) VALUES ($1,$2::jsonb,0) ON CONFLICT (room_code) DO NOTHING RETURNING room_code',
