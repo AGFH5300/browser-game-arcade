@@ -604,7 +604,7 @@
       syncDiveBtn(form);
       return;
     }
-    const corrected=!q.answerIndex?.has(key);
+    const corrected=!q.answerIndex?.has(key)&&norm(found.value)!==key;
     const tier=Math.max(0,Math.min(5,Number(found.tier)||0));
     /* Original answer corrections are a TWO-STEP preview (settings copy:
        "Preview corrected answers before scoring. Off accepts them immediately."):
