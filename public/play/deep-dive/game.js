@@ -378,12 +378,52 @@
       start('archive','',0,day);
     }catch(e){notify('Archive could not load. Please retry.');console.error('Archive load error:',e)}
   }
+  // Only original publisher-revealed answers are eligible for this extra
+  // Unlimited source pack. AI estimates and historical guesses are never loaded.
+  async function loadPublisherVerifiedUnlimited(gameId){
+    if(gameId!==3&&gameId!==4)return [];
+    const root='./recovered/publisher-verified/';
+    const response=await fetch(root+'manifest.json',{cache:'force-cache'});
+    if(!response.ok)throw Error('Publisher-verified catalogue unavailable');
+    const manifest=await response.json();
+    if(manifest.source!=='krillion-public-publisher-reveal'||
+      manifest.provisionalAnswersIncluded!==false||
+      !Array.isArray(manifest.questions)||manifest.questions.length!==14)
+      throw Error('Publisher catalogue provenance invalid');
+    const startAt=gameId===3?0:7;
+    const selection=manifest.questions.slice(startAt,startAt+7);
+    if(selection.length!==7)throw Error('Incomplete publisher question pack');
+    const loads=await Promise.all(selection.map(async item=>{
+      if(!/^KR\d{4}$/.test(item.id)||item.status!=='publisher'||
+        item.file!==item.id+'.json')throw Error('Publisher item source invalid');
+      const response=await fetch(root+item.file,{cache:'force-cache'});
+      if(!response.ok)throw Error('Publisher question unavailable: '+item.id);
+      const doc=await response.json();
+      if(doc.id!==item.id||doc.prompt!==item.question||
+        !Array.isArray(doc.answers)||doc.answers.length!==item.answerCount||doc.answers.length<10)
+        throw Error('Publisher question schema invalid: '+item.id);
+      const seen=new Set(),answerIndex=new Map(),answers=[];
+      for(const a of doc.answers){
+        if(typeof a.value!=='string'||!a.value||!Number.isInteger(a.tier)||
+          a.tier<0||a.tier>=TIERS.length||
+          a.source!=='krillion-public-publisher-reveal')throw Error('Unverified scored entry');
+        const key=norm(a.value);
+        if(!key||seen.has(key))throw Error('Duplicate publisher answer');
+        seen.add(key);answers.push(a);answerIndex.set(key,a);
+      }
+      return {id:item.id,theme:'Daily',prompt:doc.prompt,answers,answerIndex};
+    }));
+    for(const q of loads)byId.set(q.id,q);
+    return loads.map(q=>q.id);
+  }
   async function startPublicUnlimited(){
     const gameId=Math.max(1,Math.min(1000000,Math.trunc(Number(profile.unlimitedGameId)||1)));
     try{
       let ids=[];
       if(gameId===1&&starterModes.unlimited?.ids?.length===7){
         ids=[...starterModes.unlimited.ids];
+      }else if(gameId===3||gameId===4){
+        ids=await loadPublisherVerifiedUnlimited(gameId);
       }else if(archiveManifest.length>=3){
         // Repeatable local combination for each game ID. Do not claim
         // equivalence to the publisher's unrecovered gameId library.
@@ -399,8 +439,9 @@
       if(active){
         active.unlimitedGameId=gameId;
         active.source=gameId===1&&starterModes.unlimited?.ids?.length===7
-          ?'published-free-starter-index':ids.some(id=>id.startsWith('archive:'))
-            ?'published-archive-snapshot':'sidequest';
+          ?'published-free-starter-index':ids.every(id=>/^KR07\d{2}$/.test(id))
+            ?'krillion-public-publisher-reveal':ids.some(id=>id.startsWith('archive:'))
+              ?'published-archive-snapshot':'sidequest';
         save();
       }
     }catch(error){
