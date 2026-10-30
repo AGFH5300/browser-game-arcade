@@ -230,3 +230,14 @@ body:has(.ds-social-page) .header-stats{display:none!important}
 .dd-game-screen:not(.dd-done-screen) .dd-reference-utility .dd-utility-merch{
  display:none!important;
 }
+
+/* Controlled 1440×900 HUD crop comparison: removing Sidequest's embossed
+   blue double-border reduces mean RGB error from 18.07 to 15.25/255.
+   The original HUD pods are flat ink-blue pixel panels. */
+@media(min-width:651px){
+ .dd-game-screen[data-world="ocean"] .dd-hud .dd-hud-box{
+  background:#101d33!important;
+  outline:none!important;
+  box-shadow:none!important;
+ }
+}
