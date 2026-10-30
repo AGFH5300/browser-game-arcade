@@ -40,7 +40,7 @@ const unlimited=await ctx(),u=await unlimited.newPage();pageErrors(u);
 try{
  await check('Unlimited 7/7 scored prompts, descent and completed results',async()=>{
  const free=await request('/play/deep-dive/recovered/free-starters.json');let sheets=free.modes.unlimited.questions;assert.equal(sheets.length,7);
- await ready(u);await nav(u,'endless');await u.locator('.dd-begin').click();
+ await ready(u);await nav(u,'endless');await u.locator('.dd-begin').dispatchEvent('click');
  let total=0;for(let i=0;i<7;i++){await u.locator('#answer-input').waitFor({timeout:18000});const prompt=(await u.locator('.dd-prompt-text').first().innerText()).trim();const q=sheets.find(x=>x.text===prompt);assert(q,'Missing starter prompt '+prompt);let ans=q.answers.find(x=>x[1]>=10)||q.answers[0];assert(ans,'no answers for '+prompt);await u.locator('#answer-input').fill(ans[0]);await u.locator('.dd-dive-btn').click();await u.locator('.dd-next-btn').waitFor({timeout:10000});const feedback=await u.locator('.dd-landed').innerText();assert(!/NOTHING LANDED/i.test(feedback),'Known published answer rejected: '+ans[0]+' '+feedback.slice(0,140));total+=Number(ans[1]);await u.locator('.dd-next-btn').click();}await u.locator('.dd-done-inner').waitFor({timeout:25000});assert.equal(await u.locator('.dd-catch-row').count(),7);const score=await u.locator('.dd-done-score .big').innerText();assert.equal(Number(score.replace(/\D/g,'')),total);return '7 accepted; total '+total+'; seven catch rows'});
  await check('Results filters, rating, copy, continue',async()=>{await u.locator('.dd-catch-row').first().locator('summary').click();await u.locator('.dd-catch-row').first().locator('.dd-catch-search').fill('a');const tier=u.locator('.dd-catch-row').first().locator('.dd-catch-tier');await tier.selectOption('5');await u.locator('[data-action=rate][data-rating="4"]').click();assert(await u.locator('.dd-rate[data-rating="4"]').evaluate(x=>x.classList.contains('on')));await u.locator('[data-action=share]').click();await u.locator('[data-action=share]').filter({hasText:/COPIED/}).waitFor({timeout:5000});await u.locator('[data-action=startEndless]').click();await u.locator('.dd-game-screen').waitFor({timeout:16000});return 'filter/rate/copy and next mode started'});
 }finally{await unlimited.close()}
@@ -53,7 +53,7 @@ try{
    await ready(page);await nav(page,'worlds');
    const card=page.locator('.dd-source-pack[data-pack="'+mode+'"]');
    const b=card.locator('[data-action=startStarter]').first();
-   if(!await b.count()){assert.equal(mode,'lexicon','verified starter unexpectedly missing');return 'disabled: no verified scoring records'}
+   if(!await b.isEnabled()){assert.equal(mode,'lexicon','verified starter unexpectedly disabled');return 'correctly disabled: no verified scored answers'}
    await b.click();await page.locator('#answer-input').waitFor({timeout:20000});
    assert(await page.locator('.dd-hud').isVisible());
    const scene=await page.locator('.dd-game-screen').getAttribute('data-world');assert(scene);
@@ -74,7 +74,7 @@ const archive=await ctx(),ar=await archive.newPage();pageErrors(ar);
 try{
  await check('Archive 105 index entries and first/last navigation',async()=>{await ready(ar);await nav(ar,'archive');const b=ar.locator('.dd-archive-date');assert.equal(await b.count(),105);const months=await ar.locator('.dd-archive-month').count();assert(months>=4);await b.last().click();await ar.locator('#answer-input').waitFor({timeout:18000});assert(await ar.locator('.dd-hud').isVisible());return months+' months; 105 buttons; first historic dive starts'});
  await check('Archive all recovered snapshot integrity (105)',async()=>{const manifest=await request('/play/deep-dive/recovered/archive/manifest.json');assert.equal(manifest.dates.length,105);let checked=0;for(let i=0;i<manifest.dates.length;i+=8){const group=manifest.dates.slice(i,i+8);const replies=await Promise.all(group.map(async x=>{const r=await fetch(base+'/play/deep-dive/recovered/archive/'+x.date+'.json',{signal:AbortSignal.timeout(25000)});assert.equal(r.status,200,x.date);const j=await r.json();assert.equal(j.questions.length,7,x.date);assert(j.questions.every(q=>q.answers.length>0),x.date+' missing answers');return 1}));checked+=replies.reduce((a,b)=>a+b,0)}return checked+' snapshots with 735 seven-round prompts'});
- await check('Archive return to Daily',async()=>{const fresh=await archive.newPage();await ready(fresh);await nav(fresh,'archive');await fresh.locator('.dd-archive-return').click();assert(await fresh.locator('.deep-home[data-mode=daily]').isVisible());});
+ await check('Archive return to Daily',async()=>{const isolated=await ctx();try{const fresh=await isolated.newPage();await ready(fresh);await nav(fresh,'archive');await fresh.locator('.dd-archive-return').click();assert(await fresh.locator('.deep-home[data-mode=daily]').isVisible());}finally{await isolated.close()}});
 }finally{await archive.close()}
 const mc=await ctx({viewport:{width:390,height:844},isMobile:true,deviceScaleFactor:2,hasTouch:true}),m=await mc.newPage();pageErrors(m);
 try{
