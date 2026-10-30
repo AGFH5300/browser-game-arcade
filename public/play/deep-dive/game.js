@@ -614,7 +614,7 @@
       return;
     }
     rejectMsg='';correction=null;
-    roundEnd({id:q.id,answer:found.value,points:TIERS[tier].score,tier,quip:found.quip||'',reason:'Accepted'});
+    roundEnd({id:q.id,answer:found.value,points:TIERS[tier].score,tier,quip:found.quip||'',reason:'Accepted',estimated:found.source==='sidequest-common-supplement'});
   }
   function next(){
     if(!active||active.phase!=='feedback'||transitioning)return;
@@ -765,7 +765,7 @@
       const q=byId.get(res.id);
       const recovered=Array.isArray(q?.answers)?[...q.answers].sort((a,b)=>b.tier-a.tier||a.value.localeCompare(b.value)):[];
       const answerIcon=t?(icon(t)?`<img class="dd-tier-icon" src="./reference-assets/tiers/${icon(t)}" alt="">`:`<i class="dd-tier-mark" aria-hidden="true">${t.mark}</i>`):'';
-      return `<details class="dd-catch-row" data-question-id="${safe(res.id)}"><summary><span class="n">${i+1}</span>${answerIcon}<span class="p"><small>${safe(q?.prompt||'')}</small><b>${t?'\u201c'+safe(res.answer)+'\u201d':'×'}</b></span><span class="pts" style="--tier:${t?t.color:'#536e7a'}">${t?'+'+res.points:'0'}</span><i class="dd-catch-expand" aria-hidden="true"></i></summary><div class="dd-catch-answers"><div class="dd-catch-filters"><input class="dd-catch-search" type="search" placeholder="Search answers" aria-label="Search recovered answers"><select class="dd-catch-tier" aria-label="Filter recovered answers by tier"><option value="">All tiers</option>${TIERS.map((tier,index)=>`<option value="${index}">${safe(tier.label)}</option>`).join('')}</select></div><small class="dd-catch-recovered-count">RECOVERED ANSWERS · ${recovered.length}</small><ul></ul><p class="dd-catch-shown" hidden></p></div></details>`;
+      return `<details class="dd-catch-row" data-question-id="${safe(res.id)}"><summary><span class="n">${i+1}</span>${answerIcon}<span class="p"><small>${safe(q?.prompt||'')}</small><b>${t?'\u201c'+safe(res.answer)+'\u201d':'×'}</b></span><span class="pts" style="--tier:${t?t.color:'#536e7a'}">${t?'+'+res.points:'0'}</span><i class="dd-catch-expand" aria-hidden="true"></i></summary><div class="dd-catch-answers"><div class="dd-catch-filters"><input class="dd-catch-search" type="search" placeholder="Search answers" aria-label="Search recovered answers"><select class="dd-catch-tier" aria-label="Filter recovered answers by tier"><option value="">All tiers</option>${TIERS.map((tier,index)=>`<option value="${index}">${safe(tier.label)}</option>`).join('')}</select></div><small class="dd-catch-recovered-count">${recovered.some(a=>a.source==='sidequest-common-supplement')?'RECOVERED + INDEPENDENT COMMON ANSWERS':'RECOVERED ANSWERS'} · ${recovered.length}</small><ul></ul><p class="dd-catch-shown" hidden></p></div></details>`;
     };
     const avg=profile.history.length?Math.round(profile.history.reduce((s,x)=>s+(x.score||0),0)/profile.history.length):0;
     const best=profile.history.reduce((m,x)=>Math.max(m,x.score||0),0);
@@ -801,7 +801,7 @@
         <div class="dd-done-catch"><h3>THE CATCH · TAP A ROUND FOR EVERY ANSWER</h3>${r.results.map(catchRow).join('')}</div>
         <div class="dd-done-log"><h3>LOGBOOK</h3><p>STREAK ${format(profile.streak)} · PLAYED ${format(profile.runs)} · AVG ${format(avg)} · BEST ${format(best)}</p><p class="dd-next-dive">NEXT DIVE IN <b id="dd-next-dive">--:--:--</b></p></div>
         <div class="dd-done-rate"><h3>HOW WAS THAT DIVE? 1 = MEH · 5 = GREAT</h3><div class="dd-rate-row">${[1,2,3,4,5].map(n=>`<button type="button" class="dd-rate${rating>=n?' on':''}" data-action="rate" data-rating="${n}" aria-label="Rate ${n} out of 5">${n}</button>`).join('')}</div></div>
-        <p class="helper">${r.source==='krillion-reveal'?'Scores and result messages from the publisher’s public reveal; extra autocorrect aliases are not included.':(r.source==='published-free-starter-index'?'Original free starter prompts with independently indexed scored responses; not the original live validator.':r.source==='published-archive-snapshot'?'Recorded answer scores from the independent historical snapshot. Scores and aliases may differ from the publisher’s present validator.':'Independent Sidequest prompts with estimated rarity.')} Progress stays on this device.</p>
+        <p class="helper">${r.source==='krillion-reveal'?'Scores and result messages from the publisher’s public reveal; extra autocorrect aliases are not included.':(r.source==='published-free-starter-index'?'Original free starter prompts with independently indexed scored responses. Common supplementary answers score an explicitly estimated 10 points; not the publisher’s original validator.':r.source==='published-archive-snapshot'?'Recorded answer scores from the independent historical snapshot. Scores and aliases may differ from the publisher’s present validator.':'Independent Sidequest prompts with estimated rarity.')} Progress stays on this device.</p>
       </div></div>
     </section>`;
     root.dataset.share=text;
@@ -1003,6 +1003,10 @@
       if(!response.ok)throw Error('Starter index HTTP '+response.status);
       const data=await response.json();
       if(!data?.modes||typeof data.modes!=='object')throw Error('Missing starter data');
+      // Estimated supplementary answers are isolated from verified publisher records.
+      // They are never described as original scored answers or merged into archived days.
+      const supplement=await fetch('./recovered/common-answer-supplements.json?release=20261030fix1',{cache:'force-cache'})
+        .then(r=>r.ok?r.json():null).catch(()=>null);
       const scoreIndex=new Map(TIERS.map((t,i)=>[t.score,i]));
       for(const [mode,sheet] of Object.entries(data.modes)){
         if(!FREE_PACKS.some(x=>x[0]===mode)||!Array.isArray(sheet.questions)||sheet.questions.length!==7)continue;
@@ -1017,6 +1021,17 @@
             answers.push(entry);
             const key=norm(entry.value);
             if(key&&!answerIndex.has(key))answerIndex.set(key,entry);
+          }
+          if(mode==='unlimited'&&supplement?.score===10&&scoreIndex.has(10)){
+            const additions=supplement.questions?.[q.id];
+            if(Array.isArray(additions))for(const value of additions){
+              if(typeof value!=='string'||value.length>80)continue;
+              const key=norm(value);
+              if(!key||answerIndex.has(key))continue;
+              const estimated={value,tier:scoreIndex.get(10),aliases:[],
+                quip:'COMMON ANSWER · INDEPENDENT SCORE ESTIMATE',source:'sidequest-common-supplement'};
+              answers.push(estimated);answerIndex.set(key,estimated);
+            }
           }
           if(!answers.length)continue;
           byId.set(q.id,{id:q.id,theme:mode.toUpperCase(),prompt:q.text,answers,answerIndex});
