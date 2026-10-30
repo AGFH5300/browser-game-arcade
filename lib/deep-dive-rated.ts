@@ -5,6 +5,13 @@ import type {PartyRoom} from '@/lib/deep-dive-party';
  * atomic SQL CTE. Browser score claims never change Elo: only server room state
  * decides the winner. Unrated rooms do not affect player records.
  */
+/** K=32, symmetric Elo updates. Draws are 0.5 and never award wins/losses. */
+export const eloDeltas=(ratingA:number,ratingB:number,outcomeA:number):[number,number]=>{
+ const a=Math.max(0,Number(ratingA)||1200),b=Math.max(0,Number(ratingB)||1200);
+ const probability=1/(1+10**((b-a)/400));
+ const delta=Math.round(32*(outcomeA-probability));
+ return [delta,-delta];
+};
 export async function settleRatedRoom(room:PartyRoom){
  if(!room.rated||room.phase!=='finished'||room.members.length!==2)return;
  const [a,b]=room.members;
@@ -15,8 +22,7 @@ export async function settleRatedRoom(room:PartyRoom){
  const ra=Number(rows.find(x=>x.id===a.accountId)?.rating||1200);
  const rb=Number(rows.find(x=>x.id===b.accountId)?.rating||1200);
  const scoreA=room.winnerId===a.id?1:room.winnerId===b.id?0:0.5;
- const expectedA=1/(1+10**((rb-ra)/400));
- const deltaA=Math.round(32*(scoreA-expectedA)),deltaB=-deltaA;
+ const [deltaA,deltaB]=eloDeltas(ra,rb,scoreA);
  // CTE claim gates both updates: retries and simultaneous pollers cannot
  // award the same match twice.
  await sql.query(`WITH claim AS (
@@ -34,4 +40,7 @@ export async function settleRatedRoom(room:PartyRoom){
    FROM claim WHERE a.id=claim.account_a OR a.id=claim.account_b`,[
     room.code,a.accountId,b.accountId,a.score,b.score,deltaA,deltaB,scoreA
    ]);
+ // Clean up matched queue rows after a final result; the browser retains
+ // its own private room credentials and can view the finished game.
+ await sql.query('DELETE FROM deep_dive_matchmaking WHERE room_code=$1 AND state=\'matched\'',[room.code]);
 }
