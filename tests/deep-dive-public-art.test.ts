@@ -33,5 +33,5 @@ test('versioned exact-art player keeps own-origin multiplayer permissions withou
  const html=readFileSync('public/play/deep-dive/index-public-art.html','utf8');
  assert(html.includes('reference-art.css?ref=20261030fix1'));
  assert(html.includes('party.js?reef=20261030fix1'));
- assert(html.includes('game.js?parity=20261030fix1'));
+ assert(html.includes('game.js?parity=20261030social1'));
 });
