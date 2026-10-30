@@ -81,3 +81,51 @@
  .pp-view .pp-play-buttons .pp-game-button,
  .pp-view .pp-hero-fish{animation:none!important}
 }
+
+/* Actual pointer-state inspection, original /party and / at 1440x900.
+   Krillion uses a stable ink-blue background and a cyan/pink neon outer
+   shadow; the former Sidequest buttons changed their entire fill on hover. */
+.deep-home[data-phase="intro"] .dd-begin,
+.pp-view .pp-play-buttons .pp-game-button{
+ background:#101d33!important;
+ border:0!important;
+ color:#e8f1ff!important;
+ box-shadow:0 0 0 3px #050a14,0 0 0 6px #4de3ff,
+   0 6px 0 6px #123048,0 0 26px #4de3ff4d!important;
+ transition:transform .15s cubic-bezier(.34,1.56,.64,1),
+   box-shadow .2s cubic-bezier(.22,1,.36,1)!important;
+}
+.deep-home[data-phase="intro"] .dd-begin:hover,
+.pp-view .pp-play-buttons .pp-game-button:hover{
+ background:#101d33!important;
+ border:0!important;
+ box-shadow:0 0 0 3px #050a14,0 0 0 6px #ff5d8f,
+   0 6px 0 6px #123048,0 0 34px #ff5d8f8c!important;
+}
+@media(min-width:651px){
+ .pp-view .pp-play-buttons{
+  grid-template-columns:155px 155px!important;
+  gap:18px!important;
+  padding-left:2px!important;
+ }
+ .pp-view .pp-play-buttons .pp-game-button{
+  box-sizing:border-box!important;
+  width:155px!important;
+  height:55px!important;
+  font-size:22px!important;
+  padding:12px 11px!important;
+ }
+}
+@media(max-width:650px){
+ .pp-view .pp-play-buttons{
+  grid-template-columns:156px 156px!important;
+  gap:18px!important;
+  padding-left:3px!important;
+ }
+ .pp-view .pp-play-buttons .pp-game-button{
+  box-sizing:border-box!important;
+  width:156px!important;
+  height:48px!important;
+  font-size:17px!important;
+ }
+}
