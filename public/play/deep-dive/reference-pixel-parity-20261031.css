@@ -68,3 +68,31 @@ body:has(.ds-social-page) .header-stats{display:none!important}
 
 /* Original desktop Party panels begin at y=300 (1440×900), not y=286. */
 @media(min-width:1100px){.pp-view .pp-ocean-foyer{margin-top:42px!important}}
+
+/* First gameplay round: original Krillion uses a cloud-free pale sky with
+   a blue water column; the prior scene repeated the decorative homepage
+   artwork and large reef silhouettes, creating a measurable mismatch. */
+.dd-game-screen[data-world="ocean"] .dd-world-surface-sky{
+ background:linear-gradient(180deg,#a4ccd9 0%,#cbe5ed 44%,#eff8fb 100%)!important;
+}
+.dd-game-screen[data-world="ocean"] .dd-game-sea{
+ background:linear-gradient(180deg,#c9e2ea 0%,#e8f7fb 23%,
+ #105076 23.45%,#13466b 52%,#1a4e75 78%,#060e1e 83%,#040a16 100%)!important;
+ box-shadow:none!important;
+}
+.dd-game-screen[data-world="ocean"] .dd-world-surface-boat{
+ position:absolute;top:-95px;left:calc(50% - 390px);width:195px;height:95px;
+ pointer-events:none;z-index:2;
+}
+.dd-game-screen[data-world="ocean"] .dd-world-surface-boat .dd-boat{
+ width:195px;height:95px;display:block;overflow:visible;image-rendering:pixelated;
+}
+@media(max-width:650px){
+ .dd-game-screen[data-world="ocean"] .dd-world-surface-boat{
+ left:calc(50% - 122px);transform:scale(.48);transform-origin:left bottom;
+ }
+}
+/* Results overlay is part of the world, not the fixed question card. */
+.dd-reveal-screen[data-world="ocean"] .dd-landed{
+ text-align:center!important;left:10px!important;right:52px!important;
+}
