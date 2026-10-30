@@ -2,29 +2,27 @@
    Deliberately scoped: keep the fixed full-height dive stage untouched. */
 :root{--dd-polish-cyan:#4de3ff;--dd-polish-ink:#08172b}
 
-/* Original first-load state: 'descending…' over a moving dark-water scene. */
+/* Original publicly delivered ds-boot, measured 30 Oct 2026: no title or progress bar.
+   The original loads a centered 64x64 Krill, descending… and dark scanlines. */
 .dd-boot-screen{
- position:fixed;inset:0;z-index:1000;display:grid;place-items:center;
- background:radial-gradient(ellipse at 50% 2%,#174b70 0%,#092743 40%,#030c1c 86%);
- color:#e6f1fd;overflow:hidden;isolation:isolate;
+ position:fixed;inset:0;z-index:1000;display:flex;flex-direction:column;justify-content:center;align-items:center;
+ gap:16px;padding:0 24px;overflow:hidden;text-align:center;isolation:isolate;
+ font-family:"ReferenceVT323",ui-monospace,monospace;color:#7d93b8;
+ background:linear-gradient(#0b1526,#050a14 55%,#03070f);
  transition:opacity .45s ease,visibility .45s ease
 }
-.dd-boot-screen::before{content:"";position:absolute;inset:-10%;opacity:.18;pointer-events:none;
- background:repeating-linear-gradient(0deg,#77c8dc22 0 1px,transparent 1px 4px),
- radial-gradient(ellipse at 45% 15%,#4bdcf452,transparent 60%);
- animation:dd-boot-current 6s ease-in-out infinite alternate}
+.dd-boot-screen::after{
+ content:"";position:absolute;inset:0;pointer-events:none;opacity:.45;
+ background:repeating-linear-gradient(0deg,#0000002e 0 1px,#0000 1px 3px)
+}
 .dd-boot-screen[data-complete=true]{opacity:0;visibility:hidden;pointer-events:none}
-.dd-boot-inner{position:relative;text-align:center;display:flex;flex-direction:column;align-items:center;gap:13px;padding:24px}
-.dd-boot-brand{font:clamp(52px,9vw,108px)/.9 "ReferenceVT323",monospace;letter-spacing:.055em;
- color:#e8f1ff;text-shadow:-3px 3px #ff5d8f,3px -2px #4de3ff}
-.dd-boot-mascot{width:72px;height:72px;object-fit:contain;image-rendering:pixelated;
- animation:ds-boot-bob 2.2s ease-in-out infinite}
-.dd-boot-message{font:24px/1 "ReferenceVT323",monospace;letter-spacing:.28em;color:#8edff2;
- animation:ds-boot-pulse 1.7s steps(2,end) infinite}
-.dd-boot-track{position:relative;width:170px;height:3px;background:#143b56;margin-top:5px;overflow:hidden}
-.dd-boot-track::after{content:"";display:block;width:45%;height:100%;background:#4de3ff;animation:dd-boot-progress 1.35s ease-in-out infinite}
-@keyframes dd-boot-progress{from{transform:translateX(-100%)}to{transform:translateX(340%)}}
-@keyframes dd-boot-current{to{transform:translate(2%,1%)}}
+.dd-boot-inner{position:relative;z-index:1;text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px;padding:0}
+.dd-boot-brand,.dd-boot-track{display:none!important}
+.dd-boot-mascot{display:block;width:64px;height:64px;object-fit:contain;image-rendering:pixelated;
+ filter:drop-shadow(0 0 12px #ff5d8f73);
+ animation:ds-boot-bob 2.4s cubic-bezier(.65,0,.35,1) infinite}
+.dd-boot-message{margin:0;font:16px/1 "ReferenceVT323",ui-monospace,monospace;
+ letter-spacing:.3em;text-transform:uppercase;color:#7d93b8;animation:ds-boot-pulse 1.6s ease-in-out infinite}
 
 /* Source-like animated ocean, using the bundled original surface artwork.
    The canvas already animates fish and bubbles; this adds visible water motion. */
@@ -213,3 +211,17 @@ body:has(.dd-archive) .dd-nav-toggle{pointer-events:auto}
 .dd-global-settings-dialog .dd-reference-settings-panel input[type=checkbox]{accent-color:#4fe5f4;width:17px;height:17px}
 .dd-global-settings-dialog .dd-reference-settings-panel select{min-width:180px;max-width:100%;background:#0b2846;
  border:2px solid #3f829c;color:#e5f6ff;font:20px "ReferenceVT323",monospace}
+
+/* 1440×900 matched original-vs-Sidequest screenshot corrections; preserve mobile scaling. */
+@media(min-width:1100px) and (min-height:700px){
+ .app-shell:has(.deep-home[data-phase=intro]) .dd-nav-toggle{translate:-52px 0}
+ .deep-home[data-phase=intro] .dd-logo{scale:.966 1;transform-origin:center}
+ .deep-home[data-phase=intro] .dd-begin{translate:0 6px}
+ .deep-home[data-phase=intro] .dd-source-home-footer{translate:0 8px}
+}
+@media(min-width:651px){
+ .deep-home .dd-reference-utility>button,.deep-home .dd-reference-preferences>summary,
+ .deep-home .dd-reference-utility>.dd-utility-merch{width:38px;height:33px;padding:3px!important;border-width:2px!important}
+ .deep-home .dd-reference-utility svg{width:23px;height:23px}
+ .deep-home .dd-reference-preferences{height:33px}
+}
