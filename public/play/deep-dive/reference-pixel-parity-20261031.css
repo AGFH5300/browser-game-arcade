@@ -11,7 +11,7 @@
   background-size:100% auto!important;background-position:center bottom!important;
  }
  .deep-home[data-phase="intro"] .dd-sea:not(.dd-game-sea){height:auto!important;min-height:43.25svh!important}
- .deep-home[data-phase="intro"] .dd-title-group{top:32%!important;left:16px!important;right:16px!important}
+ .deep-home[data-phase="intro"] .dd-title-group{top:32.6%!important;left:16px!important;right:16px!important}
  .deep-home[data-phase="intro"] .dd-logo,.deep-home[data-phase="intro"] .dd-logo span{
   font-size:57px!important;letter-spacing:.12em!important;line-height:.74!important;
  }
@@ -36,6 +36,8 @@
  .pp-view .pp-caption{font-size:12px!important}
  .pp-view .pp-avatar-help{display:none!important}
  .pp-view .pp-sound-toggle{display:none!important}
+ .pp-view .pp-avatar-grid{margin-bottom:-10px!important}
+ .pp-view .pp-avatar-option{height:88px!important;min-height:88px!important}
 }
 @media(min-width:651px){
  .deep-home[data-phase="intro"] .dd-logo{transform:translateY(-7px)!important}
@@ -63,3 +65,6 @@ body:has(.ds-social-page) .header-stats{display:none!important}
  .ds-social-page>header{margin-bottom:24px!important}
  .ds-social-gate .ds-social-card{padding:18px!important}
 }
+
+/* Original desktop Party panels begin at y=300 (1440×900), not y=286. */
+@media(min-width:1100px){.pp-view .pp-ocean-foyer{margin-top:42px!important}}
