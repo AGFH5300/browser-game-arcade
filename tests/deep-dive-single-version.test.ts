@@ -45,3 +45,12 @@ test('public arcade listing accurately describes the new reconstruction and rema
  assert.match(game.licenseNotes,/user|owner.*reports/i);
  assert(!game.description.startsWith('An original Sidequest'));
 });
+
+test('gameplay stage remains viewport sized when all world children are absolute',()=>{
+ const html=readFileSync(base+'index-public-art.html','utf8');
+ const css=readFileSync(base+'reference-source-pages.css','utf8');
+ assert.match(css,/\.dd-game-screen \.dd-stage\s*\{position:absolute;inset:0;width:100%;height:100%\}/);
+ assert(html.includes('reference-source-pages.css?release=20261030stagefix1'));
+ // Regression: relative layout collapses to 0px and clips answer feedback/HUD.
+ assert(!/\.dd-game-screen \.dd-stage\s*\{position:relative\}/.test(css));
+});
