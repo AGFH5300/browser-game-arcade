@@ -15,6 +15,15 @@
   ['deepcut','Deep Cut Angler','deepcut.png',30],
   ['evil-krill','Evil Krill','evil-krill-white-v2.png',45]
  ];
+ const pixelIcon=(kind)=>{
+  const paths={
+   sound:'<path d="M2 9h5l6-5v16l-6-5H2zM16 3v12h3V3zM19 3h3v3h-3zM19 12h3v3h-3z"/>',
+   silent:'<path d="M2 9h5l6-5v16l-6-5H2zM17 8l2 2 2-2 1 1-2 2 2 2-1 1-2-2-2 2-1-1 2-2-2-2z"/>',
+   settings:'<path d="M9 1h6v3h3l2-2 3 3-2 2v3h3v5h-3v3l2 2-3 3-2-2h-3v3H9v-3H6l-2 2-3-3 2-2v-3H0v-5h3V7L1 5l3-3 2 2h3z M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z" fill-rule="evenodd"/>',
+   merch:'<path d="M7 2h3l2 3 2-3h3l6 5-4 6-3-2v12H8V11l-3 2-4-6z"/>'
+  };
+  return '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">'+paths[kind]+'</svg>';
+ };
  const unlockedStreak=()=>{
   try{return Number(JSON.parse(localStorage.getItem('sidequest:deep-dive:player:v1')||'{}').streak||0)}catch{return 0}
  };
@@ -59,8 +68,8 @@
    if(!scene.querySelector('.dd-reference-utility')){
      const tools=document.createElement('div');
      tools.className='dd-reference-utility';
-     tools.innerHTML='<button type="button" data-dd-sound title="Toggle sound" aria-label="Mute sound" aria-pressed="true">◀♫</button>'+
-      '<details class="dd-reference-preferences"><summary title="Settings" aria-label="Settings">⚙</summary>'+
+     tools.innerHTML='<button type="button" data-dd-sound title="Toggle sound" aria-label="Mute sound" aria-pressed="true">'+pixelIcon('sound')+'</button>'+
+      '<details class="dd-reference-preferences"><summary title="Settings" aria-label="Settings">'+pixelIcon('settings')+'</summary>'+
       '<div class="dd-reference-settings-panel"><strong>GAME SETTINGS</strong>'+
       '<label><input type="checkbox" data-dd-setting="lowPower"> Low-power mode</label>'+
       '<label><input type="checkbox" data-dd-setting="contrast"> Colorblind mode</label>'+
@@ -69,13 +78,13 @@
       '<label>Choose a dive buddy<select data-dd-character>'+
       characters.map(x=>'<option value="'+x[0]+'">'+x[1]+'</option>').join('')+
       '</select></label></div></details>'+
-      '<button type="button" data-dd-logbook title="Logbook" aria-label="Open logbook">▣</button>';
+      '<a class="dd-utility-merch" href="https://shop.krillion.io/" target="_blank" rel="noopener noreferrer" title="Merch" aria-label="Krillion merchandise">'+pixelIcon('merch')+'</a>';
      scene.append(tools);
    }
    const mascot=scene.querySelector('.dd-game-fish');
    if(mascot){mascot.setAttribute('role','button');mascot.setAttribute('tabindex','0');mascot.setAttribute('aria-label','Tap your dive buddy');mascot.setAttribute('title','Tap your dive buddy')}
    const sound=app.querySelector('[data-dd-sound]');
-   if(sound){const muted=window.DeepDiveSfx?.muted??false;sound.textContent=muted?'◀×':'◀♫';sound.setAttribute('aria-label',muted?'Unmute sound':'Mute sound');sound.setAttribute('aria-pressed',String(!muted))}
+   if(sound){const muted=window.DeepDiveSfx?.muted??false;sound.innerHTML=pixelIcon(muted?'silent':'sound');sound.setAttribute('aria-label',muted?'Unmute sound':'Mute sound');sound.setAttribute('aria-pressed',String(!muted))}
    syncChecks();
    window.DeepDiveScene?.refresh?.();
  }
