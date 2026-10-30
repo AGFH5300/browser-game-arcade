@@ -1228,6 +1228,24 @@
       if(!sourcesComplete&&!active)render();
     },1700):null;
     await Promise.all([loadSourceDaily(),loadArchiveManifest(),loadFreeStarters()]);
+    // Restore the exact lazy-loaded question files before validating a resumed
+    // Unlimited session. Otherwise reload would discard independent/publisher
+    // dives because byId initially contains only the authored/default bank.
+    if(active?.mode==='endless'&&Array.isArray(active.ids)&&active.ids.length===7){
+      try{
+        const gameId=Number(active.unlimitedGameId)||0;
+        let restored=[];
+        if(active.source==='sidequest-independent-practice'&&gameId>=5){
+          restored=await loadIndependentPracticeUnlimited(gameId);
+        }else if(active.source==='krillion-public-publisher-reveal'&&(gameId===3||gameId===4)){
+          restored=await loadPublisherVerifiedUnlimited(gameId);
+        }
+        if(restored.length&&restored.join('|')!==active.ids.join('|'))
+          throw Error('Saved Unlimited question list differs from current source');
+      }catch(error){
+        console.warn('Could not restore recovered Unlimited source question files',error);
+      }
+    }
     sourcesComplete=true;
     if(firstPaintTimer!==null)clearTimeout(firstPaintTimer);
     if(active&&['archive','endless'].includes(active.mode)){
