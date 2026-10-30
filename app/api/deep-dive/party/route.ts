@@ -78,6 +78,10 @@ export async function POST(request:NextRequest){
  try{
   const body=await request.json() as Record<string,unknown>;
   const type=String(body.type||'');
+  // The client-side streak is stored in editable browser storage, not a trusted account.
+  // Never let an anonymous request claim gated multiplayer avatar rewards.
+  if((type==='create'||type==='join')&&body.avatar!==undefined&&body.avatar!=='krill')
+   return error('This character requires a verified daily streak. Use the Krill for anonymous Party rooms.',403);
   if(type==='create'){
    if(typeof body.name!=='string'||body.name.length>45)return error('Enter a nickname between 2 and 24 characters.');
    const sql=getDb();
@@ -122,6 +126,7 @@ export async function POST(request:NextRequest){
  }catch(e){
   if(e instanceof SyntaxError)return error('Malformed request');
   if(e instanceof Error){
+   if(e.message.startsWith('That nickname is already in this room.'))return error(e.message,409);
    if(/^(Unrecognized|That answer|It is not|The party|This room|The room|Nickname|At least|All players|Only the host|Please avoid|You must|Unknown|Enter an answer|Party already|Party question|Room expired|Room not found)/.test(e.message)){
     return error(e.message);
    }
