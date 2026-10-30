@@ -67,8 +67,7 @@
    }
    if(e.target.closest('[data-menu-settings]')){
      setOpen(false);
-     const s=app.querySelector('.dd-reference-preferences>summary');
-     s?.click();
+     window.DeepDiveReference?.openSettings?.();
    }
  });
  document.addEventListener('keydown',e=>{
