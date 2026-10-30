@@ -174,3 +174,17 @@ body:has(.ds-social-page) .header-stats{display:none!important}
   transform:none!important;animation:none!important;
  }
 }
+
+/* Source accepted-answer reveal at 1440×900:
+   tier title y≈325, answer y≈381, points y≈428,
+   quip y≈468 and DESCEND control y≈734. */
+@media(min-width:1100px) and (min-height:701px){
+ .dd-reveal-screen[data-world="ocean"] .dd-landed .dd-tier-emoji,
+ .dd-reveal-screen[data-world="ocean"] .dd-landed img.icon{
+  transform:translateY(-28px)!important;
+ }
+ .dd-reveal-screen[data-world="ocean"] .dd-landed .tans{margin-top:20px!important}
+ .dd-reveal-screen[data-world="ocean"] .dd-landed .tpts{margin-top:24px!important}
+ .dd-reveal-screen[data-world="ocean"] .dd-landed .tsub{margin-top:25px!important}
+ .dd-reveal-screen[data-world="ocean"] .dd-next-wrap{bottom:94px!important}
+}
