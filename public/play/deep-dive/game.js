@@ -291,8 +291,15 @@
     </details></section>`;
   }
   function renderArchive(){
-    if(!archiveManifest.length)
-      return '<section class="page dd-archive"><div class="page-title"><span class="eyebrow">DAILY ARCHIVE</span><h1>Historical <em>dives.</em></h1><p>No verified historical snapshots loaded. '+safe(archiveError||'Please reload the game.')+'</p></div></section>';
+    const count=archiveManifest.length;
+    const intro=count
+      ?count+' recovered historical dives · '+(count*7)+' original prompts. Choose a date to practice a recorded dive.'
+      :'Historical dives will appear when the archive snapshots are available. '+(archiveError||'Please reload the game.');
+    const hero='<header class="dd-archive-hero"><h1 class="dd-archive-brand">KRILLION</h1>'+
+      '<p class="dd-archive-eyebrow">THE DAILY ARCHIVE</p><p class="dd-archive-intro">'+safe(intro)+'</p>'+
+      '<p class="dd-archive-intro">Publicly published historical snapshots for independent practice — not the publisher’s paid archive or account.</p></header>';
+    if(!count)return '<section class="page dd-archive">'+hero+
+      '<div class="dd-archive-content"><button class="dd-archive-return" type="button" data-action="daily">← TODAY’S DIVE</button></div></section>';
     const groups=new Map();
     for(const rec of [...archiveManifest].reverse()){
       const month=rec.date.slice(0,7);
@@ -308,7 +315,8 @@
           return '<button type="button" class="dd-archive-date" data-action="startArchive" data-day="'+safe(rec.date)+'"><strong>#'+Number(rec.dayNumber)+'</strong><span>'+safe(rec.date)+'</span><small>'+Number(rec.acceptedAnswers).toLocaleString('en-US')+' answers'+(best!==null?' · BEST '+best+' PTS':'')+'</small></button>';
         }).join('')+'</div></section>';
     }).join('');
-    return '<section class="page dd-archive"><div class="page-title"><span class="eyebrow">THE DAILY ARCHIVE</span><h1>Revisit past <em>dives.</em></h1><p>'+archiveManifest.length+' recovered historical dives · '+(archiveManifest.length*7)+' original prompts. Every archived answer has its recorded rarity score. Choose a date to practice. These are publicly published historical snapshots from an independent archive, not access to the publisher’s locked archive or private answer service.</p></div>'+months+'</section>';
+    return '<section class="page dd-archive">'+hero+
+      '<div class="dd-archive-content"><button class="dd-archive-return" type="button" data-action="daily">← TODAY’S DIVE</button>'+months+'</div></section>';
   }
   async function loadArchiveManifest(){
     try{
