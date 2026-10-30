@@ -241,3 +241,38 @@ body:has(.ds-social-page) .header-stats{display:none!important}
   box-shadow:none!important;
  }
 }
+
+/* Mobile original gameplay measurements at 390×844:
+   waterline y177, question card [12,172,316,180], mascot [18,591,65,65],
+   depth/score panels [10,8,86,51] / [294,8,86,51],
+   input dock top 714 and inner top 724. Camera anchor is set in
+   reference-world.js (0.21×844) to retain the same world geometry. */
+@media(max-width:650px){
+ .dd-game-screen[data-world="ocean"] .dd-hud{
+  left:0!important;right:0!important;top:0!important;
+  width:100%!important;max-width:none!important;
+  padding:8px 10px 0!important;transform:none!important;
+ }
+ .dd-game-screen[data-world="ocean"] .dd-hud .dd-hud-box{
+  width:86px!important;min-width:86px!important;
+  min-height:51px!important;
+ }
+ .dd-game-screen[data-world="ocean"] .dd-hud-progress{
+  width:106px!important;max-width:106px!important;
+  flex:0 0 106px!important;
+ }
+ .dd-game-screen[data-world="ocean"]:not(.dd-done-screen) .dd-game-prompt{
+  margin-top:-6px!important;
+  left:12px!important;right:auto!important;
+  width:316px!important;max-width:calc(100% - 74px)!important;
+  padding-left:18px!important;padding-right:18px!important;
+ }
+ .dd-game-screen[data-world="ocean"][data-phase="answering"] .dd-game-fish,
+ .dd-game-screen[data-world="ocean"][data-phase="preview"] .dd-game-fish{
+  left:18px!important;top:70%!important;
+  width:65px!important;height:65px!important;
+ }
+ .dd-game-screen[data-world="ocean"][data-phase="answering"] .dd-dock{
+  bottom:11px!important;
+ }
+}
