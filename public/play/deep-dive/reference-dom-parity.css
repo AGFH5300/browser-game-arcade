@@ -63,8 +63,8 @@
 .dd-low-power .dd-reference-sea-canvas{opacity:.7}
 .dd-low-power .dd-game-fish{animation:none!important}
 @media (min-width:651px) and (min-height:701px){
-  .deep-home .dd-sky:not(.dd-game-sky){height:56.5svh!important}
-  .deep-home .dd-sea:not(.dd-game-sea){height:43.5svh!important}
+  .deep-home[data-phase="intro"] .dd-sky:not(.dd-game-sky){height:55svh!important}
+  .deep-home[data-phase="intro"] .dd-sea:not(.dd-game-sea){height:45svh!important}
   .app-shell:has(.deep-home) .dd-nav-toggle{left:max(0px,calc((100vw - 1060px)/2))!important}
 }
 @media(max-width:650px){

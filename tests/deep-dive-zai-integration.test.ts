@@ -12,7 +12,7 @@ const paths=new Set(manifest.files.map((x:{localPath:string})=>x.localPath));
 test('Z.ai parity stylesheets load in order and the modified game uses a fresh cache key',()=>{
  assert(html.includes('./reference-parity-2.css?release=20261029p2fixed'));
  assert(html.includes('./reference-pass3.css?release=20261030validated'));
- assert(html.includes('./game.js?parity=20261030pass5results3'));
+ assert(html.includes('./game.js?parity=20261030pass5home1'));
  assert(html.indexOf('reference-dom-parity.css')<html.indexOf('reference-parity-2.css'));
  assert(html.indexOf('reference-parity-2.css')<html.indexOf('reference-pass3.css'));
 });
@@ -46,6 +46,7 @@ test('original depth and result elements are wired into working gameplay',()=>{
  }
  assert(!game.includes('  function arcadeHud(){\n    depthCrank=false;'));
  assert(game.includes("depthCrank=false;\n      active.index++"));
- assert(game.includes('IN OPEN LOBBIES'));
+ assert(!game.includes('IN OPEN LOBBIES'));
+ assert(!game.includes('/api/deep-dive/party?action=live'));
  assert(game.includes('const verdict=score=>'));
 });

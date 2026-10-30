@@ -10,7 +10,7 @@ const iface=readFileSync(root+'reference-interface.js','utf8');
 const css=readFileSync(root+'reference-dom-parity.css','utf8');
 
 test('original DOM, canvas and synthesized sound scripts are delivered before game startup',()=>{
- const ordered=['reference-sound.js','reference-scene.js','reference-interface.js','game.js?parity=20261030pass5results3'];
+ const ordered=['reference-sound.js','reference-scene.js','reference-interface.js','game.js?parity=20261030pass5home1'];
  const positions=ordered.map(x=>html.indexOf(x));
  positions.forEach(p=>assert(p>0));
  assert(positions.every((p,i)=>i===0||p>positions[i-1]));

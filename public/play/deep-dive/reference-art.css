@@ -6,7 +6,12 @@
 .deep-home .dd-sky::before{background:repeating-linear-gradient(0deg,#071e280e 0 1px,transparent 1px 3px)!important;opacity:.35}
 .deep-home .dd-cloud,.deep-home .dd-sun,.deep-home .dd-boat,.deep-home .dd-wave{display:none!important}
 .deep-home .dd-sea:not(.dd-game-sea){background:linear-gradient(180deg,#10507898 0%,#050b18e6 27%,#050a14 56%),url("./reference-art/top.webp") center top/100% auto no-repeat!important;box-shadow:none!important}
-.deep-home .dd-depth-ticks{opacity:.65}
+.deep-home[data-phase="intro"] .dd-depth-ticks{height:14000px;display:block;opacity:.55}
+.deep-home[data-phase="intro"] .dd-depth-tick{position:absolute;left:0;right:0;height:1px;transform:translateY(-50%);font:12px "ReferenceVT323",monospace;color:#647489;white-space:nowrap}
+.deep-home[data-phase="intro"] .dd-depth-tick::before{content:"";position:absolute;left:-9px;top:0;width:7px;height:1px;background:#111b2a}
+.deep-home[data-phase="intro"] .dd-depth-tick.major::before{width:12px}
+.deep-home[data-phase="intro"] .dd-depth-tick.major{color:#65768a}
+.deep-home[data-phase="intro"] .dd-fish{color:#020814!important;opacity:.16!important;filter:brightness(.35)}
 .deep-home .dd-title-group{top:33%}
 .deep-home .dd-logo,.deep-home .dd-logo span{font-family:"ReferenceVT323","VT323",monospace!important;font-size:clamp(73px,9.9vw,126px)!important;line-height:.85!important;letter-spacing:.058em!important;font-weight:400!important;color:var(--reference-white)!important;text-shadow:-4px 3px var(--reference-pink),4px -3px #4de3ffd9,0 0 30px #4de3ff59!important}
 .deep-home .dd-subtitle{font-family:"ReferenceVT323","VT323",monospace!important;color:var(--reference-cyan)!important;font-size:clamp(21px,2.2vw,28px)!important;letter-spacing:.3em!important;text-shadow:0 0 20px #4de3ff59!important}
@@ -54,6 +59,8 @@
  .deep-home .dd-sea-center{padding-top:37px!important}
  .deep-home .dd-rules{margin-bottom:50px!important}
  .deep-home .dd-party-btn{margin-left:0!important;margin-right:auto!important}
+ .deep-home[data-phase="intro"] .dd-sky:not(.dd-game-sky){background-position:center bottom!important;background-size:100% auto!important}
+ .deep-home[data-phase="intro"] .dd-party-btn::before{content:none!important;display:none!important}
 }
 .dd-source-note{font:17px/1.25 "ReferenceVT323","VT323",monospace;color:#90c8d4;letter-spacing:.1em;text-align:center;margin:9px 0}
 @media(max-height:850px){.dd-source-note{font-size:14px;margin:6px 0}.deep-home .dd-sea-stats{margin-top:6px!important}}
