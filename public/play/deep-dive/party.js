@@ -11,7 +11,7 @@ const ASSET='./reference-assets';
 function avatarUrl(id){return ASSET+(AVATARS.find(a=>a[0]===id)||AVATARS[0])[3]}
 function streak(){try{return Math.max(0,Number(JSON.parse(localStorage.getItem('sidequest:deep-dive:player:v1')||'{}').streak)||0)}catch{return 0}}
 function choices(){const days=streak();return AVATARS.map(([id,label,needed])=>'<button type="button" class="pp-avatar-option '+(id===selectedAvatar?'active':'')+'" data-party="avatar" data-avatar="'+id+'" '+(needed>days?'disabled title="Unlock at a '+needed+' day daily streak"':'')+' aria-pressed="'+(id===selectedAvatar)+'"><img src="'+avatarUrl(id)+'" alt="" loading="lazy"><span>'+label+'</span>'+(needed>days?'<small>'+needed+'-day</small>':'<small>READY</small>')+'</button>').join('')}
-function heading(subtitle){return '<header class="pp-scene-header"><button type="button" class="pp-sound-toggle" data-party="sound" title="Toggle game sounds">SOUND</button><h1 class="pp-scene-brand">DEEP <span>DIVE</span></h1><p class="pp-scene-name">PUFFER PARTY</p><p class="pp-scene-tagline">pass the puffer · don\'t let it pop on you</p><p class="pp-scene-desc">'+subtitle+'</p></header>'}
+function heading(subtitle){return '<header class="pp-scene-header"><button type="button" class="pp-sound-toggle" data-party="sound" title="Toggle game sounds">SOUND</button><h1 class="pp-scene-brand">KRILLION</h1><p class="pp-scene-name">PUFFER PARTY</p><p class="pp-scene-tagline">pass the puffer · don\'t let it pop on you</p><p class="pp-scene-desc">'+subtitle+'</p></header>'}
 function rememberIdentity(){name=(document.getElementById('pp-name')?.value||name).trim().slice(0,24);try{sessionStorage.setItem('sidequest:party-name',name)}catch{}}
 try{name=sessionStorage.getItem('sidequest:party-name')||name;const a=sessionStorage.getItem('sidequest:party-avatar');if(AVATARS.some(v=>v[0]===a))selectedAvatar=a;const cap=Number(sessionStorage.getItem('sidequest:party-capacity'));if([2,3,6,8].includes(cap))selectedCapacity=cap}catch{}
 function restore(){try{auth=JSON.parse(sessionStorage.getItem('sidequest:party-auth:'+code)||'null')}catch{auth=null}}
@@ -32,7 +32,7 @@ function chat(){
 }
 function home(){
  return `<section class="pp-arena">
-  ${heading('Name a valid answer and pass the puffer before it pops. Play with friends or join a public room. Last one floating wins.')}
+  ${heading('Krillion’s multiplayer category game. Name a valid answer and pass the puffer before it pops. Play with friends or join a public room. Last one floating wins.')}
   <div class="pp-ocean-foyer">
    <div class="pp-foyer-left">
     <div class="pp-panel pp-identity-panel"><div class="pp-panel-title">WHO'S PLAYING <details><summary>HOW TO PLAY</summary><p>Each player starts with three hearts. Name an unused correct answer within 18 seconds to pass the puffer. Lose a heart if you pass or run out of time. Earn a bonus heart every 120 rarity points, up to five. Last one afloat wins.</p></details></div>
