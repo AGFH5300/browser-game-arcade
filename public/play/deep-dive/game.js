@@ -509,7 +509,7 @@
         <div class="dd-sea dd-game-sea"></div>
         <div class="dd-world" style="--dd-world-height:${worldMeta.height}px">
           <div class="dd-world-surface-sky" aria-hidden="true"></div>
-          ${worldId==='ocean'?'<div class="dd-world-surface-boat" aria-hidden="true">'+(oceanArt().match(/<svg class="dd-boat"[\\s\\S]*?<\\/svg>/)||[''])[0]+'</div>':''}
+          ${worldId==='ocean'?'<div class="dd-world-surface-boat" aria-hidden="true">'+(oceanArt().match(/<svg class="dd-boat"[\s\S]*?<\/svg>/)||[''])[0]+'</div>':''}
           ${worldSurface(currentTotal())}
           ${window.DeepDiveThemes?.scenery(worldId)||''}
           <img class="dd-floor" src="${WORLD_FLOORS[worldId]||WORLD_FLOORS.ocean}" alt="" loading="lazy" style="--y:${worldMeta.floorTop}px">
