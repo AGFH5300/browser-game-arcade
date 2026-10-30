@@ -54,6 +54,8 @@ CREATE TABLE IF NOT EXISTS deep_dive_matchmaking (
   desired_capacity integer NOT NULL DEFAULT 2 CHECK (desired_capacity IN (2,3,6,8)),
   rated boolean NOT NULL DEFAULT true,
   room_code varchar(6),
+  player_id char(48),
+  player_secret char(48),
   state text NOT NULL DEFAULT 'waiting' CHECK (state IN ('waiting','matched')),
   queued_at timestamptz NOT NULL DEFAULT now(),
   updated_at timestamptz NOT NULL DEFAULT now()
