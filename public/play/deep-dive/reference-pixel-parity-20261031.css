@@ -96,3 +96,15 @@ body:has(.ds-social-page) .header-stats{display:none!important}
 .dd-reveal-screen[data-world="ocean"] .dd-landed{
  text-align:center!important;left:10px!important;right:52px!important;
 }
+
+/* Recorded first-round accepted-answer reveal: the original tier banner is
+   approx 85px above the previously rendered Sidequest banner at 1440×900. */
+@media(min-width:651px){
+ .dd-reveal-screen[data-world="ocean"] .dd-landed{
+  top:calc(var(--y,0px) - 85px)!important;
+ }
+}
+@keyframes dd-parity-chip-fade{0%,65%{opacity:1}100%{opacity:0}}
+.dd-reveal-screen[data-world="ocean"] .dd-chip{
+ animation:dd-parity-chip-fade 1.7s ease-in forwards!important;
+}
