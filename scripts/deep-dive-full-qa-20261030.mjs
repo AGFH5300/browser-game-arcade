@@ -89,7 +89,7 @@ try{
   await s.locator('.dd-nav-toggle>summary').click();
   await s.locator('[data-menu-settings]').click();
   await s.locator('#dd-global-settings [role=dialog]').waitFor({state:'visible',timeout:8000});
-  await s.locator('#dd-global-settings [data-dd-close-settings]').first().click();
+  await s.locator('#dd-global-settings .dd-global-settings-head [data-dd-close-settings]').click();
   assert.equal(await s.locator('#dd-global-settings').count(),0);
   return 'Archive and Party open/close';
  });
