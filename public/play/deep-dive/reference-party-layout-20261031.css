@@ -6,7 +6,7 @@
 .pp-view .pp-identity-panel .pp-caption{display:none!important}
 .pp-view .pp-foyer-left{gap:8px!important}
 .pp-view .pp-play-panel{min-height:224px!important}
-.pp-view .pp-play-buttons{margin-top:12px!important}
+.pp-view .pp-play-buttons{margin-top:25px!important}
 .pp-view .pp-host-panel{margin-top:6px!important}
 }
 @media(max-width:650px){
