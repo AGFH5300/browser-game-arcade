@@ -10,7 +10,7 @@ export const eloDeltas=(ratingA:number,ratingB:number,outcomeA:number):[number,n
  const a=Math.max(0,Number(ratingA)||1200),b=Math.max(0,Number(ratingB)||1200);
  const probability=1/(1+10**((b-a)/400));
  const delta=Math.round(32*(outcomeA-probability));
- return [delta,-delta];
+ return [delta,delta===0?0:-delta];
 };
 export async function settleRatedRoom(room:PartyRoom){
  if(!room.rated||room.phase!=='finished'||room.members.length!==2)return;
