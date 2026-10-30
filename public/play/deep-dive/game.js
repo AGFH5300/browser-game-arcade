@@ -1103,7 +1103,16 @@
     themes=Array.isArray(data.themes)?data.themes:WORLDS.map(w=>w[0]);
     byId=new Map(bank.map(q=>[q.id,q]));
     if(byId.size!==bank.length||themes.some(t=>bank.filter(q=>q.theme===t).length<7))throw Error('Incomplete question-bank themes');
+    // Render a responsive first screen even when a remote daily/archive service
+    // is slow: the local question pack is already validated at this point.
+    // Delayed remote data is merged once it arrives without blocking first paint.
+    let sourcesComplete=false;
+    const firstPaintTimer=!active?setTimeout(()=>{
+      if(!sourcesComplete&&!active)render();
+    },1700):null;
     await Promise.all([loadSourceDaily(),loadArchiveManifest(),loadFreeStarters()]);
+    sourcesComplete=true;
+    if(firstPaintTimer!==null)clearTimeout(firstPaintTimer);
     if(active&&['archive','endless'].includes(active.mode)){
       const days=[...new Set(active.ids.filter(id=>id.startsWith('archive:')).map(id=>id.split(':')[1]))];
       for(const d of days){
