@@ -161,7 +161,11 @@
       <div class="dd-wave" aria-hidden="true"></div>`;
   }
   function oceanDecor(){
-    return `<div class="dd-depth-ticks" aria-hidden="true"><span>000m</span><span>500m</span><span>1000m</span><span>1500m</span><span>2500m</span><span>4000m</span><span>7000m</span></div><div class="dd-fish dd-fish-a" aria-hidden="true">▰◂</div><div class="dd-fish dd-fish-b" aria-hidden="true">◂▰</div><div class="dd-fish dd-fish-c" aria-hidden="true">▰◂</div><div class="dd-bubbles" aria-hidden="true">°<br>°<br>·<br>°<br>·</div>`;
+    const ticks=Array.from({length:351},(_,i)=>{
+      const depth=i*20,major=depth%100===0;
+      return `<span class="dd-depth-tick${major?' major':''}" style="top:${depth*2}px">${major?(depth===0?'0m':'-'+depth+'m'):''}</span>`;
+    }).join('');
+    return `<div class="dd-depth-ticks" aria-hidden="true">${ticks}</div><div class="dd-fish dd-fish-a" aria-hidden="true">▰◂</div><div class="dd-fish dd-fish-b" aria-hidden="true">◂▰</div><div class="dd-fish dd-fish-c" aria-hidden="true">▰◂</div><div class="dd-bubbles" aria-hidden="true">°<br>°<br>·<br>°<br>·</div>`;
   }
   function gameOverlays(){
     return `<div class="dd-vignette" aria-hidden="true"></div><div class="dd-crt" aria-hidden="true"></div><div class="dd-edge" aria-hidden="true"></div>`;
@@ -228,7 +232,7 @@
           <div class="dd-surface-label">◂ HOW DEEP CAN YOUR KNOWLEDGE GO? ▸</div>
           <details class="dd-rules"><summary>▸ ${isEndless?'OPEN THE DIVE LOG ∞':'HOW TO PLAY'}</summary>${isEndless?`<div class="dd-source-howto dd-endless-log"><p>THE DIVE LOG</p><p>${format(profile.history.filter(x=>x.mode==='endless').length)} COMPLETED ENDLESS DIVES.</p><p>BEST: ${format(profile.endlessBest||0)} POINTS. NEXT: DIVE #${format(profile.unlimitedGameId||1)}.</p><p>EACH SEVEN-PROMPT DIVE IS SAVED ON THIS BROWSER.</p></div>`:`<div class="dd-source-howto"><p>7 PROMPTS A DAY. SAME FOR EVERYONE.</p><p>25 SECONDS TO NAME ONE THING.</p><p>RARE ANSWERS SCORE BIG. OBVIOUS ONES FLOAT.</p><p>THE PICK THAT FEELS CLEVER? THE SCHOOL THOUGHT OF IT TOO.</p><p>EVERY POINT SINKS YOU 10 METRES. 700 IS THE TRENCH.</p><p>ONE DIVE PER DAY. NO SECOND CHANCES.</p></div>`}</details>
           <a class="dd-home-privacy" href="/privacy">Privacy</a>
-          ${isEndless?'':`<button type="button" class="dd-party-btn" data-action="party"><span class="dd-party-tag">BETA · LIMITED TIME</span><span class="dd-party-fish" aria-hidden="true">🐡</span><span>PUFFER PARTY <small class="dd-party-live" id="dd-party-live"><b aria-hidden="true"></b>LIVE MULTIPLAYER · 2–16 PLAYERS</small></span><span class="dd-party-arrow">›</span></button>`}
+          ${isEndless?'':`<button type="button" class="dd-party-btn" data-action="party"><span class="dd-party-tag">BETA · LIMITED TIME</span><span class="dd-party-fish" aria-hidden="true">🐡</span><span>PUFFER PARTY</span><span class="dd-party-arrow" aria-hidden="true">›</span></button>`}
           <button type="button" class="dd-begin" data-action="${primaryAct}">${primaryLabel}</button>
           <div class="dd-mode-nav"><span class="dd-dive-number">${isEndless?'ENDLESS DIVE #'+format(profile.unlimitedGameId||1):sourceDaily?'DIVE #'+sourceDaily.dayNumber:'DAILY · '+safe(date)}</span><button type="button" data-action="archive">ARCHIVE ⟲</button>${isEndless?`<button type="button" data-action="daily">TODAY'S DIVE</button>`:`<button type="button" data-action="worlds">THEMED PACKS</button><button type="button" data-action="endless">UNLIMITED ∞</button>`}</div>
           ${!isEndless&&!sourceDaily&&sourceError?`<p class="dd-source-note">${safe(sourceError)}</p>`:''}
@@ -1022,18 +1026,6 @@
     if(!sheet||!sheet.ids?.length){notify('No validated scored starter rounds for this mode.');return}
     start('starter',mode,0,'',sheet.ids);
   }
-  async function loadPartyLiveCount(){
-    try{
-      const response=await fetch('/api/deep-dive/party?list=1',{cache:'no-store'});
-      if(!response.ok)return;
-      const data=await response.json();
-      const playing=(data.rooms||[]).reduce((n,r)=>n+(r.members||0),0);
-      const el=document.getElementById('dd-party-live');
-      if(el&&playing>0)el.innerHTML='<b aria-hidden="true"></b>'+format(playing)+' IN OPEN LOBBIES';
-    }catch{
-      /* independent backend unreachable from a static context — keep default label */
-    }
-  }
   async function loadSourceDaily(){
     const nyDate=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
     const path=nyDate==='2026-10-29'?'./recovered/2026-10-29.json':'/api/deep-dive/public-daily';
@@ -1058,7 +1050,6 @@
     byId=new Map(bank.map(q=>[q.id,q]));
     if(byId.size!==bank.length||themes.some(t=>bank.filter(q=>q.theme===t).length<7))throw Error('Incomplete question-bank themes');
     await Promise.all([loadSourceDaily(),loadArchiveManifest(),loadFreeStarters()]);
-    void loadPartyLiveCount();
     if(active&&['archive','endless'].includes(active.mode)){
       const days=[...new Set(active.ids.filter(id=>id.startsWith('archive:')).map(id=>id.split(':')[1]))];
       for(const d of days){

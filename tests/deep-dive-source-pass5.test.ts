@@ -7,6 +7,8 @@ const base='public/play/deep-dive/';
 const game=readFileSync(base+'game.js','utf8');
 const html=readFileSync(base+'index-public-art.html','utf8');
 const css=readFileSync(base+'reference-source-pages.css','utf8');
+const artCss=readFileSync(base+'reference-art.css','utf8');
+const domCss=readFileSync(base+'reference-dom-parity.css','utf8');
 const menu=readFileSync(base+'reference-source-navigation.js','utf8');
 
 test('public free homepage is source-style Daily with separate Endless Dive intro',()=>{
@@ -14,17 +16,39 @@ test('public free homepage is source-style Daily with separate Endless Dive intr
  for(const text of ['THE ENDLESS DIVE','THE DAILY DIVE','dive after dive · rarer answers sink deeper','OPEN THE DIVE LOG','HOW TO PLAY'])
   assert(game.includes(text),text);
  assert(!game.includes('A SIDEQUEST ORIGINAL ·'));
- assert(html.includes('reference-source-pages.css?release=20261030pass5results3'));
+ assert(html.includes('reference-source-pages.css?release=20261030pass5home1'));
 });
 
-test('slide-out menu has the source free navigation and functioning archive route',()=>{
+test('centered source navigation modal keeps every available local route',()=>{
  for(const route of ['daily','endless','party','archive','worlds','stats'])
   assert(menu.includes('data-menu-view="'+route+'"'),route);
  assert(html.includes('data-view="archive" class="nav-pill"'));
  assert(menu.includes('keydown'));
  assert(menu.includes('Escape'));
+ assert(menu.includes('MY KRILLION'));
+ assert(menu.includes('FRIENDS<small>UNAVAILABLE</small>'));
+ assert(menu.includes('https://shop.krillion.io/'));
+ assert(menu.includes('https://chainle.io/'));
+ assert(css.includes('grid-template-columns:repeat(2,minmax(0,1fr))'));
+ assert(css.includes('place-items:center'));
  assert(css.includes('.dd-source-menu-panel'));
  assert(css.includes('.dd-source-menu-backdrop'));
+});
+
+test('homepage uses a bottom-aligned proportional sky, left-aligned controls and a 2px-per-metre intro ruler',()=>{
+ const start=game.indexOf('  function oceanDecor(){');
+ const end=game.indexOf('  function gameOverlays(){',start);
+ const markup=vm.runInNewContext(game.slice(start,end)+'\noceanDecor;')();
+ assert.match(markup,/top:0px/);
+ assert.match(markup,/top:200px[^>]*>-100m</);
+ assert.match(markup,/top:400px[^>]*>-200m</);
+ assert.equal((markup.match(/class="dd-depth-tick major/g)||[]).length,71);
+ assert.match(artCss,/background-position:center bottom!important;background-size:100% auto!important/);
+ assert.match(domCss,/height:55svh!important/);
+ assert.match(domCss,/height:45svh!important/);
+ assert.match(css,/width:min\(600px,calc\(100% - 32px\)\)/);
+ assert(!game.includes('dd-party-live'),'home has no fabricated live player count');
+ assert.match(game,/complete\?'▼ VIEW DIVE RESULTS ▼':'▼ BEGIN DESCENT ▼'/,'existing completion state remains data-driven');
 });
 
 test('the original four free themed pack cards, original images and coming soon music remain',()=>{
@@ -92,7 +116,7 @@ test('stale legacy Discovery result is prevented by a versioned no-cache player 
  const player=readFileSync('components/player.tsx','utf8');
  const config=readFileSync('next.config.ts','utf8');
  assert(player.includes("game.slug==='deep-dive'&&game.gameUrl==='/play/deep-dive/index-public-art.html'"));
- assert(player.includes('release=20261030pass5results3'));
+ assert(player.includes('release=20261030pass5home1'));
  assert(config.includes("source:'/play/deep-dive/index-public-art.html'"));
  assert(config.includes("value:'no-cache, no-store, must-revalidate'"));
  assert(!game.includes('COPY YOUR RESULT'));

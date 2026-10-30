@@ -175,8 +175,8 @@ test('wardrobe streak gates and Puffer Party capacity match the original',()=>{
   assert(iface.includes("'rare.png',14]"));
   assert(iface.includes("'deepcut.png',30]"));
   assert(iface.includes("'evil-krill-white-v2.png',45]"));
-  // The live home advertises "2–16 players" and the backend allows it.
-  assert(game.includes('2\u201316 PLAYERS'));
+  // The game supports 2–16 players; the homepage does not show an unverified live count.
+  assert(!game.includes('2\u201316 PLAYERS'));
   assert(readFileSync(root+'party.js','utf8').includes('2\u201316 PLAYERS'));
   assert.equal(PARTY_MAX_MEMBERS,16);
 });
@@ -184,10 +184,10 @@ test('wardrobe streak gates and Puffer Party capacity match the original',()=>{
 test('pass-3 assets load last and in the right order',()=>{
   assert(html.includes('./reference-pass3.css?release=20261030validated'));
   assert(html.includes('./reference-world.js?version=20261030b'));
-  assert(html.includes('./game.js?parity=20261030pass5results3'));
+  assert(html.includes('./game.js?parity=20261030pass5home1'));
   assert(html.indexOf('reference-parity-2.css')<html.indexOf('reference-pass3.css'));
   assert(html.indexOf('reference-parity-2.css')<html.indexOf('reference-pass3.css')&&html.indexOf('reference-pass3.css')<html.indexOf('</head>'));
-  assert(html.indexOf('reference-world.js')<html.indexOf('game.js?parity=20261030pass5results3'));
+  assert(html.indexOf('reference-world.js')<html.indexOf('game.js?parity=20261030pass5home1'));
   assert(html.indexOf('reference-interface.js')<html.indexOf('reference-world.js'));
   assert(html.includes('data-phase="boot"'));
 });

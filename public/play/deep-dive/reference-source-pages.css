@@ -6,13 +6,14 @@
 .deep-home[data-phase="intro"] .dd-source-note,
 .deep-home[data-phase="intro"] .dd-surface-label{display:none!important}
 .deep-home[data-phase="intro"] .dd-home-privacy{
- display:block; width:max-content;margin:-10px auto 13px;
+ display:block; width:max-content;margin:-10px 0 13px;
  font:15px/1.1 "ReferenceVT323",monospace; color:#adbbd0;
  text-decoration:underline;letter-spacing:.02em;
 }
 .deep-home[data-phase="intro"] .dd-home-privacy:hover{color:#f2fbff}
-.deep-home[data-phase="intro"] .dd-sea-center{padding-top:20px!important}
-.deep-home[data-phase="intro"] .dd-rules{margin-bottom:18px!important}
+.deep-home[data-phase="intro"] .dd-sea-center{box-sizing:border-box;width:min(600px,calc(100% - 32px));margin-left:auto;margin-right:auto;
+ padding-top:37px!important;text-align:left!important}
+.deep-home[data-phase="intro"] .dd-rules{margin:0 0 18px!important;text-align:left!important}
 .deep-home[data-mode=endless] .dd-home-privacy{margin-bottom:36px}
 .deep-home[data-mode=endless] .dd-begin{margin-top:40px!important}
 .dd-packs-page.page{background:linear-gradient(180deg,#091224 0%,#050913 100%);min-height:100svh;
@@ -66,32 +67,50 @@
 .dd-practice-collapse>summary{font:17px "ReferenceVT323",monospace;letter-spacing:.12em;cursor:pointer}
 .dd-practice-collapse .worlds-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 .dd-packs-page .dd-practice-collapse .page-title{padding-top:10px!important}
-.dd-source-menu-backdrop{position:fixed;inset:0;z-index:400;background:#000a;
- backdrop-filter:blur(2px);display:none}
-.dd-source-menu-backdrop[data-open=true]{display:block}
-.dd-source-menu-panel{width:min(340px,88vw);height:100%;max-height:100%;
- box-sizing:border-box;overflow-y:auto;padding:20px 24px 26px;background:#080f1e;
- border-right:2px solid #436884;box-shadow:4px 0 33px #0009;
- font-family:"ReferenceVT323",monospace;color:#dce8ff;animation:dd-slide-in .2s ease-out}
-@keyframes dd-slide-in{from{transform:translateX(-18px);opacity:.7}to{transform:translateX(0);opacity:1}}
-.dd-source-menu-head{display:flex;justify-content:space-between;align-items:center;
- border-bottom:1px solid #41567a80;margin-bottom:27px;padding-bottom:12px}
-.dd-source-menu-head strong{font-size:28px;text-shadow:-2px 1px #fb6698,2px -1px #49ddf0;letter-spacing:.06em}
-.dd-source-menu-head span{color:#8599bd;letter-spacing:.16em;font-size:15px}
-.dd-source-menu-head button{color:#f1f5ff;border:1px solid #435777;background:#102038;
- font:24px "ReferenceVT323",monospace;min-width:35px;min-height:32px;cursor:pointer}
-.dd-source-menu-label{font-size:13px;color:#7897b8;letter-spacing:.25em;margin:0 0 10px}
-.dd-source-menu-link{width:100%;display:block;text-align:left;color:#d9e7f6;background:transparent;
- border:0;border-bottom:1px solid #4055713b;padding:12px 7px;
- font:21px "ReferenceVT323",monospace;letter-spacing:.08em;cursor:pointer}
-.dd-source-menu-link:hover,.dd-source-menu-link:focus-visible{color:#53ddf8;background:#102b43}
-.dd-source-menu-link small{display:block;font-size:14px;color:#7995af}
-.dd-source-menu-link .menu-symbol{color:#4be5e8;min-width:22px;display:inline-block}
-.dd-source-menu-footer{border-top:1px solid #4a618066;margin-top:24px;padding-top:12px}
-.dd-source-menu-footer p{font:15px "ReferenceVT323",monospace;color:#718dab;letter-spacing:.09em}
-.dd-source-menu-panel details{border-bottom:1px solid #536a774a;padding:12px 4px;font:17px "ReferenceVT323",monospace}
-.dd-source-menu-panel details summary{cursor:pointer}
-.dd-source-menu-panel details p{font-size:17px;line-height:1.35;color:#b8cbdc}
+.dd-source-menu-backdrop{position:fixed;inset:0;z-index:400;background:#000c;backdrop-filter:blur(1px);
+ display:none;place-items:center;padding:50px 12px;box-sizing:border-box}
+.dd-source-menu-backdrop[data-open=true]{display:grid}
+.dd-source-menu-panel{width:min(430px,calc(100vw - 24px));height:min(834px,calc(100svh - 100px));
+ box-sizing:border-box;overflow-y:auto;padding:20px 21px 22px;background:#101d33;
+ border:2px solid #263c60;box-shadow:inset 0 0 0 3px #0a1428,0 0 0 1px #38547a,0 8px 34px #0009;
+ font-family:"ReferenceVT323",monospace;color:#dce8ff}
+.dd-source-menu-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:28px}
+.dd-source-menu-head>div{display:flex;flex-direction:column;gap:3px}
+.dd-source-menu-head small{font-size:10px;color:#68dff0;letter-spacing:.19em}
+.dd-source-menu-head strong{font-size:30px;line-height:1;color:#e8f1ff;text-shadow:-2px 1px #fb6698,2px -1px #49ddf0;letter-spacing:.03em}
+.dd-source-menu-head button{width:39px;height:36px;color:#b9c8e0;border:1px solid #253b5e;background:#0c1730;
+ font:22px/1 "ReferenceVT323",monospace;cursor:pointer}
+.dd-source-menu-label{display:flex;align-items:center;gap:10px;font:11px "ReferenceVT323",monospace;color:#8298b5;letter-spacing:.2em;margin:0 0 16px}
+.dd-source-menu-label::after{content:"";height:1px;flex:1;border-top:1px dashed #52678366}
+.dd-source-menu-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 8px}
+.dd-source-menu-link,.dd-source-menu-faq>summary{box-sizing:border-box;min-width:0;height:78px;display:flex;flex-direction:column;
+ align-items:center;justify-content:center;gap:5px;color:#8b9dbd;background:#0c1730;border:1px solid #23385b;
+ box-shadow:0 3px 0 #091326;font:15px/1.1 "ReferenceVT323",monospace;letter-spacing:.15em;text-align:center;cursor:pointer}
+.dd-source-menu-link:hover:not(:disabled),.dd-source-menu-link:focus-visible,.dd-source-menu-faq>summary:hover{color:#d9ecff;border-color:#4de3ff}
+.dd-source-menu-link.active{color:#ff5d8f;border:2px solid #ff5d8f}
+.dd-source-menu-link svg,.dd-source-menu-faq svg{width:20px;height:20px;flex:none}
+.dd-source-menu-link img{width:34px;height:27px;object-fit:contain;image-rendering:pixelated}
+.dd-source-menu-link .menu-symbol{font:24px/20px "ReferenceVT323",monospace}
+.dd-source-menu-link small{display:block;margin-top:2px;font-size:10px;letter-spacing:.1em;color:#6b7d9d}
+.dd-source-menu-link:disabled{opacity:.65;cursor:not-allowed}
+.dd-source-menu-faq{min-width:0;border:0;padding:0}
+.dd-source-menu-faq>summary{list-style:none}
+.dd-source-menu-faq>summary::-webkit-details-marker{display:none}
+.dd-source-menu-faq>summary::marker{content:""}
+.dd-source-menu-faq p{grid-column:1/-1;margin:7px 0 0;padding:9px;border:1px solid #273c5e;color:#a8b8d2;
+ font:13px/1.3 "ReferenceVT323",monospace;letter-spacing:.02em}
+.dd-source-menu-links{display:grid;gap:11px;margin-top:20px}
+.dd-source-menu-promo{box-sizing:border-box;min-height:68px;display:flex;align-items:center;gap:12px;padding:9px 14px;
+ border:1px solid #273c5e;color:#ff5d8f;text-decoration:none}
+.dd-source-menu-promo.chainle{color:#4de3ff}
+.dd-source-menu-promo svg{width:20px;height:20px;flex:none}
+.dd-source-menu-promo span{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.dd-source-menu-promo strong{font-size:15px;letter-spacing:.13em}
+.dd-source-menu-promo small{font-size:11px;line-height:1.1;color:#95a7c2;letter-spacing:.02em}
+.dd-source-menu-promo i{font:18px "ReferenceVT323",monospace;font-style:normal}
+.dd-source-menu-footer{border-top:1px dashed #53678355;margin-top:22px;padding-top:12px}
+.dd-source-menu-footer p{font:11px "ReferenceVT323",monospace;color:#879ab7;letter-spacing:.09em;margin:0}
+.dd-source-menu-panel button:focus-visible,.dd-source-menu-panel a:focus-visible,.dd-source-menu-panel summary:focus-visible{outline:2px solid #ff5d8f;outline-offset:2px}
 .dd-archive.page{background:#081020;padding:100px 22px 70px;min-height:100svh}
 .dd-archive .page-title{width:min(750px,100%);margin:0 auto 25px}
 .dd-archive .page-title h1{font:clamp(38px,7vw,56px)/1 "ReferenceVT323",monospace;color:#e6f6ff}
