@@ -98,7 +98,7 @@ test('two-step answer corrections, reject copy and sonar dock match the original
     'scaleX('
   ])assert(game.includes(feature),feature);
   // The correction preview is a Sidequest preference defaulting ON, like the original setting.
-  assert(iface.includes("answerCorrections:get('answer-corrections')!=='0'"));
+  assert(iface.includes("answerCorrections:saved('answerCorrections','1')!=='0'"));
   assert(iface.includes('Answer corrections'));
   assert(iface.includes("unlocks at a "));
 });
