@@ -116,7 +116,7 @@ test('stale legacy Discovery result is prevented by a versioned no-cache player 
  const player=readFileSync('components/player.tsx','utf8');
  const config=readFileSync('next.config.ts','utf8');
  assert(player.includes("game.slug==='deep-dive'&&game.gameUrl==='/play/deep-dive/index-public-art.html'"));
- assert(player.includes('release=20261030polish2'));
+ assert(player.includes('release=20261030polish3'));
  assert(config.includes("source:'/play/deep-dive/index-public-art.html'"));
  assert(config.includes("value:'no-cache, no-store, must-revalidate'"));
  assert(!game.includes('COPY YOUR RESULT'));
