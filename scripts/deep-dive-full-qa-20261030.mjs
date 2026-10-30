@@ -11,7 +11,7 @@ async function check(name,fn){try{const res=await fn();report(name,'PASS',String
 const ctx=async(options={})=>browser.newContext({viewport:{width:1440,height:900},permissions:['clipboard-read','clipboard-write'],...options});
 const pageErrors=p=>p.on('pageerror',e=>exceptions.push(e.message));
 const ready=async(p)=>{await p.goto(game,{waitUntil:'domcontentloaded',timeout:40000});await p.locator('.deep-home[data-phase=intro]').waitFor({timeout:35000});await p.waitForFunction(()=>!document.getElementById('dd-boot')||getComputedStyle(document.getElementById('dd-boot')).visibility==='hidden',{timeout:20000}).catch(()=>{});};
-const nav=async(p,view)=>{const menu=p.locator('.dd-source-menu-backdrop');if(await menu.getAttribute('data-open')!=='true')await p.locator('.dd-nav-toggle>summary').click();await p.locator('.dd-source-menu-link[data-menu-view="'+view+'"]').click();await p.locator('.dd-source-menu-backdrop[data-open="false"]').waitFor({timeout:12000});};
+const nav=async(p,view)=>{const menu=p.locator('.dd-source-menu-backdrop');if(await menu.getAttribute('data-open')!=='true')await p.locator('.dd-nav-toggle>summary').click();await p.locator('.dd-source-menu-link[data-menu-view="'+view+'"]').click();await p.locator('.dd-source-menu-backdrop').waitFor({state:'hidden',timeout:12000});};
 const request=async(url)=>{const r=await fetch(base+url,{signal:AbortSignal.timeout(25000)});assert.equal(r.status,200,url+' http '+r.status);return r.json()};
 const a=await ctx(),p=await a.newPage();pageErrors(p);
 try{
