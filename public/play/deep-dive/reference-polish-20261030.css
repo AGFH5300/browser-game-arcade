@@ -308,3 +308,12 @@ body:has(.dd-archive) .dd-nav-toggle{pointer-events:auto}
 .dd-endless-log .dd-endless-chooser button.selected{color:#062035;background:#59e4f7;border-color:#94f6ff}
 .dd-endless-log .dd-endless-chooser button.completed{border-color:#ecb960}
 @media(max-width:650px){.dd-endless-log .dd-endless-chooser{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* Original lobby maintains a fixed viewport with its own scrollable panels;
+   do not grow the page to 1513px on a 390×844 device. Preserve access to
+   Host and Join below the fold using ordinary internal vertical scrolling. */
+body:has(.pp-view){overflow:hidden}
+.pp-view{height:100dvh;min-height:0!important;overflow-x:hidden!important;overflow-y:auto!important;
+ scrollbar-color:#36516f #07162c;overscroll-behavior-y:contain}
+.pp-view .pp-arena{min-height:100%!important}
+@media(max-width:650px){.pp-view .pp-arena{padding-top:63px!important}}
