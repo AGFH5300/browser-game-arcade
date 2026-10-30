@@ -23,12 +23,17 @@
  const bubbles=Array.from({length:24},(_,i)=>({
   x:((i*37.17)%99)/100,y:((i*57.29)%100)/100,r:i%4===0?2.3:1.2,speed:.018+(i%6)*.008
  }));
+ /* Public Krillion client paints dark ellipse silhouettes with triangular
+    tails, rather than the rectangular fish used in the initial reconstruction. */
  const drawFish=(x,y,size,reverse)=>{
-   const s=Math.max(1,Math.round(size/10)),w=3*s,h=2*s;
-   ctx.fillStyle='#041b31';
-   if(reverse){ctx.fillRect(x,y,w*3,h);ctx.fillRect(x+w*3,y-h/2,w,h*2);ctx.fillRect(x+w*4,y-h,w/2,h*3)}
-   else{ctx.fillRect(x,y,w*3,h);ctx.fillRect(x-w,y-h/2,w,h*2);ctx.fillRect(x-w-w/2,y-h,w/2,h*3)}
-   ctx.fillRect(x+w,y-h/2,w*1.5,h/2);
+   const radius=Math.max(4,Math.round(size*.52)),direction=reverse?-1:1;
+   ctx.fillStyle='rgba(4,9,18,0.85)';
+   ctx.beginPath();
+   ctx.ellipse(x,y,radius,radius*.45,0,0,Math.PI*2);
+   ctx.moveTo(x-direction*radius,y);
+   ctx.lineTo(x-direction*radius*1.7,y-radius*.5);
+   ctx.lineTo(x-direction*radius*1.7,y+radius*.5);
+   ctx.closePath();ctx.fill();
  };
  const render=(now)=>{
    if(!canvas||!sea?.isConnected||!ctx){frame=0;return}
@@ -50,13 +55,22 @@
    gradient.addColorStop(1,'rgba(0,8,19,.08)');
    ctx.fillStyle=gradient;ctx.fillRect(0,0,w,h);
    const depth=Number(sea.dataset.depth||0);
-   if(!sea.closest('.dd-reveal-screen')){
-   ctx.fillStyle='#287ba084';ctx.beginPath();ctx.moveTo(0,0);
-   for(let x=0;x<=w+8;x+=8){const y=1.8*Math.sin(x*.012+time*.44)+1.2*Math.sin(x*.031-time*.57)+2;ctx.lineTo(x,y)}
-   ctx.lineTo(w,0);ctx.closePath();ctx.fill();
-   ctx.strokeStyle='rgba(93,207,228,.32)';ctx.lineWidth=1;ctx.beginPath();
-   for(let x=0;x<=w+4;x+=4){const y=1.8*Math.sin(x*.012+time*.44)+1.2*Math.sin(x*.031-time*.57)+2;if(x===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)}
-   ctx.stroke();
+   const game=sea.closest('.dd-game-screen[data-world="ocean"]');
+   if(game){
+     const surface=game.querySelector('.dd-world')?.getBoundingClientRect();
+     const relativeY=(surface?.top??208)-rect.top;
+     const waveY=x=>relativeY+3*Math.sin(.02*x+1.6*time)+2.4*Math.sin(.011*x-time);
+     ctx.fillStyle='#1a527a';ctx.beginPath();ctx.moveTo(0,relativeY);
+     for(let x=0;x<=w+8;x+=8)ctx.lineTo(x,waveY(x));
+     ctx.lineTo(w,relativeY+30);ctx.lineTo(0,relativeY+30);ctx.closePath();ctx.fill();
+     ctx.beginPath();
+     for(let x=0;x<=w+8;x+=8){if(x===0)ctx.moveTo(x,waveY(x));else ctx.lineTo(x,waveY(x))}
+     ctx.strokeStyle='rgba(232,241,255,.6)';ctx.lineWidth=2;ctx.stroke();
+   }else if(!sea.closest('.dd-reveal-screen')){
+     ctx.fillStyle='#287ba084';ctx.beginPath();ctx.moveTo(0,0);
+     for(let x=0;x<=w+8;x+=8){const y=1.8*Math.sin(x*.012+time*.44)+1.2*Math.sin(x*.031-time*.57)+2;ctx.lineTo(x,y)}
+     ctx.lineTo(w,0);ctx.closePath();ctx.fill();
+     ctx.strokeStyle='rgba(93,207,228,.32)';ctx.lineWidth=1;ctx.stroke();
    }
    // Floating ocean snow (same density change as the original low-power renderer).
    ctx.fillStyle='rgba(169,216,231,.28)';
