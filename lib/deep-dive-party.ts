@@ -190,7 +190,7 @@ export function applyAction(room:PartyRoom,id:string,secret:string,action:PartyA
 export function publicRoom(room:PartyRoom,questions:Map<string,PartyQuestion>){
  const current=room.phase==='playing'?questions.get(room.questionIds[room.questionIndex]):null;
  return {
-  code:room.code,publicRoom:room.publicRoom,maxMembers:room.maxMembers||PARTY_MAX_MEMBERS,minMembers:room.minMembers||2,phase:room.phase,hostId:room.hostId,
+  code:room.code,publicRoom:room.publicRoom,rated:Boolean(room.rated),maxMembers:room.maxMembers||PARTY_MAX_MEMBERS,minMembers:room.minMembers||2,phase:room.phase,hostId:room.hostId,
   members:room.members.map(({id,name,avatar,hearts,energy,score,ready})=>({id,name,avatar:validatePartyAvatar(avatar),hearts,energy,score,ready})),
   messages:room.messages,events:room.events,turnId:room.turnId,deadline:room.deadline,
   question:current?{id:current.id,prompt:current.prompt,theme:current.theme}:null,
