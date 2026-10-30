@@ -191,3 +191,25 @@ body:has(.dd-archive) .dd-nav-toggle{pointer-events:auto}
  .pp-view::after,.dd-archive.page::before{animation:none!important}
  .dd-boot-screen{transition:none!important}
 }
+
+/* Settings must remain accessible from Archive, themed packs and multiplayer,
+   not only from the underwater home scene. */
+.dd-global-settings{position:fixed;inset:0;z-index:1300;display:grid;place-items:center;padding:18px;isolation:isolate}
+.dd-global-settings-scrim{position:absolute;inset:0;background:#03101ee5;backdrop-filter:blur(5px);cursor:pointer}
+.dd-global-settings-dialog{position:relative;width:min(410px,100%);max-height:min(90vh,700px);overflow:auto;
+ color:#d7eefc;background:#091b32;border:3px solid #3ebedf;box-shadow:7px 8px 0 #010916;
+ font-family:"ReferenceVT323",monospace}
+.dd-global-settings-head{display:flex;align-items:center;justify-content:space-between;padding:9px 12px;
+ background:#123650;color:#e7f9ff;border-bottom:2px solid #3b7593;font-size:25px;letter-spacing:.11em}
+.dd-global-settings-head button{border:1px solid #4a8aa2;background:#09243b;color:#fff;cursor:pointer;
+ font:28px/1 "ReferenceVT323",monospace;width:34px;height:32px}
+.dd-global-settings-dialog .dd-reference-settings-panel{position:static!important;transform:none!important;
+ inset:auto!important;width:auto!important;max-height:none!important;opacity:1!important;visibility:visible!important;
+ display:flex!important;flex-direction:column!important;gap:10px!important;pointer-events:auto!important;
+ background:transparent!important;border:0!important;box-shadow:none!important;padding:15px!important}
+.dd-global-settings-dialog .dd-reference-settings-panel strong{font-size:26px;letter-spacing:.05em;color:#55e4f6}
+.dd-global-settings-dialog .dd-reference-settings-panel label{font-size:20px;display:flex;align-items:center;
+ flex-wrap:wrap;gap:9px;color:#dcecff;line-height:1.2}
+.dd-global-settings-dialog .dd-reference-settings-panel input[type=checkbox]{accent-color:#4fe5f4;width:17px;height:17px}
+.dd-global-settings-dialog .dd-reference-settings-panel select{min-width:180px;max-width:100%;background:#0b2846;
+ border:2px solid #3f829c;color:#e5f6ff;font:20px "ReferenceVT323",monospace}
