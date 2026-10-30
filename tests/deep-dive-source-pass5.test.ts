@@ -16,7 +16,7 @@ test('public free homepage is source-style Daily with separate Endless Dive intr
  for(const text of ['THE ENDLESS DIVE','THE DAILY DIVE','dive after dive · rarer answers sink deeper','OPEN THE DIVE LOG','HOW TO PLAY'])
   assert(game.includes(text),text);
  assert(!game.includes('A SIDEQUEST ORIGINAL ·'));
- assert(html.includes('reference-source-pages.css?release=20261030pass5home1'));
+ assert(html.includes('reference-source-pages.css?release=20261030stagefix1'));
 });
 
 test('centered source navigation modal keeps every available local route',()=>{
@@ -116,7 +116,7 @@ test('stale legacy Discovery result is prevented by a versioned no-cache player 
  const player=readFileSync('components/player.tsx','utf8');
  const config=readFileSync('next.config.ts','utf8');
  assert(player.includes("game.slug==='deep-dive'&&game.gameUrl==='/play/deep-dive/index-public-art.html'"));
- assert(player.includes('release=20261030pass5home1'));
+ assert(player.includes('release=20261030stagefix1'));
  assert(config.includes("source:'/play/deep-dive/index-public-art.html'"));
  assert(config.includes("value:'no-cache, no-store, must-revalidate'"));
  assert(!game.includes('COPY YOUR RESULT'));
