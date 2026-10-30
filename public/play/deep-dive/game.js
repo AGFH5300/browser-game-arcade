@@ -107,7 +107,7 @@
   const dailyKey=()=>sourceDaily?'source:'+sourceDaily.date:utc();
 
   let currentView=window.DeepDiveParty?.preferred()?'party':active?.mode==='endless'?'endless':active?.mode==='archive'?'archive':active?.mode==='world'||active?.mode==='starter'?'worlds':'daily';
-  let ticker=null,toastTimer=null,transitioning=false,depthCrank=false,mascotPose='',correction=null,rejectMsg='',lastPhase='',doneTick=null;
+  let ticker=null,toastTimer=null,revealTimer=null,transitioning=false,depthCrank=false,mascotPose='',correction=null,rejectMsg='',lastPhase='',doneTick=null;
   function seed(text){let h=2166136261;for(const ch of text){h^=ch.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0}
   function shuffle(items,text){
     let s=seed(text)||0x123ab4d;
@@ -500,6 +500,7 @@
   }
   function renderDive(){
     const feedback=active.phase==='feedback',preview=active.phase==='preview';
+    const revealActive=feedback&&revealPending();
     const q=currentQ();
     const round=active.index;
     const last=feedback?active.results[active.results.length-1]||{points:0,answer:'',tier:null,reason:'No answer'}:null;
@@ -515,7 +516,7 @@
     const sub=tier?(last.quip||tier.blurb):last?(last.reason==='Timeout'?'the clock beat you to it.':'never made it onto the reef.'):'';
     const pillLeft=Math.max(0,Math.ceil(((active.previewEnds||Date.now())-Date.now())/1000));
     const worldId=worldForMode(),worldMeta=themedConfig(worldId);
-    return `<section class="page deep-home dd-game-screen${feedback?' dd-reveal-screen':''}${active.mode==='starter'?' dd-free-starter-play':''}" data-phase="${active.phase}" data-world="${worldId}" data-world-height="${worldMeta.height}" data-pack="${active.mode==='starter'?safe(active.world):''}" data-zone="${depthZone()}">
+    return `<section class="page deep-home dd-game-screen${feedback?' dd-reveal-screen':''}${revealActive?' dd-reveal-pending':''}${active.mode==='starter'?' dd-free-starter-play':''}" data-phase="${active.phase}" data-world="${worldId}" data-world-height="${worldMeta.height}" data-pack="${active.mode==='starter'?safe(active.world):''}" data-zone="${depthZone()}">
       <div class="dd-stage">
         <div class="dd-sea dd-game-sea"></div>
         <div class="dd-world" style="--dd-world-height:${worldMeta.height}px">
@@ -550,7 +551,7 @@
       <div class="dd-reject" id="dd-reject-line" role="status" aria-live="polite">${safe(rejectMsg)}</div>
       <div id="answer-correction" class="dd-correction" role="status" aria-live="polite" aria-atomic="true">${correction?correctionPanel(correction):''}</div>
       ${preview||feedback?'':dockMarkup(seconds)}
-      ${feedback?`<div class="dd-next-wrap"><button type="button" class="dd-next-btn" data-action="next">${completed?'SURFACE ▲':'DESCEND ▼'}</button></div>`:''}
+      ${feedback?`<div class="dd-next-wrap"><button type="button" class="dd-next-btn" data-action="next" ${revealActive?'disabled aria-disabled="true"':''}>${completed?'SURFACE ▲':'DESCEND ▼'}</button></div>`:''}
       </section>`;
   }
   function conclude(){
@@ -576,9 +577,13 @@
     if(r.mode==='daily'&&r.source==='krillion-reveal')void window.DeepDiveSocial?.syncDaily?.(r);
     active=null;save();currentView=r.mode==='daily'?'daily':r.mode==='world'||r.mode==='starter'?'worlds':r.mode==='archive'?'archive':'endless';renderSummary(r);
   }
+  const SOURCE_TIER_MS=[3400,3000,3000,3400,4300,4600];
+  const revealDurationFor=record=>record&&record.points>0?SOURCE_TIER_MS[Math.max(0,Math.min(5,Number(record.tier)||0))]:1800;
+  const revealPending=()=>active?.phase==='feedback'&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&Date.now()-(Number(active.revealStartedAt)||0)<(Number(active.revealDuration)||0);
   function roundEnd(record){
     if(!active||active.phase!=='answering'||transitioning)return;
     transitioning=true;active.phase='feedback';
+    active.revealStartedAt=Date.now();active.revealDuration=revealDurationFor(record);
     active.results.push(record);active.score+=record.points;
     if(record.points===0)active.misses++;
     depthCrank=record.points>0;
@@ -638,7 +643,7 @@
     roundEnd({id:q.id,answer:found.value,points:TIERS[tier].score,tier,quip:found.quip||'',reason:'Accepted',estimated:found.source==='sidequest-common-supplement'});
   }
   function next(){
-    if(!active||active.phase!=='feedback'||transitioning)return;
+    if(!active||active.phase!=='feedback'||transitioning||revealPending())return;
     transitioning=true;
     const card=root.querySelector('.dd-landed')||root.querySelector('.dd-landed-banner');
     const chip=root.querySelector('.dd-chip');
@@ -865,6 +870,11 @@
     cam.attach(world,h);
     if(!animate){cam.snapTo(target);return}
     if(active.phase==='preview'){cam.goTo(target,{dur:2900,hold:350});return}
+    if(active.phase==='feedback'){
+      const last=active.results[active.results.length-1];
+      cam.goTo(target,{dur:active.revealDuration||revealDurationFor(last),ease:Number(last?.tier)===0?'sine':'cubic'});
+      return;
+    }
     cam.goTo(target,{});
   }
   function hookChipSink(){
@@ -878,7 +888,7 @@
     requestAnimationFrame(()=>requestAnimationFrame(()=>chip.style.setProperty('--chip-drop','0px')));
   }
   function render(){
-    clearInterval(ticker);if(doneTick)clearInterval(doneTick);doneTick=null;syncHead();oldActiveCheck();
+    clearInterval(ticker);if(revealTimer)clearTimeout(revealTimer);revealTimer=null;if(doneTick)clearInterval(doneTick);doneTick=null;syncHead();oldActiveCheck();
     if(currentView==='party'){window.DeepDiveParty?.mount({root});lastPhase='';return}else window.DeepDiveParty?.unmount();
     if(currentView==='friends'||currentView==='account'){
       window.DeepDiveSocial?.mount({root,view:currentView});lastPhase='';return;
@@ -904,6 +914,14 @@
       hookWorldCamera(animate);
       hookChipSink();
       if(active.phase==='feedback'){
+        if(revealPending()){
+          const started=active.revealStartedAt;
+          revealTimer=setTimeout(()=>{
+            if(!active||active.phase!=='feedback'||active.revealStartedAt!==started)return;
+            root.querySelector('.dd-reveal-pending')?.classList.remove('dd-reveal-pending');
+            const btn=root.querySelector('.dd-next-btn');if(btn){btn.disabled=false;btn.removeAttribute('aria-disabled')}
+          },Math.max(0,active.revealDuration-(Date.now()-started)));
+        }
         const last=active.results[active.results.length-1];
         if(last&&!last.points){
           const stage=root.querySelector('.dd-stage');
