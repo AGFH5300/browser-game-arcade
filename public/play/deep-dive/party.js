@@ -39,7 +39,7 @@ function home(){
      <label for="pp-name" class="pp-panel-label">YOUR NAME</label><input id="pp-name" class="answer-field pp-wide" autocomplete="nickname" maxlength="24" placeholder="what the reef calls you" value="${esc(name)}">
      <div class="pp-avatar-grid" aria-label="Character selection">${choices()}</div><p class="pp-avatar-help">Characters unlock as your Deep Dive daily streak grows.</p>
     </div>
-    <div class="pp-panel pp-play-panel"><div class="pp-panel-title">PLAY NOW <span>2–8 PLAYERS</span></div>
+    <div class="pp-panel pp-play-panel"><div class="pp-panel-title">PLAY NOW <span>2–16 PLAYERS</span></div>
      <div class="pp-capacity-grid" role="group" aria-label="Preferred room size">${[[2,'1V1'],[3,'3S'],[6,'4–6'],[8,'8 PLAYERS']].map(([cap,label])=>`<button type="button" class="pp-capacity ${selectedCapacity===cap?'selected':''}" data-party="capacity" data-capacity="${cap}" aria-pressed="${selectedCapacity===cap}">${label}</button>`).join('')}</div>
      <div class="pp-play-buttons"><button type="button" class="pp-game-button pp-rated-unavailable" disabled aria-disabled="true" title="Ranked matchmaking is not yet available">▶ RATED ◀</button><button type="button" class="pp-game-button" data-party="quickplay">QUICK PLAY</button></div>
      <p class="pp-caption">RATED MATCHMAKING UNAVAILABLE · QUICK PLAY IS UNRATED</p>
