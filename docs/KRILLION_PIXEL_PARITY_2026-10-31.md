@@ -45,3 +45,23 @@ A local Chromium run after these fixes verified an accepted answer, feedback sta
 
 ## Safety / release
 All work lives on `feature/krillion-pixel-parity-20261031`; tests use local rendering. Do not deploy an “exact replica” claim based on these findings. Original authenticated states and full results run have not been captured to equivalent fidelity.
+
+## Revalidated follow-up, 31 October 2026 (second parity pass)
+
+The first audit's incomplete-results limitation is **superseded**: the original production website was played through all **seven rounds** in desktop Chromium (7/7) to its complete results screen, and the original result layout was also captured at **390×844**. The independent Sidequest build completed all **seven rounds** to results at both desktop and mobile viewports, with **zero browser JavaScript errors** in the runs. The mock-backed authenticated account/Friends/ranked UI smoke test passed **24/24** desktop and mobile interactions.
+
+Detailed first-round screenshot corrections (1440×900):
+- Original live depth HUD and answer box were used for direct bounding-box alignment; the Sidequest answer field now begins **x=488, y=733**, width **444** and height **59**, versus approximately original **x=488, y=734**, width **445**, height **59**.
+- The game sea's previous premature blackening around y≈560 was replaced by a gradient continuing to approximately y≈733, matching the reference first-round water depth. On left-side sample region x=35..175, the image error averaged **36.42→6.98/255** across y=380..725.
+- Original sky was calibrated across ten gradient candidates. Best tested sky has 98.0% of pixels within ±12 RGB channel values of a 1440×900 reference sample region (x=35..175, y=0..205). Animated weather/particle variations remain separate.
+- The original pixel fish shape uses dark ellipses and triangular tails, not the old blocky silhouettes. The independent canvas renderer now uses that shape and the original source client's near-surface nine-fish motion formula, retaining separate independent background fish.
+- The original water surface's two-sine wave motion was reconstructed, and the newly exposed pale band during a camera descent was eliminated.
+- Ruler marks now run through the full **7,400m** world with the current-depth pink YOU indicator; previously the ruler was absent from initial gameplay DOM.
+- Position and size of the ocean boat, mascot and HUD boxes were adjusted against reference captures.
+- The answer reveal no longer retains the prompt card or puts the mascot over the tier title. Its icon, tier name, answer, points, explanation and Descend button have separately calibrated vertical offsets.
+
+Original mobile completed-results reference at 390×844 was compared against Sidequest: previous waterline y≈465 vs original y≈495, prior large ghost logo too small and low, and Bearing table ~90px early. After correction Sidequest waterline ≈494 and Bearing header ≈658, versus original ≈495 and ≈662. The private/publisher-specific probability distribution remains **intentionally unavailable** rather than inventing global player data.
+
+**No exact-pixel certificate:** the reference animations generate time-dependent/random content. An original-to-original capture also changes pixels unless clock and random seeds are frozen. The original worldwide percentage curve, live player count, paid questions, account provider, archive paywall and publisher matchmaking are different or excluded by explicit project scope. The objective here is to match controllable visual geometry and motion without fabricating unavailable stats or silently substituting the original backend.
+
+**Release verification:** every intermediate branch version must pass the existing unit/regression and syntax checks; the final merge is separate from this report. Release must not be represented as a 1:1, pixel-perfect copy without additional matching evidence.
