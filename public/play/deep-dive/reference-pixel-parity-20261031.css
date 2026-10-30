@@ -11,29 +11,31 @@
   background-size:100% auto!important;background-position:center bottom!important;
  }
  .deep-home[data-phase="intro"] .dd-sea:not(.dd-game-sea){height:auto!important;min-height:43.25svh!important}
- .deep-home[data-phase="intro"] .dd-title-group{top:30.8%!important;left:16px!important;right:16px!important}
+ .deep-home[data-phase="intro"] .dd-title-group{top:32%!important;left:16px!important;right:16px!important}
  .deep-home[data-phase="intro"] .dd-logo,.deep-home[data-phase="intro"] .dd-logo span{
-  font-size:57px!important;letter-spacing:.008em!important;line-height:.74!important;
+  font-size:57px!important;letter-spacing:.12em!important;line-height:.74!important;
  }
- .deep-home[data-phase="intro"] .dd-subtitle{font-size:21px!important;margin:17px 0 5px!important}
- .deep-home[data-phase="intro"] .dd-sea-center{padding-top:0!important}
+ .deep-home[data-phase="intro"] .dd-subtitle{font-size:21px!important;margin:21px 0 5px!important}
+ .deep-home[data-phase="intro"] .dd-sea-center{padding-top:18px!important}
  .deep-home[data-phase="intro"] .dd-rules{margin:0 auto 14px!important}
- .deep-home[data-phase="intro"] .dd-party-btn{margin-bottom:33px!important;height:60px!important;width:100%!important;max-width:343px!important}
+ .deep-home[data-phase="intro"] .dd-party-btn{margin-bottom:33px!important;margin-left:-6px!important;margin-right:auto!important;height:60px!important;width:343px!important;max-width:calc(100% + 6px)!important}
  .deep-home[data-phase="intro"] .dd-begin{height:59px!important;max-width:none!important}
- .deep-home[data-phase="intro"] .dd-mode-nav{display:flex!important;flex-wrap:nowrap!important;align-items:center!important;justify-content:space-between!important;gap:8px!important;width:100%!important}
- .deep-home[data-phase="intro"] .dd-mode-nav button{font-size:15px!important;white-space:nowrap!important;min-width:0!important;flex:1!important;padding:6px 3px!important;letter-spacing:.055em!important}
- .deep-home[data-phase="intro"] .dd-dive-number{letter-spacing:.12em!important}
+ .deep-home[data-phase="intro"] .dd-mode-nav{display:grid!important;grid-template-columns:1fr 1.2fr 1.15fr!important;grid-auto-rows:auto!important;align-items:center!important;justify-items:stretch!important;gap:9px 8px!important;width:100%!important;margin-top:6px!important}
+ .deep-home[data-phase="intro"] .dd-mode-nav button{font-size:15px!important;white-space:nowrap!important;min-width:0!important;width:100%!important;padding:6px 3px!important;letter-spacing:.055em!important}
+ .deep-home[data-phase="intro"] .dd-dive-number{letter-spacing:.12em!important;grid-column:1/-1!important;justify-self:start!important}
  /* Source mobile reef: the identity card begins about y370 rather than y460. */
  .pp-view .pp-ocean-foyer{margin-top:7px!important}
- .pp-view .pp-foyer-center{min-height:58px!important;height:58px!important;flex:none!important}
+ .pp-view .pp-foyer-center{min-height:94px!important;height:94px!important;flex:none!important}
  .pp-view .pp-hero-fish{position:absolute!important;top:-91px!important;width:106px!important;max-height:95px!important}
  .pp-view .pp-fish-shadow{top:-13px!important}
  .pp-view .pp-reef-bubbles{top:-78px!important}
- .pp-view .pp-identity-panel{margin-top:0!important}
+ .pp-view .pp-identity-panel{margin-top:0!important;min-height:245px!important}
  .pp-view .pp-arena{padding-left:10px!important;padding-right:10px!important}
- .pp-view .pp-panel{padding:12px 15px!important}
+ .pp-view .pp-panel{padding:20px 15px 4px!important}
  .pp-view .pp-identity-panel .pp-wide{font-size:22px!important}
  .pp-view .pp-caption{font-size:12px!important}
+ .pp-view .pp-avatar-help{display:none!important}
+ .pp-view .pp-sound-toggle{display:none!important}
 }
 @media(min-width:651px){
  .deep-home[data-phase="intro"] .dd-logo{transform:translateY(-7px)!important}
