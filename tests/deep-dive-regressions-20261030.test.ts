@@ -73,3 +73,9 @@ test('independent Unlimited supplements include common missing answers and are a
  assert(game.includes('res.estimated'));
  assert(game.includes('Common supplementary answers score an explicitly estimated 10 points'));
 });
+
+test('reveal does not retain a stale editable answer dock',()=>{
+ assert(game.includes("${preview||feedback?'':dockMarkup(seconds)}"));
+ assert(game.includes("if(active.index+1>=active.ids.length"));
+ assert(game.includes("if(!active||active.phase!=='feedback'||transitioning)return;"));
+});
