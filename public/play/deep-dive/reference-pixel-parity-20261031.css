@@ -85,7 +85,7 @@ body:has(.ds-social-page) .header-stats{display:none!important}
  pointer-events:none;z-index:2;
 }
 .dd-game-screen[data-world="ocean"] .dd-world-surface-boat .dd-boat{
- width:195px;height:95px;display:block;overflow:visible;image-rendering:pixelated;
+ width:195px;height:95px;display:block!important;overflow:visible;image-rendering:pixelated;
 }
 @media(max-width:650px){
  .dd-game-screen[data-world="ocean"] .dd-world-surface-boat{
