@@ -39,11 +39,18 @@ function home(){
      <label for="pp-name" class="pp-panel-label">YOUR NAME</label><input id="pp-name" class="answer-field pp-wide" autocomplete="nickname" maxlength="24" placeholder="what the reef calls you" value="${esc(name)}">
      <div class="pp-avatar-grid" aria-label="Character selection">${choices()}</div><p class="pp-avatar-help">Characters unlock as your Deep Dive daily streak grows.</p>
     </div>
-    <div class="pp-panel pp-play-panel"><div class="pp-panel-title">PLAY NOW <span>2–16 PLAYERS</span></div>
+    <div class="pp-panel pp-play-panel"><div class="pp-panel-title">PLAY NOW <span>2–8 PLAYERS</span></div>
      <div class="pp-capacity-grid" role="group" aria-label="Preferred room size">${[[2,'1V1'],[3,'3S'],[6,'4–6'],[8,'8 PLAYERS']].map(([cap,label])=>`<button type="button" class="pp-capacity ${selectedCapacity===cap?'selected':''}" data-party="capacity" data-capacity="${cap}" aria-pressed="${selectedCapacity===cap}">${label}</button>`).join('')}</div>
-     <div class="pp-play-buttons"><button type="button" class="pp-game-button" data-party="quickplay">▶ QUICK PLAY ◀</button><button type="button" class="pp-game-button" data-party="createPublic">HOST PUBLIC</button></div><p class="pp-caption">QUICK PLAY JOINS AN OPEN ROOM OR HOSTS ONE</p>
+     <div class="pp-play-buttons"><button type="button" class="pp-game-button pp-rated-unavailable" disabled aria-disabled="true" title="Ranked matchmaking is not yet available">▶ RATED ◀</button><button type="button" class="pp-game-button" data-party="quickplay">QUICK PLAY</button></div>
+     <p class="pp-caption">RATED MATCHMAKING UNAVAILABLE · QUICK PLAY IS UNRATED</p>
     </div>
-    <div class="pp-panel pp-host-panel"><div class="pp-panel-title">PRIVATE ROOM</div><label class="pp-check"><input type="checkbox" id="pp-public" ${publicFlag?'checked':''}> Show my room publicly</label><button type="button" class="pp-game-button pp-host-btn" data-party="create">Host a party</button><p class="pp-divider">OR JOIN FRIENDS</p><div class="pp-join-form"><input id="pp-code" class="answer-field" maxlength="6" placeholder="ROOM CODE" value="${esc(code)}" aria-label="Invite code"><button type="button" class="pp-game-button" data-party="join">JOIN ROOM</button></div></div>
+    <div class="pp-panel pp-host-panel"><div class="pp-panel-title">HOST</div>
+     <button type="button" class="pp-game-button pp-host-btn" data-party="create">▼ HOST A ROOM ▼</button>
+     <label class="pp-check"><input type="checkbox" id="pp-public" ${publicFlag?'checked':''}> PUBLIC · LISTED — anyone can join</label>
+    </div>
+    <div class="pp-panel pp-join-panel"><div class="pp-panel-title">JOIN BY CODE</div>
+     <div class="pp-join-form"><input id="pp-code" class="answer-field" maxlength="6" placeholder="ROOM CODE" value="${esc(code)}" aria-label="Invite code"><button type="button" class="pp-game-button" data-party="join">JOIN ▸</button></div>
+    </div>
    </div>
    <div class="pp-foyer-center"><img class="pp-hero-fish" src="${ASSET}/gen/party/puffer-sleep.png" alt="Sleeping pufferfish"><div class="pp-fish-shadow" aria-hidden="true"></div><div class="pp-reef-bubbles" aria-hidden="true">◦<br>°<br>◦</div></div>
    <aside class="pp-panel pp-public-panel"><div class="pp-panel-title">PUBLIC ROOMS <span>SHOWING ${rooms.length} <button type="button" class="pp-refresh" data-party="refresh" aria-label="Refresh public rooms">↻</button></span></div>
