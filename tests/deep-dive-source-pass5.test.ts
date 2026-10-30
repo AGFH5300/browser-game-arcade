@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {existsSync,readFileSync} from 'node:fs';
+import vm from 'node:vm';
 
 const base='public/play/deep-dive/';
 const game=readFileSync(base+'game.js','utf8');
@@ -56,8 +57,9 @@ test('historical Archive records best local score and preserves published answer
 
 test('source-like results contain honest local-only distribution, vertical dive log and surfaced scene',()=>{
  assert(game.includes('function localResultCurve(r)'));
- assert(game.includes('saved local')||game.includes('SAVED LOCAL DIVE'));
- assert(game.includes("Illustrative shape only · Krillion player percentile unavailable"));
+ assert(game.includes('SAVED LOCAL RUNS'));
+ assert(game.includes('Player distribution unavailable'));
+ assert(!game.includes('Illustrative shape only'));
  assert(game.includes('function scoreTrail(results)'));
  assert(game.includes('dd-score-trail-stem'));
  assert(game.includes('dd-result-surface-decor'));
@@ -90,7 +92,7 @@ test('stale legacy Discovery result is prevented by a versioned no-cache player 
  const player=readFileSync('components/player.tsx','utf8');
  const config=readFileSync('next.config.ts','utf8');
  assert(player.includes("game.slug==='deep-dive'&&game.gameUrl==='/play/deep-dive/index-public-art.html'"));
- assert(player.includes('release=20261030pass5c'));
+ assert(player.includes('release=20261030pass5results1'));
  assert(config.includes("source:'/play/deep-dive/index-public-art.html'"));
  assert(config.includes("value:'no-cache, no-store, must-revalidate'"));
  assert(!game.includes('COPY YOUR RESULT'));
@@ -98,9 +100,27 @@ test('stale legacy Discovery result is prevented by a versioned no-cache player 
 });
 test('new result page does not claim invented worldwide player percentiles',()=>{
  assert(game.includes('function localResultCurve(r)'));
- assert(game.includes('Illustrative shape only'));
- assert(game.includes('Krillion player percentile unavailable'));
+ assert(game.includes('Player distribution unavailable'));
+ assert(!game.includes('Krillion player percentile unavailable'));
  assert(!game.includes('BETTER THAN 92%'));
+});
+test('local result curve shows no invented shape below five runs and plots finite saved history above five',()=>{
+ const start=game.indexOf('  function localResultCurve(r){');
+ const end=game.indexOf('  function scoreTrail(results){',start);
+ assert(start>=0&&end>start,'localResultCurve source is extractable');
+ const curveSource=game.slice(start,end)+'\nlocalResultCurve;';
+ const render=(history:{mode:string;count:number;score:number}[])=>vm.runInNewContext(curveSource,{profile:{history}})({mode:'daily',count:7,score:350});
+ const sparse=render([{mode:'daily',count:7,score:120},{mode:'daily',count:7,score:NaN}]);
+ assert.match(sparse,/viewBox="0 0 480 157"/);
+ assert.match(sparse,/Player distribution unavailable/);
+ assert(!/class="dd-personal-curve"/.test(sparse),'no curve is drawn for fewer than five valid runs');
+ assert.match(sparse,/<line x1="[\d.]+" x2="[\d.]+"/,'score marker remains visible');
+ const history=Array.from({length:6},(_,i)=>({mode:'daily',count:7,score:100+i*80}));
+ const full=render(history);
+ assert.match(full,/DISTRIBUTION OF 6 SAVED LOCAL RUNS/);
+ assert.match(full,/class="dd-personal-curve" d="M[\d.,L ]+"/);
+ assert(!/NaN|Infinity/.test(full),'rendered chart coordinates are finite');
+ assert(!/percentile/i.test(full),'local history is not presented as a global percentile');
 });
 test('unique typo correction handles transposed letters, preserves explicit confirmation',()=>{
  assert(game.includes('if(prev2&&i>1&&j>1'));
