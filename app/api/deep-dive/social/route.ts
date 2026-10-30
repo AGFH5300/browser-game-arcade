@@ -2,7 +2,7 @@ import {NextRequest,NextResponse} from 'next/server';
 import {getDb} from '@/lib/db';
 import {accountFromRequest,SESSION_COOKIE,SESSION_DAYS,normalizeUsername,displayName,validUsername,
  hashPassword,verifyPassword,token,id,sha,sessionHash,makeSession,rateStatus,recordFailure,clearFailures,
- friendIds,privateProfile,publiclyVisible,validOrigin,nowNY,type SocialAccount} from '@/lib/deep-dive-social';
+ friendIds,privateProfile,validOrigin,nowNY,type SocialAccount} from '@/lib/deep-dive-social';
 
 export const runtime='nodejs';
 export const dynamic='force-dynamic';
