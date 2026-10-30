@@ -5,15 +5,15 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const cleanCode=s=>String(s||'').toUpperCase().replace(/[^A-HJ-NP-Z2-9]/g,'').slice(0,6);
 const query=new URLSearchParams(location.search);
 try{if(!query.get('party')&&parent!==window)query.set('party',new URLSearchParams(parent.location.search).get('party')||'')}catch{}
-let code=cleanCode(query.get('party')),auth=null,room=null,root=null,timer=null,err='',rooms=[],busy=false,offset=0,name='Explorer',publicFlag=false,last='',sound=true,selectedAvatar='krill',selectedCapacity=6;
+let code=cleanCode(query.get('party')),auth=null,room=null,root=null,timer=null,err='',rooms=[],busy=false,offset=0,name='Explorer',publicFlag=false,last='',sound=true,selectedAvatar='krill',selectedCapacity=6,ratedQueue=false;
 const AVATARS=[['krill','KRILL',0,'/tiers/krillion.png'],['schooler','SCHOOLER',5,'/tiers/schooler.png'],['squid','SQUID',14,'/tiers/rare.png'],['angler','ANGLER',30,'/tiers/deepcut.png'],['evil','EVIL',45,'/tiers/evil-krill-white-v2.png']];
 const ASSET='./reference-assets';
 function avatarUrl(id){return ASSET+(AVATARS.find(a=>a[0]===id)||AVATARS[0])[3]}
-function streak(){try{return Math.max(0,Number(JSON.parse(localStorage.getItem('sidequest:deep-dive:player:v1')||'{}').streak)||0)}catch{return 0}}
-function choices(){const days=streak();return AVATARS.map(([id,label,needed])=>'<button type="button" class="pp-avatar-option '+(id===selectedAvatar?'active':'')+'" data-party="avatar" data-avatar="'+id+'" '+(needed>0?'disabled title="Verified accounts are required for this character"':'')+' aria-pressed="'+(id===selectedAvatar)+'"><img src="'+avatarUrl(id)+'" alt="" loading="lazy"><span>'+label+'</span>'+(needed>days?'<small>'+needed+'-day</small>':'<small>READY</small>')+'</button>').join('')}
+function streak(){return Math.max(0,Number(window.DeepDiveSocial?.profile?.dailyStreak)||0)}
+function choices(){const days=streak();return AVATARS.map(([id,label,needed])=>'<button type="button" class="pp-avatar-option '+(id===selectedAvatar?'active':'')+'" data-party="avatar" data-avatar="'+id+'" '+(needed>days?'disabled title="Unlock with a verified '+needed+'-day account streak"':'')+' aria-pressed="'+(id===selectedAvatar)+'"><img src="'+avatarUrl(id)+'" alt="" loading="lazy"><span>'+label+'</span>'+(needed>days?'<small>'+needed+'-day</small>':'<small>READY</small>')+'</button>').join('')}
 function heading(subtitle){return '<header class="pp-scene-header"><button type="button" class="pp-sound-toggle" data-party="sound" title="Toggle game sounds">SOUND</button><h1 class="pp-scene-brand">KRILLION</h1><p class="pp-scene-name">PUFFER PARTY</p><p class="pp-scene-tagline">pass the puffer · don\'t let it pop on you</p><p class="pp-scene-desc">'+subtitle+'</p></header>'}
 function rememberIdentity(){name=(document.getElementById('pp-name')?.value||name).trim().slice(0,24);try{sessionStorage.setItem('sidequest:party-name',name)}catch{}}
-try{name=sessionStorage.getItem('sidequest:party-name')||name;const a=sessionStorage.getItem('sidequest:party-avatar');if(a==='krill')selectedAvatar=a;const cap=Number(sessionStorage.getItem('sidequest:party-capacity'));if([2,3,6,8].includes(cap))selectedCapacity=cap}catch{}
+try{name=sessionStorage.getItem('sidequest:party-name')||name;const a=sessionStorage.getItem('sidequest:party-avatar');if(AVATARS.some(v=>v[0]===a&&v[2]<=streak()))selectedAvatar=a;const cap=Number(sessionStorage.getItem('sidequest:party-capacity'));if([2,3,6,8,10].includes(cap))selectedCapacity=cap}catch{}
 function restore(){try{auth=JSON.parse(sessionStorage.getItem('sidequest:party-auth:'+code)||'null')}catch{auth=null}}
 if(code)restore();
 const me=()=>room?.members.find(m=>m.id===auth?.id);
@@ -37,12 +37,12 @@ function home(){
    <div class="pp-foyer-left">
     <div class="pp-panel pp-identity-panel"><div class="pp-panel-title">WHO'S PLAYING <details><summary>HOW TO PLAY</summary><p>Each player starts with three hearts. Name an unused correct answer within 18 seconds to pass the puffer. Lose a heart if you pass or run out of time. Earn a bonus heart every 120 rarity points, up to five. Last one afloat wins.</p></details></div>
      <label for="pp-name" class="pp-panel-label">YOUR NAME</label><input id="pp-name" class="answer-field pp-wide" autocomplete="nickname" maxlength="24" placeholder="what the reef calls you" value="${esc(name)}">
-     <div class="pp-avatar-grid" aria-label="Character selection">${choices()}</div><p class="pp-avatar-help">Only the Krill is available in anonymous rooms. Other characters require verified streaks (account sync is not available yet).</p>
+     <div class="pp-avatar-grid" aria-label="Character selection">${choices()}</div><p class="pp-avatar-help">Characters unlock from your verified account daily streak. Sign in through MY KRILLION to use earned characters.</p>
     </div>
-    <div class="pp-panel pp-play-panel"><div class="pp-panel-title">PLAY NOW <span>2–16 PLAYERS</span></div>
-     <div class="pp-capacity-grid" role="group" aria-label="Preferred room size">${[[2,'1V1'],[3,'3S'],[6,'4–6'],[8,'8 PLAYERS']].map(([cap,label])=>`<button type="button" class="pp-capacity ${selectedCapacity===cap?'selected':''}" data-party="capacity" data-capacity="${cap}" aria-pressed="${selectedCapacity===cap}">${label}</button>`).join('')}</div>
-     <div class="pp-play-buttons"><button type="button" class="pp-game-button pp-rated-unavailable" disabled aria-disabled="true" title="Ranked matchmaking is not yet available">▶ RATED ◀</button><button type="button" class="pp-game-button" data-party="quickplay">QUICK PLAY</button></div>
-     <p class="pp-caption">RATED MATCHMAKING UNAVAILABLE · QUICK PLAY IS UNRATED</p>
+    <div class="pp-panel pp-play-panel"><div class="pp-panel-title">PLAY NOW <span>2–10 PLAYERS</span></div>
+     <div class="pp-capacity-grid" role="group" aria-label="Preferred room size">${[[2,'1V1'],[3,'3S'],[6,'4–6'],[10,'8–10']].map(([cap,label])=>`<button type="button" class="pp-capacity ${selectedCapacity===cap?'selected':''}" data-party="capacity" data-capacity="${cap}" aria-pressed="${selectedCapacity===cap}">${label}</button>`).join('')}</div>
+     <div class="pp-play-buttons"><button type="button" class="pp-game-button" data-party="${ratedQueue?'cancelRated':'rated'}">${ratedQueue?'◀ CANCEL SEARCH':'▶ RATED ◀'}</button><button type="button" class="pp-game-button" data-party="quickplay">QUICK PLAY</button></div>
+     <p class="pp-caption">${ratedQueue?'SEARCHING NEAR YOUR RATING…':window.DeepDiveSocial?.profile?'RATED 1V1 · ELO '+window.DeepDiveSocial.profile.rating+' · QUICK PLAY IS UNRATED':'SIGN IN FOR RATED MATCHMAKING · QUICK PLAY IS UNRATED'}</p>
     </div>
     <div class="pp-panel pp-host-panel"><div class="pp-panel-title">HOST</div>
      <button type="button" class="pp-game-button pp-host-btn" data-party="create">▼ HOST A ROOM ▼</button>
@@ -60,7 +60,7 @@ function home(){
 }
 function lobby(){
  const host=room.hostId===auth?.id;
-  return '<section class="page pp-active-scene"><div class="page-title"><span class="eyebrow">YOUR PUFFER PARTY</span><h1>Get your crew <em style="color:var(--aqua)">ready.</em></h1><p>Invite up to '+(room.maxMembers||16)+' players by sharing the code. Everyone plays from their own browser.</p></div><div class="pp-layout"><div class="surface-card"><span class="tagline">'+(room.publicRoom?'PUBLIC PARTY':'PRIVATE PARTY')+'</span><h2 class="pp-code">'+esc(room.code)+'</h2>'+btn('copy','Copy invite link','primary small')+'<div class="pp-members">'+people()+'</div>'+(canAct()?(host?'<button type="button" class="btn primary block" data-party="start" '+(room.members.length<(room.minMembers||2)||room.members.some(m=>!m.ready)?'disabled':'')+'>Start party ('+room.members.length+' players)</button>':btn('ready',me()?.ready?'✓ Ready — change':'I am ready','primary block')):'<div class="notice">Join this room by entering your nickname.</div><div class="answer-line"><input id="pp-name" class="answer-field" maxlength="24" value="'+esc(name)+'">'+btn('join','Join','primary')+'</div>')+'<div class="pp-actions">'+btn('leave','Leave room','small ghost')+'</div></div><div class="surface-card"><span class="tagline">PARTY CHAT</span>'+chat()+'</div></div></section>';
+  return '<section class="page pp-active-scene"><div class="page-title"><span class="eyebrow">YOUR PUFFER PARTY</span><h1>Get your crew <em style="color:var(--aqua)">ready.</em></h1><p>Invite up to '+(room.maxMembers||16)+' players by sharing the code. Everyone plays from their own browser.</p></div><div class="pp-layout"><div class="surface-card"><span class="tagline">'+(room.rated?'RATED 1V1 PARTY':room.publicRoom?'PUBLIC PARTY':'PRIVATE PARTY')+'</span><h2 class="pp-code">'+esc(room.code)+'</h2>'+btn('copy','Copy invite link','primary small')+'<div class="pp-members">'+people()+'</div>'+(canAct()?(host?'<button type="button" class="btn primary block" data-party="start" '+(room.members.length<(room.minMembers||2)||room.members.some(m=>!m.ready)?'disabled':'')+'>Start party ('+room.members.length+' players)</button>':btn('ready',me()?.ready?'✓ Ready — change':'I am ready','primary block')):'<div class="notice">Join this room by entering your nickname.</div><div class="answer-line"><input id="pp-name" class="answer-field" maxlength="24" value="'+esc(name)+'">'+btn('join','Join','primary')+'</div>')+'<div class="pp-actions">'+btn('leave','Leave room','small ghost')+'</div></div><div class="surface-card"><span class="tagline">PARTY CHAT</span>'+chat()+'</div></div></section>';
 }
 function playing(){
  const turn=room.members.find(m=>m.id===room.turnId);
@@ -92,7 +92,9 @@ function settle(data){
 }
 async function poll(){
  if(!root||busy)return;
- try{if(code){const data=await request(null,'?code='+code);settle(data)}else{const data=await request(null,'?list=1');if(JSON.stringify(rooms)!==JSON.stringify(data.rooms)){rooms=data.rooms;render()}}}catch(e){if(!room){err=String(e.message||e);render()}}
+ try{
+  if(ratedQueue&&!code){const match=await ratedRequest(null);if(match.status==='matched')await acceptRatedMatch(match);else if(match.status==='expired'){ratedQueue=false;err='Rated queue expired. Search again.';render()}}
+  if(code){const data=await request(null,'?code='+code);settle(data)}else{const data=await request(null,'?list=1');if(JSON.stringify(rooms)!==JSON.stringify(data.rooms)){rooms=data.rooms;render()}}}catch(e){if(!room){err=String(e.message||e);render()}}
 }
 async function act(body){
  if(busy)return;busy=true;err='';
@@ -119,12 +121,37 @@ async function quickPlay(){
  busy=false;code=selection?.code||'';if(selection){auth=null;room=null;last='';act({type:'join',code,name,avatar:selectedAvatar})}
  else act({type:'create',name,publicRoom:true,maxMembers:selectedCapacity,avatar:selectedAvatar});
 }
+const RATED_API='/api/deep-dive/matchmaking';
+async function ratedRequest(action){
+ const r=await fetch(RATED_API,action?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action}),credentials:'same-origin'}:{cache:'no-store',credentials:'same-origin'});
+ const data=await r.json();if(!r.ok)throw Error(data.error||'Ranked matchmaking unavailable');return data;
+}
+async function acceptRatedMatch(data){
+ if(data.status!=='matched'||!data.roomCode||!data.playerId||!data.secret)return;
+ ratedQueue=false;code=cleanCode(data.roomCode);auth={id:data.playerId,secret:data.secret};
+ sessionStorage.setItem('sidequest:party-auth:'+code,JSON.stringify(auth));
+ last='';room=null;err='';
+ const current=await request(null,'?code='+code);settle(current);
+}
+async function ratedPlay(){
+ if(!window.DeepDiveSocial?.profile){err='Sign in to MY KRILLION before joining rated 1V1.';render();return}
+ if(busy)return;busy=true;err='';rememberIdentity();
+ try{const data=await ratedRequest('queue');ratedQueue=data.status==='waiting';
+  if(data.status==='matched')await acceptRatedMatch(data);
+  render();
+ }catch(e){err=String(e.message||e);render()}finally{busy=false}
+}
+async function cancelRated(){
+ try{await ratedRequest('cancel');ratedQueue=false;err='';render()}catch(e){err=String(e.message||e);render()}
+}
 function onClick(e){
  const b=e.target.closest('[data-party]');if(!b)return;
  const a=b.dataset.party;
- if(a==='avatar'){const next=b.dataset.avatar,locked=AVATARS.find(x=>x[0]===next);if(locked&&locked[2]===0){rememberIdentity();selectedAvatar=next;sessionStorage.setItem('sidequest:party-avatar',next);render()}}
- if(a==='capacity'){const n=Number(b.dataset.capacity);if([2,3,6,8].includes(n)){rememberIdentity();publicFlag=Boolean(document.getElementById('pp-public')?.checked);selectedCapacity=n;sessionStorage.setItem('sidequest:party-capacity',String(n));render()}}
+ if(a==='avatar'){const next=b.dataset.avatar,locked=AVATARS.find(x=>x[0]===next);if(locked&&locked[2]<=streak()){rememberIdentity();selectedAvatar=next;sessionStorage.setItem('sidequest:party-avatar',next);render()}}
+ if(a==='capacity'){const n=Number(b.dataset.capacity);if([2,3,6,8,10].includes(n)){rememberIdentity();publicFlag=Boolean(document.getElementById('pp-public')?.checked);selectedCapacity=n;sessionStorage.setItem('sidequest:party-capacity',String(n));render()}}
  if(a==='quickplay')quickPlay();
+ if(a==='rated')ratedPlay();
+ if(a==='cancelRated')cancelRated();
  if(a==='create'||a==='createPublic'){rememberIdentity();publicFlag=a==='createPublic'||Boolean(document.getElementById('pp-public')?.checked);act({type:'create',name,publicRoom:publicFlag,maxMembers:selectedCapacity,avatar:selectedAvatar})}
  if(a==='join'){
   rememberIdentity();code=cleanCode(document.getElementById('pp-code')?.value||code);
@@ -148,6 +175,7 @@ function onSubmit(e){
  if(e.target.id==='pp-answer'){e.preventDefault();send('answer',{answer:document.getElementById('pp-answer-input')?.value||''})}
  if(e.target.id==='pp-chat'){e.preventDefault();const text=document.getElementById('pp-message')?.value||'';if(text.trim())send('chat',{text})}
 }
+document.addEventListener('deepdive:account-updated',()=>{if(!root||room)return;const a=AVATARS.find(x=>x[0]===selectedAvatar);if(a&&a[2]>streak())selectedAvatar='krill';render()});
 window.DeepDiveParty={
  preferred:()=>Boolean(code),
  mount({root:where}){

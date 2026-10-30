@@ -20,13 +20,13 @@ test('public free homepage is source-style Daily with separate Endless Dive intr
 });
 
 test('centered source navigation modal keeps every available local route',()=>{
- for(const route of ['daily','endless','party','archive','worlds','stats'])
+ for(const route of ['daily','endless','party','archive','worlds','account','friends'])
   assert(menu.includes('data-menu-view="'+route+'"'),route);
  assert(html.includes('data-view="archive" class="nav-pill"'));
  assert(menu.includes('keydown'));
  assert(menu.includes('Escape'));
  assert(menu.includes('MY KRILLION'));
- assert(menu.includes('FRIENDS<small>UNAVAILABLE</small>'));
+ assert(menu.includes('<span>FRIENDS</span>'));
  assert(menu.includes('https://shop.krillion.io/'));
  assert(menu.includes('https://chainle.io/'));
  assert(css.includes('grid-template-columns:repeat(2,minmax(0,1fr))'));
@@ -116,7 +116,7 @@ test('stale legacy Discovery result is prevented by a versioned no-cache player 
  const player=readFileSync('components/player.tsx','utf8');
  const config=readFileSync('next.config.ts','utf8');
  assert(player.includes("game.slug==='deep-dive'&&game.gameUrl==='/play/deep-dive/index-public-art.html'"));
- assert(player.includes('release=20261030fix1'));
+ assert(player.includes('release=20261030social1'));
  assert(config.includes("source:'/play/deep-dive/index-public-art.html'"));
  assert(config.includes("value:'no-cache, no-store, must-revalidate'"));
  assert(!game.includes('COPY YOUR RESULT'));

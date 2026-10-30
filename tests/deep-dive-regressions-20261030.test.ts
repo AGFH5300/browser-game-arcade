@@ -45,10 +45,10 @@ test('public Party checkbox is preserved when picking capacity or avatar',()=>{
 });
 
 test('anonymous avatar streaks are not trusted on the public server',()=>{
- assert(route.includes("body.avatar!=='krill'"));
+ assert(route.includes("allowedAvatar(body.avatar,account)"));
  assert(route.includes('requires a verified daily streak'));
  assert(route.includes(',403)'));
- assert(party.includes('needed>0?'));
+ assert(party.includes('needed>days?'));
 });
 
 test('duplicate nickname is a 409 conflict, not a 503 service outage',()=>{

@@ -218,6 +218,12 @@
     const complete=isEndless?null:dailyDone(),resume=active?.mode===(isEndless?'endless':'daily'),date=dailyDate();
     const sourceLabel=sourceDaily?'PUBLIC DAILY #'+sourceDaily.dayNumber+' · '+format(sourceDaily.answerCount)+' PUBLISHER-SCORED ANSWERS':'INDEPENDENT SIDEQUEST DAILY';
 
+    const endlessDone=profile.history.filter(x=>x.mode==='endless').length;
+    const log=Array.from({length:76},(_,i)=>{const id=i+1;
+      const selected=id===Math.min(76,Math.max(1,Number(profile.unlimitedGameId)||1));
+      const completed=profile.history.some(h=>h.mode==='endless'&&Number(h.unlimitedGameId)===id);
+      return '<button type="button" data-action="selectEndless" data-game-id="'+id+'" class="'+(selected?'selected ':'')+(completed?'completed':'')+'" aria-pressed="'+selected+'">DIVE '+id+(completed?' ✓':'')+'</button>';
+    }).join('');
     const primaryLabel=resume?'▼ CONTINUE DESCENT ▼':complete?'▼ VIEW DIVE RESULTS ▼':'▼ BEGIN DESCENT ▼';
     const primaryAct=resume?'resume':complete?'dailyResults':isEndless?'startEndless':'startDaily';
     return `<section class="page deep-home" data-phase="intro" data-mode="${isEndless?'endless':'daily'}" data-world="ocean">
@@ -230,7 +236,7 @@
       <div class="dd-sea">${oceanDecor()}
         <div class="dd-sea-center">
           <div class="dd-surface-label">◂ HOW DEEP CAN YOUR KNOWLEDGE GO? ▸</div>
-          <details class="dd-rules"><summary>▸ ${isEndless?'OPEN THE DIVE LOG ∞':'HOW TO PLAY'}</summary>${isEndless?`<div class="dd-source-howto dd-endless-log"><p>THE DIVE LOG</p><p>${format(profile.history.filter(x=>x.mode==='endless').length)} COMPLETED ENDLESS DIVES.</p><p>BEST: ${format(profile.endlessBest||0)} POINTS. NEXT: DIVE #${format(profile.unlimitedGameId||1)}.</p><p>EACH SEVEN-PROMPT DIVE IS SAVED ON THIS BROWSER.</p></div>`:`<div class="dd-source-howto"><p>7 PROMPTS A DAY. SAME FOR EVERYONE.</p><p>25 SECONDS TO NAME ONE THING.</p><p>RARE ANSWERS SCORE BIG. OBVIOUS ONES FLOAT.</p><p>THE PICK THAT FEELS CLEVER? THE SCHOOL THOUGHT OF IT TOO.</p><p>EVERY POINT SINKS YOU 10 METRES. 700 IS THE TRENCH.</p><p>ONE DIVE PER DAY. NO SECOND CHANCES.</p></div>`}</details>
+          <details class="dd-rules"><summary>▸ ${isEndless?'OPEN THE DIVE LOG ∞':'HOW TO PLAY'}</summary>${isEndless?`<div class="dd-source-howto dd-endless-log"><p>THE DIVE LOG · THE ENDLESS DIVE</p><p>${format(endlessDone)}/76 charted · replays keep your best</p><p>SELECT A DIVE · YOUR FREE PRACTICE, NO UNLOCK REQUIRED</p><div class="dd-endless-chooser" role="group" aria-label="Choose an Unlimited dive">${log}</div><p>BEST ${format(profile.endlessBest||0)} · NEXT #${format(profile.unlimitedGameId||1)}. AVAILABLE QUESTIONS COMBINE PUBLIC ARCHIVE PUZZLES, NOT THE PUBLISHER'S PAID GAME SET.</p></div>`:`<div class="dd-source-howto"><p>7 PROMPTS A DAY. SAME FOR EVERYONE.</p><p>25 SECONDS TO NAME ONE THING.</p><p>RARE ANSWERS SCORE BIG. OBVIOUS ONES FLOAT.</p><p>THE PICK THAT FEELS CLEVER? THE SCHOOL THOUGHT OF IT TOO.</p><p>EVERY POINT SINKS YOU 10 METRES. 700 IS THE TRENCH.</p><p>ONE DIVE PER DAY. NO SECOND CHANCES.</p></div>`}</details>
           <a class="dd-home-privacy" href="/privacy">Privacy</a>
           ${isEndless?'':`<button type="button" class="dd-party-btn" data-action="party"><span class="dd-party-tag">BETA · LIMITED TIME</span><span class="dd-party-fish" aria-hidden="true">🐡</span><span>PUFFER PARTY</span><span class="dd-party-arrow" aria-hidden="true">›</span></button>`}
           <button type="button" class="dd-begin" data-action="${primaryAct}">${primaryLabel}</button>
@@ -553,6 +559,7 @@
     profile.history=[r,...profile.history].slice(0,50);
     window.DeepDiveSfx?.event('surface');
     if(r.mode==='endless')profile.unlimitedGameId=Math.max(1,Number(profile.unlimitedGameId)||1,Number(r.unlimitedGameId||1)+1);
+    if(r.mode==='daily'&&r.source==='krillion-reveal')void window.DeepDiveSocial?.syncDaily?.(r);
     active=null;save();currentView=r.mode==='daily'?'daily':r.mode==='world'||r.mode==='starter'?'worlds':r.mode==='archive'?'archive':'endless';renderSummary(r);
   }
   function roundEnd(record){
@@ -857,6 +864,9 @@
   function render(){
     clearInterval(ticker);if(doneTick)clearInterval(doneTick);doneTick=null;syncHead();oldActiveCheck();
     if(currentView==='party'){window.DeepDiveParty?.mount({root});lastPhase='';return}else window.DeepDiveParty?.unmount();
+    if(currentView==='friends'||currentView==='account'){
+      window.DeepDiveSocial?.mount({root,view:currentView});lastPhase='';return;
+    }
     if(active&&((currentView==='daily'&&active.mode==='daily')||(currentView==='endless'&&active.mode==='endless')||(currentView==='worlds'&&(active.mode==='world'||active.mode==='starter'))||(currentView==='archive'&&active.mode==='archive'))){
       const animate=lastPhase!==''&&lastPhase!==active.phase;
       try{
@@ -929,6 +939,13 @@
     switch(b.dataset.action){
       case 'startDaily':if(active?.mode==='daily'){currentView='daily';render()}else start('daily');break;
       case 'startEndless':if(active?.mode==='endless'){currentView='endless';render()}else void startPublicUnlimited();break;
+      case 'selectEndless':{
+        const requested=Number(b.dataset.gameId);
+        if(Number.isInteger(requested)&&requested>=1&&requested<=76){
+          profile.unlimitedGameId=requested;save();active=null;currentView='endless';render();
+        }
+        break;
+      }
       case 'startLongPractice':void startArchiveEndless();break;
       case 'startArchive':void startHistorical(b.dataset.day||'');break;
       case 'startStarter':startStarter(b.dataset.starter||'');break;

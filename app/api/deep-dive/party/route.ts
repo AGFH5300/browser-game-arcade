@@ -1,5 +1,7 @@
 import {NextRequest,NextResponse} from 'next/server';
 import {getDb} from '@/lib/db';
+import {accountFromRequest,allowedAvatar} from '@/lib/deep-dive-social';
+import {settleRatedRoom} from '@/lib/deep-dive-rated';
 import bank from '../../../../public/play/deep-dive/questions.json';
 import {
  makeCode,newRoom,joinRoom,applyAction,expireTurn,publicRoom,
@@ -47,8 +49,8 @@ async function getCurrent(code:string):Promise<StateRow|null>{
  for(let n=0;n<5;n++){
   const row=await fetchRoom(code);
   if(!row)return null;
-  if(!expireTurn(row.state,Date.now()))return row;
-  if(await commit(code,row.revision,row.state))return {...row,revision:row.revision+1};
+  if(!expireTurn(row.state,Date.now())){if(row.state.rated&&row.state.phase==='finished')await settleRatedRoom(row.state);return row;}
+  if(await commit(code,row.revision,row.state)){if(row.state.rated&&row.state.phase==='finished')await settleRatedRoom(row.state);return {...row,revision:row.revision+1};}
  }
  return await fetchRoom(code);
 }
@@ -78,18 +80,18 @@ export async function POST(request:NextRequest){
  try{
   const body=await request.json() as Record<string,unknown>;
   const type=String(body.type||'');
-  // The client-side streak is stored in editable browser storage, not a trusted account.
-  // Never let an anonymous request claim gated multiplayer avatar rewards.
-  if((type==='create'||type==='join')&&body.avatar!==undefined&&body.avatar!=='krill')
-   return error('This character requires a verified daily streak. Use the Krill for anonymous Party rooms.',403);
+  const account=(type==='create'||type==='join')?await accountFromRequest(request):null;
+  // Locked characters are authorized against the account's database-verified streak.
+  if((type==='create'||type==='join')&&body.avatar!==undefined&&!allowedAvatar(body.avatar,account))
+   return error('This character requires a verified daily streak. Sign in or choose the Krill.',403);
   if(type==='create'){
    if(typeof body.name!=='string'||body.name.length>45)return error('Enter a nickname between 2 and 24 characters.');
    const sql=getDb();
    for(let tryCount=0;tryCount<4;tryCount++){
     const code=makeCode(),now=Date.now();
-    const maxMembers=[2,3,6,8].includes(Number(body.maxMembers))?Number(body.maxMembers):8;
-    const minMembers=maxMembers===6?4:maxMembers===8?2:maxMembers;
-    const {room,id,secret}=newRoom(code,body.name,body.publicRoom===true,now,shuffleQuestionIds(code+':'+now),{maxMembers,minMembers,avatar:body.avatar});
+    const maxMembers=[2,3,6,8,10].includes(Number(body.maxMembers))?Number(body.maxMembers):8;
+    const minMembers=maxMembers===6?4:maxMembers===10?8:maxMembers===8?2:maxMembers;
+    const {room,id,secret}=newRoom(code,body.name,body.publicRoom===true,now,shuffleQuestionIds(code+':'+now),{maxMembers,minMembers,avatar:body.avatar,accountId:account?.id});
     const rows=await sql.query(
      'INSERT INTO deep_dive_party_rooms (room_code,state,revision) VALUES ($1,$2::jsonb,0) ON CONFLICT (room_code) DO NOTHING RETURNING room_code',
      [code,JSON.stringify(room)]
@@ -105,8 +107,9 @@ export async function POST(request:NextRequest){
    if(!row)return error('Room expired or not found',404);
    const now=Date.now(),room=row.state;
    if(type==='join'){
+    if(room.rated)return error('Join rated matches through matchmaking',403);
     if(typeof body.name!=='string'||body.name.length>45)return error('Enter a nickname between 2 and 24 characters.');
-    const {id,secret}=joinRoom(room,body.name,now,body.avatar);
+    const {id,secret}=joinRoom(room,body.name,now,body.avatar,account?.id);
     if(await commit(code,row.revision,room))return ok({room:publicRoom(room,questions),playerId:id,secret});
     continue;
    }
@@ -120,7 +123,10 @@ export async function POST(request:NextRequest){
    };
    if(!['ready','start','answer','pass','chat','leave'].includes(type))return error('Unsupported action');
    applyAction(room,body.playerId,body.secret,action,now,questions);
-   if(await commit(code,row.revision,room))return ok({room:publicRoom(room,questions)});
+   if(await commit(code,row.revision,room)){
+     if(room.rated&&room.phase==='finished')await settleRatedRoom(room);
+     return ok({room:publicRoom(room,questions)});
+   }
   }
   return error('Party is busy, retry your action',409);
  }catch(e){
