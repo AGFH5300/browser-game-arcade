@@ -273,3 +273,38 @@ body:has(.dd-archive) .dd-nav-toggle{pointer-events:auto}
 .ds-social-checkbox input{accent-color:#5de9fa;width:18px;height:18px}
 @media(max-width:760px){.ds-social-page{padding:72px 14px 55px}.ds-social-page .ds-social-grid{grid-template-columns:1fr}
  .ds-social-page>header>span{font-size:55px}.ds-social-page .ds-social-card{padding:14px}}
+
+/* Real 1440×900 Party reference: source confines active reef to 810px high,
+   side panels x≈190/1060 and the main logo x≈680, not 1440px-wide edges.
+   Preserve independent scrolling rather than clipping interactive host/join. */
+@media(min-width:1100px){
+ .pp-view .pp-arena{max-width:none!important;width:calc(100% - 180px)!important;min-height:810px!important;
+  margin-left:180px!important;margin-right:0!important;padding:60px 10px 22px!important}
+ .pp-view .pp-ocean-foyer{max-width:1240px!important;width:100%!important;
+  grid-template-columns:minmax(0,368px) minmax(0,1fr) minmax(0,368px)!important;
+  column-gap:clamp(20px,2.8vw,38px)!important;margin-top:28px!important}
+ .pp-view .pp-scene-brand{font-size:76px!important}
+ .pp-view .pp-scene-header{margin:10px auto 15px!important;max-width:620px!important}
+ .pp-view .pp-scene-desc{font-size:17px!important;max-width:540px!important;line-height:1.2!important}
+ .pp-view .pp-identity-panel .pp-wide{font-size:22px!important;height:53px!important}
+ .pp-view .pp-avatar-option{min-height:88px!important}
+ .pp-view .pp-avatar-grid{gap:3px!important}
+ .pp-view .pp-panel{background:#061226e5!important;border:2px solid #061526!important}
+ .pp-view .pp-foyer-center{align-self:start;padding-top:125px!important}
+ .pp-view .pp-hero-fish{width:98px!important;max-width:98px!important}
+ .pp-view .pp-panel-title{letter-spacing:.2em!important}
+ .pp-view .pp-play-panel{margin-top:9px!important}
+}
+@media(max-width:1099px) and (min-width:651px){
+ .pp-view .pp-ocean-foyer{grid-template-columns:minmax(210px,1fr) minmax(100px,.65fr) minmax(210px,1fr)!important}
+}
+/* The original selector is a compact scrollable Dive Log, not an unbounded document. */
+.dd-endless-log .dd-endless-chooser{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+ gap:4px;max-height:195px;overflow-y:auto;padding:4px;background:#051425aa;
+ border:1px solid #28607d;scrollbar-color:#4ab5d0 #0a213c}
+.dd-endless-log .dd-endless-chooser button{font:13px/1.25 "ReferenceVT323",monospace;
+ cursor:pointer;color:#c1d9e8;background:#102a40;border:1px solid #305a75;min-height:26px}
+.dd-endless-log .dd-endless-chooser button:hover,
+.dd-endless-log .dd-endless-chooser button.selected{color:#062035;background:#59e4f7;border-color:#94f6ff}
+.dd-endless-log .dd-endless-chooser button.completed{border-color:#ecb960}
+@media(max-width:650px){.dd-endless-log .dd-endless-chooser{grid-template-columns:repeat(3,minmax(0,1fr))}}
