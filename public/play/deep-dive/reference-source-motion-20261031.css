@@ -45,3 +45,14 @@
   .dd-reveal-screen .dd-landed,
   .dd-reveal-screen .dd-next-wrap{animation:none!important;transition:none!important}
 }
+
+/* The source first holds the old prompt briefly while the answer begins to
+   plunge; it exits at ~1s rather than disappearing the instant Enter is hit. */
+.dd-reveal-screen.dd-reveal-pending .dd-game-prompt{
+ animation:dd-source-prompt-exit 600ms cubic-bezier(.65,0,.35,1) 450ms both!important;
+ pointer-events:none!important;
+}
+@keyframes dd-source-prompt-exit{
+ 0%{opacity:1;filter:brightness(1);transform:translateY(0)}
+ 100%{opacity:0;filter:brightness(.6);transform:translateY(-22px)}
+}
