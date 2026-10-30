@@ -206,3 +206,9 @@ body:has(.ds-social-page) .header-stats{display:none!important}
  .dd-done-screen .dd-done-krill{font-size:30px!important}
  .dd-done-screen .dd-score-trail{margin-bottom:110px!important}
 }
+
+/* The publisher keeps the result score left anchored on narrow screens,
+   independent of the number of score digits. */
+@media(max-width:650px){
+ .dd-done-screen .dd-done-score .big{transform:translateX(-34px)!important}
+}
