@@ -32,3 +32,12 @@ Evidence: saved original home1440×900 retrieved unchanged; current before-home1
 Fresh finding: original menu is a centered430px modal with a two-column tile grid, not the slide-out described in Pass5 notes. Follow the current screenshot/DOM evidence.
 Done when: scoped home/menu corrections, targeted tests, independent review, preview interactions and clear viewport limitations are recorded.
 Next: finish bounded implementation, capture after home/menu/How-to, compare, test and release independently.
+
+## PR #39 continuation — 30 October 2026 (local verification)
+
+- Scope: homepage/modal only. Latest PR branch initially cee4619; all 135 repository tests, typecheck and lint passed.
+- Evidence: `docs/evidence/krillion-home-20261030/after-*.png`, `comparison-*.png`, `overlay-*.png`; original reference screenshots already saved in same folder.
+- Verified Vercel preview browser interactions at 1440×900, 1363×936 and 390×844 including Escape, FAQ, Packs, Archive, return to Daily, Play now and no JS errors.
+- Final local CSS adjustment matches saved original menu x463/y46/w438/h844 at 1363×936; first nav tile y181; merchandise y662.
+- Source access currently HTTP 403 from the remote test browser; new comparisons use source snapshots. Global visual/animation parity is not certified.
+- Next: verify new Vercel preview deployment for final CSS change, merge PR #39 if clean, verify production, then proceed to checkpoint 3 in a separate bounded task.
