@@ -723,15 +723,14 @@
     if(!scores.length)return '';
     const unit=446/scores.length;
     const icon=t=>t.id==='plankton'?'plankton.png':t.icon;
-    const pts=scores.map((score,i)=>({x:34+(i+.5)*unit,y:22+(score/100)*210,score,tier:results[i].tier,
+    const pts=scores.map((score,i)=>({x:34+(i+.5)*unit,y:12+(score/100)*256,score,tier:results[i].tier,
       color:results[i].tier!==null&&results[i].tier!==undefined?TIERS[results[i].tier].color:'#627891'}));
     return `<div class="dd-score-trail" aria-label="Recorded score for each of your ${scores.length} answers">
       <div class="dd-score-trail-head"><span>DIVE LOG · DEEPER = RARER</span><span>${scores.length} ROUNDS</span></div>
       <svg viewBox="0 0 480 269" role="img" aria-label="Seven actual rarity score depths, from 0 to 100">
-        ${[0,25,50,75,100].map(n=>`<line class="dd-score-trail-grid" x1="24" x2="467" y1="${22+n*2.1}" y2="${22+n*2.1}"></line><text class="dd-depth-tick-label" x="17" y="${27+n*2.1}" text-anchor="end">-${n}</text>`).join('')}
-        ${pts.map((p,i)=>`<line class="dd-score-trail-stem" x1="${p.x}" x2="${p.x}" y1="22" y2="${p.y}" stroke="${p.color}"></line>${p.tier===null||p.tier===undefined?`<text class="dd-score-trail-marker dd-score-trail-miss" x="${p.x}" y="${p.y+5}" text-anchor="middle">×</text>`:icon(TIERS[p.tier])?`<image class="dd-score-trail-marker" href="./reference-assets/tiers/${icon(TIERS[p.tier])}" x="${p.x-9}" y="${p.y-9}" width="18" height="18"><title>Round ${i+1}: ${p.score} points</title></image>`:`<text class="dd-score-trail-marker" x="${p.x}" y="${p.y+5}" text-anchor="middle">${TIERS[p.tier].mark}<title>Round ${i+1}: ${p.score} points</title></text>`}
-          <text class="dd-score-trail-point-label" x="${p.x}" y="${Math.min(244,p.y+19)}" text-anchor="middle">${p.score}</text>
-          <text class="dd-score-trail-round" x="${p.x}" y="258" text-anchor="middle">${i+1}</text>`).join('')}
+        ${[0,25,50,75,100].map(n=>`<line class="dd-score-trail-grid" x1="24" x2="467" y1="${12+n*2.56}" y2="${12+n*2.56}"></line><text class="dd-depth-tick-label" x="17" y="${17+n*2.56}" text-anchor="end">${n===0?'0m':'-'+n}</text>`).join('')}
+        ${pts.map((p,i)=>`<line class="dd-score-trail-stem" x1="${p.x}" x2="${p.x}" y1="12" y2="${p.y}" stroke="${p.color}"></line>${p.tier===null||p.tier===undefined?`<text class="dd-score-trail-marker dd-score-trail-miss" x="${p.x}" y="${p.y+5}" text-anchor="middle">×</text>`:icon(TIERS[p.tier])?`<image class="dd-score-trail-marker" href="./reference-assets/tiers/${icon(TIERS[p.tier])}" x="${p.x-9}" y="${p.y-9}" width="18" height="18"><title>Round ${i+1}: ${p.score} points</title></image>`:`<text class="dd-score-trail-marker" x="${p.x}" y="${p.y+5}" text-anchor="middle">${TIERS[p.tier].mark}<title>Round ${i+1}: ${p.score} points</title></text>`}
+          <text class="dd-score-trail-round" x="${p.x}" y="282" text-anchor="middle">${i+1}</text>`).join('')}
       </svg>
       <p class="dd-score-trail-note">Your recorded answers · not a global percentile</p>
     </div>`;

@@ -139,11 +139,11 @@
  letter-spacing:.18em;margin:0 0 3px!important}
 .dd-done-screen .dd-personal-distribution small{display:block;font:13px/1.1 "ReferenceVT323",monospace;
  color:#9caabd;letter-spacing:.05em}
-.dd-done-screen .dd-score-trail{margin:8px 0 22px!important}
+.dd-done-screen .dd-score-trail{margin:8px 0 57px!important}
 .dd-done-screen .dd-score-trail-head{justify-content:flex-start!important;padding-bottom:6px;
  border-bottom:1px dashed #5a6e8055}
 .dd-done-screen .dd-score-trail-head span:last-child{display:none!important}
-.dd-done-screen .dd-score-trail svg{width:100%!important;height:auto!important;
+.dd-done-screen .dd-score-trail svg{width:100%!important;height:auto!important;margin-top:0;
  min-height:255px!important;max-height:none!important;overflow:visible}
 .dd-done-screen .dd-score-trail-stem{stroke-width:1.25;stroke-opacity:.4;stroke-dasharray:3 4}
 .dd-done-screen .dd-score-trail-marker{stroke:#d9f5ff;stroke-width:.7;filter:drop-shadow(0 0 5px #75dafa88)}
@@ -151,7 +151,7 @@
 .dd-done-screen .dd-depth-tick-label{font:14px "ReferenceVT323",monospace;fill:#6d8ba4}
 .dd-done-screen .dd-score-trail-point-label{font:15px "ReferenceVT323",monospace;fill:#b9d5ef}
 .dd-done-screen .dd-score-trail-round{font:13px "ReferenceVT323",monospace;fill:#7c9ab4}
-.dd-done-screen .dd-score-trail-note{font-size:13px!important;color:#6d94a8!important;margin-top:0!important}
+.dd-done-screen .dd-score-trail-note,.dd-done-screen .dd-personal-distribution small{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .dd-done-screen .dd-done-bands{margin-top:18px!important}
 .dd-done-screen .dd-bearing-row{display:grid;grid-template-columns:19px 72px minmax(0,1fr);gap:9px;min-height:40px;box-sizing:border-box;padding:8px 0!important;align-items:center}
 .dd-done-screen .dd-bearing-row b{width:72px!important;font-size:13px!important}
@@ -262,4 +262,5 @@
 .deep-home[data-phase=intro] .dd-endless-log p{color:#c9d9f5}
 
 /* Source result menu is anchored at the viewport top, independently of sound. */
-body:has(.dd-done-screen) .dd-nav-toggle{top:15px!important}
+.app-shell:has(.dd-done-screen) .topbar{top:0!important}
+.app-shell:has(.dd-done-screen) .dd-nav-toggle{top:15px!important}

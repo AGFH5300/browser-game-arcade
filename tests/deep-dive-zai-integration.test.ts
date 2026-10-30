@@ -12,7 +12,7 @@ const paths=new Set(manifest.files.map((x:{localPath:string})=>x.localPath));
 test('Z.ai parity stylesheets load in order and the modified game uses a fresh cache key',()=>{
  assert(html.includes('./reference-parity-2.css?release=20261029p2fixed'));
  assert(html.includes('./reference-pass3.css?release=20261030validated'));
- assert(html.includes('./game.js?parity=20261030pass5results2'));
+ assert(html.includes('./game.js?parity=20261030pass5results3'));
  assert(html.indexOf('reference-dom-parity.css')<html.indexOf('reference-parity-2.css'));
  assert(html.indexOf('reference-parity-2.css')<html.indexOf('reference-pass3.css'));
 });
