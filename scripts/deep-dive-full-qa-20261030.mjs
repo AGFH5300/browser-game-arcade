@@ -41,7 +41,7 @@ try{
  await check('Unlimited 7/7 scored prompts, descent and completed results',async()=>{
  const free=await request('/play/deep-dive/recovered/free-starters.json');let sheets=free.modes.unlimited.questions;assert.equal(sheets.length,7);
  await ready(u);await nav(u,'endless');await u.locator('.dd-begin').dispatchEvent('click');
- let total=0;for(let i=0;i<7;i++){await u.locator('#answer-input').waitFor({timeout:18000});const prompt=(await u.locator('.dd-prompt-text').first().innerText()).trim();const q=sheets.find(x=>x.text===prompt);assert(q,'Missing starter prompt '+prompt);let ans=q.answers.find(x=>x[1]>=10)||q.answers[0];assert(ans,'no answers for '+prompt);await u.locator('#answer-input').fill(ans[0]);await u.locator('.dd-dive-btn').dispatchEvent('click');await u.locator('.dd-next-btn').waitFor({state:'visible',timeout:12000});const feedback=await u.locator('.dd-landed').innerText();assert(!/NOTHING LANDED/i.test(feedback),'Known published answer rejected: '+ans[0]+' '+feedback.slice(0,140));total+=Number(ans[1]);await u.locator('.dd-next-btn').dispatchEvent('click');}await u.locator('.dd-done-inner').waitFor({timeout:25000});assert.equal(await u.locator('.dd-catch-row').count(),7);const score=await u.locator('.dd-done-score .big').innerText();assert.equal(Number(score.replace(/\D/g,'')),total);return '7 accepted; total '+total+'; seven catch rows'});
+ let total=0;for(let i=0;i<7;i++){await u.waitForFunction(n=>{const screen=document.querySelector('.dd-game-screen');const label=screen?.querySelector('.dd-prompt-label')?.textContent||'';return screen?.dataset.phase==='answering'&&label.includes('PROMPT '+n+' OF 7')},i+1,{timeout:20000});const prompt=(await u.locator('.dd-prompt-text').first().innerText()).trim();const q=sheets.find(x=>x.text===prompt);assert(q,'Missing starter prompt '+prompt);let ans=q.answers.find(x=>x[1]>=10)||q.answers[0];assert(ans,'no answers for '+prompt);await u.locator('#answer-input').fill(ans[0]);await u.locator('.dd-dive-btn').dispatchEvent('click');await u.locator('.dd-next-btn').waitFor({state:'visible',timeout:12000});const feedback=await u.locator('.dd-landed').innerText();assert(!/NOTHING LANDED/i.test(feedback),'Known published answer rejected: '+ans[0]+' '+feedback.slice(0,140));total+=Number(ans[1]);await u.locator('.dd-next-btn').dispatchEvent('click');}await u.locator('.dd-done-inner').waitFor({timeout:25000});assert.equal(await u.locator('.dd-catch-row').count(),7);const score=await u.locator('.dd-done-score .big').innerText();assert.equal(Number(score.replace(/\D/g,'')),total);return '7 accepted; total '+total+'; seven catch rows'});
  await check('Results filters, rating, copy, continue',async()=>{await u.locator('.dd-catch-row').first().locator('summary').click();await u.locator('.dd-catch-row').first().locator('.dd-catch-search').fill('a');const tier=u.locator('.dd-catch-row').first().locator('.dd-catch-tier');await tier.selectOption('5');await u.locator('[data-action=rate][data-rating="4"]').click();assert(await u.locator('.dd-rate[data-rating="4"]').evaluate(x=>x.classList.contains('on')));await u.locator('[data-action=share]').click();await u.locator('[data-action=share]').filter({hasText:/COPIED/}).waitFor({timeout:5000});await u.locator('[data-action=startEndless]').click();await u.locator('.dd-game-screen').waitFor({timeout:16000});return 'filter/rate/copy and next mode started'});
 }finally{await unlimited.close()}
 const worlds=await ctx(),w=await worlds.newPage();pageErrors(w);
@@ -76,6 +76,38 @@ try{
  await check('Archive all recovered snapshot integrity (105)',async()=>{const manifest=await request('/play/deep-dive/recovered/archive/manifest.json');assert.equal(manifest.dates.length,105);let checked=0;for(let i=0;i<manifest.dates.length;i+=8){const group=manifest.dates.slice(i,i+8);const replies=await Promise.all(group.map(async x=>{const r=await fetch(base+'/play/deep-dive/recovered/archive/'+x.date+'.json',{signal:AbortSignal.timeout(25000)});assert.equal(r.status,200,x.date);const j=await r.json();assert.equal(j.questions.length,7,x.date);assert(j.questions.every(q=>q.answers.length>0),x.date+' missing answers');return 1}));checked+=replies.reduce((a,b)=>a+b,0)}return checked+' snapshots with 735 seven-round prompts'});
  await check('Archive return to Daily',async()=>{const isolated=await ctx();try{const fresh=await isolated.newPage();await ready(fresh);await nav(fresh,'archive');await fresh.locator('.dd-archive-return').click();assert(await fresh.locator('.deep-home[data-mode=daily]').isVisible());}finally{await isolated.close()}});
 }finally{await archive.close()}
+const secondary=await ctx(),s=await secondary.newPage();pageErrors(s);
+try{
+ await check('Settings modal opens from Archive and Party',async()=>{
+  await ready(s);await nav(s,'archive');
+  await s.locator('.dd-nav-toggle>summary').click();
+  await s.locator('[data-menu-settings]').click();
+  await s.locator('#dd-global-settings [role=dialog]').waitFor({state:'visible',timeout:8000});
+  await s.keyboard.press('Escape');
+  assert.equal(await s.locator('#dd-global-settings').count(),0);
+  await nav(s,'party');
+  await s.locator('.dd-nav-toggle>summary').click();
+  await s.locator('[data-menu-settings]').click();
+  await s.locator('#dd-global-settings [role=dialog]').waitFor({state:'visible',timeout:8000});
+  await s.locator('#dd-global-settings [data-dd-close-settings]').first().click();
+  assert.equal(await s.locator('#dd-global-settings').count(),0);
+  return 'Archive and Party open/close';
+ });
+ await check('Puffer Party public checkbox survives capacity toggles',async()=>{
+  await nav(s,'party');
+  await s.locator('#pp-public').check();
+  await s.locator('[data-party=capacity][data-capacity="2"]').click();
+  assert(await s.locator('#pp-public').isChecked());
+  await s.locator('[data-party=capacity][data-capacity="3"]').click();
+  assert(await s.locator('#pp-public').isChecked());
+  await s.locator('#pp-public').uncheck();
+  return 'public preference held across two capacity changes';
+ });
+ await check('API rejects unavailable Party avatars with HTTP 403',async()=>{
+  const r=await secondary.request.post(base+'/api/deep-dive/party',{data:{type:'create',name:'QAGatedAvatar',maxMembers:2,publicRoom:false,avatar:'evil'}});
+  assert.equal(r.status(),403);return (await r.json()).error;
+ });
+}finally{await secondary.close()}
 const mc=await ctx({viewport:{width:390,height:844},isMobile:true,deviceScaleFactor:2,hasTouch:true}),m=await mc.newPage();pageErrors(m);
 try{
  await check('Mobile menu, homepage, no sideways overflow',async()=>{await ready(m);const box=await m.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth}));assert(box.scroll<=box.width+12,JSON.stringify(box));await m.locator('.dd-nav-toggle>summary').click();assert(await m.locator('.dd-source-menu-panel').isVisible());await m.keyboard.press('Escape');return JSON.stringify(box)});
