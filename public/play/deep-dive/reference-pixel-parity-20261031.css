@@ -212,3 +212,13 @@ body:has(.ds-social-page) .header-stats{display:none!important}
 @media(max-width:650px){
  .dd-done-screen .dd-done-score .big{transform:translateX(-34px)!important}
 }
+
+/* First-round coordinates measured in source and local Chromium at 1440×900:
+   original HUD top 0, reconstructed top 9; original question y=213,
+   reconstructed question y=207. */
+@media(min-width:1100px) and (min-height:700px){
+ .dd-game-screen[data-world="ocean"] .dd-hud{top:0!important}
+ .dd-game-screen[data-world="ocean"] .dd-game-prompt{margin-top:6px!important}
+ /* The first surface round has no depth-lore captions in the original. */
+ .dd-game-screen[data-world="ocean"][data-zone="surface"] .dd-amb{display:none!important}
+}
