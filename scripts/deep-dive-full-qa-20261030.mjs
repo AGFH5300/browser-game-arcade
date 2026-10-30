@@ -11,7 +11,7 @@ async function check(name,fn){try{const res=await fn();report(name,'PASS',String
 const ctx=async(options={})=>browser.newContext({viewport:{width:1440,height:900},permissions:['clipboard-read','clipboard-write'],...options});
 const pageErrors=p=>p.on('pageerror',e=>exceptions.push(e.message));
 const ready=async(p)=>{await p.goto(game,{waitUntil:'domcontentloaded',timeout:40000});await p.locator('.deep-home[data-phase=intro]').waitFor({timeout:35000});await p.waitForFunction(()=>!document.getElementById('dd-boot')||getComputedStyle(document.getElementById('dd-boot')).visibility==='hidden',{timeout:20000}).catch(()=>{});};
-const nav=async(p,view)=>{await p.locator('.nav-pill[data-view="'+view+'"]').click();};
+const nav=async(p,view)=>{const menu=p.locator('.dd-source-menu-backdrop');if(await menu.getAttribute('data-open')!=='true')await p.locator('.dd-nav-toggle>summary').click();await p.locator('.dd-source-menu-link[data-menu-view="'+view+'"]').click();await p.locator('.dd-source-menu-backdrop[data-open="false"]').waitFor({timeout:12000});};
 const request=async(url)=>{const r=await fetch(base+url,{signal:AbortSignal.timeout(25000)});assert.equal(r.status,200,url+' http '+r.status);return r.json()};
 const a=await ctx(),p=await a.newPage();pageErrors(p);
 try{
@@ -19,7 +19,19 @@ try{
  await check('Homepage logo, ocean and motion',async()=>{const v=await p.evaluate(()=>({letters:document.querySelectorAll('.dd-logo span').length,sea:!!document.querySelector('.dd-reference-sea-canvas'),animated:getComputedStyle(document.querySelector('.deep-home .dd-logo span')).animationName,water:getComputedStyle(document.querySelector('.dd-sky'),'::after').animationName}));assert(v.letters>=8);assert(v.sea);assert(v.animated!=='none');assert(v.water!=='none');return JSON.stringify(v)});
  await check('Menu, Escape, outside click, FAQ',async()=>{await p.locator('.dd-nav-toggle>summary').click();await p.locator('.dd-source-menu-panel').waitFor();await p.locator('.dd-source-menu-faq>summary').click();assert(await p.locator('.dd-source-menu-faq').getAttribute('open')!==null);await p.keyboard.press('Escape');assert.equal(await p.locator('.dd-source-menu-backdrop').getAttribute('data-open'),'false');await p.locator('.dd-nav-toggle>summary').click();await p.locator('[data-close-menu]').click();assert.equal(await p.locator('.dd-source-menu-backdrop').getAttribute('data-open'),'false')});
  await check('Sound toggle and persistence',async()=>{const b=p.locator('[data-dd-sound]');await b.click();const one=await b.getAttribute('aria-label');await b.click();const two=await b.getAttribute('aria-label');assert.notEqual(one,two);await p.reload();await p.locator('[data-dd-sound]').waitFor();assert.equal(await p.locator('[data-dd-sound]').getAttribute('aria-label'),two);return one+' -> '+two});
- await check('Settings switches persist across reload',async()=>{await p.locator('.dd-reference-preferences>summary').click();for(const key of ['lowPower','contrast','answerCorrections','clearRejected']){const box=p.locator('[data-dd-setting="'+key+'"]');assert(await box.isVisible());await box.click();const before=await box.isChecked();await p.reload();await p.locator('.dd-reference-preferences>summary').click();assert.equal(await p.locator('[data-dd-setting="'+key+'"]').isChecked(),before,'persist '+key);await p.locator('[data-dd-setting="'+key+'"]').click();await p.locator('.dd-reference-preferences>summary').click();}return 'four preferences persisted then restored'});
+  for(const key of ['lowPower','contrast','answerCorrections','clearRejected']){
+  await check('Settings '+key+' persists across reload',async()=>{
+   await p.locator('.dd-reference-preferences>summary').click();
+   const box=p.locator('[data-dd-setting="'+key+'"]');const old=await box.isChecked();
+   await box.setChecked(!old);const chosen=await box.isChecked();
+   await p.reload();await p.locator('.deep-home[data-phase=intro]').waitFor({timeout:22000});
+   await p.locator('.dd-reference-preferences>summary').click();
+   const retained=await p.locator('[data-dd-setting="'+key+'"]').isChecked();
+   await p.locator('[data-dd-setting="'+key+'"]').setChecked(old);
+   await p.locator('.dd-reference-preferences>summary').click();
+   assert.equal(retained,chosen,'preference key '+key+' not retained');return 'saved='+chosen+' restored='+retained;
+  });
+ }
  await check('Characters locking and mascot poke',async()=>{await p.locator('.dd-reference-preferences>summary').click();const opts=await p.locator('[data-dd-character] option').evaluateAll(os=>os.map(o=>({text:o.textContent,disabled:o.disabled})));assert.equal(opts.length,5);assert(opts.slice(1).every(x=>x.disabled));await p.locator('.dd-reference-preferences>summary').click();return opts.map(x=>x.disabled?'locked':'ready').join(', ')});
  await check('Daily start, preview and answer UI',async()=>{await nav(p,'daily');await p.locator('.dd-begin').click();await p.locator('#answer-input').waitFor({timeout:12000});assert(await p.locator('.dd-hud').isVisible());assert(await p.locator('#seconds').isVisible());assert(await p.locator('.dd-dive-btn').isDisabled());return await p.locator('.dd-prompt-text').first().innerText()});
  await check('Daily resume after reload',async()=>{const initial=await p.locator('.dd-prompt-text').first().innerText();await p.reload();await p.locator('.dd-game-screen').waitFor({timeout:20000});assert.equal(await p.locator('.dd-prompt-text').first().innerText(),initial);return 'active daily preserved'});
