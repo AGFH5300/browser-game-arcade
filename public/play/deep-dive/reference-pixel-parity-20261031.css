@@ -73,7 +73,7 @@ body:has(.ds-social-page) .header-stats{display:none!important}
    a blue water column; the prior scene repeated the decorative homepage
    artwork and large reef silhouettes, creating a measurable mismatch. */
 .dd-game-screen[data-world="ocean"] .dd-world-surface-sky{
- background:linear-gradient(180deg,#a4ccd9 0%,#cbe5ed 44%,#eff8fb 100%)!important;
+ background:linear-gradient(180deg,#d5e9f4 0%,#e2f1f8 44%,#f8ffff 100%)!important;
 }
 .dd-game-screen[data-world="ocean"] .dd-game-sea{
  background:linear-gradient(180deg,#c9e2ea 0%,#e8f7fb 23%,
@@ -81,7 +81,7 @@ body:has(.ds-social-page) .header-stats{display:none!important}
  box-shadow:none!important;
 }
 .dd-game-screen[data-world="ocean"] .dd-world-surface-boat{
- position:absolute;top:-105px;left:calc(50% - 431px);width:195px;height:95px;transform:scale(.93);transform-origin:left bottom;
+ position:absolute;top:-78px;left:calc(50% - 431px);width:195px;height:95px;transform:scale(.93,1.45);transform-origin:left bottom;
  pointer-events:none;z-index:2;
 }
 .dd-game-screen[data-world="ocean"] .dd-world-surface-boat .dd-boat{
