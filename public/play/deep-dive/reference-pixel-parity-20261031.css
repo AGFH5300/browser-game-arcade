@@ -108,3 +108,46 @@ body:has(.ds-social-page) .header-stats{display:none!important}
 .dd-reveal-screen[data-world="ocean"] .dd-chip{
  animation:dd-parity-chip-fade 1.7s ease-in forwards!important;
 }
+
+/* Source-observed first-round 1440×900 ocean palette:
+   water stays deep blue to y≈732, then transitions to black. */
+@media(min-width:651px) and (min-height:701px){
+ .dd-game-screen[data-world="ocean"] .dd-game-sea{
+  height:100svh!important;min-height:100svh!important;
+  background:linear-gradient(180deg,
+   #b6d3dd 0%,#d3e7ec 23.05%,#1c527b 23.4%,
+   #133657 39%,#153c60 49%,#194b72 69%,
+   #164167 81%,#071423 83%,#050b16 100%)!important;
+  box-shadow:none!important;
+ }
+ .dd-game-screen[data-world="ocean"][data-phase="answering"] .dd-dock{
+  bottom:58px!important;
+ }
+ .dd-game-screen[data-world="ocean"][data-phase="answering"] .dd-game-fish,
+ .dd-game-screen[data-world="ocean"][data-phase="preview"] .dd-game-fish{
+  top:625px!important;left:215px!important;
+ }
+ .app-shell:has(.dd-game-screen) .dd-nav-toggle{translate:-52px -10px}
+ .dd-game-screen .dd-hud .dd-hud-box{min-width:120px!important;width:120px!important}
+}
+/* A real 100m world ruler, unlike the earlier empty div (no ticks were
+   present in the rendered first-round DOM). Positioned at original x≈1245. */
+.dd-game-screen[data-world="ocean"] .dd-world-ruler{
+ position:absolute;top:0;right:13.5%;width:0;
+ height:11000px;z-index:3;pointer-events:none;
+ border-right:1px solid #95b7c166;
+ background:repeating-linear-gradient(180deg,
+  transparent 0px,transparent 18px,#91b4be8a 19px,#91b4be8a 20px,
+  transparent 21px,transparent 22px) right/6px 100% no-repeat;
+}
+.dd-world-ruler .dd-ruler-major{
+ position:absolute;right:-4px;height:1px;width:13px;
+ border-top:1px solid #91b6c08a;
+ font:11px/1 "ReferenceVT323",monospace;
+ letter-spacing:.02em;color:#799db6a6;
+}
+.dd-world-ruler .dd-ruler-major span{position:absolute;right:16px;top:-6px;white-space:nowrap}
+@media(max-width:650px){
+ .dd-game-screen[data-world="ocean"] .dd-world-ruler{right:13px;opacity:.7}
+ .dd-world-ruler .dd-ruler-major{font-size:10px}
+}
