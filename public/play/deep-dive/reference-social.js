@@ -6,7 +6,7 @@
  const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const query=new URLSearchParams(location.search);
  try{if(!query.get('friend')&&parent!==window)query.set('friend',new URLSearchParams(parent.location.search).get('friend')||'')}catch{}
- let profile=null,friends=[],standings=null,rankings=[],view='friends',loginMode='login',loading=false,error='',message='',initialFriend=String(query.get('friend')||'').slice(0,128),wired=false;
+ let profile=null,friends=[],standings=null,rankings=[],view='friends',mounted=false,loginMode='login',loading=false,error='',message='',initialFriend=String(query.get('friend')||'').slice(0,128),wired=false;
  // Profile getters stay live after login, not a snapshot taken during script evaluation.
  const request=async(action,body=null)=>{
   const url=API+(body?'':'?action='+encodeURIComponent(action));
@@ -50,7 +50,7 @@
     '<div class="ds-social-card"><h2>PRIVACY</h2><label class="ds-social-checkbox"><input id="ds-social-share" type="checkbox" '+(profile.shareAnswers?'checked':'')+'> SHARE MY DAILY ANSWERS WITH FRIENDS</label><p>Friends can see your score only after finishing their own Daily Dive. Your password and account history are never shared.</p>'+
     button('logout','SIGN OUT','muted')+'</div></div>')+'</section>';
  };
- const paint=()=>{if(!root||!['account','friends'].includes(view))return;root.innerHTML=profile?signedIn():login()};
+ const paint=()=>{if(!mounted||!root||!document.querySelector('.nav-pill[data-view="'+view+'"].active'))return;root.innerHTML=profile?signedIn():login()};
  const refresh=async()=>{
   try{const data=await request('me');profile=data.account||null;error='';if(profile){const [f,l,r]=await Promise.allSettled([request('friends'),request('leaderboard'),request('rankings')]);friends=f.status==='fulfilled'?f.value.friends:[];standings=l.status==='fulfilled'?l.value:null;rankings=r.status==='fulfilled'?r.value.rankings:[]}
   }catch(e){error=e.message||'Account service is unavailable'}finally{paint();document.dispatchEvent(new CustomEvent('deepdive:account-updated'))}
@@ -93,7 +93,7 @@
  };
  const mount=({root:where,view:nextView})=>{
   if(where!==root)return;
-  view=nextView==='account'?'account':'friends';error='';message='';
+  view=nextView==='account'?'account':'friends';mounted=true;error='';message='';
   paint();void refresh();
  };
  window.DeepDiveSocial={get profile(){return profile},mount,refresh,syncDaily};
