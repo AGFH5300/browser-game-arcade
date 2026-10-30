@@ -81,7 +81,7 @@ body:has(.ds-social-page) .header-stats{display:none!important}
  box-shadow:none!important;
 }
 .dd-game-screen[data-world="ocean"] .dd-world-surface-boat{
- position:absolute;top:-95px;left:calc(50% - 390px);width:195px;height:95px;
+ position:absolute;top:-105px;left:calc(50% - 431px);width:195px;height:95px;transform:scale(.93);transform-origin:left bottom;
  pointer-events:none;z-index:2;
 }
 .dd-game-screen[data-world="ocean"] .dd-world-surface-boat .dd-boat{
@@ -101,7 +101,7 @@ body:has(.ds-social-page) .header-stats{display:none!important}
    approx 85px above the previously rendered Sidequest banner at 1440×900. */
 @media(min-width:651px){
  .dd-reveal-screen[data-world="ocean"] .dd-landed{
-  top:calc(var(--y,0px) - 85px)!important;
+  top:calc(var(--y,0px) - 75px)!important;
  }
 }
 @keyframes dd-parity-chip-fade{0%,65%{opacity:1}100%{opacity:0}}
@@ -150,4 +150,18 @@ body:has(.ds-social-page) .header-stats{display:none!important}
 @media(max-width:650px){
  .dd-game-screen[data-world="ocean"] .dd-world-ruler{right:13px;opacity:.7}
  .dd-world-ruler .dd-ruler-major{font-size:10px}
+}
+
+.dd-world-ruler .dd-ruler-you{
+ position:absolute;right:-15px;width:69px;min-height:18px;
+ transform:translateY(-50%);white-space:nowrap;
+ color:#ff5d8f;text-align:right;
+ font:13px/18px "ReferenceVT323",monospace;
+ letter-spacing:.14em;text-shadow:0 0 11px #ff5d8f;
+}
+.dd-world-ruler .dd-ruler-you b{font-size:16px;font-weight:400}
+@media(min-width:651px) and (min-height:701px){
+ .dd-game-screen[data-world="ocean"] .dd-dock .dd-submit{
+  width:78px!important;min-width:78px!important;flex:0 0 78px!important;
+ }
 }
