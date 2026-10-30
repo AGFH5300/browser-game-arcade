@@ -1,0 +1,58 @@
+{
+  "viewport": [
+    1363,
+    936
+  ],
+  "notes": [
+    "Identical viewport; no resizing.",
+    "MAE is mean absolute RGB error on 0\u2013255 scale; threshold rate uses max RGB difference >20.",
+    "Score digits, global-vs-local distribution, round-5 outcome, dynamic mascot and live countdown are masked.",
+    "Scenery animation, different page widths and missing ad gutter still affect metrics. These numbers do not certify parity."
+  ],
+  "comparisons": {
+    "before": {
+      "header": {
+        "mae": 24.819,
+        "pixels_over_20_percent": 96.41,
+        "evaluated_pixels": 48080
+      },
+      "dive_log": {
+        "mae": 12.893,
+        "pixels_over_20_percent": 13.59,
+        "evaluated_pixels": 134200
+      },
+      "bearing": {
+        "mae": 20.973,
+        "pixels_over_20_percent": 22.5,
+        "evaluated_pixels": 79846
+      },
+      "sky": {
+        "mae": 16.56,
+        "pixels_over_20_percent": 45.47,
+        "evaluated_pixels": 575495
+      }
+    },
+    "after": {
+      "header": {
+        "mae": 16.564,
+        "pixels_over_20_percent": 31.44,
+        "evaluated_pixels": 48080
+      },
+      "dive_log": {
+        "mae": 8.028,
+        "pixels_over_20_percent": 7.44,
+        "evaluated_pixels": 134200
+      },
+      "bearing": {
+        "mae": 12.037,
+        "pixels_over_20_percent": 13.91,
+        "evaluated_pixels": 79846
+      },
+      "sky": {
+        "mae": 10.367,
+        "pixels_over_20_percent": 18.81,
+        "evaluated_pixels": 575495
+      }
+    }
+  }
+}
