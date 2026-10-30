@@ -167,6 +167,16 @@
     }).join('');
     return `<div class="dd-depth-ticks" aria-hidden="true">${ticks}</div><div class="dd-fish dd-fish-a" aria-hidden="true">▰◂</div><div class="dd-fish dd-fish-b" aria-hidden="true">◂▰</div><div class="dd-fish dd-fish-c" aria-hidden="true">▰◂</div><div class="dd-bubbles" aria-hidden="true">°<br>°<br>·<br>°<br>·</div>`;
   }
+  /* Fixed-depth world ruler, anchored to the moving 2px/metre ocean world.
+     Source first-round ruler crosses the surface at y≈208 and advances with
+     camera descent; these markings are informative only, not interactive. */
+  function oceanRuler(){
+    const ticks=Array.from({length:55},(_,i)=>{
+      const depth=i*100;
+      return `<span class="dd-ruler-major" style="top:${depth*2}px"><span>${depth===0?'0m':'-'+depth+'m'}</span></span>`;
+    }).join('');
+    return `<div class="dd-world-ruler" aria-hidden="true">${ticks}</div>`;
+  }
   function gameOverlays(){
     return `<div class="dd-vignette" aria-hidden="true"></div><div class="dd-crt" aria-hidden="true"></div><div class="dd-edge" aria-hidden="true"></div>`;
   }
@@ -511,6 +521,7 @@
           <div class="dd-world-surface-sky" aria-hidden="true"></div>
           ${worldId==='ocean'?'<div class="dd-world-surface-boat" aria-hidden="true">'+(oceanArt().match(/<svg class="dd-boat"[\s\S]*?<\/svg>/)||[''])[0]+'</div>':''}
           ${worldSurface(currentTotal())}
+          ${worldId==='ocean'?oceanRuler():''}
           ${window.DeepDiveThemes?.scenery(worldId)||''}
           <img class="dd-floor" src="${WORLD_FLOORS[worldId]||WORLD_FLOORS.ocean}" alt="" loading="lazy" style="--y:${worldMeta.floorTop}px">
           ${worldFacts()}
@@ -787,6 +798,7 @@
         <div class="dd-world" style="--dd-world-height:${doneConfig.height}px">
           <div class="dd-world-surface-sky" aria-hidden="true"></div>
           ${worldSurface(r.count)}
+          ${doneWorld==='ocean'?oceanRuler():''}
           ${window.DeepDiveThemes?.scenery(doneWorld)||''}
           <img class="dd-floor" src="${WORLD_FLOORS[doneWorld]||WORLD_FLOORS.ocean}" alt="" loading="lazy" style="--y:${doneConfig.floorTop}px">
           ${worldFacts()}
