@@ -244,7 +244,7 @@
           <p class="dd-subtitle">${isEndless?'THE ENDLESS DIVE':'THE DAILY DIVE'}</p><p class="dd-tagline">${isEndless?'dive after dive · rarer answers sink deeper':'7 prompts · 25 seconds each · rarer answers sink deeper'}</p>
         </div>
       </div>
-      <div class="dd-sea">${oceanDecor()}
+      <div class="dd-sea">${oceanDecor()}${isEndless?'':'<img class="dd-home-mascot" aria-hidden="true" alt="" src="./reference-assets/tiers/krillion-halloween-2026.png">'}
         <div class="dd-sea-center">
           <div class="dd-surface-label">◂ HOW DEEP CAN YOUR KNOWLEDGE GO? ▸</div>
           <details class="dd-rules"><summary>▸ ${isEndless?'OPEN THE DIVE LOG ∞':'HOW TO PLAY'}</summary>${isEndless?`<div class="dd-source-howto dd-endless-log"><p>THE DIVE LOG · THE ENDLESS DIVE</p><p>${format(endlessDone)}/76 charted · replays keep your best</p><p>SELECT A DIVE · YOUR FREE PRACTICE, NO UNLOCK REQUIRED</p><div class="dd-endless-chooser" role="group" aria-label="Choose an Unlimited dive">${log}</div><p>BEST ${format(profile.endlessBest||0)} · NEXT #${format(profile.unlimitedGameId||1)}. AVAILABLE QUESTIONS COMBINE PUBLIC ARCHIVE PUZZLES, NOT THE PUBLISHER'S PAID GAME SET.</p></div>`:`<div class="dd-source-howto"><p>7 PROMPTS A DAY. SAME FOR EVERYONE.</p><p>25 SECONDS TO NAME ONE THING.</p><p>RARE ANSWERS SCORE BIG. OBVIOUS ONES FLOAT.</p><p>THE PICK THAT FEELS CLEVER? THE SCHOOL THOUGHT OF IT TOO.</p><p>EVERY POINT SINKS YOU 10 METRES. 700 IS THE TRENCH.</p><p>ONE DIVE PER DAY. NO SECOND CHANCES.</p></div>`}</details>
@@ -454,7 +454,7 @@
     window.DeepDiveSfx?.event('begin');
     /* Pass 3 phase machine: every round opens in preview (the original's
        3-second "descending · the clock starts in N" pill) before answering. */
-    active={mode,world,chapter,source:mode==='starter'||(mode==='endless'&&forcedIds.length===7)?'published-free-starter-index':mode==='archive'||(mode==='endless'&&forcedIds.length)?'published-archive-snapshot':mode==='daily'&&sourceDaily?'krillion-reveal':'sidequest',day:mode==='archive'?archiveDate:day,ids,index:0,phase:'preview',previewEnds:Date.now()+(profile.tourSeen?3000:5200),deadline:0,results:[],score:0,misses:0,startedAt:Date.now()};
+    active={mode,world,chapter,source:mode==='starter'||(mode==='endless'&&forcedIds.length===7)?'published-free-starter-index':mode==='archive'||(mode==='endless'&&forcedIds.length)?'published-archive-snapshot':mode==='daily'&&sourceDaily?'krillion-reveal':'sidequest',day:mode==='archive'?archiveDate:day,ids,index:0,phase:'preview',previewEnds:Date.now()+3200,deadline:0,results:[],score:0,misses:0,startedAt:Date.now()};
     save();currentView=mode==='world'||mode==='starter'?'worlds':mode==='endless'?'endless':mode==='archive'?'archive':'daily';render();
   }
   function currentQ(){return byId.get(active.ids[active.index])}
@@ -653,7 +653,7 @@
       if(active.index+1>=active.ids.length||(active.mode==='endless'&&active.ids.length>7&&active.misses>=3)){conclude();return}
       window.DeepDiveSfx?.event('descend');
       depthCrank=false;
-      active.index++;active.phase='preview';active.previewEnds=Date.now()+(profile.tourSeen?3000:5200);active.deadline=0;mascotPose='';correction=null;rejectMsg='';save();render();
+      active.index++;active.phase='preview';active.previewEnds=Date.now()+3200;active.deadline=0;mascotPose='';correction=null;rejectMsg='';save();render();
     };
     if(!card||window.matchMedia('(prefers-reduced-motion: reduce)').matches){leave();return}
     card.classList.add('dd-card-leaving');

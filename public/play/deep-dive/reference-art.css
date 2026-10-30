@@ -21,14 +21,14 @@
 .deep-home .dd-party-btn{font-size:clamp(19px,2.5vw,25px)!important;height:61px!important;max-width:343px}
 .deep-home .dd-party-btn small{font-family:"ReferenceVT323","VT323",monospace!important;font-size:14px!important;letter-spacing:.04em;color:#7798b7!important}
 .deep-home .dd-party-btn:hover,.deep-home .dd-begin:hover{background:#152e4c!important;box-shadow:0 0 0 3px #050a14,0 0 0 6px #ff5d8f,0 6px 0 6px #123048,0 0 30px #ff5d8f66!important}
-.deep-home .dd-party-fish{background-image:url("./reference-art/puffer.png")!important;image-rendering:pixelated}
+.deep-home .dd-party-fish{background-image:url("./reference-assets/gen/party/puffer-0.png")!important;image-rendering:pixelated}
 .deep-home .dd-mode-nav button,.deep-home .dd-dive-number,.deep-home .dd-rules,.deep-home .dd-surface-label,.deep-home .dd-sea-stats{font-family:"ReferenceVT323","VT323",monospace!important;letter-spacing:.14em!important}
 .deep-home .dd-mode-nav button{font-size:19px!important}.deep-home .dd-rules{font-size:18px!important}
 .deep-home .dd-edition{display:none!important}.deep-home .dd-surface-label{opacity:.65}
 .dd-game-screen .dd-game-sky{background:url("./reference-art/sky.webp") center center/100% 100% no-repeat!important}
 .dd-game-screen .dd-game-sea{background:linear-gradient(180deg,#0a315bc0,#04162ab0),url("./reference-art/top.webp") center top/100% 100% no-repeat!important}
 .dd-game-screen .dd-game-sky .dd-cloud,.dd-game-screen .dd-game-sky .dd-boat,.dd-game-screen .dd-game-sky .dd-sun,.dd-game-screen .dd-game-sky .dd-wave{display:none!important}
-.dd-game-screen .dd-game-fish{background-image:url("./reference-art/puffer.png")!important;filter:none!important}
+.dd-game-screen .dd-game-fish{background-image:url("./reference-assets/tiers/krillion-halloween-2026.png")!important;filter:none!important}
 .pp-view .pp-puffer{background-image:url("./reference-art/puffer.png")!important;filter:none!important;image-rendering:pixelated}
 @media(min-width:651px){
  .deep-home .dd-sky:not(.dd-game-sky){height:54svh!important;max-height:none!important;min-height:0!important}

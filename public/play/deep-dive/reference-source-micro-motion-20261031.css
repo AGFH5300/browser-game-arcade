@@ -135,3 +135,98 @@
    same-viewport comparison, removing them slightly reduced sea-region error. */
 .deep-home[data-phase="intro"] .dd-fish,
 .deep-home[data-phase="intro"] .dd-bubbles{display:none!important}
+
+
+/* Additional source-vs-live computed-motion audit, 31 Oct 2026.
+   Home water/sky and Party ambient layers are animated by the existing
+   reconstructed canvas, not by extra unrelated CSS translation. */
+.deep-home[data-phase="intro"] .dd-sky,
+.deep-home[data-phase="intro"] .dd-sky::after,
+.deep-home[data-phase="intro"] .dd-sea,
+.deep-home[data-phase="intro"] .dd-sea::before,
+.deep-home[data-phase="intro"] .dd-sea::after{animation:none!important}
+.pp-view::after{animation:none!important}
+.pp-view .pp-reef-bubbles{animation:none!important}
+/* Source lobby's selected avatar stays full-sized at rest, not replaying a
+   0.45s grow transition each time the independent lobby rerenders. */
+/* Source's single Party swimmer is the selected avatar, not the large
+   sleeping puffer at the centre of the Party illustration. */
+.pp-view .pp-avatar-option.active img{
+ animation:ds-swim 2.6s cubic-bezier(.65,0,.35,1) infinite!important;
+ width:47px!important;height:47px!important;
+}
+.pp-view .pp-avatar-option:not(.active) img{
+ width:44px!important;height:44px!important;
+}
+/* Original source mascot reacts to an accepted submission with its sad
+   pose before switching to the landing animation. */
+.dd-reveal-screen.dd-reveal-pending .dd-game-fish.sad{
+ animation:ds-sad 2.8s cubic-bezier(.65,0,.35,1) infinite!important
+}
+@media(min-width:1100px){
+ /* Source Puffer Party's sleeping fish occupies x=640..801,y=379..539
+    at 1440x900; previous Sidequest was x=758..863,y=480..585. */
+ .pp-view .pp-hero-fish{
+  position:fixed!important;left:calc(50vw - 260px)!important;
+  top:373px!important;width:161px!important;height:160px!important;
+  max-width:161px!important;max-height:160px!important;
+  object-fit:contain!important;pointer-events:none;animation:none!important
+ }
+ .pp-view .pp-fish-shadow{
+  position:fixed!important;left:calc(50vw - 173px)!important;
+  top:525px!important;width:112px!important
+ }
+ /* Source home has a standalone seasonally dressed krill beside the intro,
+    floating independently from the title, the party puffer and the canvas. */
+ .deep-home[data-phase="intro"][data-mode="daily"] .dd-home-mascot{
+  position:absolute;left:calc(50% + 151px);top:54px;
+  width:72px;height:73px;object-fit:contain;image-rendering:pixelated;
+  animation:ds-swim 2.6s cubic-bezier(.65,0,.35,1) infinite;
+  z-index:8;pointer-events:none
+ }
+ /* Source initial gameplay mascot: measured 197x595, 67x69 at 1440x900. */
+ .dd-game-screen[data-world="ocean"][data-phase="answering"] .dd-game-fish{
+  left:calc(50% - 523px)!important;top:595px!important;
+  width:67px!important;height:69px!important
+ }
+}
+@media(max-width:1099px){.dd-home-mascot{display:none!important}}
+@media(prefers-reduced-motion:reduce){
+ .deep-home .dd-home-mascot,.dd-world .dd-title,.dd-world .dd-title span,
+ .dd-reveal-screen.dd-reveal-pending .dd-game-fish.sad{animation:none!important}
+}
+
+
+/* The original Party discovery artwork floats outside the callout's left
+   edge; it is the published puffer PNG, not an emoji or unrelated sprite. */
+@media(min-width:1100px){
+ .deep-home[data-phase="intro"] .dd-party-btn{position:relative}
+ .deep-home[data-phase="intro"] .dd-party-fish{
+  position:absolute!important;left:-2px!important;top:11px!important;
+  width:52px!important;height:52px!important
+ }
+}
+
+
+/* Source original at 390x844: seasonal home mascot remains visible (x240,y542,
+   69px box), and the sleeping Party fish is static in its centre artwork. */
+.pp-view .pp-hero-fish{animation:none!important}
+@media(max-width:650px){
+ /* The original's mobile WHO'S PLAYING name field begins at y453 while
+    our panel started the same input at y478. Shift only the left column. */
+ .pp-view .pp-foyer-left{transform:translateY(-25px)!important}
+ .deep-home[data-phase="intro"][data-mode="daily"] .dd-home-mascot{
+  display:block!important;position:absolute;left:calc(50% + 45px);top:72px;
+  width:65px;height:65px;object-fit:contain;image-rendering:pixelated;
+  animation:ds-swim 2.6s cubic-bezier(.65,0,.35,1) infinite;
+  z-index:8;pointer-events:none
+ }
+ .pp-view .pp-hero-fish{
+  position:absolute!important;left:calc(50% - 51px)!important;
+  top:-98px!important;width:101px!important;height:100px!important;
+  max-width:101px!important;max-height:100px!important;
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ .deep-home .dd-home-mascot{animation:none!important}
+}
