@@ -225,3 +225,51 @@ body:has(.dd-archive) .dd-nav-toggle{pointer-events:auto}
  .deep-home .dd-reference-utility svg{width:23px;height:23px}
  .deep-home .dd-reference-preferences{height:33px}
 }
+
+/* Native Sidequest Friends & My Krillion — deliberate independent account layer. */
+.ds-social-page{min-height:100vh;width:100%;padding:82px clamp(15px,4vw,54px) 80px;color:#e6f3ff;
+ font-family:"ReferenceVT323",monospace;background:radial-gradient(ellipse at 50% 0,#163d59,#071427 43%,#020915);
+ font-size:20px;letter-spacing:.025em}
+.ds-social-page>header{text-align:center;margin:0 auto 32px;max-width:820px}
+.ds-social-page>header>span{display:block;font-size:clamp(48px,7vw,85px);color:#f9eaff;
+ text-shadow:-3px 2px #ff5d8f,3px -2px #4de3ff;letter-spacing:.06em}
+.ds-social-page>header>small{display:block;color:#64d7f0;letter-spacing:.28em;font-size:15px;margin:7px 0}
+.ds-social-page>header>h1{font-size:clamp(34px,5vw,58px);line-height:1.05;margin:8px 0}
+.ds-social-page>header>p{font-size:20px;color:#a4bfd1;margin:9px 0}
+.ds-social-gate .ds-social-card{max-width:510px;margin:0 auto}
+.ds-social-page .ds-social-card{padding:clamp(17px,2.5vw,25px);background:#0b1c33e8;
+ border:2px solid #346581;box-shadow:4px 5px 0 #040b17;margin-bottom:18px}
+.ds-social-page .ds-social-card h2{font-size:27px;margin:0 0 9px;color:#55dff6;letter-spacing:.12em}
+.ds-social-page .ds-social-card h3{font-size:20px;margin:12px 0 8px;color:#b7d7ea}
+.ds-social-page .ds-social-card p{font-size:19px;line-height:1.3;margin:10px 0 15px;color:#b8cadc}
+.ds-social-page .ds-social-card label{display:flex;flex-direction:column;gap:5px;letter-spacing:.07em;font-size:16px;color:#9cc3d7;margin:12px 0}
+.ds-social-page .ds-social-card input:not([type=checkbox]){display:block;width:100%;max-width:100%;
+ min-height:42px;padding:7px 11px;background:#071024;border:2px solid #42758f;color:#f0faff;
+ font:22px/1.1 "ReferenceVT323",monospace;outline-offset:2px}
+.ds-social-page .ds-social-card input:focus-visible,.ds-social-button:focus-visible{outline:2px solid #67f1ff}
+.ds-social-button{cursor:pointer;display:inline-flex;align-items:center;justify-content:center;
+ font:20px/1 "ReferenceVT323",monospace;letter-spacing:.06em;background:#18344e;
+ border:2px solid #3a7d9b;color:#e9f9ff;padding:9px 12px;margin:3px 2px 5px 0;
+ box-shadow:2px 3px 0 #030e1d;min-height:37px;transition:filter .1s ease,translate .12s ease}
+.ds-social-button:hover{filter:brightness(1.18);translate:0 -1px}
+.ds-social-button:disabled{opacity:.55;cursor:wait}
+.ds-social-button.primary,.ds-social-button.selected{background:#db3882;border-color:#ff6bac;color:#fff}
+.ds-social-button.muted{background:#11273b;border-color:#34546c;color:#aec3da}
+.ds-social-page form .ds-social-button.primary{display:block;width:100%;margin-top:16px}
+.ds-social-page .ds-social-grid{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.ds-social-tabs{display:flex;gap:10px;justify-content:center;margin-bottom:18px}
+.ds-social-switch{display:flex;gap:10px;margin:12px 0}
+.ds-social-disclaimer{font-size:16px!important;color:#86a3b8!important}
+.ds-social-notice{max-width:850px;margin:14px auto;background:#401828;border:2px solid #f05289;padding:10px 15px}
+.ds-social-notice.success{background:#0c342c;border-color:#46cbb6}
+.ds-social-page .ds-social-friends,.ds-social-page .ds-social-standing,.ds-social-page .ds-social-unlocks{
+ padding:0;margin:10px 0;list-style:none}
+.ds-social-page .ds-social-friends li,.ds-social-page .ds-social-standing li,.ds-social-page .ds-social-unlocks li{
+ display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;
+ padding:8px 0;border-bottom:1px solid #31516a;font-size:20px}
+.ds-social-page .ds-social-friends li>div{display:flex;flex-direction:column}
+.ds-social-page .ds-social-friends small{display:block;font-size:14px;color:#8fb3c7}
+.ds-social-checkbox{display:flex!important;flex-direction:row!important;align-items:center!important;gap:10px!important}
+.ds-social-checkbox input{accent-color:#5de9fa;width:18px;height:18px}
+@media(max-width:760px){.ds-social-page{padding:72px 14px 55px}.ds-social-page .ds-social-grid{grid-template-columns:1fr}
+ .ds-social-page>header>span{font-size:55px}.ds-social-page .ds-social-card{padding:14px}}
