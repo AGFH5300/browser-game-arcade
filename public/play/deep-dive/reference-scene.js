@@ -38,12 +38,12 @@
  const render=(now)=>{
    if(!canvas||!sea?.isConnected||!ctx){frame=0;return}
    const low=app.closest('html')?.classList.contains('dd-low-power');
-   const fps=prefersReduced.matches?2:low?12:30;
+   const fps=prefersReduced.matches?2:low?15:30;
    if(now-lastDraw<1000/fps-1){frame=requestAnimationFrame(render);return}
-   lastDraw=now;time=now*.001;
+   lastDraw=now;time=prefersReduced.matches?0:now*.001;
    const rect=sea.getBoundingClientRect(),w=rect.width,h=rect.height;
    if(w<10||h<10){frame=requestAnimationFrame(render);return}
-   const dpr=Math.min(devicePixelRatio||1,low?1:2,Math.sqrt(2800000/(w*h)));
+   const dpr=Math.min(devicePixelRatio||1,low?1:2,Math.sqrt((low?1500000:8300000)/(w*h)));
    const cw=Math.round(w*dpr),ch=Math.round(h*dpr);
    if(canvas.width!==cw||canvas.height!==ch){canvas.width=cw;canvas.height=ch}
    ctx.setTransform(dpr,0,0,dpr,0,0);

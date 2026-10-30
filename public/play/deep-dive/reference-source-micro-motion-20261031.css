@@ -1,0 +1,137 @@
+/* Source-inspected micro-motion parity (Krillion public CSS and computed styles,
+   1440x900 / 390x844, 31 Oct 2026).
+   Dedicated, state-scoped overrides; no invented animations.
+ */
+
+/* Source homepage: entire heading flickers every 5s, and its eight individual
+   letters bob -9px / 3.2s, staggered exactly 180ms. */
+.deep-home[data-phase="intro"] .dd-logo{
+ animation:ds-title-flicker 5s steps(1,end) infinite!important;
+}
+.deep-home[data-phase="intro"] .dd-logo span{
+ display:inline-block!important;
+ animation-name:ds-bob-l!important;
+ animation-duration:3.2s!important;
+ animation-timing-function:ease-in-out!important;
+ animation-iteration-count:infinite!important;
+}
+.deep-home[data-phase="intro"] .dd-logo span:nth-child(1){animation-delay:0s!important;animation-duration:3.2s!important;animation-name:ds-bob-l!important;animation-timing-function:ease-in-out!important}
+.deep-home[data-phase="intro"] .dd-logo span:nth-child(2){animation-delay:.18s!important;animation-duration:3.2s!important;animation-name:ds-bob-l!important;animation-timing-function:ease-in-out!important}
+.deep-home[data-phase="intro"] .dd-logo span:nth-child(3){animation-delay:.36s!important;animation-duration:3.2s!important;animation-name:ds-bob-l!important;animation-timing-function:ease-in-out!important}
+.deep-home[data-phase="intro"] .dd-logo span:nth-child(4){animation-delay:.54s!important;animation-duration:3.2s!important;animation-name:ds-bob-l!important;animation-timing-function:ease-in-out!important}
+.deep-home[data-phase="intro"] .dd-logo span:nth-child(5){animation-delay:.72s!important;animation-duration:3.2s!important;animation-name:ds-bob-l!important;animation-timing-function:ease-in-out!important}
+.deep-home[data-phase="intro"] .dd-logo span:nth-child(6){animation-delay:.9s!important;animation-duration:3.2s!important;animation-name:ds-bob-l!important;animation-timing-function:ease-in-out!important}
+.deep-home[data-phase="intro"] .dd-logo span:nth-child(7){animation-delay:1.08s!important;animation-duration:3.2s!important;animation-name:ds-bob-l!important;animation-timing-function:ease-in-out!important}
+.deep-home[data-phase="intro"] .dd-logo span:nth-child(8){animation-delay:1.26s!important;animation-duration:3.2s!important;animation-name:ds-bob-l!important;animation-timing-function:ease-in-out!important}
+@keyframes ds-title-flicker{
+ 0%,93%,95.5%,100%{opacity:1}
+ 93.6%{opacity:.7}
+ 94.4%{opacity:.94}
+ 95%{opacity:.62}
+}
+@keyframes ds-bob-l{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+/* Original Party letter bob is exactly the same source keyframe and delay,
+   but has no container flicker. */
+.pp-view .pp-scene-brand{animation:none!important}
+.pp-view .pp-scene-brand span{
+ display:inline-block!important;
+ animation:ds-bob-l 3.2s ease-in-out infinite!important;
+}
+.pp-view .pp-scene-brand span:nth-child(1){animation-delay:0s!important}
+.pp-view .pp-scene-brand span:nth-child(2){animation-delay:.18s!important}
+.pp-view .pp-scene-brand span:nth-child(3){animation-delay:.36s!important}
+.pp-view .pp-scene-brand span:nth-child(4){animation-delay:.54s!important}
+.pp-view .pp-scene-brand span:nth-child(5){animation-delay:.72s!important}
+.pp-view .pp-scene-brand span:nth-child(6){animation-delay:.9s!important}
+.pp-view .pp-scene-brand span:nth-child(7){animation-delay:1.08s!important}
+.pp-view .pp-scene-brand span:nth-child(8){animation-delay:1.26s!important}
+
+/* Source homepage Party callout is still; its Begin Descend button moves.
+   Source Party's Rated + Quick Play share the same bob timing. */
+.deep-home[data-phase="intro"] .dd-party-btn{animation:none!important}
+.deep-home[data-phase="intro"] .dd-begin,
+.pp-view .pp-play-buttons .pp-game-button{
+ animation:ds-btn-bob 1.9s cubic-bezier(.65,0,.35,1) infinite!important;
+}
+@keyframes ds-btn-bob{
+ 0%,100%{transform:translateY(0)}
+ 50%{transform:translateY(5px)}
+}
+.pp-view .pp-hero-fish{
+ animation:ds-swim 2.6s cubic-bezier(.65,0,.35,1) infinite!important;
+}
+@keyframes ds-swim{
+ 0%,100%{transform:translateY(0) rotate(-4deg) scaleX(1)}
+ 25%{transform:translateY(-7px) rotate(2deg) scaleX(.96)}
+ 50%{transform:translateY(-2px) rotate(5deg) scaleX(1)}
+ 75%{transform:translateY(-9px) rotate(-2deg) scaleX(.97)}
+}
+/* The original does not animate the entire page in from black during normal
+   navigation; reserve transitions for moving objects, not static layout. */
+.deep-home[data-phase="intro"],
+.deep-home[data-phase="intro"] .dd-title-group{
+ animation:none!important;
+}
+@media(prefers-reduced-motion:reduce){
+ .deep-home[data-phase="intro"] .dd-logo,
+ .deep-home[data-phase="intro"] .dd-logo span,
+ .deep-home[data-phase="intro"] .dd-begin,
+ .pp-view .pp-scene-brand span,
+ .pp-view .pp-play-buttons .pp-game-button,
+ .pp-view .pp-hero-fish{animation:none!important}
+}
+
+/* Actual pointer-state inspection, original /party and / at 1440x900.
+   Krillion uses a stable ink-blue background and a cyan/pink neon outer
+   shadow; the former Sidequest buttons changed their entire fill on hover. */
+.deep-home[data-phase="intro"] .dd-begin,
+.pp-view .pp-play-buttons .pp-game-button{
+ background:#101d33!important;
+ border:0!important;
+ color:#e8f1ff!important;
+ box-shadow:0 0 0 3px #050a14,0 0 0 6px #4de3ff,
+   0 6px 0 6px #123048,0 0 26px #4de3ff4d!important;
+ transition:transform .15s cubic-bezier(.34,1.56,.64,1),
+   box-shadow .2s cubic-bezier(.22,1,.36,1)!important;
+}
+.deep-home[data-phase="intro"] .dd-begin:hover,
+.pp-view .pp-play-buttons .pp-game-button:hover{
+ background:#101d33!important;
+ border:0!important;
+ box-shadow:0 0 0 3px #050a14,0 0 0 6px #ff5d8f,
+   0 6px 0 6px #123048,0 0 34px #ff5d8f8c!important;
+}
+@media(min-width:651px){
+ .pp-view .pp-play-buttons{
+  grid-template-columns:155px 155px!important;
+  gap:18px!important;
+  padding-left:2px!important;
+ }
+ .pp-view .pp-play-buttons .pp-game-button{
+  box-sizing:border-box!important;
+  width:155px!important;
+  height:55px!important;
+  font-size:22px!important;
+  padding:12px 11px!important;
+ }
+}
+@media(max-width:650px){
+ .pp-view .pp-play-buttons{
+  grid-template-columns:156px 156px!important;
+  gap:18px!important;
+  padding-left:3px!important;
+ }
+ .pp-view .pp-play-buttons .pp-game-button{
+  box-sizing:border-box!important;
+  width:156px!important;
+  height:48px!important;
+  font-size:17px!important;
+ }
+}
+
+/* Source renders home-water silhouettes and bubbles on its ds-sea canvas.
+   The extra CSS fish and bubbles were duplicate, independent motion. In the
+   same-viewport comparison, removing them slightly reduced sea-region error. */
+.deep-home[data-phase="intro"] .dd-fish,
+.deep-home[data-phase="intro"] .dd-bubbles{display:none!important}

@@ -1,0 +1,24 @@
+name: Krillion source-motion parity QA
+on:
+  push:
+    branches: [feature/krillion-motion-source-parity-20261031]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Source syntax
+        run: |
+          for f in public/play/deep-dive/{game.js,reference-scene.js,reference-world.js,reference-foreground.js}; do node --check "$f"; done
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm test

@@ -25,7 +25,9 @@ test('surface and source-like icons remain animated and functional',()=>{
 });
 test('Party uses source brand but keeps separate multiplayer backend and room controls',()=>{
  const party=file('party.js'),css=file('reference-polish-20261030.css');
- assert(party.includes('class="pp-scene-brand">KRILLION</h1>'));
+ assert(party.includes('class="pp-scene-brand" aria-label="KRILLION"'));
+ assert(party.includes('animation-delay:1.26s'));
+ assert((party.match(/aria-hidden="true" style="animation-delay:/g)||[]).length>=8);
  for(const action of ['quickplay','createPublic','create','join','capacity','avatar'])
    assert(party.includes('data-party="'+action+'"')||party.includes("a==='"+action+"'"),action);
  assert(party.includes("const API='/api/deep-dive/party'"));
