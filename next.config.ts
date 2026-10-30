@@ -11,6 +11,7 @@ const config:NextConfig={poweredByHeader:false,
  async headers(){return [
  {source:'/:path((?!play/archives/).*)',headers:[...common,{key:'X-Frame-Options',value:'SAMEORIGIN'}]},
  {source:'/play/:path((?!archives/).*)',headers:[{key:'Cache-Control',value:'public, max-age=86400'},{key:'Access-Control-Allow-Origin',value:'*'},{key:'Content-Security-Policy',value:"frame-ancestors 'self'; object-src 'none'; base-uri 'self'"}]},
+ {source:'/play/deep-dive/index-public-art.html',headers:[{key:'Cache-Control',value:'no-cache, no-store, must-revalidate'}]},
  {source:'/play/archives/:path*',headers:[...common,{key:'Cache-Control',value:'public, max-age=3600'},{key:'Access-Control-Allow-Origin',value:'*'},{key:'Content-Security-Policy',value:`default-src 'self' data: blob:; script-src 'self' blob: 'unsafe-inline' 'unsafe-eval'; worker-src 'self' blob:; child-src 'self' blob:; form-action 'none'; connect-src 'self' https: wss:; img-src 'self' data: blob:; media-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; object-src 'none'; base-uri 'self'; frame-ancestors 'self' https://browser-game-arcade.vercel.app${preview}`}]}
 ,
  ...contentHeaders.flatMap(file=>[...new Set([file.path,file.path.split('/').map(encodeURIComponent).join('/')])].map(p=>({source:escapePath(p),headers:[{key:'Content-Type',value:file.contentType},...(file.contentEncoding==='identity'?[]:[{key:'Content-Encoding',value:file.contentEncoding}])]})))

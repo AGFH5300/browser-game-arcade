@@ -51,7 +51,7 @@ test('real public animation source is wired to the game',()=>{
  assert.match(css,/Original files and SHA-256/);
  assert(html.includes('public-reference-motion.css?release=20261029a'));
  assert(html.includes('free-starter-modes.css?release=20261029a'));
- assert(html.includes('game.js?parity=20261030pass4a'));
+ assert(html.includes('game.js?parity=20261030pass5a'));
  assert(game.includes('loadFreeStarters'));
  assert(game.includes('startStarter'));
  assert(game.includes('renderFreeStarters'));
