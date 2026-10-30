@@ -1,0 +1,63 @@
+/* Visual corrections measured against the publicly rendered Krillion at 1440×900
+   and 390×844, 31 October 2026. Keep gameplay and Party state unaffected. */
+@media(max-width:650px){
+ /* The previous 45svh sky left 99px of the original sky out, and the
+    animated background had an uncovered 180px black band at the top. */
+ .deep-home[data-phase="intro"] .dd-sky:not(.dd-game-sky){
+  height:56.75svh!important;min-height:0!important;
+  background:linear-gradient(180deg,#76b9d3 0%,#95d0e7 45%,#cfedf4 100%)!important;
+ }
+ .deep-home[data-phase="intro"] .dd-sky:not(.dd-game-sky)::after{
+  background-size:100% auto!important;background-position:center bottom!important;
+ }
+ .deep-home[data-phase="intro"] .dd-sea:not(.dd-game-sea){height:auto!important;min-height:43.25svh!important}
+ .deep-home[data-phase="intro"] .dd-title-group{top:30.8%!important;left:16px!important;right:16px!important}
+ .deep-home[data-phase="intro"] .dd-logo,.deep-home[data-phase="intro"] .dd-logo span{
+  font-size:57px!important;letter-spacing:.008em!important;line-height:.74!important;
+ }
+ .deep-home[data-phase="intro"] .dd-subtitle{font-size:21px!important;margin:17px 0 5px!important}
+ .deep-home[data-phase="intro"] .dd-sea-center{padding-top:0!important}
+ .deep-home[data-phase="intro"] .dd-rules{margin:0 auto 14px!important}
+ .deep-home[data-phase="intro"] .dd-party-btn{margin-bottom:33px!important;height:60px!important;width:100%!important;max-width:343px!important}
+ .deep-home[data-phase="intro"] .dd-begin{height:59px!important;max-width:none!important}
+ .deep-home[data-phase="intro"] .dd-mode-nav{display:flex!important;flex-wrap:nowrap!important;align-items:center!important;justify-content:space-between!important;gap:8px!important;width:100%!important}
+ .deep-home[data-phase="intro"] .dd-mode-nav button{font-size:15px!important;white-space:nowrap!important;min-width:0!important;flex:1!important;padding:6px 3px!important;letter-spacing:.055em!important}
+ .deep-home[data-phase="intro"] .dd-dive-number{letter-spacing:.12em!important}
+ /* Source mobile reef: the identity card begins about y370 rather than y460. */
+ .pp-view .pp-ocean-foyer{margin-top:7px!important}
+ .pp-view .pp-foyer-center{min-height:58px!important;height:58px!important;flex:none!important}
+ .pp-view .pp-hero-fish{position:absolute!important;top:-91px!important;width:106px!important;max-height:95px!important}
+ .pp-view .pp-fish-shadow{top:-13px!important}
+ .pp-view .pp-reef-bubbles{top:-78px!important}
+ .pp-view .pp-identity-panel{margin-top:0!important}
+ .pp-view .pp-arena{padding-left:10px!important;padding-right:10px!important}
+ .pp-view .pp-panel{padding:12px 15px!important}
+ .pp-view .pp-identity-panel .pp-wide{font-size:22px!important}
+ .pp-view .pp-caption{font-size:12px!important}
+}
+@media(min-width:651px){
+ .deep-home[data-phase="intro"] .dd-logo{transform:translateY(-7px)!important}
+ .deep-home[data-phase="intro"] .dd-subtitle{transform:translateY(-3px)!important}
+}
+/* Original Friends and My Krillion guest pages use a left-aligned 712px content
+   column; Sidequest keeps its own account form and authentication labels. */
+body:has(.ds-social-page) .topbar .identity,
+body:has(.ds-social-page) .header-stats{display:none!important}
+.ds-social-page{background:linear-gradient(180deg,#0d1c32,#04070e)!important;padding-top:58px!important}
+.ds-social-page>header{text-align:left!important;max-width:712px!important;margin:0 auto 36px!important}
+.ds-social-page>header>span{
+ font-size:25px!important;text-shadow:none!important;color:#ff5d8f!important;
+ letter-spacing:.16em!important;margin-bottom:53px!important
+}
+.ds-social-page>header>small{font-size:14px!important;letter-spacing:.16em!important;margin:0 0 20px!important}
+.ds-social-page>header>h1{font-size:58px!important;margin:0!important}
+.ds-social-gate .ds-social-card{max-width:712px!important;margin:0 auto!important;
+ background:#071322f2!important;border:1px solid #1d3347!important;box-shadow:none!important;padding:24px!important}
+.ds-social-page .ds-social-card p{line-height:1.3!important}
+@media(max-width:650px){
+ .ds-social-page{padding:52px 16px 55px!important}
+ .ds-social-page>header>span{margin-bottom:43px!important;font-size:23px!important}
+ .ds-social-page>header>h1{font-size:48px!important}
+ .ds-social-page>header{margin-bottom:24px!important}
+ .ds-social-gate .ds-social-card{padding:18px!important}
+}
