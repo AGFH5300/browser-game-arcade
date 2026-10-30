@@ -69,25 +69,38 @@
    node.style.transform = 'translate3d(0,' + v.toFixed(3) + 'px,0)';
  };
 
+ /* The publicly delivered createWorldRenderer and createDescentEngine use
+  * max 30fps / 15fps low-power, 6s^-1 exponential camera tracking, and
+  * 2.2m sinusoidal current (converted to -4.4px canvas translation).
+  * Tier splashes animate the *camera target* over 3.0-4.6s; the camera
+  * trails that target rather than easing the world transform independently.
+  */
+ const sourceEaseSine = p => -(Math.cos(Math.PI * p) - 1) / 2;
+ let lastFrame = null;
+ let ease = easeInOutCubic;
+ let lastRenderedAt = -Infinity;
  const frame = (now) => {
    raf = 0;
    if (!node || !node.isConnected) { node = null; return; }
    const lowPower = document.documentElement.classList.contains('dd-low-power');
-   if (reducedMotion() || lowPower) {
-     value = to;
-     apply(value);
-     return;
+   const fps = reducedMotion() ? 2 : lowPower ? 15 : 30;
+   if (now - lastRenderedAt < 1000 / fps - 0.5) { raf = requestAnimationFrame(frame); return; }
+   lastRenderedAt = now;
+   const deltaSeconds = lastFrame == null ? 0 : Math.min(0.1, Math.max(0, (now - lastFrame) / 1000));
+   lastFrame = now;
+   let target = to;
+   if (now < holdUntil) target = from;
+   else if (duration > 0) {
+     const elapsed = now - holdUntil;
+     const p = Math.max(0, Math.min(1, elapsed / duration));
+     target = from + (to - from) * ease(p);
    }
-   let eased = to;
-   if (now < holdUntil) {
-     eased = from;
-   } else if (duration > 0) {
-     const p = Math.min(1, Math.max(0, (now - startedAt - (holdUntil - startedAt)) / duration));
-     eased = from + (to - from) * easeInOutCubic(p);
-   }
-   const drift = Math.sin(now / 1900) * 1.15 + Math.sin(now / 640) * 0.35;
-   value = eased + drift;
-   apply(value);
+   // Source client: em += (ep-em) * (1-exp(-6*dt)).
+   const tracking = 1 - Math.exp(-6 * deltaSeconds);
+   if (reducedMotion()) value = to;
+   else value += (target - value) * tracking;
+   const current = reducedMotion() ? 0 : -4.4 * Math.sin(0.45 * now / 1000);
+   apply(value + current);
    raf = requestAnimationFrame(frame);
  };
 
@@ -107,6 +120,7 @@
      const anchorless = Number(y) || 0;
      from = to = value = anchorless;
      duration = 0; holdUntil = 0; startedAt = 0;
+     lastFrame = null; lastRenderedAt = -Infinity;
      apply(value);
      return camera;
    },
@@ -120,6 +134,10 @@
      duration = reducedMotion() ? 0 : Math.max(0, dur);
      holdUntil = performance.now() + hold;
      startedAt = performance.now();
+     // Source uses sinusoidal ease for Plankton, cubic for other tiers.
+     ease = opts?.ease === 'sine' ? sourceEaseSine : easeInOutCubic;
+     lastFrame = null;
+     lastRenderedAt = -Infinity;
      ensureLoop();
      return camera;
    },
