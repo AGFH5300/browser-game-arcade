@@ -129,3 +129,9 @@
   font-size:17px!important;
  }
 }
+
+/* Source renders home-water silhouettes and bubbles on its ds-sea canvas.
+   The extra CSS fish and bubbles were duplicate, independent motion. In the
+   same-viewport comparison, removing them slightly reduced sea-region error. */
+.deep-home[data-phase="intro"] .dd-fish,
+.deep-home[data-phase="intro"] .dd-bubbles{display:none!important}
