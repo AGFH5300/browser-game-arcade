@@ -67,7 +67,7 @@ test('pass-4 additions load in correct order and guard reduced motion',()=>{
  }
  assert(html.indexOf('reference-pass3.css')<html.indexOf('reference-themed-worlds.css'));
  assert(html.indexOf('reference-themed-worlds.css')<html.indexOf('reference-results-parity.css'));
- assert(html.indexOf('reference-themed-worlds.js')<html.indexOf('game.js?parity=20261030social1'));
+ assert(html.indexOf('reference-themed-worlds.js')<html.indexOf('game.js?parity=20261031bank2'));
  assert(themeCss.includes('prefers-reduced-motion'));
  assert(resultCss.includes('prefers-reduced-motion'));
 });

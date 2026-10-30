@@ -1,0 +1,15 @@
+/* Measured Party card layout, 1440x900 / 390x844 */
+@media(min-width:651px){
+.pp-view .pp-arena{transform:translateY(-84px)!important}
+.pp-view .pp-identity-panel{min-height:238px!important;height:238px!important}
+.pp-view .pp-identity-panel .pp-avatar-option{min-height:80px!important;height:80px!important}
+.pp-view .pp-identity-panel .pp-caption{display:none!important}
+.pp-view .pp-foyer-left{gap:8px!important}
+.pp-view .pp-play-panel{min-height:224px!important}
+.pp-view .pp-play-buttons{margin-top:12px!important}
+.pp-view .pp-host-panel{margin-top:6px!important}
+}
+@media(max-width:650px){
+.pp-view .pp-arena{transform:translateY(-120px)!important;padding-left:14px!important;padding-right:14px!important}
+.pp-view .pp-scene-header{transform:translateY(-4px)!important}
+}

@@ -77,5 +77,10 @@ test('independent Unlimited supplements include common missing answers and are a
 test('reveal does not retain a stale editable answer dock',()=>{
  assert(game.includes("${preview||feedback?'':dockMarkup(seconds)}"));
  assert(game.includes("if(active.index+1>=active.ids.length"));
- assert(game.includes("if(!active||active.phase!=='feedback'||transitioning)return;"));
+ assert(game.includes("if(!active||active.phase!=='feedback'||transitioning||revealPending())return;"));
+ assert(game.includes(".dd-next-btn:not([disabled])")===false);
+ assert(game.includes('active.revealStartedAt=Date.now()'));
+ assert(game.includes('const SOURCE_TIER_MS=[3400,3000,3000,3400,4300,4600]'));
+ assert(game.includes('if(revealPending())'));
+ assert(game.includes('root.querySelector(\'.dd-reveal-pending .dd-game-prompt\')?.remove()'));
 });

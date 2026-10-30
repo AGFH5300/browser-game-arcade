@@ -11,7 +11,7 @@ const ASSET='./reference-assets';
 function avatarUrl(id){return ASSET+(AVATARS.find(a=>a[0]===id)||AVATARS[0])[3]}
 function streak(){return Math.max(0,Number(window.DeepDiveSocial?.profile?.dailyStreak)||0)}
 function choices(){const days=streak();return AVATARS.map(([id,label,needed])=>'<button type="button" class="pp-avatar-option '+(id===selectedAvatar?'active':'')+'" data-party="avatar" data-avatar="'+id+'" '+(needed>days?'disabled title="Unlock with a verified '+needed+'-day account streak"':'')+' aria-pressed="'+(id===selectedAvatar)+'"><img src="'+avatarUrl(id)+'" alt="" loading="lazy"><span>'+label+'</span>'+(needed>days?'<small>'+needed+'-day</small>':'<small>READY</small>')+'</button>').join('')}
-function heading(subtitle){return '<header class="pp-scene-header"><button type="button" class="pp-sound-toggle" data-party="sound" title="Toggle game sounds">SOUND</button><h1 class="pp-scene-brand">KRILLION</h1><p class="pp-scene-name">PUFFER PARTY</p><p class="pp-scene-tagline">pass the puffer · don\'t let it pop on you</p><p class="pp-scene-desc">'+subtitle+'</p></header>'}
+function heading(subtitle){return '<header class="pp-scene-header"><button type="button" class="pp-sound-toggle" data-party="sound" title="Toggle game sounds">SOUND</button><h1 class="pp-scene-brand" aria-label="KRILLION"><span aria-hidden="true" style="animation-delay:0.00s">K</span><span aria-hidden="true" style="animation-delay:0.18s">R</span><span aria-hidden="true" style="animation-delay:0.36s">I</span><span aria-hidden="true" style="animation-delay:0.54s">L</span><span aria-hidden="true" style="animation-delay:0.72s">L</span><span aria-hidden="true" style="animation-delay:0.90s">I</span><span aria-hidden="true" style="animation-delay:1.08s">O</span><span aria-hidden="true" style="animation-delay:1.26s">N</span></h1><p class="pp-scene-name">PUFFER PARTY</p><p class="pp-scene-tagline">pass the puffer · don\'t let it pop on you</p><p class="pp-scene-desc">'+subtitle+'</p></header>'}
 function rememberIdentity(){name=(document.getElementById('pp-name')?.value||name).trim().slice(0,24);try{sessionStorage.setItem('sidequest:party-name',name)}catch{}}
 try{name=sessionStorage.getItem('sidequest:party-name')||name;const a=sessionStorage.getItem('sidequest:party-avatar');if(AVATARS.some(v=>v[0]===a&&v[2]<=streak()))selectedAvatar=a;const cap=Number(sessionStorage.getItem('sidequest:party-capacity'));if([2,3,6,8,10].includes(cap))selectedCapacity=cap}catch{}
 function restore(){try{auth=JSON.parse(sessionStorage.getItem('sidequest:party-auth:'+code)||'null')}catch{auth=null}}
@@ -32,14 +32,14 @@ function chat(){
 }
 function home(){
  return `<section class="pp-arena">
-  ${heading('Krillion’s multiplayer category game. Name a valid answer and pass the puffer before it pops. Play with friends or join a public room. Last one floating wins.')}
+  ${heading('Krillion’s multiplayer category game. Name an answer and pass the puffer before it pops. Play with friends or join a public room. Last one floating wins.')}
   <div class="pp-ocean-foyer">
    <div class="pp-foyer-left">
     <div class="pp-panel pp-identity-panel"><div class="pp-panel-title">WHO'S PLAYING <details><summary>HOW TO PLAY</summary><p>Each player starts with three hearts. Name an unused correct answer within 18 seconds to pass the puffer. Lose a heart if you pass or run out of time. Earn a bonus heart every 120 rarity points, up to five. Last one afloat wins.</p></details></div>
-     <label for="pp-name" class="pp-panel-label">YOUR NAME</label><input id="pp-name" class="answer-field pp-wide" autocomplete="nickname" maxlength="24" placeholder="what the reef calls you" value="${esc(name)}">
+     <label for="pp-name" class="pp-panel-label">YOUR NAME</label><input id="pp-name" class="answer-field pp-wide" autocomplete="nickname" maxlength="24" placeholder="what the ring calls you" value="${name==='Explorer'?'':esc(name)}">
      <div class="pp-avatar-grid" aria-label="Character selection">${choices()}</div><p class="pp-avatar-help">Characters unlock from your verified account daily streak. Sign in through MY KRILLION to use earned characters.</p>
     </div>
-    <div class="pp-panel pp-play-panel"><div class="pp-panel-title">PLAY NOW <span>2–10 PLAYERS</span></div>
+    <div class="pp-panel pp-play-panel"><div class="pp-panel-title">PLAY NOW <span>RATING ${Number(window.DeepDiveSocial?.profile?.rating)||1200}</span></div>
      <div class="pp-capacity-grid" role="group" aria-label="Preferred room size">${[[2,'1V1'],[3,'3S'],[6,'4–6'],[10,'8–10']].map(([cap,label])=>`<button type="button" class="pp-capacity ${selectedCapacity===cap?'selected':''}" data-party="capacity" data-capacity="${cap}" aria-pressed="${selectedCapacity===cap}">${label}</button>`).join('')}</div>
      <div class="pp-play-buttons"><button type="button" class="pp-game-button" data-party="${ratedQueue?'cancelRated':'rated'}">${ratedQueue?'◀ CANCEL SEARCH':'▶ RATED ◀'}</button><button type="button" class="pp-game-button" data-party="quickplay">QUICK PLAY</button></div>
      <p class="pp-caption">${ratedQueue?'SEARCHING NEAR YOUR RATING…':window.DeepDiveSocial?.profile?'RATED 1V1 · ELO '+window.DeepDiveSocial.profile.rating+' · QUICK PLAY IS UNRATED':'SIGN IN FOR RATED MATCHMAKING · QUICK PLAY IS UNRATED'}</p>

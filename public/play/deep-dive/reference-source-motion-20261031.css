@@ -1,0 +1,58 @@
+/* Krillion motion parity — source-verified tier durations from its publicly
+   delivered createDescentEngine (31 October 2026).
+   Answer-to-landing uses 3400,3000,3000,3400,4300,4600ms for
+   Plankton, Too Clever, Schooler, Rare, Deep Cut and Krillion.
+   The original allows reading the next button only after landing.
+ */
+.dd-reveal-screen .dd-chip{
+  transition-duration:var(--reveal-ms,3400ms)!important;
+  transition-timing-function:cubic-bezier(.65,0,.35,1)!important;
+  animation:dd-source-chip-expire var(--reveal-ms,3400ms) ease-in both!important;
+}
+.dd-reveal-screen.dd-reveal-pending .dd-landed,
+.dd-reveal-screen.dd-reveal-pending .dd-next-wrap{
+  visibility:hidden!important;
+  opacity:0!important;
+  pointer-events:none!important;
+  animation:none!important;
+}
+.dd-reveal-screen:not(.dd-reveal-pending) .dd-landed{
+  visibility:visible;
+  animation:dd-source-landing-appear 260ms ease-out both!important;
+}
+.dd-reveal-screen:not(.dd-reveal-pending) .dd-next-wrap{
+  visibility:visible;
+  animation:dd-source-next-appear 360ms ease-out 120ms both!important;
+}
+.dd-reveal-screen .dd-next-btn:disabled{
+  cursor:wait;
+  pointer-events:none;
+}
+@keyframes dd-source-chip-expire{
+  0%,78%{opacity:1}
+  100%{opacity:0}
+}
+@keyframes dd-source-landing-appear{
+  from{opacity:0;filter:brightness(1.8)}
+  to{opacity:1;filter:brightness(1)}
+}
+@keyframes dd-source-next-appear{
+  from{opacity:0;transform:translateY(12px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@media(prefers-reduced-motion:reduce){
+  .dd-reveal-screen .dd-chip,
+  .dd-reveal-screen .dd-landed,
+  .dd-reveal-screen .dd-next-wrap{animation:none!important;transition:none!important}
+}
+
+/* The source first holds the old prompt briefly while the answer begins to
+   plunge; it exits at ~1s rather than disappearing the instant Enter is hit. */
+.dd-reveal-screen.dd-reveal-pending .dd-game-prompt{
+ animation:dd-source-prompt-exit 600ms cubic-bezier(.65,0,.35,1) 450ms both!important;
+ pointer-events:none!important;
+}
+@keyframes dd-source-prompt-exit{
+ 0%{opacity:1;filter:brightness(1);transform:translateY(0)}
+ 100%{opacity:0;filter:brightness(.6);transform:translateY(-22px)}
+}

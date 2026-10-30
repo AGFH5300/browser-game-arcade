@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "source": "krillion-public-publisher-reveal",
+  "importPolicy": "publisher_status_only",
+  "provisionalAnswersIncluded": false,
+  "questions": [
+    {
+      "id": "KR0735",
+      "question": "Name a French or British food",
+      "answerCount": 3528,
+      "file": "KR0735.json",
+      "status": "publisher",
+      "source": "krillion-public-publisher-reveal"
+    },
+    {
+      "id": "KR0736",
+      "question": "Name something you can measure about the human body",
+      "answerCount": 1750,
+      "file": "KR0736.json",
+      "status": "publisher",
+      "source": "krillion-public-publisher-reveal"
+    },
+    {
+      "id": "KR0737",
+      "question": "Name a strategy board game",
+      "answerCount": 8048,
+      "file": "KR0737.json",
+      "status": "publisher",
+      "source": "krillion-public-publisher-reveal"
+    },
+    {
+      "id": "KR0738",
+      "question": "Name an animal with a one-word name containing \"ck\"",
+      "answerCount": 395,
+      "file": "KR0738.json",
+      "status": "publisher",
+      "source": "krillion-public-publisher-reveal"
+    },
+    {
+      "id": "KR0739",
+      "question": "Name a country where another religion has more followers than Christianity",
+      "answerCount": 69,
+      "file": "KR0739.json",
+      "status": "publisher",
+      "source": "krillion-public-publisher-reveal"
+    },
+    {
+      "id": "KR0740",
+      "question": "Name someone who has been a teammate of Lionel Messi, Cristiano Ronaldo, LeBron James or Tom Brady",
+      "answerCount": 2710,
+      "file": "KR0740.json",
+      "status": "publisher",
+      "source": "krillion-public-publisher-reveal"
+    },
+    {
+      "id": "KR0741",
+      "question": "Name a hair type, texture, or natural color",
+      "answerCount": 226,
+      "file": "KR0741.json",
+      "status": "publisher",
+      "source": "krillion-public-publisher-reveal"
+    },
+    {
+      "id": "KR0742",
+      "question": "Name a sport where athletes do flips or somersaults",
+      "answerCount": 206,
+      "file": "KR0742.json",
+      "status": "publisher",
+      "source": "krillion-public-publisher-reveal"
+    },
+    {
+      "id": "KR0743",
+      "question": "Name a city whose name starts with the word Los, Las, La, Le, El or The",
+      "answerCount": 11507,
+      "file": "KR0743.json",
+      "status": "publisher",
+      "source": "krillion-public-publisher-reveal"
+    },
+    {
+      "id": "KR0744",
+      "question": "Name something used to grip or pick things up",
+      "answerCount": 1388,
+      "file": "KR0744.json",
+      "status": "publisher",
+      "source": "krillion-public-publisher-reveal"
+    },
+    {
+      "id": "KR0745",
+      "question": "Name a non-human character from Star Wars, the MCU, or Lord of the Rings",
+      "answerCount": 16876,
+      "file": "KR0745.json",
+      "status": "publisher",
+      "source": "krillion-public-publisher-reveal"
+    },
+    {
+      "id": "KR0746",
+      "question": "Name a nail care product or tool (types, not brands)",
+      "answerCount": 379,
+      "file": "KR0746.json",
+      "status": "publisher",
+      "source": "krillion-public-publisher-reveal"
+    },
+    {
+      "id": "KR0747",
+      "question": "Name a way to contact someone (methods, not brands/apps)",
+      "answerCount": 179,
+      "file": "KR0747.json",
+      "status": "publisher",
+      "source": "krillion-public-publisher-reveal"
+    },
+    {
+      "id": "KR0748",
+      "question": "Name a fast food chain that operates in more than one country",
+      "answerCount": 842,
+      "file": "KR0748.json",
+      "status": "publisher",
+      "source": "krillion-public-publisher-reveal"
+    }
+  ]
+}

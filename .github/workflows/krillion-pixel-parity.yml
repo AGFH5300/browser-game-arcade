@@ -1,0 +1,28 @@
+name: Krillion Pixel Parity Validation
+on:
+  push:
+    branches:
+      - feature/krillion-pixel-parity-20261031
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Type check
+        run: npm run typecheck
+      - name: Lint
+        run: npm run lint
+      - name: Tests
+        run: npm test
+      - name: JavaScript syntax
+        run: |
+          for f in public/play/deep-dive/{game.js,party.js,reference-social.js}; do node --check "$f"; done
