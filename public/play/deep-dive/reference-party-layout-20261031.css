@@ -13,3 +13,12 @@
 .pp-view .pp-arena{transform:translateY(-120px)!important;padding-left:14px!important;padding-right:14px!important}
 .pp-view .pp-scene-header{transform:translateY(-4px)!important}
 }
+@media(max-width:650px){
+.pp-view .pp-scene-header{margin-bottom:2px!important}
+.pp-view .pp-ocean-foyer,.pp-view .pp-foyer-left{width:100%!important;min-width:0!important}
+.pp-view .pp-foyer-left .pp-panel,.pp-view .pp-public-panel{
+ width:100%!important;min-width:0!important;max-width:100%!important;
+ box-sizing:border-box!important;padding-left:16px!important;padding-right:16px!important;
+}
+.pp-view .pp-play-buttons{padding-left:0!important;padding-right:0!important}
+}
