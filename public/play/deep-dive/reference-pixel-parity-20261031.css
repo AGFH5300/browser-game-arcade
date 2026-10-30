@@ -134,7 +134,7 @@ body:has(.ds-social-page) .header-stats{display:none!important}
    present in the rendered first-round DOM). Positioned at original x≈1245. */
 .dd-game-screen[data-world="ocean"] .dd-world-ruler{
  position:absolute;top:0;right:13.5%;width:0;
- height:11000px;z-index:3;pointer-events:none;
+ height:14800px;z-index:3;pointer-events:none;
  border-right:1px solid #95b7c166;
  background:repeating-linear-gradient(180deg,
   transparent 0px,transparent 18px,#91b4be8a 19px,#91b4be8a 20px,
