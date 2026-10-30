@@ -10,7 +10,7 @@ test('source-style loading screen hands off on real app render, not a fixed time
  assert(html.includes('id="dd-boot"'));
  assert(html.includes('descending…'));
  assert(html.includes('reference-boot.js?release=20261030polish1'));
- assert(html.includes('reference-polish-20261030.css?release=20261030polish3'));
+ assert(html.includes('reference-polish-20261030.css?release=20261030fix1'));
  assert(boot.includes("observer.observe(app,{childList:true})"));
  assert(boot.includes("app.querySelector('.preload,[data-phase=\"boot\"]')"));
  assert(polish.includes('@media(prefers-reduced-motion:reduce)'));
