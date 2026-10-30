@@ -16,7 +16,9 @@ test('title source motion has staggered letters on all three screens',()=>{
 test('prompt and mascot motion uses observed source timing and assets',()=>{
  assert(phase.includes('ds-card-gone 600ms ease-in 450ms'));
  assert(css.includes('.pp-view .pp-hero-fish{animation:none!important}'));
- assert(css.includes('.pp-view .pp-foyer-left{transform:translateY(-25px)!important}'));
+ assert(css.includes('.pp-view .pp-foyer-left{transform:translateY(-7px)!important}'));
  assert(read('game.js').includes('previewEnds:Date.now()+3200'));
  assert(read('party.js').includes('/tiers/krillion-halloween-2026.png'));
+ assert(read('game.js').includes("record.points===0||record.points===10?'sad':record.points===15?'faint':''"));
+ assert(read('game.js').includes("fish?.classList.add('celebrate')"));
 });

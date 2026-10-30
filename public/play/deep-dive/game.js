@@ -587,7 +587,10 @@
     active.results.push(record);active.score+=record.points;
     if(record.points===0)active.misses++;
     depthCrank=record.points>0;
-    mascotPose=record.points===100?'celebrate':record.points===0?'faint':record.points>=60?(Math.random()<.5?'jet':'chomp'):'dart';
+    /* Original public descent runtime: miss and Plankton use sad,
+       Too Clever uses faint, normal tiers stay in their idle pose,
+       and One in a Krillion celebrates only after landing. */
+    mascotPose=record.points===0||record.points===10?'sad':record.points===15?'faint':'';
     correction=null;rejectMsg='';
     window.DeepDiveSfx?.event(record.points===0?'miss':record.points===100?'krillion':record.points>=85?'land_big':record.points>=60?'land_small':'tierline');
     if(record.points>0)window.DeepDiveSfx?.event('sink');
@@ -924,6 +927,12 @@
             if(!active||active.phase!=='feedback'||active.revealStartedAt!==started)return;
             root.querySelector('.dd-reveal-pending')?.classList.remove('dd-reveal-pending');
             const btn=root.querySelector('.dd-next-btn');if(btn){btn.disabled=false;btn.removeAttribute('aria-disabled')}
+            const landed=active.results[active.results.length-1];
+            if(landed?.points===100){
+              const fish=root.querySelector('.dd-game-fish');
+              fish?.classList.add('celebrate');
+              if(fish)setTimeout(()=>fish.classList.remove('celebrate'),1250);
+            }
           },Math.max(0,active.revealDuration-(Date.now()-started)));
         }
         const last=active.results[active.results.length-1];

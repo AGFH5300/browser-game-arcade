@@ -160,7 +160,7 @@
 }
 /* Original source mascot reacts to an accepted submission with its sad
    pose before switching to the landing animation. */
-.dd-reveal-screen.dd-reveal-pending .dd-game-fish.sad{
+.dd-reveal-screen .dd-game-fish.sad{
  animation:ds-sad 2.8s cubic-bezier(.65,0,.35,1) infinite!important
 }
 @media(min-width:1100px){
@@ -193,7 +193,7 @@
 @media(max-width:1099px){.dd-home-mascot{display:none!important}}
 @media(prefers-reduced-motion:reduce){
  .deep-home .dd-home-mascot,.dd-world .dd-title,.dd-world .dd-title span,
- .dd-reveal-screen.dd-reveal-pending .dd-game-fish.sad{animation:none!important}
+ .dd-reveal-screen .dd-game-fish.sad{animation:none!important}
 }
 
 
@@ -212,9 +212,9 @@
    69px box), and the sleeping Party fish is static in its centre artwork. */
 .pp-view .pp-hero-fish{animation:none!important}
 @media(max-width:650px){
- /* The original's mobile WHO'S PLAYING name field begins at y453 while
-    our panel started the same input at y478. Shift only the left column. */
- .pp-view .pp-foyer-left{transform:translateY(-25px)!important}
+ /* The original's mobile WHO'S PLAYING name field begins at y453. The latest Party layout
+    stylesheet already lifts most of the panel; apply the remaining -7px. */
+ .pp-view .pp-foyer-left{transform:translateY(-7px)!important}
  .deep-home[data-phase="intro"][data-mode="daily"] .dd-home-mascot{
   display:block!important;position:absolute;left:calc(50% + 45px);top:72px;
   width:65px;height:65px;object-fit:contain;image-rendering:pixelated;
@@ -223,7 +223,7 @@
  }
  .pp-view .pp-hero-fish{
   position:absolute!important;left:calc(50% - 51px)!important;
-  top:-98px!important;width:101px!important;height:100px!important;
+  top:-79px!important;width:101px!important;height:100px!important;
   max-width:101px!important;max-height:100px!important;
  }
 }
