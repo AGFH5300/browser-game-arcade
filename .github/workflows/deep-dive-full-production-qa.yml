@@ -1,0 +1,29 @@
+name: Krillion Full Flow Production QA
+on:
+  push:
+    branches: [qa/deep-dive-full-flow-20261030]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  full-browser-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright
+        run: npm install --no-save --ignore-scripts playwright@1.56.1
+      - name: Install Chromium dependencies
+        run: npx playwright install --with-deps chromium
+      - name: Full desktop mobile and 2-peer browser audit
+        run: node scripts/deep-dive-full-qa-20261030.mjs
+      - name: Upload audit results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: deep-dive-live-audit
+          path: deep-dive-full-qa-results.json
+          if-no-files-found: warn
