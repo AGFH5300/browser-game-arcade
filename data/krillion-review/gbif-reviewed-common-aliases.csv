@@ -1,0 +1,959 @@
+id,canonical,alias,tier,gbif_species_key,source_url,review,publisher_original_validator_verified
+KR0009,Nisaetus nipalensis,Moutain Hawk-Eagle,5,5788503,https://www.gbif.org/species/5788503,exact_english_gbif_common_name,NO
+KR0009,Nisaetus nipalensis,Mountain Hawk-Eagle,5,5788503,https://www.gbif.org/species/5788503,exact_english_gbif_common_name,NO
+KR0009,Nisaetus philippensis,Philippine Hawk-Eagle,5,5788509,https://www.gbif.org/species/5788509,exact_english_gbif_common_name,NO
+KR0009,Nisaetus philippensis,North Philippine Hawk-eagle,5,5788509,https://www.gbif.org/species/5788509,exact_english_gbif_common_name,NO
+KR0009,Nisaetus pinskeri,Mindanao Hawk-eagle,5,6066198,https://www.gbif.org/species/6066198,exact_english_gbif_common_name,NO
+KR0009,Nisaetus pinskeri,Pinsker's Hawk-Eagle,5,6066198,https://www.gbif.org/species/6066198,exact_english_gbif_common_name,NO
+KR0009,Nisaetus pinskeri,South Philippine Hawk-eagle,5,6066198,https://www.gbif.org/species/6066198,exact_english_gbif_common_name,NO
+KR0009,Otus alfredi,Flores Scops Owl,5,5232353,https://www.gbif.org/species/5232353,exact_english_gbif_common_name,NO
+KR0009,Otus alius,Nicobar Scops Owl,5,5232241,https://www.gbif.org/species/5232241,exact_english_gbif_common_name,NO
+KR0009,Otus angelinae,Javan Scops Owl,5,5232356,https://www.gbif.org/species/5232356,exact_english_gbif_common_name,NO
+KR0009,Otus bakkamoena,Indian Scops Owl,5,5232251,https://www.gbif.org/species/5232251,exact_english_gbif_common_name,NO
+KR0009,Otus bakkamoena,Collared Scops Owl,5,5232251,https://www.gbif.org/species/5232251,exact_english_gbif_common_name,NO
+KR0009,Otus balli,Andaman Scops Owl,5,5232354,https://www.gbif.org/species/5232354,exact_english_gbif_common_name,NO
+KR0009,Otus beccarii,Biak Scops Owl,5,5232282,https://www.gbif.org/species/5232282,exact_english_gbif_common_name,NO
+KR0009,Otus beccarii,Papuan Scops-Owl,5,5232282,https://www.gbif.org/species/5232282,exact_english_gbif_common_name,NO
+KR0009,Otus brookii,Rajah Scops Owl,5,5232304,https://www.gbif.org/species/5232304,exact_english_gbif_common_name,NO
+KR0009,Otus brucei,Pallid Scops Owl,5,2497755,https://www.gbif.org/species/2497755,exact_english_gbif_common_name,NO
+KR0009,Otus brucei,Striated Scops Owl,5,2497755,https://www.gbif.org/species/2497755,exact_english_gbif_common_name,NO
+KR0009,Otus capnodes,Anjouan Scops Owl,5,5232283,https://www.gbif.org/species/5232283,exact_english_gbif_common_name,NO
+KR0009,Otus collari,Sangihe Scops Owl,5,5232355,https://www.gbif.org/species/5232355,exact_english_gbif_common_name,NO
+KR0009,Otus elegans,Ryukyu Scops Owl,5,5232245,https://www.gbif.org/species/5232245,exact_english_gbif_common_name,NO
+KR0009,Otus elegans,Elegant Scops Owl,5,5232245,https://www.gbif.org/species/5232245,exact_english_gbif_common_name,NO
+KR0009,Otus fuliginosus,Palawan Scops Owl,5,5232307,https://www.gbif.org/species/5232307,exact_english_gbif_common_name,NO
+KR0009,Otus gurneyi,Giant Scops Owl,5,5232357,https://www.gbif.org/species/5232357,exact_english_gbif_common_name,NO
+KR0009,Otus gurneyi,Lesser Eagle-Owl,5,5232357,https://www.gbif.org/species/5232357,exact_english_gbif_common_name,NO
+KR0009,Otus gurneyi,Mindanao Eagle-Owl,5,5232357,https://www.gbif.org/species/5232357,exact_english_gbif_common_name,NO
+KR0009,Otus hartlaubi,Sao Tome Scops Owl,5,5232244,https://www.gbif.org/species/5232244,exact_english_gbif_common_name,NO
+KR0009,Otus icterorhynchus,Sandy Scops Owl,5,5232274,https://www.gbif.org/species/5232274,exact_english_gbif_common_name,NO
+KR0009,Otus insularis,Seychelles Owl,5,5232352,https://www.gbif.org/species/5232352,exact_english_gbif_common_name,NO
+KR0009,Otus insularis,Seychelles Scops Owl,5,5232352,https://www.gbif.org/species/5232352,exact_english_gbif_common_name,NO
+KR0009,Otus ireneae,Sokoke,5,5232277,https://www.gbif.org/species/5232277,exact_english_gbif_common_name,NO
+KR0009,Otus ireneae,Morden's Owlet,5,5232277,https://www.gbif.org/species/5232277,exact_english_gbif_common_name,NO
+KR0009,Otus ireneae,Sokoke Scops Owl,5,5232277,https://www.gbif.org/species/5232277,exact_english_gbif_common_name,NO
+KR0009,Otus longicornis,Luzon Scops Owl,5,5232242,https://www.gbif.org/species/5232242,exact_english_gbif_common_name,NO
+KR0009,Otus longicornis,Luzon Highland Scops-owl,5,5232242,https://www.gbif.org/species/5232242,exact_english_gbif_common_name,NO
+KR0009,Otus madagascariensis,Torotoroka Scops Owl,5,5232286,https://www.gbif.org/species/5232286,exact_english_gbif_common_name,NO
+KR0009,Otus madagascariensis,Madagascar long-eared owl,5,5232286,https://www.gbif.org/species/5232286,exact_english_gbif_common_name,NO
+KR0009,Otus magicus,Moluccan Scops Owl,5,5232293,https://www.gbif.org/species/5232293,exact_english_gbif_common_name,NO
+KR0009,Otus manadensis,Sulawesi Scops Owl,5,5232327,https://www.gbif.org/species/5232327,exact_english_gbif_common_name,NO
+KR0009,Otus mantananensis,Sula Scops Owl,5,5232344,https://www.gbif.org/species/5232344,exact_english_gbif_common_name,NO
+KR0009,Otus mantananensis,Mantanani Scops Owl,5,5232344,https://www.gbif.org/species/5232344,exact_english_gbif_common_name,NO
+KR0009,Otus mayottensis,Mayotte Scops Owl,5,5232339,https://www.gbif.org/species/5232339,exact_english_gbif_common_name,NO
+KR0009,Otus megalotis,Philippine Scops Owl,5,5232269,https://www.gbif.org/species/5232269,exact_english_gbif_common_name,NO
+KR0009,Otus megalotis,Luzon Lowand Scops Owl,5,5232269,https://www.gbif.org/species/5232269,exact_english_gbif_common_name,NO
+KR0009,Otus megalotis,Luzon Lowland Scops-owl,5,5232269,https://www.gbif.org/species/5232269,exact_english_gbif_common_name,NO
+KR0009,Otus mentawi,Mentawai Scops Owl,5,5232349,https://www.gbif.org/species/5232349,exact_english_gbif_common_name,NO
+KR0009,Otus mindorensis,Mindoro Scops Owl,5,5232338,https://www.gbif.org/species/5232338,exact_english_gbif_common_name,NO
+KR0009,Otus mirus,Mindanao Scops Owl,5,5232285,https://www.gbif.org/species/5232285,exact_english_gbif_common_name,NO
+KR0009,Otus mirus,Mindanao Highland Scops-owl,5,5232285,https://www.gbif.org/species/5232285,exact_english_gbif_common_name,NO
+KR0009,Otus moheliensis,Moheli Scops Owl,5,5232243,https://www.gbif.org/species/5232243,exact_english_gbif_common_name,NO
+KR0009,Otus pauliani,Comoro Scops-Owl,5,5232250,https://www.gbif.org/species/5232250,exact_english_gbif_common_name,NO
+KR0009,Otus pauliani,Karthala Scops Owl,5,5232250,https://www.gbif.org/species/5232250,exact_english_gbif_common_name,NO
+KR0009,Otus pauliani,Grand Comoro Scops Owl,5,5232250,https://www.gbif.org/species/5232250,exact_english_gbif_common_name,NO
+KR0009,Otus pembaensis,Pemba Scops Owl,5,5232281,https://www.gbif.org/species/5232281,exact_english_gbif_common_name,NO
+KR0009,Otus rufescens,Reddish Scops Owl,5,5232308,https://www.gbif.org/species/5232308,exact_english_gbif_common_name,NO
+KR0009,Otus rutilus,Malagasy Scops-Owl,5,5232267,https://www.gbif.org/species/5232267,exact_english_gbif_common_name,NO
+KR0009,Otus rutilus,Madagascar Scops Owl,5,5232267,https://www.gbif.org/species/5232267,exact_english_gbif_common_name,NO
+KR0009,Otus rutilus,Rainforest Scops Owl,5,5232267,https://www.gbif.org/species/5232267,exact_english_gbif_common_name,NO
+KR0009,Otus sagittatus,White-fronted Scops Owl,5,5232350,https://www.gbif.org/species/5232350,exact_english_gbif_common_name,NO
+KR0009,Otus scops,Scops Owl,5,2497701,https://www.gbif.org/species/2497701,exact_english_gbif_common_name,NO
+KR0009,Otus scops,Common Scops Owl,5,2497701,https://www.gbif.org/species/2497701,exact_english_gbif_common_name,NO
+KR0009,Otus scops,Eurasian Scops Owl,5,2497701,https://www.gbif.org/species/2497701,exact_english_gbif_common_name,NO
+KR0009,Otus senegalensis,African Scops Owl,5,5232311,https://www.gbif.org/species/5232311,exact_english_gbif_common_name,NO
+KR0009,Otus silvicola,Wallace's Scops Owl,5,5232351,https://www.gbif.org/species/5232351,exact_english_gbif_common_name,NO
+KR0009,Otus silvicola,Lesser Sunda Scops-owl,5,5232351,https://www.gbif.org/species/5232351,exact_english_gbif_common_name,NO
+KR0009,Otus spilocephalus,spotted scops owl,5,5232316,https://www.gbif.org/species/5232316,exact_english_gbif_common_name,NO
+KR0009,Otus spilocephalus,Mountain Scops Owl,5,5232316,https://www.gbif.org/species/5232316,exact_english_gbif_common_name,NO
+KR0009,Otus sunia,Oriental Scops Owl,5,5232328,https://www.gbif.org/species/5232328,exact_english_gbif_common_name,NO
+KR0009,Otus thilohoffmanni,Serendib Scops Owl,5,5232273,https://www.gbif.org/species/5232273,exact_english_gbif_common_name,NO
+KR0009,Otus umbra,Simeulue Scops Owl,5,5232278,https://www.gbif.org/species/5232278,exact_english_gbif_common_name,NO
+KR0009,Pandion haliaetus,Seahawk,5,2480726,https://www.gbif.org/species/2480726,exact_english_gbif_common_name,NO
+KR0009,Pandion haliaetus,Fish Hawk,5,2480726,https://www.gbif.org/species/2480726,exact_english_gbif_common_name,NO
+KR0009,Pandion haliaetus,Western Osprey,5,2480726,https://www.gbif.org/species/2480726,exact_english_gbif_common_name,NO
+KR0009,Parabuteo unicinctus,Harris' Hawk,5,2480410,https://www.gbif.org/species/2480410,exact_english_gbif_common_name,NO
+KR0009,Parabuteo unicinctus,Louisiana Hawk,5,2480410,https://www.gbif.org/species/2480410,exact_english_gbif_common_name,NO
+KR0009,Parabuteo unicinctus,Bay-winged Hawk,5,2480410,https://www.gbif.org/species/2480410,exact_english_gbif_common_name,NO
+KR0009,Percnohierax leucorrhous,White-rumped Hawk,5,6066303,https://www.gbif.org/species/6066303,exact_english_gbif_common_name,NO
+KR0009,Pernis apivorus,Western Honey-buzzard,5,2480420,https://www.gbif.org/species/2480420,exact_english_gbif_common_name,NO
+KR0009,Pernis apivorus,Eurasian Honey-Buzzard,5,2480420,https://www.gbif.org/species/2480420,exact_english_gbif_common_name,NO
+KR0009,Pernis apivorus,European Honey Buzzard,5,2480420,https://www.gbif.org/species/2480420,exact_english_gbif_common_name,NO
+KR0009,Pernis celebensis,Barred Honey Buzzard,5,2480422,https://www.gbif.org/species/2480422,exact_english_gbif_common_name,NO
+KR0009,Pernis celebensis,Sulawesi Honey-buzzard,5,2480422,https://www.gbif.org/species/2480422,exact_english_gbif_common_name,NO
+KR0009,Pernis ptilorhynchus,Crested Honey Buzzard,5,5793241,https://www.gbif.org/species/5793241,exact_english_gbif_common_name,NO
+KR0009,Pernis ptilorhynchus,Oriental Honey Buzzard,5,5793241,https://www.gbif.org/species/5793241,exact_english_gbif_common_name,NO
+KR0009,Pernis steerei,Philippine Honey Buzzard,5,6066332,https://www.gbif.org/species/6066332,exact_english_gbif_common_name,NO
+KR0009,Phalcoboenus albogularis,White-throated Caracara,5,2481093,https://www.gbif.org/species/2481093,exact_english_gbif_common_name,NO
+KR0009,Phalcoboenus australis,Striated Caracara,5,2481091,https://www.gbif.org/species/2481091,exact_english_gbif_common_name,NO
+KR0009,Phalcoboenus australis,Forster's Caracara,5,2481091,https://www.gbif.org/species/2481091,exact_english_gbif_common_name,NO
+KR0009,Phalcoboenus carunculatus,Carunculated Caracara,5,2481094,https://www.gbif.org/species/2481094,exact_english_gbif_common_name,NO
+KR0009,Phalcoboenus megalopterus,Mountain Caracara,5,2481092,https://www.gbif.org/species/2481092,exact_english_gbif_common_name,NO
+KR0009,Phodilus badius,Bay Owl,5,2497972,https://www.gbif.org/species/2497972,exact_english_gbif_common_name,NO
+KR0009,Phodilus badius,Oriental Bay Owl,5,2497972,https://www.gbif.org/species/2497972,exact_english_gbif_common_name,NO
+KR0009,Phodilus prigoginei,Congo Bay Owl,5,2497979,https://www.gbif.org/species/2497979,exact_english_gbif_common_name,NO
+KR0009,Pithecophaga jefferyi,Monkey-eating Eagle,5,2480381,https://www.gbif.org/species/2480381,exact_english_gbif_common_name,NO
+KR0009,Pithecophaga jefferyi,Great Philippine Eagle,5,2480381,https://www.gbif.org/species/2480381,exact_english_gbif_common_name,NO
+KR0009,Polihierax insignis,White-rumped Falcon,5,2481097,https://www.gbif.org/species/2481097,exact_english_gbif_common_name,NO
+KR0009,Polihierax insignis,White-rumped Pygmy Falcon,5,2481097,https://www.gbif.org/species/2481097,exact_english_gbif_common_name,NO
+KR0009,Polihierax semitorquatus,Pigmy Falcon,5,2481096,https://www.gbif.org/species/2481096,exact_english_gbif_common_name,NO
+KR0009,Polihierax semitorquatus,Pygmy Falcon,5,2481096,https://www.gbif.org/species/2481096,exact_english_gbif_common_name,NO
+KR0009,Polihierax semitorquatus,African Pygmy Falcon,5,2481096,https://www.gbif.org/species/2481096,exact_english_gbif_common_name,NO
+KR0009,Polyboroides radiatus,Madagascan Gymnogene,5,2480660,https://www.gbif.org/species/2480660,exact_english_gbif_common_name,NO
+KR0009,Polyboroides radiatus,Madagascar Gymnogene,5,2480660,https://www.gbif.org/species/2480660,exact_english_gbif_common_name,NO
+KR0009,Polyboroides radiatus,Madagascan Harrier-Hawk,5,2480660,https://www.gbif.org/species/2480660,exact_english_gbif_common_name,NO
+KR0009,Polyboroides typus,Gymnogene,5,2480659,https://www.gbif.org/species/2480659,exact_english_gbif_common_name,NO
+KR0009,Polyboroides typus,Banded Harrier-Hawk,5,2480659,https://www.gbif.org/species/2480659,exact_english_gbif_common_name,NO
+KR0009,Polyboroides typus,African Harrier-Hawk,5,2480659,https://www.gbif.org/species/2480659,exact_english_gbif_common_name,NO
+KR0009,Pseudoscops clamator,Striped Owl,5,2497774,https://www.gbif.org/species/2497774,exact_english_gbif_common_name,NO
+KR0009,Pseudoscops grammicus,Jamaican Owl,5,2497779,https://www.gbif.org/species/2497779,exact_english_gbif_common_name,NO
+KR0009,Ptilopsis granti,Southern White-faced Owl,5,5232238,https://www.gbif.org/species/5232238,exact_english_gbif_common_name,NO
+KR0009,Ptilopsis granti,Southern White-faced Scops Owl,5,5232238,https://www.gbif.org/species/5232238,exact_english_gbif_common_name,NO
+KR0009,Ptilopsis leucotis,White-faced Owl,5,5232239,https://www.gbif.org/species/5232239,exact_english_gbif_common_name,NO
+KR0009,Ptilopsis leucotis,African Great-horned Owl,5,5232239,https://www.gbif.org/species/5232239,exact_english_gbif_common_name,NO
+KR0009,Ptilopsis leucotis,Northern White-faced Owl,5,5232239,https://www.gbif.org/species/5232239,exact_english_gbif_common_name,NO
+KR0009,Pulsatrix koeniswaldiana,Tawny-browed Owl,5,2497885,https://www.gbif.org/species/2497885,exact_english_gbif_common_name,NO
+KR0009,Pulsatrix melanota,Band-bellied Owl,5,2497886,https://www.gbif.org/species/2497886,exact_english_gbif_common_name,NO
+KR0009,Pulsatrix perspicillata,Spectacled Owl,5,2497878,https://www.gbif.org/species/2497878,exact_english_gbif_common_name,NO
+KR0009,Pyrroglaux podargina,Palau Owl,5,2497646,https://www.gbif.org/species/2497646,exact_english_gbif_common_name,NO
+KR0009,Rostrhamus sociabilis,Snail Kite,5,2480415,https://www.gbif.org/species/2480415,exact_english_gbif_common_name,NO
+KR0009,Rostrhamus sociabilis,everglade kite,5,2480415,https://www.gbif.org/species/2480415,exact_english_gbif_common_name,NO
+KR0009,Rupornis magnirostris,Roadside Hawk,5,5844398,https://www.gbif.org/species/5844398,exact_english_gbif_common_name,NO
+KR0009,Sagittarius serpentarius,Secretary,5,5229409,https://www.gbif.org/species/5229409,exact_english_gbif_common_name,NO
+KR0009,Sarcogyps calvus,Red-headed Vulture,5,2480717,https://www.gbif.org/species/2480717,exact_english_gbif_common_name,NO
+KR0009,Sarcogyps calvus,Pondicherry Vulture,5,2480717,https://www.gbif.org/species/2480717,exact_english_gbif_common_name,NO
+KR0009,Sarcogyps calvus,Indian Black Vulture,5,2480717,https://www.gbif.org/species/2480717,exact_english_gbif_common_name,NO
+KR0009,Scotopelia bouvieri,Bouvier's Fishing Owl,5,2497871,https://www.gbif.org/species/2497871,exact_english_gbif_common_name,NO
+KR0009,Scotopelia bouvieri,Vermiculated Fishing Owl,5,2497871,https://www.gbif.org/species/2497871,exact_english_gbif_common_name,NO
+KR0009,Scotopelia peli,Pel's Fishing Owl,5,2497870,https://www.gbif.org/species/2497870,exact_english_gbif_common_name,NO
+KR0009,Scotopelia ussheri,Rufous Fishing Owl,5,2497869,https://www.gbif.org/species/2497869,exact_english_gbif_common_name,NO
+KR0009,Scotopelia ussheri,Ussher's Fishing Owl,5,2497869,https://www.gbif.org/species/2497869,exact_english_gbif_common_name,NO
+KR0009,Spilornis cheela,Crested Serpent Eagle,5,2480433,https://www.gbif.org/species/2480433,exact_english_gbif_common_name,NO
+KR0009,Spilornis elgini,Dark Serpent-eagle,5,2480432,https://www.gbif.org/species/2480432,exact_english_gbif_common_name,NO
+KR0009,Spilornis elgini,Andaman Serpent Eagle,5,2480432,https://www.gbif.org/species/2480432,exact_english_gbif_common_name,NO
+KR0009,Spilornis elgini,Elgin's Serpent-Eagle,5,2480432,https://www.gbif.org/species/2480432,exact_english_gbif_common_name,NO
+KR0009,Spilornis holospilus,Steere's Serpent-Eagle,5,2480429,https://www.gbif.org/species/2480429,exact_english_gbif_common_name,NO
+KR0009,Spilornis holospilus,Philippine Serpent Eagle,5,2480429,https://www.gbif.org/species/2480429,exact_english_gbif_common_name,NO
+KR0009,Spilornis kinabaluensis,Kinabalu Serpent-eagle,5,2480430,https://www.gbif.org/species/2480430,exact_english_gbif_common_name,NO
+KR0009,Spilornis kinabaluensis,Mountain Serpent Eagle,5,2480430,https://www.gbif.org/species/2480430,exact_english_gbif_common_name,NO
+KR0009,Spilornis klossi,Kloss's Serpent-Eagle,5,5788519,https://www.gbif.org/species/5788519,exact_english_gbif_common_name,NO
+KR0009,Spilornis klossi,Great Nicobar Serpent Eagle,5,5788519,https://www.gbif.org/species/5788519,exact_english_gbif_common_name,NO
+KR0009,Spilornis rufipectus,Sulawesi Serpent Eagle,5,2480431,https://www.gbif.org/species/2480431,exact_english_gbif_common_name,NO
+KR0009,Spizaetus isidori,Isidor's Eagle,5,5788512,https://www.gbif.org/species/5788512,exact_english_gbif_common_name,NO
+KR0009,Spizaetus isidori,Black-and-chestnut Eagle,5,5788512,https://www.gbif.org/species/5788512,exact_english_gbif_common_name,NO
+KR0009,Spizaetus isidori,Black-and-chestnut Hawk-Eagle,5,5788512,https://www.gbif.org/species/5788512,exact_english_gbif_common_name,NO
+KR0009,Spizaetus melanoleucus,Black-and-White Hawk-Eagle,5,5788513,https://www.gbif.org/species/5788513,exact_english_gbif_common_name,NO
+KR0009,Spizaetus melanoleucus,black-chested buzzard eagle,5,5788513,https://www.gbif.org/species/5788513,exact_english_gbif_common_name,NO
+KR0009,Spizaetus ornatus,Ornate Hawk-Eagle,5,2480679,https://www.gbif.org/species/2480679,exact_english_gbif_common_name,NO
+KR0009,Spizaetus tyrannus,Black Hawk-Eagle,5,2480672,https://www.gbif.org/species/2480672,exact_english_gbif_common_name,NO
+KR0009,Spizaetus tyrannus,Tyrant Hawk-Eagle,5,2480672,https://www.gbif.org/species/2480672,exact_english_gbif_common_name,NO
+KR0009,Spiziapteryx circumcincta,Spot-winged Falconet,5,2481068,https://www.gbif.org/species/2481068,exact_english_gbif_common_name,NO
+KR0009,Stephanoaetus coronatus,Crowned Hawk-Eagle,5,2480391,https://www.gbif.org/species/2480391,exact_english_gbif_common_name,NO
+KR0009,Stephanoaetus coronatus,African Crowned Eagle,5,2480391,https://www.gbif.org/species/2480391,exact_english_gbif_common_name,NO
+KR0009,Strix albitarsis,Rufous-banded Owl,5,2497536,https://www.gbif.org/species/2497536,exact_english_gbif_common_name,NO
+KR0009,Strix butleri,Omani Owl,5,2497561,https://www.gbif.org/species/2497561,exact_english_gbif_common_name,NO
+KR0009,Strix butleri,Hume's Owl,5,2497561,https://www.gbif.org/species/2497561,exact_english_gbif_common_name,NO
+KR0009,Strix butleri,Hume's Wood Owl,5,2497561,https://www.gbif.org/species/2497561,exact_english_gbif_common_name,NO
+KR0009,Strix chacoensis,Chaco Owl,5,2497565,https://www.gbif.org/species/2497565,exact_english_gbif_common_name,NO
+KR0009,Strix davidi,Pere David's Owl,5,2497515,https://www.gbif.org/species/2497515,exact_english_gbif_common_name,NO
+KR0009,Strix fulvescens,Fulvous Owl,5,2497508,https://www.gbif.org/species/2497508,exact_english_gbif_common_name,NO
+KR0009,Strix huhula,Black-banded Owl,5,4843089,https://www.gbif.org/species/4843089,exact_english_gbif_common_name,NO
+KR0009,Strix hylophila,Rusty-barred Owl,5,2497529,https://www.gbif.org/species/2497529,exact_english_gbif_common_name,NO
+KR0009,Strix leptogrammica,Brown Wood Owl,5,2497546,https://www.gbif.org/species/2497546,exact_english_gbif_common_name,NO
+KR0009,Strix nebulosa,Great Grey Owl,5,2497522,https://www.gbif.org/species/2497522,exact_english_gbif_common_name,NO
+KR0009,Strix nigrolineata,Black-and-white Owl,5,4843093,https://www.gbif.org/species/4843093,exact_english_gbif_common_name,NO
+KR0009,Strix ocellata,Mottled Wood Owl,5,2497525,https://www.gbif.org/species/2497525,exact_english_gbif_common_name,NO
+KR0009,Strix rufipes,Rufous-legged Owl,5,2497562,https://www.gbif.org/species/2497562,exact_english_gbif_common_name,NO
+KR0009,Strix seloputo,Spotted Wood Owl,5,2497492,https://www.gbif.org/species/2497492,exact_english_gbif_common_name,NO
+KR0009,Strix uralensis,Ural Owl,5,2497509,https://www.gbif.org/species/2497509,exact_english_gbif_common_name,NO
+KR0009,Strix varia,Hoot Owl,5,2497541,https://www.gbif.org/species/2497541,exact_english_gbif_common_name,NO
+KR0009,Strix varia,Rain Owl,5,2497541,https://www.gbif.org/species/2497541,exact_english_gbif_common_name,NO
+KR0009,Strix varia,Crazy Owl,5,2497541,https://www.gbif.org/species/2497541,exact_english_gbif_common_name,NO
+KR0009,Strix virgata,Mottled Owl,5,2497440,https://www.gbif.org/species/2497440,exact_english_gbif_common_name,NO
+KR0009,Strix woodfordii,Wood Owl,5,2497530,https://www.gbif.org/species/2497530,exact_english_gbif_common_name,NO
+KR0009,Strix woodfordii,African Wood Owl,5,2497530,https://www.gbif.org/species/2497530,exact_english_gbif_common_name,NO
+KR0009,Surnia ulula,Hawk Owl,5,2497894,https://www.gbif.org/species/2497894,exact_english_gbif_common_name,NO
+KR0009,Surnia ulula,Northern Hawk Owl,5,2497894,https://www.gbif.org/species/2497894,exact_english_gbif_common_name,NO
+KR0009,Terathopius ecaudatus,Bateleur Eagle,5,2480377,https://www.gbif.org/species/2480377,exact_english_gbif_common_name,NO
+KR0009,Trigonoceps occipitalis,White-headed Vulture,5,2480408,https://www.gbif.org/species/2480408,exact_english_gbif_common_name,NO
+KR0009,Tyto alba,Laxmi puncha,5,2497921,https://www.gbif.org/species/2497921,exact_english_gbif_common_name,NO
+KR0009,Tyto alba,Common Barn Owl,5,2497921,https://www.gbif.org/species/2497921,exact_english_gbif_common_name,NO
+KR0009,Tyto alba,Western Barn Owl,5,2497921,https://www.gbif.org/species/2497921,exact_english_gbif_common_name,NO
+KR0009,Tyto aurantia,Golden Owl,5,5232405,https://www.gbif.org/species/5232405,exact_english_gbif_common_name,NO
+KR0009,Tyto aurantia,Golden Masked Owl,5,5232405,https://www.gbif.org/species/5232405,exact_english_gbif_common_name,NO
+KR0009,Tyto aurantia,Bismarck Masked-Owl,5,5232405,https://www.gbif.org/species/5232405,exact_english_gbif_common_name,NO
+KR0009,Tyto capensis,Grass Owl,5,5232363,https://www.gbif.org/species/5232363,exact_english_gbif_common_name,NO
+KR0009,Tyto capensis,African Grass Owl,5,5232363,https://www.gbif.org/species/5232363,exact_english_gbif_common_name,NO
+KR0009,Tyto inexspectata,Minahassa Owl,5,5232409,https://www.gbif.org/species/5232409,exact_english_gbif_common_name,NO
+KR0009,Tyto inexspectata,Minahassa Barn Owl,5,5232409,https://www.gbif.org/species/5232409,exact_english_gbif_common_name,NO
+KR0009,Tyto inexspectata,Minahasa Masked Owl,5,5232409,https://www.gbif.org/species/5232409,exact_english_gbif_common_name,NO
+KR0009,Tyto longimembris,Eastern Grass Owl,5,5232369,https://www.gbif.org/species/5232369,exact_english_gbif_common_name,NO
+KR0009,Tyto longimembris,Australasian Grass-Owl,5,5232369,https://www.gbif.org/species/5232369,exact_english_gbif_common_name,NO
+KR0009,Tyto manusi,Manus Masked Owl,5,5232362,https://www.gbif.org/species/5232362,exact_english_gbif_common_name,NO
+KR0009,Tyto multipunctata,Lesser Sooty Owl,5,5232372,https://www.gbif.org/species/5232372,exact_english_gbif_common_name,NO
+KR0009,Tyto nigrobrunnea,Taliabu Owl,5,5232361,https://www.gbif.org/species/5232361,exact_english_gbif_common_name,NO
+KR0009,Tyto nigrobrunnea,Sula Barn-owl,5,5232361,https://www.gbif.org/species/5232361,exact_english_gbif_common_name,NO
+KR0009,Tyto nigrobrunnea,Sula Masked-Owl,5,5232361,https://www.gbif.org/species/5232361,exact_english_gbif_common_name,NO
+KR0009,Tyto rosenbergii,Sulawesi Owl,5,5232406,https://www.gbif.org/species/5232406,exact_english_gbif_common_name,NO
+KR0009,Tyto rosenbergii,Sulawesi Masked Owl,5,5232406,https://www.gbif.org/species/5232406,exact_english_gbif_common_name,NO
+KR0009,Tyto soumagnei,Red Owl,5,5232371,https://www.gbif.org/species/5232371,exact_english_gbif_common_name,NO
+KR0009,Tyto soumagnei,Red Barn Owl,5,5232371,https://www.gbif.org/species/5232371,exact_english_gbif_common_name,NO
+KR0009,Tyto soumagnei,Soumagne's Owl,5,5232371,https://www.gbif.org/species/5232371,exact_english_gbif_common_name,NO
+KR0009,Tyto tenebricosa,Sooty Owl,5,5232358,https://www.gbif.org/species/5232358,exact_english_gbif_common_name,NO
+KR0009,Tyto tenebricosa,Greater Sooty Owl,5,5232358,https://www.gbif.org/species/5232358,exact_english_gbif_common_name,NO
+KR0009,Uroglaux dimorpha,Papuan Owl,5,2497890,https://www.gbif.org/species/2497890,exact_english_gbif_common_name,NO
+KR0009,Uroglaux dimorpha,Papuan Boobook,5,2497890,https://www.gbif.org/species/2497890,exact_english_gbif_common_name,NO
+KR0009,Uroglaux dimorpha,Papuan Hawk-Owl,5,2497890,https://www.gbif.org/species/2497890,exact_english_gbif_common_name,NO
+KR0009,Urotriorchis macrourus,Long-tailed Hawk,5,2480647,https://www.gbif.org/species/2480647,exact_english_gbif_common_name,NO
+KR0009,Vultur gryphus,Andean Condor,5,2481907,https://www.gbif.org/species/2481907,exact_english_gbif_common_name,NO
+KR0009,Xenoglaux loweryi,Long-whiskered Owlet,5,2497649,https://www.gbif.org/species/2497649,exact_english_gbif_common_name,NO
+KR0035,Cymbidium goeringii,Noble Orchid,2,5305668,https://www.gbif.org/species/5305668,exact_english_gbif_common_name,NO
+KR0035,Cymbidium goeringii,Goering’s cymbidium,2,5305668,https://www.gbif.org/species/5305668,exact_english_gbif_common_name,NO
+KR0035,Epiphyllum oxypetalum,Moonflower Cactus,2,5384031,https://www.gbif.org/species/5384031,exact_english_gbif_common_name,NO
+KR0035,Epiphyllum oxypetalum,queen of the night,2,5384031,https://www.gbif.org/species/5384031,exact_english_gbif_common_name,NO
+KR0035,Epiphyllum oxypetalum,night-blooming cereus,2,5384031,https://www.gbif.org/species/5384031,exact_english_gbif_common_name,NO
+KR0035,Gloriosa superba,Flame Lily,2,2740024,https://www.gbif.org/species/2740024,exact_english_gbif_common_name,NO
+KR0035,Gloriosa superba,Glory Lily,2,2740024,https://www.gbif.org/species/2740024,exact_english_gbif_common_name,NO
+KR0035,Gloriosa superba,Turk's Fez,2,2740024,https://www.gbif.org/species/2740024,exact_english_gbif_common_name,NO
+KR0035,Hibiscus rosa-sinensis,China-rose,2,3152559,https://www.gbif.org/species/3152559,exact_english_gbif_common_name,NO
+KR0035,Hibiscus rosa-sinensis,rose-of-China,2,3152559,https://www.gbif.org/species/3152559,exact_english_gbif_common_name,NO
+KR0035,Hibiscus rosa-sinensis,Shoeblackplant,2,3152559,https://www.gbif.org/species/3152559,exact_english_gbif_common_name,NO
+KR0035,Lavandula stoechas,wild lavender,2,2927303,https://www.gbif.org/species/2927303,exact_english_gbif_common_name,NO
+KR0035,Lavandula stoechas,French Lavender,2,2927303,https://www.gbif.org/species/2927303,exact_english_gbif_common_name,NO
+KR0035,Lavandula stoechas,topped lavender,2,2927303,https://www.gbif.org/species/2927303,exact_english_gbif_common_name,NO
+KR0035,Plumbago auriculata,Quaker,2,3082283,https://www.gbif.org/species/3082283,exact_english_gbif_common_name,NO
+KR0035,Plumbago auriculata,plumbago,2,3082283,https://www.gbif.org/species/3082283,exact_english_gbif_common_name,NO
+KR0035,Plumbago auriculata,Cape Leadwort,2,3082283,https://www.gbif.org/species/3082283,exact_english_gbif_common_name,NO
+KR0035,Spathiphyllum wallisii,Peace Lily,2,2869680,https://www.gbif.org/species/2869680,exact_english_gbif_common_name,NO
+KR0035,Tropaeolum majus,Nasties,2,2889934,https://www.gbif.org/species/2889934,exact_english_gbif_common_name,NO
+KR0035,Tropaeolum majus,Monk Cress,2,2889934,https://www.gbif.org/species/2889934,exact_english_gbif_common_name,NO
+KR0035,Tropaeolum majus,Lark's Heel,2,2889934,https://www.gbif.org/species/2889934,exact_english_gbif_common_name,NO
+KR0035,Vanda coerulea,Blue vanda,2,2783163,https://www.gbif.org/species/2783163,exact_english_gbif_common_name,NO
+KR0035,Vanda coerulea,Blue Orchid,2,2783163,https://www.gbif.org/species/2783163,exact_english_gbif_common_name,NO
+KR0035,Zantedeschia aethiopica,Pig Lily,2,2868827,https://www.gbif.org/species/2868827,exact_english_gbif_common_name,NO
+KR0035,Zantedeschia aethiopica,Arum Lily,2,2868827,https://www.gbif.org/species/2868827,exact_english_gbif_common_name,NO
+KR0035,Zantedeschia aethiopica,Arun Lily,2,2868827,https://www.gbif.org/species/2868827,exact_english_gbif_common_name,NO
+KR0037,Carcharhinus longimanus,Whitetip Shark,2,2418052,https://www.gbif.org/species/2418052,exact_english_gbif_common_name,NO
+KR0037,Carcharhinus longimanus,Whitetip Whaler,2,2418052,https://www.gbif.org/species/2418052,exact_english_gbif_common_name,NO
+KR0037,Carcharhinus longimanus,Crow de brass star,2,2418052,https://www.gbif.org/species/2418052,exact_english_gbif_common_name,NO
+KR0037,Carcharhinus obscurus,Bay-shark,2,2418005,https://www.gbif.org/species/2418005,exact_english_gbif_common_name,NO
+KR0037,Carcharhinus obscurus,Shovelnose,2,2418005,https://www.gbif.org/species/2418005,exact_english_gbif_common_name,NO
+KR0037,Carcharhinus obscurus,Black Whaler,2,2418005,https://www.gbif.org/species/2418005,exact_english_gbif_common_name,NO
+KR0037,Carcharias taurus,Raggie,2,2420766,https://www.gbif.org/species/2420766,exact_english_gbif_common_name,NO
+KR0037,Carcharias taurus,Grey Nurse,2,2420766,https://www.gbif.org/species/2420766,exact_english_gbif_common_name,NO
+KR0037,Carcharias taurus,Nuss Shark,2,2420766,https://www.gbif.org/species/2420766,exact_english_gbif_common_name,NO
+KR0037,Ginglymostoma cirratum,Atlantic Nurse Shark,2,2417495,https://www.gbif.org/species/2417495,exact_english_gbif_common_name,NO
+KR0037,Hemiscyllium ocellatum,Epaulette,2,5215508,https://www.gbif.org/species/5215508,exact_english_gbif_common_name,NO
+KR0037,Hemiscyllium ocellatum,itar shark,2,5215508,https://www.gbif.org/species/5215508,exact_english_gbif_common_name,NO
+KR0037,Hemiscyllium ocellatum,Blind Shark,2,5215508,https://www.gbif.org/species/5215508,exact_english_gbif_common_name,NO
+KR0037,Heterodontus francisci,Horned Shark,2,5215678,https://www.gbif.org/species/5215678,exact_english_gbif_common_name,NO
+KR0037,Heterodontus francisci,Bullhead Shark,2,5215678,https://www.gbif.org/species/5215678,exact_english_gbif_common_name,NO
+KR0037,Heterodontus francisci,California Horn Shark,2,5215678,https://www.gbif.org/species/5215678,exact_english_gbif_common_name,NO
+KR0037,Isurus oxyrinchus,Mako,2,5216248,https://www.gbif.org/species/5216248,exact_english_gbif_common_name,NO
+KR0037,Isurus oxyrinchus,sharp nosed,2,5216248,https://www.gbif.org/species/5216248,exact_english_gbif_common_name,NO
+KR0037,Isurus oxyrinchus,Bonito shark,2,5216248,https://www.gbif.org/species/5216248,exact_english_gbif_common_name,NO
+KR0037,Mitsukurina owstoni,Elfin Shark,2,2420637,https://www.gbif.org/species/2420637,exact_english_gbif_common_name,NO
+KR0037,Mitsukurina owstoni,Elphin Shark,2,2420637,https://www.gbif.org/species/2420637,exact_english_gbif_common_name,NO
+KR0037,Mitsukurina owstoni,mitsukuri’s shark,2,2420637,https://www.gbif.org/species/2420637,exact_english_gbif_common_name,NO
+KR0037,Mustelus mustelus,smooth shark,2,2418313,https://www.gbif.org/species/2418313,exact_english_gbif_common_name,NO
+KR0037,Mustelus mustelus,Sweet William,2,2418313,https://www.gbif.org/species/2418313,exact_english_gbif_common_name,NO
+KR0037,Mustelus mustelus,Gray mouth dog,2,2418313,https://www.gbif.org/species/2418313,exact_english_gbif_common_name,NO
+KR0037,Rhincodon typus,Tofu shark,2,2417522,https://www.gbif.org/species/2417522,exact_english_gbif_common_name,NO
+KR0037,Rhincodon typus,Checkerboard Shark,2,2417522,https://www.gbif.org/species/2417522,exact_english_gbif_common_name,NO
+KR0037,Rhincodon typus,East Indian basking shark,2,2417522,https://www.gbif.org/species/2417522,exact_english_gbif_common_name,NO
+KR0037,Squalus acanthias,Rigg,2,5216368,https://www.gbif.org/species/5216368,exact_english_gbif_common_name,NO
+KR0037,Squalus acanthias,Spurdog,2,5216368,https://www.gbif.org/species/5216368,exact_english_gbif_common_name,NO
+KR0037,Squalus acanthias,dogfish,2,5216368,https://www.gbif.org/species/5216368,exact_english_gbif_common_name,NO
+KR0058,Protobothrops flavoviridis,Habu,5,2444178,https://www.gbif.org/species/2444178,exact_english_gbif_common_name,NO
+KR0058,Protobothrops jerdonii,Jerdon's Pitviper,5,2444160,https://www.gbif.org/species/2444160,exact_english_gbif_common_name,NO
+KR0058,Protobothrops jerdonii,Oriental pitviper,5,2444160,https://www.gbif.org/species/2444160,exact_english_gbif_common_name,NO
+KR0058,Protobothrops jerdonii,Yellow Speckled Lancehead,5,2444160,https://www.gbif.org/species/2444160,exact_english_gbif_common_name,NO
+KR0058,Protobothrops kaulbacki,Kaulback's Lance-headed Pitviper,5,2444146,https://www.gbif.org/species/2444146,exact_english_gbif_common_name,NO
+KR0058,Protobothrops tokarensis,Tokara Habu,5,2444173,https://www.gbif.org/species/2444173,exact_english_gbif_common_name,NO
+KR0058,Protobothrops xiangchengensis,Sichuan Lancehead,5,2444176,https://www.gbif.org/species/2444176,exact_english_gbif_common_name,NO
+KR0058,Protobothrops xiangchengensis,Szechwan Pit Viper,5,2444176,https://www.gbif.org/species/2444176,exact_english_gbif_common_name,NO
+KR0058,Protobothrops xiangchengensis,Kham Plateau Pitviper,5,2444176,https://www.gbif.org/species/2444176,exact_english_gbif_common_name,NO
+KR0058,Pseudechis australis,King Brown,5,2449557,https://www.gbif.org/species/2449557,exact_english_gbif_common_name,NO
+KR0058,Pseudechis australis,Mulga Snake,5,2449557,https://www.gbif.org/species/2449557,exact_english_gbif_common_name,NO
+KR0058,Pseudechis australis,Pilbara Snake,5,2449557,https://www.gbif.org/species/2449557,exact_english_gbif_common_name,NO
+KR0058,Pseudechis butleri,Butler's Snake,5,2449553,https://www.gbif.org/species/2449553,exact_english_gbif_common_name,NO
+KR0058,Pseudechis butleri,Spotted Mulga Snake,5,2449553,https://www.gbif.org/species/2449553,exact_english_gbif_common_name,NO
+KR0058,Pseudechis colletti,Collett's Snake,5,2449548,https://www.gbif.org/species/2449548,exact_english_gbif_common_name,NO
+KR0058,Pseudechis colletti,Collett's Black Snake,5,2449548,https://www.gbif.org/species/2449548,exact_english_gbif_common_name,NO
+KR0058,Pseudechis guttatus,Spotted Black Snake,5,2449554,https://www.gbif.org/species/2449554,exact_english_gbif_common_name,NO
+KR0058,Pseudechis guttatus,Blue-bellied Black Snake,5,2449554,https://www.gbif.org/species/2449554,exact_english_gbif_common_name,NO
+KR0058,Pseudechis pailsei,Dwarf Mulga Snake,5,2449549,https://www.gbif.org/species/2449549,exact_english_gbif_common_name,NO
+KR0058,Pseudechis pailsei,False King Brown Snake,5,2449549,https://www.gbif.org/species/2449549,exact_english_gbif_common_name,NO
+KR0058,Pseudechis pailsei,Eastern Dwarf Mulga Snake,5,2449549,https://www.gbif.org/species/2449549,exact_english_gbif_common_name,NO
+KR0058,Pseudechis papuanus,Papuan Blacksnake,5,2449552,https://www.gbif.org/species/2449552,exact_english_gbif_common_name,NO
+KR0058,Pseudechis porphyriacus,Australian Black Snake,5,2449538,https://www.gbif.org/species/2449538,exact_english_gbif_common_name,NO
+KR0058,Pseudechis porphyriacus,Red-bellied Black Snake,5,2449538,https://www.gbif.org/species/2449538,exact_english_gbif_common_name,NO
+KR0058,Pseudechis weigeli,Pygmy Mulga Snake,5,2449567,https://www.gbif.org/species/2449567,exact_english_gbif_common_name,NO
+KR0058,Pseudechis weigeli,Weigel's Balck Snake,5,2449567,https://www.gbif.org/species/2449567,exact_english_gbif_common_name,NO
+KR0058,Pseudechis weigeli,Weigel's Black Snake,5,2449567,https://www.gbif.org/species/2449567,exact_english_gbif_common_name,NO
+KR0058,Pseudocerastes fieldi,Field's Horned Viper,5,2443829,https://www.gbif.org/species/2443829,exact_english_gbif_common_name,NO
+KR0058,Pseudocerastes persicus,Perisan Horned Viper,5,2443833,https://www.gbif.org/species/2443833,exact_english_gbif_common_name,NO
+KR0058,Pseudocerastes persicus,Persian Horned Viper,5,2443833,https://www.gbif.org/species/2443833,exact_english_gbif_common_name,NO
+KR0058,Pseudohaje goldii,African Tree Cobra,5,2469835,https://www.gbif.org/species/2469835,exact_english_gbif_common_name,NO
+KR0058,Pseudohaje goldii,Golds Forest Cobra,5,2469835,https://www.gbif.org/species/2469835,exact_english_gbif_common_name,NO
+KR0058,Pseudohaje goldii,Goldie's Tree Cobra,5,2469835,https://www.gbif.org/species/2469835,exact_english_gbif_common_name,NO
+KR0058,Pseudohaje nigra,Hoodless Cobra,5,2469832,https://www.gbif.org/species/2469832,exact_english_gbif_common_name,NO
+KR0058,Pseudohaje nigra,Black Tree Cobra,5,2469832,https://www.gbif.org/species/2469832,exact_english_gbif_common_name,NO
+KR0058,Pseudonaja affinis,Dugite,5,2450206,https://www.gbif.org/species/2450206,exact_english_gbif_common_name,NO
+KR0058,Pseudonaja aspidorhyncha,Strap-snouted Brown Snake,5,2450219,https://www.gbif.org/species/2450219,exact_english_gbif_common_name,NO
+KR0058,Pseudonaja aspidorhyncha,Shield-snouted Brown Snake,5,2450219,https://www.gbif.org/species/2450219,exact_english_gbif_common_name,NO
+KR0058,Pseudonaja guttata,Spotted Brown Snake,5,2450248,https://www.gbif.org/species/2450248,exact_english_gbif_common_name,NO
+KR0058,Pseudonaja guttata,Speckled Brown Snake,5,2450248,https://www.gbif.org/species/2450248,exact_english_gbif_common_name,NO
+KR0058,Pseudonaja inframacula,Peninsula Brown Snake,5,2450232,https://www.gbif.org/species/2450232,exact_english_gbif_common_name,NO
+KR0058,Pseudonaja ingrami,Ingram's Brown Snake,5,2450202,https://www.gbif.org/species/2450202,exact_english_gbif_common_name,NO
+KR0058,Pseudonaja mengdeni,Mengden's Brown Snake,5,2450231,https://www.gbif.org/species/2450231,exact_english_gbif_common_name,NO
+KR0058,Pseudonaja modesta,Ringed Brown Snake,5,2450240,https://www.gbif.org/species/2450240,exact_english_gbif_common_name,NO
+KR0058,Pseudonaja nuchalis,Northern Brown Snake,5,2450217,https://www.gbif.org/species/2450217,exact_english_gbif_common_name,NO
+KR0058,Pseudoxenodon bambusicola,Bamboo Snake,5,2452352,https://www.gbif.org/species/2452352,exact_english_gbif_common_name,NO
+KR0058,Pseudoxenodon bambusicola,Bamboo False Cobra,5,2452352,https://www.gbif.org/species/2452352,exact_english_gbif_common_name,NO
+KR0058,Pseudoxenodon baramensis,Baram False Cobra,5,2452371,https://www.gbif.org/species/2452371,exact_english_gbif_common_name,NO
+KR0058,Pseudoxenodon baramensis,Baramen False Cobra,5,2452371,https://www.gbif.org/species/2452371,exact_english_gbif_common_name,NO
+KR0058,Pseudoxenodon baramensis,Baramen Bamboo Snake,5,2452371,https://www.gbif.org/species/2452371,exact_english_gbif_common_name,NO
+KR0058,Pseudoxenodon inornatus,Dull Bamboo Snake,5,2452346,https://www.gbif.org/species/2452346,exact_english_gbif_common_name,NO
+KR0058,Pseudoxenodon inornatus,Javanese False Cobra,5,2452346,https://www.gbif.org/species/2452346,exact_english_gbif_common_name,NO
+KR0058,Pseudoxenodon karlschmidti,Chinese Bamboo Snake,5,2452364,https://www.gbif.org/species/2452364,exact_english_gbif_common_name,NO
+KR0058,Pseudoxenodon karlschmidti,Karl Schmidt's False Cobra,5,2452364,https://www.gbif.org/species/2452364,exact_english_gbif_common_name,NO
+KR0058,Pseudoxenodon macrops,Mock Cobra,5,2452354,https://www.gbif.org/species/2452354,exact_english_gbif_common_name,NO
+KR0058,Pseudoxenodon macrops,Big-eyed Bamboo Snake,5,2452354,https://www.gbif.org/species/2452354,exact_english_gbif_common_name,NO
+KR0058,Pseudoxenodon macrops,Large-eyed False Cobra,5,2452354,https://www.gbif.org/species/2452354,exact_english_gbif_common_name,NO
+KR0058,Pseudoxenodon stejnegeri,Stejneger's Bamboo Snake,5,2452372,https://www.gbif.org/species/2452372,exact_english_gbif_common_name,NO
+KR0058,Psomophis genimaculatus,Spirit Ground Snake,5,2452662,https://www.gbif.org/species/2452662,exact_english_gbif_common_name,NO
+KR0058,Psomophis genimaculatus,Spirit Diminutive Snake,5,2452662,https://www.gbif.org/species/2452662,exact_english_gbif_common_name,NO
+KR0058,Psomophis obtusus,Wide Ground Snake,5,2452666,https://www.gbif.org/species/2452666,exact_english_gbif_common_name,NO
+KR0058,Psomophis obtusus,Red-bellied Diminutive Snake,5,2452666,https://www.gbif.org/species/2452666,exact_english_gbif_common_name,NO
+KR0058,Ptychophis flavovirgatus,Fanged Water Snake,5,2452714,https://www.gbif.org/species/2452714,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis adleri,Hainan Keelback,5,2452310,https://www.gbif.org/species/2452310,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis adleri,Adler's Keelback,5,2452310,https://www.gbif.org/species/2452310,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis angeli,Angel's Keelback,5,2452247,https://www.gbif.org/species/2452247,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis angeli,Tam Dao Keelback,5,2452247,https://www.gbif.org/species/2452247,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis angeli,Guangdong Keelback,5,2452247,https://www.gbif.org/species/2452247,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis auriculatus,White-lined Water Snake,5,2452281,https://www.gbif.org/species/2452281,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis barbouri,Barbour's Water Snake,5,2452311,https://www.gbif.org/species/2452311,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis callistus,Boettger's Keelback,5,2452246,https://www.gbif.org/species/2452246,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis chrysargoides,Sahul Keelback,5,2452283,https://www.gbif.org/species/2452283,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis chrysargoides,Javanese Keelback,5,2452283,https://www.gbif.org/species/2452283,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis chrysargoides,Günther's Keelback,5,2452283,https://www.gbif.org/species/2452283,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis chrysargos,Southern Water Snake,5,2452214,https://www.gbif.org/species/2452214,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis chrysargos,SpeckleBelly Keelback,5,2452214,https://www.gbif.org/species/2452214,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis chrysargos,Speckle-bellied Keelback,5,2452214,https://www.gbif.org/species/2452214,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis conspicillatus,Red-belled Keelback,5,2452257,https://www.gbif.org/species/2452257,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis conspicillatus,Red-Bellied Keelback,5,2452257,https://www.gbif.org/species/2452257,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis himalayanus,Himalayan Keelback,5,2452285,https://www.gbif.org/species/2452285,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis himalayanus,Orange-collared Keelback,5,2452285,https://www.gbif.org/species/2452285,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis leonardi,Leonard's Keelback,5,2452227,https://www.gbif.org/species/2452227,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis lineatus,Zigzag-lined Keelback,5,2452230,https://www.gbif.org/species/2452230,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis lineatus,Zigzag-lined Water Snake,5,2452230,https://www.gbif.org/species/2452230,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis murudensis,Muruden Keelback,5,2452262,https://www.gbif.org/species/2452262,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis murudensis,Gunung Murud Keelback,5,2452262,https://www.gbif.org/species/2452262,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis nigrocinctus,Green Keelback,5,2452291,https://www.gbif.org/species/2452291,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis nigrocinctus,Banded Keelback,5,2452291,https://www.gbif.org/species/2452291,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis nigrocinctus,Black-banded Keelback,5,2452291,https://www.gbif.org/species/2452291,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis nuchalis,Hubei Keelback,5,2452233,https://www.gbif.org/species/2452233,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis nuchalis,Groove-necked Keelback,5,2452233,https://www.gbif.org/species/2452233,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis spilogaster,Boie's Keelback,5,2452265,https://www.gbif.org/species/2452265,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis swinhonis,Taiwan Keelback,5,2452242,https://www.gbif.org/species/2452242,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis tigrinus,Tiger Keelback,5,2452268,https://www.gbif.org/species/2452268,exact_english_gbif_common_name,NO
+KR0058,Rhabdophis tigrinus,Japanese Keelback,5,2452268,https://www.gbif.org/species/2452268,exact_english_gbif_common_name,NO
+KR0058,Rhabdops olivaceus,Olive Forest Snake,5,2453066,https://www.gbif.org/species/2453066,exact_english_gbif_common_name,NO
+KR0058,Rhabdops olivaceus,Olive Trapezoid Snake,5,2453066,https://www.gbif.org/species/2453066,exact_english_gbif_common_name,NO
+KR0058,Rhabdops olivaceus,Olivaceous Smooth Snake,5,2453066,https://www.gbif.org/species/2453066,exact_english_gbif_common_name,NO
+KR0058,Rhadinophanes monticola,Graceful Mountain Snake,5,2453656,https://www.gbif.org/species/2453656,exact_english_gbif_common_name,NO
+KR0058,Rhinobothryum bovallii,False Tree Coral,5,2452971,https://www.gbif.org/species/2452971,exact_english_gbif_common_name,NO
+KR0058,Rhinobothryum lentiginosum,Amazon Banded Snake,5,2452973,https://www.gbif.org/species/2452973,exact_english_gbif_common_name,NO
+KR0058,Rhinoplocephalus bicolor,Muller's Snake,5,2450088,https://www.gbif.org/species/2450088,exact_english_gbif_common_name,NO
+KR0058,Rhinoplocephalus bicolor,Square-nosed Snake,5,2450088,https://www.gbif.org/species/2450088,exact_english_gbif_common_name,NO
+KR0058,Salomonelaps par,Solomons Red Krait,5,2449620,https://www.gbif.org/species/2449620,exact_english_gbif_common_name,NO
+KR0058,Salomonelaps par,Solomons Coral Snake,5,2449620,https://www.gbif.org/species/2449620,exact_english_gbif_common_name,NO
+KR0058,Sanzinia madagascariensis,Sanzinia,5,2465128,https://www.gbif.org/species/2465128,exact_english_gbif_common_name,NO
+KR0058,Sanzinia madagascariensis,Malagasy tree boa,5,2465128,https://www.gbif.org/species/2465128,exact_english_gbif_common_name,NO
+KR0058,Sanzinia madagascariensis,Madagascar Tree Boa,5,2465128,https://www.gbif.org/species/2465128,exact_english_gbif_common_name,NO
+KR0058,Senticolis triaspis,Green Ratsnake,5,2453638,https://www.gbif.org/species/2453638,exact_english_gbif_common_name,NO
+KR0058,Simoselaps anomalus,Northern Desert Banded Snake,5,2449988,https://www.gbif.org/species/2449988,exact_english_gbif_common_name,NO
+KR0058,Simoselaps bertholdi,Jan's Banded Snake,5,2450013,https://www.gbif.org/species/2450013,exact_english_gbif_common_name,NO
+KR0058,Simoselaps bertholdi,Desert Banded Snake,5,2450013,https://www.gbif.org/species/2450013,exact_english_gbif_common_name,NO
+KR0058,Simoselaps bertholdi,Southern Desert Banded Snake,5,2450013,https://www.gbif.org/species/2450013,exact_english_gbif_common_name,NO
+KR0058,Simoselaps littoralis,Coastal Burrowing Snake,5,2450028,https://www.gbif.org/species/2450028,exact_english_gbif_common_name,NO
+KR0058,Simoselaps littoralis,West Coast Banded Snake,5,2450028,https://www.gbif.org/species/2450028,exact_english_gbif_common_name,NO
+KR0058,Simoselaps minimus,Dampierland Burrowing Snake,5,2450053,https://www.gbif.org/species/2450053,exact_english_gbif_common_name,NO
+KR0058,Sinomicrurus japonicus,Hyan Coral Snake,5,2469812,https://www.gbif.org/species/2469812,exact_english_gbif_common_name,NO
+KR0058,Sinomicrurus japonicus,Japanese Coral Snake,5,2469812,https://www.gbif.org/species/2469812,exact_english_gbif_common_name,NO
+KR0058,Sinomicrurus kelloggi,Kellog's Coral Snake,5,2470446,https://www.gbif.org/species/2470446,exact_english_gbif_common_name,NO
+KR0058,Sinomicrurus kelloggi,Kellogg's Coral Snake,5,2470446,https://www.gbif.org/species/2470446,exact_english_gbif_common_name,NO
+KR0058,Sinomicrurus macclellandi,Black-headed Coral Snake,5,2470516,https://www.gbif.org/species/2470516,exact_english_gbif_common_name,NO
+KR0058,Sinomicrurus macclellandi,MacLelland's Coral Snake,5,2470516,https://www.gbif.org/species/2470516,exact_english_gbif_common_name,NO
+KR0058,Sinomicrurus macclellandi,MacClelland's Coral Snake,5,2470516,https://www.gbif.org/species/2470516,exact_english_gbif_common_name,NO
+KR0058,Sinomicrurus sauteri,Taiwan Coral Snake,5,2469826,https://www.gbif.org/species/2469826,exact_english_gbif_common_name,NO
+KR0058,Sinomicrurus sauteri,Oriental Coral Snake,5,2469826,https://www.gbif.org/species/2469826,exact_english_gbif_common_name,NO
+KR0058,Sistrurus miliarius,Pigmy Rattlesnake,5,2444222,https://www.gbif.org/species/2444222,exact_english_gbif_common_name,NO
+KR0058,Sistrurus miliarius,Pygmy Rattlesnake,5,2444222,https://www.gbif.org/species/2444222,exact_english_gbif_common_name,NO
+KR0058,Sonora aemula,Filetail Ground Snake,5,2453082,https://www.gbif.org/species/2453082,exact_english_gbif_common_name,NO
+KR0058,Sonora michoacanensis,Michoacán Ground Snake,5,2453089,https://www.gbif.org/species/2453089,exact_english_gbif_common_name,NO
+KR0058,Sonora mosaueri,Mosauer’s Ground Snake,5,2453087,https://www.gbif.org/species/2453087,exact_english_gbif_common_name,NO
+KR0058,Sonora semiannulata,Groundsnake,5,2453084,https://www.gbif.org/species/2453084,exact_english_gbif_common_name,NO
+KR0058,Sonora semiannulata,Common Ground Snake,5,2453084,https://www.gbif.org/species/2453084,exact_english_gbif_common_name,NO
+KR0058,Sonora semiannulata,Western Groundsnake,5,2453084,https://www.gbif.org/species/2453084,exact_english_gbif_common_name,NO
+KR0058,Sonora taylori,Taylor’s Ground Snake,5,2453085,https://www.gbif.org/species/2453085,exact_english_gbif_common_name,NO
+KR0058,Sordellina punctata,Dotted Brown Snake,5,2453228,https://www.gbif.org/species/2453228,exact_english_gbif_common_name,NO
+KR0058,Suta fasciata,Rosen's Snake,5,2449873,https://www.gbif.org/species/2449873,exact_english_gbif_common_name,NO
+KR0058,Suta gouldii,Black-headed Snake,5,2449846,https://www.gbif.org/species/2449846,exact_english_gbif_common_name,NO
+KR0058,Suta gouldii,Bush’s Hooded Snake,5,2449846,https://www.gbif.org/species/2449846,exact_english_gbif_common_name,NO
+KR0058,Suta gouldii,Gould's Hooded Snake,5,2449846,https://www.gbif.org/species/2449846,exact_english_gbif_common_name,NO
+KR0058,Suta monachus,Monk Snake,5,2449825,https://www.gbif.org/species/2449825,exact_english_gbif_common_name,NO
+KR0058,Suta monachus,Hooded Snake,5,2449825,https://www.gbif.org/species/2449825,exact_english_gbif_common_name,NO
+KR0058,Suta monachus,Inland Hooded Snake,5,2449825,https://www.gbif.org/species/2449825,exact_english_gbif_common_name,NO
+KR0058,Suta ordensis,Ord Snake,5,2449844,https://www.gbif.org/species/2449844,exact_english_gbif_common_name,NO
+KR0058,Suta ordensis,Ord Curl Snake,5,2449844,https://www.gbif.org/species/2449844,exact_english_gbif_common_name,NO
+KR0058,Suta punctata,Spotted Snake,5,2449822,https://www.gbif.org/species/2449822,exact_english_gbif_common_name,NO
+KR0058,Suta punctata,Little Spotted Snake,5,2449822,https://www.gbif.org/species/2449822,exact_english_gbif_common_name,NO
+KR0058,Suta suta,Curl Snake,5,2449833,https://www.gbif.org/species/2449833,exact_english_gbif_common_name,NO
+KR0058,Suta suta,Myal Snake,5,2449833,https://www.gbif.org/species/2449833,exact_english_gbif_common_name,NO
+KR0058,Symphimus leucostomus,Mexican White-lipped Snake,5,2452505,https://www.gbif.org/species/2452505,exact_english_gbif_common_name,NO
+KR0058,Symphimus mayae,Mayan Golden-backed Snake,5,2452501,https://www.gbif.org/species/2452501,exact_english_gbif_common_name,NO
+KR0058,Symphimus mayae,Yucatán White-lipped Snake,5,2452501,https://www.gbif.org/species/2452501,exact_english_gbif_common_name,NO
+KR0058,Taeniophallus brevirostris,Short-Nosed Groundsnake,5,2452042,https://www.gbif.org/species/2452042,exact_english_gbif_common_name,NO
+KR0058,Toxicocalamus buergersi,Bürger’s Forest Snake,5,2449947,https://www.gbif.org/species/2449947,exact_english_gbif_common_name,NO
+KR0058,Toxicocalamus buergersi,Buerger's Forest Snake,5,2449947,https://www.gbif.org/species/2449947,exact_english_gbif_common_name,NO
+KR0058,Toxicocalamus grandis,Setekwa River Forest Snake,5,2449942,https://www.gbif.org/species/2449942,exact_english_gbif_common_name,NO
+KR0058,Toxicocalamus holopelturus,Mt Rossel Forest Snake,5,2449929,https://www.gbif.org/species/2449929,exact_english_gbif_common_name,NO
+KR0058,Toxicocalamus holopelturus,Mount Rossel Forest Snake,5,2449929,https://www.gbif.org/species/2449929,exact_english_gbif_common_name,NO
+KR0058,Toxicocalamus longissimus,Woodlark Forest Snake,5,2449946,https://www.gbif.org/species/2449946,exact_english_gbif_common_name,NO
+KR0058,Toxicocalamus longissimus,Woodlark Island Snake,5,2449946,https://www.gbif.org/species/2449946,exact_english_gbif_common_name,NO
+KR0058,Toxicocalamus longissimus,Woodlark Island Forest Snake,5,2449946,https://www.gbif.org/species/2449946,exact_english_gbif_common_name,NO
+KR0058,Toxicocalamus loriae,Loria Forest Snake,5,2449937,https://www.gbif.org/species/2449937,exact_english_gbif_common_name,NO
+KR0058,Toxicocalamus misimae,Misima Island Forest Snake,5,2449945,https://www.gbif.org/species/2449945,exact_english_gbif_common_name,NO
+KR0058,Toxicocalamus preussi,Preuss's Forest Snake,5,2449931,https://www.gbif.org/species/2449931,exact_english_gbif_common_name,NO
+KR0058,Toxicocalamus spilolepidotus,Spotted Forest Snake,5,2449944,https://www.gbif.org/species/2449944,exact_english_gbif_common_name,NO
+KR0058,Toxicocalamus stanleyanus,Owen Stanley Range Forest Snake,5,2449930,https://www.gbif.org/species/2449930,exact_english_gbif_common_name,NO
+KR0058,Tretanorhinus mocquardi,Mocquard's Swamp Snake,5,2452123,https://www.gbif.org/species/2452123,exact_english_gbif_common_name,NO
+KR0058,Tretanorhinus nigroluteus,Orangebelly Swamp Snake,5,2452130,https://www.gbif.org/species/2452130,exact_english_gbif_common_name,NO
+KR0058,Tretanorhinus nigroluteus,Orange-bellied Swampsnake,5,2452130,https://www.gbif.org/species/2452130,exact_english_gbif_common_name,NO
+KR0058,Tretanorhinus taeniatus,Striped Swamp Snake,5,2452122,https://www.gbif.org/species/2452122,exact_english_gbif_common_name,NO
+KR0058,Tretanorhinus variabilis,Caribbean Watersnake,5,2452124,https://www.gbif.org/species/2452124,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus cantori,Cantor's Pit Viper,5,2444772,https://www.gbif.org/species/2444772,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus erythrurus,Bamboo Pitviper,5,2444110,https://www.gbif.org/species/2444110,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus erythrurus,Redtail Pitviper,5,2444110,https://www.gbif.org/species/2444110,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus erythrurus,Naga-hill Pit Viper,5,2444110,https://www.gbif.org/species/2444110,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus fasciatus,Banded Pit Viper,5,2444786,https://www.gbif.org/species/2444786,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus gumprechti,Gumprecht's Pit Viper,5,2444511,https://www.gbif.org/species/2444511,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus gumprechti,Gumprecht's Green Pitviper,5,2444511,https://www.gbif.org/species/2444511,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus hageni,Hagen's Pitviper,5,2444189,https://www.gbif.org/species/2444189,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus hageni,Indonesian Pit Viper,5,2444189,https://www.gbif.org/species/2444189,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus hageni,Hagen's Green Pit Viper,5,2444189,https://www.gbif.org/species/2444189,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus kanburiensis,Kanburi Pit Viper,5,2444789,https://www.gbif.org/species/2444789,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus labialis,Island Pit Viper,5,2444806,https://www.gbif.org/species/2444806,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus labialis,Nicobar Bamboo Pitviper,5,2444806,https://www.gbif.org/species/2444806,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus macrops,Kramer's Pit Viper,5,2444809,https://www.gbif.org/species/2444809,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus macrops,Large-eyed Pitviper,5,2444809,https://www.gbif.org/species/2444809,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus macrops,Big-eyed Green Pitviper,5,2444809,https://www.gbif.org/species/2444809,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus mcgregori,McGregor's Pitviper,5,2444204,https://www.gbif.org/species/2444204,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus mcgregori,Philippine Pit Viper,5,2444204,https://www.gbif.org/species/2444204,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus mcgregori,McGregor's Tree Viper,5,2444204,https://www.gbif.org/species/2444204,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus medoensis,Medo Pit Viper,5,2444509,https://www.gbif.org/species/2444509,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus medoensis,Green Bamboo Pitviper,5,2444509,https://www.gbif.org/species/2444509,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus medoensis,Motuo Bamboo Pitviper,5,2444509,https://www.gbif.org/species/2444509,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus mutabilis,Nicobar Pit Viper,5,2444805,https://www.gbif.org/species/2444805,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus mutabilis,Central Nicobar Pit Viper,5,2444805,https://www.gbif.org/species/2444805,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus mutabilis,Central Nicobar Bamboo Pitviper,5,2444805,https://www.gbif.org/species/2444805,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus popeiorum,Pope's Pit Viper,5,2444101,https://www.gbif.org/species/2444101,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus popeiorum,Pope's Tree Viper,5,2444101,https://www.gbif.org/species/2444101,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus popeiorum,Pope's Green Pit Viper,5,2444101,https://www.gbif.org/species/2444101,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus purpureomaculatus,Mangrove Viper,5,2444763,https://www.gbif.org/species/2444763,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus purpureomaculatus,Shore Pit Viper,5,2444763,https://www.gbif.org/species/2444763,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus purpureomaculatus,Mangrove Pit Viper,5,2444763,https://www.gbif.org/species/2444763,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus schultzei,Schultze's Pit Viper,5,2444216,https://www.gbif.org/species/2444216,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus stejnegeri,Stejneger's Pit Viper,5,2444513,https://www.gbif.org/species/2444513,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus stejnegeri,Chen’s Bamboo Pit Viper,5,2444513,https://www.gbif.org/species/2444513,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus stejnegeri,Chinese Green Tree Viper,5,2444513,https://www.gbif.org/species/2444513,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus sumatranus,Sumatra Pit Viper,5,2443741,https://www.gbif.org/species/2443741,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus venustus,Beautiful Pitviper,5,2444784,https://www.gbif.org/species/2444784,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus venustus,Brown-spotted Pit Viper,5,2444784,https://www.gbif.org/species/2444784,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus vogeli,Vogel's Pit Viper,5,2444507,https://www.gbif.org/species/2444507,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus yunnanensis,Yunnan Pit Viper,5,2444505,https://www.gbif.org/species/2444505,exact_english_gbif_common_name,NO
+KR0058,Trimeresurus yunnanensis,Yunnan Bamboo Pitviper,5,2444505,https://www.gbif.org/species/2444505,exact_english_gbif_common_name,NO
+KR0058,Tropidechis carinatus,Rough-scaled Snake,5,2449877,https://www.gbif.org/species/2449877,exact_english_gbif_common_name,NO
+KR0058,Tropidechis carinatus,Clarence River Snake,5,2449877,https://www.gbif.org/species/2449877,exact_english_gbif_common_name,NO
+KR0058,Tropidolaemus huttoni,Hutton's Pitviper,5,2443718,https://www.gbif.org/species/2443718,exact_english_gbif_common_name,NO
+KR0058,Tropidolaemus laticinctus,Broad-banded Temple Pitviper,5,2443720,https://www.gbif.org/species/2443720,exact_english_gbif_common_name,NO
+KR0058,Tropidolaemus subannulatus,Bornean Keeled Pit Viper,5,2443729,https://www.gbif.org/species/2443729,exact_english_gbif_common_name,NO
+KR0058,Tropidolaemus subannulatus,Bornean Keeled Green Pit Viper,5,2443729,https://www.gbif.org/species/2443729,exact_english_gbif_common_name,NO
+KR0058,Tropidolaemus subannulatus,North Philippine Temple Pitviper,5,2443729,https://www.gbif.org/species/2443729,exact_english_gbif_common_name,NO
+KR0058,Tropidolaemus wagleri,Temple Pitviper,5,2443722,https://www.gbif.org/species/2443722,exact_english_gbif_common_name,NO
+KR0058,Tropidolaemus wagleri,Wagler's Pit Viper,5,2443722,https://www.gbif.org/species/2443722,exact_english_gbif_common_name,NO
+KR0058,Tropidolaemus wagleri,Wagler's Palm Viper,5,2443722,https://www.gbif.org/species/2443722,exact_english_gbif_common_name,NO
+KR0058,Ungaliophis continentalis,Chiapan Boa,5,2450364,https://www.gbif.org/species/2450364,exact_english_gbif_common_name,NO
+KR0058,Ungaliophis continentalis,Isthmian Dwarf Boa,5,2450364,https://www.gbif.org/species/2450364,exact_english_gbif_common_name,NO
+KR0058,Ungaliophis panamensis,Panamanian Dwarf Boa,5,2450366,https://www.gbif.org/species/2450366,exact_english_gbif_common_name,NO
+KR0058,Vermicella annulata,Bandy Bandy,5,2449802,https://www.gbif.org/species/2449802,exact_english_gbif_common_name,NO
+KR0058,Vermicella annulata,Eastern Bandy Bandy,5,2449802,https://www.gbif.org/species/2449802,exact_english_gbif_common_name,NO
+KR0058,Vermicella intermedia,Intermediate Bandy Bandy,5,2449808,https://www.gbif.org/species/2449808,exact_english_gbif_common_name,NO
+KR0058,Vermicella multifasciata,Northern Bandy Bandy,5,2449800,https://www.gbif.org/species/2449800,exact_english_gbif_common_name,NO
+KR0058,Vermicella snelli,Pilbara Bandy Bandy,5,2449810,https://www.gbif.org/species/2449810,exact_english_gbif_common_name,NO
+KR0058,Vermicella vermiformis,Centralian Bandy Bandy,5,2449809,https://www.gbif.org/species/2449809,exact_english_gbif_common_name,NO
+KR0058,Vipera ammodytes,Sand Viper,5,2444308,https://www.gbif.org/species/2444308,exact_english_gbif_common_name,NO
+KR0058,Vipera ammodytes,Nose-horned Viper,5,2444308,https://www.gbif.org/species/2444308,exact_english_gbif_common_name,NO
+KR0058,Vipera aspis,Asp Viper,5,2444339,https://www.gbif.org/species/2444339,exact_english_gbif_common_name,NO
+KR0058,Walterinnesia aegyptia,Desert Cobra,5,2469840,https://www.gbif.org/species/2469840,exact_english_gbif_common_name,NO
+KR0058,Walterinnesia aegyptia,Innes' Snake,5,2469840,https://www.gbif.org/species/2469840,exact_english_gbif_common_name,NO
+KR0058,Walterinnesia aegyptia,Desert Black Snake,5,2469840,https://www.gbif.org/species/2469840,exact_english_gbif_common_name,NO
+KR0058,Xenelaphis ellipsifer,Ornate Brown Snake,5,2453611,https://www.gbif.org/species/2453611,exact_english_gbif_common_name,NO
+KR0058,Xenelaphis ellipsifer,Ocellated Brown Snake,5,2453611,https://www.gbif.org/species/2453611,exact_english_gbif_common_name,NO
+KR0058,Xenelaphis hexagonotus,Malayan Brown Snake,5,2453612,https://www.gbif.org/species/2453612,exact_english_gbif_common_name,NO
+KR0058,Xenelaphis hexagonotus,Malaysian Brown Snake,5,2453612,https://www.gbif.org/species/2453612,exact_english_gbif_common_name,NO
+KR0058,Xyelodontophis uluguruensis,Dagger-tooth Vine Snake,5,2452420,https://www.gbif.org/species/2452420,exact_english_gbif_common_name,NO
+KR0072,Orobittacus obscurus,gold rush hanging scorpionfly,5,1031884,https://www.gbif.org/species/1031884,exact_english_gbif_common_name,NO
+KR0072,Polypsocus corruptus,Corrupt Barklouse,5,1031690,https://www.gbif.org/species/1031690,exact_english_gbif_common_name,NO
+KR0072,Pseudorypteryx mexicana,Cave barklouse,5,1031740,https://www.gbif.org/species/1031740,exact_english_gbif_common_name,NO
+KR0072,Sphaeropsocopsis argentina,Tiny bark louse,5,1031411,https://www.gbif.org/species/1031411,exact_english_gbif_common_name,NO
+KR0072,Stimulopalpus japonicus,Japanese Barklice,5,1031745,https://www.gbif.org/species/1031745,exact_english_gbif_common_name,NO
+KR0072,Stimulopalpus japonicus,Japanese Barklouse,5,1031745,https://www.gbif.org/species/1031745,exact_english_gbif_common_name,NO
+KR0072,Stimulopalpus japonicus,Tropical bark louse,5,1031745,https://www.gbif.org/species/1031745,exact_english_gbif_common_name,NO
+KR0072,Trichadenotecnum circularoides,Common bark louse,5,1031467,https://www.gbif.org/species/1031467,exact_english_gbif_common_name,NO
+KR0072,Trogium pulsatorium,Bookworm,5,1031677,https://www.gbif.org/species/1031677,exact_english_gbif_common_name,NO
+KR0072,Trogium pulsatorium,Deathwatch,5,1031677,https://www.gbif.org/species/1031677,exact_english_gbif_common_name,NO
+KR0072,Trogium pulsatorium,Grain Psocid,5,1031677,https://www.gbif.org/species/1031677,exact_english_gbif_common_name,NO
+KR0072,Valenzuela flavidus,Yellow Barklouse,5,1031710,https://www.gbif.org/species/1031710,exact_english_gbif_common_name,NO
+KR0079,Alouatta belzebul,Red-handed Howler,2,2436655,https://www.gbif.org/species/2436655,exact_english_gbif_common_name,NO
+KR0079,Alouatta belzebul,Red-handed Howler Monkey,2,2436655,https://www.gbif.org/species/2436655,exact_english_gbif_common_name,NO
+KR0079,Alouatta belzebul,Red-handed Howling Monkey,2,2436655,https://www.gbif.org/species/2436655,exact_english_gbif_common_name,NO
+KR0079,Alouatta palliata,mexicana,2,2436649,https://www.gbif.org/species/2436649,exact_english_gbif_common_name,NO
+KR0079,Alouatta palliata,Mantled Howler,2,2436649,https://www.gbif.org/species/2436649,exact_english_gbif_common_name,NO
+KR0079,Alouatta palliata,Mexican Howler,2,2436649,https://www.gbif.org/species/2436649,exact_english_gbif_common_name,NO
+KR0079,Cacajao calvus,calvus,2,2436410,https://www.gbif.org/species/2436410,exact_english_gbif_common_name,NO
+KR0079,Cacajao calvus,Bald Uacar,2,2436410,https://www.gbif.org/species/2436410,exact_english_gbif_common_name,NO
+KR0079,Cacajao calvus,Red Uacari,2,2436410,https://www.gbif.org/species/2436410,exact_english_gbif_common_name,NO
+KR0079,Cebuella pygmaea,pygmaea,2,4827382,https://www.gbif.org/species/4827382,exact_english_gbif_common_name,NO
+KR0079,Cebuella pygmaea,Western Pygmy Marmoset,2,4827382,https://www.gbif.org/species/4827382,exact_english_gbif_common_name,NO
+KR0079,Cebuella pygmaea,Northern Pygmy Marmoset,2,4827382,https://www.gbif.org/species/4827382,exact_english_gbif_common_name,NO
+KR0079,Hylobates pileatus,Capped Gibbon,2,5219544,https://www.gbif.org/species/5219544,exact_english_gbif_common_name,NO
+KR0079,Hylobates pileatus,Crowned Gibbon,2,5219544,https://www.gbif.org/species/5219544,exact_english_gbif_common_name,NO
+KR0079,Hylobates pileatus,Pileated Gibbon,2,5219544,https://www.gbif.org/species/5219544,exact_english_gbif_common_name,NO
+KR0079,Macaca silenus,Wanderoo,2,2436617,https://www.gbif.org/species/2436617,exact_english_gbif_common_name,NO
+KR0079,Macaca silenus,Liontail Macaque,2,2436617,https://www.gbif.org/species/2436617,exact_english_gbif_common_name,NO
+KR0079,Macaca silenus,Lion-tailed Macaque,2,2436617,https://www.gbif.org/species/2436617,exact_english_gbif_common_name,NO
+KR0079,Perodicticus potto,stockleyi,2,2436624,https://www.gbif.org/species/2436624,exact_english_gbif_common_name,NO
+KR0079,Perodicticus potto,Softly-softly,2,2436624,https://www.gbif.org/species/2436624,exact_english_gbif_common_name,NO
+KR0079,Perodicticus potto,Western Potto,2,2436624,https://www.gbif.org/species/2436624,exact_english_gbif_common_name,NO
+KR0079,Rhinopithecus avunculus,Tonkin Snub-nosed Langur,2,4267009,https://www.gbif.org/species/4267009,exact_english_gbif_common_name,NO
+KR0079,Rhinopithecus avunculus,Tonkin Snub-nosed Monkey,2,4267009,https://www.gbif.org/species/4267009,exact_english_gbif_common_name,NO
+KR0079,Rhinopithecus roxellana,ginlingensis,2,7262005,https://www.gbif.org/species/7262005,exact_english_gbif_common_name,NO
+KR0079,Rhinopithecus roxellana,Golden Snub-nosed Monkey,2,7262005,https://www.gbif.org/species/7262005,exact_english_gbif_common_name,NO
+KR0079,Rhinopithecus roxellana,Sichuan Golden Snub-nosed Monkey,2,7262005,https://www.gbif.org/species/7262005,exact_english_gbif_common_name,NO
+KR0086,Atelopus zeteki,Golden Frog,2,5216695,https://www.gbif.org/species/5216695,exact_english_gbif_common_name,NO
+KR0086,Atelopus zeteki,Panama Golden Frog,2,5216695,https://www.gbif.org/species/5216695,exact_english_gbif_common_name,NO
+KR0086,Atelopus zeteki,Zetek's Golden Frog,2,5216695,https://www.gbif.org/species/5216695,exact_english_gbif_common_name,NO
+KR0086,Craugastor ranoides,Robber frog,2,2430717,https://www.gbif.org/species/2430717,exact_english_gbif_common_name,NO
+KR0086,Craugastor ranoides,Lowland Rain Frog,2,2430717,https://www.gbif.org/species/2430717,exact_english_gbif_common_name,NO
+KR0086,Craugastor ranoides,Common Streamside Frog,2,2430717,https://www.gbif.org/species/2430717,exact_english_gbif_common_name,NO
+KR0086,Hemiphractus fasciatus,Banded Horned Treefrog,2,2429980,https://www.gbif.org/species/2429980,exact_english_gbif_common_name,NO
+KR0086,Leptodactylus fallax,Crapaud,2,5217521,https://www.gbif.org/species/5217521,exact_english_gbif_common_name,NO
+KR0086,Leptodactylus fallax,Giant Ditch Frog,2,5217521,https://www.gbif.org/species/5217521,exact_english_gbif_common_name,NO
+KR0086,Leptodactylus fallax,Mountain Chicken,2,5217521,https://www.gbif.org/species/5217521,exact_english_gbif_common_name,NO
+KR0086,Nyctibatrachus major,Malabar Night Frog,2,2429281,https://www.gbif.org/species/2429281,exact_english_gbif_common_name,NO
+KR0086,Nyctibatrachus major,Large Wrinkled Frog,2,2429281,https://www.gbif.org/species/2429281,exact_english_gbif_common_name,NO
+KR0086,Nyctibatrachus major,Travancore Wrinkled Frog,2,2429281,https://www.gbif.org/species/2429281,exact_english_gbif_common_name,NO
+KR0086,Platymantis dorsalis,Common Forest Frog,2,2421447,https://www.gbif.org/species/2421447,exact_english_gbif_common_name,NO
+KR0086,Platymantis dorsalis,Dumeril's Wrinkled Ground Frog,2,2421447,https://www.gbif.org/species/2421447,exact_english_gbif_common_name,NO
+KR0086,Pseudophryne covacevichae,Magnificent Broodfrog,2,2424569,https://www.gbif.org/species/2424569,exact_english_gbif_common_name,NO
+KR0086,Pseudophryne covacevichae,Millstream Falls Toadlet,2,2424569,https://www.gbif.org/species/2424569,exact_english_gbif_common_name,NO
+KR0086,Rhinoderma darwinii,Southern Darwin's Frog,2,5217388,https://www.gbif.org/species/5217388,exact_english_gbif_common_name,NO
+KR0086,Telmatobius culeus,White Water Frog,2,2424499,https://www.gbif.org/species/2424499,exact_english_gbif_common_name,NO
+KR0086,Telmatobius culeus,Lake Titicaca Frog,2,2424499,https://www.gbif.org/species/2424499,exact_english_gbif_common_name,NO
+KR0086,Telmatobius culeus,Titicaca Water Frog,2,2424499,https://www.gbif.org/species/2424499,exact_english_gbif_common_name,NO
+KR0093,Talanites moodyae,Moody's Gnaphosid Spider,5,2132864,https://www.gbif.org/species/2132864,exact_english_gbif_common_name,NO
+KR0093,Talanites ubicki,Ubick's Gnaphosid Spider,5,2132870,https://www.gbif.org/species/2132870,exact_english_gbif_common_name,NO
+KR0093,Zelotes laetus,Ground spider,5,2132374,https://www.gbif.org/species/2132374,exact_english_gbif_common_name,NO
+KR0093,Zelotes tenuis,Stealthy ground spider,5,2132599,https://www.gbif.org/species/2132599,exact_english_gbif_common_name,NO
+KR0100,Aplodontia rufa,phaea,2,2439690,https://www.gbif.org/species/2439690,exact_english_gbif_common_name,NO
+KR0100,Aplodontia rufa,Boomer,2,2439690,https://www.gbif.org/species/2439690,exact_english_gbif_common_name,NO
+KR0100,Aplodontia rufa,Showte,2,2439690,https://www.gbif.org/species/2439690,exact_english_gbif_common_name,NO
+KR0100,Cricetomys ansorgei,Giant Rat,2,4263434,https://www.gbif.org/species/4263434,exact_english_gbif_common_name,NO
+KR0100,Cricetomys ansorgei,Gambian Rat,2,4263434,https://www.gbif.org/species/4263434,exact_english_gbif_common_name,NO
+KR0100,Cricetomys ansorgei,African Giant Rat,2,4263434,https://www.gbif.org/species/4263434,exact_english_gbif_common_name,NO
+KR0100,Heterocephalus glaber,Sand Puppy,2,5219654,https://www.gbif.org/species/5219654,exact_english_gbif_common_name,NO
+KR0100,Heterocephalus glaber,Naked Mole Rat,2,5219654,https://www.gbif.org/species/5219654,exact_english_gbif_common_name,NO
+KR0100,Heterocephalus glaber,Desert Mole Rat,2,5219654,https://www.gbif.org/species/5219654,exact_english_gbif_common_name,NO
+KR0100,Ichthyomys pittieri,Pittier’s Ichthyomys,2,2437714,https://www.gbif.org/species/2437714,exact_english_gbif_common_name,NO
+KR0100,Ichthyomys pittieri,Pittier s Ichthyomyine,2,2437714,https://www.gbif.org/species/2437714,exact_english_gbif_common_name,NO
+KR0100,Ichthyomys pittieri,Pittier's Crab-eating Rat,2,2437714,https://www.gbif.org/species/2437714,exact_english_gbif_common_name,NO
+KR0100,Lemniscomys rosalia,Zebra Mouse,2,2438201,https://www.gbif.org/species/2438201,exact_english_gbif_common_name,NO
+KR0100,Lemniscomys rosalia,Single-striped Mouse,2,2438201,https://www.gbif.org/species/2438201,exact_english_gbif_common_name,NO
+KR0100,Lemniscomys rosalia,Single-Striped Lemniscomys,2,2438201,https://www.gbif.org/species/2438201,exact_english_gbif_common_name,NO
+KR0100,Myospalax aspalax,False Zokor,2,2439122,https://www.gbif.org/species/2439122,exact_english_gbif_common_name,NO
+KR0100,Myospalax aspalax,Steppe Zokor,2,2439122,https://www.gbif.org/species/2439122,exact_english_gbif_common_name,NO
+KR0100,Myospalax aspalax,Daurian Zokor,2,2439122,https://www.gbif.org/species/2439122,exact_english_gbif_common_name,NO
+KR0100,Rhizomys pruinosus,Hoary Bamboo Rat,2,2438059,https://www.gbif.org/species/2438059,exact_english_gbif_common_name,NO
+KR0100,Salpingotus crassicauda,gobicus,2,2439499,https://www.gbif.org/species/2439499,exact_english_gbif_common_name,NO
+KR0100,Salpingotus crassicauda,Thick-tailed Pygmy Jerboa,2,2439499,https://www.gbif.org/species/2439499,exact_english_gbif_common_name,NO
+KR0100,Salpingotus crassicauda,Gobi Thick-tailed Pygmy Jerboa,2,2439499,https://www.gbif.org/species/2439499,exact_english_gbif_common_name,NO
+KR0114,Bubo philippensis,Philippine Eagle-Owl,2,5959140,https://www.gbif.org/species/5959140,exact_english_gbif_common_name,NO
+KR0114,Otus balli,Andaman Scops Owl,2,5232354,https://www.gbif.org/species/5232354,exact_english_gbif_common_name,NO
+KR0114,Otus lempiji,Sunda Scops Owl,2,7340194,https://www.gbif.org/species/7340194,exact_english_gbif_common_name,NO
+KR0114,Otus rutilus,Malagasy Scops-Owl,2,5232267,https://www.gbif.org/species/5232267,exact_english_gbif_common_name,NO
+KR0114,Otus rutilus,Madagascar Scops Owl,2,5232267,https://www.gbif.org/species/5232267,exact_english_gbif_common_name,NO
+KR0114,Otus rutilus,Rainforest Scops Owl,2,5232267,https://www.gbif.org/species/5232267,exact_english_gbif_common_name,NO
+KR0124,Quercus acuta,Red-wood evergreen oak,5,2876863,https://www.gbif.org/species/2876863,exact_english_gbif_common_name,NO
+KR0124,Quercus acutissima,Bristle Oak,5,2877959,https://www.gbif.org/species/2877959,exact_english_gbif_common_name,NO
+KR0124,Quercus acutissima,Chinese Oak,5,2877959,https://www.gbif.org/species/2877959,exact_english_gbif_common_name,NO
+KR0124,Quercus acutissima,Sawtooth oak,5,2877959,https://www.gbif.org/species/2877959,exact_english_gbif_common_name,NO
+KR0124,Quercus afares,African Oak,5,2878062,https://www.gbif.org/species/2878062,exact_english_gbif_common_name,NO
+KR0124,Quercus ajoensis,Ajo Mountain Scrub Oak,5,2878465,https://www.gbif.org/species/2878465,exact_english_gbif_common_name,NO
+KR0124,Quercus alvordiana,Alvord's oak,5,2878156,https://www.gbif.org/species/2878156,exact_english_gbif_common_name,NO
+KR0124,Quercus aquifolioides,Hengduan Mountain Oak,5,2878533,https://www.gbif.org/species/2878533,exact_english_gbif_common_name,NO
+KR0124,Quercus arizonica,Arizona White Oak,5,2877992,https://www.gbif.org/species/2877992,exact_english_gbif_common_name,NO
+KR0124,Quercus bicolor,bicolor oak,5,2878470,https://www.gbif.org/species/2878470,exact_english_gbif_common_name,NO
+KR0124,Quercus bicolor,Swamp White Oak,5,2878470,https://www.gbif.org/species/2878470,exact_english_gbif_common_name,NO
+KR0124,Quercus caesariensis,Caesar's oak,5,2878463,https://www.gbif.org/species/2878463,exact_english_gbif_common_name,NO
+KR0124,Quercus crassifolia,Leather Leaf Mexican Oak,5,2878540,https://www.gbif.org/species/2878540,exact_english_gbif_common_name,NO
+KR0124,Quercus depressipes,depressed oak,5,2878542,https://www.gbif.org/species/2878542,exact_english_gbif_common_name,NO
+KR0124,Quercus depressipes,Davis Mountain Oak,5,2878542,https://www.gbif.org/species/2878542,exact_english_gbif_common_name,NO
+KR0124,Quercus douglasii,Iron Oak,5,2878266,https://www.gbif.org/species/2878266,exact_english_gbif_common_name,NO
+KR0124,Quercus douglasii,Mountain Oak,5,2878266,https://www.gbif.org/species/2878266,exact_english_gbif_common_name,NO
+KR0124,Quercus emoryi,Emory Oak,5,2878171,https://www.gbif.org/species/2878171,exact_english_gbif_common_name,NO
+KR0124,Quercus emoryi,Emory's oak,5,2878171,https://www.gbif.org/species/2878171,exact_english_gbif_common_name,NO
+KR0124,Quercus fabrei,Faber's Oak,5,2877952,https://www.gbif.org/species/2877952,exact_english_gbif_common_name,NO
+KR0124,Quercus fabrei,Fabre’s oak,5,2877952,https://www.gbif.org/species/2877952,exact_english_gbif_common_name,NO
+KR0124,Quercus gambelii,Gambel Oak,5,2878268,https://www.gbif.org/species/2878268,exact_english_gbif_common_name,NO
+KR0124,Quercus gambelii,Gambel's oak,5,2878268,https://www.gbif.org/species/2878268,exact_english_gbif_common_name,NO
+KR0124,Quercus geminata,Sand Live Oak,5,2878250,https://www.gbif.org/species/2878250,exact_english_gbif_common_name,NO
+KR0124,Quercus glauca,Ring-cup oak,5,2876873,https://www.gbif.org/species/2876873,exact_english_gbif_common_name,NO
+KR0124,Quercus guyavifolia,Golden Guavaleaf Oak,5,2878184,https://www.gbif.org/species/2878184,exact_english_gbif_common_name,NO
+KR0124,Quercus hemisphaerica,Darlington Oak,5,2877348,https://www.gbif.org/species/2877348,exact_english_gbif_common_name,NO
+KR0124,Quercus hemisphaerica,Darlington's oak,5,2877348,https://www.gbif.org/species/2877348,exact_english_gbif_common_name,NO
+KR0124,Quercus hypoleucoides,Silverleaf Oak,5,2878550,https://www.gbif.org/species/2878550,exact_english_gbif_common_name,NO
+KR0124,Quercus ilicifolia,Bear Oak,5,2878190,https://www.gbif.org/species/2878190,exact_english_gbif_common_name,NO
+KR0124,Quercus incana,Bluejack Oak,5,2878060,https://www.gbif.org/species/2878060,exact_english_gbif_common_name,NO
+KR0124,Quercus ithaburensis,Tabor Oak,5,2878323,https://www.gbif.org/species/2878323,exact_english_gbif_common_name,NO
+KR0124,Quercus ithaburensis,Valonia Oak,5,2878323,https://www.gbif.org/species/2878323,exact_english_gbif_common_name,NO
+KR0124,Quercus ithaburensis,Vallonea Oak,5,2878323,https://www.gbif.org/species/2878323,exact_english_gbif_common_name,NO
+KR0124,Quercus jackiana,Jack's Oak,5,2878032,https://www.gbif.org/species/2878032,exact_english_gbif_common_name,NO
+KR0124,Quercus lamellosa,Bull Oak,5,2878270,https://www.gbif.org/species/2878270,exact_english_gbif_common_name,NO
+KR0124,Quercus laurifolia,Diamond Oak,5,2877708,https://www.gbif.org/species/2877708,exact_english_gbif_common_name,NO
+KR0124,Quercus laurifolia,Swamp Laurel Oak,5,2877708,https://www.gbif.org/species/2877708,exact_english_gbif_common_name,NO
+KR0124,Quercus laurifolia,diamond-leaf oak,5,2877708,https://www.gbif.org/species/2877708,exact_english_gbif_common_name,NO
+KR0124,Quercus leucotrichophora,banj oak,5,2878058,https://www.gbif.org/species/2878058,exact_english_gbif_common_name,NO
+KR0124,Quercus lobata,roble,5,2878373,https://www.gbif.org/species/2878373,exact_english_gbif_common_name,NO
+KR0124,Quercus lobata,Valley Oak,5,2878373,https://www.gbif.org/species/2878373,exact_english_gbif_common_name,NO
+KR0124,Quercus lobata,California White Oak,5,2878373,https://www.gbif.org/species/2878373,exact_english_gbif_common_name,NO
+KR0124,Quercus look,Look Oak,5,2878353,https://www.gbif.org/species/2878353,exact_english_gbif_common_name,NO
+KR0124,Quercus lyrata,Overcup Oak,5,2878378,https://www.gbif.org/species/2878378,exact_english_gbif_common_name,NO
+KR0124,Quercus lyrata,swamp post oak,5,2878378,https://www.gbif.org/species/2878378,exact_english_gbif_common_name,NO
+KR0124,Quercus macrocarpa,Bur Oak,5,2878213,https://www.gbif.org/species/2878213,exact_english_gbif_common_name,NO
+KR0124,Quercus macrocarpa,burr oak,5,2878213,https://www.gbif.org/species/2878213,exact_english_gbif_common_name,NO
+KR0124,Quercus macrocarpa,mossy-cup oak,5,2878213,https://www.gbif.org/species/2878213,exact_english_gbif_common_name,NO
+KR0124,Quercus margaretiae,sand post oak,5,2878237,https://www.gbif.org/species/2878237,exact_english_gbif_common_name,NO
+KR0124,Quercus margaretiae,dwarf post oak,5,2878237,https://www.gbif.org/species/2878237,exact_english_gbif_common_name,NO
+KR0124,Quercus monimotricha,Chinese Dwarf Oak,5,2878395,https://www.gbif.org/species/2878395,exact_english_gbif_common_name,NO
+KR0124,Quercus myrtifolia,Myrtle Oak,5,2878545,https://www.gbif.org/species/2878545,exact_english_gbif_common_name,NO
+KR0124,Quercus oglethorpensis,Oglethorpe Oak,5,2878313,https://www.gbif.org/species/2878313,exact_english_gbif_common_name,NO
+KR0124,Quercus oleoides,olive oak,5,2878086,https://www.gbif.org/species/2878086,exact_english_gbif_common_name,NO
+KR0124,Quercus oleoides,white oak,5,2878086,https://www.gbif.org/species/2878086,exact_english_gbif_common_name,NO
+KR0124,Quercus parvula,coast oak,5,2878124,https://www.gbif.org/species/2878124,exact_english_gbif_common_name,NO
+KR0124,Quercus parvula,Santa Cruz Island Oak,5,2878124,https://www.gbif.org/species/2878124,exact_english_gbif_common_name,NO
+KR0124,Quercus peninsularis,Peninsular Oak,5,2878314,https://www.gbif.org/species/2878314,exact_english_gbif_common_name,NO
+KR0124,Quercus peninsularis,Pacific Emory Oak,5,2878314,https://www.gbif.org/species/2878314,exact_english_gbif_common_name,NO
+KR0124,Quercus polymorpha,Mexican White Oak,5,2878068,https://www.gbif.org/species/2878068,exact_english_gbif_common_name,NO
+KR0124,Quercus polymorpha,netleaf white oak,5,2878068,https://www.gbif.org/species/2878068,exact_english_gbif_common_name,NO
+KR0124,Quercus pumila,running oak,5,2878192,https://www.gbif.org/species/2878192,exact_english_gbif_common_name,NO
+KR0124,Quercus pungens,Pungent Oak,5,2878187,https://www.gbif.org/species/2878187,exact_english_gbif_common_name,NO
+KR0124,Quercus pungens,Sandpaper Oak,5,2878187,https://www.gbif.org/species/2878187,exact_english_gbif_common_name,NO
+KR0124,Quercus segoviensis,k’antulán,5,2878259,https://www.gbif.org/species/2878259,exact_english_gbif_common_name,NO
+KR0124,Quercus semecarpifolia,kharsu,5,2878082,https://www.gbif.org/species/2878082,exact_english_gbif_common_name,NO
+KR0124,Quercus semecarpifolia,Brown Oak,5,2878082,https://www.gbif.org/species/2878082,exact_english_gbif_common_name,NO
+KR0124,Quercus semecarpifolia,Kharsu Oak,5,2878082,https://www.gbif.org/species/2878082,exact_english_gbif_common_name,NO
+KR0124,Quercus shumardii,Schneck oak,5,2878289,https://www.gbif.org/species/2878289,exact_english_gbif_common_name,NO
+KR0124,Quercus shumardii,Shumard Oak,5,2878289,https://www.gbif.org/species/2878289,exact_english_gbif_common_name,NO
+KR0124,Quercus shumardii,spotted oak,5,2878289,https://www.gbif.org/species/2878289,exact_english_gbif_common_name,NO
+KR0124,Quercus stenophylloides,Alishan Oak,5,2878109,https://www.gbif.org/species/2878109,exact_english_gbif_common_name,NO
+KR0124,Quercus texana,Nuttall Oak,5,2878115,https://www.gbif.org/species/2878115,exact_english_gbif_common_name,NO
+KR0124,Quercus texana,Nuttall's oak,5,2878115,https://www.gbif.org/species/2878115,exact_english_gbif_common_name,NO
+KR0124,Quercus texana,Texas red oak,5,2878115,https://www.gbif.org/species/2878115,exact_english_gbif_common_name,NO
+KR0124,Quercus tomentella,Island Oak,5,2878206,https://www.gbif.org/species/2878206,exact_english_gbif_common_name,NO
+KR0124,Quercus tomentella,island live oak,5,2878206,https://www.gbif.org/species/2878206,exact_english_gbif_common_name,NO
+KR0124,Quercus tomentella,Channel Island Oak,5,2878206,https://www.gbif.org/species/2878206,exact_english_gbif_common_name,NO
+KR0124,Quercus turbinella,Turbinella Oak,5,2878247,https://www.gbif.org/species/2878247,exact_english_gbif_common_name,NO
+KR0124,Quercus turbinella,shrub live oak,5,2878247,https://www.gbif.org/species/2878247,exact_english_gbif_common_name,NO
+KR0124,Quercus turbinella,Desert Scrub Oak,5,2878247,https://www.gbif.org/species/2878247,exact_english_gbif_common_name,NO
+KR0124,Quercus virginiana,live oak,5,2878092,https://www.gbif.org/species/2878092,exact_english_gbif_common_name,NO
+KR0124,Quercus virginiana,Southern Live Oak,5,2878092,https://www.gbif.org/species/2878092,exact_english_gbif_common_name,NO
+KR0124,Quercus virginiana,Virginia Live Oak,5,2878092,https://www.gbif.org/species/2878092,exact_english_gbif_common_name,NO
+KR0124,Quercus welshii,Tucker Oak,5,2877975,https://www.gbif.org/species/2877975,exact_english_gbif_common_name,NO
+KR0124,Quercus wislizeni,Chaparral Oak,5,2878384,https://www.gbif.org/species/2878384,exact_english_gbif_common_name,NO
+KR0124,Quercus wislizeni,Sierra live oak,5,2878384,https://www.gbif.org/species/2878384,exact_english_gbif_common_name,NO
+KR0124,Quercus wislizeni,Interior Live Oak,5,2878384,https://www.gbif.org/species/2878384,exact_english_gbif_common_name,NO
+KR0128,Romanogobio pentatrichus,Five-rayed Gudgeon,5,2360739,https://www.gbif.org/species/2360739,exact_english_gbif_common_name,NO
+KR0128,Romanogobio pentatrichus,Kuban Longbarbel Gudgeon,5,2360739,https://www.gbif.org/species/2360739,exact_english_gbif_common_name,NO
+KR0128,Romanogobio pentatrichus,Kuban Long-barbelled Gudgeon,5,2360739,https://www.gbif.org/species/2360739,exact_english_gbif_common_name,NO
+KR0128,Romanogobio persus,Kura Gudgeon,5,2360743,https://www.gbif.org/species/2360743,exact_english_gbif_common_name,NO
+KR0128,Romanogobio persus,Persian Gudgeon,5,2360743,https://www.gbif.org/species/2360743,exact_english_gbif_common_name,NO
+KR0128,Romanogobio tanaiticus,Don Whitefin Gudgeon,5,2360774,https://www.gbif.org/species/2360774,exact_english_gbif_common_name,NO
+KR0128,Romanogobio tenuicorpus,Slender Gudgeon,5,2360753,https://www.gbif.org/species/2360753,exact_english_gbif_common_name,NO
+KR0128,Romanogobio tenuicorpus,Longtailed Gudgeon,5,2360753,https://www.gbif.org/species/2360753,exact_english_gbif_common_name,NO
+KR0128,Romanogobio tenuicorpus,Amur Whitefin Gudgeon,5,2360753,https://www.gbif.org/species/2360753,exact_english_gbif_common_name,NO
+KR0128,Romanogobio uranoscopus,Stone Gudgeon,5,2360759,https://www.gbif.org/species/2360759,exact_english_gbif_common_name,NO
+KR0128,Romanogobio uranoscopus,Danube Gudgeon,5,2360759,https://www.gbif.org/species/2360759,exact_english_gbif_common_name,NO
+KR0128,Romanogobio uranoscopus,Longwhisker Gudgeon,5,2360759,https://www.gbif.org/species/2360759,exact_english_gbif_common_name,NO
+KR0128,Romanogobio vladykovi,Danube Whitefin Gudgeon,5,2360771,https://www.gbif.org/species/2360771,exact_english_gbif_common_name,NO
+KR0128,Rutilus caspicus,Vobla,5,2359725,https://www.gbif.org/species/2359725,exact_english_gbif_common_name,NO
+KR0128,Rutilus caspicus,Caspian Roach,5,2359725,https://www.gbif.org/species/2359725,exact_english_gbif_common_name,NO
+KR0128,Rutilus frisii,kutum,5,2359678,https://www.gbif.org/species/2359678,exact_english_gbif_common_name,NO
+KR0128,Rutilus frisii,Vyrezub,5,2359678,https://www.gbif.org/species/2359678,exact_english_gbif_common_name,NO
+KR0128,Rutilus frisii,Black Sea Roach,5,2359678,https://www.gbif.org/species/2359678,exact_english_gbif_common_name,NO
+KR0128,Rutilus meidingeri,Pearlfish,5,2359699,https://www.gbif.org/species/2359699,exact_english_gbif_common_name,NO
+KR0128,Rutilus meidingeri,perlfisch,5,2359699,https://www.gbif.org/species/2359699,exact_english_gbif_common_name,NO
+KR0128,Rutilus pigus,pigo,5,2359686,https://www.gbif.org/species/2359686,exact_english_gbif_common_name,NO
+KR0128,Rutilus pigus,Italian Roach,5,2359686,https://www.gbif.org/species/2359686,exact_english_gbif_common_name,NO
+KR0128,Rutilus rutilus,Common Roach,5,2359706,https://www.gbif.org/species/2359706,exact_english_gbif_common_name,NO
+KR0128,Rutilus rutilus,European roach,5,2359706,https://www.gbif.org/species/2359706,exact_english_gbif_common_name,NO
+KR0128,Rutilus virgo,Cactus Roach,5,2359692,https://www.gbif.org/species/2359692,exact_english_gbif_common_name,NO
+KR0128,Salvelinus albus,White Char,5,2351278,https://www.gbif.org/species/2351278,exact_english_gbif_common_name,NO
+KR0128,Salvelinus andriashevi,Chukot Char,5,2351284,https://www.gbif.org/species/2351284,exact_english_gbif_common_name,NO
+KR0128,Salvelinus boganidae,Boganid Char,5,2351294,https://www.gbif.org/species/2351294,exact_english_gbif_common_name,NO
+KR0128,Salvelinus boganidae,Boganida Char,5,2351294,https://www.gbif.org/species/2351294,exact_english_gbif_common_name,NO
+KR0128,Salvelinus confluentus,Bull Char,5,2351244,https://www.gbif.org/species/2351244,exact_english_gbif_common_name,NO
+KR0128,Salvelinus confluentus,Bull Trout,5,2351244,https://www.gbif.org/species/2351244,exact_english_gbif_common_name,NO
+KR0128,Salvelinus curilus,Asian Dolly Varden,5,2351251,https://www.gbif.org/species/2351251,exact_english_gbif_common_name,NO
+KR0128,Salvelinus curilus,Southern Dolly Varden,5,2351251,https://www.gbif.org/species/2351251,exact_english_gbif_common_name,NO
+KR0128,Salvelinus curilus,Southern Dolly Varden Char,5,2351251,https://www.gbif.org/species/2351251,exact_english_gbif_common_name,NO
+KR0128,Salvelinus drjagini,Dryagin's Char,5,2351250,https://www.gbif.org/species/2351250,exact_english_gbif_common_name,NO
+KR0128,Salvelinus drjagini,Dryanin's char,5,2351250,https://www.gbif.org/species/2351250,exact_english_gbif_common_name,NO
+KR0128,Salvelinus elgyticus,Small-Mouth Char,5,2351242,https://www.gbif.org/species/2351242,exact_english_gbif_common_name,NO
+KR0128,Salvelinus fontinalis,Char,5,2351271,https://www.gbif.org/species/2351271,exact_english_gbif_common_name,NO
+KR0128,Salvelinus fontinalis,Slob,5,2351271,https://www.gbif.org/species/2351271,exact_english_gbif_common_name,NO
+KR0128,Salvelinus fontinalis,Baiser,5,2351271,https://www.gbif.org/species/2351271,exact_english_gbif_common_name,NO
+KR0128,Salvelinus grayi,Melvin Charr,5,2351255,https://www.gbif.org/species/2351255,exact_english_gbif_common_name,NO
+KR0128,Salvelinus gritzenkoi,Gritsenko Char,5,2351303,https://www.gbif.org/species/2351303,exact_english_gbif_common_name,NO
+KR0128,Salvelinus gritzenkoi,Gritsenko's Char,5,2351303,https://www.gbif.org/species/2351303,exact_english_gbif_common_name,NO
+KR0128,Salvelinus inframundus,Orkney Char,5,2351282,https://www.gbif.org/species/2351282,exact_english_gbif_common_name,NO
+KR0128,Salvelinus inframundus,Orkney Charr,5,2351282,https://www.gbif.org/species/2351282,exact_english_gbif_common_name,NO
+KR0128,Salvelinus jacuticus,Yakut char,5,2351254,https://www.gbif.org/species/2351254,exact_english_gbif_common_name,NO
+KR0128,Salvelinus jacuticus,Yakutian char,5,2351254,https://www.gbif.org/species/2351254,exact_english_gbif_common_name,NO
+KR0128,Salvelinus japonicus,Kirikuchi Char,5,2351298,https://www.gbif.org/species/2351298,exact_english_gbif_common_name,NO
+KR0128,Salvelinus kronocius,Longhead Char,5,2351295,https://www.gbif.org/species/2351295,exact_english_gbif_common_name,NO
+KR0128,Salvelinus kuznetzovi,Ushki Char,5,2351257,https://www.gbif.org/species/2351257,exact_english_gbif_common_name,NO
+KR0128,Salvelinus kuznetzovi,Ushkovsky Char,5,2351257,https://www.gbif.org/species/2351257,exact_english_gbif_common_name,NO
+KR0128,Salvelinus lonsdalii,Haweswater Char,5,2351280,https://www.gbif.org/species/2351280,exact_english_gbif_common_name,NO
+KR0128,Salvelinus lonsdalii,Lonsdale's Char,5,2351280,https://www.gbif.org/species/2351280,exact_english_gbif_common_name,NO
+KR0128,Salvelinus lonsdalii,Lonsdale’s Charr,5,2351280,https://www.gbif.org/species/2351280,exact_english_gbif_common_name,NO
+KR0128,Salvelinus mallochi,Malloch's Char,5,2351243,https://www.gbif.org/species/2351243,exact_english_gbif_common_name,NO
+KR0128,Salvelinus mallochi,Malloch’s Charr,5,2351243,https://www.gbif.org/species/2351243,exact_english_gbif_common_name,NO
+KR0128,Salvelinus maxillaris,Large-mouthed Char,5,2351283,https://www.gbif.org/species/2351283,exact_english_gbif_common_name,NO
+KR0128,Salvelinus maxillaris,Large-Mouthed Charr,5,2351283,https://www.gbif.org/species/2351283,exact_english_gbif_common_name,NO
+KR0128,Salvelinus murta,Murta Char,5,2351246,https://www.gbif.org/species/2351246,exact_english_gbif_common_name,NO
+KR0128,Salvelinus murta,Murta Charr,5,2351246,https://www.gbif.org/species/2351246,exact_english_gbif_common_name,NO
+KR0128,Salvelinus neocomensis,Neuchâtel Charr,5,2351291,https://www.gbif.org/species/2351291,exact_english_gbif_common_name,NO
+KR0128,Salvelinus neocomensis,Lake Neuchâtel Deepwater Char,5,2351291,https://www.gbif.org/species/2351291,exact_english_gbif_common_name,NO
+KR0128,Salvelinus struanensis,Struan Char,5,2351301,https://www.gbif.org/species/2351301,exact_english_gbif_common_name,NO
+KR0128,Salvelinus struanensis,Struan Charr,5,2351301,https://www.gbif.org/species/2351301,exact_english_gbif_common_name,NO
+KR0128,Salvelinus struanensis,Rannoch planktivorous charr,5,2351301,https://www.gbif.org/species/2351301,exact_english_gbif_common_name,NO
+KR0128,Salvelinus taimyricus,Taimyr Char,5,2351253,https://www.gbif.org/species/2351253,exact_english_gbif_common_name,NO
+KR0128,Salvelinus taranetzi,Taranet's Char,5,2351290,https://www.gbif.org/species/2351290,exact_english_gbif_common_name,NO
+KR0128,Salvelinus taranetzi,dwarf Arctic char,5,2351290,https://www.gbif.org/species/2351290,exact_english_gbif_common_name,NO
+KR0128,Salvelinus tolmachoffi,Esei Lake Char,5,2351300,https://www.gbif.org/species/2351300,exact_english_gbif_common_name,NO
+KR0128,Salvelinus tolmachoffi,Lake Yesei Char,5,2351300,https://www.gbif.org/species/2351300,exact_english_gbif_common_name,NO
+KR0128,Salvelinus tolmachoffi,Lake Yessey Char,5,2351300,https://www.gbif.org/species/2351300,exact_english_gbif_common_name,NO
+KR0128,Salvelinus umbla,Lake Char,5,2351259,https://www.gbif.org/species/2351259,exact_english_gbif_common_name,NO
+KR0128,Salvelinus vasiljevae,Sakhalinian Char,5,2351296,https://www.gbif.org/species/2351296,exact_english_gbif_common_name,NO
+KR0128,Salvelinus willoughbii,Windermere Char,5,2351285,https://www.gbif.org/species/2351285,exact_english_gbif_common_name,NO
+KR0128,Salvelinus willoughbii,Willoughby's Char,5,2351285,https://www.gbif.org/species/2351285,exact_english_gbif_common_name,NO
+KR0128,Salvelinus willoughbii,Willoughby’s Charr,5,2351285,https://www.gbif.org/species/2351285,exact_english_gbif_common_name,NO
+KR0128,Saurogobio dabryi,Lizard Gudgeon,5,2361105,https://www.gbif.org/species/2361105,exact_english_gbif_common_name,NO
+KR0128,Saurogobio dabryi,Chinese Lizard Gudgeon,5,2361105,https://www.gbif.org/species/2361105,exact_english_gbif_common_name,NO
+KR0128,Schizothorax esocinus,Chirruh Snowtrout,5,2359995,https://www.gbif.org/species/2359995,exact_english_gbif_common_name,NO
+KR0128,Semilabeo obscurus,Dusky Labiate-barbel,5,2359275,https://www.gbif.org/species/2359275,exact_english_gbif_common_name,NO
+KR0128,Semotilus atromaculatus,Creek Chub,5,2360481,https://www.gbif.org/species/2360481,exact_english_gbif_common_name,NO
+KR0128,Semotilus atromaculatus,Horned dace,5,2360481,https://www.gbif.org/species/2360481,exact_english_gbif_common_name,NO
+KR0128,Semotilus atromaculatus,Common Creek Chub,5,2360481,https://www.gbif.org/species/2360481,exact_english_gbif_common_name,NO
+KR0128,Semotilus corporalis,White,5,2360492,https://www.gbif.org/species/2360492,exact_english_gbif_common_name,NO
+KR0128,Semotilus corporalis,Chivin,5,2360492,https://www.gbif.org/species/2360492,exact_english_gbif_common_name,NO
+KR0128,Semotilus corporalis,Mohawk,5,2360492,https://www.gbif.org/species/2360492,exact_english_gbif_common_name,NO
+KR0128,Semotilus lumbee,Sandhills Chub,5,2360480,https://www.gbif.org/species/2360480,exact_english_gbif_common_name,NO
+KR0128,Semotilus thoreauianus,Dixie Chub,5,2360479,https://www.gbif.org/species/2360479,exact_english_gbif_common_name,NO
+KR0128,Sinocyclocheilus anatirostris,Duck-billed Golden-line Fish,5,2359916,https://www.gbif.org/species/2359916,exact_english_gbif_common_name,NO
+KR0128,Sinocyclocheilus furcodorsalis,Crossed-Fork Back Golden-line Fish,5,2359945,https://www.gbif.org/species/2359945,exact_english_gbif_common_name,NO
+KR0128,Sinocyclocheilus grahami,Golden Line Fish,5,2359941,https://www.gbif.org/species/2359941,exact_english_gbif_common_name,NO
+KR0128,Sinocyclocheilus hyalinus,Hyaline fish,5,2359919,https://www.gbif.org/species/2359919,exact_english_gbif_common_name,NO
+KR0128,Sinocyclocheilus yangzongensis,Yangzong Golden-line Barbel,5,2359913,https://www.gbif.org/species/2359913,exact_english_gbif_common_name,NO
+KR0128,Squalius anatolicus,Central Anatolian Pike Chub,5,2360661,https://www.gbif.org/species/2360661,exact_english_gbif_common_name,NO
+KR0128,Squalius cephaloides,Thick Lipped Chub,5,2360653,https://www.gbif.org/species/2360653,exact_english_gbif_common_name,NO
+KR0128,Squalius illyricus,Illyrian Chub,5,2360655,https://www.gbif.org/species/2360655,exact_english_gbif_common_name,NO
+KR0128,Squalius microlepis,Makal dace,5,2360733,https://www.gbif.org/species/2360733,exact_english_gbif_common_name,NO
+KR0128,Squalius microlepis,Imotski Chub,5,2360733,https://www.gbif.org/species/2360733,exact_english_gbif_common_name,NO
+KR0128,Squalius microlepis,imotski masnica,5,2360733,https://www.gbif.org/species/2360733,exact_english_gbif_common_name,NO
+KR0128,Squalius svallize,Neretva Chub,5,2360610,https://www.gbif.org/species/2360610,exact_english_gbif_common_name,NO
+KR0128,Squalius tenellus,Livno Chub,5,2360732,https://www.gbif.org/species/2360732,exact_english_gbif_common_name,NO
+KR0128,Squalius tenellus,Livno masnica,5,2360732,https://www.gbif.org/species/2360732,exact_english_gbif_common_name,NO
+KR0128,Stypodon signifer,Stumptooth Minnow,5,2360144,https://www.gbif.org/species/2360144,exact_english_gbif_common_name,NO
+KR0128,Sundadanio axelrodi,neon blue rasbora,5,2360276,https://www.gbif.org/species/2360276,exact_english_gbif_common_name,NO
+KR0128,Tampichthys catostomops,Pánuco Minnow,5,2359854,https://www.gbif.org/species/2359854,exact_english_gbif_common_name,NO
+KR0128,Tampichthys dichromus,carpa bicolor,5,2359858,https://www.gbif.org/species/2359858,exact_english_gbif_common_name,NO
+KR0128,Tampichthys dichromus,Bicolor Minnow,5,2359858,https://www.gbif.org/species/2359858,exact_english_gbif_common_name,NO
+KR0128,Tampichthys erimyzonops,Chubsucker Minnow,5,2359860,https://www.gbif.org/species/2359860,exact_english_gbif_common_name,NO
+KR0128,Tampichthys ipni,Lantern Minnow,5,2359862,https://www.gbif.org/species/2359862,exact_english_gbif_common_name,NO
+KR0128,Tampichthys mandibularis,Flatjaw Minnow,5,2359856,https://www.gbif.org/species/2359856,exact_english_gbif_common_name,NO
+KR0128,Tampichthys rasconis,Blackstripe Minnow,5,2359851,https://www.gbif.org/species/2359851,exact_english_gbif_common_name,NO
+KR0128,Tanakia signifer,Korean Bitterling,5,2359397,https://www.gbif.org/species/2359397,exact_english_gbif_common_name,NO
+KR0128,Telestes beoticus,Beotian riffle dace,5,2360998,https://www.gbif.org/species/2360998,exact_english_gbif_common_name,NO
+KR0128,Telestes beoticus,Boeotian Riffle Dace,5,2360998,https://www.gbif.org/species/2360998,exact_english_gbif_common_name,NO
+KR0128,Telestes montenigrinus,Montenegro Riffle Dace,5,2360674,https://www.gbif.org/species/2360674,exact_english_gbif_common_name,NO
+KR0128,Telestes polylepis,Croatian Dace,5,2360622,https://www.gbif.org/species/2360622,exact_english_gbif_common_name,NO
+KR0128,Telestes polylepis,Croatian pijor,5,2360622,https://www.gbif.org/species/2360622,exact_english_gbif_common_name,NO
+KR0128,Telestes polylepis,Croatian riffle dace,5,2360622,https://www.gbif.org/species/2360622,exact_english_gbif_common_name,NO
+KR0128,Telestes souffia,Vairone,5,2360687,https://www.gbif.org/species/2360687,exact_english_gbif_common_name,NO
+KR0128,Telestes souffia,souffia,5,2360687,https://www.gbif.org/species/2360687,exact_english_gbif_common_name,NO
+KR0128,Telestes souffia,riffle dace,5,2360687,https://www.gbif.org/species/2360687,exact_english_gbif_common_name,NO
+KR0128,Telestes turskyi,Tursky dace,5,2360615,https://www.gbif.org/species/2360615,exact_english_gbif_common_name,NO
+KR0128,Telestes turskyi,Tursky's Dace,5,2360615,https://www.gbif.org/species/2360615,exact_english_gbif_common_name,NO
+KR0128,Telestes turskyi,Cikola riffle dace,5,2360615,https://www.gbif.org/species/2360615,exact_english_gbif_common_name,NO
+KR0128,Telestes ukliva,ukliva,5,2360658,https://www.gbif.org/species/2360658,exact_english_gbif_common_name,NO
+KR0128,Telestes ukliva,Cetina Dace,5,2360658,https://www.gbif.org/species/2360658,exact_english_gbif_common_name,NO
+KR0128,Thryssocypris tonlesapensis,Anchovy rasbora,5,2360801,https://www.gbif.org/species/2360801,exact_english_gbif_common_name,NO
+KR0128,Vimba melanops,MalamÌda,5,2360522,https://www.gbif.org/species/2360522,exact_english_gbif_common_name,NO
+KR0128,Vimba melanops,dark vimba,5,2360522,https://www.gbif.org/species/2360522,exact_english_gbif_common_name,NO
+KR0128,Vimba melanops,Macedonian Vimba,5,2360522,https://www.gbif.org/species/2360522,exact_english_gbif_common_name,NO
+KR0128,Vimba vimba,Vimba,5,2360504,https://www.gbif.org/species/2360504,exact_english_gbif_common_name,NO
+KR0128,Vimba vimba,Zarte,5,2360504,https://www.gbif.org/species/2360504,exact_english_gbif_common_name,NO
+KR0128,Vimba vimba,Zanthe,5,2360504,https://www.gbif.org/species/2360504,exact_english_gbif_common_name,NO
+KR0142,Atyopsis moluccensis,Fan Shrimp,2,5863069,https://www.gbif.org/species/5863069,exact_english_gbif_common_name,NO
+KR0142,Atyopsis moluccensis,wood shrimp,2,5863069,https://www.gbif.org/species/5863069,exact_english_gbif_common_name,NO
+KR0142,Atyopsis moluccensis,bamboo shrimp,2,5863069,https://www.gbif.org/species/5863069,exact_english_gbif_common_name,NO
+KR0142,Cancer irroratus,Rock Crab,2,2222075,https://www.gbif.org/species/2222075,exact_english_gbif_common_name,NO
+KR0142,Cancer irroratus,Atlantic Rock Crab,2,2222075,https://www.gbif.org/species/2222075,exact_english_gbif_common_name,NO
+KR0142,Cancer pagurus,Brown Crab,2,2222085,https://www.gbif.org/species/2222085,exact_english_gbif_common_name,NO
+KR0142,Cancer pagurus,Edible Crab,2,2222085,https://www.gbif.org/species/2222085,exact_english_gbif_common_name,NO
+KR0142,Cancer pagurus,European edible crab,2,2222085,https://www.gbif.org/species/2222085,exact_english_gbif_common_name,NO
+KR0142,Carcinus maenas,Shore Crab,2,5178595,https://www.gbif.org/species/5178595,exact_english_gbif_common_name,NO
+KR0142,Carcinus maenas,Harbour Crab,2,5178595,https://www.gbif.org/species/5178595,exact_english_gbif_common_name,NO
+KR0142,Carcinus maenas,Green Shore Crab,2,5178595,https://www.gbif.org/species/5178595,exact_english_gbif_common_name,NO
+KR0142,Eriocheir sinensis,Big Sluice Crab,2,2225776,https://www.gbif.org/species/2225776,exact_english_gbif_common_name,NO
+KR0142,Eriocheir sinensis,Big Binding Crab,2,2225776,https://www.gbif.org/species/2225776,exact_english_gbif_common_name,NO
+KR0142,Eriocheir sinensis,Shanghai hairy crab,2,2225776,https://www.gbif.org/species/2225776,exact_english_gbif_common_name,NO
+KR0142,Hyalella azteca,Scud,2,2217674,https://www.gbif.org/species/2217674,exact_english_gbif_common_name,NO
+KR0142,Hyalella azteca,Mexican Scud,2,2217674,https://www.gbif.org/species/2217674,exact_english_gbif_common_name,NO
+KR0142,Hyalella azteca,Side Swimmer,2,2217674,https://www.gbif.org/species/2217674,exact_english_gbif_common_name,NO
+KR0142,Macrocheira kaempferi,giant spider crab,2,5729749,https://www.gbif.org/species/5729749,exact_english_gbif_common_name,NO
+KR0142,Macrocheira kaempferi,Japanese spider crab,2,5729749,https://www.gbif.org/species/5729749,exact_english_gbif_common_name,NO
+KR0142,Macrocheira kaempferi,Japanese Giant Spider Crab,2,5729749,https://www.gbif.org/species/5729749,exact_english_gbif_common_name,NO
+KR0142,Palaemon serratus,Common Prawn,2,2224987,https://www.gbif.org/species/2224987,exact_english_gbif_common_name,NO
+KR0142,Stenopus hispidus,Boxer Shrimp,2,5178716,https://www.gbif.org/species/5178716,exact_english_gbif_common_name,NO
+KR0142,Stenopus hispidus,spiny shrimp,2,5178716,https://www.gbif.org/species/5178716,exact_english_gbif_common_name,NO
+KR0142,Stenopus hispidus,Banded Boxer Shrimp,2,5178716,https://www.gbif.org/species/5178716,exact_english_gbif_common_name,NO
+KR0149,Anas acuta,Sprig,2,2498112,https://www.gbif.org/species/2498112,exact_english_gbif_common_name,NO
+KR0149,Anas acuta,kite-tail,2,2498112,https://www.gbif.org/species/2498112,exact_english_gbif_common_name,NO
+KR0149,Anas acuta,Lenja hans,2,2498112,https://www.gbif.org/species/2498112,exact_english_gbif_common_name,NO
+KR0149,Branta ruficollis,Red-Breasted Goose,2,5232451,https://www.gbif.org/species/5232451,exact_english_gbif_common_name,NO
+KR0149,Lophodytes cucullatus,Hoodie,2,2498408,https://www.gbif.org/species/2498408,exact_english_gbif_common_name,NO
+KR0149,Lophodytes cucullatus,Hooded Merganser,2,2498408,https://www.gbif.org/species/2498408,exact_english_gbif_common_name,NO
+KR0149,Melanitta nigra,Black Scoter,2,2498247,https://www.gbif.org/species/2498247,exact_english_gbif_common_name,NO
+KR0149,Melanitta nigra,Common Scoter,2,2498247,https://www.gbif.org/species/2498247,exact_english_gbif_common_name,NO
+KR0149,Mergus serrator,Fishing Duck,2,2498375,https://www.gbif.org/species/2498375,exact_english_gbif_common_name,NO
+KR0149,Mergus serrator,Red-breast Merganser,2,2498375,https://www.gbif.org/species/2498375,exact_english_gbif_common_name,NO
+KR0149,Mergus serrator,Red-Breasted Merganser,2,2498375,https://www.gbif.org/species/2498375,exact_english_gbif_common_name,NO
+KR0149,Tadorna tadornoides,Mountain Duck,2,2498007,https://www.gbif.org/species/2498007,exact_english_gbif_common_name,NO
+KR0149,Tadorna tadornoides,Australian Shelduck,2,2498007,https://www.gbif.org/species/2498007,exact_english_gbif_common_name,NO
+KR0149,Tadorna tadornoides,Chestnut-breasted Shelduck,2,2498007,https://www.gbif.org/species/2498007,exact_english_gbif_common_name,NO
+KR0156,Lampyris noctiluca,Glow-Worm,2,5744295,https://www.gbif.org/species/5744295,exact_english_gbif_common_name,NO
+KR0156,Lampyris noctiluca,Common Glowworm,2,5744295,https://www.gbif.org/species/5744295,exact_english_gbif_common_name,NO
+KR0156,Lampyris noctiluca,European Glow-worm,2,5744295,https://www.gbif.org/species/5744295,exact_english_gbif_common_name,NO
+KR0156,Lucanus cervus,European Stag Beetle,2,5743122,https://www.gbif.org/species/5743122,exact_english_gbif_common_name,NO
+KR0156,Xestobium rufovillosum,knock beetle,2,1095669,https://www.gbif.org/species/1095669,exact_english_gbif_common_name,NO
+KR0170,Acanthodactylus erythrurus,Spiny-footed Lizard,2,5226733,https://www.gbif.org/species/5226733,exact_english_gbif_common_name,NO
+KR0170,Acanthodactylus erythrurus,Fringe-fingered Lizard,2,5226733,https://www.gbif.org/species/5226733,exact_english_gbif_common_name,NO
+KR0170,Anolis sagrei,Brown Anole,2,4287413,https://www.gbif.org/species/4287413,exact_english_gbif_common_name,NO
+KR0170,Anolis sagrei,Festive Anole,2,4287413,https://www.gbif.org/species/4287413,exact_english_gbif_common_name,NO
+KR0170,Anolis sagrei,Brown Tree Lizard,2,4287413,https://www.gbif.org/species/4287413,exact_english_gbif_common_name,NO
+KR0170,Draco dussumieri,Indian flying dragon,2,5226166,https://www.gbif.org/species/5226166,exact_english_gbif_common_name,NO
+KR0170,Draco dussumieri,Indian flying lizard,2,5226166,https://www.gbif.org/species/5226166,exact_english_gbif_common_name,NO
+KR0170,Draco dussumieri,Southern Flying Lizard,2,5226166,https://www.gbif.org/species/5226166,exact_english_gbif_common_name,NO
+KR0170,Gerrhosaurus multilineatus,Keeled Plated Lizard,2,6158962,https://www.gbif.org/species/6158962,exact_english_gbif_common_name,NO
+KR0170,Lacerta trilineata,Three lined lizard,2,6159197,https://www.gbif.org/species/6159197,exact_english_gbif_common_name,NO
+KR0170,Lacerta trilineata,Balkan Green Lizard,2,6159197,https://www.gbif.org/species/6159197,exact_english_gbif_common_name,NO
+KR0170,Lacerta trilineata,Balkan Emerald Lizard,2,6159197,https://www.gbif.org/species/6159197,exact_english_gbif_common_name,NO
+KR0170,Phrynocephalus helioscopus,Sunwatcher,2,2466398,https://www.gbif.org/species/2466398,exact_english_gbif_common_name,NO
+KR0170,Phrynocephalus helioscopus,Sunwatcher Toadhead Agama,2,2466398,https://www.gbif.org/species/2466398,exact_english_gbif_common_name,NO
+KR0170,Pseudocordylus microlepidotus,Cape Crag Lizard,2,9419072,https://www.gbif.org/species/9419072,exact_english_gbif_common_name,NO
+KR0205,Carettochelys insculpta,Warrajan,2,2442506,https://www.gbif.org/species/2442506,exact_english_gbif_common_name,NO
+KR0205,Carettochelys insculpta,Pignose turtle,2,2442506,https://www.gbif.org/species/2442506,exact_english_gbif_common_name,NO
+KR0205,Carettochelys insculpta,Pitted-shell Turtle,2,2442506,https://www.gbif.org/species/2442506,exact_english_gbif_common_name,NO
+KR0205,Cuora amboinensis,South Asian Box Turtle,2,2443521,https://www.gbif.org/species/2443521,exact_english_gbif_common_name,NO
+KR0205,Cuora amboinensis,Southeast Asian Box Turtle,2,2443521,https://www.gbif.org/species/2443521,exact_english_gbif_common_name,NO
+KR0205,Eretmochelys imbricata,carey,2,8841716,https://www.gbif.org/species/8841716,exact_english_gbif_common_name,NO
+KR0205,Eretmochelys imbricata,Hawksbill Turtle,2,8841716,https://www.gbif.org/species/8841716,exact_english_gbif_common_name,NO
+KR0205,Eretmochelys imbricata,Hawksbill Sea Turtle,2,8841716,https://www.gbif.org/species/8841716,exact_english_gbif_common_name,NO
+KR0205,Lepidochelys kempii,Gulf Ridley,2,2442165,https://www.gbif.org/species/2442165,exact_english_gbif_common_name,NO
+KR0205,Lepidochelys kempii,Kemp's ridely,2,2442165,https://www.gbif.org/species/2442165,exact_english_gbif_common_name,NO
+KR0205,Lepidochelys kempii,Mexican Ridley,2,2442165,https://www.gbif.org/species/2442165,exact_english_gbif_common_name,NO
+KR0205,Sternotherus depressus,Flattened Musk Turtle,2,5220391,https://www.gbif.org/species/5220391,exact_english_gbif_common_name,NO
+KR0212,Dromiciops gliroides,Chilean Opossum,2,2433393,https://www.gbif.org/species/2433393,exact_english_gbif_common_name,NO
+KR0212,Dromiciops gliroides,Colocolo Opossum,2,2433393,https://www.gbif.org/species/2433393,exact_english_gbif_common_name,NO
+KR0212,Dromiciops gliroides,Southern Monito del Monte,2,2433393,https://www.gbif.org/species/2433393,exact_english_gbif_common_name,NO
+KR0212,Macropus agilis,Agile Wallaby,2,5219975,https://www.gbif.org/species/5219975,exact_english_gbif_common_name,NO
+KR0212,Macropus agilis,Sandy Wallaby,2,5219975,https://www.gbif.org/species/5219975,exact_english_gbif_common_name,NO
+KR0212,Notoryctes typhlops,Itjaritjari,2,2440825,https://www.gbif.org/species/2440825,exact_english_gbif_common_name,NO
+KR0212,Notoryctes typhlops,Central Marsupial Mole,2,2440825,https://www.gbif.org/species/2440825,exact_english_gbif_common_name,NO
+KR0212,Notoryctes typhlops,Southern Marsupial Mole,2,2440825,https://www.gbif.org/species/2440825,exact_english_gbif_common_name,NO
+KR0212,Pseudocheirus peregrinus,Common Ringtail,2,2440062,https://www.gbif.org/species/2440062,exact_english_gbif_common_name,NO
+KR0212,Pseudocheirus peregrinus,Queensland Ringtail,2,2440062,https://www.gbif.org/species/2440062,exact_english_gbif_common_name,NO
+KR0212,Pseudocheirus peregrinus,Common Ringtail Possum,2,2440062,https://www.gbif.org/species/2440062,exact_english_gbif_common_name,NO
+KR0212,Sminthopsis murina,Common Dunnart,2,2435410,https://www.gbif.org/species/2435410,exact_english_gbif_common_name,NO
+KR0212,Sminthopsis murina,Mouse-sminthopsis,2,2435410,https://www.gbif.org/species/2435410,exact_english_gbif_common_name,NO
+KR0212,Sminthopsis murina,Common Marsupial Mouse,2,2435410,https://www.gbif.org/species/2435410,exact_english_gbif_common_name,NO
+KR0240,Nautilus pompilius,Flame Nautilus,2,2289202,https://www.gbif.org/species/2289202,exact_english_gbif_common_name,NO
+KR0240,Nautilus pompilius,Common Nautilus,2,2289202,https://www.gbif.org/species/2289202,exact_english_gbif_common_name,NO
+KR0240,Nautilus pompilius,Pearly Nautilus,2,2289202,https://www.gbif.org/species/2289202,exact_english_gbif_common_name,NO
+KR0240,Venus verrucosa,Warty Venus,2,2287777,https://www.gbif.org/species/2287777,exact_english_gbif_common_name,NO
+KR0240,Venus verrucosa,warty venus shell,2,2287777,https://www.gbif.org/species/2287777,exact_english_gbif_common_name,NO
+KR0247,Calvatia gigantea,Giant Puffball,2,2536058,https://www.gbif.org/species/2536058,exact_english_gbif_common_name,NO
+KR0247,Cantharellus cibarius,Golden Chanterelle,2,5249504,https://www.gbif.org/species/5249504,exact_english_gbif_common_name,NO
+KR0247,Ganoderma lucidum,Lacquered Bracket,2,2549730,https://www.gbif.org/species/2549730,exact_english_gbif_common_name,NO
+KR0247,Hericium erinaceus,Bearded Tooth,2,5248508,https://www.gbif.org/species/5248508,exact_english_gbif_common_name,NO
+KR0247,Hericium erinaceus,Lion's-mane Mushroom,2,5248508,https://www.gbif.org/species/5248508,exact_english_gbif_common_name,NO
+KR0247,Omphalotus illudens,Jack O Lantern,2,2538084,https://www.gbif.org/species/2538084,exact_english_gbif_common_name,NO
+KR0247,Omphalotus illudens,Eastern American Jack-o'-lantern,2,2538084,https://www.gbif.org/species/2538084,exact_english_gbif_common_name,NO
+KR0247,Suillus luteus,Purple-veiled Slippery Jack,2,7777157,https://www.gbif.org/species/7777157,exact_english_gbif_common_name,NO
+KR0247,Trichaptum biforme,Violet-toothed Polypore,2,5247228,https://www.gbif.org/species/5247228,exact_english_gbif_common_name,NO
+KR0777,Ailuropoda melanoleuca,Panda Bear,2,2433399,https://www.gbif.org/species/2433399,exact_english_gbif_common_name,NO
+KR0777,Ailuropoda melanoleuca,White Bear,2,2433399,https://www.gbif.org/species/2433399,exact_english_gbif_common_name,NO
+KR0777,Ailuropoda melanoleuca,Bamboo Bear,2,2433399,https://www.gbif.org/species/2433399,exact_english_gbif_common_name,NO
+KR0822,Ambystoma mexicanum,Axolote,2,2431950,https://www.gbif.org/species/2431950,exact_english_gbif_common_name,NO
+KR0822,Ambystoma mexicanum,Mexican Axolotl,2,2431950,https://www.gbif.org/species/2431950,exact_english_gbif_common_name,NO
+KR0822,Ambystoma mexicanum,Mexican Salamander,2,2431950,https://www.gbif.org/species/2431950,exact_english_gbif_common_name,NO
+KR0822,Andrias davidianus,Chinese Giant Salamander,2,2432037,https://www.gbif.org/species/2432037,exact_english_gbif_common_name,NO
+KR0822,Andrias davidianus,Huangshan Giant Salamander,2,2432037,https://www.gbif.org/species/2432037,exact_english_gbif_common_name,NO
+KR0822,Andrias davidianus,Maoershan Giant Salamander,2,2432037,https://www.gbif.org/species/2432037,exact_english_gbif_common_name,NO
+KR0822,Boophis madagascariensis,Madagascar Bright-eyed Frog,2,2423393,https://www.gbif.org/species/2423393,exact_english_gbif_common_name,NO
+KR0822,Cerastes cerastes,Desert Horned Viper,2,8909697,https://www.gbif.org/species/8909697,exact_english_gbif_common_name,NO
+KR0822,Cerastes cerastes,horned desert viper,2,8909697,https://www.gbif.org/species/8909697,exact_english_gbif_common_name,NO
+KR0822,Cerastes cerastes,Saharan horned viper,2,8909697,https://www.gbif.org/species/8909697,exact_english_gbif_common_name,NO
+KR0822,Echis carinatus,Phoorsa,2,2443876,https://www.gbif.org/species/2443876,exact_english_gbif_common_name,NO
+KR0822,Echis carinatus,Carpet Viper,2,2443876,https://www.gbif.org/species/2443876,exact_english_gbif_common_name,NO
+KR0822,Echis carinatus,Saw-scaled Viper,2,2443876,https://www.gbif.org/species/2443876,exact_english_gbif_common_name,NO
+KR0822,Eublepharis macularius,Leopard gecko,2,5221283,https://www.gbif.org/species/5221283,exact_english_gbif_common_name,NO
+KR0822,Eublepharis macularius,Common Leopard Gecko,2,5221283,https://www.gbif.org/species/5221283,exact_english_gbif_common_name,NO
+KR0822,Eublepharis macularius,Gecko leopardo comum,2,5221283,https://www.gbif.org/species/5221283,exact_english_gbif_common_name,NO
+KR0822,Gopherus agassizii,Desert Tortoise,2,2441814,https://www.gbif.org/species/2441814,exact_english_gbif_common_name,NO
+KR0822,Gopherus agassizii,Mohave Desert Tortoise,2,2441814,https://www.gbif.org/species/2441814,exact_english_gbif_common_name,NO
+KR0822,Gopherus agassizii,Mojave Desert Tortoise,2,2441814,https://www.gbif.org/species/2441814,exact_english_gbif_common_name,NO
+KR0822,Pelodiscus sinensis,Chinese Softshell,2,5220435,https://www.gbif.org/species/5220435,exact_english_gbif_common_name,NO
+KR0822,Pelodiscus sinensis,Chinese Softshell Turtle,2,5220435,https://www.gbif.org/species/5220435,exact_english_gbif_common_name,NO
+KR0822,Pelodiscus sinensis,Chinese Soft-shelled Turtle,2,5220435,https://www.gbif.org/species/5220435,exact_english_gbif_common_name,NO
+KR0822,Python bivittatus,Banana Snake,2,4820533,https://www.gbif.org/species/4820533,exact_english_gbif_common_name,NO
+KR0822,Python bivittatus,Burmese Python,2,4820533,https://www.gbif.org/species/4820533,exact_english_gbif_common_name,NO
+KR0822,Python bivittatus,Burmese Rock Python,2,4820533,https://www.gbif.org/species/4820533,exact_english_gbif_common_name,NO
+KR0822,Python sebae,rock python,2,2465346,https://www.gbif.org/species/2465346,exact_english_gbif_common_name,NO
+KR0822,Python sebae,African Rock Python,2,2465346,https://www.gbif.org/species/2465346,exact_english_gbif_common_name,NO
+KR0822,Python sebae,Northern African python,2,2465346,https://www.gbif.org/species/2465346,exact_english_gbif_common_name,NO
+KR0822,Rhinella marina,Crapoud,2,5216933,https://www.gbif.org/species/5216933,exact_english_gbif_common_name,NO
+KR0822,Rhinella marina,Tulumba,2,5216933,https://www.gbif.org/species/5216933,exact_english_gbif_common_name,NO
+KR0822,Rhinella marina,Agua Toad,2,5216933,https://www.gbif.org/species/5216933,exact_english_gbif_common_name,NO
+KR0822,Varanus varius,Lace Goanna,2,2470715,https://www.gbif.org/species/2470715,exact_english_gbif_common_name,NO
+KR0822,Varanus varius,Tree Goanna,2,2470715,https://www.gbif.org/species/2470715,exact_english_gbif_common_name,NO
+KR0822,Varanus varius,Lace Monitor,2,2470715,https://www.gbif.org/species/2470715,exact_english_gbif_common_name,NO
+KR0856,Laniarius leucorhynchus,Lowland Sooty Boubou,2,2484865,https://www.gbif.org/species/2484865,exact_english_gbif_common_name,NO
+KR0856,Lutreolina crassicaudata,Lutrine Opossum,2,2439988,https://www.gbif.org/species/2439988,exact_english_gbif_common_name,NO
+KR0856,Lutreolina crassicaudata,Lesser Water Opossum,2,2439988,https://www.gbif.org/species/2439988,exact_english_gbif_common_name,NO
+KR0856,Lutreolina crassicaudata,Little Water Opossum,2,2439988,https://www.gbif.org/species/2439988,exact_english_gbif_common_name,NO

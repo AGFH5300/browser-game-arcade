@@ -40,11 +40,11 @@ def simple(s):
 # Excludes different cities, people, songs, performers and score conflicts.
 APPROVE={
   1,2,3,4,7,8,9,10,12,13,14,16,17,18,19,21,23,24,25,
-  28,29,30,31,33,34,35,38,39,43,45,46,47,48,49,
+  28,29,30,31,32,33,34,35,38,39,43,45,46,47,48,49,
   51,52,55,57,59,60,61,62,66,67,68,69,70,71,72,73,74,
   77,78,79,80,81,82,84
 }
-assert len(APPROVE)==58
+assert len(APPROVE)==59
 collision_rows=rows('NORMALIZED_DUPLICATES_AND_CONFLICTS.csv')
 assert len(collision_rows)==84
 # Original publisher acceptance is unverified; these sources prove real-world
@@ -67,7 +67,11 @@ IDENTITIES={
   54:('VERIFIED_DISTINCT','https://es.wikipedia.org/wiki/C.R.O_(m%C3%BAsico) | https://www.munzinger.de/register/portrait/biographien/cro/02/1769'),
   65:('VERIFIED_DISTINCT','https://en.wikipedia.org/wiki/Crybaby'),
   76:('VERIFIED_DISTINCT','https://en.wikipedia.org/wiki/St._Anton_am_Arlberg | https://en.wikipedia.org/wiki/Stanton,_California'),
-  83:('VERIFIED_DISTINCT','https://www.starwars.com/series/star-wars-rebels/dume-episode-guide | https://d23.com/mcu-robot-roundup/')
+  83:('VERIFIED_DISTINCT','https://www.starwars.com/series/star-wars-rebels/dume-episode-guide | https://d23.com/mcu-robot-roundup/'),
+  32:('SAME_ENTITY','https://www.howe.com/us/products/chairs/404/ | https://www.designcraft.net.au/products/howe-404-chair'),
+  75:('VERIFIED_DISTINCT','https://www.imdb.com/title/tt5763098/ | https://www.imdb.com/title/tt2141913'),
+  37:('VERIFIED_DISTINCT','https://en.wikipedia.org/wiki/Au/Ra | https://www.globalmusicsong.com/artists-au.html'),
+  40:('VERIFIED_DISTINCT','https://streamclout.io/artist/h-dn/4gD6ddSF1KwHyvk34XykYH | https://streamclout.io/artist/hdn/2VeycUHUfDjoYqpkOSllnn')
 }
 statuses=[]
 allowed={}
@@ -100,7 +104,7 @@ for i,r in enumerate(collision_rows,1):
                  else 'Not safe to merge without independent identity proof')
     })
 write('84-collision-review.csv',list(statuses[0]),statuses)
-assert sum(s['review_state']=='APPROVED_EDITORIAL_EQUIVALENT' for s in statuses)==58
+assert sum(s['review_state']=='APPROVED_EDITORIAL_EQUIVALENT' for s in statuses)==59
 # Publisher-official full-title variants of *already playable games*.
 # These are aliases, not additional scored answers. Exclude compound
 # multiple-game model suggestions and titles not used by the publisher.
@@ -133,6 +137,24 @@ for canonical,source_url in title_sources.items():
       'source_url':source_url,'review':'official_pokemon_title_alias',
       'publisher_original_validator_verified':False
     })
+# Exact English common names for previously verified GBIF species.
+common_name_aliases={}
+common_file=out/'gbif-reviewed-common-aliases.csv'
+if common_file.exists():
+    with common_file.open(encoding='utf8',newline='') as f:
+        for x in csv.DictReader(f):
+            id,canonical,alias=x['id'],x['canonical'],x['alias']
+            originals=[a for a in packs[id]['answers'] if a[0]==canonical]
+            assert len(originals)==1 and originals[0][2]=='gbif'
+            assert int(x['tier'])==originals[0][1]
+            assert x['review']=='exact_english_gbif_common_name'
+            assert x['source_url'].startswith('https://www.gbif.org/species/')
+            assert not any(simple(a[0])==simple(alias) for a in packs[id]['answers'])
+            common_name_aliases.setdefault(id,[]).append({
+                'canonical':canonical,'alias':alias,'tier':int(x['tier']),
+                'source_url':x['source_url'],'review':'exact_english_gbif_common_name',
+                'publisher_original_validator_verified':False
+            })
 assert len(title_aliases)==11
 with (out/'official-game-title-aliases.csv').open('w',encoding='utf8',newline='') as f:
     w=csv.DictWriter(f,fieldnames=list(title_aliases[0]),lineterminator='\n')
@@ -144,7 +166,8 @@ path.write_text(json.dumps({
     'publisherAcceptanceVerified':False,
     'changesPublisherScores':False,
     'groups':allowed,
-    'canonicalAliases':{'KR0911':title_aliases}
+    'canonicalAliases':{'KR0911':title_aliases},
+    'commonNameAliases':common_name_aliases
 },ensure_ascii=False,separators=(',',':'))+'\n')
 missing=rows('MISSING_96_100POINT_POLICY.csv')
 assert len(missing)==96
@@ -237,6 +260,8 @@ summary={
  'collision_groups_reviewed':len(statuses),
  'approved_editorial_orthographic_groups':sum(s['review_state']=='APPROVED_EDITORIAL_EQUIVALENT' for s in statuses),
  'separately_verified_official_title_aliases':len(title_aliases),
+ 'gbif_verified_common_name_aliases':sum(len(v) for v in common_name_aliases.values()),
+ 'gbif_common_name_alias_question_count':len(common_name_aliases),
  'held_collision_groups':sum(s['review_state']!='APPROVED_EDITORIAL_EQUIVALENT' for s in statuses),
  'held_but_identity_verified_distinct_groups':sum(s['identity_verification']=='VERIFIED_DISTINCT' for s in statuses),
  'remaining_identity_unresolved_groups':sum(s['review_state']!='APPROVED_EDITORIAL_EQUIVALENT' and s['identity_verification']=='NOT_ESTABLISHED' for s in statuses),
