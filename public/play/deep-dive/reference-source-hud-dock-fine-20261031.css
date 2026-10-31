@@ -193,3 +193,24 @@ body:has(.dd-game-screen[data-world="ocean"]:not([data-phase="done"])){
   right:15px!important
  }
 }
+/* The source prompt has ds-card ds-px; using only dd-card previously
+   left a bright rectangular cyan outline and unstepped corners. */
+.dd-game-screen[data-world="ocean"] .dd-world .dd-game-prompt{
+ clip-path:polygon(
+  0 10px,5px 10px,5px 5px,10px 5px,10px 0,
+  calc(100% - 10px) 0,calc(100% - 10px) 5px,
+  calc(100% - 5px) 5px,calc(100% - 5px) 10px,
+  100% 10px,100% calc(100% - 10px),
+  calc(100% - 5px) calc(100% - 10px),
+  calc(100% - 5px) calc(100% - 5px),
+  calc(100% - 10px) calc(100% - 5px),
+  calc(100% - 10px) 100%,10px 100%,
+  10px calc(100% - 5px),5px calc(100% - 5px),
+  5px calc(100% - 10px),0 calc(100% - 10px)
+ )!important
+}
+/* Original first surface stage does not display the 60m/200m lore
+   before descending. Older mobile-only clone rendered it prematurely. */
+.dd-game-screen[data-world="ocean"][data-zone="surface"]:not([data-phase="done"]) .dd-amb{
+ display:none!important
+}

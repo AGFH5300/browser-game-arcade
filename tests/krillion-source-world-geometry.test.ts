@@ -40,3 +40,10 @@ test('comparison harness uses equal text without editing saved question banks',(
  assert(audit.includes('noScroll'));
  assert(!audit.includes('/Users/'));
 });
+
+test('pixel-cut source card has no rectangular glow and initial lore stays hidden',()=>{
+ assert(css.includes('.dd-world .dd-game-prompt{'));
+ assert(css.includes('clip-path:polygon('));
+ assert(css.includes('[data-zone="surface"]:not([data-phase="done"]) .dd-amb'));
+ assert(css.includes('display:none!important'));
+});
