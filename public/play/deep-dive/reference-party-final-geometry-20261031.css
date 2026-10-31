@@ -1,0 +1,58 @@
+/* Live-source viewport-matched Puffer Party geometry: desktop 1440x900,
+ * mobile 390x844. This replaces the older blanket arena Y-offset while
+ * retaining Sidequest's independent room/rating functionality.
+ *
+ * Source desktop: hero x640 y378 161x160, name x210 y384 328x53,
+ * identity left x190 y301. Source mobile: hero x144 y186 102x101,
+ * name x30 y453 330x53, identity left x11 y370.
+ */
+@media (min-width: 651px) {
+ .pp-view .pp-arena {transform:translateY(6px)!important}
+}
+@media (max-width: 650px) {
+ .pp-view .pp-arena {transform:translateY(31px)!important;padding-left:12px!important;padding-right:12px!important}
+ /* The source mobile title sits 5px above the arena flow; the
+    mascot and identity are positioned by the independent foyer flow. */
+ .pp-view .pp-scene-header {transform:translateY(-32px)!important}
+}
+@media (min-width: 1100px) {
+ /* Original desktop background image is rendered 1512x1008 at
+    x -36, y -190; keep an independent solid abyss below the art. */
+ .pp-view {
+  background-color:#020814!important;
+  background-image:linear-gradient(180deg,rgba(4,17,36,.05),rgba(3,10,25,.10)),url('./reference-assets/gen/party/reef-d-clean.png')!important;
+  background-size:100% 100%,105vw auto!important;
+  background-position:center center,center -190px!important;
+  background-repeat:no-repeat!important
+ }
+}
+@media (max-width: 650px) {
+ /* Original mobile reef rect x -109, y -158, 608x912 at 390x844.
+    Unlike cover/center, crop remains constant when scrolling host controls. */
+ .pp-view {
+  background-color:#020814!important;
+  background-image:linear-gradient(180deg,rgba(4,17,36,.05),rgba(3,10,25,.10)),url('./reference-assets/gen/party/reef-m-clean.png')!important;
+  background-size:100% 100%,auto 108svh!important;
+  background-position:center center,center -158px!important;
+  background-repeat:no-repeat!important;
+  background-attachment:scroll!important
+ }
+}
+
+/* Original Party menu control is 44x44 at x=185 / x=5 and y=8.
+   Hide the duplicate local sound button; main Settings still controls audio. */
+body:has(.pp-view) .topbar{top:8px!important}
+body:has(.pp-view) .dd-nav-toggle>summary{
+ width:44px!important;height:44px!important;min-width:44px!important;
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ font-size:19px!important;box-sizing:border-box!important
+}
+.pp-view .pp-sound-toggle{display:none!important}
+@media(min-width:1100px){
+ body:has(.pp-view) .topbar{left:max(5px,calc((100vw - 1440px)/2 + 185px))!important}
+ .pp-view .pp-scene-name{font-size:22px!important;letter-spacing:6.6px!important}
+}
+@media(max-width:650px){
+ body:has(.pp-view) .topbar{left:5px!important}
+ .pp-view .pp-scene-name{font-size:18px!important;letter-spacing:5.4px!important}
+}

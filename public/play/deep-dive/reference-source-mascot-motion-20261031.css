@@ -1,0 +1,20 @@
+/* Move the sprite parent independently of the original 2.6s swimming image.
+   Static home mascot positioning remains fallback until JS mounts. */
+.deep-home[data-phase="intro"] .dd-source-mascot-anchor{
+ position:fixed!important;left:0!important;top:0!important;
+ width:64px!important;height:64px!important;display:block!important;
+ z-index:8!important;will-change:transform;pointer-events:none
+}
+.deep-home[data-phase="intro"] .dd-source-mascot-anchor>.dd-home-mascot{
+ display:block!important;position:static!important;
+ width:64px!important;height:64px!important;max-width:none!important;max-height:none!important;
+ left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;
+ margin:0!important;opacity:1!important;
+ object-fit:contain!important;image-rendering:pixelated!important;
+ animation:ds-swim 2.6s cubic-bezier(.65,0,.35,1) infinite!important;
+}
+@media(prefers-reduced-motion:reduce){
+ .deep-home[data-phase="intro"] .dd-source-mascot-anchor>.dd-home-mascot{
+ animation:none!important
+ }
+}
