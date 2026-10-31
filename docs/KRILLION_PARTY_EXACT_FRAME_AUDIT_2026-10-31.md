@@ -81,3 +81,32 @@ Remaining page typography/panel details, dynamic gameplay and results
 screens have NOT passed strict all-screen 1:1 checks.
 
 No global pixel-perfect / binary-equivalent certification is issued.
+
+## Extended screen-state matrix, 31 October 2026
+
+The source website and live Sidequest preview were captured with matching
+viewport sizes and device pixel ratios, seeded Math.random where possible,
+paused CSS animation timelines and isolated browser sessions. The matrix
+covers home, menu, Settings, Wardrobe, Party, Unlimited, Account and Friends
+at 1440x900 and 390x844. See scripts/krillion-live-visual-matrix.mjs.
+Set KRILLION_PLAYWRIGHT_MODULE and KRILLION_CHROMIUM_EXECUTABLE if Playwright
+is not installed within the repo, and KRILLION_CANDIDATE_URL for a preview.
+Use KRILLION_NO_SEED=1 when testing startup without RNG interception.
+KRILLION_SCENARIOS and KRILLION_VIEWPORTS select individual tests.
+
+A false positive was found: an original mobile menu click during hydration
+could screenshot the homepage while comparing to Sidequest's open menu.
+The original SiteMenu does not expose the anticipated visible role=dialog;
+it sets aria-expanded=true on its menu trigger. The harness now requires
+that state and the open-menu content. Invalid captures must not count.
+
+Verified mobile menu measured ~9.76/255 before correcting original menu
+panel width, title spacing, scanline overlay, 52x52 puffer icon, and close
+button; ~8.08/255 afterward. Desktop menu moved ~5.79 to ~5.72/255.
+
+Seeding Math.random is NOT enough to synchronize different applications'
+RNG consumption, asynchronous requests, canvas clocks, animation starts or
+publisher-controlled data. Pausing CSS animations does not pause canvas
+requestAnimationFrame loops. These tests catch false comparisons, but do
+not establish deterministic pixel-perfect parity. The exact-all-screen
+acceptance requirement remains FAIL, and the threshold is not weakened.
