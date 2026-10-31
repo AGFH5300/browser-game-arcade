@@ -52,6 +52,13 @@ All tests below were run against the public 31 October 2026 Daily Dive via the d
 | Country with black or orange flag: THE Germany | accepted Germany / plankton / 10 |
 | Country with black or orange flag: Germony | correction Germany |
 | Animal feeding on blood: Mosquitoes | correction Mosquito |
+| Orange fruit or vegetable: Butternut squash | accepted Butternut squash / schooler / 30 |
+| Orange fruit or vegetable: butternut sqash | correction Butternut squash |
+| Orange fruit or vegetable: butternut suqash | correction Butternut squash |
+| Country with black or orange flag: Papua New Guinea | accepted Papua New Guinea / rare / 60 |
+| Country with black or orange flag: Papua New Gunea | correction Papua New Guinea |
+| Animal feeding on blood: Vampire bat | accepted Vampire bat / schooler / 30 |
+| Animal feeding on blood: Vampre bat | correction Vampire bat |
 
 ## Supported behavioral inference
 
@@ -64,3 +71,10 @@ Sidequest's previously installed **restricted Damerau-Levenshtein** gave a 1-edi
 ## Why exact implementation cannot be certified
 
 Finite requests cannot prove two validators equivalent across arbitrary spellings, alias collisions and all answer lists. Exact code identity would require the publisher to provide the private implementation or release the corresponding server code. This artifact does not claim that happened.
+
+
+## Follow-up public-source recovery attempt
+
+Another pass on 31 Oct 2026 searched public GitHub repositories and file indexes for the publisher's validator and its distinctive request field. Results were unrelated repos, third-party solvers, and independent clones, not verified original server source. A public npm registry search for Krillion returned no matching published package. Wayback Machine CDX searches for public original JavaScript source maps and the current gameplay chunk returned no archived snapshots. Current homepage: 15 Next.js/Turbopack client chunks; all 15 matching public source-map paths returned 403. No original answer matcher, edit-distance utility, or installed third-party fuzzy matching library was identifiable in the browser code.
+
+These negative observations apply to the checked public sources only and do not prove no private implementation exists elsewhere. Attempts to access internal servers, credentials, unlisted database connections, or nonpublic source are outside this audit.
