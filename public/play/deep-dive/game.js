@@ -534,9 +534,18 @@
   async function loadIndependentPracticeUnlimited(gameId){
     if(gameId<5)return [];
     const root='./recovered/independent-bank/';
-    const response=await fetch(root+'manifest.json',{cache:'force-cache'});
+    const [response,aliasesResponse]=await Promise.all([
+      fetch(root+'manifest.json',{cache:'force-cache'}),
+      fetch(root+'reviewed-aliases.json',{cache:'force-cache'})
+    ]);
     if(!response.ok)throw Error('Independent practice index unavailable');
-    const manifest=await response.json();
+    if(!aliasesResponse.ok)throw Error('Editorial alias review unavailable');
+    const manifest=await response.json(),aliasReview=await aliasesResponse.json();
+    if(aliasReview.source!=='sidequest-editorial-orthography-review'||
+      aliasReview.publisherAcceptanceVerified!==false||
+      aliasReview.changesPublisherScores!==false||
+      !aliasReview.groups||typeof aliasReview.groups!=='object')
+      throw Error('Editorial alias provenance invalid');
     if(manifest.source!=='sidequest-independently-recovered-practice'||
       manifest.originalPublisherAcceptanceVerified!==false||
       manifest.allScoresEmpiricallyCalibrated!==false||
@@ -575,6 +584,28 @@
         answers.push(entry);
       }
       if(answers.length<1)throw Error('Empty independent question '+item.id);
+      // Consolidate only separately reviewed, same-question SAME-TIER
+      // orthographic duplicates. Preserve both accepted spellings as aliases,
+      // but keep just one canonical entry and its ORIGINAL stored score.
+      // The five conflicting-score collision groups are never in this ledger.
+      const groups=aliasReview.groups[item.id]||[];
+      if(!Array.isArray(groups))throw Error('Invalid reviewed aliases');
+      for(const decision of groups){
+        const original=answers.find(a=>a.value===decision.canonical);
+        const alternate=answers.find(a=>a.value===decision.equivalent);
+        if(!original||!alternate||original===alternate||
+          decision.review!=='sidequest_editorial_orthography_only'||
+          original.tier!==alternate.tier||original.tier!==decision.tier)
+          throw Error('Editorial alias decision inconsistent: '+item.id);
+        if(strictNorm(original.value)===strictNorm(alternate.value))
+          throw Error('Redundant editorial alias: '+item.id);
+        original.aliases.push(alternate.value);
+        const index=answers.indexOf(alternate);
+        answers.splice(index,1);
+        strictAnswerIndex.set(strictNorm(alternate.value),original);
+        if(answerIndex.get(norm(alternate.value))===alternate)
+          answerIndex.set(norm(alternate.value),original);
+      }
       return {id:item.id,prompt:pack.prompt,theme:'Independent',answers,answerIndex,strictAnswerIndex};
     }));
     for(const q of loaded)byId.set(q.id,q);
@@ -659,6 +690,7 @@
     }
     if(!ids.length)return;
     depthCrank=false;mascotPose='';correction=null;rejectMsg='';
+    window.DeepDiveAnswerFeedback?.reset();
     window.DeepDiveSfx?.event('begin');
     /* Pass 3 phase machine: every round opens in preview (the original's
        3-second "descending · the clock starts in N" pill) before answering. */
@@ -868,6 +900,7 @@
     // E.g. Predator and The Predator may have different rarity tiers.
     const found=q.strictAnswerIndex?.get(strictNorm(answer))||findAnswer(q,answer);
     if(!found){
+      window.DeepDiveAnswerFeedback?.remember({questionId:q.id,prompt:q.prompt,answer,mode:active.mode,source:String(q.answers?.[0]?.source||'')});
       rejectMsg='\u201c'+answer+'\u201d: no echo. try again';
       const line=document.getElementById('dd-reject-line');
       if(line){
@@ -917,7 +950,7 @@
       if(active.index+1>=active.ids.length||(active.mode==='endless'&&active.ids.length>7&&active.misses>=3)){conclude();return}
       window.DeepDiveSfx?.event('descend');
       depthCrank=false;
-      active.index++;active.phase='preview';active.previewEnds=Date.now()+3200;active.deadline=0;mascotPose='';correction=null;rejectMsg='';save();render();
+      active.index++;active.phase='preview';active.previewEnds=Date.now()+3200;active.deadline=0;mascotPose='';correction=null;rejectMsg='';window.DeepDiveAnswerFeedback?.reset();save();render();
     };
     if(!card||window.matchMedia('(prefers-reduced-motion: reduce)').matches){leave();return}
     card.classList.add('dd-card-leaving');
