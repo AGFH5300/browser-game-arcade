@@ -161,3 +161,15 @@ automated test in tests/krillion-source-asset-integrity.test.ts.
 20/20 means observed asset integrity PASS, not that the unobserved
 assets or all source animation frames have passed global parity.
 \nFive additional public source client code image URLs were separately fetched\nand matched byte-for-byte, bringing total validated public files to 25;\nthis still does not prove exhaustive hidden sprite or animation parity.\n
+## First-answer CSS animation inventory (live browser)
+
+At 390px the original source had 13 active browser animations including a
+two-second one-shot vignette Web Animation, eight floating title letters,
+a title flicker, 1.4s current-round dot pulse, 2.6s mascot swim and
+2.4s sonar sweep. Sidequest had an unintended 4s boatBob animation and
+omitted the mobile current dot pulse; its sonar used a separate clone
+keyframe name. The extra boat animation was removed and the original
+dot pulse / ds-sweep-spin were restored on both responsive viewports.
+The separate publisher Web Animations API vignette transition has been
+measured (.259632 to .297 opacity over 2s, ease) but not certified as
+frame-identical in the independent renderer. Strict exactness still FAILS.

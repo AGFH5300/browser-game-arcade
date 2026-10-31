@@ -36,3 +36,10 @@ test('source responsive prompt typography preserves varying question length',()=
  assert(css.includes('line-height:1.5!important'));
  assert(!css.includes('min-height:148px'));
 });
+
+test('gameplay mobile button/dot/boat source animation inventory matches',()=>{
+ assert(css.includes('animation:ds-dot-pulse 1.4s'));
+ assert(css.includes('animation:ds-sweep-spin 2.4s'));
+ assert(css.includes('.dd-world-surface-boat .dd-boat'));
+ assert(css.includes('animation:none!important'));
+});

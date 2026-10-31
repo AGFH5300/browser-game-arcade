@@ -128,3 +128,19 @@
   margin-top:-2px!important
  }
 }
+/* Answer-phase animation inventory from live 390/1440 source client:
+   original current-round dot pulses for 1400ms on both viewports;
+   former mobile clone unintentionally suppressed that pulse.
+   The sonar uses the original published ds-sweep-spin keyframe.
+   Mobile SVG boat does not have a source-equivalent CSS boatBob. */
+.dd-game-screen[data-world="ocean"] .dd-hud-dot.cur{
+ animation:ds-dot-pulse 1.4s cubic-bezier(.45,0,.55,1) infinite!important
+}
+.dd-game-screen[data-world="ocean"] .dd-sweep{
+ animation:ds-sweep-spin 2.4s linear infinite!important
+}
+@media(max-width:650px){
+ .dd-game-screen[data-world="ocean"] .dd-world-surface-boat .dd-boat{
+  animation:none!important
+ }
+}
