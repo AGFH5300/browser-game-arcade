@@ -625,6 +625,24 @@
         strictAnswerIndex.set(key,original);
         if(!answerIndex.has(normalized))answerIndex.set(normalized,original);
       }
+      // GBIF English names are aliases to an existing scored Latin species.
+      // Canonical answers and their original source tiers remain unchanged.
+      const commonNames=aliasReview.commonNameAliases?.[item.id]||[];
+      if(!Array.isArray(commonNames))throw Error('Invalid GBIF common-name aliases');
+      for(const alias of commonNames){
+        const original=answers.find(a=>a.value===alias.canonical);
+        const key=strictNorm(alias.alias),normalized=norm(alias.alias);
+        if(!original||original.provenance!=='gbif'||!key||!normalized||
+          alias.review!=='exact_english_gbif_common_name'||
+          alias.publisher_original_validator_verified!==false||
+          !alias.source_url?.startsWith('https://www.gbif.org/species/')||
+          original.tier!==alias.tier||
+          (strictAnswerIndex.has(key)&&strictAnswerIndex.get(key)!==original))
+          throw Error('Verified GBIF common-name alias invalid: '+item.id);
+        if(!original.aliases.includes(alias.alias))original.aliases.push(alias.alias);
+        strictAnswerIndex.set(key,original);
+        if(!answerIndex.has(normalized))answerIndex.set(normalized,original);
+      }
       return {id:item.id,prompt:pack.prompt,theme:'Independent',answers,answerIndex,strictAnswerIndex};
     }));
     for(const q of loaded)byId.set(q.id,q);

@@ -1,0 +1,39 @@
+{
+  "verified_source_taxa": 1024,
+  "taxa_sampled": 1054,
+  "safe_aliases": 958,
+  "questions_with_aliases": 23,
+  "by_question": {
+    "KR0009": 208,
+    "KR0035": 26,
+    "KR0037": 31,
+    "KR0058": 241,
+    "KR0072": 12,
+    "KR0079": 26,
+    "KR0086": 21,
+    "KR0093": 4,
+    "KR0100": 22,
+    "KR0114": 6,
+    "KR0124": 89,
+    "KR0128": 133,
+    "KR0142": 24,
+    "KR0149": 14,
+    "KR0156": 5,
+    "KR0170": 15,
+    "KR0205": 12,
+    "KR0212": 14,
+    "KR0240": 5,
+    "KR0247": 9,
+    "KR0777": 3,
+    "KR0822": 34,
+    "KR0856": 4
+  },
+  "excluded": {
+    "wrong_initial_for_question": 74,
+    "unexplained_abbreviation": 15,
+    "bad_spelling": 86,
+    "already_canonical": 132,
+    "limited_to_three_per_species": 398,
+    "ambiguous_between_species": 65
+  }
+}

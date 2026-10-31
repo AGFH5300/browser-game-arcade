@@ -1,0 +1,56 @@
+id,question,answer,gbif_taxon_key,rank,taxonomic_class,order,family,score_estimate,publisher_acceptance,source_url
+KR0170,Name a lizard species,Acanthodactylus erythrurus,5226733,SPECIES,Squamata,,Lacertidae,30,NOT_VERIFIED,https://www.gbif.org/species/5226733
+KR0170,Name a lizard species,Anolis sagrei,4287413,SPECIES,Squamata,,Dactyloidae,30,NOT_VERIFIED,https://www.gbif.org/species/4287413
+KR0170,Name a lizard species,Draco dussumieri,5226166,SPECIES,Squamata,,Agamidae,30,NOT_VERIFIED,https://www.gbif.org/species/5226166
+KR0170,Name a lizard species,Gerrhosaurus multilineatus,6158962,SPECIES,Squamata,,Gerrhosauridae,30,NOT_VERIFIED,https://www.gbif.org/species/6158962
+KR0170,Name a lizard species,Lacerta trilineata,6159197,SPECIES,Squamata,,Lacertidae,30,NOT_VERIFIED,https://www.gbif.org/species/6159197
+KR0170,Name a lizard species,Phrynocephalus helioscopus,2466398,SPECIES,Squamata,,Agamidae,30,NOT_VERIFIED,https://www.gbif.org/species/2466398
+KR0170,Name a lizard species,Pseudocordylus microlepidotus,9419072,SPECIES,Squamata,,Cordylidae,30,NOT_VERIFIED,https://www.gbif.org/species/9419072
+KR0212,Name a marsupial,Dromiciops gliroides,2433393,SPECIES,Mammalia,Microbiotheria,Microbiotheriidae,30,NOT_VERIFIED,https://www.gbif.org/species/2433393
+KR0212,Name a marsupial,Notoryctes typhlops,2440825,SPECIES,Mammalia,Notoryctemorphia,Notoryctidae,30,NOT_VERIFIED,https://www.gbif.org/species/2440825
+KR0212,Name a marsupial,Pseudocheirus peregrinus,2440062,SPECIES,Mammalia,Diprotodontia,Pseudocheiridae,30,NOT_VERIFIED,https://www.gbif.org/species/2440062
+KR0212,Name a marsupial,Sminthopsis murina,2435410,SPECIES,Mammalia,Dasyuromorphia,Dasyuridae,30,NOT_VERIFIED,https://www.gbif.org/species/2435410
+KR0212,Name a marsupial,Macropus agilis,5219975,SPECIES,Mammalia,Diprotodontia,Macropodidae,30,NOT_VERIFIED,https://www.gbif.org/species/5219975
+KR0205,Name a type of turtle or tortoise,Sternotherus depressus,5220391,SPECIES,Testudines,,Kinosternidae,30,NOT_VERIFIED,https://www.gbif.org/species/5220391
+KR0205,Name a type of turtle or tortoise,Carettochelys insculpta,2442506,SPECIES,Testudines,,Carettochelyidae,30,NOT_VERIFIED,https://www.gbif.org/species/2442506
+KR0205,Name a type of turtle or tortoise,Lepidochelys kempii,2442165,SPECIES,Testudines,,Cheloniidae,30,NOT_VERIFIED,https://www.gbif.org/species/2442165
+KR0205,Name a type of turtle or tortoise,Cuora amboinensis,2443521,SPECIES,Testudines,,Geoemydidae,30,NOT_VERIFIED,https://www.gbif.org/species/2443521
+KR0205,Name a type of turtle or tortoise,Eretmochelys imbricata,8841716,SPECIES,Testudines,,Cheloniidae,30,NOT_VERIFIED,https://www.gbif.org/species/8841716
+KR0149,Name a type of waterfowl,Anas acuta,2498112,SPECIES,Aves,Anseriformes,Anatidae,30,NOT_VERIFIED,https://www.gbif.org/species/2498112
+KR0149,Name a type of waterfowl,Mergus serrator,2498375,SPECIES,Aves,Anseriformes,Anatidae,30,NOT_VERIFIED,https://www.gbif.org/species/2498375
+KR0149,Name a type of waterfowl,Lophodytes cucullatus,2498408,SPECIES,Aves,Anseriformes,Anatidae,30,NOT_VERIFIED,https://www.gbif.org/species/2498408
+KR0149,Name a type of waterfowl,Tadorna tadornoides,2498007,SPECIES,Aves,Anseriformes,Anatidae,30,NOT_VERIFIED,https://www.gbif.org/species/2498007
+KR0149,Name a type of waterfowl,Branta ruficollis,5232451,SPECIES,Aves,Anseriformes,Anatidae,30,NOT_VERIFIED,https://www.gbif.org/species/5232451
+KR0149,Name a type of waterfowl,Melanitta nigra,2498247,SPECIES,Aves,Anseriformes,Anatidae,30,NOT_VERIFIED,https://www.gbif.org/species/2498247
+KR0240,Name a mollusk or shellfish,Nautilus pompilius,2289202,SPECIES,Cephalopoda,Nautilida,Nautilidae,30,NOT_VERIFIED,https://www.gbif.org/species/2289202
+KR0240,Name a mollusk or shellfish,Venus verrucosa,2287777,SPECIES,Bivalvia,Venerida,Veneridae,30,NOT_VERIFIED,https://www.gbif.org/species/2287777
+KR0822,Name a cold-blooded animal,Python sebae,2465346,SPECIES,Squamata,,Pythonidae,30,NOT_VERIFIED,https://www.gbif.org/species/2465346
+KR0822,Name a cold-blooded animal,Gopherus agassizii,2441814,SPECIES,Testudines,,Testudinidae,30,NOT_VERIFIED,https://www.gbif.org/species/2441814
+KR0822,Name a cold-blooded animal,Eublepharis macularius,5221283,SPECIES,Squamata,,Eublepharidae,30,NOT_VERIFIED,https://www.gbif.org/species/5221283
+KR0822,Name a cold-blooded animal,Pelodiscus sinensis,5220435,SPECIES,Testudines,,Trionychidae,30,NOT_VERIFIED,https://www.gbif.org/species/5220435
+KR0822,Name a cold-blooded animal,Rhinella marina,5216933,SPECIES,Amphibia,Anura,Bufonidae,30,NOT_VERIFIED,https://www.gbif.org/species/5216933
+KR0822,Name a cold-blooded animal,Cerastes cerastes,8909697,SPECIES,Squamata,,Viperidae,30,NOT_VERIFIED,https://www.gbif.org/species/8909697
+KR0822,Name a cold-blooded animal,Ambystoma mexicanum,2431950,SPECIES,Amphibia,Caudata,Ambystomatidae,30,NOT_VERIFIED,https://www.gbif.org/species/2431950
+KR0822,Name a cold-blooded animal,Varanus varius,2470715,SPECIES,Squamata,,Varanidae,30,NOT_VERIFIED,https://www.gbif.org/species/2470715
+KR0822,Name a cold-blooded animal,Boophis madagascariensis,2423393,SPECIES,Amphibia,Anura,Mantellidae,30,NOT_VERIFIED,https://www.gbif.org/species/2423393
+KR0822,Name a cold-blooded animal,Echis carinatus,2443876,SPECIES,Squamata,,Viperidae,30,NOT_VERIFIED,https://www.gbif.org/species/2443876
+KR0822,Name a cold-blooded animal,Andrias davidianus,2432037,SPECIES,Amphibia,Caudata,Cryptobranchidae,30,NOT_VERIFIED,https://www.gbif.org/species/2432037
+KR0822,Name a cold-blooded animal,Python bivittatus,4820533,SPECIES,Squamata,,Pythonidae,30,NOT_VERIFIED,https://www.gbif.org/species/4820533
+KR0035,Name a type of flower,Hibiscus rosa-sinensis,3152559,SPECIES,Magnoliopsida,Malvales,Malvaceae,30,NOT_VERIFIED,https://www.gbif.org/species/3152559
+KR0035,Name a type of flower,Lavandula stoechas,2927303,SPECIES,Magnoliopsida,Lamiales,Lamiaceae,30,NOT_VERIFIED,https://www.gbif.org/species/2927303
+KR0035,Name a type of flower,Plumbago auriculata,3082283,SPECIES,Magnoliopsida,Caryophyllales,Plumbaginaceae,30,NOT_VERIFIED,https://www.gbif.org/species/3082283
+KR0035,Name a type of flower,Spathiphyllum wallisii,2869680,SPECIES,Liliopsida,Alismatales,Araceae,30,NOT_VERIFIED,https://www.gbif.org/species/2869680
+KR0035,Name a type of flower,Tropaeolum majus,2889934,SPECIES,Magnoliopsida,Brassicales,Tropaeolaceae,30,NOT_VERIFIED,https://www.gbif.org/species/2889934
+KR0035,Name a type of flower,Vanda coerulea,2783163,SPECIES,Liliopsida,Asparagales,Orchidaceae,30,NOT_VERIFIED,https://www.gbif.org/species/2783163
+KR0035,Name a type of flower,Zantedeschia aethiopica,2868827,SPECIES,Liliopsida,Alismatales,Araceae,30,NOT_VERIFIED,https://www.gbif.org/species/2868827
+KR0035,Name a type of flower,Cymbidium goeringii,5305668,SPECIES,Liliopsida,Asparagales,Orchidaceae,30,NOT_VERIFIED,https://www.gbif.org/species/5305668
+KR0035,Name a type of flower,Epiphyllum oxypetalum,5384031,SPECIES,Magnoliopsida,Caryophyllales,Cactaceae,30,NOT_VERIFIED,https://www.gbif.org/species/5384031
+KR0035,Name a type of flower,Gloriosa superba,2740024,SPECIES,Liliopsida,Liliales,Colchicaceae,30,NOT_VERIFIED,https://www.gbif.org/species/2740024
+KR0247,Name a type of mushroom,Cantharellus cibarius,5249504,SPECIES,Agaricomycetes,Cantharellales,Hydnaceae,30,NOT_VERIFIED,https://www.gbif.org/species/5249504
+KR0247,Name a type of mushroom,Omphalotus illudens,2538084,SPECIES,Agaricomycetes,Agaricales,Omphalotaceae,30,NOT_VERIFIED,https://www.gbif.org/species/2538084
+KR0247,Name a type of mushroom,Hericium erinaceus,5248508,SPECIES,Agaricomycetes,Russulales,Hericiaceae,30,NOT_VERIFIED,https://www.gbif.org/species/5248508
+KR0247,Name a type of mushroom,Gyromitra esculenta,5258510,SPECIES,Pezizomycetes,Pezizales,Discinaceae,30,NOT_VERIFIED,https://www.gbif.org/species/5258510
+KR0247,Name a type of mushroom,Calvatia gigantea,2536058,SPECIES,Agaricomycetes,Agaricales,Lycoperdaceae,30,NOT_VERIFIED,https://www.gbif.org/species/2536058
+KR0247,Name a type of mushroom,Suillus luteus,7777157,SPECIES,Agaricomycetes,Boletales,Suillaceae,30,NOT_VERIFIED,https://www.gbif.org/species/7777157
+KR0247,Name a type of mushroom,Trichaptum biforme,5247228,SPECIES,Agaricomycetes,Hymenochaetales,,30,NOT_VERIFIED,https://www.gbif.org/species/5247228
+KR0247,Name a type of mushroom,Ganoderma lucidum,2549730,SPECIES,Agaricomycetes,Polyporales,Polyporaceae,30,NOT_VERIFIED,https://www.gbif.org/species/2549730
