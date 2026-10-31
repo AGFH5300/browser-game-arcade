@@ -20,9 +20,9 @@
     x -36, y -190; keep an independent solid abyss below the art. */
  .pp-view {
   background-color:#020814!important;
-  background-image:linear-gradient(180deg,rgba(4,17,36,.05),rgba(3,10,25,.10)),url('./reference-assets/gen/party/reef-d-clean.png')!important;
-  background-size:100% 100%,105vw auto!important;
-  background-position:center center,center -190px!important;
+  background-image:url('./reference-assets/gen/party/reef-d-clean.png')!important;
+  background-size:105vw auto!important;
+  background-position:center -190px!important;
   background-repeat:no-repeat!important
  }
 }
@@ -31,9 +31,9 @@
     Unlike cover/center, crop remains constant when scrolling host controls. */
  .pp-view {
   background-color:#020814!important;
-  background-image:linear-gradient(180deg,rgba(4,17,36,.05),rgba(3,10,25,.10)),url('./reference-assets/gen/party/reef-m-clean.png')!important;
-  background-size:100% 100%,auto 108svh!important;
-  background-position:center center,center -158px!important;
+  background-image:url('./reference-assets/gen/party/reef-m-clean.png')!important;
+  background-size:auto 108svh!important;
+  background-position:center -158px!important;
   background-repeat:no-repeat!important;
   background-attachment:scroll!important
  }

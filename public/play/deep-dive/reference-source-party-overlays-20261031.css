@@ -1,0 +1,86 @@
+/* Browser-computed original source layers, 31 Oct 2026:
+   .ds-vignette z5 background radial(at 50% 45%, transparent 55%,
+                  rgba(2,4,10,.85) 100%) opacity .55
+   .ds-crt z12 repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,
+                    transparent 1px 3px) opacity .45
+   .pf-panel background rgba(8,15,28,.84), shadow 0 0 0 2px #060d1a,
+              0 0 0 4px #1b3050, 0 0 40px #0007.
+   These are not decoration: original rendering stacks two different
+   image-space layers over the same byte-identical original reef assets.
+*/
+body:has(.pp-view) .pp-view {
+ background-color:#021f40!important;
+}
+body:has(.pp-view) .pp-view::before {
+ content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+ background:radial-gradient(at 50% 45%,transparent 55%,rgba(2,4,10,.85) 100%)!important;
+ opacity:.55!important
+}
+body:has(.pp-view) .pp-view::after {
+ content:"";position:absolute;inset:0;z-index:12;pointer-events:none;
+ background:repeating-linear-gradient(0deg,
+  rgba(0,0,0,.18) 0,rgba(0,0,0,.18) 1px,
+  transparent 1px,transparent 3px)!important;
+ opacity:.45!important
+}
+body:has(.pp-view) .pp-view .pp-arena {z-index:1}
+body:has(.pp-view) .pp-view .pp-panel {
+ background:rgba(8,15,28,.84)!important;
+ border:0!important;
+ box-shadow:0 0 0 2px #060d1a,0 0 0 4px #1b3050,0 0 40px rgba(0,0,0,.45)!important
+}
+/* The original mobile panel outline is a shadow, not border-box padding.
+   Restore the same 30px content inset and 53px input height. */
+@media(max-width:650px) {
+ body:has(.pp-view) .pp-view .pp-foyer-left .pp-panel,
+ body:has(.pp-view) .pp-view .pp-public-panel {
+  padding-left:17px!important;padding-right:17px!important
+ }
+ body:has(.pp-view) .pp-view .pp-identity-panel {
+  padding-top:23px!important
+ }
+ body:has(.pp-view) .pp-view #pp-name {
+  height:53px!important
+ }
+}
+/* Source title: 76px/0.9 line-height and 0.04em tracking desktop;
+   50.7px/0.9 mobile. Previously 76px/1 and 44px/1 respectively,
+   leading to a visibly undersized mobile Krillion wordmark. */
+body:has(.pp-view) .pp-view .pp-scene-brand {
+ font-size:76px!important;letter-spacing:.04em!important;line-height:.9!important
+}
+body:has(.pp-view) .pp-view .pp-scene-name{
+ margin-top:4px!important;line-height:1.5!important
+}
+@media(max-width:650px) {
+ body:has(.pp-view) .pp-view .pp-scene-brand {
+  font-size:50.7px!important;letter-spacing:.04em!important;line-height:.9!important
+ }
+ body:has(.pp-view) .pp-view .pp-identity-panel{
+  min-height:238px!important;height:238px!important
+ }
+ body:has(.pp-view) .pp-view .pp-foyer-left {gap:18px!important}
+ body:has(.pp-view) .pp-view .pp-foyer-left .pp-panel,
+ body:has(.pp-view) .pp-view .pp-public-panel {
+  padding-left:18px!important;padding-right:18px!important
+ }
+}
+/* Remaining source element offsets after the original text sizing:
+   desktop left card x194 y304 and input x210 y384;
+   mobile left card x14 y373, input x30 y453 and sleeping puffer y186. */
+@media(min-width:1100px) {
+ body:has(.pp-view) .pp-view .pp-ocean-foyer {margin-top:46px!important}
+ body:has(.pp-view) .pp-view .pp-identity-panel {padding-top:16px!important}
+}
+@media(max-width:650px) {
+ body:has(.pp-view) .pp-view .pp-ocean-foyer {margin-top:8px!important}
+ body:has(.pp-view) .pp-view .pp-identity-panel {padding-top:18px!important}
+ body:has(.pp-view) .pp-view .pp-hero-fish {top:-84px!important}
+}
+/* Source displays an explanatory capacity line below mode selectors. */
+body:has(.pp-view) .pp-view .pp-play-panel {position:relative}
+body:has(.pp-view) .pp-view .pp-capacity-hint {
+ position:absolute;z-index:1;pointer-events:none;
+ left:16px;top:87.5px;font:13px/1.5 'ReferenceVT323','VT323',monospace;
+ letter-spacing:1.04px;color:#83aac3;margin:0!important
+}
