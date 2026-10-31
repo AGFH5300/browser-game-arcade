@@ -173,3 +173,10 @@ dot pulse / ds-sweep-spin were restored on both responsive viewports.
 The separate publisher Web Animations API vignette transition has been
 measured (.259632 to .297 opacity over 2s, ease) but not certified as
 frame-identical in the independent renderer. Strict exactness still FAILS.
+
+The independent first-round vignette WAAPI transition was then implemented
+with the source-observed .259632 to .297 opacity, 2000ms ease and backwards
+fill, scoped only to the first answering phase. The visible animation
+inventory now includes the same separately timed overlay in addition to
+the original 12 CSS animations. Matching inventories still does NOT prove
+exact per-frame canvas, text or backend state equality.

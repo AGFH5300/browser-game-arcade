@@ -1227,6 +1227,17 @@
         ticker=setInterval(updateClock,120);
         if(active.phase==='answering')setTimeout(()=>{const input=document.getElementById('answer-input');if(input&&window.matchMedia('(pointer:fine)').matches)input.focus()},80);
         updateClock();
+        // Original first-round vignette uses a separate Web Animations API
+        // fade rather than a CSS keyframe. Inspected source computed motion:
+        // .259632 -> .297 opacity, 2000ms, ease, fill backwards.
+        if(active.phase==='answering'&&active.index===0&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+          const vignette=root.querySelector('.dd-vignette');
+          if(vignette&&typeof vignette.animate==='function'){
+            vignette.style.opacity='.297';
+            vignette.animate([{opacity:'.259632'},{opacity:'.297'}],
+              {duration:2000,easing:'ease',fill:'backwards'});
+          }
+        }
       }
       hookWorldCamera(animate);
       hookChipSink();

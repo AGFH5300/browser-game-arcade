@@ -43,3 +43,10 @@ test('gameplay mobile button/dot/boat source animation inventory matches',()=>{
  assert(css.includes('.dd-world-surface-boat .dd-boat'));
  assert(css.includes('animation:none!important'));
 });
+
+test('first answer displays the source two-second independent vignette Web Animation',()=>{
+ const game=readFileSync('public/play/deep-dive/game.js','utf8');
+ assert(game.includes("active.phase==='answering'&&active.index===0"));
+ assert(game.includes("vignette.animate([{opacity:'.259632'},{opacity:'.297'}]"));
+ assert(game.includes("{duration:2000,easing:'ease',fill:'backwards'}"));
+});
