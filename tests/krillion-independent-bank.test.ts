@@ -12,7 +12,7 @@ function normalize(s:string){
 test('independent bank has exactly 952 explicitly non-publisher practice questions',()=>{
  assert.equal(manifest.questions.length,952);
  assert.equal(manifest.questionCount,952);
- assert.equal(manifest.answerCount,561207);
+ assert.equal(manifest.answerCount,561223);
  assert.equal(manifest.source,'sidequest-independently-recovered-practice');
  assert.equal(manifest.originalPublisherAcceptanceVerified,false);
  assert.equal(manifest.allScoresEmpiricallyCalibrated,false);
@@ -21,7 +21,7 @@ test('independent bank has exactly 952 explicitly non-publisher practice questio
 test('all independent packs retain six tiers and per-answer provenance without ambiguous matching',()=>{
  let n=0;
  const provenances=new Set(['historical','community','free','gbif','editorial',
-  'publisher','ai','reference','geo','lexicon']);
+  'publisher','ai','reference','geo','lexicon','archive']);
  for(const q of manifest.questions as Array<{id:string;file:string;answerCount:number;question:string}>){
   assert.match(q.id,/^KR\d{4}$/);
   assert.equal(q.file,q.id+'.json');

@@ -1,0 +1,5 @@
+id,canonical,alias,tier,source_url,review,kind,publisher_original_validator_verified
+KR0180,Falkon,QupZilla,2,https://www.falkon.org/posts/2018/2018-02-27-falkon-300-released/,independent_official_full_title,official_browser_name_or_renamed_brand,False
+KR0180,GNOME Web,GNOME Web (Epiphany),4,https://apps.gnome.org/Epiphany/,independent_official_full_title,official_browser_name_or_renamed_brand,False
+KR0180,Maxthon,Maxthon Cloud Browser,4,https://www.maxthon.com/,independent_official_full_title,official_browser_name_or_renamed_brand,False
+KR0180,Brave,Brave Browser,2,https://brave.com/,independent_official_full_title,official_browser_name_or_renamed_brand,False

@@ -39,12 +39,12 @@ def simple(s):
 # variants within the SAME prompt/tier. Not claims of original accepted aliases.
 # Excludes different cities, people, songs, performers and score conflicts.
 APPROVE={
-  1,2,3,4,7,8,9,10,12,13,14,16,17,18,19,21,23,24,25,
+  1,2,3,4,5,6,7,8,9,10,12,13,14,16,17,18,19,21,23,24,25,
   28,29,30,31,32,33,34,35,38,39,43,45,46,47,48,49,
-  51,52,55,57,59,60,61,62,66,67,68,69,70,71,72,73,74,
+  51,52,53,55,57,59,60,61,62,66,67,68,69,70,71,72,73,74,
   77,78,79,80,81,82,84
 }
-assert len(APPROVE)==59
+assert len(APPROVE)==62
 collision_rows=rows('NORMALIZED_DUPLICATES_AND_CONFLICTS.csv')
 assert len(collision_rows)==84
 # Original publisher acceptance is unverified; these sources prove real-world
@@ -71,7 +71,15 @@ IDENTITIES={
   32:('SAME_ENTITY','https://www.howe.com/us/products/chairs/404/ | https://www.designcraft.net.au/products/howe-404-chair'),
   75:('VERIFIED_DISTINCT','https://www.imdb.com/title/tt5763098/ | https://www.imdb.com/title/tt2141913'),
   37:('VERIFIED_DISTINCT','https://en.wikipedia.org/wiki/Au/Ra | https://www.globalmusicsong.com/artists-au.html'),
-  40:('VERIFIED_DISTINCT','https://streamclout.io/artist/h-dn/4gD6ddSF1KwHyvk34XykYH | https://streamclout.io/artist/hdn/2VeycUHUfDjoYqpkOSllnn')
+  40:('VERIFIED_DISTINCT','https://streamclout.io/artist/h-dn/4gD6ddSF1KwHyvk34XykYH | https://streamclout.io/artist/hdn/2VeycUHUfDjoYqpkOSllnn'),
+  5:('SAME_ENTITY','https://www.planespotters.net/airline/Air-1 | https://airlinehistory.co.uk/airline/air-1-air-one/'),
+  6:('SAME_ENTITY','https://www.govinfo.gov/content/pkg/GOVPUB-I-7c572f02b65ffc91d311b34930a91087/pdf/GOVPUB-I-7c572f02b65ffc91d311b34930a91087.pdf | https://www.flickr.com/photos/157839500@N04/40808901175/'),
+  20:('VERIFIED_DISTINCT','https://en.wikipedia.org/wiki/List_of_defunct_airlines_of_the_United_States_(Q%E2%80%93Z)'),
+  22:('VERIFIED_DISTINCT','https://en.wikipedia.org/wiki/List_of_defunct_airlines_of_the_United_States_(Q%E2%80%93Z) | https://www.planespotters.net/aircraft/operators/boeing-737-200'),
+  53:('SAME_ENTITY','https://global.hankyu-hanshin-dept.co.jp/store/mensosaka/recommend/12663257_3144.html | https://lechercheurdeparfum.com/en/edith-fragrances/'),
+  58:('VERIFIED_DISTINCT','https://onepiece.fandom.com/id/wiki/A_O | https://naruto.fandom.com/wiki/Ao'),
+  63:('VERIFIED_DISTINCT','https://open.spotify.com/track/0ma7lbs8BsVIv2kSaqOsDI | https://music.apple.com/us/album/23/687300642'),
+  64:('VERIFIED_DISTINCT','https://www.mystreamcount.com/track/1o4xkdBe0RjSf2u6VXi4OI | https://musicbrainz.org/release/7e016939-03a4-4b96-9118-7b470f15bdb8')
 }
 statuses=[]
 allowed={}
@@ -104,7 +112,7 @@ for i,r in enumerate(collision_rows,1):
                  else 'Not safe to merge without independent identity proof')
     })
 write('84-collision-review.csv',list(statuses[0]),statuses)
-assert sum(s['review_state']=='APPROVED_EDITORIAL_EQUIVALENT' for s in statuses)==59
+assert sum(s['review_state']=='APPROVED_EDITORIAL_EQUIVALENT' for s in statuses)==62
 # Publisher-official full-title variants of *already playable games*.
 # These are aliases, not additional scored answers. Exclude compound
 # multiple-game model suggestions and titles not used by the publisher.
@@ -155,6 +163,46 @@ if common_file.exists():
                 'source_url':x['source_url'],'review':'exact_english_gbif_common_name',
                 'publisher_original_validator_verified':False
             })
+# Official US National Park Service full names are aliases of preexisting
+# historically scored short names. Do not assign a second score to the full title.
+official_reference_aliases={}
+official_file=out/'official-source-title-aliases.csv'
+official_browser_aliases=out/'official-browser-source-aliases.csv'
+if official_file.exists():
+    with official_file.open(encoding='utf8',newline='') as f:
+        for item in csv.DictReader(f):
+            assert item['id'] in {'KR0084','KR0032','KR0454'}
+            assert item['review']=='independent_official_full_title'
+            assert item['kind'] in {'official_nps_full_title',
+                  'official_studio_punctuation_variant','studio_canonical_full_character_name'}
+            assert item['source_url'].startswith(('https://www.nps.gov/',
+                  'https://www.disneyanimation.com/','https://movies.disney.com/'))
+            target=[a for a in packs[item['id']]['answers'] if a[0]==item['canonical']]
+            assert len(target)==1 and target[0][1]==int(item['tier'])
+            assert not any(simple(a[0])==simple(item['alias']) for a in packs[item['id']]['answers'])
+            official_reference_aliases.setdefault(item['id'],[]).append({
+                'canonical':item['canonical'],'alias':item['alias'],
+                'tier':int(item['tier']),'source_url':item['source_url'],
+                'review':'independent_official_full_title',
+                'publisher_original_validator_verified':False
+            })
+if official_browser_aliases.exists():
+    with official_browser_aliases.open(encoding='utf8',newline='') as f:
+        for item in csv.DictReader(f):
+            assert item['id']=='KR0180'
+            assert item['review']=='independent_official_full_title'
+            assert item['kind']=='official_browser_name_or_renamed_brand'
+            assert item['source_url'].startswith(('https://www.falkon.org/',
+             'https://apps.gnome.org/','https://www.maxthon.com/','https://brave.com/'))
+            target=[a for a in packs[item['id']]['answers'] if a[0]==item['canonical']]
+            assert len(target)==1 and target[0][1]==int(item['tier'])
+            assert not any(simple(a[0])==simple(item['alias']) for a in packs[item['id']]['answers'])
+            official_reference_aliases.setdefault(item['id'],[]).append({
+                'canonical':item['canonical'],'alias':item['alias'],
+                'tier':int(item['tier']),'source_url':item['source_url'],
+                'review':'independent_official_full_title',
+                'publisher_original_validator_verified':False
+            })
 assert len(title_aliases)==11
 with (out/'official-game-title-aliases.csv').open('w',encoding='utf8',newline='') as f:
     w=csv.DictWriter(f,fieldnames=list(title_aliases[0]),lineterminator='\n')
@@ -167,7 +215,8 @@ path.write_text(json.dumps({
     'changesPublisherScores':False,
     'groups':allowed,
     'canonicalAliases':{'KR0911':title_aliases},
-    'commonNameAliases':common_name_aliases
+    'commonNameAliases':common_name_aliases,
+    'officialReferenceAliases':official_reference_aliases
 },ensure_ascii=False,separators=(',',':'))+'\n')
 missing=rows('MISSING_96_100POINT_POLICY.csv')
 assert len(missing)==96
@@ -177,7 +226,11 @@ if finite_file.exists():
     with finite_file.open(encoding='utf8',newline='') as f:
         complete={r['id']:r for r in csv.DictReader(f)}
 for r in missing:
-    if r['id'] in complete:
+    if r['id']=='KR0078' and any(a[0]=='Western Sahara' and a[1]==5 and a[2]=='archive' for a in packs['KR0078']['answers']):
+        r['review_state']='THIRD_PARTY_ARCHIVED_100__ORIGINAL_UNVERIFIED'
+        r['decision']='ARCHIVE_SOURCE_RECORDED__NOT_DIRECT_PUBLISHER_CONFIRMED'
+        r['needs_empirical_guess_frequency']='YES_FOR_ORIGINAL_CONFIRMATION'
+    elif r['id'] in complete:
         r['review_state']='MEMBERSHIP_COMPLETE__NO_DOCUMENTED_100'
         r['decision']='DO_NOT_INVENT_RARITY_FOR_FINITE_COMPLETE_CATEGORY'
         r['needs_empirical_guess_frequency']='YES_TO_CLAIM_NEW_100'
@@ -237,17 +290,42 @@ if evidence_path.exists():
         gbif_evidence={int(r['candidate_index']):r for r in csv.DictReader(f)}
 title_alias_lookup={(qid,x['alias']):x['canonical']
     for qid,group in {'KR0911':title_aliases}.items() for x in group}
+park_alias_lookup={(qid,x['alias']):x
+    for qid,group in official_reference_aliases.items() for x in group}
+common_alias_lookup={(qid,x['alias']):x
+    for qid,group in common_name_aliases.items() for x in group}
+source_additions={}
+source_add_path=out/'official-source-new-answers.csv'
+if source_add_path.exists():
+    with source_add_path.open(encoding='utf8',newline='') as f:
+        source_additions={(r['id'],r['answer']):r for r in csv.DictReader(f)}
+browser_source_add=out/'official-browser-source-additions.csv'
+if browser_source_add.exists():
+    with browser_source_add.open(encoding='utf8',newline='') as f:
+        source_additions.update({(r['id'],r['answer']):r for r in csv.DictReader(f)})
 candidate=[]
 for ix,r in enumerate(models):
     present={simple(x[0]) for x in packs[r['id']]['answers']}
     game_title_canonical=title_alias_lookup.get((r['id'],r['answer']))
+    park_title=park_alias_lookup.get((r['id'],r['answer']))
+    common_title=common_alias_lookup.get((r['id'],r['answer']))
+    source_exact=source_additions.get((r['id'],r['answer']))
+    if game_title_canonical:source_status='VERIFIED_OFFICIAL_POKEMON_ALIAS__SAME_SCORE'
+    elif park_title:source_status='VERIFIED_NPS_FULL_TITLE_ALIAS__SAME_SCORE'
+    elif common_title:source_status='VERIFIED_GBIF_ENGLISH_ALIAS__SAME_SCORE'
+    elif source_exact:source_status=('THIRD_PARTY_ARCHIVED_100__NOT_ORIGINAL_CONFIRMED' if
+       source_exact['rarity_method']=='THIRD_PARTY_ARCHIVED_TIER' else
+       'VERIFIED_INDEPENDENT_SOURCE__ESTIMATED_PRACTICE_SCORE')
+    else:source_status='QUARANTINED__PRIMARY_SOURCE_AND_RARITY_EVIDENCE_REQUIRED'
+    source_link=(source_exact or park_title or common_title or {}).get('source_url','')
     candidate.append({
       'id':r['id'],'question':r['question'],'suggestion':r['answer'],
       'tier_estimate':r['tier'],'generator':r['generators'],'checker':r['checker'],
       'already_playable_estimate': 'YES' if simple(r['answer']) in present else 'NO',
-      'review_state':'VERIFIED_EDITORIAL_ALIAS__UNCHANGED_EXISTING_SCORE' if game_title_canonical else
-        'QUARANTINED__PRIMARY_SOURCE_AND_RARITY_EVIDENCE_REQUIRED',
-      'reviewed_title_canonical':game_title_canonical or '',
+      'review_state':source_status,
+      'reviewed_title_canonical':game_title_canonical or
+        ((park_title or common_title or {}).get('canonical','')),
+      'external_source_url':source_link,
       'gbif_evidence_state':gbif_evidence.get(ix,{}).get('verification_state','NOT_CHECKED_BY_GBIF'),
       'gbif_english_name_state':english_evidence.get(ix,{}).get('verified','NOT_CHECKED'),
       'gbif_taxon_url':gbif_evidence.get(ix,{}).get('source_url',''),
@@ -261,14 +339,21 @@ summary={
  'approved_editorial_orthographic_groups':sum(s['review_state']=='APPROVED_EDITORIAL_EQUIVALENT' for s in statuses),
  'separately_verified_official_title_aliases':len(title_aliases),
  'gbif_verified_common_name_aliases':sum(len(v) for v in common_name_aliases.values()),
+ 'nps_official_full_title_aliases':len(official_reference_aliases.get('KR0084',[])),
+ 'browser_official_title_aliases':len(official_reference_aliases.get('KR0180',[])),
+ 'official_reference_aliases_total':sum(len(v) for v in official_reference_aliases.values()),
  'gbif_common_name_alias_question_count':len(common_name_aliases),
  'held_collision_groups':sum(s['review_state']!='APPROVED_EDITORIAL_EQUIVALENT' for s in statuses),
  'held_but_identity_verified_distinct_groups':sum(s['identity_verification']=='VERIFIED_DISTINCT' for s in statuses),
  'remaining_identity_unresolved_groups':sum(s['review_state']!='APPROVED_EDITORIAL_EQUIVALENT' and s['identity_verification']=='NOT_ESTABLISHED' for s in statuses),
  'score_conflicts_preserved':sum(s['review_state']=='HOLD_SCORE_CONFLICT' for s in statuses),
  'missing_documented_100':len(missing),
+ 'third_party_archived_100_candidates':sum(1 for r in missing if r['id']=='KR0078' and
+       any(a[0]=='Western Sahara' and a[1]==5 and a[2]=='archive' for a in packs['KR0078']['answers'])),
+ 'original_100_cases_without_source_archive_or_finite_resolution':len(missing)-len(complete)-1,
  'finite_categories_checked_complete_without_100':len(complete),
- 'still_unresolved_original_100_rarity_cases':len(missing)-len(complete),
+ 'still_unresolved_original_100_rarity_cases':len(missing)-len(complete)-
+   sum(1 for r in missing if r['id']=='KR0078' and any(a[0]=='Western Sahara' and a[1]==5 and a[2]=='archive' for a in packs['KR0078']['answers'])),
  'coverage_flags_finite_complete':sum(r['evidence_state'].startswith('FINITE_MEMBERSHIP_COMPLETE') for r in coverage_status),
  'coverage_flags_reference_limited':sum(r['evidence_state'].startswith('REFERENCE_LIMITED') for r in coverage_status),
  'coverage_flags_need_more_category_sources':sum(r['evidence_state'].startswith('OPEN_CATEGORY') for r in coverage_status),
@@ -276,7 +361,10 @@ summary={
  'coverage_below_current_playable_heuristic':len(low),
  'previous_source_reported_coverage_below':482,
  'quarantined_model_review_candidates':sum(r['review_state'].startswith('QUARANTINED') for r in candidate),
- 'model_candidates_reconciled_as_title_aliases':sum(r['review_state'].startswith('VERIFIED_EDITORIAL_ALIAS') for r in candidate),
+ 'model_candidates_reconciled_as_title_aliases':sum(r['review_state']=='VERIFIED_OFFICIAL_POKEMON_ALIAS__SAME_SCORE' for r in candidate),
+ 'model_candidates_reconciled_as_nps_aliases':sum(r['review_state']=='VERIFIED_NPS_FULL_TITLE_ALIAS__SAME_SCORE' for r in candidate),
+ 'model_candidates_reconciled_as_gbif_aliases':sum(r['review_state']=='VERIFIED_GBIF_ENGLISH_ALIAS__SAME_SCORE' for r in candidate),
+ 'model_candidates_promoted_by_official_source':sum(r['review_state']=='VERIFIED_INDEPENDENT_SOURCE__ESTIMATED_PRACTICE_SCORE' for r in candidate),
  'model_candidates_originally_reviewed':len(candidate),
  'gbif_animal_letter_english_exact_verified':sum(r['gbif_english_name_state']=='EXACT_ENGLISH_SPECIES_AND_LETTER' for r in candidate),
  'gbif_animal_letter_english_rejected_or_unverified':sum(r['gbif_english_name_state']=='HOLD_UNVERIFIED' for r in candidate),
