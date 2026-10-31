@@ -180,3 +180,42 @@ fill, scoped only to the first answering phase. The visible animation
 inventory now includes the same separately timed overlay in addition to
 the original 12 CSS animations. Matching inventories still does NOT prove
 exact per-frame canvas, text or backend state equality.
+
+## Original-root fixed viewport and equal-prompt layout audit (Nov 1, 2026)
+
+A direct 1440x900/390x844 source inspection found an important
+false-parity regression: answer-input autofocus scrolled Sidequest's
+relative gameplay screen hundreds of pixels above the viewport while
+the original ds-root remained fixed. Sidequest now keeps the active
+ocean stage fixed (excluding the independently scrollable results
+screen), and body overflow is locked only during active game phases.
+
+The source desktop scene uses a **1080px centered world/foreground**
+within a full-bleed sea canvas. Sidequest previously distributed its
+creatures across the entire 1440px desktop canvas. The independent
+source-world coordinate system is now 1080px centered and the original
+foreground canvas is the same width and position; sea remains full bleed.
+Its existing 26-particle foreground renderer was discovered and reused;
+an attempted duplicate third layer was reverted before commit.
+
+The comparison harness scripts/krillion-equal-prompt-geometry.mjs
+temporarily injects the original game's visible first prompt **only into
+the candidate browser DOM**, not the stored independent question bank.
+It verifies source/local card dimensions, world geometry, scroll
+position and absence of JS page errors at 390x844 and 1440x900.
+
+Source versus candidate:
+- Mobile 390px: card x/width identical; height differs 0.01px; y 2.94px
+  higher on candidate at unsynchronized camera sampling.
+- Desktop 1440px: card x, width and height identical; y 1.49px higher.
+- Both browser dimensions: body scroll y=0; no JS page errors.
+
+Previous 1px per-glyph independent clone tracking caused a source
+one-line prompt to wrap into two desktop lines. Restoring normal
+source tracking and removing the invented child-only fade-in fixed
+that; the original parent ds-card-in remains.
+
+**Narrow prompt geometry and fixed stage gate PASS; full pixel-accurate
+animation/rendering remains FAIL.** Uncontrolled random visual seeds,
+independent result data, and time-varying canvas frames still differ.
+Do not infer an all-screen 1:1 result.

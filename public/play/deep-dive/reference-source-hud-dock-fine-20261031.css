@@ -144,3 +144,52 @@
   animation:none!important
  }
 }
+/* Original gameplay root is fixed to the visible viewport. Leaving the
+   reconstructed game in a scrollable document lets autofocus scroll the
+   entire stage hundreds of pixels upward, unlike ds-root. Keep the
+   separately scrollable finished results untouched. */
+body:has(.dd-game-screen[data-world="ocean"]:not([data-phase="done"])){
+ overflow:hidden!important;
+ height:100svh!important
+}
+.page.deep-home.dd-game-screen[data-world="ocean"]:not([data-phase="done"]){
+ position:fixed!important;
+ top:0!important;left:0!important;right:0!important;
+ width:100vw!important
+}
+/* Exact source card text uses normal glyph tracking and only its parent
+   ds-card-in entrance animation; the clone's 1px-per-glyph tracking
+   wrapped a one-line prompt into two lines at 1440px. */
+.dd-game-screen[data-world="ocean"] .dd-prompt-text{
+ letter-spacing:normal!important;
+ animation:none!important
+}
+@media(max-width:650px){
+ .dd-game-screen[data-world="ocean"] .dd-game-prompt{
+  margin-top:13px!important
+ }
+}
+@media(min-width:651px){
+ .dd-game-screen[data-world="ocean"] .dd-game-prompt{
+  margin-top:1px!important
+ }
+}
+/* The original card is a child of ds-world positioned at exactly its
+   world coordinate: top=2*roundBaseMeters. Never apply independent
+   viewport clamps or margin offsets to it. */
+.dd-game-screen[data-world="ocean"] .dd-world .dd-game-prompt{
+ top:var(--y,0px)!important;
+ margin-top:0!important
+}
+/* Source desktop descent world is max-width 1080, horizontally centered,
+   while the source sea canvas paints through the full viewport.
+   Narrow/mobile worlds continue to occupy the available width. */
+@media(min-width:1100px){
+ .dd-game-screen[data-world="ocean"] .dd-world{
+  width:1080px!important;
+  left:calc(50% - 540px)!important
+ }
+ .dd-game-screen[data-world="ocean"] .dd-world-ruler{
+  right:15px!important
+ }
+}

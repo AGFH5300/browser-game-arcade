@@ -22,7 +22,13 @@
    if(now-last<1000/fps-.5){raf=requestAnimationFrame(paint);return}
    const dt=last?Math.max(0,Math.min(.1,(now-last)/1000)):0;
    last=now;
-   const w=Math.max(1,stage.clientWidth),h=Math.max(1,stage.clientHeight);
+   // Original ds-fore is clipped to the 1080px centred stage, unlike
+   // the source sea canvas which covers the entire viewport.
+   const stageWidth=Math.max(1,stage.clientWidth);
+   const w=Math.min(1080,stageWidth),h=Math.max(1,stage.clientHeight);
+   el.style.left=Math.max(0,(stageWidth-w)/2)+'px';
+   el.style.width=w+'px';
+   el.style.height=h+'px';
    const ratio=Math.min(devicePixelRatio||1,low?1:2,Math.sqrt((low?1500000:8300000)/(w*h)));
    const cw=Math.floor(w*ratio),ch=Math.floor(h*ratio);
    if(cw!==el.width||ch!==el.height){el.width=cw;el.height=ch;buildParticles(w,h)}
