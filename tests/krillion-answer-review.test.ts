@@ -9,10 +9,10 @@ const ledger=JSON.parse(fs.readFileSync(bank+'reviewed-aliases.json','utf8'));
 const manifest=JSON.parse(fs.readFileSync(bank+'manifest.json','utf8'));
 const lines=(file:string)=>fs.readFileSync(repo+file,'utf8').trim().split(/\r?\n/);
 
-test('all 84 source collisions explicitly triaged, 59 independently reviewed same-score orthographies allowed',()=>{
+test('all 84 source collisions explicitly triaged, 62 independently reviewed same-score orthographies allowed',()=>{
  assert.equal(summary.collision_groups_reviewed,84);
- assert.equal(summary.approved_editorial_orthographic_groups,59);
- assert.equal(summary.held_collision_groups,25);
+ assert.equal(summary.approved_editorial_orthographic_groups,62);
+ assert.equal(summary.held_collision_groups,22);
  assert.equal(summary.score_conflicts_preserved,5);
  assert.equal(lines('84-collision-review.csv').length,85);
  assert.equal(ledger.publisherAcceptanceVerified,false);
@@ -29,7 +29,7 @@ test('all 84 source collisions explicitly triaged, 59 independently reviewed sam
    applied++;
   }
  }
- assert.equal(applied,59);
+ assert.equal(applied,62);
  const risky:{[key:string]:string[]}={
   KR0344:['George Town','Georgetown'],KR0599:['New Quay','Newquay'],
   KR0664:['C.R.O','CRO'],KR0698:['Cry Baby','Crybaby'],KR0745:['Dume','Dum-E']
@@ -49,13 +49,13 @@ test('coverage and 100-point gaps remain review requests, never invented scores'
  assert.equal(lines('coverage-review.csv').length,483);
  assert.equal(summary.no_100point_scores_invented,true);
  assert.equal(lines('model-candidate-review.csv').length,2554);
- assert.equal(summary.quarantined_model_review_candidates,2544);
- assert.equal(summary.model_candidates_absent_from_playable,2452);
+ assert.equal(summary.quarantined_model_review_candidates,2513);
+ assert.equal(summary.model_candidates_absent_from_playable,2440);
 });
 
 test('46 scraped scoreboard labels removed without losing any unique valid answers',()=>{
  assert.equal(lines('removed-ocr-labels.csv').length,47);
- assert.equal(manifest.answerCount,561207);
+ assert.equal(manifest.answerCount,561223);
  let count=0;
  const marker=/^Too clever \([2-4]\) /i;
  for(const question of manifest.questions as Array<{id:string;file:string;answerCount:number}>){
@@ -139,8 +139,8 @@ test('658 new independent answers have exact source-backed categories and non-ra
 });
 
 test('four held collisions proven to be real-world distinct, never fuzzy-merged',()=>{
- assert.equal(summary.held_but_identity_verified_distinct_groups,17);
- assert.equal(summary.remaining_identity_unresolved_groups,8);
+ assert.equal(summary.held_but_identity_verified_distinct_groups,22);
+ assert.equal(summary.remaining_identity_unresolved_groups,0);
  const csv=lines('84-collision-review.csv').join('\n');
  for(const pair of ['Basse-Terre | Basseterre','George Town | Georgetown',
    'New Quay | Newquay','North Central University | Northcentral University']){
@@ -165,15 +165,15 @@ test('24 exactly sourced English animal names are independently attributed and n
 
 test('27 complete finite question memberships never receive fabricated 100 points',()=>{
  const rows=lines('finite-category-completeness.csv');
- assert.equal(rows.length,28);
- assert.equal(summary.finite_categories_checked_complete_without_100,27);
+ assert.equal(rows.length,27);
+ assert.equal(summary.finite_categories_checked_complete_without_100,26);
  assert.equal(summary.still_unresolved_original_100_rarity_cases,69);
  const review=lines('96-missing-100-review.csv');
  assert.equal(review.length,97);
- assert.equal(review.filter(x=>x.includes('MEMBERSHIP_COMPLETE__NO_DOCUMENTED_100')).length,27);
- assert.equal(summary.coverage_flags_finite_complete,10);
+ assert.equal(review.filter(x=>x.includes('MEMBERSHIP_COMPLETE__NO_DOCUMENTED_100')).length,26);
+ assert.equal(summary.coverage_flags_finite_complete,9);
  assert.equal(summary.coverage_flags_reference_limited,5);
- assert.equal(summary.coverage_flags_need_more_category_sources,467);
+ assert.equal(summary.coverage_flags_need_more_category_sources,468);
  const category=JSON.parse(fs.readFileSync(bank+'KR0306.json','utf8'));
  assert.equal(category.answers.length,11);
  assert.equal(category.answers.some((r:[string,number,string])=>r[1]===5),false);
@@ -199,7 +199,7 @@ test('official Pokémon title aliases point only to existing answers with unchan
  assert.equal(summary.separately_verified_official_title_aliases,11);
  assert.equal(summary.model_candidates_reconciled_as_title_aliases,9);
  assert.equal(summary.model_candidates_originally_reviewed,2553);
- assert.equal(summary.quarantined_model_review_candidates,2544);
+ assert.equal(summary.quarantined_model_review_candidates,2513);
  const game=fs.readFileSync('public/play/deep-dive/game.js','utf8');
  assert.match(game,/aliasReview\.canonicalAliases\?\.\[item\.id\]/);
  assert.match(game,/original\.tier!==title\.tier/);
@@ -222,7 +222,7 @@ test('45 additional common names have exact GBIF English species provenance',()=
   const answer=pack.answers.find((r:[string,number,string])=>r[0]===name);
   assert.deepEqual(answer,[name,2,'gbif']);
  }
- assert.equal(manifest.answerCount,561207);
+ assert.equal(manifest.answerCount,561223);
 });
 
 
@@ -240,7 +240,7 @@ test('55 more source-verified taxonomic species keep estimated tier 30 only',()=
   sum+=n;
  }
  assert.equal(sum,55);
- assert.equal(manifest.answerCount,561207);
+ assert.equal(manifest.answerCount,561223);
  assert.equal(manifest.originalPublisherAcceptanceVerified,false);
 });
 
@@ -282,4 +282,94 @@ test('958 GBIF common-name aliases preserve existing source scores and never ove
  assert.match(game,/original\.provenance!=='gbif'/);
  assert.match(game,/original\.tier!==alias\.tier/);
  assert.match(game,/original\.aliases\.push\(alias\.alias\)/);
+});
+
+
+test('all 84 historical normalized collisions are resolved with 62 safe aliases and 22 distinct entities',()=>{
+ assert.equal(summary.collision_groups_reviewed,84);
+ assert.equal(summary.approved_editorial_orthographic_groups,62);
+ assert.equal(summary.held_but_identity_verified_distinct_groups,22);
+ assert.equal(summary.remaining_identity_unresolved_groups,0);
+ assert.equal(summary.score_conflicts_preserved,5);
+ const csv=lines('84-collision-review.csv');
+ for(const pair of ['Air One | AirOne','Air Pac | Airpac','Edith | ÉDIT(h)']){
+  const line=csv.find(x=>x.includes(pair));
+  assert(line&&line.includes('APPROVED_EDITORIAL_EQUIVALENT')&&line.includes('SAME_ENTITY'),pair);
+ }
+ for(const pair of ['South Central Air | Southcentral Air','Trans Air | Transair',
+  'A O | Ao','2! 3! | 23','444 | 4:44']){
+  const line=csv.find(x=>x.includes(pair));
+  assert(line&&line.includes('VERIFIED_DISTINCT'),pair);
+ }
+});
+
+test('63 NPS full names and 8 additional official titles map to existing tiers without duplicate scoring',()=>{
+ const aliases=ledger.officialReferenceAliases as Record<string,Array<{
+  canonical:string;alias:string;tier:number;source_url:string;
+  publisher_original_validator_verified:boolean
+ }>>;
+ assert.equal(summary.official_reference_aliases_total,71);
+ assert.equal(summary.nps_official_full_title_aliases,63);
+ assert.equal(summary.browser_official_title_aliases,4);
+ assert.equal(Object.values(aliases).flat().length,71);
+ assert.equal(aliases.KR0084.length,63);
+ const strict=(s:string)=>s.normalize('NFKD').toLowerCase()
+   .replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]/g,'');
+ for(const [id,group] of Object.entries(aliases)){
+  const pack=JSON.parse(fs.readFileSync(bank+id+'.json','utf8'));
+  const canonicals=new Set(pack.answers.map((a:[string,number,string])=>strict(a[0])));
+  const seen=new Set<string>();
+  for(const item of group){
+   const canonical=pack.answers.find((a:[string,number,string])=>a[0]===item.canonical);
+   assert(canonical,id+' missing '+item.canonical);
+   assert.equal(canonical[1],item.tier,id+' '+item.alias);
+   assert.equal(item.publisher_original_validator_verified,false);
+   assert(!canonicals.has(strict(item.alias)),'should not score full title separately '+item.alias);
+   assert(!seen.has(strict(item.alias)),'duplicate alias '+item.alias);
+   seen.add(strict(item.alias));
+  }
+ }
+ assert(aliases.KR0084.some(a=>a.canonical==='Acadia'&&a.alias==='Acadia National Park'));
+ assert(aliases.KR0032.some(a=>a.canonical==='Oliver and Company'&&a.alias==='Oliver & Company'));
+ assert(aliases.KR0454.some(a=>a.canonical==='Miguel'&&a.alias==='Miguel Rivera'));
+ assert(aliases.KR0180.some(a=>a.canonical==='Falkon'&&a.alias==='QupZilla'));
+ const game=fs.readFileSync('public/play/deep-dive/game.js','utf8');
+ assert.match(game,/aliasReview\.officialReferenceAliases\?\.\[item\.id\]/);
+ assert.match(game,/original\.tier!==alias\.tier/);
+});
+
+test('16 independent sourced answers include one explicitly unverified 100-point archive claim',()=>{
+ const backed=lines('official-source-new-answers.csv');
+ const browsers=lines('official-browser-source-additions.csv');
+ assert.equal(backed.length,11,'10 entries including the one archived 100');
+ assert.equal(browsers.length,7,'six independently sourced browser products');
+ assert.equal(summary.third_party_archived_100_candidates,1);
+ assert.equal(summary.still_unresolved_original_100_rarity_cases,69);
+ const archive=lines('public-daily-100-evidence.csv');
+ assert.equal(archive.length,2);
+ assert(archive[1].includes('Western Sahara'));
+ const spain=JSON.parse(fs.readFileSync(bank+'KR0078.json','utf8'));
+ assert.deepEqual(spain.answers.find((a:[string,number,string])=>a[0]==='Western Sahara'),
+  ['Western Sahara',5,'archive']);
+ const records:[string,string,number,string][]=[
+  ['KR0084','Chiricahua',2,'reference'],['KR0032','Winnie the Pooh',2,'reference'],
+  ['KR0513','Mega Charizard X',2,'reference'],['KR0215','Felix Bloch',2,'reference'],
+  ['KR0180','NetSurf',2,'reference'],['KR0180','Falkon',2,'reference']];
+ for(const [id,name,tier,source] of records){
+  const pack=JSON.parse(fs.readFileSync(bank+id+'.json','utf8'));
+  assert.deepEqual(pack.answers.find((a:[string,number,string])=>a[0]===name),
+   [name,tier,source]);
+ }
+ const pixar=JSON.parse(fs.readFileSync(bank+'KR0454.json','utf8'));
+ for(const name of ['Miguel Rivera','Riley Anderson','Luca Paguro','Carl Fredrickson']){
+  assert(!pixar.answers.some((a:[string,number,string])=>a[0]===name));
+ }
+ const disney=JSON.parse(fs.readFileSync(bank+'KR0032.json','utf8'));
+ assert(!disney.answers.some((a:[string,number,string])=>a[0]==='Oliver & Company'));
+ assert(disney.answers.some((a:[string,number,string])=>a[0]==='Oliver and Company'));
+ assert.equal(manifest.answerCount,561223);
+ assert.equal(manifest.originalPublisherAcceptanceVerified,false);
+ assert.equal(summary.quarantined_model_review_candidates,2513);
+ assert.equal(summary.model_candidates_reconciled_as_nps_aliases,19);
+ assert.equal(summary.model_candidates_promoted_by_official_source,12);
 });

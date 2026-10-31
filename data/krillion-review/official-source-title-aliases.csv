@@ -1,0 +1,68 @@
+id,canonical,alias,tier,source_url,review,kind,publisher_original_validator_verified
+KR0084,Acadia,Acadia National Park,2,https://www.nps.gov/acad/siteindex.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Arches,Arches National Park,2,https://www.nps.gov/arch/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Badlands,Badlands National Park,3,https://www.nps.gov/badl/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Big Bend,Big Bend National Park,3,https://www.nps.gov/bibe/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Biscayne,Biscayne National Park,4,https://www.nps.gov/bisc/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Black Canyon of the Gunnison,Black Canyon of the Gunnison National Park,4,https://www.nps.gov/blca/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Bryce Canyon,Bryce Canyon National Park,2,https://www.nps.gov/brca/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Canyonlands,Canyonlands National Park,3,https://www.nps.gov/cany/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Capitol Reef,Capitol Reef National Park,3,https://www.nps.gov/care/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Carlsbad Caverns,Carlsbad Caverns National Park,4,https://www.nps.gov/cave/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Channel Islands,Channel Islands National Park,4,https://www.nps.gov/chis/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Congaree,Congaree National Park,4,https://www.nps.gov/cong/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Crater Lake,Crater Lake National Park,2,https://www.nps.gov/crla/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Cuyahoga Valley,Cuyahoga Valley National Park,4,https://www.nps.gov/cuva/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Death Valley,Death Valley National Park,2,https://www.nps.gov/deva/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Denali,Denali National Park,2,https://www.nps.gov/dena/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Dry Tortugas,Dry Tortugas National Park,4,https://www.nps.gov/drto/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Everglades,Everglades National Park,2,https://www.nps.gov/ever/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Gates of the Arctic,Gates of the Arctic National Park,4,https://www.nps.gov/gaar/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Gateway Arch,Gateway Arch National Park,4,https://www.nps.gov/jeff/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Glacier Bay,Glacier Bay National Park,3,https://www.nps.gov/glba/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Glacier,Glacier National Park,2,https://www.nps.gov/glac/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Grand Canyon,Grand Canyon National Park,0,https://www.nps.gov/grca/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Grand Teton,Grand Teton National Park,2,https://www.nps.gov/grte/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Great Basin,Great Basin National Park,4,https://www.nps.gov/grba/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Great Sand Dunes,Great Sand Dunes National Park,4,https://www.nps.gov/grsa/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Great Smoky Mountains,Great Smoky Mountains National Park,2,https://www.nps.gov/grsm/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Guadalupe Mountains,Guadalupe Mountains National Park,4,https://www.nps.gov/gumo/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Haleakala,Haleakalā National Park,3,https://www.nps.gov/hale/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Hawaii Volcanoes,Hawai'i Volcanoes National Park,3,https://www.nps.gov/havo/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Hot Springs,Hot Springs National Park,1,https://www.nps.gov/hosp/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Indiana Dunes,Indiana Dunes National Park,4,https://www.nps.gov/indu/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Isle Royale,Isle Royale National Park,4,https://www.nps.gov/isro/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Joshua Tree,Joshua Tree National Park,2,https://www.nps.gov/jotr/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Katmai,Katmai National Park,4,https://www.nps.gov/katm/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Kenai Fjords,Kenai Fjords National Park,4,https://www.nps.gov/kefj/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Kings Canyon,Kings Canyon National Park,4,https://www.nps.gov/seki/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Kobuk Valley,Kobuk Valley National Park,4,https://www.nps.gov/kova/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Lake Clark,Lake Clark National Park,4,https://www.nps.gov/lacl/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Lassen Volcanic,Lassen Volcanic National Park,4,https://www.nps.gov/lavo/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Mammoth Cave,Mammoth Cave National Park,4,https://www.nps.gov/maca/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Mesa Verde,Mesa Verde National Park,3,https://www.nps.gov/meve/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Mount Rainier,Mount Rainier National Park,3,https://www.nps.gov/mora/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,American Samoa,National Park of American Samoa,4,https://www.nps.gov/npsa/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,New River Gorge,New River Gorge National Park and Preserve,4,https://www.nps.gov/neri/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,North Cascades,North Cascades National Park,3,https://www.nps.gov/noca/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Olympic,Olympic National Park,2,https://www.nps.gov/olym/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Petrified Forest,Petrified Forest National Park,3,https://www.nps.gov/pefo/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Pinnacles,Pinnacles National Park,4,https://www.nps.gov/pinn/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Redwood,Redwood National Park,4,https://www.nps.gov/redw/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Rocky Mountain,Rocky Mountain National Park,2,https://www.nps.gov/romo/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Saguaro,Saguaro National Park,4,https://www.nps.gov/sagu/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Sequoia,Sequoia National Park,3,https://www.nps.gov/seki/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Shenandoah,Shenandoah National Park,3,https://www.nps.gov/shen/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Theodore Roosevelt,Theodore Roosevelt National Park,4,https://www.nps.gov/thro/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Virgin Islands,Virgin Islands National Park,4,https://www.nps.gov/viis/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Voyageurs,Voyageurs National Park,4,https://www.nps.gov/voya/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,White Sands,White Sands National Park,4,https://www.nps.gov/whsa/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Wind Cave,Wind Cave National Park,4,https://www.nps.gov/wica/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Wrangell-St. Elias,Wrangell-St. Elias National Park,5,https://www.nps.gov/wrst/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Yellowstone,Yellowstone National Park,0,https://www.nps.gov/yell/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Yosemite,Yosemite National Park,0,https://www.nps.gov/yose/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0084,Zion,Zion National Park,2,https://www.nps.gov/zion/index.htm,independent_official_full_title,official_nps_full_title,False
+KR0032,Oliver and Company,Oliver & Company,4,https://www.disneyanimation.com/films/,independent_official_full_title,official_studio_punctuation_variant,False
+KR0454,Miguel,Miguel Rivera,2,https://movies.disney.com/coco,independent_official_full_title,studio_canonical_full_character_name,False
+KR0454,Riley,Riley Anderson,2,https://movies.disney.com/inside-out,independent_official_full_title,studio_canonical_full_character_name,False
+KR0454,Luca,Luca Paguro,2,https://movies.disney.com/luca,independent_official_full_title,studio_canonical_full_character_name,False
