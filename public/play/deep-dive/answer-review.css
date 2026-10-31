@@ -1,0 +1,34 @@
+/* Optional reports appear only in feedback, never during the 25s answer timer. */
+.dd-game-screen .dd-answer-report-open{
+ position:absolute;bottom:158px;left:50%;transform:translateX(-50%);
+ z-index:12;border:1px solid #5c87a1;background:#0b2139;color:#a9d6ef;
+ padding:7px 14px;font:15px "ReferenceVT323",monospace;letter-spacing:.07em;
+ cursor:pointer;white-space:nowrap;
+}
+.dd-answer-report-open:hover{border-color:#9ee8f1;color:#fff}
+.dd-answer-report-open:disabled{opacity:.7;cursor:default}
+.dd-answer-report-dialog[hidden]{display:none!important}
+.dd-answer-report-dialog{
+ position:fixed;inset:0;z-index:99999;background:#04101be8;
+ display:flex;justify-content:center;align-items:center;padding:18px;
+}
+.dd-answer-report-card{
+ background:#0a1e32;border:2px solid #67c7db;box-shadow:8px 9px 0 #020812;
+ color:#e8f9ff;width:min(100%,480px);max-height:85svh;overflow:auto;
+ padding:21px;font:18px/1.3 "ReferenceVT323",monospace;
+}
+.dd-answer-report-card h2{font-size:28px;margin:0 0 9px}
+.dd-answer-report-card p{margin:7px 0}
+.dd-answer-report-card strong{color:#a8ffdd;overflow-wrap:anywhere}
+.dd-answer-report-card label{display:block;margin-top:14px}
+.dd-answer-report-card textarea{
+ display:block;width:100%;margin:7px 0;box-sizing:border-box;padding:9px;
+ color:#fff;background:#08192a;border:1px solid #71b6ce;font:17px "ReferenceVT323",monospace;
+}
+.dd-answer-report-card button{background:#163855;border:1px solid #7ca7c3;
+ color:#fff;padding:8px 14px;font:17px "ReferenceVT323",monospace;cursor:pointer}
+.dd-answer-report-card button[type="submit"]{background:#d85883;border-color:#ffb8d2;color:#051424}
+.dd-answer-report-card button:disabled{opacity:.6;cursor:not-allowed}
+.dd-answer-report-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:12px}
+.dd-answer-honeypot{position:absolute!important;left:-10000px!important;opacity:0!important}
+@media(max-width:650px){.dd-game-screen .dd-answer-report-open{bottom:139px;font-size:13px;padding:5px 10px}.dd-answer-report-card{font-size:17px}}
