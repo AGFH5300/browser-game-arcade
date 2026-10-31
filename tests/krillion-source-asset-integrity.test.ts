@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync,statSync} from 'node:fs';
-import {join,resolve,sep} from 'node:path';
+import {resolve,sep} from 'node:path';
 import {createHash} from 'node:crypto';
 
 type Asset = {sourcePath:string;localPath:string;sha256:string;bytes:number};
