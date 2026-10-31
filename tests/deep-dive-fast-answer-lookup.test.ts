@@ -10,11 +10,14 @@ const strict=script.match(/^  const strictNorm=.*;$/m)?.[0];
 const start=script.indexOf('  // Source-observed /api/submit behavior');
 const stop=script.indexOf('  function read(key)',start);
 assert.ok(strict&&start>0&&stop>start,'extract the production matcher, not a mock');
-const matcher=Function(strict+'\n'+script.slice(start,stop)+'\nreturn {findAnswer,prepareAnswerLookup,strictNorm,isExactAnswer};')() as {
+const matcher=Function(strict+'\n'+script.slice(start,stop)+'\nreturn {findAnswer,prepareAnswerLookup,strictNorm,isExactAnswer,editDistance,answerProfile,profileWithinEdits};')() as {
  findAnswer:(q:Question,s:string)=>Entry|null;
  prepareAnswerLookup:(q:Question)=>unknown;
  strictNorm:(s:string)=>string;
  isExactAnswer:(q:Question,s:string,found:Entry)=>boolean;
+ editDistance:(a:string,b:string,max:number)=>number;
+ answerProfile:(value:string)=>Uint16Array;
+ profileWithinEdits:(a:Uint16Array,b:Uint16Array,max:number)=>boolean;
 };
 const lookup=matcher.findAnswer;
 assert.match(script,/q\.strictAnswerIndex\?\.get\(strictNorm\(answer\)\)\|\|findAnswer\(q,answer\)/,'matching must use strict titles before typo fallback');
@@ -94,7 +97,11 @@ test('live Krillion /api/submit correction cases from 31 Oct 2026',()=>{
   ['Persimmon','Persimomn','Persimmon'],
   ['Spider-Man','Spidre-Man','Spider-Man'],
   ['Spider-Man','Spdier-Man','Spider-Man'],
-  ['Spider-Man','Spedr-Man','Spider-Man']
+  ['Spider-Man','Spedr-Man','Spider-Man'],
+  ['Butternut squash','butternut sqash','Butternut squash'],
+  ['Butternut squash','butternut suqash','Butternut squash'],
+  ['Papua New Guinea','Papua New Gunea','Papua New Guinea'],
+  ['Vampire bat','Vampre bat','Vampire bat']
  ];
  for(const [canonical,typed,expected] of cases){
   const answer={value:canonical,tier:3};
@@ -118,6 +125,44 @@ test('official article/punctuation normalization is exact, but similarly spelled
  assert.equal(matcher.isExactAnswer({answers:[predator,thePredator]},'The Predator',thePredator),true);
 });
 
+test('bounded Levenshtein and profile filter retain every true close spelling',()=>{
+ const reference=(a:string,b:string)=>{
+  let row=Array.from({length:b.length+1},(_,i)=>i);
+  for(let i=1;i<=a.length;i++){
+   const next=[i];
+   for(let j=1;j<=b.length;j++)
+    next[j]=Math.min(next[j-1]+1,row[j]+1,row[j-1]+(a[i-1]===b[j-1]?0:1));
+   row=next;
+  }
+  return row[b.length];
+ };
+ let seed=0x5ade5;
+ const random=()=>{seed^=seed<<13;seed^=seed>>>17;seed^=seed<<5;return seed>>>0};
+ const alphabet='abcdes 123';
+ for(let pair=0;pair<6000;pair++){
+  const al=random()%46,bl=random()%46;
+  let a='',b='';
+  for(let i=0;i<al;i++)a+=alphabet[random()%alphabet.length];
+  for(let i=0;i<bl;i++)b+=alphabet[random()%alphabet.length];
+  const exact=reference(a,b);
+  for(const limit of [1,2,3]){
+   const got=matcher.editDistance(a,b,limit);
+   assert.equal(got,Math.min(exact,limit+1),'banded mismatch '+JSON.stringify({a,b,limit,exact}));
+   if(exact<=limit)
+    assert.equal(matcher.profileWithinEdits(matcher.answerProfile(a),matcher.answerProfile(b),limit),true,
+      'frequency filter false negative '+JSON.stringify({a,b,limit}));
+  }
+ }
+});
+test('duplicate alias collisions stay unresolved and never award an unrelated tier',()=>{
+ const a={value:'Alpha',tier:0,aliases:['common name']};
+ const b={value:'Beta',tier:5,aliases:['common name']};
+ const q={answers:[a,b]};
+ assert.equal(lookup(q,'common name'),null);
+ assert.equal(lookup(q,'common nane'),null);
+ assert.equal(lookup(q,'alpha'),a);
+ assert.equal(lookup(q,'beta'),b);
+});
 test('real 32,255-answer pack: a mistyped valid answer remains quick and cached',()=>{
  const doc=JSON.parse(readFileSync('public/play/deep-dive/recovered/independent-bank/KR0545.json','utf8'));
  const q:Question={answers:doc.answers.map(([value,tier]:[string,number,string])=>({value,tier}))};
@@ -133,5 +178,14 @@ test('real 32,255-answer pack: a mistyped valid answer remains quick and cached'
  // are also reported to permit tracking regressions on large packs.
  assert.ok(firstMs<2500,'first indexed typo lookup should stay below 2.5s, took '+firstMs.toFixed(1)+'ms');
  assert.ok(repeatMs<1000,'cached typo lookup should stay below 1s, took '+repeatMs.toFixed(1)+'ms');
- console.log('32k bank typo first='+firstMs.toFixed(1)+'ms repeat='+repeatMs.toFixed(1)+'ms');
+ const variants=['Ruby Seeadragon','Rubby Seadragon','Ruby Seadragoo',
+  'unrecognized animal nonsense','Threebanded sheepheadd',
+  'Ruby Sea Draagon','Ruby Seadragonn','Very Unlikely Lorem Ispum'];
+ const secondStart=performance.now();
+ for(const typed of variants)lookup(q,typed);
+ const unseenMs=performance.now()-secondStart;
+ // After prewarm, different typos in a 32k-answer bank should not stall the
+ // timer while repeatedly scanning and normalizing the full answer list.
+ assert.ok(unseenMs<750,'8 unique typo lookups should stay under 750ms; took '+unseenMs.toFixed(1)+'ms');
+ console.log('32k bank typo first='+firstMs.toFixed(1)+'ms repeat='+repeatMs.toFixed(1)+'ms eight-unseen='+unseenMs.toFixed(1)+'ms');
 });

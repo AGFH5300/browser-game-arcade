@@ -170,3 +170,9 @@ test('Daily how-to reflects the original public six-line instructions',()=>{
   assert(game.includes(line),line);
  assert(css.includes('.dd-source-howto'));
 });
+
+test('answer lookup prewarms in question preview without delaying submissions',()=>{
+ const game=readFileSync('public/play/deep-dive/game.js','utf8');
+ assert.match(game,/if\(active\.phase==='preview'\)warmAnswerLookup\(currentQ\(\)\)/);
+ assert.match(game,/window\.requestIdleCallback\(warm,\{timeout:1200\}\)/);
+});

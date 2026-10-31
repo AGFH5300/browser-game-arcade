@@ -64,19 +64,52 @@
   // Plain Levenshtein, not Damerau: adjacent swaps require two edits.
   // The publisher's server algorithm is private; thresholds beyond observed
   // lengths are conservative approximations, never claimed as exact source.
+  // Maximum allowed distance is at most three; evaluate only the diagonal
+  // band of the Levenshtein matrix. Every valid <=max path remains in this
+  // band, so this is an exact computation, not a heuristic approximation.
   function editDistance(a,b,max){
     if(Math.abs(a.length-b.length)>max)return max+1;
-    let prev=Array.from({length:b.length+1},(_,i)=>i);
+    if(!a.length||!b.length)return Math.max(a.length,b.length);
+    let previous=new Uint16Array(b.length+1),current=new Uint16Array(b.length+1);
+    for(let j=0;j<=b.length;j++)previous[j]=j;
+    const outside=max+1;
     for(let i=1;i<=a.length;i++){
-      const row=[i];let minimum=i;
-      for(let j=1;j<=b.length;j++){
-        const distance=Math.min(prev[j]+1,row[j-1]+1,prev[j-1]+(a[i-1]===b[j-1]?0:1));
-        row[j]=distance;if(distance<minimum)minimum=distance;
+      const start=Math.max(1,i-max),end=Math.min(b.length,i+max);
+      current[0]=i<=max?i:outside;
+      if(start>1)current[start-1]=outside;
+      let minimum=outside;
+      for(let j=start;j<=end;j++){
+        const distance=Math.min(previous[j]+1,current[j-1]+1,
+          previous[j-1]+(a[i-1]===b[j-1]?0:1));
+        current[j]=distance;
+        if(distance<minimum)minimum=distance;
       }
-      if(minimum>max)return max+1;
-      prev=row;
+      if(minimum>max)return outside;
+      if(end<b.length)current[end+1]=outside;
+      [previous,current]=[current,previous];
     }
-    return prev[b.length];
+    return previous[b.length]<=max?previous[b.length]:outside;
+  }
+  // An edit changes at most two entries in the character-frequency vector.
+  // Differences above 2*max therefore rule out a candidate *without* losing
+  // any Levenshtein matches. Profiles are indexed only once per question.
+  function answerProfile(value){
+    const profile=new Uint16Array(37);
+    for(let i=0;i<value.length;i++){
+      const code=value.charCodeAt(i);
+      const pos=code===32?36:code>=97&&code<=122?code-97:
+        code>=48&&code<=57?code-48+26:-1;
+      if(pos>=0)profile[pos]++;
+    }
+    return profile;
+  }
+  function profileWithinEdits(a,b,max){
+    let difference=0;
+    for(let i=0;i<37;i++){
+      difference+=Math.abs(a[i]-b[i]);
+      if(difference>max*2)return false;
+    }
+    return true;
   }
   // Build a question-scoped, pre-normalized spelling index only when needed.
   // The 32k-answer packs can otherwise take noticeable time because the old
@@ -95,7 +128,7 @@
       else if(exact.get(key)!==answer&&!canonicalKeys.has(key))exact.set(key,null);
       let bucket=byLength.get(key.length);
       if(!bucket){bucket=[];byLength.set(key.length,bucket)}
-      bucket.push({key,answer});
+      bucket.push({key,answer,profile:answerProfile(key)});
     };
     const canonicalKeys=new Set();
     for(const answer of question.answers){
@@ -116,6 +149,21 @@
     answerLookupCache.set(question,lookup);
     return lookup;
   }
+  const pendingAnswerWarmup=new WeakSet();
+  function warmAnswerLookup(question){
+    if(!question||answerLookupCache.has(question)||pendingAnswerWarmup.has(question))return;
+    pendingAnswerWarmup.add(question);
+    const warm=()=>{
+      pendingAnswerWarmup.delete(question);
+      if(!answerLookupCache.has(question))prepareAnswerLookup(question);
+    };
+    // Build the first-use spelling index during the three-second preview,
+    // not after the player hits DIVE. Idle scheduling avoids interrupting the
+    // game transition; fallback works on browsers without requestIdleCallback.
+    if(typeof window.requestIdleCallback==='function')
+      window.requestIdleCallback(warm,{timeout:1200});
+    else setTimeout(warm,100);
+  }
   function findAnswer(question,raw){
     // Keep leading articles for fuzzy matching. 'Predator' and
     // 'The Predator' have different scores in the recovered question bank.
@@ -133,13 +181,16 @@
     // Unique, plausible close spellings require a second explicit confirmation.
     const limit=key.length>=18?3:key.length>=8?2:1;
     let match=null,best=limit+1,ambiguous=false;
+    const profile=answerProfile(key);
     // Length filtering avoids computing edit distance against unrelated
     // answers. The length gap is a provable lower bound on edit distance.
     for(let length=key.length-limit;length<=key.length+limit;length++){
       const bucket=lookup.byLength.get(length);
       if(!bucket)continue;
       for(const candidate of bucket){
-        const distance=editDistance(key,candidate.key,Math.min(limit,best));
+        const cap=Math.min(limit,best);
+        if(!profileWithinEdits(profile,candidate.profile,cap))continue;
+        const distance=editDistance(key,candidate.key,cap);
         if(distance<best){best=distance;match=candidate.answer;ambiguous=false}
         else if(distance===best&&match!==candidate.answer){ambiguous=true}
       }
@@ -1068,6 +1119,7 @@
         return;
       }
       lastPhase=active.phase;
+      if(active.phase==='preview')warmAnswerLookup(currentQ());
       if(active.phase==='preview'||active.phase==='answering'){
         ticker=setInterval(updateClock,120);
         if(active.phase==='answering')setTimeout(()=>{const input=document.getElementById('answer-input');if(input&&window.matchMedia('(pointer:fine)').matches)input.focus()},80);
