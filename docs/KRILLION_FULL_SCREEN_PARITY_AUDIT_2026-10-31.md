@@ -33,10 +33,44 @@ Home/Party 11 CSS animations, question dismissal 450ms delay plus 600ms ease-in,
 ## Unresolved — cannot claim full exactness
 
 - Deterministic 30fps comparison of every bubble, fish, particle, cloud, light effect and frame for each gameplay tier or animation/transition.
-- The original completed results screen remained at the server checking state during original source testing, so full final-result parity cannot be established.
+- The original completed results screen was subsequently captured successfully after seven real rounds; source /api/today/complete and /api/reveal returned HTTP 200 on 31 Oct. The original 70-point final-results screen and a Sidequest independent 70-point result were compared at 1440×900. Their charts, card positions and score bearing are not pixel-identical; source publisher audience statistics cannot be claimed from Sidequest's independent backend.
 - Original Party live rooms, matchmaking and backend data are intentionally not copied. Friends/account Google sign-in is also deliberately independent.
 - Paid Archive/purchases and full source questions/scoring remain excluded by scope.
 - Sound event scheduling, reduced-motion modes and more viewports require further verification.
 - Screenshot error values are from non-time-synchronized animated frames and do not certify pixel-perfect parity.
 
 This branch is an incremental visual-parity improvement, not a certificate of exact replication. Do not merge or deploy without final QA and appropriate release capacity.
+
+
+## Original browser runtime tier effects: new parity implementation (31 Oct, later pass)
+
+Verified original publicly loaded client code and screenshots for Plankton (10),
+Schooler (30), Rare (60), Deep Cut (85), and One in a Krillion (100).
+The original 15-point Too Clever source effect was inspected and reconstructed;
+the tested Halloween-tradition prompt lacked 15-point answers.
+
+- Reconstructed tier-specific chip sway, rotation, original tier durations,
+  90ms-staggered line reveal and score impacts. Source sink audio begins at
+  submission; grade impact audio and score interpolation happen after landing.
+- Added animated swimming Schooler followers and 8-mobile/11-desktop Too Clever
+  schooler swarm, deep cut radial spotlight, rare dark-ink bursts, and 14-mobile/
+  20-desktop seasonal Krill orbiting sprites for a 100-point landing.
+- Separated source sea snow (~70 particles) from foreground snow (~26 particles),
+  using original parallax, drift, reduced-motion and low-power controls. Replaced
+  the initial arbitrary 19 fixed fish distribution with original 85m schools and
+  four slower world-depth silhouettes.
+- Source-like sunlit-to-dark water-zone fade and a corrected mascot position
+  during descent. Non-deterministic particles/lighting and simultaneous
+  source-vs-recreation screenshots remain visibly different.
+
+The original full seven-round run returned score 70, distribution sample
+535,808 and a visible finished result with bearing tiers, question catch and
+post-dive actions. It is possible to verify original final-results layout now,
+but Sidequest's independent distribution necessarily differs.
+
+Browser evidence: /tmp/kr-original-detailed-results.log,
+ /tmp/kr-source-result-detailed-1440.png, /tmp/kr-results-fixture.log,
+ /tmp/kr-source-tier-{10,30,60,85,100}-{1200,4400}.png,
+ /tmp/kr-real-tier-gameplay.log, /tmp/kr-tier-effects-check4.log.
+Smoke-test source clips are unsynchronized and do not establish pixel-perfect
+or animation-frame-perfect parity.
