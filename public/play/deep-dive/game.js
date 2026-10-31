@@ -643,6 +643,24 @@
         strictAnswerIndex.set(key,original);
         if(!answerIndex.has(normalized))answerIndex.set(normalized,original);
       }
+      // Exact official NPS full-title names map to the existing short-title
+      // canonical without minting a duplicate score or changing the source tier.
+      const officialNames=aliasReview.officialReferenceAliases?.[item.id]||[];
+      if(!Array.isArray(officialNames))throw Error('Invalid official reference aliases');
+      for(const alias of officialNames){
+        const original=answers.find(a=>a.value===alias.canonical);
+        const key=strictNorm(alias.alias),normalized=norm(alias.alias);
+        if(!original||!key||!normalized||
+          alias.review!=='independent_official_full_title'||
+          alias.publisher_original_validator_verified!==false||
+          !['https://www.nps.gov/','https://www.disneyanimation.com/','https://movies.disney.com/','https://www.falkon.org/','https://apps.gnome.org/','https://www.maxthon.com/','https://brave.com/'].some(prefix=>alias.source_url?.startsWith(prefix))||
+          original.tier!==alias.tier||
+          (strictAnswerIndex.has(key)&&strictAnswerIndex.get(key)!==original))
+          throw Error('Verified NPS full-title alias invalid: '+item.id);
+        if(!original.aliases.includes(alias.alias))original.aliases.push(alias.alias);
+        strictAnswerIndex.set(key,original);
+        if(!answerIndex.has(normalized))answerIndex.set(normalized,original);
+      }
       return {id:item.id,prompt:pack.prompt,theme:'Independent',answers,answerIndex,strictAnswerIndex};
     }));
     for(const q of loaded)byId.set(q.id,q);

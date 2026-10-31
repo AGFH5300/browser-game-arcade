@@ -1,0 +1,7 @@
+id,answer,score,source_url,evidence,publisher_accepted,rarity_method
+KR0180,Midori,30,https://astian.org/midori-browser/,Publisher/developer product website identifies a web browser,NOT_VERIFIED,INDEPENDENT_ESTIMATED_30
+KR0180,NetSurf,30,https://www.netsurf-browser.org/,Publisher/developer product website identifies a web browser,NOT_VERIFIED,INDEPENDENT_ESTIMATED_30
+KR0180,Falkon,30,https://apps.kde.org/falkon/,Publisher/developer product website identifies a web browser,NOT_VERIFIED,INDEPENDENT_ESTIMATED_30
+KR0180,Basilisk,30,https://www.basilisk-browser.org/,Publisher/developer product website identifies a web browser,NOT_VERIFIED,INDEPENDENT_ESTIMATED_30
+KR0180,Lunascape,30,https://www.lunascape.org/,Publisher/developer product website identifies a web browser,NOT_VERIFIED,INDEPENDENT_ESTIMATED_30
+KR0180,Sleipnir,30,https://www.fenrir-inc.com/jp/sleipnir/,Publisher/developer product website identifies a web browser,NOT_VERIFIED,INDEPENDENT_ESTIMATED_30

@@ -12,7 +12,6 @@ OUT=root/'data/krillion-review/finite-category-completeness.csv'
 # Independently enumerated, intentionally narrowly-scoped sets; do not treat
 # conjectural media, geographical edge cases or open ended categories as closed.
 universe={
- 'KR0078':'Uruguay;Paraguay;Panama;Nicaragua;Honduras;El Salvador;Costa Rica;Venezuela;Peru;Guatemala;Ecuador;Dominican Republic;Cuba;Chile;Bolivia;Argentina;Equatorial Guinea;Spain;Mexico;Colombia',
  'KR0204':'Togo;Oman;Niue;Mali;Laos;Fiji;Chad;Peru;Iraq;Iran;Cuba',
  'KR0214':'Raya;Pocahontas;Merida;Tiana;Rapunzel;Mulan;Moana;Jasmine;Aurora;Snow White;Cinderella;Belle;Ariel',
  'KR0218':'San Marino;Republic of the Congo;Lesotho;Trinidad and Tobago;Togo;Montenegro;Burkina Faso;Morocco;Monaco;Democratic Republic of the Congo;Mexico',
