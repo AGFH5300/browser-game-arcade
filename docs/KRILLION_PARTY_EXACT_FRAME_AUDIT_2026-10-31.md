@@ -150,3 +150,13 @@ Do not fabricate statistics merely to align graph pixels.
 
 **Overall exact 1:1 status remains FAIL.** No certification of
 all-screens, all-animations, all-interactions pixel equality issued.
+
+## Byte-for-byte source asset inventory
+
+A 31 October headless browser inspected the source homepage, Wardrobe,
+Daily Dive and Puffer Party. All 20 image/font responses observed from
+the original website matched at least one Sidequest asset byte-for-byte
+by SHA-256. See data/krillion-public-assets-20261031.json and the
+automated test in tests/krillion-source-asset-integrity.test.ts.
+20/20 means observed asset integrity PASS, not that the unobserved
+assets or all source animation frames have passed global parity.
