@@ -1,0 +1,12 @@
+/* An opaque source-depth ocean canvas replaces the layered CSS color approximations.
+ * Keep the stage UI/world/foreground above it at their existing z-indexes. */
+.dd-game-screen[data-world="ocean"] .dd-stage>.dd-source-ocean-canvas{
+ position:absolute;inset:0;width:100%;height:100%;z-index:0;
+ pointer-events:none;display:block;image-rendering:pixelated;
+}
+.dd-game-screen[data-world="ocean"] .dd-game-sea{opacity:0!important;pointer-events:none!important}
+.dd-game-screen[data-world="ocean"] .dd-stage::after{display:none!important}
+.dd-game-screen[data-world="ocean"] .dd-world-surface-sky{opacity:0!important}
+.dd-game-screen[data-world="ocean"] .dd-stage{background:transparent!important}
+.dd-game-screen[data-world="ocean"] .dd-world-surface-sky{display:none!important}
+.dd-game-screen[data-world="ocean"] .dd-mobile-clouds{display:none!important}

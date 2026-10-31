@@ -125,7 +125,7 @@
    frame=requestAnimationFrame(render);
  };
  const refresh=()=>{
-   const target=app.querySelector('.deep-home.dd-game-screen:not([data-zone="surface"])')||app.querySelector('.deep-home .dd-sea');
+   const target=app.querySelector('.deep-home[data-phase="intro"] .dd-sea')||app.querySelector('.dd-game-screen:not([data-world="ocean"]) .dd-game-sea');
    if(!target){if(canvas)canvas.remove();canvas=null;sea=null;ctx=null;if(frame)cancelAnimationFrame(frame);frame=0;return}
    if(target===sea&&canvas?.isConnected)return;
    if(canvas)canvas.remove();if(frame)cancelAnimationFrame(frame);
