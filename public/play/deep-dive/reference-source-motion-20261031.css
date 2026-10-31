@@ -53,3 +53,12 @@
  animation:ds-card-gone 600ms ease-in 450ms forwards!important;
  pointer-events:none!important;
 }
+
+
+/* Accepted answer must stay legible through the sink; on impact the
+   tier renderer removes the chip. Do not fade it mid-animation. */
+.dd-reveal-screen[data-world="ocean"] .dd-chip,
+.dd-reveal-screen[data-world="ocean"] .dd-chip.dd-source-wiggle{
+ animation:none!important;
+ opacity:1!important;
+}

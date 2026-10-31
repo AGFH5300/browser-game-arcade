@@ -82,5 +82,5 @@ test('reveal does not retain a stale editable answer dock',()=>{
  assert(game.includes('active.revealStartedAt=Date.now()'));
  assert(game.includes('const SOURCE_TIER_MS=[3400,3000,3000,3400,4300,4600]'));
  assert(game.includes('if(revealPending())'));
- assert(game.includes('root.querySelector(\'.dd-reveal-pending .dd-game-prompt\')?.remove()'));
+ assert(game.includes('root.querySelector(\'.dd-reveal-screen .dd-game-prompt\')?.remove()'));
 });
