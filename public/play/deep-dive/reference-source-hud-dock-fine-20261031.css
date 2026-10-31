@@ -1,0 +1,130 @@
+/* Source browser CSS uses .ds-px on both depth/score pods.
+ * The previous copy rendered square rectangles, especially visible
+ * at 390x844. Polygon below is the original 5px pixel-step geometry.
+ */
+.dd-game-screen[data-world="ocean"] .dd-hud .dd-hud-box {
+ clip-path:polygon(
+  0 10px,5px 10px,5px 5px,10px 5px,10px 0,
+  calc(100% - 10px) 0,calc(100% - 10px) 5px,
+  calc(100% - 5px) 5px,calc(100% - 5px) 10px,
+  100% 10px,100% calc(100% - 10px),
+  calc(100% - 5px) calc(100% - 10px),
+  calc(100% - 5px) calc(100% - 5px),
+  calc(100% - 10px) calc(100% - 5px),
+  calc(100% - 10px) 100%,10px 100%,
+  10px calc(100% - 5px),5px calc(100% - 5px),
+  5px calc(100% - 10px),0 calc(100% - 10px)
+ )!important
+}
+/* Original mobile dock kept a 58px sonar, while a legacy override
+ * shrank ours to 48px. This displaced the answer field 10px left. */
+@media(max-width:650px){
+ .dd-game-screen[data-world="ocean"] .dd-sonar-wrap {
+  width:58px!important;height:58px!important;
+ }
+}
+/* Do not inherit Sidequest generic 300 ms page appear animation:
+   original source stage has no root motion. Original fixed play area
+   reserves 90px desktop / 50px mobile viewport below stage. */
+.page.deep-home.dd-game-screen[data-world="ocean"]{
+ animation:none!important;
+ transform:none!important;
+ min-height:0!important;
+ height:calc(100svh - 90px)!important;
+ overflow:hidden!important
+}
+@media(max-width:650px){
+ .page.deep-home.dd-game-screen[data-world="ocean"]{
+  height:calc(100svh - 50px)!important
+ }
+}
+/* Original controls have 10px top and 12px mobile / 18px desktop
+   bottom padding; legacy feedback region inflated the form height. */
+.dd-game-screen[data-world="ocean"] .dd-dock{
+ box-sizing:border-box!important;
+ height:87px!important;
+ min-height:0!important;
+ bottom:0!important;
+ padding:10px 12px 18px!important
+}
+.dd-game-screen[data-world="ocean"] .dd-dock .dd-input{
+ padding:9px 10px 7px!important;
+ height:59px!important;
+ min-height:0!important;
+ font-size:26px!important
+}
+@media(max-width:650px){
+ .dd-game-screen[data-world="ocean"] .dd-dock{
+  height:80px!important;
+  padding-bottom:12px!important
+ }
+ .dd-game-screen[data-world="ocean"] .dd-dock .dd-input{
+  height:53px!important;
+  font-size:22px!important
+ }
+}
+/* Later legacy selectors also moved the entire dock up 11px on
+   mobile and 58px on desktop. Original dock reaches the stage edge. */
+.page.deep-home.dd-game-screen[data-world="ocean"][data-phase="answering"] .dd-dock{
+ bottom:0!important
+}
+/* Original source's game camera puts the world surface at about
+   y209 desktop and y172 mobile after entering the first round. */
+.dd-game-screen[data-world="ocean"] .dd-world{
+ top:24px!important
+}
+@media(max-width:650px){
+ .dd-game-screen[data-world="ocean"] .dd-world{
+  top:7px!important
+ }
+ .dd-game-screen[data-world="ocean"] .dd-hud-dot{
+  height:10px!important
+ }
+ .dd-game-screen[data-world="ocean"] .dd-game-prompt{
+  margin-top:2px!important
+ }
+}
+@media(min-width:651px){
+ .dd-game-screen[data-world="ocean"] .dd-hud .dd-hud-box{
+  min-height:64px!important;
+  padding:6px 14px 8px!important
+ }
+ .dd-game-screen[data-world="ocean"] .dd-game-prompt{
+  margin-top:-12px!important
+ }
+}
+.dd-game-screen[data-world="ocean"] .dd-dive-btn{
+ flex:0 0 76px!important;
+ width:76px!important;min-width:76px!important;
+ height:52px!important;min-height:52px!important;
+ box-sizing:border-box!important;
+ display:flex;align-items:center;justify-content:center
+}
+/* Source inspected October 31: original text line metrics independent
+   of prompt length. Do not force a fixed question-card height. */
+.dd-game-screen[data-world="ocean"] .dd-prompt-label{
+ line-height:1.5!important
+}
+.dd-game-screen[data-world="ocean"] .dd-prompt-hint{
+ line-height:1.5!important
+}
+@media(max-width:650px){
+ .dd-game-screen[data-world="ocean"] .dd-prompt-label{
+  font-size:14px!important
+ }
+ .dd-game-screen[data-world="ocean"] .dd-prompt-hint{
+  font-size:13px!important
+ }
+ .dd-game-screen[data-world="ocean"] .dd-prompt-text{
+  font-size:31.2px!important;
+  line-height:1.02!important
+ }
+ .dd-game-screen[data-world="ocean"] .dd-game-prompt{
+  margin-top:4px!important
+ }
+}
+@media(min-width:651px){
+ .dd-game-screen[data-world="ocean"] .dd-game-prompt{
+  margin-top:-2px!important
+ }
+}

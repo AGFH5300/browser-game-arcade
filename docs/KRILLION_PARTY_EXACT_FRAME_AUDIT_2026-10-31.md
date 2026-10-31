@@ -110,3 +110,43 @@ publisher-controlled data. Pausing CSS animations does not pause canvas
 requestAnimationFrame loops. These tests catch false comparisons, but do
 not establish deterministic pixel-perfect parity. The exact-all-screen
 acceptance requirement remains FAIL, and the threshold is not weakened.
+
+## Game-stage HUD and answer-dock geometry
+
+A second direct source-client inspection at 390x844 and 1440x900
+revealed invariant layout differences beyond individual animations.
+Original ds-root is fixed at 794px tall on a mobile 844px viewport and
+810px tall on desktop 900px, reserving 50px / 90px outside play area.
+Sidequest had filled the whole viewport and applied an unrelated 300ms
+CSS appear animation to the entire game screen. The dock was additionally
+displaced 11px mobile / 58px desktop by older CSS overrides.
+
+The reconstructed game screen now:
+- Disables the non-original whole-screen appear animation;
+- Uses source stage heights and dock at the stage edge;
+- Uses exact original stair-step ds-px polygon for HUD pods;
+- Matches HUD pod positions and heights at both viewport sizes;
+- Uses 58x58 sonar, x80 mobile input with height 53px and source font 22px;
+- Restores original prompt label/hint font metrics and variable card height;
+- Aligns world anchor, dock and responsive controls.
+
+Measured after changes at mobile 390px: play area [0,0,390,794],
+HUD [0,0,390,59], pods x10/x294, dock [0,714,390,80],
+sonar [12,724,58,58]. Desktop 1440px: play area
+[0,0,1440,810], HUD [360,0,720,72], dock y723 height87.
+
+Original and clone ran 30 phase captures each across seven rounds
+at both desktop and mobile (4 runs, 120 screenshots) with zero
+browser JS errors. Different live daily prompt content and
+independent backend distributions prevent literal global pixel match.
+Sampled dock-region MAE fell 23.84 to 13.61/255 mobile and
+11.08 to 8.66/255 desktop; desktop HUD-region MAE fell 18.35
+to 11.66/255. These are unsynchronized diagnostic captures, NOT
+a canonical deterministic PASS.
+
+Original results include live publisher player-distribution statistics;
+Sidequest intentionally labels them unavailable without its own data.
+Do not fabricate statistics merely to align graph pixels.
+
+**Overall exact 1:1 status remains FAIL.** No certification of
+all-screens, all-animations, all-interactions pixel equality issued.
