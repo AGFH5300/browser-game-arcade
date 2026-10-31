@@ -1,0 +1,46 @@
+id,name,gbif_source,gbif_taxon_key,canonical_taxon,estimated_score,publisher_acceptance
+KR0121,Honey possum,https://www.gbif.org/species/102124232,102124232,Tarsipes rostratus,30,NOT_VERIFIED
+KR0789,Dusky salamander,https://www.gbif.org/species/2431224,2431224,Desmognathus fuscus,30,NOT_VERIFIED
+KR0789,Dama gazelle,https://www.gbif.org/species/134091985,134091985,Nanger dama,30,NOT_VERIFIED
+KR0789,Dusky titi,https://www.gbif.org/species/195833787,195833787,Callicebus moloch,30,NOT_VERIFIED
+KR0789,Dusky shrew,https://www.gbif.org/species/231545174,231545174,Sorex monticolus,30,NOT_VERIFIED
+KR0789,dusky leaf-nosed bat,https://www.gbif.org/species/100700709,100700709,Hipposideros ater,30,NOT_VERIFIED
+KR0789,dusky tit,https://www.gbif.org/species/2487933,2487933,Parus funereus,30,NOT_VERIFIED
+KR0789,dwarf flying fox,https://www.gbif.org/species/231543420,231543420,Pteropus woodfordi,30,NOT_VERIFIED
+KR0789,dusky warbler,https://www.gbif.org/species/133152242,133152242,Phylloscopus fuscatus,30,NOT_VERIFIED
+KR0789,dusky antechinus,https://www.gbif.org/species/102123743,102123743,Antechinus swainsonii,30,NOT_VERIFIED
+KR0789,dusky grasswren,https://www.gbif.org/species/165927709,165927709,Amytornis purnelli,30,NOT_VERIFIED
+KR0830,Tasmanian tree frog,https://www.gbif.org/species/2427899,2427899,Litoria burrowsi,30,NOT_VERIFIED
+KR0841,aoudad,https://www.gbif.org/species/195659391,195659391,Ammotragus lervia,30,NOT_VERIFIED
+KR0841,alpaca,https://www.gbif.org/species/7515593,7515593,Vicugna pacos,30,NOT_VERIFIED
+KR0841,andean condor,https://www.gbif.org/species/165901176,165901176,Vultur gryphus,30,NOT_VERIFIED
+KR0841,african forest elephant,https://www.gbif.org/species/231521311,231521311,Loxodonta cyclotis,30,NOT_VERIFIED
+KR0841,african wild ass,https://www.gbif.org/species/134092855,134092855,Equus africanus,30,NOT_VERIFIED
+KR0851,Edible dormouse,https://www.gbif.org/species/180179532,180179532,Glis glis,30,NOT_VERIFIED
+KR0851,Eastern cottontail,https://www.gbif.org/species/331765993,331765993,Sylvilagus floridanus,30,NOT_VERIFIED
+KR0851,Eastern gray squirrel,https://www.gbif.org/species/102122615,102122615,Sciurus carolinensis,30,NOT_VERIFIED
+KR0851,Eastern mole,https://www.gbif.org/species/100787084,100787084,Scalopus aquaticus,30,NOT_VERIFIED
+KR0851,Eastern quoll,https://www.gbif.org/species/273212112,273212112,Dasyurus viverrinus,30,NOT_VERIFIED
+KR0851,Eastern screech-owl,https://www.gbif.org/species/334966752,334966752,Megascops asio,30,NOT_VERIFIED
+KR0851,Egyptian fruit bat,https://www.gbif.org/species/196379295,196379295,Rousettus aegyptiacus,30,NOT_VERIFIED
+KR0851,Eurasian beaver,https://www.gbif.org/species/100737315,100737315,Castor fiber,30,NOT_VERIFIED
+KR0851,Eurasian sparrowhawk,https://www.gbif.org/species/165902148,165902148,Accipiter nisus,30,NOT_VERIFIED
+KR0851,Eastern chipmunk,https://www.gbif.org/species/100769177,100769177,Tamias striatus,30,NOT_VERIFIED
+KR0851,Eastern newt,https://www.gbif.org/species/5218390,5218390,Notophthalmus viridescens,30,NOT_VERIFIED
+KR0851,Eastern box turtle,https://www.gbif.org/species/102131148,102131148,Terrapene carolina,30,NOT_VERIFIED
+KR0853,Ratel,https://www.gbif.org/species/2433695,2433695,Mellivora capensis,30,NOT_VERIFIED
+KR0853,Ragworm,https://www.gbif.org/species/2316069,2316069,Perinereis cultrifera,30,NOT_VERIFIED
+KR0853,Roughskin sculpin,https://www.gbif.org/species/102053832,102053832,Rastrinus scutiger,30,NOT_VERIFIED
+KR0853,Ring-tailed cat,https://www.gbif.org/species/2433557,2433557,Bassariscus astutus,30,NOT_VERIFIED
+KR0853,Ruddy duck,https://www.gbif.org/species/181869584,181869584,Oxyura jamaicensis,30,NOT_VERIFIED
+KR0853,Ricefield rat,https://www.gbif.org/species/231540076,231540076,Rattus argentiventer,30,NOT_VERIFIED
+KR0853,Rough-scaled python,https://www.gbif.org/species/102129827,102129827,Morelia carinata,30,NOT_VERIFIED
+KR0853,Red-billed tropicbird,https://www.gbif.org/species/133142392,133142392,Phaethon aethereus,30,NOT_VERIFIED
+KR0856,Lancetfish,https://www.gbif.org/species/155378095,155378095,Alepisaurus ferox,30,NOT_VERIFIED
+KR0856,Lappet-faced vulture,https://www.gbif.org/species/100143187,100143187,Torgos tracheliotos,30,NOT_VERIFIED
+KR0856,Lar gibbon,https://www.gbif.org/species/231542721,231542721,Hylobates lar,30,NOT_VERIFIED
+KR0856,Lined seahorse,https://www.gbif.org/species/222476476,222476476,Hippocampus erectus,30,NOT_VERIFIED
+KR0861,Whippoorwill,https://www.gbif.org/species/334966507,334966507,Antrostomus vociferus,30,NOT_VERIFIED
+KR0861,Warty frog,https://www.gbif.org/species/10802825,10802825,Minervarya keralensis,30,NOT_VERIFIED
+KR0924,Vermilion flycatcher,https://www.gbif.org/species/124558927,124558927,Pyrocephalus rubinus,30,NOT_VERIFIED
+KR0924,Vermilion darter,https://www.gbif.org/species/2382207,2382207,Etheostoma chermocki,30,NOT_VERIFIED

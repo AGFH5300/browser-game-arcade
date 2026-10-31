@@ -39,12 +39,12 @@ def simple(s):
 # variants within the SAME prompt/tier. Not claims of original accepted aliases.
 # Excludes different cities, people, songs, performers and score conflicts.
 APPROVE={
-  1,2,3,4,7,8,10,12,13,14,16,17,18,19,21,23,24,25,
+  1,2,3,4,7,8,9,10,12,13,14,16,17,18,19,21,23,24,25,
   28,29,30,31,33,34,35,38,39,43,45,46,47,48,49,
   51,52,55,57,59,60,61,62,66,67,68,69,70,71,72,73,74,
   77,78,79,80,81,82,84
 }
-assert len(APPROVE)==57
+assert len(APPROVE)==58
 collision_rows=rows('NORMALIZED_DUPLICATES_AND_CONFLICTS.csv')
 assert len(collision_rows)==84
 # Original publisher acceptance is unverified; these sources prove real-world
@@ -55,7 +55,19 @@ IDENTITIES={
   27:('VERIFIED_DISTINCT','https://otp.gov.ky/web/govky/ourislands | https://factpage.glsc.gov.gy/basics/capital-city/'),
   44:('VERIFIED_DISTINCT','https://www.ceredigion.gov.uk/media/dripe2fr/2024-new-quay-place-plan.pdf | https://www.newquay.gov.uk/'),
   56:('VERIFIED_DISTINCT','https://www.northcentral.edu/ | https://www.nu.edu/national-and-northcentral-have-merged/'),
-  57:('SAME_ENTITY','https://up.net/upnet-news-alerts')
+  57:('SAME_ENTITY','https://up.net/upnet-news-alerts'),
+  # Additional original-source/third-party identity evidence.
+  9:('SAME_ENTITY','https://www.albanyairport.com/application/files/4417/4310/0062/Board_Meeting_12092024.pdf'),
+  11:('VERIFIED_DISTINCT','https://en.wikipedia.org/wiki/List_of_defunct_airlines_of_the_United_States_(D%E2%80%93I)'),
+  15:('VERIFIED_DISTINCT','https://faculty.haas.berkeley.edu/borenste/download/JEP92AirEvol.pdf | https://en.wikipedia.org/wiki/JetAmerica'),
+  36:('VERIFIED_DISTINCT','https://www.staroil.com.gh/who_we_are | https://en.staroilcyprus.com/'),
+  41:('VERIFIED_DISTINCT','https://music.apple.com/us/artist/j-ax/189265036 | https://music.apple.com/us/artist/jax/983830871'),
+  42:('VERIFIED_DISTINCT','https://www.allmusic.com/artist/m-clan-mn0000503021 | https://dicionariompb.com.br/artista/mc-lan/'),
+  50:('VERIFIED_DISTINCT','https://academic.oup.com/pasj/article/73/4/837/6296434'),
+  54:('VERIFIED_DISTINCT','https://es.wikipedia.org/wiki/C.R.O_(m%C3%BAsico) | https://www.munzinger.de/register/portrait/biographien/cro/02/1769'),
+  65:('VERIFIED_DISTINCT','https://en.wikipedia.org/wiki/Crybaby'),
+  76:('VERIFIED_DISTINCT','https://en.wikipedia.org/wiki/St._Anton_am_Arlberg | https://en.wikipedia.org/wiki/Stanton,_California'),
+  83:('VERIFIED_DISTINCT','https://www.starwars.com/series/star-wars-rebels/dume-episode-guide | https://d23.com/mcu-robot-roundup/')
 }
 statuses=[]
 allowed={}
@@ -88,20 +100,67 @@ for i,r in enumerate(collision_rows,1):
                  else 'Not safe to merge without independent identity proof')
     })
 write('84-collision-review.csv',list(statuses[0]),statuses)
-assert sum(s['review_state']=='APPROVED_EDITORIAL_EQUIVALENT' for s in statuses)==57
-# Local runtime reads only this explicitly approved subset.
+assert sum(s['review_state']=='APPROVED_EDITORIAL_EQUIVALENT' for s in statuses)==58
+# Publisher-official full-title variants of *already playable games*.
+# These are aliases, not additional scored answers. Exclude compound
+# multiple-game model suggestions and titles not used by the publisher.
+title_sources={
+ 'Pokémon Ruby':'https://www.pokemon.com/us/pokemon-video-games/pokemon-ruby-version-and-pokemon-sapphire-version/',
+ 'Pokémon Sapphire':'https://www.pokemon.com/us/pokemon-video-games/pokemon-ruby-version-and-pokemon-sapphire-version/',
+ 'Pokémon FireRed':'https://www.pokemon.com/us/pokemon-video-games/pokemon-firered-version-and-pokemon-leafgreen-version',
+ 'Pokémon LeafGreen':'https://www.pokemon.com/us/pokemon-video-games/pokemon-firered-version-and-pokemon-leafgreen-version',
+ 'Pokémon HeartGold':'https://www.pokemon.com/us/news/celebrate-25-years-of-pokemon-with-memorable-moments-from-the-johto-region',
+ 'Pokémon SoulSilver':'https://www.pokemon.com/us/news/celebrate-25-years-of-pokemon-with-memorable-moments-from-the-johto-region',
+ 'Pokémon Black':'https://www.pokemon.com/us/news/celebrate-25-years-of-pokemon-with-memorable-moments-from-the-unova-region',
+ 'Pokémon White':'https://www.pokemon.com/us/news/celebrate-25-years-of-pokemon-with-memorable-moments-from-the-unova-region',
+ 'Pokémon Black 2':'https://www.pokemon.com/us/news/celebrate-25-years-of-pokemon-with-memorable-moments-from-the-unova-region',
+ 'Pokémon White 2':'https://www.pokemon.com/us/news/celebrate-25-years-of-pokemon-with-memorable-moments-from-the-unova-region',
+ 'Pokémon Café ReMix':'https://press.pokemon.com/en/products/Pokemon-Cafe-ReMix'
+}
+title_aliases=[]
+for canonical,source_url in title_sources.items():
+    if canonical=='Pokémon Café ReMix':alias='Pokémon Café Mix'
+    elif canonical.endswith(' 2'):alias=canonical[:-2]+' Version 2'
+    elif canonical in ('Pokémon HeartGold','Pokémon SoulSilver'):
+        alias=canonical+' Version'
+    else:alias=canonical+' Version'
+    pack=packs['KR0911']
+    found=[row for row in pack['answers'] if row[0]==canonical]
+    assert len(found)==1,canonical
+    assert not any(simple(row[0])==simple(alias) for row in pack['answers']),alias
+    title_aliases.append({
+      'canonical':canonical,'alias':alias,'tier':found[0][1],
+      'source_url':source_url,'review':'official_pokemon_title_alias',
+      'publisher_original_validator_verified':False
+    })
+assert len(title_aliases)==11
+with (out/'official-game-title-aliases.csv').open('w',encoding='utf8',newline='') as f:
+    w=csv.DictWriter(f,fieldnames=list(title_aliases[0]),lineterminator='\n')
+    w.writeheader();w.writerows(title_aliases)
+# Local runtime reads only these explicitly reviewed sets.
 path=bank/'reviewed-aliases.json'
 path.write_text(json.dumps({
     'source':'sidequest-editorial-orthography-review',
     'publisherAcceptanceVerified':False,
     'changesPublisherScores':False,
-    'groups':allowed
+    'groups':allowed,
+    'canonicalAliases':{'KR0911':title_aliases}
 },ensure_ascii=False,separators=(',',':'))+'\n')
 missing=rows('MISSING_96_100POINT_POLICY.csv')
 assert len(missing)==96
+complete={}
+finite_file=out/'finite-category-completeness.csv'
+if finite_file.exists():
+    with finite_file.open(encoding='utf8',newline='') as f:
+        complete={r['id']:r for r in csv.DictReader(f)}
 for r in missing:
-    r['review_state']='REQUIRES_SOURCE_AND_PLAYER_RARITY_EVIDENCE'
-    r['decision']='NO_AUTOMATIC_100_POINT_AWARD'
+    if r['id'] in complete:
+        r['review_state']='MEMBERSHIP_COMPLETE__NO_DOCUMENTED_100'
+        r['decision']='DO_NOT_INVENT_RARITY_FOR_FINITE_COMPLETE_CATEGORY'
+        r['needs_empirical_guess_frequency']='YES_TO_CLAIM_NEW_100'
+    else:
+        r['review_state']='REQUIRES_SOURCE_AND_PLAYER_RARITY_EVIDENCE'
+        r['decision']='NO_AUTOMATIC_100_POINT_AWARD'
 write('96-missing-100-review.csv',list(missing[0]),missing)
 targets={'Finite tiny':5,'Finite small':15,'Finite medium':40,
          'Moderately broad':75,'Broad category':150,'Very broad':400,
@@ -119,22 +178,55 @@ for r in rows('ALL_952_RARITY_SCORE_AUDIT.csv'):
                 'note':'Heuristic screening target, not verified category universe size'})
 low.sort(key=lambda x:({'P1':0,'P2':1,'P3':2}[x['priority']],-x['numerical_gap'],x['id']))
 write('coverage-review.csv',list(low[0]),low)
+# The old 150/400/1000 quotas are screening rules, not certified universe
+# sizes; distinguish complete finite categories and literal reference limits.
+coverage_status=[]
+lexical_screen={}
+lexical_file=out/'lexical-target-audit.csv'
+if lexical_file.exists():
+    with lexical_file.open(encoding='utf8',newline='') as f:
+        lexical_screen={r['id']:r for r in csv.DictReader(f)}
+for r in low:
+    if r['id'] in complete:
+        state='FINITE_MEMBERSHIP_COMPLETE__HEURISTIC_TARGET_NOT_APPLICABLE'
+        source='data/krillion-review/finite-category-completeness.csv'
+    elif r['id'] in lexical_screen and lexical_screen[r['id']]['screening_result']=='TARGET_NOT_SUPPORTED_BY_LOCAL_REFERENCE':
+        state='REFERENCE_LIMITED__TARGET_NOT_A_VALID_REQUIREMENT'
+        source='data/krillion-review/lexical-target-audit.csv'
+    else:
+        state='OPEN_CATEGORY__SOURCE_SPECIFIC_PROOF_REQUIRED'
+        source=''
+    coverage_status.append({**r,'evidence_state':state,'evidence_file':source,
+      'is_this_a_proven_missing_valid_answer':'NO',
+      'certification':'Original acceptance and rarity NOT proven by size-only targets'})
+write('coverage-evidence-status.csv',list(coverage_status[0]),coverage_status)
 models=rows('AI_ALL_BROAD_VERY_BROAD_MODEL_ACCEPTED.csv')
 assert len(models)==2553
+name_path=out/'gbif-animal-letter-evidence.csv'
+english_evidence={}
+if name_path.exists():
+    with name_path.open(encoding='utf8',newline='') as f:
+        english_evidence={int(r['candidate_index']):r for r in csv.DictReader(f)}
 evidence_path=out/'gbif-candidate-verification.csv'
 gbif_evidence={}
 if evidence_path.exists():
     with evidence_path.open(encoding='utf8',newline='') as f:
         gbif_evidence={int(r['candidate_index']):r for r in csv.DictReader(f)}
+title_alias_lookup={(qid,x['alias']):x['canonical']
+    for qid,group in {'KR0911':title_aliases}.items() for x in group}
 candidate=[]
 for ix,r in enumerate(models):
     present={simple(x[0]) for x in packs[r['id']]['answers']}
+    game_title_canonical=title_alias_lookup.get((r['id'],r['answer']))
     candidate.append({
       'id':r['id'],'question':r['question'],'suggestion':r['answer'],
       'tier_estimate':r['tier'],'generator':r['generators'],'checker':r['checker'],
       'already_playable_estimate': 'YES' if simple(r['answer']) in present else 'NO',
-      'review_state':'QUARANTINED__PRIMARY_SOURCE_AND_RARITY_EVIDENCE_REQUIRED',
+      'review_state':'VERIFIED_EDITORIAL_ALIAS__UNCHANGED_EXISTING_SCORE' if game_title_canonical else
+        'QUARANTINED__PRIMARY_SOURCE_AND_RARITY_EVIDENCE_REQUIRED',
+      'reviewed_title_canonical':game_title_canonical or '',
       'gbif_evidence_state':gbif_evidence.get(ix,{}).get('verification_state','NOT_CHECKED_BY_GBIF'),
+      'gbif_english_name_state':english_evidence.get(ix,{}).get('verified','NOT_CHECKED'),
       'gbif_taxon_url':gbif_evidence.get(ix,{}).get('source_url',''),
       'publisher_accepted':'NO','rationale_unverified':r['rationale']
     })
@@ -144,15 +236,25 @@ summary={
  'independent_playable_answers_from_manifest':manifest['answerCount'],
  'collision_groups_reviewed':len(statuses),
  'approved_editorial_orthographic_groups':sum(s['review_state']=='APPROVED_EDITORIAL_EQUIVALENT' for s in statuses),
+ 'separately_verified_official_title_aliases':len(title_aliases),
  'held_collision_groups':sum(s['review_state']!='APPROVED_EDITORIAL_EQUIVALENT' for s in statuses),
  'held_but_identity_verified_distinct_groups':sum(s['identity_verification']=='VERIFIED_DISTINCT' for s in statuses),
  'remaining_identity_unresolved_groups':sum(s['review_state']!='APPROVED_EDITORIAL_EQUIVALENT' and s['identity_verification']=='NOT_ESTABLISHED' for s in statuses),
  'score_conflicts_preserved':sum(s['review_state']=='HOLD_SCORE_CONFLICT' for s in statuses),
  'missing_documented_100':len(missing),
+ 'finite_categories_checked_complete_without_100':len(complete),
+ 'still_unresolved_original_100_rarity_cases':len(missing)-len(complete),
+ 'coverage_flags_finite_complete':sum(r['evidence_state'].startswith('FINITE_MEMBERSHIP_COMPLETE') for r in coverage_status),
+ 'coverage_flags_reference_limited':sum(r['evidence_state'].startswith('REFERENCE_LIMITED') for r in coverage_status),
+ 'coverage_flags_need_more_category_sources':sum(r['evidence_state'].startswith('OPEN_CATEGORY') for r in coverage_status),
  'missing_100_policy_breakdown':dict(Counter(r['100_point_policy'] for r in missing)),
  'coverage_below_current_playable_heuristic':len(low),
  'previous_source_reported_coverage_below':482,
- 'quarantined_model_review_candidates':len(candidate),
+ 'quarantined_model_review_candidates':sum(r['review_state'].startswith('QUARANTINED') for r in candidate),
+ 'model_candidates_reconciled_as_title_aliases':sum(r['review_state'].startswith('VERIFIED_EDITORIAL_ALIAS') for r in candidate),
+ 'model_candidates_originally_reviewed':len(candidate),
+ 'gbif_animal_letter_english_exact_verified':sum(r['gbif_english_name_state']=='EXACT_ENGLISH_SPECIES_AND_LETTER' for r in candidate),
+ 'gbif_animal_letter_english_rejected_or_unverified':sum(r['gbif_english_name_state']=='HOLD_UNVERIFIED' for r in candidate),
  'gbif_species_taxonomy_category_verified':sum(r['gbif_evidence_state']=='CATEGORY_VERIFIED_INDEPENDENT_SPECIES' for r in candidate),
  'gbif_exact_taxon_but_category_unverified':sum(r['gbif_evidence_state']=='TAXON_EXACT_CATEGORY_UNVERIFIED' for r in candidate),
  'gbif_taxon_no_exact_match':sum(r['gbif_evidence_state']=='TAXON_NOT_EXACT_OR_UNRESOLVED' for r in candidate),
