@@ -16,16 +16,15 @@
   ['evil-krill','Evil Krill','evil-krill-white-v2.png',45]
  ];
  const pixelIcon=(kind)=>{
-  const paths={
-   sound:'<path d="M2 9h5l6-5v16l-6-5H2zM16 3v12h3V3zM19 3h3v3h-3zM19 12h3v3h-3z"/>',
-   silent:'<path d="M2 9h5l6-5v16l-6-5H2zM17 8l2 2 2-2 1 1-2 2 2 2-1 1-2-2-2 2-1-1 2-2-2-2z"/>',
-   settings:'<path d="M9 1h6v3h3l2-2 3 3-2 2v3h3v5h-3v3l2 2-3 3-2-2h-3v3H9v-3H6l-2 2-3-3 2-2v-3H0v-5h3V7L1 5l3-3 2 2h3z M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z" fill-rule="evenodd"/>',
-   merch:'<path d="M7 2h3l2 3 2-3h3l6 5-4 6-3-2v12H8V11l-3 2-4-6z"/>'
-  };
-  return '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">'+paths[kind]+'</svg>';
+  const wrap=(box,body)=>'<svg viewBox="'+box+'" shape-rendering="crispEdges" fill="currentColor" aria-hidden="true">'+body+'</svg>';
+  if(kind==='sound')return wrap('0 0 20 16','<path d="M2 6h3l4-4v12l-4-4H2z"/><rect x="11" y="6" width="2" height="4"/><rect x="15" y="3" width="2" height="10"/>');
+  if(kind==='silent')return wrap('0 0 20 16','<path d="M2 6h3l4-4v12l-4-4H2z"/><rect x="11" y="5" width="2" height="2"/><rect x="13" y="7" width="2" height="2"/><rect x="15" y="9" width="2" height="2"/><rect x="15" y="5" width="2" height="2"/><rect x="11" y="9" width="2" height="2"/>');
+  if(kind==='settings')return wrap('0 0 20 20','<path fill-rule="evenodd" d="M6 4H14V6H16V14H14V16H6V14H4V6H6Z M8 1H12V4H8Z M8 16H12V19H8Z M1 8H4V12H1Z M16 8H19V12H16Z M3 3H6V6H3Z M14 3H17V6H14Z M3 14H6V17H3Z M14 14H17V17H14Z M8 8H12V12H8Z"/>');
+  if(kind==='wardrobe')return wrap('0 0 20 20','<path fill-rule="evenodd" d="M4 3H8V5H4Z M12 3H16V5H12Z M2 5H18V9H2Z M5 9H15V17H5Z M9 5H11V7H9Z"/>');
+  return wrap('0 0 20 20','<path d="M6 2h2v2h4V2h2v2h2v2h2v4h-4v8H6v-8H2V6h2V4h2z"/>');
  };
  const unlockedStreak=()=>{
-  try{return Number(JSON.parse(localStorage.getItem('sidequest:deep-dive:player:v1')||'{}').streak||0)}catch{return 0}
+  return Math.max(0,Number(window.DeepDiveSocial?.profile?.dailyStreak)||0)
  };
  const get=(key,def='')=>{try{return localStorage.getItem(prefKey+key)||def}catch{return def}};
  const put=(key,value)=>{try{localStorage.setItem(prefKey+key,value)}catch{}};
@@ -36,43 +35,64 @@
  };
  const preferences={contrast:saved('contrast','0')==='1',lowPower:saved('lowPower','0')==='1',clearRejected:saved('clearRejected','0')==='1',answerCorrections:saved('answerCorrections','1')!=='0',character:get('character','krillion')};
  if(!characters.some(x=>x[0]===preferences.character))preferences.character='krillion';
- const settingsFields=()=>'<strong>GAME SETTINGS</strong>'+
-      '<label><input type="checkbox" data-dd-setting="lowPower"> Low-power mode</label>'+
-      '<label><input type="checkbox" data-dd-setting="contrast"> Colorblind mode</label>'+
-      '<label><input type="checkbox" data-dd-setting="answerCorrections"> Answer corrections</label>'+
-      '<label><input type="checkbox" data-dd-setting="clearRejected"> Clear rejected entries</label>'+
-      '<label>Choose a dive buddy<select data-dd-character>'+
-      characters.map(x=>'<option value="'+x[0]+'">'+x[1]+'</option>').join('')+
-      '</select></label>';
+ const settingRows=[
+  ['lowPower','Low-power mode','Lighter graphics and fewer background animations.'],
+  ['contrast','Colorblind mode','Brighter text and more separated tier colors.'],
+  ['answerCorrections','Answer corrections','Preview corrected answers before scoring. Off accepts them immediately.'],
+  ['clearRejected','Clear rejected entries','Empty the answer box after a failed attempt.'],
+  ['shareLink','Share link','Add a Sidequest link under shared results.']
+ ];
+ preferences.shareLink=get('share-link','0')==='1';
+ const settingsFields=()=>'<div class="dd-source-preference-list">'+
+   settingRows.map(([name,label,description])=>'<label class="dd-source-preference">'+
+     '<span class="dd-source-preference-copy"><strong>'+label+'</strong><small>'+description+'</small></span>'+
+     '<span class="dd-source-switch"><input type="checkbox" data-dd-setting="'+name+'" aria-label="'+label+'"><span aria-hidden="true"></span></span></label>').join('')+
+   '</div><section class="dd-source-settings-account"><p>ACCOUNT</p>'+
+   '<button type="button" class="dd-source-settings-account-link" data-dd-my-account>MY KRILLION →</button>'+
+   '<div class="dd-source-settings-restore"><span>Keep your progress across devices with a Sidequest account.</span>'+
+   '<button type="button" data-dd-my-account>SIGN IN</button></div>'+
+   '<div class="dd-source-settings-links"><span>PRIVACY</span><span>FAQ</span></div></section>';
+ const wardrobeFields=()=>'<div class="dd-source-wardrobe-grid" role="group" aria-label="Dive buddy">'+
+   characters.map(([id,label,image,unlock])=>{
+     const locked=unlock>unlockedStreak();
+     const chosen=preferences.character===id&&!locked;
+     return '<button class="dd-source-wardrobe-key'+(chosen?' selected':'')+(locked?' locked':'')+'" type="button" data-dd-choose-character="'+id+'" aria-pressed="'+chosen+'" '+(locked?'disabled aria-label="'+label+' — unlocks at a '+unlock+'-day streak"':'')+'>'+
+       '<img src="./reference-assets/tiers/'+(id==='krillion'?'krillion-halloween-2026.png':image)+'" alt="" loading="lazy">'+
+       '<strong>'+label+'</strong>'+(unlock?'<small>'+unlock+'-day streak</small>':'')+'</button>';
+   }).join('')+'</div>';
  const closeGlobalSettings=()=>{
    const overlay=document.getElementById('dd-global-settings');
-   if(overlay){overlay.remove();document.querySelector('.dd-nav-toggle>summary')?.focus({preventScroll:true})}
+   if(overlay){const was=overlay.dataset.ddKind;overlay.remove();app.querySelector(was==='wardrobe'?'[data-dd-open-wardrobe]':'[data-dd-open-settings]')?.focus({preventScroll:true})}
  };
- function openSettings(){
-   const homeSettings=app.querySelector('.dd-reference-preferences>summary');
-   if(homeSettings){homeSettings.click();return}
-   if(document.getElementById('dd-global-settings')){closeGlobalSettings();return}
+ function openDialog(kind){
+   if(document.getElementById('dd-global-settings'))closeGlobalSettings();
    const overlay=document.createElement('div');
-   overlay.id='dd-global-settings';overlay.className='dd-global-settings';
-   overlay.setAttribute('role','presentation');
+   overlay.id='dd-global-settings';overlay.className='dd-global-settings dd-source-dialog-overlay';
+   overlay.dataset.ddKind=kind;
    overlay.innerHTML='<div class="dd-global-settings-scrim" data-dd-close-settings></div>'+
-     '<section class="dd-global-settings-dialog" role="dialog" aria-modal="true" aria-label="Game settings">'+
-     '<div class="dd-global-settings-head"><b>KRILLION</b><button type="button" data-dd-close-settings aria-label="Close settings">×</button></div>'+
-     '<div class="dd-reference-settings-panel">'+settingsFields()+'</div></section>';
-   document.body.append(overlay);syncChecks();
-   overlay.querySelector('[data-dd-close-settings]')?.focus({preventScroll:true});
+     '<section class="dd-global-settings-dialog dd-source-dialog" role="dialog" aria-modal="true" aria-label="'+(kind==='wardrobe'?'Wardrobe':'Settings')+'" tabindex="-1">'+
+     '<button type="button" class="dd-source-close" data-dd-close-settings aria-label="Close '+(kind==='wardrobe'?'wardrobe':'settings')+'">×</button>'+
+     (kind==='wardrobe'?wardrobeFields():settingsFields())+'</section>';
+   document.body.append(overlay);
+   syncChecks();
+   overlay.querySelector('[role=dialog]')?.focus({preventScroll:true});
  }
+ function openSettings(){openDialog('settings')}
+ function openWardrobe(){openDialog('wardrobe')}
  window.DeepDiveReference={
   titleMarkup(){return [...'KRILLION'].map((letter,i)=>'<span style="animation-delay:'+(i*.18).toFixed(2)+'s">'+letter+'</span>').join('')},
   preferences,
   get mascot(){return characters.find(x=>x[0]===preferences.character)||characters[0]},
-  openSettings
+  openSettings,
+  openWardrobe
  };
  function apply(){
    document.documentElement.classList.toggle('dd-colorblind',preferences.contrast);
    document.documentElement.classList.toggle('dd-low-power',preferences.lowPower);
    const name=window.DeepDiveReference.mascot[2];
    app.style.setProperty('--dd-mascot-image',"url('./reference-assets/tiers/"+name+"')");
+   const homeMascot=app.querySelector('.dd-home-mascot');
+   if(homeMascot)homeMascot.src='./reference-assets/tiers/'+(preferences.character==='krillion'?'krillion-halloween-2026.png':name);
  }
  function syncChecks(){
    document.querySelectorAll('[data-dd-setting]').forEach(el=>{
@@ -101,9 +121,8 @@
      const tools=document.createElement('div');
      tools.className='dd-reference-utility';
      tools.innerHTML='<button type="button" data-dd-sound title="Toggle sound" aria-label="Mute sound" aria-pressed="true">'+pixelIcon('sound')+'</button>'+
-      '<details class="dd-reference-preferences"><summary title="Settings" aria-label="Settings">'+pixelIcon('settings')+'</summary>'+
-      '<div class="dd-reference-settings-panel">'+settingsFields()+'</div></details>'+
-      '<a class="dd-utility-merch" href="https://shop.krillion.io/" target="_blank" rel="noopener noreferrer" title="Merch" aria-label="Krillion merchandise">'+pixelIcon('merch')+'</a>';
+       '<button type="button" class="dd-source-settings-trigger" data-dd-open-settings aria-label="Open settings" title="Settings">'+pixelIcon('settings')+'</button>'+
+       '<button type="button" class="dd-source-wardrobe-trigger" data-dd-open-wardrobe aria-label="Open wardrobe" title="Wardrobe">'+pixelIcon('wardrobe')+'</button>';
      scene.append(tools);
    }
    const mascot=scene.querySelector('.dd-game-fish');
@@ -115,11 +134,13 @@
  }
  document.addEventListener('change',e=>{
    const el=e.target.closest('[data-dd-setting], [data-dd-character]');if(!el)return;
-   if(el.dataset.ddSetting){preferences[el.dataset.ddSetting]=el.checked;put(preferenceKeys[el.dataset.ddSetting]||el.dataset.ddSetting,el.checked?'1':'0')}
+   if(el.dataset.ddSetting){preferences[el.dataset.ddSetting]=el.checked;put(preferenceKeys[el.dataset.ddSetting]|| (el.dataset.ddSetting==='shareLink'?'share-link':el.dataset.ddSetting),el.checked?'1':'0')}
    if(el.dataset.ddCharacter!==undefined){preferences.character=el.value;put('character',el.value);window.DeepDiveSfx?.event('category')}
    apply();
  });
  app.addEventListener('click',e=>{
+   if(e.target.closest('[data-dd-open-settings]')){openSettings();return}
+   if(e.target.closest('[data-dd-open-wardrobe]')){openWardrobe();return}
    if(e.target.closest('[data-dd-logbook]')){
      app.closest('.app-shell')?.querySelector('.nav-pill[data-view="stats"]')?.click();
      return;
@@ -127,7 +148,19 @@
    const buddy=e.target.closest('.dd-game-fish[role=button]');
    if(buddy){buddy.classList.remove('dd-mascot-poked');void buddy.offsetWidth;buddy.classList.add('dd-mascot-poked');window.DeepDiveSfx?.event('blub');}
  });
- document.addEventListener('click',e=>{if(e.target.closest('#dd-global-settings [data-dd-close-settings]'))closeGlobalSettings()});
+ document.addEventListener('click',e=>{
+   if(e.target.closest('#dd-global-settings [data-dd-close-settings]')){closeGlobalSettings();return}
+   const option=e.target.closest('[data-dd-choose-character]');
+   if(option&&!option.disabled&&unlockedStreak()>=(characters.find(c=>c[0]===option.dataset.ddChooseCharacter)?.[3]||0)){
+     preferences.character=option.dataset.ddChooseCharacter;
+     put('character',preferences.character);apply();
+     window.DeepDiveSfx?.event('category');
+     closeGlobalSettings();return;
+   }
+   if(e.target.closest('[data-dd-my-account]')){
+     closeGlobalSettings();document.querySelector('.nav-pill[data-view="account"]')?.click();return;
+   }
+ });
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('dd-global-settings')){e.preventDefault();closeGlobalSettings()}});
  app.addEventListener('keydown',e=>{
    if((e.key==='Enter'||e.key===' ')&&e.target.matches('.dd-game-fish[role=button]')){e.preventDefault();e.target.click()}

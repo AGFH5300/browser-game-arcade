@@ -1,0 +1,49 @@
+/* Source-observed outcome particle, blink, swarm and light effects. */
+.dd-game-screen .dd-stage .dd-source-tier-canvas{position:absolute;inset:0;z-index:6;width:100%;height:100%;pointer-events:none;image-rendering:pixelated}
+.dd-game-screen .dd-stage .dd-source-tier-flash{position:absolute;inset:0;z-index:9;opacity:0;pointer-events:none}
+.dd-game-screen .dd-stage .dd-source-depth-spotlight{position:absolute;inset:0;z-index:5;pointer-events:none;opacity:.92}
+.dd-game-screen .dd-stage .dd-source-swarm-fish{position:absolute;left:0;top:0;width:30px;height:30px;z-index:8;image-rendering:pixelated;pointer-events:none;will-change:transform}
+.dd-game-screen .dd-stage.dd-source-shake{animation:dd-stage-jolt .65s linear 1}
+@media(prefers-reduced-motion:reduce){.dd-game-screen .dd-stage.dd-source-shake{animation:none}}
+
+/* Original chip lateral wobble/rotation while the source 3–4.6s camera descent
+   runs. JS updates CSS variables using the tier's real easing curve. */
+.dd-reveal-screen .dd-chip.dd-source-wiggle{
+ transform:translate(calc(-50% + var(--chip-wiggle-x,0px)),var(--chip-drop,0px)) rotate(var(--chip-wiggle-rotate,0deg))!important;
+ transition:none!important;will-change:transform
+}
+
+/* Source water approaches black at 800m+, not the permanently sunlit blue
+   band that the previous source-home stylesheet forced during all descents. */
+.dd-reveal-screen[data-world="ocean"] .dd-game-sea{
+ background-image:
+  linear-gradient(rgba(2,5,11,var(--dd-depth-opacity,.0)),rgba(2,5,11,var(--dd-depth-opacity,.0))),
+  linear-gradient(180deg,#1d5580 0%,#123a5e 30%,#0b1526 70%,#081020 100%)!important;
+}
+.dd-reveal-screen[data-world="ocean"][data-phase="feedback"] .dd-game-fish{
+ left:calc(50% + 79px)!important;top:28.5%!important;
+ width:48px!important;height:48px!important;
+ filter:drop-shadow(0 0 12px #ff5d8f88)!important
+}
+@media(max-width:650px){
+ .dd-reveal-screen[data-world="ocean"][data-phase="feedback"] .dd-game-fish{
+   left:calc(50% + 5px)!important;top:30%!important;width:42px!important;height:42px!important
+ }
+}
+/* The previous bright surface-sky strip persisted while the camera was already
+   deep underwater. Blend its upper edge into the darker source depth palette,
+   without putting an overlay above mascot, HUD, tier text or input controls. */
+.dd-reveal-screen[data-world="ocean"] .dd-stage::after{
+ content:"";position:absolute;left:0;right:0;top:0;height:142px;z-index:3;
+ pointer-events:none;
+ background:linear-gradient(180deg,
+  rgba(2,5,11,var(--dd-depth-opacity,0)) 0%,
+  rgba(2,5,11,var(--dd-depth-opacity,0)) 64%,
+  transparent 100%);
+}
+.dd-reveal-screen[data-world="ocean"] .dd-game-sea{
+ background-image:
+ radial-gradient(ellipse 23% 35% at 50% 31%,rgba(44,125,166,.24) 0%,transparent 100%),
+ linear-gradient(rgba(2,5,11,var(--dd-depth-opacity,0)),rgba(2,5,11,var(--dd-depth-opacity,0))),
+ linear-gradient(180deg,#1d5580 0%,#123a5e 30%,#0b1526 70%,#081020 100%)!important;
+}

@@ -6,10 +6,35 @@
 .pp-view .pp-identity-panel .pp-caption{display:none!important}
 .pp-view .pp-foyer-left{gap:8px!important}
 .pp-view .pp-play-panel{min-height:224px!important}
-.pp-view .pp-play-buttons{margin-top:12px!important}
+.pp-view .pp-play-buttons{margin-top:25px!important}
 .pp-view .pp-host-panel{margin-top:6px!important}
 }
 @media(max-width:650px){
 .pp-view .pp-arena{transform:translateY(-120px)!important;padding-left:14px!important;padding-right:14px!important}
 .pp-view .pp-scene-header{transform:translateY(-4px)!important}
+}
+@media(max-width:650px){
+.pp-view .pp-scene-header{margin-bottom:-7px!important}
+.pp-view .pp-ocean-foyer,.pp-view .pp-foyer-left{width:100%!important;min-width:0!important}
+.pp-view .pp-foyer-left .pp-panel,.pp-view .pp-public-panel{
+ width:100%!important;min-width:0!important;max-width:100%!important;
+ box-sizing:border-box!important;padding-left:16px!important;padding-right:16px!important;
+}
+.pp-view .pp-play-buttons{padding-left:0!important;padding-right:0!important}
+}
+
+@media(min-width:651px){
+ .pp-view .pp-foyer-left{width:360px!important;margin-left:4px!important}
+ .pp-view .pp-public-panel{width:360px!important;margin-left:4px!important}
+ .pp-view .pp-panel{padding-left:16px!important;padding-right:16px!important}
+ .pp-view .pp-avatar-grid{
+  grid-template-columns:repeat(5,59px)!important;
+  gap:8px!important;margin-top:5px!important;
+ }
+ .pp-view .pp-avatar-option{height:81px!important;min-height:81px!important}
+ .pp-view .pp-identity-panel .pp-wide{transform:translateY(2px)}
+ .pp-view .pp-play-buttons{padding-left:0!important}
+}
+@media(max-width:650px){
+ .pp-view .pp-play-buttons{margin-left:-2px!important}
 }

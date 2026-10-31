@@ -19,7 +19,7 @@ test('surface and source-like icons remain animated and functional',()=>{
  const polish=file('reference-polish-20261030.css'),controls=file('reference-interface.js');
  for(const feature of ['dd-water-current','dd-sky-swell','dd-letter-float','.dd-utility-merch'])
    assert(polish.includes(feature),feature);
- for(const x of ["pixelIcon('sound')","pixelIcon('settings')","pixelIcon('merch')",'https://shop.krillion.io/'])
+ for(const x of ["pixelIcon('sound')","pixelIcon('settings')","pixelIcon('wardrobe')",'data-dd-open-wardrobe','data-dd-open-settings'])
    assert(controls.includes(x),x);
  assert(controls.includes("sound.innerHTML=pixelIcon(muted?'silent':'sound')"));
 });

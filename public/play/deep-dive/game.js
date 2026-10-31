@@ -356,7 +356,7 @@
           <p class="dd-subtitle">${isEndless?'THE ENDLESS DIVE':'THE DAILY DIVE'}</p><p class="dd-tagline">${isEndless?'dive after dive · rarer answers sink deeper':'7 prompts · 25 seconds each · rarer answers sink deeper'}</p>
         </div>
       </div>
-      <div class="dd-sea">${oceanDecor()}
+      <div class="dd-sea">${oceanDecor()}<img class="dd-home-mascot" aria-hidden="true" alt="" src="./reference-assets/tiers/krillion-halloween-2026.png">
         <div class="dd-sea-center">
           <div class="dd-surface-label">◂ HOW DEEP CAN YOUR KNOWLEDGE GO? ▸</div>
           <details class="dd-rules"><summary>▸ ${isEndless?'OPEN THE DIVE LOG ∞':'HOW TO PLAY'}</summary>${isEndless?`<div class="dd-source-howto dd-endless-log"><p>THE DIVE LOG · THE ENDLESS DIVE</p><p>${format(endlessDone)}/76 charted · replays keep your best</p><p>SELECT A DIVE · YOUR FREE PRACTICE, NO UNLOCK REQUIRED</p><div class="dd-endless-chooser" role="group" aria-label="Choose an Unlimited dive">${log}</div><p>BEST ${format(profile.endlessBest||0)} · NEXT #${format(profile.unlimitedGameId||1)}. DIVES 3–4 USE PUBLIC REVEAL DATA; DIVES 5+ USE INDEPENDENT PRACTICE WITH ESTIMATED / MIXED-SOURCE SCORES, NOT THE PUBLISHER'S PAID GAME SET.</p></div>`:`<div class="dd-source-howto"><p>7 PROMPTS A DAY. SAME FOR EVERYONE.</p><p>25 SECONDS TO NAME ONE THING.</p><p>RARE ANSWERS SCORE BIG. OBVIOUS ONES FLOAT.</p><p>THE PICK THAT FEELS CLEVER? THE SCHOOL THOUGHT OF IT TOO.</p><p>EVERY POINT SINKS YOU 10 METRES. 700 IS THE TRENCH.</p><p>ONE DIVE PER DAY. NO SECOND CHANCES.</p></div>`}</details>
@@ -662,7 +662,7 @@
     window.DeepDiveSfx?.event('begin');
     /* Pass 3 phase machine: every round opens in preview (the original's
        3-second "descending · the clock starts in N" pill) before answering. */
-    active={mode,world,chapter,source:mode==='starter'||(mode==='endless'&&forcedIds.length===7)?'published-free-starter-index':mode==='archive'||(mode==='endless'&&forcedIds.length)?'published-archive-snapshot':mode==='daily'&&sourceDaily?'krillion-reveal':'sidequest',day:mode==='archive'?archiveDate:day,ids,index:0,phase:'preview',previewEnds:Date.now()+(profile.tourSeen?3000:5200),deadline:0,results:[],score:0,misses:0,startedAt:Date.now()};
+    active={mode,world,chapter,source:mode==='starter'||(mode==='endless'&&forcedIds.length===7)?'published-free-starter-index':mode==='archive'||(mode==='endless'&&forcedIds.length)?'published-archive-snapshot':mode==='daily'&&sourceDaily?'krillion-reveal':'sidequest',day:mode==='archive'?archiveDate:day,ids,index:0,phase:'preview',previewEnds:Date.now()+3200,deadline:0,results:[],score:0,misses:0,startedAt:Date.now()};
     save();currentView=mode==='world'||mode==='starter'?'worlds':mode==='endless'?'endless':mode==='archive'?'archive':'daily';render();
   }
   function currentQ(){return byId.get(active.ids[active.index])}
@@ -680,6 +680,8 @@
     const done=active.phase==='feedback'&&(active.index+1>=n||(active.mode==='endless'&&active.ids.length>7&&active.misses>=3));
     const firstVisible=active.ids.length>14?Math.max(0,Math.min(curIdx-5,active.ids.length-14)):0;
     const visibleIds=active.ids.length>14?active.ids.slice(firstVisible,firstVisible+14):active.ids;
+    const shownScore=active.phase==='feedback'&&revealPending()
+      ?active.score-(active.results[active.results.length-1]?.points||0):active.score;
     const dots=visibleIds.map((id,offset)=>{
       const i=offset+firstVisible;
       const prior=active.results[i],tier=prior?.tier;
@@ -687,9 +689,9 @@
       const color=prior&&tier!==null&&tier!==undefined?TIERS[tier].color:prior?'#284c6b':i===curIdx?'#ff5288':'#091b38';
       return `<i class="dd-hud-dot${state?' '+state:''}" style="--dot:${color}" title="Round ${i+1}"></i>`;
     }).join('');
-    return `<div class="dd-hud"><div class="dd-hud-box"><span>DEPTH</span><strong class="dd-hud-depth${depthCrank?' crank':''}">${format(active.score*10)}<small>m</small></strong></div>
+    return `<div class="dd-hud"><div class="dd-hud-box"><span>DEPTH</span><strong class="dd-hud-depth${depthCrank?' crank':''}">${format(shownScore*10)}<small>m</small></strong></div>
       <div class="dd-hud-progress"><div class="dd-hud-dots">${dots}</div><small>${done?'DIVE COMPLETE':'PROMPT '+(curIdx+1)+' OF '+n}${active.mode==='endless'&&active.ids.length>7?' · '+Math.max(0,3-active.misses)+' LIVES':''}</small></div>
-      <div class="dd-hud-box dd-hud-score"><span>SCORE</span><strong>${format(active.score)}</strong></div></div>`;
+      <div class="dd-hud-box dd-hud-score"><span>SCORE</span><strong>${format(shownScore)}</strong></div></div>`;
   }
   function dockMarkup(seconds){
     /* Original dock structure (ds-dock): sonar scope with a rotating sweep and
@@ -724,7 +726,7 @@
     const sub=tier?(last.quip||tier.blurb):last?(last.reason==='Timeout'?'the clock beat you to it.':'never made it onto the reef.'):'';
     const pillLeft=Math.max(0,Math.ceil(((active.previewEnds||Date.now())-Date.now())/1000));
     const worldId=worldForMode(),worldMeta=themedConfig(worldId);
-    return `<section class="page deep-home dd-game-screen${feedback?' dd-reveal-screen':''}${revealActive?' dd-reveal-pending':''}${active.mode==='starter'?' dd-free-starter-play':''}" data-phase="${active.phase}" data-world="${worldId}" data-world-height="${worldMeta.height}" data-pack="${active.mode==='starter'?safe(active.world):''}" data-zone="${depthZone()}" style="--reveal-ms:${active.revealDuration||3400}ms">
+    return `<section class="page deep-home dd-game-screen${feedback?' dd-reveal-screen':''}${revealActive?' dd-reveal-pending':''}${active.mode==='starter'?' dd-free-starter-play':''}" data-phase="${active.phase}" data-world="${worldId}" data-world-height="${worldMeta.height}" data-pack="${active.mode==='starter'?safe(active.world):''}" data-zone="${depthZone()}" style="--reveal-ms:${active.revealDuration||3400}ms;--dd-depth-opacity:${Math.min(.96,Math.max(0,(metresBeforeRound(round)/500)*.9)).toFixed(3)}">
       <div class="dd-stage">
         <div class="dd-sea dd-game-sea"></div>
         <div class="dd-world" style="--dd-world-height:${worldMeta.height}px">
@@ -786,8 +788,46 @@
     active=null;save();currentView=r.mode==='daily'?'daily':r.mode==='world'||r.mode==='starter'?'worlds':r.mode==='archive'?'archive':'endless';renderSummary(r);
   }
   const SOURCE_TIER_MS=[3400,3000,3000,3400,4300,4600];
-  const revealDurationFor=record=>(record&&record.points>0?SOURCE_TIER_MS[Math.max(0,Math.min(5,Number(record.tier)||0))]:1800)+500;
+  const revealDurationFor=record=>record&&record.points>0?SOURCE_TIER_MS[Math.max(0,Math.min(5,Number(record.tier)||0))]:900;
   const revealPending=()=>active?.phase==='feedback'&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&Date.now()-(Number(active.revealStartedAt)||0)<(Number(active.revealDuration)||0);
+  function animateSourceDepth(points,duration){
+    const target=root.querySelector('.dd-hud-depth');
+    if(!target)return;
+    const from=Math.max(0,(active?.score||0)-points)*10,end=(active?.score||0)*10;
+    const start=performance.now();
+    const cubic=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+    const tick=now=>{
+      if(!target.isConnected||active?.phase!=='feedback')return;
+      const progress=Math.min(1,Math.max(0,(now-start)/duration));
+      const ease=points===10?-(Math.cos(Math.PI*progress)-1)/2:cubic(progress);
+      const displayed=Math.round(from+(end-from)*ease);
+      target.innerHTML=format(displayed)+'<small>m</small>';
+      const screen=root.querySelector('.dd-reveal-screen');
+      // Darkness follows the original depth zones rather than staying on the
+      // initial sky palette throughout the answer chip descent.
+      if(screen)screen.style.setProperty('--dd-depth-opacity',
+        Math.min(.96,Math.max(0,displayed/500*.9)).toFixed(3));
+      if(progress<1)requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+  window.addEventListener('deepdive:tier-landed',event=>{
+    const score=root.querySelector('.dd-hud-score strong');
+    if(!score||!active||active.phase!=='feedback')return;
+    const previous=active.score-(active.results.at(-1)?.points||0);
+    const final=active.score,dur=event.detail?.tier==='krillion'?1100:700,start=performance.now();
+    const step=now=>{
+      if(!score.isConnected||active?.phase!=='feedback')return;
+      const p=Math.min(1,(now-start)/dur),ease=1-Math.pow(1-p,4);
+      score.textContent=format(Math.round(previous+(final-previous)*ease));
+      if(p<1)requestAnimationFrame(step);
+      else if(event.detail?.tier==='krillion'){
+        score.classList.add('slam');
+        setTimeout(()=>score.classList.remove('slam'),520);
+      }
+    };
+    requestAnimationFrame(step);
+  });
   function roundEnd(record){
     if(!active||active.phase!=='answering'||transitioning)return;
     transitioning=true;active.phase='feedback';
@@ -795,11 +835,21 @@
     active.results.push(record);active.score+=record.points;
     if(record.points===0)active.misses++;
     depthCrank=record.points>0;
-    mascotPose=record.points===100?'celebrate':record.points===0?'faint':record.points>=60?(Math.random()<.5?'jet':'chomp'):'dart';
+    /* Original public descent runtime: miss and Plankton use sad,
+       Too Clever uses faint, normal tiers stay in their idle pose,
+       and One in a Krillion celebrates only after landing. */
+    mascotPose=record.points===0||record.points===10?'sad':record.points===15?'faint':'';
     correction=null;rejectMsg='';
-    window.DeepDiveSfx?.event(record.points===0?'miss':record.points===100?'krillion':record.points>=85?'land_big':record.points>=60?'land_small':'tierline');
-    if(record.points>0)window.DeepDiveSfx?.event('sink');
+    // Public client starts the underwater sink immediately, but only plays the
+    // tier landing impact when the score chip reaches its target depth.
+    window.DeepDiveSfx?.event(record.points===0?'miss':'sink');
     clearInterval(ticker);save();transitioning=false;render();
+    window.dispatchEvent(new CustomEvent('deepdive:tier-plunge',{detail:{
+      tier:record.points?TIERS[record.tier]?.id:'miss',
+      points:record.points,
+      duration:record.points?SOURCE_TIER_MS[Math.max(0,Math.min(5,Number(record.tier)||0))]:900
+    }}));
+    if(record.points>0)animateSourceDepth(record.points,active.revealDuration-500);
   }
   function pass(reason='Pass'){roundEnd({id:currentQ().id,answer:'',points:0,tier:null,reason})}
   function syncDiveBtn(form){
@@ -857,6 +907,7 @@
   }
   function next(){
     if(!active||active.phase!=='feedback'||transitioning||revealPending())return;
+    window.dispatchEvent(new Event('deepdive:tier-cleanup'));
     transitioning=true;
     const card=root.querySelector('.dd-landed')||root.querySelector('.dd-landed-banner');
     const chip=root.querySelector('.dd-chip');
@@ -866,7 +917,7 @@
       if(active.index+1>=active.ids.length||(active.mode==='endless'&&active.ids.length>7&&active.misses>=3)){conclude();return}
       window.DeepDiveSfx?.event('descend');
       depthCrank=false;
-      active.index++;active.phase='preview';active.previewEnds=Date.now()+(profile.tourSeen?3000:5200);active.deadline=0;mascotPose='';correction=null;rejectMsg='';save();render();
+      active.index++;active.phase='preview';active.previewEnds=Date.now()+3200;active.deadline=0;mascotPose='';correction=null;rejectMsg='';save();render();
     };
     if(!card||window.matchMedia('(prefers-reduced-motion: reduce)').matches){leave();return}
     card.classList.add('dd-card-leaving');
@@ -1138,6 +1189,12 @@
             if(!active||active.phase!=='feedback'||active.revealStartedAt!==started)return;
             root.querySelector('.dd-reveal-pending')?.classList.remove('dd-reveal-pending');
             const btn=root.querySelector('.dd-next-btn');if(btn){btn.disabled=false;btn.removeAttribute('aria-disabled')}
+            const landed=active.results[active.results.length-1];
+            if(landed?.points===100){
+              const fish=root.querySelector('.dd-game-fish');
+              fish?.classList.add('celebrate');
+              if(fish)setTimeout(()=>fish.classList.remove('celebrate'),1250);
+            }
           },Math.max(0,active.revealDuration-(Date.now()-started)));
         }
         const last=active.results[active.results.length-1];

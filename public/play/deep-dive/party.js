@@ -6,7 +6,7 @@ const cleanCode=s=>String(s||'').toUpperCase().replace(/[^A-HJ-NP-Z2-9]/g,'').sl
 const query=new URLSearchParams(location.search);
 try{if(!query.get('party')&&parent!==window)query.set('party',new URLSearchParams(parent.location.search).get('party')||'')}catch{}
 let code=cleanCode(query.get('party')),auth=null,room=null,root=null,timer=null,err='',rooms=[],busy=false,offset=0,name='Explorer',publicFlag=false,last='',sound=true,selectedAvatar='krill',selectedCapacity=6,ratedQueue=false;
-const AVATARS=[['krill','KRILL',0,'/tiers/krillion.png'],['schooler','SCHOOLER',5,'/tiers/schooler.png'],['squid','SQUID',14,'/tiers/rare.png'],['angler','ANGLER',30,'/tiers/deepcut.png'],['evil','EVIL',45,'/tiers/evil-krill-white-v2.png']];
+const AVATARS=[['krill','KRILL',0,'/tiers/krillion-halloween-2026.png'],['schooler','SCHOOLER',5,'/tiers/schooler.png'],['squid','SQUID',14,'/tiers/rare.png'],['angler','ANGLER',30,'/tiers/deepcut.png'],['evil','EVIL',45,'/tiers/evil-krill-white-v2.png']];
 const ASSET='./reference-assets';
 function avatarUrl(id){return ASSET+(AVATARS.find(a=>a[0]===id)||AVATARS[0])[3]}
 function streak(){return Math.max(0,Number(window.DeepDiveSocial?.profile?.dailyStreak)||0)}

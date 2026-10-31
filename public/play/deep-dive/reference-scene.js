@@ -8,21 +8,19 @@
  const app=document.getElementById('app');
  if(!app)return;
  let canvas=null,sea=null,ctx=null,frame=0,time=0,lastDraw=0,offs=0;
- const fish=[
-  [.13,.28,15,.05],[.21,.36,11,-.08],[.28,.33,18,.08],[.36,.42,16,-.05],
-  [.46,.39,14,.09],[.57,.21,19,-.03],[.66,.52,12,-.07],[.79,.38,21,.05],
-  [.87,.25,13,.1],[.14,.67,13,.02],[.30,.77,18,.03],[.48,.71,14,-.04],
-  [.65,.75,24,.05],[.77,.63,10,-.09],[.89,.83,16,.06],[.38,.58,23,.08],
-  [.60,.88,15,.08],[.24,.87,12,-.05],[.11,.49,11,.05]
- ];
- const stars=Array.from({length:90},(_,i)=>({
-  x:((i*71.872+Math.sin(i*123.31)*30)%100+100)%100/100,
-  y:((i*41.345+Math.sin(i*43.11)*40)%100+100)%100/100,
-  size:i%7===0?2:1,phase:i*1.647
- }));
- const bubbles=Array.from({length:24},(_,i)=>({
-  x:((i*37.17)%99)/100,y:((i*57.29)%100)/100,r:i%4===0?2.3:1.2,speed:.018+(i%6)*.008
- }));
+ const stars=[];
+ const swimmers=Array.from({length:4},()=>({x:Math.random(),offset:-180+360*Math.random(),
+   sp:(14+20*Math.random())*(Math.random()<.5?-1:1),size:7+7*Math.random(),ph:9*Math.random()}));
+ let oldWorldY=null,oldTick=0,oldScale='';
+ const sourceParticles=(w,h,low)=>{
+   const particleScale=prefersReduced.matches?0:low?.4:1;
+   const count=Math.round(70*particleScale*Math.min((w*h)/304500,2.4));
+   const config=w+':'+h+':'+count;
+   if(config===oldScale)return;
+   oldScale=config;stars.length=0;
+   for(let i=0;i<count;i++)stars.push({x:Math.random()*w,y:Math.random()*h,
+     par:.35+.5*Math.random(),r:.6+1.4*Math.random(),a:.12+.25*Math.random(),ph:9*Math.random()});
+ };
  /* Public Krillion client paints dark ellipse silhouettes with triangular
     tails, rather than the rectangular fish used in the initial reconstruction. */
  const drawFish=(x,y,size,reverse)=>{
@@ -75,42 +73,49 @@
      ctx.lineTo(w,0);ctx.closePath();ctx.fill();
      ctx.strokeStyle='rgba(93,207,228,.32)';ctx.lineWidth=1;ctx.stroke();
    }
-   // Floating ocean snow (same density change as the original low-power renderer).
-   ctx.fillStyle='rgba(169,216,231,.28)';
-   const particleScale=low?.4:1;
-   for(const p of stars.slice(0,Math.ceil(stars.length*particleScale))){
-     const x=p.x*w+Math.sin(time*.25+p.phase)*6;
-     const y=((p.y*h+time*(4+(p.size*3))+depth*.08)%(h+15));
-     ctx.fillRect(Math.round(x),Math.round(y),p.size,p.size);
+   // Original sea canvas is a distinct 70-particle snow layer, with camera-
+   // relative parallax. Impact bubbles and ink rings are painted separately.
+   sourceParticles(w,h,low);
+   const world=sea.closest('.dd-game-screen')?.querySelector('.dd-world');
+   const worldTop=world?.getBoundingClientRect().top??null;
+   const shift=worldTop===null||oldWorldY===null?0:Math.max(-h,Math.min(h,worldTop-oldWorldY));
+   oldWorldY=worldTop;
+   const dt=oldTick?Math.min(.1,Math.max(0,(now-oldTick)/1000)):0;oldTick=now;
+   for(const p of stars){
+     p.y+=shift*p.par+7.2*dt;
+     p.x+=9*Math.sin(.6*time+p.ph)*dt;
+     if(p.y>h+10)p.y-=h+20;if(p.y< -10)p.y+=h+20;
+     if(p.x>w+10)p.x=-10;if(p.x< -10)p.x=w+10;
+     ctx.fillStyle='rgba(200,220,255,'+p.a+')';
+     ctx.fillRect(p.x,p.y,p.r,p.r);
    }
    if(game){
-     // Source client's nine small fish migrate around the 85m marker;
-     // positions follow the moving depth column rather than a fixed screen row.
-     const yWorld=(game.querySelector('.dd-world')?.getBoundingClientRect().top??208)-rect.top;
-     for(let i=0;i<9;i++){
-       const x=((26*time+46*i+i*i*7)%(w+360)+(w+360))%(w+360)-180;
-       const y=yWorld+170+12*Math.sin(2*time+i)+(i%3)*14;
-       if(y>0&&y<h)drawFish(x,y,16,false);
+     // Only the source 85m school should populate the shallow ocean. Formerly
+     // there were 19 arbitrary fish positioned throughout every water zone.
+     const top=(game.querySelector('.dd-world')?.getBoundingClientRect().top??0)-rect.top;
+     const focusY=top+2*85;
+     if(focusY>-80&&focusY<h+80){
+       for(let i=0;i<9;i++){
+         const x=((26*time+46*i+i*i*7)%(w+360))-180;
+         const y=focusY+12*Math.sin(2*time+i)+(i%3)*14;
+         drawFish(x,y,16,false);
+       }
      }
-     // Secondary silhouettes at deeper levels retain parallax and bidirectional motion.
-     fish.slice(9).forEach(([fx,fy,size,speed],i)=>{
-       const drift=(time*speed*390)%w;
-       const x=((fx*w+drift+w)%w),y=fy*h+Math.sin(time*.95+i)*3;
-       drawFish(Math.round(x),Math.round(y),size,i%3===0);
-     });
+     // Original also has four slowly moving, depth-relative silhouettes.
+     for(const swimmer of swimmers){
+       const y=top+2*depth+swimmer.offset+10*Math.sin(time+swimmer.ph);
+       swimmer.x+=swimmer.sp*dt/w;
+       if(swimmer.x>1.08)swimmer.x=-.08;if(swimmer.x<-.08)swimmer.x=1.08;
+       if(depth>20&&y>-30&&y<h+30)drawFish(swimmer.x*w,y,swimmer.size,swimmer.sp<0);
+     }
    }else{
-     fish.forEach(([fx,fy,size,speed],i)=>{
-       const drift=(time*speed*390)%w;
-       const x=((fx*w+drift+w)%w),y=fy*h+Math.sin(time*.95+i)*3;
-       drawFish(Math.round(x),Math.round(y),size,i%3===0);
-     });
+     // Intro sea shows an 85m school rather than fixed full-screen fish loops.
+     const y0=h*.43;
+     for(let i=0;i<9;i++){
+       const x=((26*time+46*i+i*i*7)%(w+360))-180;
+       drawFish(x,y0+12*Math.sin(2*time+i)+(i%3)*14,16,false);
+     }
    }
-   ctx.strokeStyle='rgba(84,172,205,.22)';
-   bubbles.forEach((p,i)=>{
-     const y=((p.y*h-time*p.speed*18+h*4)%(h+12));
-     const x=p.x*w+Math.sin(time+i)*7;
-     ctx.beginPath();ctx.arc(x,y,p.r,0,Math.PI*2);ctx.stroke();
-   });
    // Thin silhouettes of reef shadows at extreme depths.
    if(depth>150){
      const shade=Math.min(.28,(depth-150)/1600*.24);
@@ -120,7 +125,7 @@
    frame=requestAnimationFrame(render);
  };
  const refresh=()=>{
-   const target=app.querySelector('.deep-home.dd-game-screen:not([data-zone="surface"])')||app.querySelector('.deep-home .dd-sea');
+   const target=app.querySelector('.deep-home[data-phase="intro"] .dd-sea')||app.querySelector('.dd-game-screen:not([data-world="ocean"]) .dd-game-sea');
    if(!target){if(canvas)canvas.remove();canvas=null;sea=null;ctx=null;if(frame)cancelAnimationFrame(frame);frame=0;return}
    if(target===sea&&canvas?.isConnected)return;
    if(canvas)canvas.remove();if(frame)cancelAnimationFrame(frame);
@@ -129,7 +134,7 @@
    canvas.setAttribute('aria-hidden','true');
    sea.insertBefore(canvas,sea.firstChild);
    ctx=canvas.getContext('2d',{alpha:true,desynchronized:true});
-   lastDraw=0;frame=requestAnimationFrame(render);
+   lastDraw=0;oldTick=0;oldWorldY=null;oldScale='';frame=requestAnimationFrame(render);
  };
  window.DeepDiveScene={refresh,setDepth(points){
    const metres=Math.max(0,Math.round((Number(points)||0)*10));
