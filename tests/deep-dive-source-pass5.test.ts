@@ -94,10 +94,10 @@ test('source-like results contain honest local-only distribution, vertical dive 
 });
 
 test('correction preview is editable, requires a second submission and only scores validated answers',()=>{
- assert(game.includes('const corrected=!q.answerIndex?.has(key)'));
+ assert(game.includes('const corrected=!exactWritten'));
  assert(game.includes('if(corrected&&window.DeepDiveReference?.preferences?.answerCorrections!==false'));
  assert(game.includes('correction={raw:answer,canonical:found.value}'));
- assert(game.includes('if(correction&&norm(input.value)!==norm(correction.canonical))'));
+ assert(game.includes('if(correction&&strictNorm(input.value)!==strictNorm(correction.canonical))'));
  assert(game.includes("Math.max(0,Math.min(5,Number(found.tier)||0))"));
  assert(game.includes("key.length>=18?3:key.length>=10?2:1"));
 });

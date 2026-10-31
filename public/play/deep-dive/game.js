@@ -77,24 +77,72 @@
     }
     return prev[b.length];
   }
+  // Build a question-scoped, pre-normalized spelling index only when needed.
+  // The 32k-answer packs can otherwise take noticeable time because the old
+  // path re-normalized every candidate and alias on every unsuccessful guess.
+  const answerLookupCache=new WeakMap();
+  function prepareAnswerLookup(question){
+    let lookup=answerLookupCache.get(question);
+    if(lookup)return lookup;
+    const exact=new Map(),byLength=new Map();
+    const addCandidate=(key,answer,canonical)=>{
+      if(!key)return;
+      // Canonical spellings always take precedence over another entry's
+      // alias. Ambiguous aliases remain unresolved rather than mis-scored.
+      if(canonical)exact.set(key,answer);
+      else if(!exact.has(key))exact.set(key,answer);
+      else if(exact.get(key)!==answer&&!canonicalKeys.has(key))exact.set(key,null);
+      let bucket=byLength.get(key.length);
+      if(!bucket){bucket=[];byLength.set(key.length,bucket)}
+      bucket.push({key,answer});
+    };
+    const canonicalKeys=new Set();
+    for(const answer of question.answers){
+      const key=strictNorm(answer.value);
+      if(!key)continue;
+      canonicalKeys.add(key);
+      addCandidate(key,answer,true);
+    }
+    for(const answer of question.answers){
+      const seen=new Set([strictNorm(answer.value)]);
+      for(const value of answer.aliases||[]){
+        const key=strictNorm(value);
+        if(!key||seen.has(key))continue;
+        seen.add(key);addCandidate(key,answer,false);
+      }
+    }
+    lookup={exact,byLength,memo:new Map()};
+    answerLookupCache.set(question,lookup);
+    return lookup;
+  }
   function findAnswer(question,raw){
-    const key=norm(raw);
+    // Keep leading articles for fuzzy matching. 'Predator' and
+    // 'The Predator' have different scores in the recovered question bank.
+    const key=strictNorm(raw);
     if(!key)return null;
-    for(const answer of question.answers)
-      if([answer.value,...(answer.aliases||[])].some(value=>norm(value)===key))return answer;
+    const lookup=prepareAnswerLookup(question);
+    if(lookup.exact.has(key))return lookup.exact.get(key);
+    if(lookup.memo.has(key))return lookup.memo.get(key);
     if(key.length<5)return null;
     // The verified original answer spellings remain the only scoring source.
     // Unique, plausible close spellings require a second explicit confirmation.
     const limit=key.length>=18?3:key.length>=10?2:1;
     let match=null,best=limit+1,ambiguous=false;
-    for(const answer of question.answers){
-      for(const value of [answer.value,...(answer.aliases||[])]){
-        const candidate=norm(value),distance=editDistance(key,candidate,limit);
-        if(distance<best){best=distance;match=answer;ambiguous=false}
-        else if(distance===best&&match!==answer){ambiguous=true}
+    // Length filtering avoids computing edit distance against unrelated
+    // answers. The length gap is a provable lower bound on edit distance.
+    for(let length=key.length-limit;length<=key.length+limit;length++){
+      const bucket=lookup.byLength.get(length);
+      if(!bucket)continue;
+      for(const candidate of bucket){
+        const distance=editDistance(key,candidate.key,Math.min(limit,best));
+        if(distance<best){best=distance;match=candidate.answer;ambiguous=false}
+        else if(distance===best&&match!==candidate.answer){ambiguous=true}
       }
     }
-    return best<=limit&&!ambiguous?match:null;
+    const result=best<=limit&&!ambiguous?match:null;
+    if(lookup.memo.size>=96)lookup.memo.clear();
+    lookup.memo.set(key,result);
+    return result;
   }
   function read(key){try{return JSON.parse(localStorage.getItem(key)||'null')}catch{return null}}
   function write(key,value){try{localStorage.setItem(key,JSON.stringify(value));return true}catch{return false}}
@@ -704,9 +752,10 @@
     const answer=String(input?.value||'').trim().slice(0,256);
     if(!answer)return;
     window.DeepDiveSfx?.event('submit_soft');
-    const key=norm(answer),q=currentQ();
-    const found=q.strictAnswerIndex?.get(strictNorm(answer))||
-      q.answerIndex?.get(key)||findAnswer(q,key);
+    const q=currentQ();
+    // Never let the lossy display/search index merge distinct titles.
+    // E.g. Predator and The Predator may have different rarity tiers.
+    const found=q.strictAnswerIndex?.get(strictNorm(answer))||findAnswer(q,answer);
     if(!found){
       rejectMsg='\u201c'+answer+'\u201d: no echo. try again';
       const line=document.getElementById('dd-reject-line');
@@ -722,7 +771,10 @@
       syncDiveBtn(form);
       return;
     }
-    const corrected=!q.answerIndex?.has(key)&&norm(found.value)!==key;
+    // An exact alias may be accepted as written, while a real typo must
+    // pass the original game's explicit two-step correction confirmation.
+    const exactWritten=[found.value,...(found.aliases||[])].some(value=>strictNorm(value)===strictNorm(answer));
+    const corrected=!exactWritten;
     const tier=Math.max(0,Math.min(5,Number(found.tier)||0));
     /* Original answer corrections are a TWO-STEP preview (settings copy:
        "Preview corrected answers before scoring. Off accepts them immediately."):
@@ -1052,7 +1104,7 @@
     if(e.target?.id!=='answer-input')return;
     const input=e.target;
     // Once a player edits the proposed correction, it is not preapproved.
-    if(correction&&norm(input.value)!==norm(correction.canonical)){
+    if(correction&&strictNorm(input.value)!==strictNorm(correction.canonical)){
       correction=null;
       const panel=document.getElementById('answer-correction');
       if(panel)panel.replaceChildren();
