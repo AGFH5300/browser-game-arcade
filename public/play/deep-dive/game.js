@@ -52,46 +52,107 @@
   const DEFAULT={version:1,pearls:0,streak:0,lastDaily:'',daily:{},worldRecords:{},endlessBest:0,unlimitedGameId:1,history:[],runs:0,ratings:{},tourSeen:0};
   const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const norm=s=>String(s||'').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/&/g,' and ').replace(/\+/g,' plus ').replace(/#/g,' sharp ').replace(/[^a-z0-9]+/g,' ').replace(/\s+/g,' ').trim().replace(/^the /,'');
+  // Unlike permissive historical matching, strict question-scoped lookup keeps
+  // genuinely different titles such as "Predator" and "The Predator" distinct.
+  const strictNorm=s=>String(s||'').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/&/g,' and ').replace(/\+/g,' plus ').replace(/#/g,' sharp ').replace(/[^a-z0-9]+/g,' ').replace(/\s+/g,' ').trim();
   const utc=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
   const rating=score=>score>=450?'One in a Krillion':score>=351?'Deep cut':score>=251?'Rare':score>=151?'Schooler':'Plankton';
   const format=(n)=>Number(n||0).toLocaleString('en-US');
-  // Conservative typo tolerance: a unique close match, never an ambiguous guess.
+  // Source-observed /api/submit behavior (31 Oct 2026):
+  // 'Germnay' -> rejected for Germany (7 letters, 2 Levenshtein edits),
+  // 'Mosqiuto' -> Mosquito correction (8 letters, 2 edits).
+  // Plain Levenshtein, not Damerau: adjacent swaps require two edits.
+  // The publisher's server algorithm is private; thresholds beyond observed
+  // lengths are conservative approximations, never claimed as exact source.
   function editDistance(a,b,max){
     if(Math.abs(a.length-b.length)>max)return max+1;
-    // Restricted Damerau-Levenshtein: an adjacent character transposition
-    // is a single typo. Never score it automatically without confirmation.
-    let prev2=null,prev=Array.from({length:b.length+1},(_,i)=>i);
+    let prev=Array.from({length:b.length+1},(_,i)=>i);
     for(let i=1;i<=a.length;i++){
       const row=[i];let minimum=i;
       for(let j=1;j<=b.length;j++){
-        let distance=Math.min(prev[j]+1,row[j-1]+1,prev[j-1]+(a[i-1]===b[j-1]?0:1));
-        if(prev2&&i>1&&j>1&&a[i-1]===b[j-2]&&a[i-2]===b[j-1])
-          distance=Math.min(distance,prev2[j-2]+1);
+        const distance=Math.min(prev[j]+1,row[j-1]+1,prev[j-1]+(a[i-1]===b[j-1]?0:1));
         row[j]=distance;if(distance<minimum)minimum=distance;
       }
       if(minimum>max)return max+1;
-      prev2=prev;prev=row;
+      prev=row;
     }
     return prev[b.length];
   }
+  // Build a question-scoped, pre-normalized spelling index only when needed.
+  // The 32k-answer packs can otherwise take noticeable time because the old
+  // path re-normalized every candidate and alias on every unsuccessful guess.
+  const answerLookupCache=new WeakMap();
+  function prepareAnswerLookup(question){
+    let lookup=answerLookupCache.get(question);
+    if(lookup)return lookup;
+    const exact=new Map(),byLength=new Map();
+    const addCandidate=(key,answer,canonical)=>{
+      if(!key)return;
+      // Canonical spellings always take precedence over another entry's
+      // alias. Ambiguous aliases remain unresolved rather than mis-scored.
+      if(canonical)exact.set(key,answer);
+      else if(!exact.has(key))exact.set(key,answer);
+      else if(exact.get(key)!==answer&&!canonicalKeys.has(key))exact.set(key,null);
+      let bucket=byLength.get(key.length);
+      if(!bucket){bucket=[];byLength.set(key.length,bucket)}
+      bucket.push({key,answer});
+    };
+    const canonicalKeys=new Set();
+    for(const answer of question.answers){
+      const key=strictNorm(answer.value);
+      if(!key)continue;
+      canonicalKeys.add(key);
+      addCandidate(key,answer,true);
+    }
+    for(const answer of question.answers){
+      const seen=new Set([strictNorm(answer.value)]);
+      for(const value of answer.aliases||[]){
+        const key=strictNorm(value);
+        if(!key||seen.has(key))continue;
+        seen.add(key);addCandidate(key,answer,false);
+      }
+    }
+    lookup={exact,byLength,memo:new Map()};
+    answerLookupCache.set(question,lookup);
+    return lookup;
+  }
   function findAnswer(question,raw){
-    const key=norm(raw);
+    // Keep leading articles for fuzzy matching. 'Predator' and
+    // 'The Predator' have different scores in the recovered question bank.
+    const key=strictNorm(raw);
     if(!key)return null;
-    for(const answer of question.answers)
-      if([answer.value,...(answer.aliases||[])].some(value=>norm(value)===key))return answer;
+    const lookup=prepareAnswerLookup(question);
+    if(lookup.exact.has(key))return lookup.exact.get(key);
+    // Official /api/submit accepts 'THE Germany' as exact 'Germany'. Only
+    // discard the article if no distinct, fully spelled answer occupies it.
+    if(key.startsWith('the ')&&lookup.exact.has(key.slice(4)))
+      return lookup.exact.get(key.slice(4));
+    if(lookup.memo.has(key))return lookup.memo.get(key);
     if(key.length<5)return null;
     // The verified original answer spellings remain the only scoring source.
     // Unique, plausible close spellings require a second explicit confirmation.
-    const limit=key.length>=18?3:key.length>=10?2:1;
+    const limit=key.length>=18?3:key.length>=8?2:1;
     let match=null,best=limit+1,ambiguous=false;
-    for(const answer of question.answers){
-      for(const value of [answer.value,...(answer.aliases||[])]){
-        const candidate=norm(value),distance=editDistance(key,candidate,limit);
-        if(distance<best){best=distance;match=answer;ambiguous=false}
-        else if(distance===best&&match!==answer){ambiguous=true}
+    // Length filtering avoids computing edit distance against unrelated
+    // answers. The length gap is a provable lower bound on edit distance.
+    for(let length=key.length-limit;length<=key.length+limit;length++){
+      const bucket=lookup.byLength.get(length);
+      if(!bucket)continue;
+      for(const candidate of bucket){
+        const distance=editDistance(key,candidate.key,Math.min(limit,best));
+        if(distance<best){best=distance;match=candidate.answer;ambiguous=false}
+        else if(distance===best&&match!==candidate.answer){ambiguous=true}
       }
     }
-    return best<=limit&&!ambiguous?match:null;
+    const result=best<=limit&&!ambiguous?match:null;
+    if(lookup.memo.size>=96)lookup.memo.clear();
+    lookup.memo.set(key,result);
+    return result;
+  }
+  function isExactAnswer(question,raw,found){
+    const key=strictNorm(raw),exact=prepareAnswerLookup(question).exact;
+    if(exact.has(key))return exact.get(key)===found;
+    return key.startsWith('the ')&&exact.get(key.slice(4))===found;
   }
   function read(key){try{return JSON.parse(localStorage.getItem(key)||'null')}catch{return null}}
   function write(key,value){try{localStorage.setItem(key,JSON.stringify(value));return true}catch{return false}}
@@ -247,7 +308,7 @@
       <div class="dd-sea">${oceanDecor()}<img class="dd-home-mascot" aria-hidden="true" alt="" src="./reference-assets/tiers/krillion-halloween-2026.png">
         <div class="dd-sea-center">
           <div class="dd-surface-label">◂ HOW DEEP CAN YOUR KNOWLEDGE GO? ▸</div>
-          <details class="dd-rules"><summary>▸ ${isEndless?'OPEN THE DIVE LOG ∞':'HOW TO PLAY'}</summary>${isEndless?`<div class="dd-source-howto dd-endless-log"><p>THE DIVE LOG · THE ENDLESS DIVE</p><p>${format(endlessDone)}/76 charted · replays keep your best</p><p>SELECT A DIVE · YOUR FREE PRACTICE, NO UNLOCK REQUIRED</p><div class="dd-endless-chooser" role="group" aria-label="Choose an Unlimited dive">${log}</div><p>BEST ${format(profile.endlessBest||0)} · NEXT #${format(profile.unlimitedGameId||1)}. AVAILABLE QUESTIONS COMBINE PUBLIC ARCHIVE PUZZLES, NOT THE PUBLISHER'S PAID GAME SET.</p></div>`:`<div class="dd-source-howto"><p>7 PROMPTS A DAY. SAME FOR EVERYONE.</p><p>25 SECONDS TO NAME ONE THING.</p><p>RARE ANSWERS SCORE BIG. OBVIOUS ONES FLOAT.</p><p>THE PICK THAT FEELS CLEVER? THE SCHOOL THOUGHT OF IT TOO.</p><p>EVERY POINT SINKS YOU 10 METRES. 700 IS THE TRENCH.</p><p>ONE DIVE PER DAY. NO SECOND CHANCES.</p></div>`}</details>
+          <details class="dd-rules"><summary>▸ ${isEndless?'OPEN THE DIVE LOG ∞':'HOW TO PLAY'}</summary>${isEndless?`<div class="dd-source-howto dd-endless-log"><p>THE DIVE LOG · THE ENDLESS DIVE</p><p>${format(endlessDone)}/76 charted · replays keep your best</p><p>SELECT A DIVE · YOUR FREE PRACTICE, NO UNLOCK REQUIRED</p><div class="dd-endless-chooser" role="group" aria-label="Choose an Unlimited dive">${log}</div><p>BEST ${format(profile.endlessBest||0)} · NEXT #${format(profile.unlimitedGameId||1)}. DIVES 3–4 USE PUBLIC REVEAL DATA; DIVES 5+ USE INDEPENDENT PRACTICE WITH ESTIMATED / MIXED-SOURCE SCORES, NOT THE PUBLISHER'S PAID GAME SET.</p></div>`:`<div class="dd-source-howto"><p>7 PROMPTS A DAY. SAME FOR EVERYONE.</p><p>25 SECONDS TO NAME ONE THING.</p><p>RARE ANSWERS SCORE BIG. OBVIOUS ONES FLOAT.</p><p>THE PICK THAT FEELS CLEVER? THE SCHOOL THOUGHT OF IT TOO.</p><p>EVERY POINT SINKS YOU 10 METRES. 700 IS THE TRENCH.</p><p>ONE DIVE PER DAY. NO SECOND CHANCES.</p></div>`}</details>
           <a class="dd-home-privacy" href="/privacy">Privacy</a>
           ${isEndless?'':`<button type="button" class="dd-party-btn" data-action="party"><span class="dd-party-tag">BETA · LIMITED TIME</span><span class="dd-party-fish" aria-hidden="true">🐡</span><span>PUFFER PARTY</span><span class="dd-party-arrow" aria-hidden="true">›</span></button>`}
           <button type="button" class="dd-begin" data-action="${primaryAct}">${primaryLabel}</button>
@@ -378,12 +439,106 @@
       start('archive','',0,day);
     }catch(e){notify('Archive could not load. Please retry.');console.error('Archive load error:',e)}
   }
+  // Only original publisher-revealed answers are eligible for this extra
+  // Unlimited source pack. AI estimates and historical guesses are never loaded.
+  async function loadPublisherVerifiedUnlimited(gameId){
+    if(gameId!==3&&gameId!==4)return [];
+    const root='./recovered/publisher-verified/';
+    const response=await fetch(root+'manifest.json',{cache:'force-cache'});
+    if(!response.ok)throw Error('Publisher-verified catalogue unavailable');
+    const manifest=await response.json();
+    if(manifest.source!=='krillion-public-publisher-reveal'||
+      manifest.provisionalAnswersIncluded!==false||
+      !Array.isArray(manifest.questions)||manifest.questions.length!==14)
+      throw Error('Publisher catalogue provenance invalid');
+    const startAt=gameId===3?0:7;
+    const selection=manifest.questions.slice(startAt,startAt+7);
+    if(selection.length!==7)throw Error('Incomplete publisher question pack');
+    const loads=await Promise.all(selection.map(async item=>{
+      if(!/^KR\d{4}$/.test(item.id)||item.status!=='publisher'||
+        item.file!==item.id+'.json')throw Error('Publisher item source invalid');
+      const response=await fetch(root+item.file,{cache:'force-cache'});
+      if(!response.ok)throw Error('Publisher question unavailable: '+item.id);
+      const doc=await response.json();
+      if(doc.id!==item.id||doc.prompt!==item.question||
+        !Array.isArray(doc.answers)||doc.answers.length!==item.answerCount||doc.answers.length<10)
+        throw Error('Publisher question schema invalid: '+item.id);
+      const seen=new Set(),answerIndex=new Map(),answers=[];
+      for(const a of doc.answers){
+        if(typeof a.value!=='string'||!a.value||!Number.isInteger(a.tier)||
+          a.tier<0||a.tier>=TIERS.length||
+          a.source!=='krillion-public-publisher-reveal')throw Error('Unverified scored entry');
+        const key=norm(a.value);
+        if(!key||seen.has(key))throw Error('Duplicate publisher answer');
+        seen.add(key);answers.push(a);answerIndex.set(key,a);
+      }
+      return {id:item.id,theme:'Daily',prompt:doc.prompt,answers,answerIndex};
+    }));
+    for(const q of loads)byId.set(q.id,q);
+    return loads.map(q=>q.id);
+  }
+  // Recovered community/scored master: a separate, explicitly independent
+  // practice mode. The original Krillion's validator and empirical rarity are
+  // NOT claimed for these records. Loads only seven answer files at a time.
+  async function loadIndependentPracticeUnlimited(gameId){
+    if(gameId<5)return [];
+    const root='./recovered/independent-bank/';
+    const response=await fetch(root+'manifest.json',{cache:'force-cache'});
+    if(!response.ok)throw Error('Independent practice index unavailable');
+    const manifest=await response.json();
+    if(manifest.source!=='sidequest-independently-recovered-practice'||
+      manifest.originalPublisherAcceptanceVerified!==false||
+      manifest.allScoresEmpiricallyCalibrated!==false||
+      !Array.isArray(manifest.questions)||manifest.questions.length!==952)
+      throw Error('Independent practice provenance invalid');
+    const cycleSize=Math.ceil(manifest.questions.length/7);
+    const cycle=Math.floor((gameId-5)/cycleSize);
+    const start=((gameId-5)%cycleSize)*7;
+    const chosen=shuffle(manifest.questions,'independent-recovered-cycle:'+cycle).slice(start,start+7);
+    if(chosen.length!==7)throw Error('Independent practice cycle incomplete');
+    const loaded=await Promise.all(chosen.map(async item=>{
+      if(!/^KR\d{4}$/.test(item.id)||item.file!==item.id+'.json')
+        throw Error('Independent question metadata invalid');
+      const response=await fetch(root+item.file,{cache:'force-cache'});
+      if(!response.ok)throw Error('Independent question could not load: '+item.id);
+      const pack=await response.json();
+      if(pack.id!==item.id||pack.prompt!==item.question||
+        pack.source!==manifest.source||
+        pack.originalPublisherAcceptanceVerified!==false||
+        pack.allScoresEmpiricallyCalibrated!==false||
+        !Array.isArray(pack.answers)||pack.answers.length!==item.answerCount)
+        throw Error('Independent question schema invalid: '+item.id);
+      const answers=[],answerIndex=new Map(),strictAnswerIndex=new Map();
+      for(const record of pack.answers){
+        if(!Array.isArray(record)||record.length!==3||
+          typeof record[0]!=='string'||!record[0]||
+          !Number.isInteger(record[1])||record[1]<0||record[1]>5||
+          typeof record[2]!=='string')throw Error('Invalid independent candidate');
+        const entry={value:record[0],tier:record[1],aliases:[],
+          source:'sidequest-recovered-estimated',provenance:record[2]};
+        const key=norm(entry.value),strictKey=strictNorm(entry.value);
+        if(!key||!strictKey||strictAnswerIndex.has(strictKey))
+          throw Error('Duplicate independent answer');
+        strictAnswerIndex.set(strictKey,entry);
+        if(!answerIndex.has(key))answerIndex.set(key,entry);
+        answers.push(entry);
+      }
+      if(answers.length<1)throw Error('Empty independent question '+item.id);
+      return {id:item.id,prompt:pack.prompt,theme:'Independent',answers,answerIndex,strictAnswerIndex};
+    }));
+    for(const q of loaded)byId.set(q.id,q);
+    return loaded.map(q=>q.id);
+  }
   async function startPublicUnlimited(){
     const gameId=Math.max(1,Math.min(1000000,Math.trunc(Number(profile.unlimitedGameId)||1)));
     try{
       let ids=[];
       if(gameId===1&&starterModes.unlimited?.ids?.length===7){
         ids=[...starterModes.unlimited.ids];
+      }else if(gameId===3||gameId===4){
+        ids=await loadPublisherVerifiedUnlimited(gameId);
+      }else if(gameId>=5){
+        ids=await loadIndependentPracticeUnlimited(gameId);
       }else if(archiveManifest.length>=3){
         // Repeatable local combination for each game ID. Do not claim
         // equivalence to the publisher's unrecovered gameId library.
@@ -399,8 +554,10 @@
       if(active){
         active.unlimitedGameId=gameId;
         active.source=gameId===1&&starterModes.unlimited?.ids?.length===7
-          ?'published-free-starter-index':ids.some(id=>id.startsWith('archive:'))
-            ?'published-archive-snapshot':'sidequest';
+          ?'published-free-starter-index':gameId>=5
+            ?'sidequest-independent-practice':gameId===3||gameId===4
+              ?'krillion-public-publisher-reveal':ids.some(id=>id.startsWith('archive:'))
+                ?'published-archive-snapshot':'sidequest';
         save();
       }
     }catch(error){
@@ -655,8 +812,10 @@
     const answer=String(input?.value||'').trim().slice(0,256);
     if(!answer)return;
     window.DeepDiveSfx?.event('submit_soft');
-    const key=norm(answer),q=currentQ();
-    const found=q.answerIndex?.get(key)||findAnswer(q,key);
+    const q=currentQ();
+    // Never let the lossy display/search index merge distinct titles.
+    // E.g. Predator and The Predator may have different rarity tiers.
+    const found=q.strictAnswerIndex?.get(strictNorm(answer))||findAnswer(q,answer);
     if(!found){
       rejectMsg='\u201c'+answer+'\u201d: no echo. try again';
       const line=document.getElementById('dd-reject-line');
@@ -672,7 +831,10 @@
       syncDiveBtn(form);
       return;
     }
-    const corrected=!q.answerIndex?.has(key)&&norm(found.value)!==key;
+    // An exact alias may be accepted as written, while a real typo must
+    // pass the original game's explicit two-step correction confirmation.
+    const exactWritten=isExactAnswer(q,answer,found);
+    const corrected=!exactWritten;
     const tier=Math.max(0,Math.min(5,Number(found.tier)||0));
     /* Original answer corrections are a TWO-STEP preview (settings copy:
        "Preview corrected answers before scoring. Off accepts them immediately."):
@@ -690,7 +852,7 @@
       return;
     }
     rejectMsg='';correction=null;
-    roundEnd({id:q.id,answer:found.value,points:TIERS[tier].score,tier,quip:found.quip||'',reason:'Accepted',estimated:found.source==='sidequest-common-supplement'});
+    roundEnd({id:q.id,answer:found.value,points:TIERS[tier].score,tier,quip:found.quip||'',reason:'Accepted',estimated:found.source==='sidequest-common-supplement'||found.source==='sidequest-recovered-estimated'});
   }
   function next(){
     if(!active||active.phase!=='feedback'||transitioning||revealPending())return;
@@ -842,7 +1004,7 @@
       const q=byId.get(res.id);
       const recovered=Array.isArray(q?.answers)?[...q.answers].sort((a,b)=>b.tier-a.tier||a.value.localeCompare(b.value)):[];
       const answerIcon=t?(icon(t)?`<img class="dd-tier-icon" src="./reference-assets/tiers/${icon(t)}" alt="">`:`<i class="dd-tier-mark" aria-hidden="true">${t.mark}</i>`):'';
-      return `<details class="dd-catch-row" data-question-id="${safe(res.id)}"><summary><span class="n">${i+1}</span>${answerIcon}<span class="p"><small>${safe(q?.prompt||'')}</small><b>${t?'\u201c'+safe(res.answer)+'\u201d'+(res.estimated?' · EST.':''):'×'}</b></span><span class="pts" style="--tier:${t?t.color:'#536e7a'}">${t?'+'+res.points:'0'}</span><i class="dd-catch-expand" aria-hidden="true"></i></summary><div class="dd-catch-answers"><div class="dd-catch-filters"><input class="dd-catch-search" type="search" placeholder="Search answers" aria-label="Search recovered answers"><select class="dd-catch-tier" aria-label="Filter recovered answers by tier"><option value="">All tiers</option>${TIERS.map((tier,index)=>`<option value="${index}">${safe(tier.label)}</option>`).join('')}</select></div><small class="dd-catch-recovered-count">${recovered.some(a=>a.source==='sidequest-common-supplement')?'RECOVERED + INDEPENDENT COMMON ANSWERS':'RECOVERED ANSWERS'} · ${recovered.length}</small><ul></ul><p class="dd-catch-shown" hidden></p></div></details>`;
+      return `<details class="dd-catch-row" data-question-id="${safe(res.id)}"><summary><span class="n">${i+1}</span>${answerIcon}<span class="p"><small>${safe(q?.prompt||'')}</small><b>${t?'\u201c'+safe(res.answer)+'\u201d'+(res.estimated?' · EST.':''):'×'}</b></span><span class="pts" style="--tier:${t?t.color:'#536e7a'}">${t?'+'+res.points:'0'}</span><i class="dd-catch-expand" aria-hidden="true"></i></summary><div class="dd-catch-answers"><div class="dd-catch-filters"><input class="dd-catch-search" type="search" placeholder="Search answers" aria-label="Search recovered answers"><select class="dd-catch-tier" aria-label="Filter recovered answers by tier"><option value="">All tiers</option>${TIERS.map((tier,index)=>`<option value="${index}">${safe(tier.label)}</option>`).join('')}</select></div><small class="dd-catch-recovered-count">${recovered.some(a=>a.source==='sidequest-common-supplement')?'RECOVERED + INDEPENDENT COMMON ANSWERS':recovered.some(a=>a.source==='sidequest-recovered-estimated')?'INDEPENDENT PRACTICE · ORIGINAL ACCEPTANCE / RARITY NOT VERIFIED':'RECOVERED ANSWERS'} · ${recovered.length}</small><ul></ul><p class="dd-catch-shown" hidden></p></div></details>`;
     };
     const avg=profile.history.length?Math.round(profile.history.reduce((s,x)=>s+(x.score||0),0)/profile.history.length):0;
     const best=profile.history.reduce((m,x)=>Math.max(m,x.score||0),0);
@@ -1009,7 +1171,7 @@
     if(e.target?.id!=='answer-input')return;
     const input=e.target;
     // Once a player edits the proposed correction, it is not preapproved.
-    if(correction&&norm(input.value)!==norm(correction.canonical)){
+    if(correction&&strictNorm(input.value)!==strictNorm(correction.canonical)){
       correction=null;
       const panel=document.getElementById('answer-correction');
       if(panel)panel.replaceChildren();
@@ -1192,6 +1354,24 @@
       if(!sourcesComplete&&!active)render();
     },1700):null;
     await Promise.all([loadSourceDaily(),loadArchiveManifest(),loadFreeStarters()]);
+    // Restore the exact lazy-loaded question files before validating a resumed
+    // Unlimited session. Otherwise reload would discard independent/publisher
+    // dives because byId initially contains only the authored/default bank.
+    if(active?.mode==='endless'&&Array.isArray(active.ids)&&active.ids.length===7){
+      try{
+        const gameId=Number(active.unlimitedGameId)||0;
+        let restored=[];
+        if(active.source==='sidequest-independent-practice'&&gameId>=5){
+          restored=await loadIndependentPracticeUnlimited(gameId);
+        }else if(active.source==='krillion-public-publisher-reveal'&&(gameId===3||gameId===4)){
+          restored=await loadPublisherVerifiedUnlimited(gameId);
+        }
+        if(restored.length&&restored.join('|')!==active.ids.join('|'))
+          throw Error('Saved Unlimited question list differs from current source');
+      }catch(error){
+        console.warn('Could not restore recovered Unlimited source question files',error);
+      }
+    }
     sourcesComplete=true;
     if(firstPaintTimer!==null)clearTimeout(firstPaintTimer);
     if(active&&['archive','endless'].includes(active.mode)){

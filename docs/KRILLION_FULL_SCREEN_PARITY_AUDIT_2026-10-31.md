@@ -74,3 +74,36 @@ Browser evidence: /tmp/kr-original-detailed-results.log,
  /tmp/kr-real-tier-gameplay.log, /tmp/kr-tier-effects-check4.log.
 Smoke-test source clips are unsynchronized and do not establish pixel-perfect
 or animation-frame-perfect parity.
+
+## Continuous source-depth ocean renderer and updated-main integration
+
+A deep-water blue strip was caused by overlapping canvases. The obsolete
+reference-scene.js renderer selected the entire game screen whenever data-zone
+was not surface, painting a bright legacy water layer above the source canvas.
+The overlap is now removed in ocean gameplay.
+
+A standalone source-depth canvas now:
+- Interpolates original depth colors at 0, 150, 350, 800, 1400, 2600, 5200 m.
+- Reuses publicly served sky/top/mid/trench WebP background bands, depth
+  geometry and image blending, not a fixed CSS surface gradient.
+- Recreates the wave, 85m shallow fish, 800m light school, 980m fish,
+  3800m shipwreck and 4400m animal/sparkle zones.
+- Respects original FPS caps and independently renders ~70 sea snow particles
+  plus the ~26-particle foreground layer.
+
+Directional comparison of unsynchronized, different-answer 1440x900 screenshots:
+before the final duplicated layer removal, approximate RGB mean absolute
+differences vs the original 100-point landing decreased from 106.24 to 4.10
+in the upper quarter, 39.01 to 6.03 in the middle half and 13.34 to 5.54 in
+the lowest quarter. Original versus new random states, timing, text and camera
+positions are not fully synchronized. This is not pixel-perfect certification.
+
+Merged the latest main containing the independent 952-question bank and
+original validator improvements. All 190 automated tests, TypeScript, ESLint
+and Next.js production build passed. Complete desktop/mobile seven-round
+runs and real score-100 landing browser tests passed with zero JS errors.
+
+Publisher audience distributions, original-server behavior, randomized canvas
+frames and separate Sidequest account/multiplayer services are not binary or
+deterministic copies of the original, by design. Exact frame-by-frame and
+backend/source identity are not claimed.
