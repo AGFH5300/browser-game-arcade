@@ -7,7 +7,7 @@ type Entry={value:string;tier:number;aliases?:string[]};
 type Question={answers:Entry[]};
 const script=readFileSync('public/play/deep-dive/game.js','utf8');
 const strict=script.match(/^  const strictNorm=.*;$/m)?.[0];
-const start=script.indexOf('  // Conservative typo tolerance:');
+const start=script.indexOf('  // Source-observed /api/submit behavior');
 const stop=script.indexOf('  function read(key)',start);
 assert.ok(strict&&start>0&&stop>start,'extract the production matcher, not a mock');
 const matcher=Function(strict+'\n'+script.slice(start,stop)+'\nreturn {findAnswer,prepareAnswerLookup,strictNorm};')() as {
@@ -18,7 +18,7 @@ const matcher=Function(strict+'\n'+script.slice(start,stop)+'\nreturn {findAnswe
 const lookup=matcher.findAnswer;
 assert.match(script,/q\.strictAnswerIndex\?\.get\(strictNorm\(answer\)\)\|\|findAnswer\(q,answer\)/,'matching must use strict titles before typo fallback');
 
-test('case and accents match; one-key typos and transpositions suggest only the canonical answer',()=>{
+test('case, aliases and length-dependent typos match the server-observed rules',()=>{
  const q:Question={answers:[
   {value:'France',tier:0,aliases:['French Republic']},
   {value:'Albert Einstein',tier:5},
@@ -26,7 +26,8 @@ test('case and accents match; one-key typos and transpositions suggest only the 
  ]};
  assert.equal(lookup(q,'FRANCE')?.value,'France');
  assert.equal(lookup(q,'french republic')?.value,'France');
- assert.equal(lookup(q,'frnace')?.value,'France');
+ assert.equal(lookup(q,'frnace'),null,'short-name cutoff: two-edit transpositions are not accepted');
+ assert.equal(lookup(q,'frace')?.value,'France');
  assert.equal(lookup(q,'Einstien')?.value,undefined,'do not match a bare surname against a longer full name');
  assert.equal(lookup(q,'Albert Einstien')?.value,'Albert Einstein');
  assert.equal(lookup(q,'new zealnd')?.value,'New Zealand');
@@ -73,6 +74,33 @@ test('a canonical title outranks a conflicting alias; ambiguous aliases never pi
  assert.equal(lookup(ambiguous,'Hexagon'),null);
 });
 
+test('live Krillion /api/submit correction cases from 31 Oct 2026',()=>{
+ // Each case was observed directly against the official daily validator.
+ // A correction is not a scored acceptance until the player confirms it.
+ const cases:[
+  string,string,string|undefined
+ ][]=[
+  ['Germany','Germnay',undefined],
+  ['Germany','Gremany',undefined],
+  ['Germany','Germny','Germany'],
+  ['Carrot','carot','Carrot'],
+  ['Carrot','carorrt',undefined],
+  ['Carrot','Carrots','Carrot'],
+  ['Carrot','carrote','Carrot'],
+  ['Mosquito','Mosqiuto','Mosquito'],
+  ['Mosquito','Mosqito','Mosquito'],
+  ['Mandarin','Mandrain','Mandarin'],
+  ['Persimmon','Persimomn','Persimmon'],
+  ['Spider-Man','Spidre-Man','Spider-Man'],
+  ['Spider-Man','Spdier-Man','Spider-Man'],
+  ['Spider-Man','Spedr-Man','Spider-Man']
+ ];
+ for(const [canonical,typed,expected] of cases){
+  const answer={value:canonical,tier:3};
+  const actual=lookup({answers:[answer]},typed);
+  assert.equal(actual?.value,expected,canonical+' / '+typed);
+ }
+});
 test('real 32,255-answer pack: a mistyped valid answer remains quick and cached',()=>{
  const doc=JSON.parse(readFileSync('public/play/deep-dive/recovered/independent-bank/KR0545.json','utf8'));
  const q:Question={answers:doc.answers.map(([value,tier]:[string,number,string])=>({value,tier}))};
