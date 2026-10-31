@@ -1,0 +1,9 @@
+id,question,original_heuristic_target,all_matching_local_dictionary_words,new_playable_count,screening_result,note
+KR0890,Name an English word containing “manu”,1000,126,25,TARGET_NOT_SUPPORTED_BY_LOCAL_REFERENCE,Finite local dictionary count is NOT the definitive number of English words and NOT a measured original Krillion acceptance count.
+KR0901,Name an English word containing “neuro”,1000,345,90,TARGET_NOT_SUPPORTED_BY_LOCAL_REFERENCE,Finite local dictionary count is NOT the definitive number of English words and NOT a measured original Krillion acceptance count.
+KR0912,Name an English word containing “multi”,1000,504,111,TARGET_NOT_SUPPORTED_BY_LOCAL_REFERENCE,Finite local dictionary count is NOT the definitive number of English words and NOT a measured original Krillion acceptance count.
+KR0908,Name an English word containing “path”,1000,648,112,TARGET_NOT_SUPPORTED_BY_LOCAL_REFERENCE,Finite local dictionary count is NOT the definitive number of English words and NOT a measured original Krillion acceptance count.
+KR0947,Name an English word containing “ough”,1000,483,128,TARGET_NOT_SUPPORTED_BY_LOCAL_REFERENCE,Finite local dictionary count is NOT the definitive number of English words and NOT a measured original Krillion acceptance count.
+KR0950,Name an English word containing “anti”,1000,2642,314,REFERENCE_HAS_AT_LEAST_TARGET_COUNT,Finite local dictionary count is NOT the definitive number of English words and NOT a measured original Krillion acceptance count.
+KR0946,Name an English word containing “age”,1000,2481,551,REFERENCE_HAS_AT_LEAST_TARGET_COUNT,Finite local dictionary count is NOT the definitive number of English words and NOT a measured original Krillion acceptance count.
+KR0951,Name an English word ending in “-ism”,1000,3949,452,REFERENCE_HAS_AT_LEAST_TARGET_COUNT,Finite local dictionary count is NOT the definitive number of English words and NOT a measured original Krillion acceptance count.

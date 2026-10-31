@@ -1,9 +1,11 @@
 {
   "questions": 952,
-  "independent_playable_answers_from_manifest": 560449,
+  "independent_playable_answers_from_manifest": 561107,
   "collision_groups_reviewed": 84,
-  "approved_editorial_orthographic_groups": 55,
-  "held_collision_groups": 29,
+  "approved_editorial_orthographic_groups": 57,
+  "held_collision_groups": 27,
+  "held_but_identity_verified_distinct_groups": 4,
+  "remaining_identity_unresolved_groups": 23,
   "score_conflicts_preserved": 5,
   "missing_documented_100": 96,
   "missing_100_policy_breakdown": {
@@ -13,7 +15,11 @@
   "coverage_below_current_playable_heuristic": 482,
   "previous_source_reported_coverage_below": 482,
   "quarantined_model_review_candidates": 2553,
-  "model_candidates_absent_from_playable": 2553,
+  "gbif_species_taxonomy_category_verified": 89,
+  "gbif_exact_taxon_but_category_unverified": 251,
+  "gbif_taxon_no_exact_match": 415,
+  "model_candidates_absent_from_playable": 2513,
   "all_scores_are_publisher_verified": false,
-  "no_100point_scores_invented": true
+  "no_100point_scores_invented": true,
+  "lexical_heuristic_overstated_cases": 5
 }

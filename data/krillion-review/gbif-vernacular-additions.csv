@@ -1,0 +1,25 @@
+id,answer,taxon,source_url,kind,score_estimate,original_acceptance
+KR0001,Kobus ellipsiprymnus,Kobus ellipsiprymnus,https://www.gbif.org/species/5220160,SCIENTIFIC_NAME,30,NOT_VERIFIED
+KR0001,Kobus vardonii,Kobus vardonii,https://www.gbif.org/species/5220163,SCIENTIFIC_NAME,30,NOT_VERIFIED
+KR0830,Tasmanian wolf,Thylacinus cynocephalus,https://www.gbif.org/species/2435474,YES,30,NOT_VERIFIED
+KR0830,Tasmanian bettong,Bettongia gaimardi,https://www.gbif.org/species/2440025,YES,30,NOT_VERIFIED
+KR0830,Tasmanian pademelon,Thylogale billardierii,https://www.gbif.org/species/2440162,YES,30,NOT_VERIFIED
+KR0830,Tasmanian wombat,Vombatus ursinus,https://www.gbif.org/species/2440301,YES,30,NOT_VERIFIED
+KR0853,Reticulated giraffe,Giraffa reticulata,https://www.gbif.org/species/8888736,YES,30,NOT_VERIFIED
+KR0853,Rough-skinned newt,Taricha granulosa,https://www.gbif.org/species/2431920,YES,30,NOT_VERIFIED
+KR0853,Ruffed grouse,Bonasa umbellus,https://www.gbif.org/species/2473702,YES,30,NOT_VERIFIED
+KR0853,Rhinoceros auklet,Cerorhinca monocerata,https://www.gbif.org/species/2481324,YES,30,NOT_VERIFIED
+KR0853,Rough-toothed dolphin,Steno bredanensis,https://www.gbif.org/species/2440433,YES,30,NOT_VERIFIED
+KR0853,Rough-legged hawk,Buteo lagopus,https://www.gbif.org/species/2480524,YES,30,NOT_VERIFIED
+KR0856,Lagostomus maximus,Lagostomus maximus,https://www.gbif.org/species/5219945,SCIENTIFIC_NAME,30,NOT_VERIFIED
+KR0856,Loricaria cataphracta,Loricaria cataphracta,https://www.gbif.org/species/5961486,SCIENTIFIC_NAME,30,NOT_VERIFIED
+KR0856,Lutjanus apodus,Lutjanus apodus,https://www.gbif.org/species/2384922,SCIENTIFIC_NAME,30,NOT_VERIFIED
+KR0856,Lycodon aulicus,Lycodon aulicus,https://www.gbif.org/species/8641010,SCIENTIFIC_NAME,30,NOT_VERIFIED
+KR0856,Lophius piscatorius,Lophius piscatorius,https://www.gbif.org/species/2415075,SCIENTIFIC_NAME,30,NOT_VERIFIED
+KR0856,Lutreolina crassicaudata,Lutreolina crassicaudata,https://www.gbif.org/species/2439988,SCIENTIFIC_NAME,30,NOT_VERIFIED
+KR0856,Laniarius leucorhynchus,Laniarius leucorhynchus,https://www.gbif.org/species/2484865,SCIENTIFIC_NAME,30,NOT_VERIFIED
+KR0861,Water shrew,Neomys fodiens,https://www.gbif.org/species/2435767,YES,30,NOT_VERIFIED
+KR0924,Varanus komodoensis,Varanus komodoensis,https://www.gbif.org/species/2470854,SCIENTIFIC_NAME,30,NOT_VERIFIED
+KR0924,Vulpes corsac,Vulpes corsac,https://www.gbif.org/species/5219293,SCIENTIFIC_NAME,30,NOT_VERIFIED
+KR0924,Vulpes rueppellii,Vulpes rueppellii,https://www.gbif.org/species/5219297,SCIENTIFIC_NAME,30,NOT_VERIFIED
+KR0924,Vulpes macrotis,Vulpes macrotis,https://www.gbif.org/species/5219311,SCIENTIFIC_NAME,30,NOT_VERIFIED
