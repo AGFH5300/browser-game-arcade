@@ -9,10 +9,10 @@ const ledger=JSON.parse(fs.readFileSync(bank+'reviewed-aliases.json','utf8'));
 const manifest=JSON.parse(fs.readFileSync(bank+'manifest.json','utf8'));
 const lines=(file:string)=>fs.readFileSync(repo+file,'utf8').trim().split(/\r?\n/);
 
-test('all 84 source collisions explicitly triaged, 58 independently reviewed same-score orthographies allowed',()=>{
+test('all 84 source collisions explicitly triaged, 59 independently reviewed same-score orthographies allowed',()=>{
  assert.equal(summary.collision_groups_reviewed,84);
- assert.equal(summary.approved_editorial_orthographic_groups,58);
- assert.equal(summary.held_collision_groups,26);
+ assert.equal(summary.approved_editorial_orthographic_groups,59);
+ assert.equal(summary.held_collision_groups,25);
  assert.equal(summary.score_conflicts_preserved,5);
  assert.equal(lines('84-collision-review.csv').length,85);
  assert.equal(ledger.publisherAcceptanceVerified,false);
@@ -29,7 +29,7 @@ test('all 84 source collisions explicitly triaged, 58 independently reviewed sam
    applied++;
   }
  }
- assert.equal(applied,58);
+ assert.equal(applied,59);
  const risky:{[key:string]:string[]}={
   KR0344:['George Town','Georgetown'],KR0599:['New Quay','Newquay'],
   KR0664:['C.R.O','CRO'],KR0698:['Cry Baby','Crybaby'],KR0745:['Dume','Dum-E']
@@ -50,12 +50,12 @@ test('coverage and 100-point gaps remain review requests, never invented scores'
  assert.equal(summary.no_100point_scores_invented,true);
  assert.equal(lines('model-candidate-review.csv').length,2554);
  assert.equal(summary.quarantined_model_review_candidates,2544);
- assert.equal(summary.model_candidates_absent_from_playable,2474);
+ assert.equal(summary.model_candidates_absent_from_playable,2452);
 });
 
 test('46 scraped scoreboard labels removed without losing any unique valid answers',()=>{
  assert.equal(lines('removed-ocr-labels.csv').length,47);
- assert.equal(manifest.answerCount,561152);
+ assert.equal(manifest.answerCount,561207);
  let count=0;
  const marker=/^Too clever \([2-4]\) /i;
  for(const question of manifest.questions as Array<{id:string;file:string;answerCount:number}>){
@@ -139,8 +139,8 @@ test('658 new independent answers have exact source-backed categories and non-ra
 });
 
 test('four held collisions proven to be real-world distinct, never fuzzy-merged',()=>{
- assert.equal(summary.held_but_identity_verified_distinct_groups,14);
- assert.equal(summary.remaining_identity_unresolved_groups,12);
+ assert.equal(summary.held_but_identity_verified_distinct_groups,17);
+ assert.equal(summary.remaining_identity_unresolved_groups,8);
  const csv=lines('84-collision-review.csv').join('\n');
  for(const pair of ['Basse-Terre | Basseterre','George Town | Georgetown',
    'New Quay | Newquay','North Central University | Northcentral University']){
@@ -222,5 +222,64 @@ test('45 additional common names have exact GBIF English species provenance',()=
   const answer=pack.answers.find((r:[string,number,string])=>r[0]===name);
   assert.deepEqual(answer,[name,2,'gbif']);
  }
- assert.equal(manifest.answerCount,561152);
+ assert.equal(manifest.answerCount,561207);
+});
+
+
+test('55 more source-verified taxonomic species keep estimated tier 30 only',()=>{
+ const rows=lines('gbif-additional-categorical-taxonomy.csv');
+ assert.equal(rows.length,56);
+ const expected={KR0170:7,KR0212:5,KR0205:5,KR0149:6,KR0240:2,
+   KR0822:12,KR0035:10,KR0247:8} as const;
+ let sum=0;
+ for(const [id,n] of Object.entries(expected)){
+  const pack=JSON.parse(fs.readFileSync(bank+id+'.json','utf8'));
+  const details=rows.filter(r=>r.startsWith(id+','));
+  assert.equal(details.length,n,id);
+  assert(pack.answers.some((entry:[string,number,string])=>entry[2]==='gbif'&&entry[1]===2));
+  sum+=n;
+ }
+ assert.equal(sum,55);
+ assert.equal(manifest.answerCount,561207);
+ assert.equal(manifest.originalPublisherAcceptanceVerified,false);
+});
+
+test('958 GBIF common-name aliases preserve existing source scores and never override a canonical',()=>{
+ const csv=lines('gbif-reviewed-common-aliases.csv');
+ assert.equal(csv.length,summary.gbif_verified_common_name_aliases+1);
+ assert(summary.gbif_verified_common_name_aliases>=548);
+ assert(summary.gbif_common_name_alias_question_count>=23);
+ const groups=ledger.commonNameAliases as Record<string,Array<{
+  canonical:string;alias:string;tier:number;source_url:string;
+  review:string;publisher_original_validator_verified:boolean
+ }>>;
+ assert.equal(Object.values(groups).reduce((sum,g)=>sum+g.length,0),summary.gbif_verified_common_name_aliases);
+ const strict=(s:string)=>s.normalize('NFKD').toLowerCase()
+    .replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]/g,'');
+ for(const [id,aliases] of Object.entries(groups)){
+   const pack=JSON.parse(fs.readFileSync(bank+id+'.json','utf8'));
+   const canonicalKeys=new Set(pack.answers.map((x:[string,number,string])=>strict(x[0])));
+   const seen=new Set<string>();
+   for(const x of aliases){
+     const canonical=pack.answers.find((a:[string,number,string])=>a[0]===x.canonical);
+     assert(canonical,id+' missing canonical '+x.canonical);
+     assert.equal(canonical[2],'gbif');
+     assert.equal(canonical[1],x.tier);
+     assert.equal(x.review,'exact_english_gbif_common_name');
+     assert.equal(x.publisher_original_validator_verified,false);
+     assert.match(x.source_url,/^https:\/\/www\.gbif\.org\/species\/\d+$/);
+     const key=strict(x.alias);
+     assert(!canonicalKeys.has(key),'canonical collision '+id+' '+x.alias);
+     assert(!seen.has(key),'two different taxons share alias '+id+' '+x.alias);
+     seen.add(key);
+     const initial=pack.prompt.match(/name starts with ([A-Z])$/);
+     if(initial)assert(x.alias.toLowerCase().startsWith(initial[1].toLowerCase()),
+      'alias violates the animal-letter question '+id+' '+x.alias);
+   }
+ }
+ const game=fs.readFileSync('public/play/deep-dive/game.js','utf8');
+ assert.match(game,/aliasReview\.commonNameAliases\?\.\[item\.id\]/);
+ assert.match(game,/original\.provenance!=='gbif'/);
+ assert.match(game,/original\.tier!==alias\.tier/);
+ assert.match(game,/original\.aliases\.push\(alias\.alias\)/);
 });
