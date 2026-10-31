@@ -37,3 +37,6 @@ npm run build
 The practice loader checks the manifest's explicit non-publisher flags and verifies each lazy question file's length, identity and six score tiers before use. `tests/krillion-independent-bank.test.ts` verifies all 952 files and deterministic full-cycle coverage.
 
 Source attribution: independently recovered public question texts, scoreboard archives and publisher-revealed answer records from https://krillion.io, GBIF accepted species taxonomy at https://www.gbif.org/, GeoNames and English word lists; see local source-provenance audit for per-entry evidence. These materials must not be described as official production source code or an exact copy of private scoring.
+
+## Follow-up quality update (31 October)
+The current practice bank removed 46 malformed duplicate scoreboard labels and added 26 manufacturer-documented, estimated pasta formats. New total: **560,449** entries. See docs/KRILLION_ANSWER_REVIEW_RELEASE_2026-10-31.md for the source audit, validation limits and review queue. The 560,469 figure above refers to the previous release snapshot.

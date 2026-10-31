@@ -1,0 +1,19 @@
+{
+  "questions": 952,
+  "independent_playable_answers_from_manifest": 560449,
+  "collision_groups_reviewed": 84,
+  "approved_editorial_orthographic_groups": 55,
+  "held_collision_groups": 29,
+  "score_conflicts_preserved": 5,
+  "missing_documented_100": 96,
+  "missing_100_policy_breakdown": {
+    "FINITE_MEMBERSHIP_CHECK": 37,
+    "FIND_ACTUALLY_RARE_VALID_MEMBER": 59
+  },
+  "coverage_below_current_playable_heuristic": 482,
+  "previous_source_reported_coverage_below": 482,
+  "quarantined_model_review_candidates": 2553,
+  "model_candidates_absent_from_playable": 2553,
+  "all_scores_are_publisher_verified": false,
+  "no_100point_scores_invented": true
+}
