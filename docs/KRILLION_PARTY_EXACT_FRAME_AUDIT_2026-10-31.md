@@ -160,3 +160,4 @@ by SHA-256. See data/krillion-public-assets-20261031.json and the
 automated test in tests/krillion-source-asset-integrity.test.ts.
 20/20 means observed asset integrity PASS, not that the unobserved
 assets or all source animation frames have passed global parity.
+\nFive additional public source client code image URLs were separately fetched\nand matched byte-for-byte, bringing total validated public files to 25;\nthis still does not prove exhaustive hidden sprite or animation parity.\n

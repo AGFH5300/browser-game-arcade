@@ -1,7 +1,7 @@
 {
   "date": "2026-10-31",
   "source": "https://krillion.io",
-  "scope": "Observed public homepage, early gameplay and Party image/font network responses; not all possible states",
+  "scope": "20 observed original browser resource responses plus five original public-client-bundle image URLs fetched and SHA-256 compared; not all possible game states",
   "observed": 20,
   "matched": 20,
   "assets": [
@@ -124,6 +124,43 @@
       "localPath": "reference-assets/gen/party/reef-m-clean.png",
       "sha256": "b14a8f1e97bcc5f9f41656d5a5bd561908a29d1f338582585c44dcb3462f00f3",
       "bytes": 1784679
+    },
+    {
+      "sourcePath": "/tiers/deepcut-gold.png",
+      "localPath": "reference-assets/tiers/deepcut-gold.png",
+      "sha256": "3d2c16662c6168b2d1fab61efa87d798756502559a7dd2af73ed300f1b887550",
+      "bytes": 25690,
+      "verifiedFrom": "public-client-bundle-url"
+    },
+    {
+      "sourcePath": "/tiers/evil-krill-gold-v2.png",
+      "localPath": "reference-assets/tiers/evil-krill-gold-v2.png",
+      "sha256": "48f1f9473085f4659d2c75343f3e2b1300ab97794b59b2d0b331b029f80852fc",
+      "bytes": 27679,
+      "verifiedFrom": "public-client-bundle-url"
+    },
+    {
+      "sourcePath": "/tiers/krillion-gold.png",
+      "localPath": "reference-assets/tiers/krillion-gold.png",
+      "sha256": "731314f3058880e45ae2bdceaa1405dee4a1b603359c16e1f3b6697087a791cf",
+      "bytes": 23838,
+      "verifiedFrom": "public-client-bundle-url"
+    },
+    {
+      "sourcePath": "/tiers/rare-gold.png",
+      "localPath": "reference-assets/tiers/rare-gold.png",
+      "sha256": "570317f388af84bab456ea602a0cf6ae9117cf9959bdef99f9d5e5b75e754f87",
+      "bytes": 24736,
+      "verifiedFrom": "public-client-bundle-url"
+    },
+    {
+      "sourcePath": "/tiers/schooler-gold.png",
+      "localPath": "reference-assets/tiers/schooler-gold.png",
+      "sha256": "6866c0172d29e27492ffa6c2157544dc32e61ef8f7276aed36be83f9ea9a227e",
+      "bytes": 18278,
+      "verifiedFrom": "public-client-bundle-url"
     }
-  ]
+  ],
+  "extraConfirmed": 5,
+  "verifiedTotal": 25
 }

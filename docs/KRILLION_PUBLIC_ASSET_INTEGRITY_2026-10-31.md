@@ -11,6 +11,8 @@ an existing Sidequest local file**. These include the source pixel font, the
 Halloween Krill sprites, Puffer Party fish and reefs, sky/top/mid/trench
 images, and other loaded tier icons.
 
+A separate inspection of the original publicly delivered game JavaScript revealed five additional static tier-icon URLs not loaded during the browser walkthrough. Each was independently downloaded from the original site and verified against the local SHA-256. **25 distinct assets verified in total: 20 observed + 5 client-referenced.**
+
 Machine-readable exact source-path/local-path/bytes/hash pairs:
 data/krillion-public-assets-20261031.json.
 
