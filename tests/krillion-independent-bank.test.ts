@@ -12,7 +12,7 @@ function normalize(s:string){
 test('independent bank has exactly 952 explicitly non-publisher practice questions',()=>{
  assert.equal(manifest.questions.length,952);
  assert.equal(manifest.questionCount,952);
- assert.equal(manifest.answerCount,560449);
+ assert.equal(manifest.answerCount,561107);
  assert.equal(manifest.source,'sidequest-independently-recovered-practice');
  assert.equal(manifest.originalPublisherAcceptanceVerified,false);
  assert.equal(manifest.allScoresEmpiricallyCalibrated,false);
