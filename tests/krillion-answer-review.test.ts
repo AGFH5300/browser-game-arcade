@@ -9,10 +9,10 @@ const ledger=JSON.parse(fs.readFileSync(bank+'reviewed-aliases.json','utf8'));
 const manifest=JSON.parse(fs.readFileSync(bank+'manifest.json','utf8'));
 const lines=(file:string)=>fs.readFileSync(repo+file,'utf8').trim().split(/\r?\n/);
 
-test('all 84 source collisions explicitly triaged, only 55 safe orthographies merged',()=>{
+test('all 84 source collisions explicitly triaged, 57 explicitly reviewed same-score orthographies allowed',()=>{
  assert.equal(summary.collision_groups_reviewed,84);
- assert.equal(summary.approved_editorial_orthographic_groups,55);
- assert.equal(summary.held_collision_groups,29);
+ assert.equal(summary.approved_editorial_orthographic_groups,57);
+ assert.equal(summary.held_collision_groups,27);
  assert.equal(summary.score_conflicts_preserved,5);
  assert.equal(lines('84-collision-review.csv').length,85);
  assert.equal(ledger.publisherAcceptanceVerified,false);
@@ -29,7 +29,7 @@ test('all 84 source collisions explicitly triaged, only 55 safe orthographies me
    applied++;
   }
  }
- assert.equal(applied,55);
+ assert.equal(applied,57);
  const risky:{[key:string]:string[]}={
   KR0344:['George Town','Georgetown'],KR0599:['New Quay','Newquay'],
   KR0664:['C.R.O','CRO'],KR0698:['Cry Baby','Crybaby'],KR0745:['Dume','Dum-E']
@@ -50,12 +50,12 @@ test('coverage and 100-point gaps remain review requests, never invented scores'
  assert.equal(summary.no_100point_scores_invented,true);
  assert.equal(lines('model-candidate-review.csv').length,2554);
  assert.equal(summary.quarantined_model_review_candidates,2553);
- assert.equal(summary.model_candidates_absent_from_playable,2553);
+ assert.equal(summary.model_candidates_absent_from_playable,2513);
 });
 
 test('46 scraped scoreboard labels removed without losing any unique valid answers',()=>{
  assert.equal(lines('removed-ocr-labels.csv').length,47);
- assert.equal(manifest.answerCount,560449);
+ assert.equal(manifest.answerCount,561107);
  let count=0;
  const marker=/^Too clever \([2-4]\) /i;
  for(const question of manifest.questions as Array<{id:string;file:string;answerCount:number}>){
@@ -97,4 +97,67 @@ test('private feedback endpoint is rate-limited and cannot update the scoring ba
  assert.match(game,/DeepDiveAnswerFeedback\?\.remember/);
  assert.match(game,/DeepDiveAnswerFeedback\?\.reset/);
  assert.match(game,/sidequest-editorial-orthography-review/);
+});
+
+test('658 new independent answers have exact source-backed categories and non-rarity practice tiers',()=>{
+ const lexical=lines('lexical-additions.csv');
+ const gbif=lines('gbif-source-reviewed-additions.csv');
+ assert.equal(lexical.length,560,'559 lexical answers plus CSV header');
+ assert.equal(gbif.length,76,'75 exact independent species plus CSV header');
+ const lexicalRows=lexical.slice(1);
+ const sourceRows=gbif.slice(1);
+ const sample=[
+  ['KR0890','manuscripts','manu'],['KR0901','neurosis','neuro'],
+  ['KR0912','multitask','multi'],['KR0908','psychopath','path'],
+  ['KR0947','boughs','ough'],['KR0950','antimatter','anti'],
+  ['KR0946','language','age'],['KR0951','absurdism','ism']
+ ] as const;
+ for(const [id,,pattern] of sample){
+  const pack=JSON.parse(fs.readFileSync(bank+id+'.json','utf8'));
+  assert(pack.prompt.toLowerCase().includes(pattern));
+  // Confirm at least one newly imported corpus word is exactly eligible.
+  const newWords=lexicalRows.filter(x=>x.startsWith(id+','));
+  assert(newWords.length>0,id+' should have new dictionary evidence');
+  const imported=new Set(newWords.map(x=>x.split(',')[2]));
+  const matched=pack.answers.filter((r:[string,number,string])=>r[2]==='lexicon'&&imported.has(r[0]));
+  assert(matched.length>0,id+' should have newly sourced lexicon evidence');
+  for(const entry of matched){
+    assert(entry[0].toLowerCase().includes(pattern) || (pattern==='ism'&&entry[0].toLowerCase().endsWith('ism')));
+    assert.equal(entry[1],2,'only newly source-added words use the conservative practice tier');
+  }
+ }
+ const verifiedRows=JSON.parse(fs.readFileSync(repo+'gbif-taxon-results.json','utf8')) as Record<string,{diagnostics?:{matchType?:string};usage?:{rank?:string}}>;
+ for(const line of sourceRows.slice(0,4)){
+  assert(line.includes('https://www.gbif.org/species/'));
+  assert(line.includes('NOT_ORIGINAL_PUBLISHER'));
+ }
+ const count=Object.values(verifiedRows).filter(x=>x.diagnostics?.matchType==='EXACT'&&x.usage?.rank==='SPECIES').length;
+ assert(count>=75);
+ assert.equal(summary.gbif_species_taxonomy_category_verified,89);
+ assert.equal(summary.gbif_exact_taxon_but_category_unverified,251);
+ assert.equal(summary.gbif_taxon_no_exact_match,415);
+});
+
+test('four held collisions proven to be real-world distinct, never fuzzy-merged',()=>{
+ assert.equal(summary.held_but_identity_verified_distinct_groups,4);
+ assert.equal(summary.remaining_identity_unresolved_groups,23);
+ const csv=lines('84-collision-review.csv').join('\n');
+ for(const pair of ['Basse-Terre | Basseterre','George Town | Georgetown',
+   'New Quay | Newquay','North Central University | Northcentral University']){
+  const evidence=csv.split('\n').find(row=>row.includes(pair));
+  assert(evidence&&evidence.includes('VERIFIED_DISTINCT')&&evidence.includes('https://'),pair);
+ }
+});
+
+test('24 exactly sourced English animal names are independently attributed and not publisher scores',()=>{
+ const rows=lines('gbif-vernacular-additions.csv');
+ assert.equal(rows.length,25);
+ const records=rows.slice(1);
+ assert(records.every(x=>x.includes('NOT_VERIFIED')&&x.includes('https://www.gbif.org/species/')));
+ const wolf=JSON.parse(fs.readFileSync(bank+'KR0830.json','utf8'));
+ assert.deepEqual(wolf.answers.find((a:[string,number,string])=>a[0]==='Tasmanian wolf'),
+ ['Tasmanian wolf',2,'gbif']);
+ assert.equal(summary.lexical_heuristic_overstated_cases,5);
+ const dictionary=lines('lexical-target-audit.csv');
+ assert.equal(dictionary.length,9);
 });

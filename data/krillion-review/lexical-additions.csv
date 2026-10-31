@@ -1,0 +1,560 @@
+id,prompt,answer,rule,zipf,score_estimate,publisher_accepted,evidence,status
+KR0890,Name an English word containing “manu”,amanuensis,contains:manu,1.84,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0890,Name an English word containing “manu”,emmanuel,contains:manu,3.41,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0890,Name an English word containing “manu”,immanuel,contains:manu,2.7,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0890,Name an English word containing “manu”,manuel,contains:manu,3.86,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0890,Name an English word containing “manu”,manufactories,contains:manu,1.64,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0890,Name an English word containing “manu”,manumission,contains:manu,1.99,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0890,Name an English word containing “manu”,manumitted,contains:manu,1.6,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0890,Name an English word containing “manu”,manures,contains:manu,1.69,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0890,Name an English word containing “manu”,remanufacturing,contains:manu,1.7,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0901,Name an English word containing “neuro”,aponeurosis,contains:neuro,1.5,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0901,Name an English word containing “neuro”,neuroanatomical,contains:neuro,1.66,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0901,Name an English word containing “neuro”,neurobiologist,contains:neuro,1.65,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0901,Name an English word containing “neuro”,neurochemical,contains:neuro,1.99,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0901,Name an English word containing “neuro”,neurochemistry,contains:neuro,1.97,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0901,Name an English word containing “neuro”,neuroendocrinology,contains:neuro,1.52,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0901,Name an English word containing “neuro”,neurofibrillary,contains:neuro,1.64,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0901,Name an English word containing “neuro”,neurol,contains:neuro,1.54,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0901,Name an English word containing “neuro”,neuroma,contains:neuro,1.93,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0901,Name an English word containing “neuro”,neurones,contains:neuro,1.73,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0901,Name an English word containing “neuro”,neuropathology,contains:neuro,1.91,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0901,Name an English word containing “neuro”,neuropharmacology,contains:neuro,1.54,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0901,Name an English word containing “neuro”,neuropsychiatry,contains:neuro,1.87,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0901,Name an English word containing “neuro”,neuropsychologist,contains:neuro,1.96,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0901,Name an English word containing “neuro”,neurosyphilis,contains:neuro,1.5,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0901,Name an English word containing “neuro”,neurotically,contains:neuro,1.53,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0901,Name an English word containing “neuro”,neurotics,contains:neuro,1.83,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0901,Name an English word containing “neuro”,neurotransmission,contains:neuro,1.97,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0901,Name an English word containing “neuro”,neurovascular,contains:neuro,1.99,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0901,Name an English word containing “neuro”,polyneuropathy,contains:neuro,1.82,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multiband,contains:multi,1.78,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multicasting,contains:multi,1.53,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multicomponent,contains:multi,1.85,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multidirectional,contains:multi,1.82,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multifactor,contains:multi,1.59,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multiflora,contains:multi,1.54,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multiform,contains:multi,1.59,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multilaterally,contains:multi,1.52,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multilinear,contains:multi,1.51,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multimillionaires,contains:multi,1.85,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multimodality,contains:multi,1.65,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multinomial,contains:multi,1.88,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multiphasic,contains:multi,1.59,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multiplexers,contains:multi,1.61,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multiplications,contains:multi,1.94,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multiplicities,contains:multi,1.66,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multipole,contains:multi,1.79,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multipotent,contains:multi,1.64,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multiprocessing,contains:multi,1.69,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multirole,contains:multi,1.8,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multiscreen,contains:multi,1.56,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multisensory,contains:multi,1.95,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multistate,contains:multi,1.97,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multistep,contains:multi,1.83,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multistorey,contains:multi,1.63,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multistory,contains:multi,1.85,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multisystem,contains:multi,1.67,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multithreaded,contains:multi,1.95,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multitudinous,contains:multi,1.93,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multiuser,contains:multi,1.88,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multivalent,contains:multi,1.72,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multiversity,contains:multi,1.67,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,multiway,contains:multi,1.52,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0912,Name an English word containing “multi”,photomultiplier,contains:multi,1.84,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,empathetically,contains:path,1.55,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,empathized,contains:path,1.75,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,empathizes,contains:path,1.65,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,empathizing,contains:path,1.87,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,enteropathy,contains:path,1.59,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,histopathologic,contains:path,1.65,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,homeopath,contains:path,1.73,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,homoeopathic,contains:path,1.96,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,homoeopathy,contains:path,1.9,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,hydropathic,contains:path,1.54,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,lymphadenopathy,contains:path,1.84,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,myelopathy,contains:path,1.6,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,myopathies,contains:path,1.57,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,naturopath,contains:path,1.95,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,naturopathy,contains:path,1.96,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,neuropathology,contains:path,1.91,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,osteopaths,contains:path,1.74,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,pathfinding,contains:path,1.81,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,pathname,contains:path,1.52,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,pathobiology,contains:path,1.54,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,pathophysiological,contains:path,1.95,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,pathy,contains:path,1.53,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,phytopathology,contains:path,1.53,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,polyneuropathy,contains:path,1.82,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,psychopathological,contains:path,1.62,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,sociopathy,contains:path,1.88,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,spath,contains:path,1.56,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,spathe,contains:path,1.62,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,sympathising,contains:path,1.93,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0908,Name an English word containing “path”,sympathomimetic,contains:path,1.62,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,aforethought,contains:ough,1.93,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,afterthoughts,contains:ough,1.83,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,besought,contains:ough,1.66,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,chough,contains:ough,1.57,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,choughs,contains:ough,1.51,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,doughboys,contains:ough,1.93,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,doughs,contains:ough,1.89,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,harborough,contains:ough,2.09,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,interborough,contains:ough,1.65,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,methought,contains:ough,1.7,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,noughts,contains:ough,1.86,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,ough,contains:ough,1.9,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,oughts,contains:ough,1.5,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,ploughman,contains:ough,1.84,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,ploughshare,contains:ough,1.55,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,roughage,contains:ough,1.91,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,roughened,contains:ough,1.86,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,roughhouse,contains:ough,1.57,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,roughhousing,contains:ough,1.63,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,roughneck,contains:ough,1.84,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,roughs,contains:ough,1.96,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,roughy,contains:ough,1.79,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,sloughed,contains:ough,1.77,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,sloughing,contains:ough,1.88,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,sloughs,contains:ough,1.91,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,sough,contains:ough,1.59,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,therethrough,contains:ough,1.97,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,thoroughgoing,contains:ough,1.82,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,thoughtlessness,contains:ough,1.84,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,toughens,contains:ough,1.72,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,toughie,contains:ough,1.8,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,toughs,contains:ough,1.85,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,triborough,contains:ough,1.78,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,turlough,contains:ough,1.67,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,unsought,contains:ough,1.51,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0947,Name an English word containing “ough”,unthought,contains:ough,1.59,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,andantino,contains:anti,1.57,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antiabortion,contains:anti,1.58,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antianxiety,contains:anti,1.52,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antiarrhythmic,contains:anti,1.71,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antica,contains:anti,1.99,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,anticapitalist,contains:anti,1.71,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,anticlerical,contains:anti,1.71,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,anticline,contains:anti,1.99,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,anticlockwise,contains:anti,1.95,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,anticommunism,contains:anti,1.53,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,anticommunist,contains:anti,1.99,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,anticyclone,contains:anti,1.69,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,anticyclonic,contains:anti,1.55,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antidemocratic,contains:anti,1.68,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antidiabetic,contains:anti,1.7,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antidiuretic,contains:anti,1.51,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antidumping,contains:anti,1.52,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antiemetic,contains:anti,1.64,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antient,contains:anti,1.64,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antiepileptic,contains:anti,1.95,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antifascists,contains:anti,1.56,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antifeminist,contains:anti,1.5,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antiferromagnetic,contains:anti,1.66,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antifouling,contains:anti,1.6,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antigay,contains:anti,1.77,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antigovernment,contains:anti,1.9,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antigravity,contains:anti,1.9,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antiguan,contains:anti,1.71,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antiheroes,contains:anti,1.64,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antiinflammatory,contains:anti,1.67,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antillean,contains:anti,1.7,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antimissile,contains:anti,1.58,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antimonopoly,contains:anti,1.64,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antineoplastic,contains:anti,1.86,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antineutrino,contains:anti,1.51,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,anting,contains:anti,1.55,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antinomian,contains:anti,1.74,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antinomianism,contains:anti,1.57,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antinomy,contains:anti,1.54,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antinous,contains:anti,1.76,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antiochian,contains:anti,1.77,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antiope,contains:anti,1.69,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antiparallel,contains:anti,1.81,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antiparticle,contains:anti,1.6,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antiparticles,contains:anti,1.52,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antipasti,contains:anti,1.71,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antipasto,contains:anti,1.81,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antipersonnel,contains:anti,1.71,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antiperspirant,contains:anti,1.93,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antiperspirants,contains:anti,1.59,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antiphonal,contains:anti,1.64,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antiphons,contains:anti,1.8,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antiplatelet,contains:anti,1.89,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antipodal,contains:anti,1.71,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antipode,contains:anti,1.67,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antipodean,contains:anti,1.89,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antipolo,contains:anti,1.78,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antipope,contains:anti,1.58,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antipoverty,contains:anti,1.9,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antiproton,contains:anti,1.79,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antiprotons,contains:anti,1.59,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antipyretic,contains:anti,1.67,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antiqua,contains:anti,1.92,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antiquarians,contains:anti,1.89,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antiqued,contains:anti,1.79,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antiquing,contains:anti,1.84,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antiseptics,contains:anti,1.96,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antisera,contains:anti,1.56,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antiserum,contains:anti,1.91,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antismoking,contains:anti,1.54,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antispasmodic,contains:anti,1.67,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antistatic,contains:anti,1.73,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antisubmarine,contains:anti,1.94,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antisymmetric,contains:anti,1.82,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antitheses,contains:anti,1.52,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antithrombin,contains:anti,1.56,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antitrypsin,contains:anti,1.65,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,antivenin,contains:anti,1.53,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,atlantica,contains:anti,1.9,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,autoantibody,contains:anti,1.58,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,canticles,contains:anti,1.92,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,cantilevers,contains:anti,1.89,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,canting,contains:anti,1.91,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,chanticleer,contains:anti,1.89,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,circumstantially,contains:anti,1.69,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,constantinian,contains:anti,1.53,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,consubstantial,contains:anti,1.55,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,covenanting,contains:anti,1.54,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,decanting,contains:anti,1.91,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,dilantin,contains:anti,1.77,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,diophantine,contains:anti,1.68,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,eglantine,contains:anti,1.81,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,elephantiasis,contains:anti,1.67,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,elephantine,contains:anti,1.99,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,enantiomer,contains:anti,1.83,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,fanti,contains:anti,1.77,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,gallivanting,contains:anti,1.89,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,gigantism,contains:anti,1.89,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,guaranties,contains:anti,1.56,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,infantilism,contains:anti,1.53,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,instantiate,contains:anti,1.99,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,instantiating,contains:anti,1.57,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,konstantinos,contains:anti,1.96,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,mantic,contains:anti,1.57,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,mantid,contains:anti,1.53,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,mantids,contains:anti,1.61,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,mantilla,contains:anti,1.73,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,mantises,contains:anti,1.92,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,mantissa,contains:anti,1.8,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,mercantilist,contains:anti,1.86,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,nanticoke,contains:anti,1.85,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,necromantic,contains:anti,1.59,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,obscurantism,contains:anti,1.66,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,obscurantist,contains:anti,1.55,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,pantie,contains:anti,1.56,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,pedantically,contains:anti,1.62,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,quantic,contains:anti,1.77,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,quantile,contains:anti,1.87,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,quantitation,contains:anti,1.87,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,quantize,contains:anti,1.56,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,recanting,contains:anti,1.77,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,romanticise,contains:anti,1.63,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,romanticist,contains:anti,1.67,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,romanticizes,contains:anti,1.55,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,substantiates,contains:anti,1.88,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,substantiating,contains:anti,1.95,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,tanti,contains:anti,1.75,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,tradescantia,contains:anti,1.53,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,unsubstantial,contains:anti,1.59,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0950,Name an English word containing “anti”,vedantic,contains:anti,1.53,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,acreages,contains:age,1.74,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,adages,contains:age,1.67,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,afterimage,contains:age,1.78,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,agena,contains:age,1.67,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,agenesis,contains:age,1.87,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,almagest,contains:age,1.53,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,averagely,contains:age,1.75,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,badinage,contains:age,1.57,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,barraged,contains:age,1.75,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,bocage,contains:age,1.63,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,borage,contains:age,1.97,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,breakages,contains:age,1.98,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,brigandage,contains:age,1.6,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,cabotage,contains:age,1.52,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,cager,contains:age,1.54,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,camouflages,contains:age,1.66,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,carrageenan,contains:age,1.87,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,cartage,contains:age,1.72,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,cartilages,contains:age,1.8,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,coinages,contains:age,1.68,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,collagenase,contains:age,1.69,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,collagenous,contains:age,1.59,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,collagens,contains:age,1.65,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,concubinage,contains:age,1.76,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,cooperage,contains:age,1.86,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,cordage,contains:age,1.94,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,corkage,contains:age,1.51,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,corsages,contains:age,1.72,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,counterespionage,contains:age,1.68,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,curettage,contains:age,1.78,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,curtilage,contains:age,1.75,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,decoupage,contains:age,1.97,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,diagenesis,contains:age,1.62,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,diagenetic,contains:age,1.54,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,dinoflagellate,contains:age,1.73,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,disparages,contains:age,1.89,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,dockage,contains:age,1.53,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,dotage,contains:age,1.95,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,downstage,contains:age,1.91,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,dunnage,contains:age,1.59,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,encouragements,contains:age,1.77,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,encourager,contains:age,1.76,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,entourages,contains:age,1.55,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,equipage,contains:age,1.7,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,fage,contains:age,1.83,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,fager,contains:age,1.71,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,flagellar,contains:age,1.61,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,flagellate,contains:age,1.88,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,flagellated,contains:age,1.76,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,flagellates,contains:age,1.64,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,flagellating,contains:age,1.62,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,flowage,contains:age,1.72,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,footages,contains:age,1.96,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,frontages,contains:age,1.89,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,frottage,contains:age,1.52,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,fuselages,contains:age,1.9,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,garaged,contains:age,1.57,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,gavage,contains:age,1.65,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,hemorrhaged,contains:age,1.56,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,herbage,contains:age,1.83,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,hommage,contains:age,1.86,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,imagen,contains:age,1.83,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,interlanguage,contains:age,1.61,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,intermarriages,contains:age,1.63,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,interstage,contains:age,1.56,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,laager,contains:age,1.56,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,lovage,contains:age,1.79,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,luggages,contains:age,1.54,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,manageability,contains:age,1.74,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,manageress,contains:age,1.77,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,massagers,contains:age,1.59,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,meleager,contains:age,1.75,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,messuage,contains:age,1.53,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,metalanguage,contains:age,1.56,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,milage,contains:age,1.73,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,mileages,contains:age,1.63,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,millage,contains:age,1.96,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,mismanage,contains:age,1.61,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,mucilage,contains:age,1.77,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,mutagens,contains:age,1.75,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,nonagenarian,contains:age,1.56,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,outrageousness,contains:age,1.57,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,ouvrage,contains:age,1.51,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,overages,contains:age,1.92,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,overdosage,contains:age,1.62,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,overeager,contains:age,1.88,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,overvoltage,contains:age,1.61,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,packager,contains:age,1.76,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,packagers,contains:age,1.69,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,pageboy,contains:age,1.67,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,pasturage,contains:age,1.75,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,pelage,contains:age,1.75,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,peonage,contains:age,1.62,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,photomontage,contains:age,1.79,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,pilferage,contains:age,1.61,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,pilotage,contains:age,1.94,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,portages,contains:age,1.78,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,pottage,contains:age,1.79,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,poundage,contains:age,1.85,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,presages,contains:age,1.92,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,rampaged,contains:age,1.85,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,ravager,contains:age,1.89,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,ravagers,contains:age,1.76,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,reengage,contains:age,1.76,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,remortgage,contains:age,1.9,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,repechage,contains:age,1.8,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,rivage,contains:age,1.65,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,roughage,contains:age,1.91,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,rummages,contains:age,1.56,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,sagely,contains:age,1.96,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,salvages,contains:age,1.88,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,savageness,contains:age,1.5,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,scrappage,contains:age,1.68,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,scrimmages,contains:age,1.95,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,scrummage,contains:age,1.57,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,seigniorage,contains:age,1.73,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,selvage,contains:age,1.67,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,septuagenarian,contains:age,1.84,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,spillages,contains:age,1.56,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,stagecoaches,contains:age,1.76,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,stagehand,contains:age,1.93,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,stagehands,contains:age,1.93,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,stager,contains:age,1.9,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,stagers,contains:age,1.61,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,stagey,contains:age,1.56,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,swage,contains:age,1.57,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,swaged,contains:age,1.54,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,tanager,contains:age,1.93,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,tanagers,contains:age,1.59,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,tonnages,contains:age,1.82,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,tragedian,contains:age,1.65,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,uncaged,contains:age,1.91,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,unengaged,contains:age,1.7,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,unpackaged,contains:age,1.52,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,unsalvageable,contains:age,1.61,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,vassalage,contains:age,1.88,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,vernissage,contains:age,1.61,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,visages,contains:age,1.83,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,volkswagens,contains:age,1.76,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,voyaged,contains:age,1.67,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,voyageur,contains:age,1.89,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,voyageurs,contains:age,2.0,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,wagener,contains:age,1.85,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,wantage,contains:age,2.03,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0946,Name an English word containing “age”,yager,contains:age,2.01,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,absurdism,endswith:ism,1.61,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,adventurism,endswith:ism,1.94,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,aestheticism,endswith:ism,1.74,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,africanism,endswith:ism,1.97,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,alarmism,endswith:ism,1.86,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,anabolism,endswith:ism,1.51,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,anthropocentrism,endswith:ism,1.53,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,anticommunism,endswith:ism,1.53,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,antinomianism,endswith:ism,1.57,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,arabism,endswith:ism,1.8,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,arianism,endswith:ism,1.94,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,aristotelianism,endswith:ism,1.64,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,arminianism,endswith:ism,1.88,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,asterism,endswith:ism,1.51,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,atomism,endswith:ism,1.76,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,automatism,endswith:ism,1.81,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,automorphism,endswith:ism,1.93,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,brahmanism,endswith:ism,1.54,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,bruxism,endswith:ism,1.85,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,careerism,endswith:ism,1.7,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,casteism,endswith:ism,1.78,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,charism,endswith:ism,1.78,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,chartism,endswith:ism,1.6,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,chrism,endswith:ism,1.79,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,clericalism,endswith:ism,1.82,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,colorism,endswith:ism,1.98,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,communitarianism,endswith:ism,1.62,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,conceptualism,endswith:ism,1.67,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,conformism,endswith:ism,1.8,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,congregationalism,endswith:ism,1.56,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,constructionism,endswith:ism,1.74,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,cultism,endswith:ism,1.52,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,dadaism,endswith:ism,1.69,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,dichroism,endswith:ism,1.75,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,didacticism,endswith:ism,1.56,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,diffeomorphism,endswith:ism,1.54,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,dispensationalism,endswith:ism,1.61,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,druidism,endswith:ism,1.63,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,egocentrism,endswith:ism,1.57,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,emotionalism,endswith:ism,1.85,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,endemism,endswith:ism,1.66,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,epicureanism,endswith:ism,1.65,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,esotericism,endswith:ism,1.72,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,evolutionism,endswith:ism,1.72,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,experimentalism,endswith:ism,1.72,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,externalism,endswith:ism,1.5,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,fauvism,endswith:ism,1.54,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,ferromagnetism,endswith:ism,1.61,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,gangsterism,endswith:ism,1.73,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,geomagnetism,endswith:ism,1.51,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,germanism,endswith:ism,1.52,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,gigantism,endswith:ism,1.89,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,gradualism,endswith:ism,1.83,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,hasidism,endswith:ism,1.72,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,hellenism,endswith:ism,1.99,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,herbalism,endswith:ism,1.99,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,hermaphroditism,endswith:ism,1.64,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,hermeticism,endswith:ism,1.52,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,hirsutism,endswith:ism,1.78,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,holism,endswith:ism,1.89,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,homeomorphism,endswith:ism,1.65,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,homoeroticism,endswith:ism,1.69,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,hyperparathyroidism,endswith:ism,1.88,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,illusionism,endswith:ism,1.52,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,incrementalism,endswith:ism,1.72,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,industrialism,endswith:ism,1.83,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,infantilism,endswith:ism,1.53,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,initialism,endswith:ism,1.74,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,institutionalism,endswith:ism,1.76,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,interactionism,endswith:ism,1.76,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,intuitionism,endswith:ism,1.55,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,irredentism,endswith:ism,1.55,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,isomerism,endswith:ism,1.6,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,jansenism,endswith:ism,1.58,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,jism,endswith:ism,1.81,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,keynesianism,endswith:ism,1.86,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,loyalism,endswith:ism,1.56,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,machiavellianism,endswith:ism,1.63,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,magmatism,endswith:ism,1.98,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,manichaeism,endswith:ism,1.56,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,maximalism,endswith:ism,1.57,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,medievalism,endswith:ism,1.78,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,mentalism,endswith:ism,1.89,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,mesmerism,endswith:ism,1.85,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,messianism,endswith:ism,1.76,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,mithraism,endswith:ism,1.57,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,monarchism,endswith:ism,1.78,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,monetarism,endswith:ism,1.7,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,moralism,endswith:ism,1.91,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,morphism,endswith:ism,1.89,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,mosaicism,endswith:ism,1.66,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,mutism,endswith:ism,1.88,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,naturism,endswith:ism,1.99,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,negativism,endswith:ism,1.61,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,neoclassicism,endswith:ism,1.76,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,neocolonialism,endswith:ism,1.72,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,neoplatonism,endswith:ism,1.82,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,neorealism,endswith:ism,1.61,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,nomadism,endswith:ism,1.65,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,nominalism,endswith:ism,1.67,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,obscurantism,endswith:ism,1.66,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,panpsychism,endswith:ism,1.51,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,parkinsonism,endswith:ism,1.89,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,parliamentarism,endswith:ism,1.58,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,parochialism,endswith:ism,1.88,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,particularism,endswith:ism,1.6,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,pastoralism,endswith:ism,1.95,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,pelagianism,endswith:ism,1.6,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,pentecostalism,endswith:ism,1.99,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,personalism,endswith:ism,1.59,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,physicalism,endswith:ism,1.91,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,pietism,endswith:ism,1.82,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,pointillism,endswith:ism,1.78,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,priapism,endswith:ism,1.95,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,proselytism,endswith:ism,1.82,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,provincialism,endswith:ism,1.71,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,pugilism,endswith:ism,1.55,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,purism,endswith:ism,1.83,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,quakerism,endswith:ism,1.88,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,quietism,endswith:ism,1.53,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,racialism,endswith:ism,1.84,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,reformism,endswith:ism,1.93,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,revanchism,endswith:ism,1.54,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,revivalism,endswith:ism,1.96,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,ritualism,endswith:ism,1.64,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,sentimentalism,endswith:ism,1.8,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,serialism,endswith:ism,1.5,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,shiism,endswith:ism,1.66,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,shintoism,endswith:ism,1.66,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,somnambulism,endswith:ism,1.5,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,speciesism,endswith:ism,1.78,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,spiritism,endswith:ism,1.72,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,subjectivism,endswith:ism,1.74,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,supernaturalism,endswith:ism,1.57,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,superorganism,endswith:ism,1.5,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,survivalism,endswith:ism,1.6,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,synchronism,endswith:ism,1.5,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,synergism,endswith:ism,1.56,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,thomism,endswith:ism,1.67,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,thromboembolism,endswith:ism,1.96,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,toryism,endswith:ism,1.73,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,transcendentalism,endswith:ism,1.92,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,transsexualism,endswith:ism,1.83,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,transvestism,endswith:ism,1.72,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,tropism,endswith:ism,1.63,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,trotskyism,endswith:ism,1.8,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,tsarism,endswith:ism,1.53,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,unilateralism,endswith:ism,1.82,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,unitarianism,endswith:ism,1.94,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,unprofessionalism,endswith:ism,1.68,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,utopianism,endswith:ism,1.95,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,vitalism,endswith:ism,1.76,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,voluntarism,endswith:ism,1.92,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,witticism,endswith:ism,1.75,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
+KR0951,Name an English word ending in “-ism”,workaholism,endswith:ism,1.55,30,NOT_VERIFIED,English alpha word list + wordfreq English corpus; exact string criterion,INDEPENDENT_ESTIMATED_PRACTICE
