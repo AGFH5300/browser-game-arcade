@@ -1,0 +1,137 @@
+/* Source-measured centered Settings and Wardrobe dialogues; loaded last.
+   Original live geometry observed in Chromium 1440×900 (31 Oct 2026). */
+.deep-home .dd-reference-utility{top:84px!important;right:max(16px,calc((100% - 1060px)/2))!important;gap:6px!important}
+.deep-home .dd-reference-utility>button{width:34px!important;height:26px!important;border:2px solid #0a1a30!important;padding:2px!important}
+.deep-home .dd-reference-utility>button svg{height:20px!important;width:20px!important}
+.deep-home .dd-reference-utility>button:focus-visible{outline:2px solid #4de3ff;outline-offset:2px}
+.dd-source-dialog-overlay{position:fixed;inset:0;z-index:3000;display:grid;place-items:center;padding:10px}
+.dd-source-dialog-overlay .dd-global-settings-scrim{position:absolute;inset:0;background:rgba(1,6,16,.83);backdrop-filter:none}
+.dd-source-dialog-overlay .dd-source-dialog{
+ box-sizing:border-box!important;position:relative;width:430px!important;max-width:calc(100vw - 26px)!important;
+ height:auto;max-height:min(80vh,720px)!important;overflow:auto!important;
+ color:#e8f1ff!important;background-color:#101d33!important;
+ background-image:repeating-linear-gradient(0deg,rgba(0,0,0,.16) 0px,rgba(0,0,0,.16) 1px,transparent 1px,transparent 3px)!important;
+ border:1px solid #173252!important;box-shadow:0 0 0 3px #050a14,0 0 0 5px #1b3050,10px 10px 0 rgba(2,5,11,.85)!important;
+ font-family:"ReferenceVT323",monospace!important;font-size:16px!important;
+ padding:49px 19px 16px!important;border-radius:0!important;transform:none!important;
+}
+.dd-source-dialog-overlay .dd-source-dialog[aria-label=Settings]{height:720px!important}
+.dd-source-dialog-overlay .dd-source-close{
+ position:absolute;right:16px;top:15px;width:34px;height:30px;background:#101d33;color:#7d93b8;
+ font:25px/1 "ReferenceVT323",monospace;cursor:pointer;border:1px solid #294e72;box-shadow:inset 0 0 0 2px #061327;
+}
+.dd-source-dialog-overlay .dd-source-close:hover{color:#4de3ff;border-color:#4de3ff}
+.dd-source-preference-list{display:flex;flex-direction:column}
+.dd-source-preference{
+ margin:0!important;display:flex!important;align-items:center!important;justify-content:space-between!important;
+ box-sizing:border-box;padding:14px 2px!important;min-height:89px;
+ border-bottom:1px solid rgba(80,105,135,.22);gap:14px;cursor:pointer;
+}
+.dd-source-preference:nth-child(3){min-height:105px}
+.dd-source-preference-copy{min-width:0;flex:1;display:flex;flex-direction:column;gap:8px}
+.dd-source-preference-copy strong{font:17px/1 "ReferenceVT323",monospace!important;color:#e8f1ff!important;text-transform:uppercase;letter-spacing:1px;margin:0!important}
+.dd-source-preference-copy small{font:13px/1.1 "ReferenceVT323",monospace;color:#7d93b8!important;max-width:180px}
+.dd-source-switch{position:relative;display:flex;align-items:center;justify-content:center;flex:0 0 72px;height:34px;background:#020916;border:2px solid #13263e;box-sizing:border-box}
+.dd-source-switch input{position:absolute;inset:0;width:100%;height:100%;opacity:0;margin:0;cursor:pointer}
+.dd-source-switch span{min-width:34px;padding:4px 2px;text-align:center;font:14px/1 "ReferenceVT323",monospace;letter-spacing:1px;background:#4d6581;color:#071022;pointer-events:none}
+.dd-source-switch span::before{content:"OFF"}
+.dd-source-switch:has(input:checked){border-color:#4de3ff;box-shadow:0 0 0 1px #4de3ff}
+.dd-source-switch:has(input:checked) span{background:#4de3ff}
+.dd-source-switch:has(input:checked) span::before{content:"ON"}
+.dd-source-switch:has(input:focus-visible){outline:2px solid #ff5d8f;outline-offset:3px}
+.dd-source-settings-account{margin-top:18px}
+.dd-source-settings-account>p{font:13px "ReferenceVT323",monospace;letter-spacing:1.7px;color:#7d93b8;margin:0 0 13px}
+.dd-source-settings-account-link{display:block;width:100%;height:47px;background:#142643;color:#91abc9;border:2px solid #051429;box-shadow:3px 4px 0 #030a17;cursor:pointer;letter-spacing:1.8px;font:17px "ReferenceVT323",monospace}
+.dd-source-settings-restore{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:10px;border-top:1px solid #22364e;padding-top:10px}
+.dd-source-settings-restore span{max-width:160px;color:#7d93b8;font:12px/1.2 "ReferenceVT323",monospace}
+.dd-source-settings-restore button{background:#132641;color:#97abc9;border:1px solid #2b4665;padding:12px;cursor:pointer;font:14px "ReferenceVT323",monospace;letter-spacing:1px}
+.dd-source-settings-links{display:flex;gap:22px;margin-top:12px;font:12px "ReferenceVT323",monospace;color:#677e9e}
+.dd-source-wardrobe-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:4px 0 0}
+.dd-source-wardrobe-key{box-sizing:border-box;min-height:144px!important;width:100%;border:2px solid #06162b;background:#101d33!important;
+ box-shadow:inset 0 0 0 1px #2b4564;color:#e8f1ff;font:16px "ReferenceVT323",monospace;text-transform:uppercase;
+ cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;padding:16px 8px 12px!important}
+.dd-source-wardrobe-key img{width:58px;height:58px;object-fit:contain;image-rendering:pixelated}
+.dd-source-wardrobe-key strong{font:14px "ReferenceVT323",monospace;letter-spacing:1.5px}
+.dd-source-wardrobe-key small{font:12px "ReferenceVT323",monospace;letter-spacing:1px;color:#607c9d}
+.dd-source-wardrobe-key.selected{border-color:#4de3ff;box-shadow:inset 0 0 0 1px #4de3ff,0 0 14px #4de3ff33}
+.dd-source-wardrobe-key.locked{opacity:.42;cursor:not-allowed}
+.dd-source-wardrobe-key:not(:disabled):hover{border-color:#ff5d8f;color:#4de3ff}
+@media(max-width:650px){
+ .deep-home .dd-reference-utility{top:70px!important;right:10px!important;gap:6px!important}
+ .deep-home .dd-reference-utility>button{width:34px!important;height:26px!important;padding:2px!important}
+ .deep-home .dd-reference-utility>button svg{width:20px!important;height:20px!important}
+ .dd-source-dialog-overlay .dd-source-dialog{max-width:calc(100vw - 32px)!important;max-height:calc(100dvh - 28px)!important}
+ .dd-source-dialog-overlay .dd-source-dialog[aria-label=Settings]{height:auto!important}
+ .dd-source-wardrobe-grid{gap:10px}
+ .dd-source-wardrobe-key{min-height:132px!important}
+ .dd-source-wardrobe-key img{width:48px;height:48px}
+}
+@media(prefers-reduced-motion:reduce){.dd-source-dialog-overlay *, .dd-source-wardrobe-key{transition:none!important;animation:none!important}}
+
+
+/* Original gameplay shows the sound utility only; Settings and Wardrobe are
+   home/menu controls and must not overlap the answering HUD. */
+.dd-game-screen:not(.dd-done-screen) .dd-reference-utility .dd-source-settings-trigger,
+.dd-game-screen:not(.dd-done-screen) .dd-reference-utility .dd-source-wardrobe-trigger{display:none!important}
+
+/* Source Unlimited keeps its seasonal mascot and shifts controls lower. */
+@media(min-width:651px){
+ .deep-home[data-mode="endless"][data-phase="intro"] .dd-sea-center{transform:translateY(57px)!important}
+ .deep-home[data-mode="endless"][data-phase="intro"] .dd-home-mascot{
+  display:block!important;position:absolute;left:calc(50% + 182px)!important;
+  top:52px!important;width:72px!important;height:73px!important;
+  object-fit:contain;image-rendering:pixelated;animation:ds-swim 2.6s cubic-bezier(.65,0,.35,1) infinite;
+  z-index:8;pointer-events:none
+ }
+}
+@media(max-width:650px){
+ .deep-home[data-mode="endless"][data-phase="intro"] .dd-sea-center{transform:translateY(86px)!important}
+ .deep-home[data-mode="endless"][data-phase="intro"] .dd-home-mascot{
+  display:block!important;position:absolute;left:calc(50% + 44px)!important;
+  top:72px!important;width:65px!important;height:67px!important;
+  object-fit:contain;image-rendering:pixelated;animation:ds-swim 2.6s cubic-bezier(.65,0,.35,1) infinite;
+  z-index:8;pointer-events:none
+ }
+}
+.deep-home[data-mode="endless"] .dd-rules[open]{
+ max-height:min(50svh,420px);overflow-y:auto;overscroll-behavior:contain;
+ scrollbar-color:#2b7385 #071427;scrollbar-width:thin;
+}
+
+/* Source navigation measured at 1440x900 and 390x844:
+   the panel nearly fills the mobile viewport; mobile tiles are 76px tall. */
+.dd-source-menu-backdrop{background:rgba(0,0,0,.82)!important;padding:16px 12px!important}
+.dd-source-menu-panel{height:min(844px,calc(100svh - 32px))!important}
+@media(max-width:650px){
+ .dd-source-menu-panel{width:calc(100vw - 32px)!important}
+ .dd-source-menu-link,.dd-source-menu-faq>summary{height:76px!important}
+}
+
+/* Mobile source overlay geometry measured on original Krillion at 390x844. */
+.dd-source-dialog-overlay .dd-source-close{right:18px}
+@media(max-width:650px){
+ .dd-source-dialog-overlay .dd-source-dialog{max-width:calc(100vw - 36px)!important}
+ .dd-source-dialog-overlay .dd-source-dialog[aria-label=Settings]{
+  width:354px!important;height:720px!important;max-height:calc(100dvh - 32px)!important;
+  padding:48px 16px 16px!important
+ }
+ .dd-source-dialog-overlay .dd-source-dialog[aria-label=Wardrobe]{
+  width:354px!important;padding:50px 16px 13px!important
+ }
+ .dd-source-dialog-overlay .dd-source-preference{min-height:105px!important}
+ .dd-source-dialog-overlay .dd-source-preference:nth-child(3){min-height:121px!important}
+ .dd-source-dialog-overlay .dd-source-wardrobe-grid{gap:14px!important}
+ .dd-source-dialog-overlay .dd-source-wardrobe-key{min-height:144px!important}
+}
+
+/* Toolbar uses the delivered source SVG paths and original dark 85% resting
+   opacity, not the brighter handcrafted 24px placeholders. */
+.deep-home .dd-reference-utility>button{
+ background:rgba(11,21,38,.75)!important;color:#7d93b8!important;
+ opacity:.85!important;border:1px solid #213854!important;box-shadow:none!important;
+}
+.deep-home .dd-reference-utility>button:hover{
+ color:#4de3ff!important;opacity:1!important;border-color:#4de3ff!important;
+ background:rgba(16,29,51,.95)!important
+}
+.deep-home .dd-reference-utility>button svg{width:20px!important;height:20px!important}

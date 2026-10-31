@@ -1,0 +1,38 @@
+
+/* Source guest Account/Friends visual hierarchy, independent account backend. */
+.ds-social-source-gate{background:linear-gradient(180deg,#0b1b32 0%,#061224 65%,#020813 100%)!important}
+.ds-social-source-gate>header{max-width:712px!important;text-align:left!important;margin:0 auto 42px!important;padding:0!important}
+.ds-social-source-gate>header>span{font-size:0!important;height:32px;margin-bottom:3px}
+.ds-social-source-gate>header>span::after{content:"KRILLION";font:22px "ReferenceVT323",monospace;color:#ff5d8f;letter-spacing:4px}
+.ds-social-source-gate>header>small{font:14px "ReferenceVT323",monospace!important;color:#4de3ff!important;letter-spacing:2px;margin:14px 0 13px!important}
+.ds-social-source-gate>header>h1{font-size:clamp(44px,4.8vw,57px)!important;font-family:"ReferenceVT323",monospace;letter-spacing:.02em;margin:0 0 14px!important;color:#e8f1ff;line-height:1.03}
+.ds-social-source-gate>header>p{font-size:18px!important;color:#7d93b8!important;margin:0!important}
+.ds-social-source-gate .ds-social-card{box-sizing:border-box;max-width:712px!important;margin-left:auto!important;margin-right:auto!important;padding:29px 24px!important;border:1px solid #1b3451!important;background:#0c192c!important;box-shadow:none!important}
+.ds-social-source-gate .ds-social-card h2{color:#e8f1ff!important;font-size:25px!important;letter-spacing:.02em!important;margin:0 0 12px!important}
+.ds-social-source-gate .ds-social-card p{font-size:17px!important;color:#7d93b8!important;margin:0 0 13px!important;line-height:1.15}
+.ds-social-source-gate .ds-social-identity .ds-social-expand{background:#ff5d8f!important;border:0!important;color:#071124!important;min-height:47px;padding:12px 24px!important;font:17px "ReferenceVT323",monospace!important;letter-spacing:1.8px}
+.ds-social-source-gate .ds-social-disclaimer{margin:16px 0 0!important;color:#7d93b8!important;font-size:14px!important;line-height:1.2!important}
+.ds-social-source-gate .ds-social-identity .ds-social-switch{margin-top:18px}
+.ds-social-source-gate .ds-social-friend-teaser{margin-top:34px!important}
+.ds-social-source-gate .ds-social-friend-teaser .ds-social-button{font:16px "ReferenceVT323",monospace;letter-spacing:2px;padding:13px 16px}
+@media(max-width:760px){
+ .ds-social-source-gate{padding:88px 20px 55px!important}
+ .ds-social-source-gate .ds-social-card{padding:23px 21px!important}
+ .ds-social-source-gate>header{margin-bottom:28px!important}
+}
+
+
+.ds-social-source-gate .ds-social-identity{min-height:288px}
+@media(max-width:760px){.ds-social-source-gate>header{margin-bottom:35px!important}}
+
+.ds-social-source-gate .ds-social-device{box-sizing:border-box;max-width:712px;margin:34px auto 0;border-top:1px dotted #24445f;padding-top:19px}
+.ds-social-source-gate .ds-social-device h2{color:#7d93b8;letter-spacing:2px;font:13px "ReferenceVT323",monospace;margin:0 0 15px}
+.ds-social-source-gate .ds-social-device div{display:flex;gap:20px;flex-wrap:wrap}
+.ds-social-source-gate .ds-social-device span{display:flex;flex-direction:column;color:#7d93b8;font:14px "ReferenceVT323",monospace;letter-spacing:1px}
+.ds-social-source-gate .ds-social-device b{color:#e8f1ff;font-size:27px}
+@media(max-width:760px){
+ .ds-social-source-gate{padding-top:77px!important}
+ .ds-social-source-gate>header{margin-bottom:6px!important}
+ .ds-social-source-gate.ds-social-view-account .ds-social-identity{min-height:392px}
+ .ds-social-source-gate.ds-social-view-friends .ds-social-identity{min-height:347px}
+}

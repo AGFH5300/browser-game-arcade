@@ -17,7 +17,7 @@
  '<div class="dd-source-menu-grid">',
  '<button type="button" class="dd-source-menu-link active" data-menu-view="daily"><svg viewBox="0 0 20 20" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true"><path d="M9 2h2v10h5v2h-2v2h-2v2H8v-2H6v-2H4v-2h5z" fill-rule="evenodd"></path></svg><span>DAILY DIVE</span></button>',
  '<button type="button" class="dd-source-menu-link" data-menu-view="endless"><span class="menu-symbol">∞</span><span>UNLIMITED</span></button>',
- '<button type="button" class="dd-source-menu-link" data-menu-view="party"><img src="./reference-art/puffer.png" alt=""><span>PUFFER PARTY</span></button>',
+ '<button type="button" class="dd-source-menu-link" data-menu-view="party"><img src="./reference-assets/gen/party/puffer-0.png" alt=""><span>PUFFER PARTY</span></button>',
  '<button type="button" class="dd-source-menu-link" data-menu-view="archive"><span class="menu-symbol">⟲</span><span>ARCHIVE</span></button>',
  '<button type="button" class="dd-source-menu-link" data-menu-view="worlds"><svg viewBox="0 0 20 20" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true"><path d="M2 2h6v6H2z M12 2h6v6h-6z M2 12h6v6H2z M12 12h6v6h-6z" fill-rule="evenodd"></path></svg><span>THEMED PACKS</span></button>',
  '<button type="button" class="dd-source-menu-link" data-menu-view="account"><svg viewBox="0 0 20 20" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true"><path d="M7 2h6v2h2v6h-2v2H7v-2H5V4h2z M5 14h10v2h2v3H3v-3h2z" fill-rule="evenodd"></path></svg><span>MY KRILLION</span></button>',

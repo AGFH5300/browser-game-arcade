@@ -6,23 +6,40 @@
  const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const query=new URLSearchParams(location.search);
  try{if(!query.get('friend')&&parent!==window)query.set('friend',new URLSearchParams(parent.location.search).get('friend')||'')}catch{}
- let profile=null,friends=[],standings=null,rankings=[],view='friends',mounted=false,loginMode='login',loading=false,error='',message='',initialFriend=String(query.get('friend')||'').slice(0,128),wired=false;
+ let profile=null,friends=[],standings=null,rankings=[],view='friends',mounted=false,loginMode='login',loginExpanded=false,loading=false,error='',message='',initialFriend=String(query.get('friend')||'').slice(0,128),wired=false;
  // Profile getters stay live after login, not a snapshot taken during script evaluation.
  const request=async(action,body=null)=>{
   const url=API+(body?'':'?action='+encodeURIComponent(action));
   const response=await fetch(url,{method:body?'POST':'GET',credentials:'same-origin',cache:'no-store',headers:body?{'Content-Type':'application/json'}:undefined,body:body?JSON.stringify({action,...body}):undefined});
-  const data=await response.json();if(!response.ok)throw Error(data.error||'Request failed');return data;
+  const type=response.headers.get('content-type')||'';
+  if(!type.includes('application/json'))throw Error('Sidequest account service is unavailable in this environment.');
+  const data=await response.json();if(!response.ok)throw Error(data.error||'Account service is temporarily unavailable');return data;
  };
  const button=(act,txt,cls='')=>'<button type="button" class="ds-social-button '+cls+'" data-social="'+act+'">'+txt+'</button>';
  const warning=()=>error?'<div class="ds-social-notice" role="alert">'+esc(error)+'</div>':message?'<div class="ds-social-notice success" role="status">'+esc(message)+'</div>':'';
- const login=()=>'<section class="ds-social-page ds-social-gate"><header><span>KRILLION</span><small>'+ (view==='friends'?'BETTER WITH COMPANY':'MY KRILLION') +'</small><h1>'+(view==='friends'?'Friends':'Your diver’s logbook')+'</h1></header>'+
-  '<div class="ds-social-card"><p>'+(view==='friends'?'Bring your friends along. Create a Sidequest account to add friends and compare verified daily scores. Your leaderboard is only you and your friends.':'One history, your daily streak, unlocked characters, friends and rated Puffer Party games.')+'</p>'+
-  '<div class="ds-social-switch">'+button('loginMode','SIGN IN',loginMode==='login'?'selected':'')+button('registerMode','CREATE ACCOUNT',loginMode==='register'?'selected':'')+'</div>'+
-  '<form id="ds-social-auth"><label>USERNAME<input name="username" autocomplete="username" minlength="3" maxlength="18" pattern="[A-Za-z0-9_]{3,18}" required placeholder="your_diver_name"></label>'+
-  (loginMode==='register'?'<label>DISPLAY NAME<input name="displayName" autocomplete="nickname" maxlength="24" placeholder="Your diver name"></label>':'')+
-  '<label>PASSWORD<input name="password" type="password" autocomplete="'+(loginMode==='register'?'new-password':'current-password')+'" minlength="10" maxlength="128" required></label>'+
-  '<button type="submit" class="ds-social-button primary" '+(loading?'disabled':'')+'>'+(loginMode==='register'?'CREATE ACCOUNT':'SIGN IN')+'</button></form>'+
-  '<p class="ds-social-disclaimer">This is a Sidequest account, independent of the original Krillion. Passwords are protected using salted hashing; no Google sign-in or purchase is required.</p></div>'+warning()+'</section>';
+ const login=()=>{
+   const friendsView=view==='friends';
+   let device={};try{device=JSON.parse(localStorage.getItem('sidequest:deep-dive:player:v1')||'{}')}catch{}
+   const pageTitle=friendsView?'Friends':'My Krillion';
+   const eyebrow=friendsView?'BETTER WITH COMPANY':'YOUR DIVER’S LOGBOOK';
+   const heading=friendsView?'Bring your friends along.':'Keep your dives together.';
+   const detail=friendsView
+     ?'Sign in to add friends and compare daily scores and answers. Your private leaderboard is just you and your friends.'
+     :'Sign in to save your streaks, scores, and completed games. Free for every diver.';
+   const form=loginExpanded?'<div class="ds-social-switch">'+button('loginMode','SIGN IN',loginMode==='login'?'selected':'')+button('registerMode','CREATE ACCOUNT',loginMode==='register'?'selected':'')+'</div>'+
+      '<form id="ds-social-auth"><label>USERNAME<input name="username" autocomplete="username" minlength="3" maxlength="18" pattern="[A-Za-z0-9_]{3,18}" required placeholder="your_diver_name"></label>'+
+      (loginMode==='register'?'<label>DISPLAY NAME<input name="displayName" autocomplete="nickname" maxlength="24" placeholder="Your diver name"></label>':'')+
+      '<label>PASSWORD<input name="password" type="password" autocomplete="'+(loginMode==='register'?'new-password':'current-password')+'" minlength="10" maxlength="128" required></label>'+
+      '<button type="submit" class="ds-social-button primary" '+(loading?'disabled':'')+'>'+(loginMode==='register'?'CREATE ACCOUNT':'SIGN IN')+'</button></form>'
+      :button('expandLogin','CONTINUE WITH SIDEQUEST','primary ds-social-expand');
+   return '<section class="ds-social-page ds-social-gate ds-social-source-gate ds-social-view-'+(friendsView?'friends':'account')+'"><header><span>KRILLION</span><small>'+eyebrow+'</small><h1>'+pageTitle+'</h1>'+
+      (!friendsView?'<p>Your dives. One history. Every device.</p>':'')+'</header>'+
+      '<div class="ds-social-card ds-social-identity"><h2>'+heading+'</h2><p>'+detail+'</p>'+form+
+      '<p class="ds-social-disclaimer">'+(friendsView?'Sign in before inviting your friends.':'Sidequest accounts are independent of original Krillion. We keep your saved progress on your account, and do not require purchases.')+'</p></div>'+
+      (!friendsView?'<div class="ds-social-card ds-social-friend-teaser"><h2>Dive with your friends.</h2><p>Invite friends and compare daily scores after you finish.</p>'+button('viewFriends','FRIENDS LEADERBOARD →','muted')+'</div>'+
+      '<section class="ds-social-device"><h2>ON THIS DEVICE</h2><div><span>CURRENT STREAK <b>'+Number(device.streak||0)+'</b></span><span>BEST DIVE <b>'+Number(device.endlessBest||0)+'</b></span><span>COMPLETED DIVES <b>'+Number(device.runs||0)+'</b></span></div></section>':'')+
+      warning()+'</section>';
+ };
  const leaderboard=()=>'<div class="ds-social-card"><h2>FRIENDS DAILY BOARD</h2>'+
    (!standings?.complete?'<p>Complete today’s Daily Dive to unlock your friends’ scores without spoilers.</p>':
     standings.standings?.length?'<ol class="ds-social-standing">'+standings.standings.map((s,i)=>'<li><strong>'+(i+1)+'. '+esc(s.displayName)+'</strong><span>'+s.points+' PTS'+(s.me?' · YOU':'')+'</span></li>').join('')+'</ol>':'<p>No friends have finished today’s dive yet.</p>')+'</div>';
@@ -38,7 +55,7 @@
     '<ol class="ds-social-standing">'+rankings.map((a,i)=>'<li><strong>'+(i+1)+'. '+esc(a.display_name||a.username)+'</strong><span>'+a.rating+' ELO · '+a.rated_games+' GAMES</span></li>').join('')+'</ol>')+'</div>';
  const signedIn=()=>{
   const url=location.origin+'/games/deep-dive?friend='+encodeURIComponent(profile.inviteToken);
-  return '<section class="ds-social-page"><header><span>KRILLION</span><small>'+ (view==='friends'?'BETTER WITH COMPANY':'MY KRILLION') +'</small><h1>'+(view==='friends'?'Friends':'Your diver’s logbook')+'</h1><p>Signed in as @'+esc(profile.username)+'</p></header>'+
+  return '<section class="ds-social-page"><header><span>KRILLION</span><small>'+ (view==='friends'?'BETTER WITH COMPANY':'MY KRILLION') +'</small><h1>'+(view==='friends'?'Friends':'My Krillion')+'</h1><p>Signed in as @'+esc(profile.username)+'</p></header>'+
    '<div class="ds-social-tabs">'+button('viewFriends','FRIENDS',view==='friends'?'selected':'')+button('viewAccount','MY KRILLION',view==='account'?'selected':'')+'</div>'+
    warning()+
    (view==='friends'?'<div class="ds-social-grid"><div><div class="ds-social-card"><h2>INVITE A FRIEND</h2><p>Only people you add can appear in your private Friends leaderboard.</p>'+
@@ -67,6 +84,7 @@
  const clicks=async e=>{
   const b=e.target.closest('[data-social]');if(!b)return;
   const action=b.dataset.social;
+  if(action==='expandLogin'){loginExpanded=true;error='';paint();return}
   if(action==='loginMode'||action==='registerMode'){loginMode=action==='loginMode'?'login':'register';error='';paint();return}
   if(action==='viewFriends'||action==='viewAccount'){
    const destination=action==='viewFriends'?'friends':'account';
@@ -97,7 +115,9 @@
  };
  const mount=({root:where,view:nextView})=>{
   if(where!==root)return;
-  view=nextView==='account'?'account':'friends';mounted=true;error='';message='';
+  const resolvedView=nextView==='account'?'account':'friends';
+  if(view!==resolvedView)loginExpanded=false;
+  view=resolvedView;mounted=true;error='';message='';
   paint();void refresh();
  };
  window.DeepDiveSocial={get profile(){return profile},mount,refresh,syncDaily};
