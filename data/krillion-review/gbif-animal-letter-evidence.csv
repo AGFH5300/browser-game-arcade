@@ -1,0 +1,117 @@
+candidate_index,id,prompt,original_model_suggestion,reviewed_name,verified,gbif_taxon_key,scientific_name,source,original_publisher_acceptance,score_source
+25,KR0830,Name an animal whose name starts with T,Tasmanian devil,Tasmanian devil,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+26,KR0830,Name an animal whose name starts with T,Tasmanian wolf (*Thylacinus cynocephalus*),Tasmanian wolf,EXACT_ENGLISH_SPECIES_AND_LETTER,102123814,Thylacinus cynocephalus,https://www.gbif.org/species/102123814,NOT_VERIFIED,ESTIMATED_ONLY
+27,KR0830,Name an animal whose name starts with T,Tasmanian bettong (*Bettongia gaimardi*),Tasmanian bettong,EXACT_ENGLISH_SPECIES_AND_LETTER,2440025,Bettongia gaimardi,https://www.gbif.org/species/2440025,NOT_VERIFIED,ESTIMATED_ONLY
+28,KR0830,Name an animal whose name starts with T,Tasmanian pademelon (*Thylogale billardierii*),Tasmanian pademelon,EXACT_ENGLISH_SPECIES_AND_LETTER,231548934,Thylogale billardierii,https://www.gbif.org/species/231548934,NOT_VERIFIED,ESTIMATED_ONLY
+29,KR0830,Name an animal whose name starts with T,Tasmanian native cat (*Dasyurus maculatus*),Tasmanian native cat,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+30,KR0830,Name an animal whose name starts with T,Tasmanian tree frog (*Litoria tasmaniensis*),Tasmanian tree frog,EXACT_ENGLISH_SPECIES_AND_LETTER,2427899,Litoria burrowsi,https://www.gbif.org/species/2427899,NOT_VERIFIED,ESTIMATED_ONLY
+31,KR0830,Name an animal whose name starts with T,Tasmanian blue-tongued skink (*Tiliqua nigrolutea*),Tasmanian blue-tongued skink,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+32,KR0830,Name an animal whose name starts with T,Tasmanian giant burrowing cockroach (*Macropanesthia rhinoceros*),Tasmanian giant burrowing cockroach,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+33,KR0830,Name an animal whose name starts with T,Tasmanian giant wētā (*Deinacrida tasmanica*),Tasmanian giant wētā,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+34,KR0830,Name an animal whose name starts with T,Tasmanian tiger beetle (*Cicindela tasmaniae*),Tasmanian tiger beetle,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+35,KR0830,Name an animal whose name starts with T,Tasmanian wombat (*Vombatus ursinus*),Tasmanian wombat,EXACT_ENGLISH_SPECIES_AND_LETTER,196077784,Vombatus ursinus,https://www.gbif.org/species/196077784,NOT_VERIFIED,ESTIMATED_ONLY
+48,KR0789,Name an animal whose name starts with D,Dusky salamander,Dusky salamander,EXACT_ENGLISH_SPECIES_AND_LETTER,2431224,Desmognathus fuscus,https://www.gbif.org/species/2431224,NOT_VERIFIED,ESTIMATED_ONLY
+49,KR0789,Name an animal whose name starts with D,Dakota deer mouse,Dakota deer mouse,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+50,KR0789,Name an animal whose name starts with D,Dama gazelle,Dama gazelle,EXACT_ENGLISH_SPECIES_AND_LETTER,134091985,Nanger dama,https://www.gbif.org/species/134091985,NOT_VERIFIED,ESTIMATED_ONLY
+51,KR0789,Name an animal whose name starts with D,Dwarf elephant shrew,Dwarf elephant shrew,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+52,KR0789,Name an animal whose name starts with D,Dwarf long-tailed weasel,Dwarf long-tailed weasel,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+53,KR0789,Name an animal whose name starts with D,Dwarf pangolin,Dwarf pangolin,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+54,KR0789,Name an animal whose name starts with D,Dwarf pygmy tamarin,Dwarf pygmy tamarin,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+55,KR0789,Name an animal whose name starts with D,Dusky titi,Dusky titi,EXACT_ENGLISH_SPECIES_AND_LETTER,195833787,Callicebus moloch,https://www.gbif.org/species/195833787,NOT_VERIFIED,ESTIMATED_ONLY
+56,KR0789,Name an animal whose name starts with D,Dwarf wombat,Dwarf wombat,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+57,KR0789,Name an animal whose name starts with D,Dwarf hippopotamus,Dwarf hippopotamus,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+58,KR0789,Name an animal whose name starts with D,Dusky rat-kangaroo,Dusky rat-kangaroo,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+59,KR0789,Name an animal whose name starts with D,Dwarf cuscus,Dwarf cuscus,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+60,KR0789,Name an animal whose name starts with D,Dwarf lemur,Dwarf lemur,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+61,KR0789,Name an animal whose name starts with D,Dusky seaside sparrow,Dusky seaside sparrow,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+62,KR0789,Name an animal whose name starts with D,Dwarf elephant bird,Dwarf elephant bird,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+63,KR0789,Name an animal whose name starts with D,Dusky shrew,Dusky shrew,EXACT_ENGLISH_SPECIES_AND_LETTER,231545174,Sorex monticolus,https://www.gbif.org/species/231545174,NOT_VERIFIED,ESTIMATED_ONLY
+64,KR0789,Name an animal whose name starts with D,dusky leaf-nosed bat,dusky leaf-nosed bat,EXACT_ENGLISH_SPECIES_AND_LETTER,100700709,Hipposideros ater,https://www.gbif.org/species/100700709,NOT_VERIFIED,ESTIMATED_ONLY
+65,KR0789,Name an animal whose name starts with D,dusky tit,dusky tit,EXACT_ENGLISH_SPECIES_AND_LETTER,2487933,Parus funereus,https://www.gbif.org/species/2487933,NOT_VERIFIED,ESTIMATED_ONLY
+66,KR0789,Name an animal whose name starts with D,dwarf flying fox,dwarf flying fox,EXACT_ENGLISH_SPECIES_AND_LETTER,231543420,Pteropus woodfordi,https://www.gbif.org/species/231543420,NOT_VERIFIED,ESTIMATED_ONLY
+67,KR0789,Name an animal whose name starts with D,dusky warbler,dusky warbler,EXACT_ENGLISH_SPECIES_AND_LETTER,133152242,Phylloscopus fuscatus,https://www.gbif.org/species/133152242,NOT_VERIFIED,ESTIMATED_ONLY
+68,KR0789,Name an animal whose name starts with D,dusky antechinus,dusky antechinus,EXACT_ENGLISH_SPECIES_AND_LETTER,102123743,Antechinus swainsonii,https://www.gbif.org/species/102123743,NOT_VERIFIED,ESTIMATED_ONLY
+69,KR0789,Name an animal whose name starts with D,dwarf beaked whale,dwarf beaked whale,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+70,KR0789,Name an animal whose name starts with D,dusky grasswren,dusky grasswren,EXACT_ENGLISH_SPECIES_AND_LETTER,165927709,Amytornis purnelli,https://www.gbif.org/species/165927709,NOT_VERIFIED,ESTIMATED_ONLY
+71,KR0789,Name an animal whose name starts with D,dusky copper butterfly,dusky copper butterfly,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+82,KR0853,Name an animal whose name starts with R,Ratel (Honey badger),Ratel,EXACT_ENGLISH_SPECIES_AND_LETTER,2433695,Mellivora capensis,https://www.gbif.org/species/2433695,NOT_VERIFIED,ESTIMATED_ONLY
+83,KR0853,Name an animal whose name starts with R,Ragworm (Nereis virens),Ragworm,EXACT_ENGLISH_SPECIES_AND_LETTER,2316069,Perinereis cultrifera,https://www.gbif.org/species/2316069,NOT_VERIFIED,ESTIMATED_ONLY
+84,KR0853,Name an animal whose name starts with R,Reticulated giraffe (*Giraffa reticulata*),Reticulated giraffe,EXACT_ENGLISH_SPECIES_AND_LETTER,134091628,Giraffa reticulata,https://www.gbif.org/species/134091628,NOT_VERIFIED,ESTIMATED_ONLY
+85,KR0853,Name an animal whose name starts with R,Rough-skinned newt (*Taricha granulosa*),Rough-skinned newt,EXACT_ENGLISH_SPECIES_AND_LETTER,273204944,Taricha granulosa,https://www.gbif.org/species/273204944,NOT_VERIFIED,ESTIMATED_ONLY
+86,KR0853,Name an animal whose name starts with R,Ruffed grouse (*Bonasa umbellus*),Ruffed grouse,EXACT_ENGLISH_SPECIES_AND_LETTER,206229933,Bonasa umbellus,https://www.gbif.org/species/206229933,NOT_VERIFIED,ESTIMATED_ONLY
+87,KR0853,Name an animal whose name starts with R,Rhinoceros auklet (*Cerorhinca monocerata*),Rhinoceros auklet,EXACT_ENGLISH_SPECIES_AND_LETTER,133141159,Cerorhinca monocerata,https://www.gbif.org/species/133141159,NOT_VERIFIED,ESTIMATED_ONLY
+88,KR0853,Name an animal whose name starts with R,Rough-legged falcon (*Buteo lagopus*),Rough-legged falcon,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+89,KR0853,Name an animal whose name starts with R,Reticulated python (*Malayopython reticulatus*),Reticulated python,EXACT_ENGLISH_SPECIES_AND_LETTER,160059619,Malayopython reticulatus,https://www.gbif.org/species/160059619,NOT_VERIFIED,ESTIMATED_ONLY
+90,KR0853,Name an animal whose name starts with R,Ragged-tooth shrew (*Suncus lixus*),Ragged-tooth shrew,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+91,KR0853,Name an animal whose name starts with R,Roughskin sculpin (*Artediellus atlanticus*),Roughskin sculpin,EXACT_ENGLISH_SPECIES_AND_LETTER,102053832,Rastrinus scutiger,https://www.gbif.org/species/102053832,NOT_VERIFIED,ESTIMATED_ONLY
+92,KR0853,Name an animal whose name starts with R,Rusty spider (*Araneus rusticus*),Rusty spider,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+93,KR0853,Name an animal whose name starts with R,Ragged-fringed orchid mantis (*Hymenopus coronatus*),Ragged-fringed orchid mantis,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+94,KR0853,Name an animal whose name starts with R,Reticulated pygmy squirrel (*Sundasciurus rabori*),Reticulated pygmy squirrel,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+95,KR0853,Name an animal whose name starts with R,Rough-toothed dolphin (*Steno bredanensis*),Rough-toothed dolphin,EXACT_ENGLISH_SPECIES_AND_LETTER,102117027,Steno bredanensis,https://www.gbif.org/species/102117027,NOT_VERIFIED,ESTIMATED_ONLY
+96,KR0853,Name an animal whose name starts with R,Ragged-tooth catfish (*Pimelodella latidens*),Ragged-tooth catfish,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+97,KR0853,Name an animal whose name starts with R,Rough-legged hawk (*Buteo lagopus*),Rough-legged hawk,EXACT_ENGLISH_SPECIES_AND_LETTER,202601916,Buteo lagopus,https://www.gbif.org/species/202601916,NOT_VERIFIED,ESTIMATED_ONLY
+98,KR0853,Name an animal whose name starts with R,Ragged-tooth shrew (*Suncus murinus*),Ragged-tooth shrew,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+99,KR0853,Name an animal whose name starts with R,Ring-tailed cat,Ring-tailed cat,EXACT_ENGLISH_SPECIES_AND_LETTER,2433557,Bassariscus astutus,https://www.gbif.org/species/2433557,NOT_VERIFIED,ESTIMATED_ONLY
+100,KR0853,Name an animal whose name starts with R,Ruddy duck,Ruddy duck,EXACT_ENGLISH_SPECIES_AND_LETTER,181869584,Oxyura jamaicensis,https://www.gbif.org/species/181869584,NOT_VERIFIED,ESTIMATED_ONLY
+101,KR0853,Name an animal whose name starts with R,Reticulated giraffe,Reticulated giraffe,EXACT_ENGLISH_SPECIES_AND_LETTER,134091628,Giraffa reticulata,https://www.gbif.org/species/134091628,NOT_VERIFIED,ESTIMATED_ONLY
+102,KR0853,Name an animal whose name starts with R,Ricefield rat,Ricefield rat,EXACT_ENGLISH_SPECIES_AND_LETTER,231540076,Rattus argentiventer,https://www.gbif.org/species/231540076,NOT_VERIFIED,ESTIMATED_ONLY
+103,KR0853,Name an animal whose name starts with R,Rough-scaled python,Rough-scaled python,EXACT_ENGLISH_SPECIES_AND_LETTER,102129827,Morelia carinata,https://www.gbif.org/species/102129827,NOT_VERIFIED,ESTIMATED_ONLY
+104,KR0853,Name an animal whose name starts with R,Red-billed tropicbird,Red-billed tropicbird,EXACT_ENGLISH_SPECIES_AND_LETTER,133142392,Phaethon aethereus,https://www.gbif.org/species/133142392,NOT_VERIFIED,ESTIMATED_ONLY
+112,KR0841,Name an animal whose name starts with A,agama,agama,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+113,KR0841,Name an animal whose name starts with A,asellus,asellus,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+114,KR0841,Name an animal whose name starts with A,aoudad,aoudad,EXACT_ENGLISH_SPECIES_AND_LETTER,195659391,Ammotragus lervia,https://www.gbif.org/species/195659391,NOT_VERIFIED,ESTIMATED_ONLY
+115,KR0841,Name an animal whose name starts with A,acouchy,acouchy,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+116,KR0841,Name an animal whose name starts with A,alpaca,alpaca,EXACT_ENGLISH_SPECIES_AND_LETTER,7515593,Vicugna pacos,https://www.gbif.org/species/7515593,NOT_VERIFIED,ESTIMATED_ONLY
+117,KR0841,Name an animal whose name starts with A,andean condor,andean condor,EXACT_ENGLISH_SPECIES_AND_LETTER,165901176,Vultur gryphus,https://www.gbif.org/species/165901176,NOT_VERIFIED,ESTIMATED_ONLY
+118,KR0841,Name an animal whose name starts with A,antechinus,antechinus,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+119,KR0841,Name an animal whose name starts with A,african forest elephant,african forest elephant,EXACT_ENGLISH_SPECIES_AND_LETTER,231521311,Loxodonta cyclotis,https://www.gbif.org/species/231521311,NOT_VERIFIED,ESTIMATED_ONLY
+120,KR0841,Name an animal whose name starts with A,african wild ass,african wild ass,EXACT_ENGLISH_SPECIES_AND_LETTER,134092855,Equus africanus,https://www.gbif.org/species/134092855,NOT_VERIFIED,ESTIMATED_ONLY
+176,KR0851,Name an animal whose name starts with E,Edible dormouse,Edible dormouse,EXACT_ENGLISH_SPECIES_AND_LETTER,180179532,Glis glis,https://www.gbif.org/species/180179532,NOT_VERIFIED,ESTIMATED_ONLY
+177,KR0851,Name an animal whose name starts with E,Eastern cottontail,Eastern cottontail,EXACT_ENGLISH_SPECIES_AND_LETTER,331765993,Sylvilagus floridanus,https://www.gbif.org/species/331765993,NOT_VERIFIED,ESTIMATED_ONLY
+178,KR0851,Name an animal whose name starts with E,Eastern gray squirrel,Eastern gray squirrel,EXACT_ENGLISH_SPECIES_AND_LETTER,102122615,Sciurus carolinensis,https://www.gbif.org/species/102122615,NOT_VERIFIED,ESTIMATED_ONLY
+179,KR0851,Name an animal whose name starts with E,Eastern mole,Eastern mole,EXACT_ENGLISH_SPECIES_AND_LETTER,100787084,Scalopus aquaticus,https://www.gbif.org/species/100787084,NOT_VERIFIED,ESTIMATED_ONLY
+180,KR0851,Name an animal whose name starts with E,Eastern quoll,Eastern quoll,EXACT_ENGLISH_SPECIES_AND_LETTER,273212112,Dasyurus viverrinus,https://www.gbif.org/species/273212112,NOT_VERIFIED,ESTIMATED_ONLY
+181,KR0851,Name an animal whose name starts with E,Eastern screech-owl,Eastern screech-owl,EXACT_ENGLISH_SPECIES_AND_LETTER,334966752,Megascops asio,https://www.gbif.org/species/334966752,NOT_VERIFIED,ESTIMATED_ONLY
+182,KR0851,Name an animal whose name starts with E,Egyptian fruit bat,Egyptian fruit bat,EXACT_ENGLISH_SPECIES_AND_LETTER,196379295,Rousettus aegyptiacus,https://www.gbif.org/species/196379295,NOT_VERIFIED,ESTIMATED_ONLY
+183,KR0851,Name an animal whose name starts with E,Eurasian beaver,Eurasian beaver,EXACT_ENGLISH_SPECIES_AND_LETTER,100737315,Castor fiber,https://www.gbif.org/species/100737315,NOT_VERIFIED,ESTIMATED_ONLY
+184,KR0851,Name an animal whose name starts with E,Eurasian sparrowhawk,Eurasian sparrowhawk,EXACT_ENGLISH_SPECIES_AND_LETTER,165902148,Accipiter nisus,https://www.gbif.org/species/165902148,NOT_VERIFIED,ESTIMATED_ONLY
+185,KR0851,Name an animal whose name starts with E,Eurasian tree frog,Eurasian tree frog,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+186,KR0851,Name an animal whose name starts with E,Eastern chipmunk,Eastern chipmunk,EXACT_ENGLISH_SPECIES_AND_LETTER,100769177,Tamias striatus,https://www.gbif.org/species/100769177,NOT_VERIFIED,ESTIMATED_ONLY
+187,KR0851,Name an animal whose name starts with E,Eastern newt,Eastern newt,EXACT_ENGLISH_SPECIES_AND_LETTER,5218390,Notophthalmus viridescens,https://www.gbif.org/species/5218390,NOT_VERIFIED,ESTIMATED_ONLY
+188,KR0851,Name an animal whose name starts with E,Eastern box turtle,Eastern box turtle,EXACT_ENGLISH_SPECIES_AND_LETTER,102131148,Terrapene carolina,https://www.gbif.org/species/102131148,NOT_VERIFIED,ESTIMATED_ONLY
+189,KR0924,Name an animal whose name starts with V,Vermilion flycatcher,Vermilion flycatcher,EXACT_ENGLISH_SPECIES_AND_LETTER,124558927,Pyrocephalus rubinus,https://www.gbif.org/species/124558927,NOT_VERIFIED,ESTIMATED_ONLY
+190,KR0924,Name an animal whose name starts with V,Vulpes vulpes var. pallida,Vulpes vulpes var. pallida,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+191,KR0924,Name an animal whose name starts with V,Varanus komodoensis,Varanus komodoensis,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+192,KR0924,Name an animal whose name starts with V,Vermilion darter,Vermilion darter,EXACT_ENGLISH_SPECIES_AND_LETTER,2382207,Etheostoma chermocki,https://www.gbif.org/species/2382207,NOT_VERIFIED,ESTIMATED_ONLY
+193,KR0924,Name an animal whose name starts with V,Vulpes corsac,Vulpes corsac,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+194,KR0924,Name an animal whose name starts with V,Vulpes rueppellii,Vulpes rueppellii,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+195,KR0924,Name an animal whose name starts with V,Vulpes macrotis,Vulpes macrotis,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+201,KR0856,Name an animal whose name starts with L,Largescale sturgeon,Largescale sturgeon,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+202,KR0856,Name an animal whose name starts with L,Lancetfish,Lancetfish,EXACT_ENGLISH_SPECIES_AND_LETTER,155378095,Alepisaurus ferox,https://www.gbif.org/species/155378095,NOT_VERIFIED,ESTIMATED_ONLY
+203,KR0856,Name an animal whose name starts with L,Lappet-faced vulture,Lappet-faced vulture,EXACT_ENGLISH_SPECIES_AND_LETTER,100143187,Torgos tracheliotos,https://www.gbif.org/species/100143187,NOT_VERIFIED,ESTIMATED_ONLY
+204,KR0856,Name an animal whose name starts with L,Lar gibbon,Lar gibbon,EXACT_ENGLISH_SPECIES_AND_LETTER,231542721,Hylobates lar,https://www.gbif.org/species/231542721,NOT_VERIFIED,ESTIMATED_ONLY
+205,KR0856,Name an animal whose name starts with L,Lined seahorse,Lined seahorse,EXACT_ENGLISH_SPECIES_AND_LETTER,222476476,Hippocampus erectus,https://www.gbif.org/species/222476476,NOT_VERIFIED,ESTIMATED_ONLY
+206,KR0856,Name an animal whose name starts with L,Lagostomus maximus,Lagostomus maximus,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+207,KR0856,Name an animal whose name starts with L,Lepidochitona,Lepidochitona,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+208,KR0856,Name an animal whose name starts with L,Loricaria cataphracta,Loricaria cataphracta,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+209,KR0856,Name an animal whose name starts with L,Lutjanus apodus,Lutjanus apodus,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+210,KR0856,Name an animal whose name starts with L,Lycodon aulicus,Lycodon aulicus,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+211,KR0856,Name an animal whose name starts with L,Lamprologus brichardi,Lamprologus brichardi,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+212,KR0856,Name an animal whose name starts with L,Lophius piscatorius,Lophius piscatorius,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+213,KR0856,Name an animal whose name starts with L,Lutreolina crassicaudata,Lutreolina crassicaudata,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+214,KR0856,Name an animal whose name starts with L,Laniarius leucorhynchus,Laniarius leucorhynchus,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+224,KR0861,Name an animal whose name starts with W,Water shrew (*Neomys fodiens*),Water shrew,EXACT_ENGLISH_SPECIES_AND_LETTER,273217832,Sorex palustris,https://www.gbif.org/species/273217832,NOT_VERIFIED,ESTIMATED_ONLY
+225,KR0861,Name an animal whose name starts with W,Whippoorwill (*Caprimulgus vociferans*),Whippoorwill,EXACT_ENGLISH_SPECIES_AND_LETTER,334966507,Antrostomus vociferus,https://www.gbif.org/species/334966507,NOT_VERIFIED,ESTIMATED_ONLY
+226,KR0861,Name an animal whose name starts with W,Warty frog (*Ceratophrys* spp.),Warty frog,EXACT_ENGLISH_SPECIES_AND_LETTER,10802825,Minervarya keralensis,https://www.gbif.org/species/10802825,NOT_VERIFIED,ESTIMATED_ONLY
+227,KR0861,Name an animal whose name starts with W,Waxwing (*Bombycilla* spp.),Waxwing,EXACT_ENGLISH_SPECIES_AND_LETTER,202601195,Bombycilla garrulus,https://www.gbif.org/species/202601195,NOT_VERIFIED,ESTIMATED_ONLY
+1200,KR0001,Name an animal whose name starts with K,Kusimanse,Kusimanse,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+1201,KR0001,Name an animal whose name starts with K,Kobus,Kobus,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+1202,KR0001,Name an animal whose name starts with K,Kiskadee,Kiskadee,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+1203,KR0001,Name an animal whose name starts with K,Kobus ellipsiprymnus,Kobus ellipsiprymnus,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+1204,KR0001,Name an animal whose name starts with K,Kurilian bobtail,Kurilian bobtail,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+1205,KR0001,Name an animal whose name starts with K,Kobus vardonii,Kobus vardonii,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+1339,KR0121,Name an animal whose name starts with H,Honey possum,Honey possum,EXACT_ENGLISH_SPECIES_AND_LETTER,102124232,Tarsipes rostratus,https://www.gbif.org/species/102124232,NOT_VERIFIED,ESTIMATED_ONLY
+1340,KR0121,Name an animal whose name starts with H,Honeycomb ant,Honeycomb ant,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+1341,KR0121,Name an animal whose name starts with H,Hydra,Hydra,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+1342,KR0121,Name an animal whose name starts with H,Hydatid tapeworm,Hydatid tapeworm,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY
+1343,KR0121,Name an animal whose name starts with H,Honeyguide bird,Honeyguide bird,HOLD_UNVERIFIED,,,,NOT_VERIFIED,ESTIMATED_ONLY

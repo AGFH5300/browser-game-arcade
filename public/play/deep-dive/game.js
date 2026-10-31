@@ -606,6 +606,25 @@
         if(answerIndex.get(norm(alternate.value))===alternate)
           answerIndex.set(norm(alternate.value),original);
       }
+      // Same entity with a publisher-official expanded/previous title:
+      // resolve directly to an existing canonical answer's unchanged tier.
+      // No new entry is scored; never let an alias override any canonical.
+      const titles=aliasReview.canonicalAliases?.[item.id]||[];
+      if(!Array.isArray(titles))throw Error('Invalid verified title aliases');
+      for(const title of titles){
+        const original=answers.find(a=>a.value===title.canonical);
+        const key=strictNorm(title.alias),normalized=norm(title.alias);
+        if(!original||!key||!normalized||
+          title.review!=='official_pokemon_title_alias'||
+          title.publisher_original_validator_verified!==false||
+          !/^https:\/\/www\.pokemon\.com\/|^https:\/\/press\.pokemon\.com\//.test(title.source_url)||
+          original.tier!==title.tier||
+          (strictAnswerIndex.has(key)&&strictAnswerIndex.get(key)!==original))
+          throw Error('Reviewed title alias invalid: '+item.id);
+        if(!original.aliases.includes(title.alias))original.aliases.push(title.alias);
+        strictAnswerIndex.set(key,original);
+        if(!answerIndex.has(normalized))answerIndex.set(normalized,original);
+      }
       return {id:item.id,prompt:pack.prompt,theme:'Independent',answers,answerIndex,strictAnswerIndex};
     }));
     for(const q of loaded)byId.set(q.id,q);
