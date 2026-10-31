@@ -95,6 +95,7 @@ test('source-like results contain honest local-only distribution, vertical dive 
 
 test('correction preview is editable, requires a second submission and only scores validated answers',()=>{
  assert(game.includes('const corrected=!exactWritten'));
+ assert(game.includes('const exactWritten=isExactAnswer(q,answer,found)'));
  assert(game.includes('if(corrected&&window.DeepDiveReference?.preferences?.answerCorrections!==false'));
  assert(game.includes('correction={raw:answer,canonical:found.value}'));
  assert(game.includes('if(correction&&strictNorm(input.value)!==strictNorm(correction.canonical))'));

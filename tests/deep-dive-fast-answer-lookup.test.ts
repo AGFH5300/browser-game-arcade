@@ -10,10 +10,11 @@ const strict=script.match(/^  const strictNorm=.*;$/m)?.[0];
 const start=script.indexOf('  // Source-observed /api/submit behavior');
 const stop=script.indexOf('  function read(key)',start);
 assert.ok(strict&&start>0&&stop>start,'extract the production matcher, not a mock');
-const matcher=Function(strict+'\n'+script.slice(start,stop)+'\nreturn {findAnswer,prepareAnswerLookup,strictNorm};')() as {
+const matcher=Function(strict+'\n'+script.slice(start,stop)+'\nreturn {findAnswer,prepareAnswerLookup,strictNorm,isExactAnswer};')() as {
  findAnswer:(q:Question,s:string)=>Entry|null;
  prepareAnswerLookup:(q:Question)=>unknown;
  strictNorm:(s:string)=>string;
+ isExactAnswer:(q:Question,s:string,found:Entry)=>boolean;
 };
 const lookup=matcher.findAnswer;
 assert.match(script,/q\.strictAnswerIndex\?\.get\(strictNorm\(answer\)\)\|\|findAnswer\(q,answer\)/,'matching must use strict titles before typo fallback');
@@ -101,6 +102,22 @@ test('live Krillion /api/submit correction cases from 31 Oct 2026',()=>{
   assert.equal(actual?.value,expected,canonical+' / '+typed);
  }
 });
+test('official article/punctuation normalization is exact, but similarly spelled names still need confirmation',()=>{
+ const germany={value:'Germany',tier:0};
+ const q={answers:[germany]};
+ assert.equal(lookup(q,'THE Germany'),germany);
+ assert.equal(matcher.isExactAnswer(q,'THE Germany',germany),true);
+ assert.equal(matcher.isExactAnswer(q,'Germny',germany),false);
+ const carrot={value:'Carrot',tier:0};
+ assert.equal(matcher.isExactAnswer({answers:[carrot]},'carrot!',carrot),true);
+ const spider={value:'Spider-Man',tier:0};
+ assert.equal(matcher.isExactAnswer({answers:[spider]},'Spider Man',spider),true);
+ assert.equal(matcher.isExactAnswer({answers:[spider]},'Spiderman',spider),false);
+ const predator={value:'Predator',tier:0},thePredator={value:'The Predator',tier:5};
+ assert.equal(lookup({answers:[predator,thePredator]},'The Predator'),thePredator);
+ assert.equal(matcher.isExactAnswer({answers:[predator,thePredator]},'The Predator',thePredator),true);
+});
+
 test('real 32,255-answer pack: a mistyped valid answer remains quick and cached',()=>{
  const doc=JSON.parse(readFileSync('public/play/deep-dive/recovered/independent-bank/KR0545.json','utf8'));
  const q:Question={answers:doc.answers.map(([value,tier]:[string,number,string])=>({value,tier}))};

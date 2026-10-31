@@ -123,6 +123,10 @@
     if(!key)return null;
     const lookup=prepareAnswerLookup(question);
     if(lookup.exact.has(key))return lookup.exact.get(key);
+    // Official /api/submit accepts 'THE Germany' as exact 'Germany'. Only
+    // discard the article if no distinct, fully spelled answer occupies it.
+    if(key.startsWith('the ')&&lookup.exact.has(key.slice(4)))
+      return lookup.exact.get(key.slice(4));
     if(lookup.memo.has(key))return lookup.memo.get(key);
     if(key.length<5)return null;
     // The verified original answer spellings remain the only scoring source.
@@ -144,6 +148,11 @@
     if(lookup.memo.size>=96)lookup.memo.clear();
     lookup.memo.set(key,result);
     return result;
+  }
+  function isExactAnswer(question,raw,found){
+    const key=strictNorm(raw),exact=prepareAnswerLookup(question).exact;
+    if(exact.has(key))return exact.get(key)===found;
+    return key.startsWith('the ')&&exact.get(key.slice(4))===found;
   }
   function read(key){try{return JSON.parse(localStorage.getItem(key)||'null')}catch{return null}}
   function write(key,value){try{localStorage.setItem(key,JSON.stringify(value));return true}catch{return false}}
@@ -774,7 +783,7 @@
     }
     // An exact alias may be accepted as written, while a real typo must
     // pass the original game's explicit two-step correction confirmation.
-    const exactWritten=[found.value,...(found.aliases||[])].some(value=>strictNorm(value)===strictNorm(answer));
+    const exactWritten=isExactAnswer(q,answer,found);
     const corrected=!exactWritten;
     const tier=Math.max(0,Math.min(5,Number(found.tier)||0));
     /* Original answer corrections are a TWO-STEP preview (settings copy:

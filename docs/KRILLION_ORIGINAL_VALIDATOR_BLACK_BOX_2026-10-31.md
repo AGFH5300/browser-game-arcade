@@ -46,10 +46,18 @@ All tests below were run against the public 31 October 2026 Daily Dive via the d
 | Masked fictional character: Spedr-Man | correction Spider-Man |
 | Masked fictional character: Spidre-Man with previewCorrection false | immediately accepted Spider-Man / plankton / 10 |
 | Orange fruit or vegetable: carot with previewCorrection false | immediately accepted Carrot / plankton / 10 |
+| Masked fictional character: Spiderman | correction Spider-Man |
+| Masked fictional character: Spider Man | accepted Spider-Man / plankton / 10 |
+| Orange fruit or vegetable: carrot! | accepted Carrot / plankton / 10 |
+| Country with black or orange flag: THE Germany | accepted Germany / plankton / 10 |
+| Country with black or orange flag: Germony | correction Germany |
+| Animal feeding on blood: Mosquitoes | correction Mosquito |
 
 ## Supported behavioral inference
 
 All the above can be explained by standard Levenshtein (where an adjacent transposition has edit cost two), using a maximum of one edit for 7-or-fewer letters and at least two for eight-or-more letters. For example, "Germnay" is two standard edits away from "Germany" (7 letters) while "Mosqiuto" is two from "Mosquito" (8 letters). This pattern is consistent, not proof of the private implementation or its exact thresholds.
+
+The official server also ignores a leading "the" when no competing canonical entry exists ("THE Germany" is accepted), while a spacing-only variation ("Spider Man") is accepted without correction. Sidequest now handles a non-colliding leading "the" as exact and still prioritizes full canonical titles.
 
 Sidequest's previously installed **restricted Damerau-Levenshtein** gave a 1-edit cost to the 7-character Germany swap and therefore was demonstrably more permissive than the source. The revised implementation uses standard Levenshtein; it raises the two-edit cutoff at length eight, preserves canonical priority and declines ambiguous suggestions. The existing 18+-character three-edit allowance remains provisional and unverified. Exact input and fixed scoring are still local, with no original API dependencies.
 
