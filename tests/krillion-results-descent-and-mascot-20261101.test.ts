@@ -34,9 +34,10 @@ test('results show real local history and original-style post-dive discovery',()
  assert(game.includes('dd-result-discovery'));
  assert(game.includes('dd-result-puffer'));
  assert(game.includes('PLAY PUFFER PARTY'));
- assert(game.includes('FRIENDS & RANKINGS'));
+ assert(game.includes('FOLLOW US ON INSTAGRAM'));
+ assert(game.includes('TRY MY NEW GAME!'));
  assert(game.includes('data-action="party"'));
- assert(game.includes('data-action="stats"'));
+ assert(game.includes('href="https://originle.io/"'));
  assert(!css.includes('display:none!important'));
 });
 test('source results stylesheet is loaded after old conflicting animation rules',()=>{
