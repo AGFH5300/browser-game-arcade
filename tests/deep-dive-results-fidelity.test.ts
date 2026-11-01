@@ -19,10 +19,10 @@ const catchNodes=():CatchNodes=>({
 test('result actions follow bearing and precede expandable recovered catch answers',()=>{
  const bearing=game.indexOf('<div class="dd-done-bands"><h3>THE BEARING</h3>');
  const actions=game.indexOf('<div class="result-actions"><div class="dd-result-primary-actions">',bearing);
- const catchStart=game.indexOf('<div class="dd-done-catch"><h3>THE CATCH · TAP A ROUND FOR EVERY ANSWER</h3>',actions);
+ const catchStart=game.indexOf('<div class="dd-done-catch"><h3><span>THE CATCH</span><small>TAP A ROUND FOR EVERY ANSWER</small></h3>',actions);
  assert(bearing>=0&&actions>bearing&&catchStart>actions,'actions sit between bearing and catch');
  assert.match(game,/const catchRow=\(res,i\)=>\{/);
- assert.match(game,/<details class="dd-catch-row" data-question-id="\$\{safe\(res\.id\)\}"><summary>/);
+ assert.match(game,/<details class="dd-catch-row" data-question-id="\$\{safe\(res\.id\)\}"><summary aria-expanded="false">/);
  assert.match(game,/RECOVERED \+ INDEPENDENT COMMON ANSWERS/);
  assert.match(game,/RECOVERED ANSWERS/);
  assert.match(game,/\[\.\.\.q\.answers\]\.sort\(\(a,b\)=>b\.tier-a\.tier\|\|a\.value\.localeCompare\(b\.value\)\)/);
@@ -102,7 +102,7 @@ test('catch and bearing row renderers place tier art, result points, and lazy co
  const rows=vm.runInNewContext(game.slice(start,end)+'\n[bearingRow,catchRow];',context);
  const bearing=rows[0](bands[0]),catchHtml=rows[1]({id:'q',tier:0,answer:'Whale',points:10},0);
  assert.match(bearing,/<img class="dd-tier-icon"[^>]*><b>0–150<\/b><span>Plankton<\/span>/);
- assert.match(catchHtml,/<summary><span class="n">1<\/span><img class="dd-tier-icon"[^>]*><span class="p">/);
+ assert.match(catchHtml,/<summary aria-expanded="false"><span class="n">1<\/span><img class="dd-tier-icon"[^>]*><span class="p">/);
  assert.match(catchHtml,/\+10<\/span><i class="dd-catch-expand"/);
  assert.match(catchHtml,/class="dd-catch-search" type="search"/);
  assert.match(catchHtml,/class="dd-catch-tier"/);

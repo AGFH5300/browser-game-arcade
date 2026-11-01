@@ -152,7 +152,7 @@ test('end screen carries the original bearing bands, catch list, logbook and rat
     'Rare. Below the thermocline. Nice.',
     'Trench dweller. Absurd.',
     "'450+'",
-    'THE CATCH \u00b7 TAP A ROUND FOR EVERY ANSWER',
+    '<span>THE CATCH</span><small>TAP A ROUND FOR EVERY ANSWER</small>',
     'NEXT DIVE IN',
     'HOW WAS THAT DIVE? 1 = MEH \u00b7 5 = GREAT',
     'data-action="rate"',

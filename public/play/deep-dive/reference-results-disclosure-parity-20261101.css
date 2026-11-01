@@ -1,0 +1,110 @@
+/* Krillion results parity, original/replica browser inspection at
+ * 390x844 and 1440x900 on 1 Nov 2026.
+ *
+ * Original results content width: 350px (mobile), 448px (desktop).
+ * Replica content before correction: 370px mobile, 448px desktop.
+ * Original results scroll region: centered 1080px desktop world.
+ * Original round UI: outlined 19px miss emblem, paired 12px/17px
+ * labels, ~64px row with +/minus disclosure.
+ *
+ * Preserve the independent result statistics and our functional answer
+ * search/tier filter inside native, keyboard-accessible details elements.
+ */
+@media(max-width:650px){
+ .dd-done-screen .dd-done-inner{
+  box-sizing:border-box!important;
+  width:calc(100% - 40px)!important;
+  max-width:448px!important;
+  padding-left:0!important;padding-right:0!important;
+ }
+}
+@media(min-width:651px){
+ .dd-done-screen .dd-done{
+  left:50%!important;right:auto!important;
+  width:min(1080px,100%)!important;
+  transform:translateX(-50%)!important;
+ }
+}
+.dd-done-screen .dd-done-catch h3{
+ display:flex!important;
+ justify-content:space-between!important;
+ align-items:center!important;
+ gap:8px!important;
+ margin:14px 0 4px!important;
+ color:#a1b5c7!important;
+ text-transform:uppercase;
+ font:13px/1.2 "ReferenceVT323",monospace!important;
+ letter-spacing:.09em!important;
+}
+.dd-done-screen .dd-done-catch h3::after{display:none!important;content:none!important}
+.dd-done-screen .dd-done-catch h3 small{
+ margin-left:auto;
+ color:#829aaf!important;
+ white-space:nowrap;
+ font:11px/1.2 "ReferenceVT323",monospace!important;
+ letter-spacing:.045em!important;
+}
+.dd-done-screen .dd-catch-row{
+ padding:10px 0!important;
+ border-bottom:1px solid rgba(84,111,128,.36)!important;
+}
+.dd-done-screen .dd-catch-row summary{
+ display:flex!important;
+ align-items:center!important;
+ gap:12px!important;
+ min-height:44px!important;
+ padding:0!important;
+ border:0!important;
+ cursor:pointer;
+}
+.dd-done-screen .dd-catch-row summary:focus-visible{
+ outline:2px solid #4de3ff;
+ outline-offset:2px;
+}
+.dd-done-screen .dd-catch-row .n{
+ flex:0 0 12px;
+ color:#829eb5;
+ font:12px/1.2 "ReferenceVT323",monospace!important;
+}
+.dd-done-screen .dd-catch-row .dd-catch-miss-icon{
+ flex:0 0 19px;width:19px;height:19px;
+ opacity:.8;display:block;
+}
+.dd-done-screen .dd-catch-row .dd-tier-icon,
+.dd-done-screen .dd-catch-row .dd-tier-mark{flex:0 0 19px}
+.dd-done-screen .dd-catch-row .p{min-width:0}
+.dd-done-screen .dd-catch-row .p small{
+ color:#8ca5b8!important;
+ font:12px/1.25 "ReferenceVT323",monospace!important;
+ text-transform:uppercase;white-space:nowrap;
+ overflow:hidden;text-overflow:ellipsis;
+ letter-spacing:.05em!important;
+}
+.dd-done-screen .dd-catch-row .p b{
+ font:17px/1.22 "ReferenceVT323",monospace!important;
+ color:#e9f5fd!important;
+ font-weight:400!important;
+ overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.dd-done-screen .dd-catch-row .pts{
+ font:14px/1.3 "ReferenceVT323",monospace!important;
+ min-width:18px!important;
+ text-align:right;
+}
+.dd-done-screen .dd-catch-expand{
+ flex:0 0 12px;
+ font:11px/1.3 "ReferenceVT323",monospace!important;
+ color:#8ca5b8!important;
+}
+.dd-done-screen .dd-catch-answers{
+ margin:8px 0 4px 27px!important;
+ border-top:1px solid rgba(84,111,128,.36)!important;
+ padding:10px 0 9px!important;
+ max-height:min(360px,60vh)!important;
+ overflow:auto!important;
+ overscroll-behavior:contain;
+ scrollbar-width:thin;
+}
+@media(max-width:390px){
+ .dd-done-screen .dd-done-catch h3 small{font-size:10px!important}
+}
