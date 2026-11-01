@@ -121,7 +121,7 @@
    reveal?.classList.remove('dd-reveal-pending');
    const next=reveal?.querySelector('.dd-next-btn');
    if(next){next.disabled=false;next.removeAttribute('aria-disabled')}
-   if(chip){chip.style.visibility='hidden';requestAnimationFrame(()=>chip.remove())}
+   if(chip){chip.style.setProperty('visibility','hidden','important');requestAnimationFrame(()=>chip.remove())}
    clickOrigin=p;
    switch(tier){
      case'plankton':spark(p.x,p.y,color,8,.4);break;
