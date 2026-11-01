@@ -41,7 +41,7 @@
    const wave=reduced.matches?0:6*Math.sin(1.7*time);
    const angle=reduced.matches?0:4*Math.sin(1.1*time);
    const size=anchor.offsetWidth/2;
-   anchor.style.transform='translate3d('+(left+x-size)+'px,'+(y-size+wave)+'px,0) rotate('+(rotation+angle)+'deg)';
+   // Six matched frames at both viewports showed the clone mascot 3–4px too low.\n   // Apply the measured consistent offset without changing its easing or bob.\n   anchor.style.transform='translate3d('+(left+x-size)+'px,'+(y-size+wave-3.7)+'px,0) rotate('+(rotation+angle)+'deg)';
    if(!document.hidden)raf=requestAnimationFrame(run);
  }
  function mount(){
