@@ -50,6 +50,26 @@ async function run(site,width){
    let seed=0x71431b;
    Math.random=()=>{seed|=0;seed=seed+0x6d2b79f5|0;let t=Math.imul(seed^seed>>>15,1|seed);t^=t+Math.imul(t^t>>>7,61|t);return((t^t>>>14)>>>0)/4294967296};
   });
+  if(site==='replica'&&process.env.KRILLION_TEST_LOCAL_DAILY!=='0'){
+   // The CI static server has no Next.js API, so inject a source-tracked
+   // published Daily snapshot solely inside the test browser. Otherwise
+   // Sidequest silently selects an unrelated fallback question and no
+   // animation comparison is meaningful.
+   const date=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+   const snapshot=await page.request.get(candidateBase+'/play/deep-dive/recovered/archive/'+date+'.json');
+   if(!snapshot.ok())throw Error('Source-tracked local daily snapshot is missing: '+date);
+   const archive=await snapshot.json();
+   const labels={10:'plankton',15:'tooclever',30:'schooler',60:'rare',85:'deepcut',100:'krillion'};
+   const sheet={date,dayNumber:archive.dayNumber,prompts:archive.questions.map((q,i)=>({
+    id:q.id||'p'+(i+1),text:q.text,
+    answers:q.answers.filter(a=>labels[a[1]]).map(a=>({answer:a[0],tier:labels[a[1]],score:a[1],quip:''}))
+   }))};
+   if(sheet.prompts.length!==7)throw Error('Invalid local source-tracked published daily fixture');
+   await page.route('**/api/deep-dive/public-daily',route=>route.fulfill({
+    status:200,contentType:'application/json',body:JSON.stringify(sheet)
+   }));
+   result.dailyFixture={date,prompt:sheet.prompts[0].text,answerRows:sheet.prompts[0].answers.length};
+  }
   await page.goto(site==='original'?originalBase:candidateBase+'/play/deep-dive/index-public-art.html',{waitUntil:'domcontentloaded',timeout:45000});
   const source=site==='original';
   const begin=page.locator(source?'.ds-begin-btn':'.dd-begin');
@@ -62,6 +82,8 @@ async function run(site,width){
   await page.locator(source?'.ds-input':'#answer-input').waitFor({state:'visible',timeout:23000});
   result.prompt=await page.locator(source?'.ds-card .prompt':'.dd-game-prompt .prompt').first().innerText();
   result.answering=await capture(page,site,width,'game',[0,250,550,950]);
+  if(site==='replica'&&result.dailyFixture&&result.prompt!==result.dailyFixture.prompt)
+   throw Error('Local source-backed Daily question did not load: '+result.prompt);
   const mascot=page.locator(source?'.ds-mascot':'.dd-game-fish');
   if(await mascot.count()&&await mascot.isVisible()){
    await mascot.first().evaluate(e=>e.click());
@@ -81,6 +103,8 @@ async function run(site,width){
     reject:document.querySelector('.dd-reject')?.textContent?.slice(0,150)||null,
     prompt:document.querySelector('.dd-game-prompt .prompt')?.textContent||null
    }));
+   if(site==='replica'&&result.postSubmission?.phase!=='feedback')
+    throw Error('Accepted sourced test answer failed to enter feedback: '+JSON.stringify(result.postSubmission));
    result.reveal=await capture(page,site,width,'game',[0,250,550,1050,1900,3300,4300]);
    result.revealBody=(await page.locator('body').innerText()).slice(-500);
   }
