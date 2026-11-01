@@ -83,12 +83,12 @@
 }
 .page.deep-home[data-phase="intro"][data-mode="daily"] .dd-begin{
  position:relative;
- top:2px;
+ top:-3.1px;
  line-height:1.5!important;
 }
 .page.deep-home[data-phase="intro"][data-mode="daily"] .dd-mode-nav{
  position:relative;
- top:7px;
+ top:2px;
 }
 @media(min-width:1081px){
  .page.deep-home.dd-game-screen[data-world="ocean"]>.dd-stage{
@@ -101,7 +101,7 @@
 @media(max-width:650px){
  .page.deep-home[data-phase="intro"][data-mode="daily"] .dd-party-btn{
   width:334px!important;height:59.109px!important;
-  top:-.22px;
+  top:4.78px;
  }
  .page.deep-home[data-phase="intro"][data-mode="daily"] .dd-party-heading{
   height:35.109px!important;
@@ -111,12 +111,12 @@
   line-height:35.1px!important;
  }
  .page.deep-home[data-phase="intro"][data-mode="daily"] .dd-begin{
-  top:-6px;
+  top:-1.6px;
   font-size:23.4px!important;
   line-height:1.5!important;
  }
  .page.deep-home[data-phase="intro"][data-mode="daily"] .dd-mode-nav{
-  top:-1.7px;
+  top:-.8px;
  }
 }
 @media(prefers-reduced-motion:reduce){
