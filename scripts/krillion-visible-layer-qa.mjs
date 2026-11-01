@@ -71,6 +71,29 @@ for(const width of [1440,390]){
     ||scene.mascotRect[0]+scene.mascotRect[2]<0||scene.mascotRect[0]>width)
    throw Error('Gameplay shrimp mascot is missing or offscreen');
   if(!/krillion/i.test(scene.mascotBackground))throw Error('Gameplay mascot background sprite not loaded');
+  // A visible, nonblank canvas can still be a frozen screenshot.
+  // Compare real pixel buffers across frames to require active ocean motion.
+  const motionBefore=await page.evaluate(()=>{
+   const bg=document.querySelector('.dd-source-ocean-canvas');
+   const fg=document.querySelector('.dd-reference-fore-canvas');
+   return {background:bg?.toDataURL('image/png')||null,
+    foreground:fg?.toDataURL('image/png')||null,foregroundMounted:!!fg};
+  });
+  await page.waitForTimeout(620);
+  const motionAfter=await page.evaluate(()=>{
+   const bg=document.querySelector('.dd-source-ocean-canvas');
+   const fg=document.querySelector('.dd-reference-fore-canvas');
+   return {background:bg?.toDataURL('image/png')||null,foreground:fg?.toDataURL('image/png')||null};
+  });
+  result.checks.oceanMotion={
+   backgroundChanged:!!motionBefore.background&&motionBefore.background!==motionAfter.background,
+   foregroundMounted:motionBefore.foregroundMounted,
+   foregroundChanged:!!motionBefore.foreground&&motionBefore.foreground!==motionAfter.foreground,
+  };
+  if(!result.checks.oceanMotion.backgroundChanged)
+    throw Error('Ocean background canvas is rendered but not animating');
+  if(result.checks.oceanMotion.foregroundMounted&&!result.checks.oceanMotion.foregroundChanged)
+    throw Error('Ocean foreground canvas is frozen');
   await page.screenshot({path:path.join(out,width+'-gameplay.png')});
   await page.locator('.dd-game-fish').click({force:true,timeout:3000});
   const blub=page.locator('.dd-game-fish .dd-blub.show');
