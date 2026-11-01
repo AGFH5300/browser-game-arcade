@@ -22,6 +22,9 @@ async function run(site,screen,width){
   const original=site==='original';
   const url=original?originalBase+(screen==='party'?'/party':screen==='unlimited'?'/unlimited/classic':''):localBase+'/play/deep-dive/index-public-art.html';
   await p.goto(url,{waitUntil:'domcontentloaded',timeout:35000});
+  // The publisher embeds a consent wrapper outside the game. Ignore this
+  // third-party overlay during comparisons; leave the game itself untouched.
+  if(original)await p.addStyleTag({content:'.cmpwrapper{display:none!important;visibility:hidden!important}'});
   if(original){
    if(['menu','settings','wardrobe'].includes(screen)){
     await p.locator('.ds-begin-btn').waitFor({state:'visible',timeout:16000});
@@ -52,13 +55,21 @@ async function run(site,screen,width){
    if(screen==='settings')await p.getByRole('button',{name:/settings/i}).first().evaluate(e=>e.click());
    if(screen==='wardrobe')await p.getByRole('button',{name:/wardrobe/i}).first().evaluate(e=>e.click());
   }
-  await p.waitForTimeout(900);
+  // Compare settled screen states. Pausing all CSS animations at time=0
+  // incorrectly hides both title glyphs and entrance-transition content.
+  await p.waitForTimeout(2600);
   // Do not report a comparison of two different screens as visual parity.
   const text=await p.locator('body').innerText();
   if(screen==='menu'&&!text.includes('TRY CHAINLE'))throw new Error('MENU_NOT_OPEN');
   if(screen==='party'&&!/PUFFER PARTY|WHO.S PLAYING/.test(text))throw new Error('PARTY_NOT_OPEN');
   if(screen==='unlimited'&&!/ENDLESS DIVE/.test(text))throw new Error('UNLIMITED_NOT_OPEN');
-  await p.evaluate(async()=>{await document.fonts.ready;for(const a of document.getAnimations())try{a.pause();a.currentTime=0}catch{}});
+  await p.evaluate(async()=>{
+   await document.fonts.ready;
+   const canvas=document.createElement('canvas'),ctx=canvas.getContext('2d');
+   if(!ctx)throw new Error('FONT_RENDERER_UNAVAILABLE');
+   ctx.font='24px sans-serif';
+   if(ctx.measureText('KRILLION').width<40)throw new Error('FONT_RENDERER_UNAVAILABLE');
+  });
   const file=out+'/'+width+'-'+screen+'-'+site+'.png';
   await p.screenshot({path:file,timeout:20000});
   const data=await p.evaluate(()=>({
