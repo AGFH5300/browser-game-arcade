@@ -10,7 +10,7 @@ test('default mascot poke floats and nudges, rather than rolling blub text',()=>
  assert(!css.includes('animation:ds-roll'));
 });
 test('source pink blub geometry, font and reduced-motion behavior',()=>{
- for(const x of ['left:44px!important','top:-22px!important','color:#ff5d8f!important','font:18px/27px','rgba(255,93,143,.7)','@media(prefers-reduced-motion:reduce)','translate:none!important'])assert(css.includes(x),x);
+ for(const x of ['left:44px!important','top:-22px!important','color:#ff5d8f!important','font:18px/27px','rgba(255,93,143,.7)','transition:none!important','@media(prefers-reduced-motion:reduce)','translate:none!important'])assert(css.includes(x),x);
  assert(!css.includes('pointer-events:none'));
 });
 test('observed boop correction takes precedence over legacy spinning rules',()=>{
