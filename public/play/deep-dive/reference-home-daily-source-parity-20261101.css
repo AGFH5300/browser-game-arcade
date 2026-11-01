@@ -1,0 +1,126 @@
+/* Source/replica homepage + Daily Dive measurement pass, Nov 1 2026.
+ * Unobstructed original (CMP removed only for visual comparison):
+ * Home 390x844 source Puffer Party [16,520.78,334,59.11];
+ * badge [30,507.78,127.25,15], icon wrapper [24,538.33,32,26],
+ * title [64,533.78,147.31,35.11]; Begin [16,606,358,59.11].
+ * Home 1440x900 Puffer [420,595,340,66], Begin ~[420,689.6,600,66],
+ * links y763. The replica previous Begin was y613 mobile / y687 desktop,
+ * and incorrectly centered an emoji/chevron instead of the Puffer sprite.
+ * Daily source stage [180,0,1080,810] desktop; the replica previously
+ * sized the interactive container to 1440, though the prompt/HUD already
+ * used the centered 1080px coordinate system.
+ */
+.page.deep-home[data-phase="intro"][data-mode="daily"] .dd-party-btn{
+ box-sizing:border-box!important;
+ width:340px!important;
+ max-width:100%!important;
+ height:66px!important;
+ min-height:0!important;
+ margin-left:0!important;
+ display:flex!important;
+ align-items:center!important;
+ justify-content:flex-start!important;
+ padding:13px 8px 11px!important;
+ gap:0!important;
+ border:0!important;
+ background:#101d33!important;
+ box-shadow:0 0 0 3px #050a14,0 0 0 6px #4de3ff,0 2px 0 6px #123048!important;
+ color:#e8f1ff!important;
+ position:relative;
+ top:3px;
+ font:16px/24px "ReferenceVT323",VT323,monospace!important;
+ letter-spacing:0!important;
+}
+.page.deep-home[data-phase="intro"][data-mode="daily"] .dd-party-btn::before{
+ display:none!important;content:none!important;
+}
+.page.deep-home[data-phase="intro"][data-mode="daily"] .dd-party-tag{
+ position:absolute!important;
+ box-sizing:content-box!important;
+ left:14px!important;
+ top:-13px!important;
+ width:auto!important;height:auto!important;
+ margin:0!important;
+ padding:2px 7px 1px!important;
+ color:#101d33!important;
+ background:#4de3ff!important;
+ border:0!important;
+ font:12px/12px "ReferenceVT323",VT323,monospace!important;
+ letter-spacing:0!important;
+ text-transform:uppercase;
+ z-index:4;
+}
+.page.deep-home[data-phase="intro"][data-mode="daily"] .dd-party-heading{
+ display:inline-flex!important;
+ flex:none!important;
+ gap:8px!important;
+ align-items:center!important;
+ height:42px!important;
+ min-width:0;
+}
+.page.deep-home[data-phase="intro"][data-mode="daily"] .dd-party-fish{
+ display:block!important;
+ width:32px!important;height:26px!important;
+ flex:0 0 32px!important;
+ background:none!important;
+ font-size:0!important;
+ overflow:visible!important;
+}
+.page.deep-home[data-phase="intro"][data-mode="daily"] .dd-party-fish img{
+ display:block!important;
+ width:52px!important;height:52px!important;
+ max-width:none!important;
+ object-fit:contain!important;
+ image-rendering:pixelated;
+ transform:translate(-10px,-13px)!important;
+}
+.page.deep-home[data-phase="intro"][data-mode="daily"] .dd-party-title{
+ font:28px/42px "ReferenceVT323",VT323,monospace!important;
+ text-transform:uppercase;
+ color:#e8f1ff!important;
+ letter-spacing:0!important;
+ white-space:nowrap;
+}
+.page.deep-home[data-phase="intro"][data-mode="daily"] .dd-begin{
+ position:relative;
+ top:2px;
+ line-height:1.5!important;
+}
+.page.deep-home[data-phase="intro"][data-mode="daily"] .dd-mode-nav{
+ position:relative;
+ top:7px;
+}
+@media(min-width:1081px){
+ .page.deep-home.dd-game-screen[data-world="ocean"]>.dd-stage{
+  left:50%!important;right:auto!important;
+  width:1080px!important;
+  max-width:100%!important;
+  transform:translateX(-50%)!important;
+ }
+}
+@media(max-width:650px){
+ .page.deep-home[data-phase="intro"][data-mode="daily"] .dd-party-btn{
+  width:334px!important;height:59.109px!important;
+  top:-.22px;
+ }
+ .page.deep-home[data-phase="intro"][data-mode="daily"] .dd-party-heading{
+  height:35.109px!important;
+ }
+ .page.deep-home[data-phase="intro"][data-mode="daily"] .dd-party-title{
+  font-size:23.4px!important;
+  line-height:35.1px!important;
+ }
+ .page.deep-home[data-phase="intro"][data-mode="daily"] .dd-begin{
+  top:-6px;
+  font-size:23.4px!important;
+  line-height:1.5!important;
+ }
+ .page.deep-home[data-phase="intro"][data-mode="daily"] .dd-mode-nav{
+  top:-1.7px;
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ .page.deep-home[data-phase="intro"][data-mode="daily"] .dd-party-fish img{
+  animation:none!important;transition:none!important;
+ }
+}
