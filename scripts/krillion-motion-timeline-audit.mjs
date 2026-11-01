@@ -60,6 +60,7 @@ async function run(site,width){
   result.home=await capture(page,site,width,'home',[0,250,550,950,1900,2600]);
   await begin.evaluate(e=>e.click());
   await page.locator(source?'.ds-input':'#answer-input').waitFor({state:'visible',timeout:23000});
+  result.prompt=await page.locator(source?'.ds-card .prompt':'.dd-game-prompt .prompt').first().innerText();
   result.answering=await capture(page,site,width,'game',[0,250,550,950]);
   const mascot=page.locator(source?'.ds-mascot':'.dd-game-fish');
   if(await mascot.count()&&await mascot.isVisible()){
@@ -71,6 +72,15 @@ async function run(site,width){
    await input.fill(answer);
    const submit=page.locator(source?'button:has-text("DIVE")':'.dd-dive-btn').first();
    if(await submit.count())await submit.evaluate(e=>e.click());
+   if(!source&&await page.locator('.dd-correction-panel').count()){
+    await submit.evaluate(e=>e.click());
+   }
+   result.postSubmission=await page.evaluate(()=>({
+    phase:document.querySelector('.dd-game-screen')?.getAttribute('data-phase')||null,
+    correction:document.querySelector('.dd-correction-panel')?.textContent?.slice(0,150)||null,
+    reject:document.querySelector('.dd-reject')?.textContent?.slice(0,150)||null,
+    prompt:document.querySelector('.dd-game-prompt .prompt')?.textContent||null
+   }));
    result.reveal=await capture(page,site,width,'game',[0,250,550,1050,1900,3300,4300]);
    result.revealBody=(await page.locator('body').innerText()).slice(-500);
   }
@@ -87,7 +97,7 @@ for(const width of [1440,390]){
    console.log('MOTION',width,site,phase,JSON.stringify(arr.map(frame=>({t:frame.t,
     ...Object.fromEntries(Object.entries(frame.nodes).filter(([k])=>['mascot','logo','begin','chip','prompt','world'].includes(k)).map(([k,n])=>[k,n?{r:n.rect,a:n.animation,d:n.duration}:null]))}))));
   }
-  console.log('MOTION_RESULT',width,site,rec.success,rec.failure||'',rec.errors.join('|'));
+  console.log('MOTION_RESULT',width,site,rec.success,rec.failure||'',rec.errors.join('|'),'PROMPT',rec.prompt,'POST',JSON.stringify(rec.postSubmission),'BODY',rec.revealBody?.slice(0,140));
  }
 }
 fs.writeFileSync(output+'/timeline.json',JSON.stringify(report,null,2));
