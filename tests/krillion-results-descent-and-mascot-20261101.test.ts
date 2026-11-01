@@ -15,6 +15,7 @@ test('a descending accepted word remains until its banner becomes visible',()=>{
  assert(effects.includes("chip.style.visibility='hidden';requestAnimationFrame(()=>chip.remove())"));
  assert(css.includes('opacity:1!important;visibility:visible!important'));
  assert(css.includes('white-space:normal;overflow-wrap:anywhere'));
+ assert(css.includes('width:max-content!important'),'short accepted answers must stay on one line');
 });
 test('deep-cut multiline prompt is removed on actual collision with the accepted word',()=>{
  assert(effects.includes("stage.querySelector('.dd-game-prompt')"));
