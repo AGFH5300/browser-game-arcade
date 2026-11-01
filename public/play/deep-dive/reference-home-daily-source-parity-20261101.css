@@ -62,6 +62,9 @@
  display:block!important;
  width:32px!important;height:26px!important;
  flex:0 0 32px!important;
+ position:relative!important;
+ left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;
+ transform:none!important;
  background:none!important;
  font-size:0!important;
  overflow:visible!important;
@@ -78,7 +81,7 @@
  font:28px/42px "ReferenceVT323",VT323,monospace!important;
  text-transform:uppercase;
  color:#e8f1ff!important;
- letter-spacing:0!important;
+ letter-spacing:.14em!important;
  white-space:nowrap;
 }
 .page.deep-home[data-phase="intro"][data-mode="daily"] .dd-begin{
