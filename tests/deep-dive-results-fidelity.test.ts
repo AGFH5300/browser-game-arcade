@@ -108,7 +108,7 @@ test('catch and bearing row renderers place tier art, result points, and lazy co
  assert.match(catchHtml,/class="dd-catch-search" type="search"/);
  assert.match(catchHtml,/class="dd-catch-tier"/);
  assert.match(catchHtml,/RECOVERED ANSWERS · 1/);
- assert.match(catchHtml,/<ul><\/ul>/,'answer options are populated only after opening the row');
+ assert.match(catchHtml,/<ul aria-label="Answers" tabindex="0"><\/ul>/,'answer options are populated only after opening the row');
 });
 
 test('answer list caps DOM output at 100 while reporting actual match and recovered totals',()=>{
@@ -118,10 +118,10 @@ test('answer list caps DOM output at 100 while reporting actual match and recove
  const answers=Array.from({length:137},(_,i)=>({value:'Answer '+i,tier:0}));
  const nodes=catchNodes();
  const row={open:true,dataset:{questionId:'large'},classList:{contains:()=>true},querySelector:(selector:string)=>nodes[selector]};
- const render=vm.runInNewContext(game.slice(start,end)+'\nrenderCatchAnswers;',{byId:new Map([['large',{answers}]]),TIERS:tiers,norm:(value:unknown)=>String(value).toLowerCase().replace(/[^a-z0-9]/g,''),safe:(value:unknown)=>String(value)});
+ const render=vm.runInNewContext(game.slice(start,end)+'\nrenderCatchAnswers;',{byId:new Map([['large',{answers}]]),TIERS:tiers,norm:(value:unknown)=>String(value).toLowerCase().replace(/[^a-z0-9]/g,''),safe:(value:unknown)=>String(value),format:(value:number)=>Number(value).toLocaleString('en-US')});
  render(row);
  assert.equal((nodes['.dd-catch-answers ul'].innerHTML.match(/<li>/g)||[]).length,100);
- assert.equal(nodes['.dd-catch-recovered-count'].textContent,'RECOVERED ANSWERS · 137');
+ assert.equal(nodes['.dd-catch-recovered-count'].textContent,'INDEPENDENT PRACTICE · 137');
  assert.equal(nodes['.dd-catch-shown'].textContent,'SHOWING 100 OF 137 MATCHING ANSWERS');
  assert.equal(nodes['.dd-catch-shown'].hidden,false);
 });
