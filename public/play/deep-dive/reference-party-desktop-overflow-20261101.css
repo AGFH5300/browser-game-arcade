@@ -1,0 +1,10 @@
+/* Puffer Party desktop navigation overflow fix, measured at 1440x900.
+ * On the source, the menu is at x185. Sidequest correctly positions the
+ * trigger at x185, but stretches an invisible topbar to x1579, causing
+ * unwanted horizontal scrolling. Constrain the header box, not the trigger.
+ * Mobile keeps its established 44px top-left menu and prior geometry. */
+@media (min-width:651px) {
+ .app-shell:has(.pp-view) > .topbar{
+  width:min(1070px,calc(100vw - 32px))!important;
+ }
+}
