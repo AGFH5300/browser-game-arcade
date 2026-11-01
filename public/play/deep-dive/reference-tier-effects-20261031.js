@@ -152,8 +152,14 @@
    // instead of relying solely on an unrelated 1050ms timeout.
    const outgoing=stage.querySelector('.dd-game-prompt');
    if(chip&&outgoing){
-     const cr=chip.getBoundingClientRect(),pr=outgoing.getBoundingClientRect();
-     if(cr.top<pr.bottom+4&&cr.bottom>pr.top-4&&cr.left<pr.right&&cr.right>pr.left)
+     // Source keeps the outgoing card visible for much of its 600ms exit.
+     // Compare actual prompt GLYPHS, not the large decorative card box:
+     // removing at box-to-box contact erased the entire question around
+     // 250–550ms earlier than the original on three-line prompts.
+     const text=outgoing.querySelector('.dd-prompt-text')||outgoing;
+     const cr=chip.getBoundingClientRect(),pr=text.getBoundingClientRect();
+     const overlapY=Math.min(cr.bottom,pr.bottom)-Math.max(cr.top,pr.top);
+     if(overlapY>12&&cr.left<pr.right&&cr.right>pr.left)
        outgoing.remove();
    }
    if(chip&&!landed){
