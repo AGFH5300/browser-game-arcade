@@ -49,10 +49,10 @@ test('scroll-world geometry matches the original public client exactly',()=>{
   assert.equal(W.tierLineY(100,100),2200);
   assert.equal(W.chipSpawnY(0),180);
   assert.equal(W.missBannerY(0),80);
-  // Recalibrated 2 Nov from full source frame traces: reveal anchor ≈42.5% of stage height; answering and miss unchanged.
+  // Recalibrated 2 Nov from full source frame traces and CSS world offset: reveal anchor 39.6% desktop / 41.5% mobile; answering and miss unchanged.
   const A=W.anchorsFor(900);
   assert.equal(Math.round(A.answering),207);
-  assert.equal(Math.round(A.feedback),383);
+  assert.equal(Math.round(A.feedback),356);
   assert.equal(Math.round(A.miss),261);
   // Big descents ease for ~4.9s (900+d/500*1000) and small ones clamp to 1.2s.
   assert.equal(W.durationFor(2000),4900);
