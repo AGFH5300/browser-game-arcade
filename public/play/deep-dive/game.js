@@ -813,7 +813,7 @@
     const sub=tier?(last.quip||tier.blurb):last?(last.reason==='Timeout'?'the clock beat you to it.':'never made it onto the reef.'):'';
     const pillLeft=Math.max(0,Math.ceil(((active.previewEnds||Date.now())-Date.now())/1000));
     const worldId=worldForMode(),worldMeta=themedConfig(worldId);
-    return `<section class="page deep-home dd-game-screen${feedback?' dd-reveal-screen':''}${revealActive?' dd-reveal-pending':''}${active.mode==='starter'?' dd-free-starter-play':''}" data-phase="${active.phase}" data-world="${worldId}" data-world-height="${worldMeta.height}" data-pack="${active.mode==='starter'?safe(active.world):''}" data-zone="${depthZone()}" style="--reveal-ms:${active.revealDuration||3400}ms;--dd-depth-opacity:${Math.min(.96,Math.max(0,(metresBeforeRound(round)/500)*.9)).toFixed(3)}">
+    return `<section class="page deep-home dd-game-screen${feedback?' dd-reveal-screen':''}${revealActive?' dd-reveal-pending':''}${active.mode==='starter'?' dd-free-starter-play':''}" data-phase="${active.phase}" data-world="${worldId}" data-reveal-tier="${tier?.id||'miss'}" data-world-height="${worldMeta.height}" data-pack="${active.mode==='starter'?safe(active.world):''}" data-zone="${depthZone()}" style="--reveal-ms:${active.revealDuration||3400}ms;--dd-depth-opacity:${Math.min(.96,Math.max(0,(metresBeforeRound(round)/500)*.9)).toFixed(3)}">
       <div class="dd-stage">
         <div class="dd-sea dd-game-sea"></div>
         <div class="dd-world" style="--dd-world-height:${worldMeta.height}px">
@@ -844,11 +844,12 @@
         ${arcadeHud()}
         <div class="dd-game-fish${mascotPose?' '+mascotPose:''}${feedback&&!tier?' sad':''}${tier&&tier.score===100?' gold':''}" title="a friend" role="button" tabindex="0" aria-label="Poke the shrimp mascot"><span class="dd-blub" aria-live="off">blub!</span></div>
       </div>
+      ${worldId==='ocean'?'<div class="dd-viewport-overlays" aria-hidden="true"><div class="dd-vignette"></div><div class="dd-crt"></div></div>':''}
       ${preview?`<div class="dd-preview-pill">descending · the clock starts in <b>${pillLeft}</b>${!profile.tourSeen?' · rarer answers sink deeper':''}</div>`:''}
       <div class="dd-reject" id="dd-reject-line" role="status" aria-live="polite">${safe(rejectMsg)}</div>
       <div id="answer-correction" class="dd-correction" role="status" aria-live="polite" aria-atomic="true">${correction?correctionPanel(correction):''}</div>
       ${preview||feedback?'':dockMarkup(seconds)}
-      ${feedback?`<div class="dd-next-wrap"><button type="button" class="dd-next-btn" data-action="next" ${revealActive?'disabled aria-disabled="true"':''}>${completed?'SURFACE ▲':'DESCEND ▼'}</button></div>`:''}
+      ${feedback?`<div class="dd-next-wrap"><button type="button" class="dd-next-btn" data-action="next" ${revealActive?'disabled aria-disabled="true"':''}>${completed?'SURFACE ▲':'DESCEND'}</button></div>`:''}
       </section>`;
   }
   function conclude(){
@@ -1258,7 +1259,7 @@
   }
   function hookWorldCamera(animate){
     /* Camera targets recovered live: answering anchor ≈23% of stage height,
-       landing reveal ≈37.8%, miss reveal ≈29%; t = anchor − 2×depthM, with
+       landing reveal ≈39.6% desktop / 41.5% mobile, miss reveal ≈29%; t = anchor − 2×depthM, with
        DeepDiveWorld's ease + idle drift doing the motion. */
     const stage=root.querySelector('.dd-stage'),world=root.querySelector('.dd-world');
     if(!world||!window.DeepDiveWorld?.camera)return;
@@ -1273,7 +1274,7 @@
     if(active.phase==='preview'){cam.goTo(target,{dur:2900,hold:350});return}
     if(active.phase==='feedback'){
       const last=active.results[active.results.length-1];
-      cam.goTo(target,{dur:active.revealDuration||revealDurationFor(last),ease:Number(last?.tier)===0?'sine':'cubic'});
+      cam.goTo(target,{dur:active.revealDuration||revealDurationFor(last),ease:Number(last?.tier)===0?'source-plankton':'cubic'});
       return;
     }
     cam.goTo(target,{});
@@ -1316,7 +1317,7 @@
         // fade rather than a CSS keyframe. Inspected source computed motion:
         // .259632 -> .297 opacity, 2000ms, ease, fill backwards.
         if(active.phase==='answering'&&active.index===0&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
-          const vignette=root.querySelector('.dd-vignette');
+          const vignette=root.querySelector('.dd-viewport-overlays .dd-vignette')||root.querySelector('.dd-vignette');
           if(vignette&&typeof vignette.animate==='function'){
             vignette.style.opacity='.297';
             vignette.animate([{opacity:'.259632'},{opacity:'.297'}],

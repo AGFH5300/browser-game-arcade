@@ -11,7 +11,7 @@
  *   - a miss lands its banner at base+80
  *   - the camera is a translate3d(0, t, 0) on the world column with
  *     t = anchorPx - 2*depthMeters plus a small idle "current" drift;
- *     measured anchors: answering ~23% of stage height, reveal ~37.8%,
+ *     measured anchors: answering ~23% of stage height, reveal 39.6% desktop / 41.5% mobile,
  *     miss reveal ~29%; big descents ease in-out over ~5-6s (observed
  *     2,000px descent trace), small ones settle in ~3s.
  * The coordinate helpers are pure and exported for unit tests.
@@ -35,7 +35,7 @@
    // Mobile public canvas anchors the first surface wave near y=177/844 (21%),
    // while the desktop original anchors it near y=207/900 (23%).
    answering: stageH * (typeof innerWidth==='number'&&innerWidth<=650?0.21:0.23),
-   feedback: stageH * 0.378,
+   feedback: stageH * (typeof innerWidth==='number'&&innerWidth<=650?0.415:0.396),
    miss: stageH * 0.29,
    done: stageH * 0.51
  });
@@ -76,6 +76,20 @@
   * trails that target rather than easing the world transform independently.
   */
  const sourceEaseSine = p => -(Math.cos(Math.PI * p) - 1) / 2;
+ /* Absolute-time 10-point reveal audit at 1440x900 / 390x844 shows an
+  * immediate camera catch-up followed by a slow descent. Sine ease held
+  * almost still for the first half second, then overshot source by 15–30px
+  * at landing. Fit the source's measured world-y positions to a two-part
+  * exponential + linear target, followed by the existing 6/s tracking.
+  */
+ const sourceEasePlankton = p => {
+   const mobile=typeof innerWidth==='number'&&innerWidth<=650;
+   const weight=mobile?.339:.557, rate=mobile?30:12.12, seconds=3.4;
+   const q=Math.max(0,Math.min(1,p));
+   const numerator=weight*(1-Math.exp(-rate*q*seconds))+(1-weight)*q;
+   const normalizer=weight*(1-Math.exp(-rate*seconds))+(1-weight);
+   return Math.min(1,numerator/normalizer);
+ };
  let lastFrame = null;
  let ease = easeInOutCubic;
  let lastRenderedAt = -Infinity;
@@ -135,7 +149,7 @@
      holdUntil = performance.now() + hold;
      startedAt = performance.now();
      // Source uses sinusoidal ease for Plankton, cubic for other tiers.
-     ease = opts?.ease === 'sine' ? sourceEaseSine : easeInOutCubic;
+     ease = opts?.ease === 'source-plankton' ? sourceEasePlankton : opts?.ease === 'sine' ? sourceEaseSine : easeInOutCubic;
      lastFrame = null;
      lastRenderedAt = -Infinity;
      ensureLoop();

@@ -1,0 +1,72 @@
+name: Krillion visible-layer regression
+on:
+  pull_request:
+    paths:
+      - 'public/play/deep-dive/**'
+      - 'scripts/krillion-visible-layer-qa.mjs'
+      - '.github/workflows/krillion-visible-layer-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  real-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Install Chromium automation
+        run: |
+          npm install --no-save --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Start isolated local server
+        run: |
+          python3 -m http.server 8765 --directory public > /tmp/krillion-static-http.log 2>&1 &
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8765/play/deep-dive/index-public-art.html > /dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/krillion-static-http.log
+          exit 1
+      - name: Render and inspect mascot, dynamic ocean, interaction
+        env:
+          KRILLION_TEST_URL: http://127.0.0.1:8765/play/deep-dive/index-public-art.html
+          KRILLION_QA_OUTPUT: /tmp/krillion-visible-layer-qa
+        run: node scripts/krillion-visible-layer-qa.mjs
+      - name: Compare original and candidate at matching screen sizes
+        env:
+          KRILLION_ORIGINAL_URL: https://krillion.io
+          KRILLION_CANDIDATE_URL: http://127.0.0.1:8765
+          KRILLION_SCENARIOS: home,gameplay
+          KRILLION_VIEWPORTS: 1440,390
+          KRILLION_AUDIT_DIR: /tmp/krillion-frame-compare
+        run: |
+          node scripts/krillion-live-visual-matrix.mjs || true
+          node --input-type=module -e "import fs from 'node:fs'; const list=JSON.parse(fs.readFileSync('/tmp/krillion-frame-compare/audit.json','utf8')); for(const item of list)console.log('FRAME_DIFF',item.width,item.screen,JSON.stringify(item.diff),item.orig?.error||'',item.own?.error||''); if(list.some(x=>!x.orig?.ok||!x.own?.ok))process.exitCode=1"
+      - name: Measure homepage, mascot poke, descent and landing motion over time
+        env:
+          KRILLION_ORIGINAL_URL: https://krillion.io
+          KRILLION_CANDIDATE_URL: http://127.0.0.1:8765
+          KRILLION_MOTION_DIR: /tmp/krillion-motion-timeline
+        run: node scripts/krillion-motion-timeline-audit.mjs
+      - name: Check all published rarity-tier motion phases on mobile and desktop
+        env:
+          KRILLION_CANDIDATE_URL: http://127.0.0.1:8765
+          KRILLION_TIER_DIR: /tmp/krillion-tier-motion
+        run: node scripts/krillion-tier-motion-qa.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: krillion-visible-layer-qa
+          path: |
+            /tmp/krillion-visible-layer-qa
+            /tmp/krillion-frame-compare
+            /tmp/krillion-motion-timeline
+            /tmp/krillion-tier-motion
+          if-no-files-found: ignore

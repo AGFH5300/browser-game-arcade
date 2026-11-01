@@ -114,7 +114,8 @@
   line-height:35.1px!important;
  }
  .page.deep-home[data-phase="intro"][data-mode="daily"] .dd-begin{
-  top:-1.6px;
+  /* Time-sampled source-minus-replica mobile Begin y offset: about -2.7px. */
+  top:-4.3px;
   font-size:23.4px!important;
   line-height:1.5!important;
  }

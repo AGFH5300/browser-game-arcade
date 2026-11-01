@@ -1,0 +1,17 @@
+/* Original-vs-replica 10-point screenshot audit, 390×844:
+ * The original accepted-word card is dark with subtle grey edging;
+ * the replica's old 3px neon ring and 26px blur overstated the impact.
+ * The original's 390px chip is about 219px wide; replica was ~185px.
+ * Keep tier-specific glows for higher scores until independently measured.
+ */
+.dd-reveal-screen[data-world="ocean"][data-reveal-tier="plankton"] .dd-chip{
+ background:#111c2af5!important;
+ color:#d7e0e9!important;
+ box-shadow:0 0 0 1px #8fa3c43d!important;
+ text-shadow:0 0 3px #c0d1e451!important;
+}
+@media(max-width:650px){
+ .dd-reveal-screen[data-world="ocean"] .dd-chip{
+  font-size:25px!important;
+ }
+}
