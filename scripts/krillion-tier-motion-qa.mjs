@@ -44,12 +44,13 @@ for(const width of [390,1440]){
    for(const t of times){
     await page.waitForTimeout(Math.max(0,phaseStart+t-performance.now()));
     const rec=await page.evaluate(()=>{
-     const chip=document.querySelector('.dd-chip'),prompt=document.querySelector('.dd-game-prompt');
+     const chip=document.querySelector('.dd-chip'),prompt=document.querySelector('.dd-game-prompt .dd-prompt-text');
      const fish=document.querySelector('.dd-game-fish');
      const box=e=>{if(!e)return null;const r=e.getBoundingClientRect();return [r.x,r.y,r.width,r.height]};
      const s=chip&&getComputedStyle(chip);
      const cb=box(chip),pb=box(prompt);
-     const overlap=!!cb&&!!pb&&cb[0]<pb[0]+pb[2]&&cb[0]+cb[2]>pb[0]&&cb[1]<pb[1]+pb[3]&&cb[1]+cb[3]>pb[1];
+     const overlapY=cb&&pb?Math.min(cb[1]+cb[3],pb[1]+pb[3])-Math.max(cb[1],pb[1]):0;
+     const overlap=!!cb&&!!pb&&overlapY>12&&cb[0]<pb[0]+pb[2]&&cb[0]+cb[2]>pb[0];
      return {chip:cb,chipVisible:!!chip&&s.visibility!=='hidden'&&Number(s.opacity)>.05,
       prompt:pb,overlap,fish:box(fish),
       spotlight:!!document.querySelector('.dd-source-depth-spotlight'),
