@@ -1,0 +1,45 @@
+/* The publisher's underwater vignette/CRT spans the entire viewport.
+ * Sidequest's 1080px-wide centered interactive stage applied these overlays
+ * only inside x=180..1260 on desktop, leaving abrupt vertical water seams.
+ * Screenshot evidence from 1440×900 at y450, 1900ms into 10pt descent:
+ * original x179→181 (22,70,107)→(23,70,107), seamless;
+ * replica x179→181 (22,69,105)→(20,64,97), visible ~8-blue step.
+ *
+ * Keep hit targets/HUD in their 1080px stage, but paint ambience on the
+ * same full-width ocean canvas surface, below interactive elements.
+ */
+.page.deep-home.dd-game-screen[data-world="ocean"] > .dd-stage > .dd-vignette,
+.page.deep-home.dd-game-screen[data-world="ocean"] > .dd-stage > .dd-crt{
+ display:none!important;
+}
+.page.deep-home.dd-game-screen[data-world="ocean"] > .dd-viewport-overlays{
+ position:absolute!important;
+ top:0;left:0;right:0;bottom:90px;
+ width:100%!important;
+ z-index:0!important;
+ pointer-events:none!important;
+ overflow:hidden!important;
+}
+.page.deep-home.dd-game-screen[data-world="ocean"] > .dd-viewport-overlays > .dd-vignette{
+ display:block!important;
+ position:absolute!important;inset:0!important;
+ z-index:1!important;
+ pointer-events:none!important;
+ opacity:.25;
+ background:radial-gradient(at 50% 45%,#0000 55%,#02040ad9 100%)!important;
+ transition:opacity 2s;
+}
+.page.deep-home.dd-game-screen[data-world="ocean"] > .dd-viewport-overlays > .dd-crt{
+ display:block!important;
+ position:absolute!important;inset:0!important;
+ z-index:2!important;
+ pointer-events:none!important;
+ opacity:.45!important;
+ background:repeating-linear-gradient(0deg,#0000002e 0 1px,#0000 1px 3px)!important;
+}
+@media(max-width:650px){
+ .page.deep-home.dd-game-screen[data-world="ocean"] > .dd-viewport-overlays{bottom:50px}
+}
+@media(prefers-reduced-motion:reduce){
+ .page.deep-home.dd-game-screen[data-world="ocean"] > .dd-viewport-overlays > .dd-vignette{transition:none!important}
+}
