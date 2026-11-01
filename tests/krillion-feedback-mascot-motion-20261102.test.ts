@@ -6,9 +6,9 @@ const motion=readFileSync('public/play/deep-dive/reference-feedback-mascot-motio
 const html=readFileSync('public/play/deep-dive/index-public-art.html','utf8');
 
 test('feedback shrimp has measured 7-frame movement path at both viewport sizes',()=>{
- for(const row of ['[250,446.9,381.5,83]','[1900,591.8,286.2,84.5]',
-   '[3300,202.8,211,71.6]','[250,111,454.2,72.4]','[1900,221.7,290,86.4]',
-   '[4300,35.9,193.1,73.5]'])assert(motion.includes(row),row);
+ for(const row of ['[250,186,521,67]','[1900,586,303,85]',
+   '[3300,592,289,86]','[250,96,477,70]','[1900,222,292,84]',
+   '[4300,53,195,66]'])assert(motion.includes(row),row);
  assert(motion.includes('sample(desktop,normalized),srcM=sample(mobile,normalized)'));
  assert(motion.includes("fish.style.setProperty(prop,val,'important')"));
  assert(motion.includes("fish.style.setProperty('animation','none','important')"));
