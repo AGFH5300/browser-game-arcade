@@ -4,7 +4,7 @@ import {readFileSync} from 'node:fs';
 const world=readFileSync('public/play/deep-dive/reference-world.js','utf8');
 const game=readFileSync('public/play/deep-dive/game.js','utf8');
 test('original tier landing anchor is calibrated from the full time-series, not a screenshot',()=>{
- assert(world.includes('feedback: stageH * 0.425'));
+ assert(world.includes('feedback: stageH * (typeof innerWidth==='number'&&innerWidth<=650?0.415:0.396)'));
  assert(world.includes('const sourceEasePlankton = p => {'));
  assert(world.includes('weight=mobile?.339:.557'));
  assert(world.includes('rate=mobile?30:12.12'));
