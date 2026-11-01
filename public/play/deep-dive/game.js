@@ -1086,7 +1086,7 @@
     const values=history.map(h=>h.score).slice(0,50);
     const x=v=>18+436*Math.max(0,Math.min(1,v/max));
     let path='';
-    if(values.length>=5){
+    if(values.length>=1){
       const histogram=Array.from({length:65},(_,i)=>{
         const n=i/64*max;
         const density=values.reduce((sum,v)=>sum+Math.exp(-Math.pow((n-v)/(max*.13),2)/2),0);
@@ -1096,7 +1096,7 @@
       path=histogram.map((p,i)=>(i?'L':'M')+p.x.toFixed(1)+','+(126-(p.d/highest)*92).toFixed(1)).join(' ');
     }
     return `<div class="dd-personal-distribution">
-      <svg viewBox="0 0 480 157" role="img" aria-label="${values.length>=5?'Distribution of saved local runs':'Player distribution unavailable'}">
+      <svg viewBox="0 0 480 157" role="img" aria-label="Distribution of saved local dives">
         <path d="M18 127 H454" stroke="#5687a1" stroke-width="1" fill="none"></path>
         ${path?`<path class="dd-personal-curve" d="${path}"></path>`:''}
         <line x1="${x(r.score)}" x2="${x(r.score)}" y1="34" y2="127" stroke="#ff5b91" stroke-width="1.5" stroke-dasharray="3 3"></line>
@@ -1104,8 +1104,8 @@
         <text x="${x(r.score)}" y="30" text-anchor="middle" fill="#ff5b91" font-size="15">YOU</text>
         ${[0,.25,.5,.75,1].map(t=>`<text x="${x(t*max)}" y="149" text-anchor="middle" fill="#83a5bf" font-size="13">${Math.round(t*max)}</text>`).join('')}
       </svg>
-      <p>${values.length>=5?'DISTRIBUTION OF '+values.length+' SAVED LOCAL RUNS':'Player distribution unavailable'}</p>
-      ${values.length>=5?'':'<small>Saved local runs appear here after five comparable dives.</small>'}
+      <p>${values.length+' RECORDED DIVE'+(values.length===1?'':'S')+' · PERSONAL HISTORY'}</p>
+      <small>This curve represents your saved dives, not a publisher-wide percentile.</small>
     </div>`;
   }
   function scoreTrail(results){
@@ -1178,6 +1178,28 @@
         ${localResultCurve(r)}\n        ${scoreTrail(r.results)}
         <div class="dd-done-bands"><h3>THE BEARING</h3>${BEARING.map(bearingRow).join('')}</div>
         <div class="result-actions"><div class="dd-result-primary-actions">${button('share','COPY RESULT','primary')}${button('startEndless','KEEP DIVING ∞','ghost')}</div><div class="dd-result-secondary-actions">${button('archive','ARCHIVE ⟲','ghost')}${button('worlds','THEMED PACKS →','ghost')}</div></div>
+        <div class="dd-result-discovery" aria-label="More ways to play">
+          <section class="dd-result-promo dd-result-puffer">
+            <div class="dd-result-promo-label">BETA · LIVE MULTIPLAYER</div>
+            <img src="./reference-assets/gen/party/puffer-0.png" alt="" class="dd-result-puffer-img" loading="lazy">
+            <h2>PUFFER PARTY</h2>
+            <p>Basically hot potato, but for krill. Play with friends or jump into a quick match.</p>
+            <small>2–16 players · live multiplayer</small>
+            <button type="button" class="dd-result-promo-action" data-action="party">PLAY PUFFER PARTY</button>
+          </section>
+          <section class="dd-result-promo dd-result-friends">
+            <div class="dd-result-promo-label">YOUR CREW</div>
+            <h2>FRIENDS & RANKINGS</h2>
+            <p>Continue your dives, compare your best runs and return for another round.</p>
+            <button type="button" class="dd-result-promo-action" data-action="stats">VIEW DIVE STATS</button>
+          </section>
+          <section class="dd-result-promo dd-result-more">
+            <div class="dd-result-promo-label">KEEP EXPLORING</div>
+            <h2>MORE DIVES AWAIT</h2>
+            <p>Explore the Archive, discover themed questions or practice at your own pace.</p>
+            <button type="button" class="dd-result-promo-action" data-action="worlds">EXPLORE THEMED PACKS</button>
+          </section>
+        </div>
         <div class="dd-done-catch"><h3>THE CATCH · TAP A ROUND FOR EVERY ANSWER</h3>${r.results.map(catchRow).join('')}</div>
         <div class="dd-done-log"><h3>LOGBOOK</h3><p>STREAK ${format(profile.streak)} · PLAYED ${format(profile.runs)} · AVG ${format(avg)} · BEST ${format(best)}</p><p class="dd-next-dive">NEXT DIVE IN <b id="dd-next-dive">--:--:--</b></p></div>
         <div class="dd-done-rate"><h3>HOW WAS THAT DIVE? 1 = MEH · 5 = GREAT</h3><div class="dd-rate-row">${[1,2,3,4,5].map(n=>`<button type="button" class="dd-rate${rating>=n?' on':''}" data-action="rate" data-rating="${n}" aria-label="Rate ${n} out of 5">${n}</button>`).join('')}</div></div>
