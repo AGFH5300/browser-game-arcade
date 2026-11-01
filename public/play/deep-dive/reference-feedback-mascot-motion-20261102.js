@@ -1,6 +1,6 @@
 /* Time-sampled feedback mascot choreography.
  * Measured in paired publisher/Sidequest browser captures on 1 Nov 2026 at
- * 1440x900 and 390x844, t = 0, .25, .55, 1.05, 1.9, 3.3, 4.3 seconds.
+ * 1440x900 and 390x844, t = 0, .25, .55, 1.05, 1.9, 3.3, 4.3 seconds on an absolute clock.
  * Anchors use the game stage, not the page viewport. This recreates the
  * observed moving shrimp and removes the frozen feedback-position override.
  * Other tiers use the same normalized path until separately measured.
@@ -10,16 +10,16 @@
  const reduce=matchMedia('(prefers-reduced-motion: reduce)');
  // x/y are stage-relative. Source rects sampled for a 10-point landing.
  const desktop=[
-  [0,15.3,614.6,65.5],[250,446.9,381.5,83],[550,525.2,333.2,85],
-  [1050,583,291.7,86],[1900,591.8,286.2,84.5],
-  [3300,202.8,211,71.6],[4300,141.4,188.1,72.5]
+  [0,14.3,603,68],[250,186,521,67],[550,371,419,75],
+  [1050,533,328,81],[1900,586,303,85],
+  [3300,592,289,86],[4300,215,205,66],[5000,141,188,72]
  ];
  const mobile=[
-  [0,14.1,586.3,68],[250,111,454.2,72.4],[550,174,361.2,79.6],
-  [1050,213.3,305.5,84.4],[1900,221.7,290,86.4],
-  [3300,161.2,246.7,78.2],[4300,35.9,193.1,73.5]
+  [0,14,590,68],[250,96,477,70],[550,166,371,77],
+  [1050,209,307,81],[1900,222,292,84],
+  [3300,223,285,87],[4300,53,195,66],[5000,36,193,74]
  ];
- let root=null,fish=null,stage=null,raf=0,started=0,ms=4300,lastTime=0;
+ let root=null,fish=null,stage=null,raf=0,started=0,ms=5000,lastTime=0;
  const lerp=(a,b,t)=>a+(b-a)*t;
  function sample(anchors,time){
   if(time<=anchors[0][0])return anchors[0].slice(1);
@@ -41,7 +41,7 @@
   const stageW=stage.clientWidth,stageH=stage.clientHeight;
   const mobileWeight=Math.max(0,Math.min(1,(1080-stageW)/(1080-390)));
   const elapsed=reduce.matches?ms:Math.max(0,now-started);
-  const normalized=elapsed*4300/ms;
+  const normalized=elapsed*5000/ms;
   const srcD=sample(desktop,normalized),srcM=sample(mobile,normalized);
   // For intermediate widths, interpolate the two observed stage-relative
   // tracks, avoiding a discontinuity at CSS breakpoint widths.
@@ -72,9 +72,9 @@
   if(!root||!fish||!stage)return;
   const duration=Math.max(900,Number(detail?.duration)||3400);
   // Source timeline includes a short return-to-idle after the category lands.
-  // Preserve the measured 4.3s track for the 3.4s Plankton category.
+  // Preserve the full measured reveal-and-return sequence for Plankton.
   const factor=Math.max(1,duration/3400);
-  ms=Math.round(4300*factor);
+  ms=Math.round(5000*factor);
   started=performance.now();
   raf=requestAnimationFrame(paint);
  }
