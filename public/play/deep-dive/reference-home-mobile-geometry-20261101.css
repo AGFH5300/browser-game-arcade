@@ -35,4 +35,27 @@
  .deep-home[data-phase="intro"][data-mode="daily"] .dd-mode-nav button:last-child{
   width:116px!important;
  }
+ /* Original mobile title is 66.3px / 59.67px, with letter tracking of
+    2.652px. Preserve its actual glyph widths while restoring the correct
+    vertical metrics; our earlier 57px/.74 fallback compressed the heading. */
+ .deep-home[data-phase="intro"][data-mode="daily"] .dd-title-group{
+  top:30.7%!important;
+ }
+ .deep-home[data-phase="intro"][data-mode="daily"] .dd-logo,
+ .deep-home[data-phase="intro"][data-mode="daily"] .dd-logo span{
+  font-size:66.3px!important;
+  letter-spacing:.04em!important;
+  line-height:.9!important;
+ }
+ .deep-home[data-phase="intro"][data-mode="daily"] .dd-subtitle{
+  font-size:21.06px!important;
+  line-height:1.5!important;
+  margin-top:6px!important;
+ }
+ .deep-home[data-phase="intro"][data-mode="daily"] .dd-tagline{
+  font-size:15.6px!important;
+  line-height:1.5!important;
+  letter-spacing:.08em!important;
+ }
+
 }
