@@ -1,0 +1,27 @@
+/* Original Krillion's sea canvas stops at the bottom of the interactive
+ * stage (900-90=810px desktop; 844-50=794px mobile). The independent
+ * full-viewport canvas was painting bright blue water into the reserved
+ * footer, unlike the source's dark near-black bottom strip.
+ *
+ * Side-by-side original/replica pixel samples 1 Nov 2026:
+ * desktop x720 y830 original rgb(5,12,23), old candidate rgb(22,64,98);
+ * desktop x720 y880 original rgb(6,13,26), old candidate rgb(21,57,89).
+ * mobile x195 y830 original rgb(6,11,23), old candidate rgb(13,30,51).
+ * Browser injected trial with this clip: desktop x720 y858 rgb(3,11,22),
+ * mobile x195 y832 rgb(3,11,21).
+ *
+ * The canvas is NOT resized, so underwater camera/lighting math and all
+ * existing world motion remain untouched. Only its extra 90px / 50px
+ * visible overspill is clipped. Dock/prompt/mascot stay unchanged.
+ */
+.page.deep-home.dd-game-screen[data-world="ocean"]:not([data-phase="done"]){
+ background:#050c17!important;
+}
+.page.deep-home.dd-game-screen[data-world="ocean"]:not([data-phase="done"]) > .dd-source-ocean-canvas {
+ clip-path:inset(0 0 90px 0)!important;
+}
+@media(max-width:650px){
+ .page.deep-home.dd-game-screen[data-world="ocean"]:not([data-phase="done"]) > .dd-source-ocean-canvas {
+  clip-path:inset(0 0 50px 0)!important;
+ }
+}
