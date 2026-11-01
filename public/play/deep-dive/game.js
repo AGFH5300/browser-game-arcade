@@ -1142,8 +1142,8 @@
       const t=res.tier!==null&&res.tier!==undefined?TIERS[res.tier]:null;
       const q=byId.get(res.id);
       const recovered=Array.isArray(q?.answers)?[...q.answers].sort((a,b)=>b.tier-a.tier||a.value.localeCompare(b.value)):[];
-      const answerIcon=t?(icon(t)?`<img class="dd-tier-icon" src="./reference-assets/tiers/${icon(t)}" alt="">`:`<i class="dd-tier-mark" aria-hidden="true">${t.mark}</i>`):'';
-      return `<details class="dd-catch-row" data-question-id="${safe(res.id)}"><summary><span class="n">${i+1}</span>${answerIcon}<span class="p"><small>${safe(q?.prompt||'')}</small><b>${t?'\u201c'+safe(res.answer)+'\u201d'+(res.estimated?' · EST.':''):'×'}</b></span><span class="pts" style="--tier:${t?t.color:'#536e7a'}">${t?'+'+res.points:'0'}</span><i class="dd-catch-expand" aria-hidden="true"></i></summary><div class="dd-catch-answers"><div class="dd-catch-filters"><input class="dd-catch-search" type="search" placeholder="Search answers" aria-label="Search recovered answers"><select class="dd-catch-tier" aria-label="Filter recovered answers by tier"><option value="">All tiers</option>${TIERS.map((tier,index)=>`<option value="${index}">${safe(tier.label)}</option>`).join('')}</select></div><small class="dd-catch-recovered-count">${recovered.some(a=>a.source==='sidequest-common-supplement')?'RECOVERED + INDEPENDENT COMMON ANSWERS':recovered.some(a=>a.source==='sidequest-recovered-estimated')?'INDEPENDENT PRACTICE · ORIGINAL ACCEPTANCE / RARITY NOT VERIFIED':'RECOVERED ANSWERS'} · ${recovered.length}</small><ul></ul><p class="dd-catch-shown" hidden></p></div></details>`;
+      const answerIcon=t?(icon(t)?`<img class="dd-tier-icon" src="./reference-assets/tiers/${icon(t)}" alt="">`:`<i class="dd-tier-mark" aria-hidden="true">${t.mark}</i>`):`<svg class="dd-catch-miss-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--tier-miss)" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="7.5" stroke-dasharray="2.8 4"></circle></svg>`;
+      return `<details class="dd-catch-row" data-question-id="${safe(res.id)}"><summary aria-expanded="false"><span class="n">${i+1}</span>${answerIcon}<span class="p"><small>${safe(q?.prompt||'')}</small><b>${t?'\u201c'+safe(res.answer)+'\u201d'+(res.estimated?' · EST.':''):'\u2014'}</b></span><span class="pts" style="--tier:${t?t.color:'#536e7a'}">${t?'+'+res.points:'0'}</span><i class="dd-catch-expand" aria-hidden="true"></i></summary><div class="dd-catch-answers"><div class="dd-catch-filters"><input class="dd-catch-search" type="search" placeholder="Search answers" aria-label="Search recovered answers"><select class="dd-catch-tier" aria-label="Filter recovered answers by tier"><option value="">All tiers</option>${TIERS.map((tier,index)=>`<option value="${index}">${safe(tier.label)}</option>`).join('')}</select></div><small class="dd-catch-recovered-count">${recovered.some(a=>a.source==='sidequest-common-supplement')?'RECOVERED + INDEPENDENT COMMON ANSWERS':recovered.some(a=>a.source==='sidequest-recovered-estimated')?'INDEPENDENT PRACTICE · ORIGINAL ACCEPTANCE / RARITY NOT VERIFIED':'RECOVERED ANSWERS'} · ${recovered.length}</small><ul></ul><p class="dd-catch-shown" hidden></p></div></details>`;
     };
     const avg=profile.history.length?Math.round(profile.history.reduce((s,x)=>s+(x.score||0),0)/profile.history.length):0;
     const best=profile.history.reduce((m,x)=>Math.max(m,x.score||0),0);
@@ -1200,7 +1200,7 @@
             <button type="button" class="dd-result-promo-action" data-action="worlds">EXPLORE THEMED PACKS</button>
           </section>
         </div>
-        <div class="dd-done-catch"><h3>THE CATCH · TAP A ROUND FOR EVERY ANSWER</h3>${r.results.map(catchRow).join('')}</div>
+        <div class="dd-done-catch"><h3><span>THE CATCH</span><small>TAP A ROUND FOR EVERY ANSWER</small></h3>${r.results.map(catchRow).join('')}</div>
         <div class="dd-done-log"><h3>LOGBOOK</h3><p>STREAK ${format(profile.streak)} · PLAYED ${format(profile.runs)} · AVG ${format(avg)} · BEST ${format(best)}</p><p class="dd-next-dive">NEXT DIVE IN <b id="dd-next-dive">--:--:--</b></p></div>
         <div class="dd-done-rate"><h3>HOW WAS THAT DIVE? 1 = MEH · 5 = GREAT</h3><div class="dd-rate-row">${[1,2,3,4,5].map(n=>`<button type="button" class="dd-rate${rating>=n?' on':''}" data-action="rate" data-rating="${n}" aria-label="Rate ${n} out of 5">${n}</button>`).join('')}</div></div>
         <p class="helper">${r.source==='krillion-reveal'?'Scores and result messages from the publisher’s public reveal; extra autocorrect aliases are not included.':(r.source==='published-free-starter-index'?'Original free starter prompts with independently indexed scored responses. Common supplementary answers score an explicitly estimated 10 points; not the publisher’s original validator.':r.source==='published-archive-snapshot'?'Recorded answer scores from the independent historical snapshot. Scores and aliases may differ from the publisher’s present validator.':'Independent Sidequest prompts with estimated rarity.')} Progress stays on this device.</p>
@@ -1362,7 +1362,7 @@
     const row=e.target.closest('.dd-catch-row');if(row?.open)renderCatchAnswers(row);
   });
   root.addEventListener('toggle',e=>{
-    const row=e.target;if(row?.matches?.('.dd-catch-row')&&row.open)renderCatchAnswers(row);
+    const row=e.target;if(row?.matches?.('.dd-catch-row')){row.querySelector('summary')?.setAttribute('aria-expanded',String(row.open));if(row.open)renderCatchAnswers(row);}
   },true);
   function pokeMascot(target){
     if(!target?.isConnected)return;
