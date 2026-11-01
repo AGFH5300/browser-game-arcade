@@ -81,8 +81,8 @@ test('historical Archive records best local score and preserves published answer
 
 test('source-like results contain honest local-only distribution, vertical dive log and surfaced scene',()=>{
  assert(game.includes('function localResultCurve(r)'));
- assert(game.includes('SAVED LOCAL RUNS'));
- assert(game.includes('Player distribution unavailable'));
+ assert(game.includes('PERSONAL HISTORY'));
+ assert(game.includes('This curve represents your saved dives'));
  assert(!game.includes('Illustrative shape only'));
  assert(game.includes('function scoreTrail(results)'));
  assert(game.includes('dd-score-trail-stem'));
@@ -125,7 +125,7 @@ test('stale legacy Discovery result is prevented by a versioned no-cache player 
 });
 test('new result page does not claim invented worldwide player percentiles',()=>{
  assert(game.includes('function localResultCurve(r)'));
- assert(game.includes('Player distribution unavailable'));
+ assert(game.includes('This curve represents your saved dives'));
  assert(!game.includes('Krillion player percentile unavailable'));
  assert(!game.includes('BETTER THAN 92%'));
 });
@@ -137,15 +137,15 @@ test('local result curve shows no invented shape below five runs and plots finit
  const render=(history:{mode:string;count:number;score:number}[])=>vm.runInNewContext(curveSource,{profile:{history}})({mode:'daily',count:7,score:350});
  const sparse=render([{mode:'daily',count:7,score:120},{mode:'daily',count:7,score:NaN}]);
  assert.match(sparse,/viewBox="0 0 480 157"/);
- assert.match(sparse,/Player distribution unavailable/);
- assert(!/class="dd-personal-curve"/.test(sparse),'no curve is drawn for fewer than five valid runs');
+ assert.match(sparse,/1 RECORDED DIVE · PERSONAL HISTORY/);
+ assert(/class="dd-personal-curve"/.test(sparse),'curve uses only the one recorded local dive');
  assert.match(sparse,/<line x1="[\d.]+" x2="[\d.]+"/,'score marker remains visible');
  const history=Array.from({length:6},(_,i)=>({mode:'daily',count:7,score:100+i*80}));
  const full=render(history);
- assert.match(full,/DISTRIBUTION OF 6 SAVED LOCAL RUNS/);
+ assert.match(full,/6 RECORDED DIVES · PERSONAL HISTORY/);
  assert.match(full,/class="dd-personal-curve" d="M[\d.,L ]+"/);
  assert(!/NaN|Infinity/.test(full),'rendered chart coordinates are finite');
- assert(!/percentile/i.test(full),'local history is not presented as a global percentile');
+ assert.match(full,/not a publisher-wide percentile/,'local history must not claim a global percentile');
 });
 test('unique typo correction handles transposed letters, preserves explicit confirmation',()=>{
  assert(game.includes('Plain Levenshtein, not Damerau'));
