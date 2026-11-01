@@ -1,0 +1,38 @@
+/* Default shrimp's original gameplay boop, measured 1 Nov 2026.
+ * The live source does not spin the whole mascot on a poke. It keeps
+ * a gently floating mascot, nudges it right/up briefly, then displays
+ * pink (not gold) 18px "blub!" at left 44px / top -22px with a 1s rise.
+ * Sidequest's previous two click handlers each requested a 720deg ds-roll
+ * on the parent (dd-mascot-poke + dd-mascot-poked), spinning the text.
+ *
+ * In paired time samples 70/250/550ms after click, old Sidequest text
+ * changed size/position wildly. With the independently animated translate
+ * and source text styles, replica/source x positions are within ~1px and
+ * y within ~3px at those measured times. Underlying gentle bob remains.
+ */
+@keyframes dd-source-mascot-boop-drift{
+ 0%{translate:20px -28px}
+ 100%{translate:0 0}
+}
+.page.deep-home.dd-game-screen[data-world="ocean"][data-phase="answering"] .dd-game-fish.dd-mascot-poked{
+ animation:ds-swim 2.6s cubic-bezier(.45,0,.55,1) infinite!important;
+}
+.page.deep-home.dd-game-screen[data-world="ocean"][data-phase="answering"] .dd-game-fish.dd-mascot-poke{
+ animation:
+  ds-swim 2.6s cubic-bezier(.45,0,.55,1) infinite,
+  dd-source-mascot-boop-drift 900ms ease-out 1!important;
+}
+.page.deep-home.dd-game-screen[data-world="ocean"][data-phase="answering"] .dd-game-fish .dd-blub.show{
+ left:44px!important;
+ top:-22px!important;
+ color:#ff5d8f!important;
+ font:18px/27px "ReferenceVT323",monospace!important;
+ text-shadow:0 0 9px rgba(255,93,143,.7)!important;
+}
+@media(prefers-reduced-motion:reduce){
+ .page.deep-home.dd-game-screen[data-world="ocean"][data-phase="answering"] .dd-game-fish.dd-mascot-poked,
+ .page.deep-home.dd-game-screen[data-world="ocean"][data-phase="answering"] .dd-game-fish.dd-mascot-poke{
+  animation:none!important;
+  translate:none!important;
+ }
+}
