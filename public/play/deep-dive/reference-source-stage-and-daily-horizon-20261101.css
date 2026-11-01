@@ -1,0 +1,33 @@
+/* Krillion source-verified dock and Daily horizon adjustments, 1 Nov 2026.
+ * The publisher fixes its stage at browser height minus 90px desktop / 50px
+ * mobile and anchors the 1080px (desktop) dock to that shorter stage.
+ * Sidequest already has the correctly sized interactive stage, but its
+ * answer-form is a direct child of a full-viewport ocean wrapper, leaving
+ * input, DIVE, and fuse 90px/50px too low. The selector's specificity must
+ * match the legacy !important stage-edge rule.
+ *
+ * Verified source rects: 1440x900 dock [180,723,1080,87]; 390x844
+ * dock [0,714,390,80]. Keep full-viewport ocean under the stage. */
+.page.deep-home.dd-game-screen[data-world="ocean"][data-phase="answering"] .dd-dock{
+  bottom:90px!important;
+  left:50%!important;
+  width:min(1080px,100%)!important;
+  max-width:1080px!important;
+  transform:translateX(-50%)!important;
+}
+@media(max-width:650px){
+  .page.deep-home.dd-game-screen[data-world="ocean"][data-phase="answering"] .dd-dock{
+    bottom:50px!important;
+  }
+  /* The original Daily surface fades toward dark blue-grey in its bottom
+   * 14% on 390x844; the existing sky.webp overlay stayed cyan all the way
+   * to y479. Only Daily uses this horizon; the publisher's Unlimited
+   * surface remains bright here. Keep the existing sky artwork intact. */
+  .deep-home[data-phase="intro"][data-mode="daily"] .dd-sky:not(.dd-game-sky)::after{
+    background-image:
+      linear-gradient(to bottom,transparent 65%,rgba(0,0,0,0) 72%,rgba(0,0,0,.0672) 86%,rgba(0,0,0,.28) 100%),
+      url("./reference-art/sky.webp")!important;
+    background-size:100% 100%,100% auto!important;
+    background-position:center bottom,center bottom!important;
+  }
+}
