@@ -1180,24 +1180,45 @@
         <div class="result-actions"><div class="dd-result-primary-actions">${button('share','COPY RESULT','primary')}${button('startEndless','KEEP DIVING ∞','ghost')}</div><div class="dd-result-secondary-actions">${button('archive','ARCHIVE ⟲','ghost')}${button('worlds','THEMED PACKS →','ghost')}</div></div>
         <div class="dd-result-discovery" aria-label="More ways to play">
           <section class="dd-result-promo dd-result-puffer">
-            <div class="dd-result-promo-label">BETA · LIVE MULTIPLAYER</div>
-            <img src="./reference-assets/gen/party/puffer-0.png" alt="" class="dd-result-puffer-img" loading="lazy">
-            <h2>PUFFER PARTY</h2>
-            <p>Basically hot potato, but for krill. Play with friends or jump into a quick match.</p>
-            <small>2–16 players · live multiplayer</small>
-            <button type="button" class="dd-result-promo-action" data-action="party">PLAY PUFFER PARTY</button>
+            <div class="dd-result-promo-label">BETA · LIMITED TIME</div>
+            <div class="dd-result-promo-main">
+              <div>
+                <h2>PUFFER PARTY</h2>
+                <p>Basically hot potato but for krillion, try it, it's fun</p>
+              </div>
+              <img src="./reference-assets/gen/party/puffer-0.png" alt="" class="dd-result-puffer-img" loading="lazy">
+            </div>
+            <div class="dd-result-promo-footer">
+              <small>2–16 players · live multiplayer</small>
+              <button type="button" class="dd-result-promo-action" data-action="party">PLAY PUFFER PARTY</button>
+            </div>
           </section>
-          <section class="dd-result-promo dd-result-friends">
-            <div class="dd-result-promo-label">YOUR CREW</div>
-            <h2>FRIENDS & RANKINGS</h2>
-            <p>Continue your dives, compare your best runs and return for another round.</p>
-            <button type="button" class="dd-result-promo-action" data-action="stats">VIEW DIVE STATS</button>
+          <section class="dd-result-promo dd-result-instagram">
+            <div class="dd-result-promo-label">INSTAGRAM</div>
+            <h2>FOLLOW US ON INSTAGRAM</h2>
+            <p class="dd-result-social-handle">@youareoneinakrillion</p>
+            <p>Keep up with Krillion between dives.</p>
+            <a class="dd-result-promo-action" href="https://www.instagram.com/youareoneinakrillion/" target="_blank" rel="noopener noreferrer">FOLLOW ↗</a>
+            <small class="dd-result-disclaimer">This is Krillion's only account. @krillion.io is an impersonator.</small>
           </section>
-          <section class="dd-result-promo dd-result-more">
-            <div class="dd-result-promo-label">KEEP EXPLORING</div>
-            <h2>MORE DIVES AWAIT</h2>
-            <p>Explore the Archive, discover themed questions or practice at your own pace.</p>
-            <button type="button" class="dd-result-promo-action" data-action="worlds">EXPLORE THEMED PACKS</button>
+          <section class="dd-result-promo dd-result-originle">
+            <div class="dd-result-promo-label">MY NEWEST GAME · FROM THE CREATOR OF KRILLION</div>
+            <h2>TRY MY NEW GAME!</h2>
+            <div class="dd-result-originle-split">
+              <div class="dd-result-originle-clip">
+                <img src="https://krillion.io/_next/static/media/originle-azamat.2kcrglqh81kr9.png" alt="Preview of Originle" loading="lazy">
+                <span>▶ CLUE 1/8</span>
+              </div>
+              <div class="dd-result-originle-description">
+                <b>ORIGINLE</b>
+                <p>Guess where he's from with 8 video clues about his country.</p>
+              </div>
+            </div>
+            <div class="dd-result-originle-stats">
+              <span>GUESSES<strong>3</strong></span>
+              <span>NEW PERSON<strong>Every day</strong></span>
+            </div>
+            <a class="dd-result-promo-action" href="https://originle.io/" target="_blank" rel="noopener noreferrer">PLAY ORIGINLE ↗</a>
           </section>
         </div>
         <div class="dd-done-catch"><h3><span>THE CATCH</span><small>TAP A ROUND FOR EVERY ANSWER</small></h3>${r.results.map(catchRow).join('')}</div>
