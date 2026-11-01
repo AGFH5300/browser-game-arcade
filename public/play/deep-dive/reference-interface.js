@@ -145,8 +145,8 @@
      app.closest('.app-shell')?.querySelector('.nav-pill[data-view="stats"]')?.click();
      return;
    }
-   const buddy=e.target.closest('.dd-game-fish[role=button]');
-   if(buddy){buddy.classList.remove('dd-mascot-poked');void buddy.offsetWidth;buddy.classList.add('dd-mascot-poked');window.DeepDiveSfx?.event('blub');}
+   // The game controller owns mascot clicks (including the boop animation).
+   // A second interface handler used to spin the shrimp and play SFX twice.
  });
  document.addEventListener('click',e=>{
    if(e.target.closest('#dd-global-settings [data-dd-close-settings]')){closeGlobalSettings();return}
@@ -162,9 +162,7 @@
    }
  });
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('dd-global-settings')){e.preventDefault();closeGlobalSettings()}});
- app.addEventListener('keydown',e=>{
-   if((e.key==='Enter'||e.key===' ')&&e.target.matches('.dd-game-fish[role=button]')){e.preventDefault();e.target.click()}
- });
+ // Keyboard activation of the mascot is handled in game.js exactly once.
  const observer=new MutationObserver(()=>queueMicrotask(mount));
  observer.observe(app,{childList:true});
  window.DeepDiveSfx?.subscribe(()=>mount());

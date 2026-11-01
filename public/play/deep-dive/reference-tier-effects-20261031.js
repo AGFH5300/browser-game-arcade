@@ -113,7 +113,15 @@
      window.DeepDiveSfx?.event('tierline');
    });
    const p=getOrigin(),color=COLORS[tier]||COLORS.miss;
-   stage.querySelector('.dd-chip')?.remove();
+   // Make the accepted word and the landing banner exchange in the same
+   // paint. The old separate timers could remove the word before the
+   // pending class was cleared, briefly showing neither element.
+   const chip=stage.querySelector('.dd-chip');
+   const reveal=stage.closest('.dd-reveal-screen');
+   reveal?.classList.remove('dd-reveal-pending');
+   const next=reveal?.querySelector('.dd-next-btn');
+   if(next){next.disabled=false;next.removeAttribute('aria-disabled')}
+   if(chip){chip.style.setProperty('visibility','hidden','important');requestAnimationFrame(()=>chip.remove())}
    clickOrigin=p;
    switch(tier){
      case'plankton':spark(p.x,p.y,color,8,.4);break;
@@ -139,6 +147,15 @@
    ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);
    const t=(now-started)/1000,col=COLORS[tier]||COLORS.miss;
    const chip=stage.querySelector('.dd-chip.dd-source-wiggle');
+   // A long, multiline prompt can extend into the accepted word's flight
+   // path. Remove the outgoing prompt at first physical intersection,
+   // instead of relying solely on an unrelated 1050ms timeout.
+   const outgoing=stage.querySelector('.dd-game-prompt');
+   if(chip&&outgoing){
+     const cr=chip.getBoundingClientRect(),pr=outgoing.getBoundingClientRect();
+     if(cr.top<pr.bottom+4&&cr.bottom>pr.top-4&&cr.left<pr.right&&cr.right>pr.left)
+       outgoing.remove();
+   }
    if(chip&&!landed){
      const progress=Math.max(0,Math.min(1,(now-started)/Math.max(1,duration)));
      const cubic=progress<.5?4*Math.pow(progress,3):1-Math.pow(-2*progress+2,3)/2;
