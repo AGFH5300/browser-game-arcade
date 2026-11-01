@@ -102,7 +102,7 @@ test('catch and bearing row renderers place tier art, result points, and lazy co
  const rows=vm.runInNewContext(game.slice(start,end)+'\n[bearingRow,catchRow];',context);
  const bearing=rows[0](bands[0]),catchHtml=rows[1]({id:'q',tier:0,answer:'Whale',points:10},0);
  assert.match(bearing,/<img class="dd-tier-icon"[^>]*><b>0–150<\/b><span>Plankton<\/span>/);
- assert.match(catchHtml,/<summary><span class="n">1<\/span><img class="dd-tier-icon"[^>]*><span class="p">/);
+ assert.match(catchHtml,/<summary aria-expanded="false"><span class="n">1<\/span><img class="dd-tier-icon"[^>]*><span class="p">/);
  assert.match(catchHtml,/\+10<\/span><i class="dd-catch-expand"/);
  assert.match(catchHtml,/class="dd-catch-search" type="search"/);
  assert.match(catchHtml,/class="dd-catch-tier"/);
