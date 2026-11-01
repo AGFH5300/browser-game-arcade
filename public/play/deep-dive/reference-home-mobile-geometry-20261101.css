@@ -1,0 +1,38 @@
+/* Krillion daily homepage mobile geometry.
+ * Matched using measured visible controls on the original site at 390x844,
+ * November 1, 2026, after a real browser font check:
+ * privacy x16 y484.8, party x16 y520.8 w334, begin x16 y607.6 w358,
+ * archive x16 y706 and unlimited x16 y747.
+ * Scope to Daily's intro so Unlimited/Party/other game phases are untouched. */
+@media (max-width:650px) {
+ .deep-home[data-phase="intro"][data-mode="daily"] .dd-sea-center{
+  transform:translateY(-38px)!important;
+ }
+ .deep-home[data-phase="intro"][data-mode="daily"] .dd-home-privacy{
+  position:relative;
+  top:-5px;
+ }
+ .deep-home[data-phase="intro"][data-mode="daily"] .dd-party-btn{
+  width:334px!important;
+  max-width:100%!important;
+  margin-left:0!important;
+  font-size:16px!important;
+  position:relative;
+  top:5px;
+ }
+ .deep-home[data-phase="intro"][data-mode="daily"] .dd-mode-nav{
+  grid-template-columns:104px 125px!important;
+  grid-auto-rows:auto!important;
+  justify-content:start!important;
+  gap:10px 8px!important;
+  margin-top:11px!important;
+ }
+ .deep-home[data-phase="intro"][data-mode="daily"] .dd-mode-nav button{
+  width:auto!important;
+  min-width:0!important;
+  height:31px!important;
+ }
+ .deep-home[data-phase="intro"][data-mode="daily"] .dd-mode-nav button:last-child{
+  width:116px!important;
+ }
+}
