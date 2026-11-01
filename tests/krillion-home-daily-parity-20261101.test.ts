@@ -34,3 +34,15 @@ test('new source-aligned rules take precedence over older layout corrections',()
  assert(idx>html.indexOf('reference-gameplay-mascot-geometry-20261101.css'));
  assert(idx>html.indexOf('reference-results-promos-source-20261101.css'));
 });
+
+test('strict screenshot audit excludes third-party shadow CMP and covers Daily gameplay',()=>{
+ const audit=readFileSync('scripts/krillion-live-visual-matrix.mjs','utf8');
+ assert(audit.includes("document.querySelector('#cmpwrapper')?.remove()"));
+ assert(audit.includes("if(screen==='gameplay')"));
+ assert(audit.includes('home,gameplay,menu,settings,wardrobe'));
+ assert(audit.includes('exactPercent!==100'));
+});
+test('Puffer sprite remains flex-flow child with actual source letter tracking',()=>{
+ assert(css.includes('position:relative!important'));
+ assert(css.includes('letter-spacing:.14em!important'));
+});
