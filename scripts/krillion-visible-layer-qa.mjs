@@ -3,6 +3,7 @@
  * Set KRILLION_TEST_URL to the candidate preview (or local server URL).
  */
 import {chromium} from 'playwright';
+import sharp from 'sharp';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -94,7 +95,21 @@ for(const width of [1440,390]){
     throw Error('Ocean background canvas is rendered but not animating');
   if(result.checks.oceanMotion.foregroundMounted&&!result.checks.oceanMotion.foregroundChanged)
     throw Error('Ocean foreground canvas is frozen');
-  await page.screenshot({path:path.join(out,width+'-gameplay.png')});
+  const rendered=await page.screenshot({path:path.join(out,width+'-gameplay.png')});
+  if(width===1440){
+   const {data,info}=await sharp(rendered).removeAlpha().raw().toBuffer({resolveWithObject:true});
+   const px=(x,y)=>Array.from(data.subarray((y*info.width+x)*3,(y*info.width+x)*3+3));
+   const samples=[];
+   for(const y of [300,350,450,540]){
+    for(const [a,b] of [[179,181],[1259,1261]]){
+     const A=px(a,y),B=px(b,y);
+     samples.push({y,from:a,to:b,delta:A.map((v,i)=>Math.abs(v-B[i]))});
+    }
+   }
+   const meanDelta=samples.reduce((sum,s)=>sum+s.delta.reduce((p,v)=>p+v,0),0)/(samples.length*3);
+   result.checks.stageSeam={meanDelta:+meanDelta.toFixed(3),samples};
+   if(meanDelta>5)throw Error('Desktop ocean still has an abrupt 1080px stage-edge color seam');
+  }
   await page.locator('.dd-game-fish').click({force:true,timeout:3000});
   const blub=page.locator('.dd-game-fish .dd-blub.show');
   await blub.waitFor({state:'visible',timeout:1200});
