@@ -13,6 +13,12 @@ test('the final mobile Daily homepage aligns source-measured controls',()=>{
  assert(css.includes('height:31px!important'));
  assert(css.includes('grid-template-columns:104px 125px!important'));
  assert(css.includes('width:116px!important'));
+ assert(css.includes('font-size:66.3px!important'));
+ assert(css.includes('letter-spacing:.04em!important'));
+ assert(css.includes('line-height:.9!important'));
+ assert(css.includes('font-size:21.06px!important'));
+ assert(css.includes('margin-top:6px!important'));
+ assert(css.includes('font-size:15.6px!important'));
 });
 
 test('other modes and game scenes do not inherit the Daily positioning override',()=>{
