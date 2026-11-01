@@ -118,7 +118,8 @@
    if(now-last<1000/fps-.5){raf=requestAnimationFrame(draw);return}
    const dt=last?Math.min(.1,Math.max(0,(now-last)/1000)):0;
    last=now;
-   const w=stage.clientWidth,h=stage.clientHeight;
+   // The sea is full-viewport; the game controls and world remain in the shorter stage.
+   const w=scene.clientWidth,h=scene.clientHeight;
    if(w<20||h<20){raf=requestAnimationFrame(draw);return}
    const scale=Math.min(devicePixelRatio||1,low?1:2,Math.sqrt((low?1500000:8300000)/(w*h)));
    const cw=Math.round(w*scale),ch=Math.round(h*scale);
@@ -192,8 +193,9 @@
    stage=next;scene=next.closest('.dd-game-screen');world=next.querySelector('.dd-world');
    el=document.createElement('canvas');el.className='dd-source-ocean-canvas';
    el.setAttribute('aria-hidden','true');
-   const sea=next.querySelector('.dd-game-sea');
-   if(sea)sea.after(el);else next.prepend(el);
+   // A stage child is clipped by the stage's overflow:hidden. The source sea
+   // must instead be a sibling, underneath the interactive stage.
+   scene.insertBefore(el,next);
    ctx=el.getContext('2d',{alpha:false,desynchronized:true});
    active=true;if(ctx&&!document.hidden)raf=requestAnimationFrame(draw);
  }
