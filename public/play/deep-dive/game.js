@@ -1273,7 +1273,7 @@
     if(active.phase==='preview'){cam.goTo(target,{dur:2900,hold:350});return}
     if(active.phase==='feedback'){
       const last=active.results[active.results.length-1];
-      cam.goTo(target,{dur:active.revealDuration||revealDurationFor(last),ease:Number(last?.tier)===0?'sine':'cubic'});
+      cam.goTo(target,{dur:active.revealDuration||revealDurationFor(last),ease:Number(last?.tier)===0?'source-plankton':'cubic'});
       return;
     }
     cam.goTo(target,{});
