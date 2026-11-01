@@ -17,6 +17,7 @@ test('home Puffer Party uses source sprite image, label and no misleading emoji/
 });
 test('source measured mobile Party card and title sizes',()=>{
  for(const x of ['width:334px!important;height:59.109px!important','font-size:23.4px!important','line-height:35.1px!important','top:4.78px'])assert(css.includes(x),x);
+ assert(css.includes('letter-spacing:.08em!important'));
 });
 test('desktop Party, Begin and nav geometry follow original measurements',()=>{
  for(const x of ['width:340px!important','height:66px!important','top:-3.1px','top:2px','font:28px/42px'])assert(css.includes(x),x);
