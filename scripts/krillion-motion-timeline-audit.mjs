@@ -34,7 +34,7 @@ async function geometry(page,site,phase){
 async function capture(page,site,width,phase,steps){
  const frames=[],last=performance.now();
  for(const [i,ms] of steps.entries()){
-  if(i>0)await page.waitForTimeout(Math.max(0,ms-steps[i-1]));
+  if(i>0)await page.waitForTimeout(Math.max(0,last+ms-performance.now()));
   const nodes=await geometry(page,site,phase);
   frames.push({t:ms,elapsed:Math.round(performance.now()-last),nodes});
   if([0,550,1900,4300].includes(ms))await page.screenshot({path:output+'/'+width+'-'+site+'-'+phase+'-'+ms+'.png',animations:'allow'});
