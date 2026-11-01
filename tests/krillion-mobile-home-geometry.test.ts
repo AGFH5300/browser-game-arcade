@@ -21,8 +21,12 @@ test('the final mobile Daily homepage aligns source-measured controls',()=>{
  assert(css.includes('font-size:15.6px!important'));
 });
 
-test('other modes and game scenes do not inherit the Daily positioning override',()=>{
- assert(!css.includes('[data-mode="endless"]'));
+test('Unlimited has independently measured navigation and does not affect gameplay/Party',()=>{
+ assert(css.includes('[data-mode="endless"]'));
+ assert(css.includes('grid-template-columns:117px 102px 119px!important'));
+ assert(css.includes('grid-auto-rows:52px!important'));
+ assert(css.includes('translateY(72px)'));
+ assert(css.includes('min-height:44px!important'));
  assert(!css.includes('.dd-game-screen'));
  assert(!css.includes('.pp-view'));
 });
