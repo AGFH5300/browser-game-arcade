@@ -11,7 +11,7 @@
  *   - a miss lands its banner at base+80
  *   - the camera is a translate3d(0, t, 0) on the world column with
  *     t = anchorPx - 2*depthMeters plus a small idle "current" drift;
- *     measured anchors: answering ~23% of stage height, reveal ~37.8%,
+ *     measured anchors: answering ~23% of stage height, reveal ~42.5%,
  *     miss reveal ~29%; big descents ease in-out over ~5-6s (observed
  *     2,000px descent trace), small ones settle in ~3s.
  * The coordinate helpers are pure and exported for unit tests.
@@ -35,7 +35,7 @@
    // Mobile public canvas anchors the first surface wave near y=177/844 (21%),
    // while the desktop original anchors it near y=207/900 (23%).
    answering: stageH * (typeof innerWidth==='number'&&innerWidth<=650?0.21:0.23),
-   feedback: stageH * 0.378,
+   feedback: stageH * 0.425,
    miss: stageH * 0.29,
    done: stageH * 0.51
  });
