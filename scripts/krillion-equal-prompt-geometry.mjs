@@ -26,8 +26,9 @@ async function run(which,width,prompt){
   if(which==='original'){
    await p.locator('.ds-begin-btn').waitFor({state:'visible'});
    await p.waitForTimeout(1400);
-   await p.locator('.ds-begin-btn').click({force:true});
-   await p.locator('input[placeholder*="type one answer"]').waitFor({state:'visible',timeout:20000});
+   await p.waitForTimeout(1600); // original's click handler attaches after hydration
+   await p.locator('.ds-begin-btn').evaluate(e=>e.click());
+   await p.locator('.ds-input[aria-label="Your answer"]').waitFor({state:'visible',timeout:20000});
    prompt=await p.locator('.ds-card .prompt').first().innerText();
   }else{
    await p.locator('.deep-home[data-phase=intro]').waitFor({state:'attached',timeout:14000});
