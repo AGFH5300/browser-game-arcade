@@ -19,7 +19,7 @@
   [1050,213.3,305.5,84.4],[1900,221.7,290,86.4],
   [3300,161.2,246.7,78.2],[4300,35.9,193.1,73.5]
  ];
- let root=null,fish=null,stage=null,raf=0,started=0,ms=4300,steps=[],lastTime=0;
+ let root=null,fish=null,stage=null,raf=0,started=0,ms=4300,lastTime=0;
  const lerp=(a,b,t)=>a+(b-a)*t;
  function sample(anchors,time){
   if(time<=anchors[0][0])return anchors[0].slice(1);
@@ -41,8 +41,8 @@
   const stageW=stage.clientWidth,stageH=stage.clientHeight;
   const mobileWeight=Math.max(0,Math.min(1,(1080-stageW)/(1080-390)));
   const elapsed=reduce.matches?ms:Math.max(0,now-started);
-  const progress=sample(steps,elapsed);
-  const srcD=sample(desktop,elapsed),srcM=sample(mobile,elapsed);
+  const normalized=elapsed*4300/ms;
+  const srcD=sample(desktop,normalized),srcM=sample(mobile,normalized);
   // For intermediate widths, interpolate the two observed stage-relative
   // tracks, avoiding a discontinuity at CSS breakpoint widths.
   const x=lerp(srcD[0]/1080*stageW,srcM[0]/390*stageW,mobileWeight);
@@ -75,7 +75,6 @@
   // Preserve the measured 4.3s track for the 3.4s Plankton category.
   const factor=Math.max(1,duration/3400);
   ms=Math.round(4300*factor);
-  steps=(stage.clientWidth<=650?mobile:desktop).map(row=>[row[0]*factor,...row.slice(1)]);
   started=performance.now();
   raf=requestAnimationFrame(paint);
  }
