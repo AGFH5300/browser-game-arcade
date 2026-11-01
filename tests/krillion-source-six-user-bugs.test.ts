@@ -14,7 +14,7 @@ test('accepted answer remains visible until actual tier landing',()=>{
  assert(sourceMotion.includes('.dd-chip.dd-source-wiggle'));
  assert(sourceMotion.includes('opacity:1!important'));
  assert(sourceMotion.includes('animation:none!important'));
- assert(tiers.includes("chip.style.visibility='hidden';requestAnimationFrame(()=>chip.remove())"));
+ assert(tiers.includes("chip.style.setProperty('visibility','hidden','important');requestAnimationFrame(()=>chip.remove())"));
 });
 test('timer fuse uses original below-input location',()=>{
  assert(css.includes('bottom:-8px!important'));
