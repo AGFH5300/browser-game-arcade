@@ -1362,7 +1362,19 @@
     const row=e.target.closest('.dd-catch-row');if(row?.open)renderCatchAnswers(row);
   });
   root.addEventListener('toggle',e=>{
-    const row=e.target;if(row?.matches?.('.dd-catch-row')){row.querySelector('summary')?.setAttribute('aria-expanded',String(row.open));if(row.open)renderCatchAnswers(row);}
+    const row=e.target;if(row?.matches?.('.dd-catch-row')){
+      // The original results accordion allows one expanded round at a time.
+      if(row.open){
+        root.querySelectorAll('.dd-catch-row[open]').forEach(other=>{
+          if(other!==row){
+            other.open=false;
+            other.querySelector('summary')?.setAttribute('aria-expanded','false');
+          }
+        });
+      }
+      row.querySelector('summary')?.setAttribute('aria-expanded',String(row.open));
+      if(row.open)renderCatchAnswers(row);
+    }
   },true);
   function pokeMascot(target){
     if(!target?.isConnected)return;
