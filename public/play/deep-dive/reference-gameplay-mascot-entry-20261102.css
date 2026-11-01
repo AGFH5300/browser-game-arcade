@@ -1,0 +1,17 @@
+/* Source-aligned settled shrimp anchor.
+ * 1440x900: previous local idle y≈609 vs original≈602; x≈197 vs≈195.
+ * 390x844: previous local idle y≈595 vs original≈593. The independent
+ * entry controller animates initial offsets separately with WAAPI translate.
+ */
+@media(min-width:651px){
+ .page.deep-home.dd-game-screen[data-world="ocean"][data-phase="answering"] .dd-game-fish{
+  margin-left:-2px!important;
+  margin-top:-7px!important;
+ }
+}
+@media(max-width:650px){
+ .page.deep-home.dd-game-screen[data-world="ocean"][data-phase="answering"] .dd-game-fish{
+  margin-left:0!important;
+  margin-top:-2px!important;
+ }
+}
