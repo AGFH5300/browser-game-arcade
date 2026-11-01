@@ -1,10 +1,10 @@
 {
   "source": "Independent archived snapshots at krilliongame.com (not live official API)",
   "firstDate": "2026-07-16",
-  "lastDate": "2026-10-28",
-  "importedDates": 105,
-  "prompts": 735,
-  "acceptedAnswerRows": 499704,
+  "lastDate": "2026-11-01",
+  "importedDates": 109,
+  "prompts": 763,
+  "acceptedAnswerRows": 584548,
   "dates": [
     {
       "date": "2026-07-16",
@@ -530,6 +530,26 @@
       "date": "2026-10-28",
       "prompts": 7,
       "acceptedAnswers": 4329
+    },
+    {
+      "date": "2026-10-29",
+      "prompts": 7,
+      "acceptedAnswers": 16719
+    },
+    {
+      "date": "2026-10-30",
+      "prompts": 7,
+      "acceptedAnswers": 31376
+    },
+    {
+      "date": "2026-10-31",
+      "prompts": 7,
+      "acceptedAnswers": 8019
+    },
+    {
+      "date": "2026-11-01",
+      "prompts": 7,
+      "acceptedAnswers": 28730
     }
   ],
   "failures": []

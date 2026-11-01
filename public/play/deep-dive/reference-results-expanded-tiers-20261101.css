@@ -1,0 +1,119 @@
+/* Measured against the actual original Krillion expanded Catch on Nov 1 2026.
+ * Source mobile 390x844: horizontal 27px indent; filter group 323x62;
+ * filter chips 28px tall; search 323x30; list 323x288; answer rows
+ * flex with 14px tier sprite, answer 14px, quip 13px and +score 11px.
+ * Keep keyboard focus and independent/local answer data intact.
+ */
+.dd-done-screen .dd-catch-answers{
+ margin:8px 0 4px 27px!important;padding:0 0 11px!important;
+ max-height:none!important;overflow:visible!important;
+ border-top:none!important;
+}
+.dd-done-screen .dd-catch-filters{
+ display:flex!important;flex-wrap:wrap!important;
+ align-items:center!important;justify-content:flex-start!important;
+ gap:6px!important;margin:0 0 8px!important;
+}
+.dd-done-screen .dd-catch-pill{
+ box-sizing:border-box;display:inline-flex;align-items:center;
+ min-height:28px;padding:4px 8px;
+ gap:5px;background:transparent;
+ border:1px solid rgba(125,147,184,.22);border-radius:4px;
+ color:var(--tier-color);
+ font:12px/18px "ReferenceVT323",monospace!important;
+ cursor:pointer;
+}
+.dd-done-screen .dd-catch-pill span{opacity:.7}
+.dd-done-screen .dd-catch-pill[aria-pressed=true]{
+ background:rgba(255,255,255,.08);
+ border-color:var(--tier-color);
+}
+.dd-done-screen .dd-catch-pill:focus-visible{
+ outline:2px solid #4de3ff;outline-offset:2px;
+}
+.dd-done-screen .dd-catch-tier[hidden]{display:none!important}
+.dd-done-screen input.dd-catch-search{
+ display:block!important;width:100%!important;
+ height:30px!important;min-height:0!important;
+ box-sizing:border-box!important;flex:none!important;
+ background:rgba(16,29,51,.5)!important;
+ border:1px solid rgba(125,147,184,.22)!important;
+ color:#e8f1ff!important;
+ font:14px/20px "ReferenceVT323",monospace!important;
+ padding:4px 8px!important;
+ border-radius:4px!important;
+ margin:0 0 8px!important;
+}
+.dd-done-screen .dd-catch-answers ul[aria-label="Answers"]{
+ display:flex!important;flex-direction:column!important;
+ gap:4px!important;list-style:none!important;
+ box-sizing:border-box!important;
+ max-height:288px!important;overflow-y:auto!important;
+ overflow-x:hidden!important;overscroll-behavior:contain;
+ padding:0 4px 0 0!important;margin:0!important;
+ scrollbar-width:thin;
+}
+.dd-done-screen .dd-catch-answers ul[aria-label="Answers"]:focus-visible{
+ outline:2px solid #4de3ff;outline-offset:2px;
+}
+.dd-done-screen .dd-catch-answers li{
+ display:flex!important;align-items:flex-start!important;
+ gap:8px!important;box-sizing:border-box!important;
+ border:0!important;padding:4px 6px!important;
+ min-width:0!important;
+}
+.dd-done-screen .dd-catch-answer-icon{flex:0 0 14px;margin-top:2px;height:14px}
+.dd-done-screen .dd-catch-answer-icon img{display:block!important;width:14px!important;height:14px!important;image-rendering:pixelated}
+.dd-done-screen .dd-catch-answer-copy{flex:1;min-width:0}
+.dd-done-screen .dd-catch-answer-copy b{
+ font:14px/20px "ReferenceVT323",monospace!important;
+ color:#e8f1ff!important;font-weight:400!important;
+ overflow-wrap:anywhere;
+}
+.dd-done-screen .dd-catch-answer-quip{
+ display:block!important;margin:0!important;padding:0!important;
+ font:13px/1.375 "ReferenceVT323",monospace!important;
+ color:#8faabd!important;
+}
+.dd-done-screen .dd-catch-answer-score{
+ flex:none;min-width:28px;text-align:right;
+ margin-left:auto;
+ font:11px/18px "ReferenceVT323",monospace!important;
+ font-weight:400!important;
+}
+.dd-done-screen .dd-catch-recovered-count{
+ display:none!important; margin:9px 0 0!important;
+ font:11px/1.2 "ReferenceVT323",monospace!important;
+ letter-spacing:.045em!important;color:#819cb0!important;
+}
+.dd-done-screen .dd-catch-shown:not([hidden]){display:block;margin-top:3px!important}
+/* Match the source's panel section positions to within a few pixels.
+ * Content is Sidequest-owned; external advertisements and purchases
+ * are not impersonated, but their occupied layout has equivalent sizing. */
+@media(max-width:650px){
+ .dd-done-screen .dd-result-discovery{
+  gap:36px!important;margin-top:255px!important;
+  margin-bottom:134px!important;
+ }
+ .dd-done-screen .dd-result-puffer{height:260px!important;min-height:260px!important}
+ .dd-done-screen .dd-result-instagram{height:261px!important;min-height:261px!important}
+ .dd-done-screen .dd-result-originle{
+  margin-top:80px!important;height:411px!important;min-height:411px!important;
+ }
+}
+@media(min-width:651px){
+ .dd-done-screen .dd-result-discovery{
+  gap:36px!important;margin-top:207px!important;margin-bottom:112px!important;
+ }
+ .dd-done-screen .dd-result-puffer{height:234px!important;min-height:234px!important}
+ .dd-done-screen .dd-result-instagram{height:244px!important;min-height:244px!important}
+ .dd-done-screen .dd-result-originle{
+  margin-top:139px!important;height:411px!important;min-height:411px!important;
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ .dd-done-screen .dd-result-promo *{animation:none!important;transition:none!important}
+}
+/* Source Catch caption spacing and per-row padding. */
+.dd-done-screen .dd-done-catch h3{margin-bottom:8px!important}
+.dd-done-screen .dd-catch-row{padding:9.7px 0!important}

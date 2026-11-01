@@ -1143,7 +1143,7 @@
       const q=byId.get(res.id);
       const recovered=Array.isArray(q?.answers)?[...q.answers].sort((a,b)=>b.tier-a.tier||a.value.localeCompare(b.value)):[];
       const answerIcon=t?(icon(t)?`<img class="dd-tier-icon" src="./reference-assets/tiers/${icon(t)}" alt="">`:`<i class="dd-tier-mark" aria-hidden="true">${t.mark}</i>`):`<svg class="dd-catch-miss-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--tier-miss)" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="7.5" stroke-dasharray="2.8 4"></circle></svg>`;
-      return `<details class="dd-catch-row" data-question-id="${safe(res.id)}"><summary aria-expanded="false"><span class="n">${i+1}</span>${answerIcon}<span class="p"><small>${safe(q?.prompt||'')}</small><b>${t?'\u201c'+safe(res.answer)+'\u201d'+(res.estimated?' · EST.':''):'\u2014'}</b></span><span class="pts" style="--tier:${t?t.color:'#536e7a'}">${t?'+'+res.points:'0'}</span><i class="dd-catch-expand" aria-hidden="true"></i></summary><div class="dd-catch-answers"><div class="dd-catch-filters"><input class="dd-catch-search" type="search" placeholder="Search answers" aria-label="Search recovered answers"><select class="dd-catch-tier" aria-label="Filter recovered answers by tier"><option value="">All tiers</option>${TIERS.map((tier,index)=>`<option value="${index}">${safe(tier.label)}</option>`).join('')}</select></div><small class="dd-catch-recovered-count">${recovered.some(a=>a.source==='sidequest-common-supplement')?'RECOVERED + INDEPENDENT COMMON ANSWERS':recovered.some(a=>a.source==='sidequest-recovered-estimated')?'INDEPENDENT PRACTICE · ORIGINAL ACCEPTANCE / RARITY NOT VERIFIED':'RECOVERED ANSWERS'} · ${recovered.length}</small><ul></ul><p class="dd-catch-shown" hidden></p></div></details>`;
+      return `<details class="dd-catch-row" data-question-id="${safe(res.id)}"><summary aria-expanded="false"><span class="n">${i+1}</span>${answerIcon}<span class="p"><small>${safe(q?.prompt||'')}</small><b>${t?'\u201c'+safe(res.answer)+'\u201d'+(res.estimated?' · EST.':''):'\u2014'}</b></span><span class="pts" style="--tier:${t?t.color:'#536e7a'}">${t?'+'+res.points:'0'}</span><i class="dd-catch-expand" aria-hidden="true"></i></summary><div class="dd-catch-answers"><div class="dd-catch-filters" role="group" aria-label="Filter answers by tier"></div><input class="dd-catch-search" type="search" placeholder="Search all answers…" aria-label="Search answers"><select class="dd-catch-tier" aria-label="Legacy answer tier filter" hidden tabindex="-1"><option value="">All tiers</option>${TIERS.map((tier,index)=>`<option value="${index}">${safe(tier.label)}</option>`).join('')}</select><small class="dd-catch-recovered-count">${recovered.some(a=>a.source==='sidequest-common-supplement')?'RECOVERED + INDEPENDENT COMMON ANSWERS':recovered.some(a=>a.source==='sidequest-recovered-estimated')?'INDEPENDENT PRACTICE · ORIGINAL ACCEPTANCE / RARITY NOT VERIFIED':'RECOVERED ANSWERS'} · ${recovered.length}</small><ul aria-label="Answers" tabindex="0"></ul><p class="dd-catch-shown" hidden></p></div></details>`;
     };
     const avg=profile.history.length?Math.round(profile.history.reduce((s,x)=>s+(x.score||0),0)/profile.history.length):0;
     const best=profile.history.reduce((m,x)=>Math.max(m,x.score||0),0);
@@ -1180,24 +1180,45 @@
         <div class="result-actions"><div class="dd-result-primary-actions">${button('share','COPY RESULT','primary')}${button('startEndless','KEEP DIVING ∞','ghost')}</div><div class="dd-result-secondary-actions">${button('archive','ARCHIVE ⟲','ghost')}${button('worlds','THEMED PACKS →','ghost')}</div></div>
         <div class="dd-result-discovery" aria-label="More ways to play">
           <section class="dd-result-promo dd-result-puffer">
-            <div class="dd-result-promo-label">BETA · LIVE MULTIPLAYER</div>
-            <img src="./reference-assets/gen/party/puffer-0.png" alt="" class="dd-result-puffer-img" loading="lazy">
-            <h2>PUFFER PARTY</h2>
-            <p>Basically hot potato, but for krill. Play with friends or jump into a quick match.</p>
-            <small>2–16 players · live multiplayer</small>
-            <button type="button" class="dd-result-promo-action" data-action="party">PLAY PUFFER PARTY</button>
+            <div class="dd-result-promo-label">BETA · LIMITED TIME</div>
+            <div class="dd-result-promo-main">
+              <div>
+                <h2>PUFFER PARTY</h2>
+                <p>Basically hot potato but for krillion, try it, it's fun</p>
+              </div>
+              <img src="./reference-assets/gen/party/puffer-0.png" alt="" class="dd-result-puffer-img" loading="lazy">
+            </div>
+            <div class="dd-result-promo-footer">
+              <small>2–16 players · live multiplayer</small>
+              <button type="button" class="dd-result-promo-action" data-action="party">PLAY PUFFER PARTY</button>
+            </div>
           </section>
-          <section class="dd-result-promo dd-result-friends">
-            <div class="dd-result-promo-label">YOUR CREW</div>
-            <h2>FRIENDS & RANKINGS</h2>
-            <p>Continue your dives, compare your best runs and return for another round.</p>
-            <button type="button" class="dd-result-promo-action" data-action="stats">VIEW DIVE STATS</button>
+          <section class="dd-result-promo dd-result-instagram">
+            <div class="dd-result-promo-label">INSTAGRAM</div>
+            <h2>FOLLOW US ON INSTAGRAM</h2>
+            <p class="dd-result-social-handle">@youareoneinakrillion</p>
+            <p>Keep up with Krillion between dives.</p>
+            <a class="dd-result-promo-action" href="https://www.instagram.com/youareoneinakrillion/" target="_blank" rel="noopener noreferrer">FOLLOW ↗</a>
+            <small class="dd-result-disclaimer">This is Krillion's only account. @krillion.io is an impersonator.</small>
           </section>
-          <section class="dd-result-promo dd-result-more">
-            <div class="dd-result-promo-label">KEEP EXPLORING</div>
-            <h2>MORE DIVES AWAIT</h2>
-            <p>Explore the Archive, discover themed questions or practice at your own pace.</p>
-            <button type="button" class="dd-result-promo-action" data-action="worlds">EXPLORE THEMED PACKS</button>
+          <section class="dd-result-promo dd-result-originle">
+            <div class="dd-result-promo-label">MY NEWEST GAME · FROM THE CREATOR OF KRILLION</div>
+            <h2>TRY MY NEW GAME!</h2>
+            <div class="dd-result-originle-split">
+              <div class="dd-result-originle-clip">
+                <img src="https://krillion.io/_next/static/media/originle-azamat.2kcrglqh81kr9.png" alt="Preview of Originle" loading="lazy">
+                <span>▶ CLUE 1/8</span>
+              </div>
+              <div class="dd-result-originle-description">
+                <b>ORIGINLE</b>
+                <p>Guess where he's from with 8 video clues about his country.</p>
+              </div>
+            </div>
+            <div class="dd-result-originle-stats">
+              <span>GUESSES<strong>3</strong></span>
+              <span>NEW PERSON<strong>Every day</strong></span>
+            </div>
+            <a class="dd-result-promo-action" href="https://originle.io/" target="_blank" rel="noopener noreferrer">PLAY ORIGINLE ↗</a>
           </section>
         </div>
         <div class="dd-done-catch"><h3><span>THE CATCH</span><small>TAP A ROUND FOR EVERY ANSWER</small></h3>${r.results.map(catchRow).join('')}</div>
@@ -1216,18 +1237,24 @@
     if(!row?.open||!row.classList.contains('dd-catch-row'))return;
     const q=byId.get(row.dataset.questionId),answers=Array.isArray(q?.answers)?[...q.answers].sort((a,b)=>b.tier-a.tier||a.value.localeCompare(b.value)):[];
     const list=row.querySelector('.dd-catch-answers ul'),search=row.querySelector('.dd-catch-search'),tierSelect=row.querySelector('.dd-catch-tier');
-    const count=row.querySelector('.dd-catch-recovered-count'),shown=row.querySelector('.dd-catch-shown');
-    if(!list||!count||!shown)return;
+    const pills=row.querySelector('.dd-catch-filters'),count=row.querySelector('.dd-catch-recovered-count'),shown=row.querySelector('.dd-catch-shown');
+    if(!list||!count||!shown||!pills)return;
     const query=norm(search?.value||''),tierFilter=tierSelect?.value===''?null:Number(tierSelect?.value);
+    // Original Krillion presents only populated score tiers, in descending
+    // order, with the total shown alongside each selectable chip.
+    const counts=Array.from({length:TIERS.length},()=>0);
+    for(const answer of answers)if(Number.isInteger(answer.tier)&&counts[answer.tier]!==undefined)counts[answer.tier]++;
+    const chip=(tier,label,num,color)=>`<button type="button" class="dd-catch-pill" data-tier="${tier===null?'':tier}" aria-pressed="${tierFilter===tier}" style="--tier-color:${color}">${safe(label)} <span>${format(num)}</span></button>`;
+    pills.innerHTML=chip(null,'All',answers.length,'#e8f1ff')+TIERS.map((t,i)=>({t,i})).filter(({i})=>counts[i]).reverse().map(({t,i})=>chip(i,t.id==='krillion'?'Krillion':t.label,counts[i],t.color)).join('');
     const filtered=answers.filter(answer=>(tierFilter===null||answer.tier===tierFilter)&&(!query||norm(answer.value+' '+(answer.quip||'')).includes(query)));
     const visible=filtered.slice(0,100),icon=t=>t.id==='plankton'?'plankton.png':t.icon;
     list.innerHTML=visible.map(answer=>{
       const t=TIERS[answer.tier],image=icon(t),mark=image?`<img class="dd-tier-icon" src="./reference-assets/tiers/${image}" alt="">`:`<i class="dd-tier-mark" aria-hidden="true">${t.mark}</i>`;
-      return `<li><span class="dd-catch-answer-main">${mark}<b>${safe(answer.value)}</b><strong>${t.score}</strong></span>${answer.quip?`<small class="dd-catch-answer-quip">${safe(answer.quip)}</small>`:''}</li>`;
+      return `<li><span class="dd-catch-answer-icon">${mark}</span><span class="dd-catch-answer-copy"><b>${safe(answer.value)}</b>${answer.quip?`<small class="dd-catch-answer-quip">${safe(answer.quip)}</small>`:''}</span><strong class="dd-catch-answer-score" style="color:${t.color}">+${t.score}</strong></li>`;
     }).join('');
-    count.textContent=`RECOVERED ANSWERS · ${answers.length}`;
-    shown.hidden=filtered.length>0&&filtered.length<=visible.length;
-    shown.textContent=filtered.length?`SHOWING ${visible.length} OF ${filtered.length} MATCHING ANSWERS`:'NO MATCHING RECOVERED ANSWERS';
+    count.textContent=(answers.some(a=>a.source!=='krillion-public-reveal')?'INDEPENDENT PRACTICE · ':'PUBLISHER-SCORED ANSWERS · ')+format(answers.length);
+    shown.hidden=filtered.length<=visible.length;
+    shown.textContent=`SHOWING ${format(visible.length)} OF ${format(filtered.length)} MATCHING ANSWERS`;
   }
   function hookWorldCamera(animate){
     /* Camera targets recovered live: answering anchor ≈23% of stage height,
@@ -1393,6 +1420,12 @@
     }
   });
   root.addEventListener('click',e=>{
+    const filter=e.target.closest?.('.dd-catch-pill');
+    if(filter){
+      const row=filter.closest('.dd-catch-row'),select=row?.querySelector('.dd-catch-tier');
+      if(row?.open&&select){select.value=filter.dataset.tier||'';renderCatchAnswers(row)}
+      return;
+    }
     const mascot=e.target.closest?.('.dd-game-fish');
     if(mascot){pokeMascot(mascot);return;}
     const b=e.target.closest('button[data-action]');if(!b||b.disabled)return;

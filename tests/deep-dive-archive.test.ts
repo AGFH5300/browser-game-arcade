@@ -10,16 +10,16 @@ const manifest=JSON.parse(readFileSync(join(directory,'manifest.json'),'utf8')) 
 };
 const scores=new Set([10,15,30,60,85,100]);
 
-test('all 105 archived days and 735 public historical questions are included',()=>{
-  assert.equal(manifest.importedDates,105);
-  assert.equal(manifest.prompts,735);
-  assert.equal(manifest.acceptedAnswerRows,499704);
+test('all 109 publicly archived dates and 763 historical questions are included',()=>{
+  assert.equal(manifest.importedDates,109);
+  assert.equal(manifest.prompts,763);
+  assert.equal(manifest.acceptedAnswerRows,584548);
   assert.deepEqual(manifest.failures,[]);
-  assert.equal(manifest.dates.length,105);
-  assert.equal(new Set(manifest.dates.map(x=>x.date)).size,105);
+  assert.equal(manifest.dates.length,109);
+  assert.equal(new Set(manifest.dates.map(x=>x.date)).size,109);
   assert.equal(manifest.dates[0].date,'2026-07-16');
-  assert.equal(manifest.dates.at(-1)?.date,'2026-10-28');
-  assert.equal(readdirSync(directory).filter(x=>/^2026-\d{2}-\d{2}\.json$/.test(x)).length,105);
+  assert.equal(manifest.dates.at(-1)?.date,'2026-11-01');
+  assert.equal(readdirSync(directory).filter(x=>/^2026-\d{2}-\d{2}\.json$/.test(x)).length,109);
 });
 
 test('every archived answer has a public-source score on the six-tier scale',()=>{
@@ -49,8 +49,8 @@ test('every archived answer has a public-source score on the six-tier scale',()=
     assert.equal(dayAnswers,record.acceptedAnswers);
     answers+=dayAnswers;
   }
-  assert.equal(prompts,735);
-  assert.equal(answers,499704);
+  assert.equal(prompts,763);
+  assert.equal(answers,584548);
 });
 
 test('active site loads archive and visual animation sheet',()=>{

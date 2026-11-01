@@ -10,6 +10,7 @@ type CatchNode={innerHTML:string;value:string;textContent:string;hidden:boolean}
 type CatchNodes=Record<string,CatchNode>;
 const catchNodes=():CatchNodes=>({
  '.dd-catch-answers ul':{innerHTML:'',value:'',textContent:'',hidden:false},
+ '.dd-catch-filters':{innerHTML:'',value:'',textContent:'',hidden:false},
  '.dd-catch-search':{innerHTML:'',value:'',textContent:'',hidden:false},
  '.dd-catch-tier':{innerHTML:'',value:'',textContent:'',hidden:false},
  '.dd-catch-recovered-count':{innerHTML:'',value:'',textContent:'',hidden:false},
@@ -28,7 +29,7 @@ test('result actions follow bearing and precede expandable recovered catch answe
  assert.match(game,/\[\.\.\.q\.answers\]\.sort\(\(a,b\)=>b\.tier-a\.tier\|\|a\.value\.localeCompare\(b\.value\)\)/);
  assert.match(game,/const icon=t=>t\.id==='plankton'\?'plankton\.png':t\.icon/);
  assert.match(game,/class="dd-catch-search" type="search"/);
- assert.match(game,/class="dd-catch-tier" aria-label="Filter recovered answers by tier"/);
+ assert.match(game,/class="dd-catch-tier" aria-label="Legacy answer tier filter"/);
  assert.match(game,/\.addEventListener\('toggle',[\s\S]*renderCatchAnswers\(row\)/);
  assert.match(game,/KEEP DIVING ∞/);
  assert.match(game,/COPY RESULT/);
@@ -67,15 +68,15 @@ test('opening a catch row renders real answer scores and quips, with scoped sear
   const nodes=catchNodes();
   return {open,dataset:{questionId:'question-1'},classList:{contains:(name:string)=>name==='dd-catch-row'},querySelector:(selector:string)=>nodes[selector],nodes};
  };
- const context={byId:new Map([[fixture.id,fixture]]),TIERS:tiers,norm,safe};
+ const context={byId:new Map([[fixture.id,fixture]]),TIERS:tiers,norm,safe,format:(value:number)=>Number(value).toLocaleString('en-US')};
  const render=vm.runInNewContext(game.slice(start,end)+'\nrenderCatchAnswers;',context);
  const closed=row(false);render(closed);assert.equal(closed.nodes['.dd-catch-answers ul'].innerHTML,'');
  const target=row();render(target);
  let html=target.nodes['.dd-catch-answers ul'].innerHTML;
  assert.match(html,/Aardvark/);assert.match(html,/Alpha/);assert.match(html,/Zebra/);
- assert.match(html,/<strong>100<\/strong>/);assert.match(html,/<strong>10<\/strong>/);
+ assert.match(html,/>\+100<\/strong>/);assert.match(html,/>\+10<\/strong>/);
  assert.match(html,/&lt;reef&gt;/);assert.match(html,/Ocean clue/);
- assert.equal(target.nodes['.dd-catch-recovered-count'].textContent,'RECOVERED ANSWERS · 3');
+ assert.equal(target.nodes['.dd-catch-recovered-count'].textContent,'INDEPENDENT PRACTICE · 3');
  target.nodes['.dd-catch-search'].value='ocean';render(target);
  html=target.nodes['.dd-catch-answers ul'].innerHTML;
  assert.match(html,/Zebra/);assert.doesNotMatch(html,/Alpha|Aardvark/);
@@ -107,7 +108,7 @@ test('catch and bearing row renderers place tier art, result points, and lazy co
  assert.match(catchHtml,/class="dd-catch-search" type="search"/);
  assert.match(catchHtml,/class="dd-catch-tier"/);
  assert.match(catchHtml,/RECOVERED ANSWERS · 1/);
- assert.match(catchHtml,/<ul><\/ul>/,'answer options are populated only after opening the row');
+ assert.match(catchHtml,/<ul aria-label="Answers" tabindex="0"><\/ul>/,'answer options are populated only after opening the row');
 });
 
 test('answer list caps DOM output at 100 while reporting actual match and recovered totals',()=>{
@@ -117,10 +118,10 @@ test('answer list caps DOM output at 100 while reporting actual match and recove
  const answers=Array.from({length:137},(_,i)=>({value:'Answer '+i,tier:0}));
  const nodes=catchNodes();
  const row={open:true,dataset:{questionId:'large'},classList:{contains:()=>true},querySelector:(selector:string)=>nodes[selector]};
- const render=vm.runInNewContext(game.slice(start,end)+'\nrenderCatchAnswers;',{byId:new Map([['large',{answers}]]),TIERS:tiers,norm:(value:unknown)=>String(value).toLowerCase().replace(/[^a-z0-9]/g,''),safe:(value:unknown)=>String(value)});
+ const render=vm.runInNewContext(game.slice(start,end)+'\nrenderCatchAnswers;',{byId:new Map([['large',{answers}]]),TIERS:tiers,norm:(value:unknown)=>String(value).toLowerCase().replace(/[^a-z0-9]/g,''),safe:(value:unknown)=>String(value),format:(value:number)=>Number(value).toLocaleString('en-US')});
  render(row);
  assert.equal((nodes['.dd-catch-answers ul'].innerHTML.match(/<li>/g)||[]).length,100);
- assert.equal(nodes['.dd-catch-recovered-count'].textContent,'RECOVERED ANSWERS · 137');
+ assert.equal(nodes['.dd-catch-recovered-count'].textContent,'INDEPENDENT PRACTICE · 137');
  assert.equal(nodes['.dd-catch-shown'].textContent,'SHOWING 100 OF 137 MATCHING ANSWERS');
  assert.equal(nodes['.dd-catch-shown'].hidden,false);
 });
