@@ -70,7 +70,7 @@
 .dd-reveal-screen[data-world="ocean"] .dd-world .dd-chip{
  opacity:1!important;visibility:visible!important;
  z-index:15!important;animation:none!important;
- max-width:min(90vw,720px);box-sizing:border-box;
+ width:max-content!important;max-width:min(calc(100vw - 32px),720px);box-sizing:border-box;
  white-space:normal;overflow-wrap:anywhere;text-align:center;
 }
 .dd-reveal-screen[data-world="ocean"] .dd-chip.dd-source-wiggle{
