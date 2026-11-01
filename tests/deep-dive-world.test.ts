@@ -49,10 +49,10 @@ test('scroll-world geometry matches the original public client exactly',()=>{
   assert.equal(W.tierLineY(100,100),2200);
   assert.equal(W.chipSpawnY(0),180);
   assert.equal(W.missBannerY(0),80);
-  // Camera anchors measured at 1440x900: 207/340/260px ≈ 23%/37.8%/29% of stage height.
+  // Recalibrated 2 Nov from full source frame traces: reveal anchor ≈42.5% of stage height; answering and miss unchanged.
   const A=W.anchorsFor(900);
   assert.equal(Math.round(A.answering),207);
-  assert.equal(Math.round(A.feedback),340);
+  assert.equal(Math.round(A.feedback),383);
   assert.equal(Math.round(A.miss),261);
   // Big descents ease for ~4.9s (900+d/500*1000) and small ones clamp to 1.2s.
   assert.equal(W.durationFor(2000),4900);
