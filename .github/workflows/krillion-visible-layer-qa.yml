@@ -55,6 +55,11 @@ jobs:
           KRILLION_CANDIDATE_URL: http://127.0.0.1:8765
           KRILLION_MOTION_DIR: /tmp/krillion-motion-timeline
         run: node scripts/krillion-motion-timeline-audit.mjs
+      - name: Check all published rarity-tier motion phases on mobile and desktop
+        env:
+          KRILLION_CANDIDATE_URL: http://127.0.0.1:8765
+          KRILLION_TIER_DIR: /tmp/krillion-tier-motion
+        run: node scripts/krillion-tier-motion-qa.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -63,4 +68,5 @@ jobs:
             /tmp/krillion-visible-layer-qa
             /tmp/krillion-frame-compare
             /tmp/krillion-motion-timeline
+            /tmp/krillion-tier-motion
           if-no-files-found: ignore
