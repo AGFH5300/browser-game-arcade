@@ -24,8 +24,17 @@ async function run(site,screen,width){
   await p.goto(url,{waitUntil:'domcontentloaded',timeout:35000});
   // The publisher embeds a consent wrapper outside the game. Ignore this
   // third-party overlay during comparisons; leave the game itself untouched.
-  if(original)await p.addStyleTag({content:'.cmpwrapper{display:none!important;visibility:hidden!important}'});
+  // Original's CMP lives in #cmpwrapper's shadow root. Styling the host
+  // does not reliably hide the shadow modal, so remove the consent host
+  // *only in the audit browser*, immediately before pixel capture below.
+  // This does not accept consent or modify the published game.
   if(original){
+   if(screen==='gameplay'){
+    await p.locator('.ds-begin-btn').waitFor({state:'visible',timeout:16000});
+    await p.waitForTimeout(1900);
+    await p.locator('.ds-begin-btn').evaluate(e=>e.click());
+    await p.locator('.ds-input').waitFor({state:'visible',timeout:18000});
+   }
    if(['menu','settings','wardrobe'].includes(screen)){
     await p.locator('.ds-begin-btn').waitFor({state:'visible',timeout:16000});
     await p.waitForTimeout(1500); // original client hydration before menu listeners
@@ -44,6 +53,10 @@ async function run(site,screen,width){
    if(screen==='account'||screen==='friends')await p.goto(originalBase+'/'+screen,{waitUntil:'domcontentloaded'});
   }else{
    await p.locator('.deep-home[data-phase=intro]').waitFor({state:'attached',timeout:23000});
+   if(screen==='gameplay'){
+    await p.locator('.dd-begin').evaluate(e=>e.click());
+    await p.locator('#answer-input').waitFor({state:'visible',timeout:18000});
+   }
    if(['party','unlimited','account','friends'].includes(screen)){
     await p.locator('.dd-nav-toggle summary').evaluate(e=>e.click());
     await p.locator('[data-menu-view="'+({unlimited:'endless'}[screen]||screen)+'"]').evaluate(e=>e.click());
@@ -70,6 +83,7 @@ async function run(site,screen,width){
    ctx.font='24px sans-serif';
    if(ctx.measureText('KRILLION').width<40)throw new Error('FONT_RENDERER_UNAVAILABLE');
   });
+  if(original)await p.evaluate(()=>document.querySelector('#cmpwrapper')?.remove());
   const file=out+'/'+width+'-'+screen+'-'+site+'.png';
   await p.screenshot({path:file,timeout:20000});
   const data=await p.evaluate(()=>({
@@ -80,7 +94,7 @@ async function run(site,screen,width){
  }catch(e){return{ok:false,error:String(e).slice(0,370),errors}}
  finally{await p.close()}
 }
-const scenarios=(process.env.KRILLION_SCENARIOS||'home,menu,settings,wardrobe,party,unlimited,account,friends').split(',');
+const scenarios=(process.env.KRILLION_SCENARIOS||'home,gameplay,menu,settings,wardrobe,party,unlimited,account,friends').split(',');
 const viewports=(process.env.KRILLION_VIEWPORTS||'1440,390').split(',').map(Number);
 for(const width of viewports)for(const screen of scenarios){
  const orig=await run('original',screen,width),own=await run('replica',screen,width);

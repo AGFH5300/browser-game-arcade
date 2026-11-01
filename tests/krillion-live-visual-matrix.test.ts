@@ -14,7 +14,7 @@ test('visual parity audit uses stable environment and explicit screen checks',()
  ])assert(code.includes(token),token);
  assert(code.includes("x.diff.exactPercent!==100"));
  assert(!code.includes('a.currentTime=0'));
- assert(code.includes('.cmpwrapper{display:none!important'));
+ assert(code.includes("document.querySelector('#cmpwrapper')?.remove()"));
  assert(code.includes('await p.waitForTimeout(2600)'));
  assert(!code.includes('/Users/altygupta/'));
  assert(!code.includes('http://127.0.0.1:8918'));
