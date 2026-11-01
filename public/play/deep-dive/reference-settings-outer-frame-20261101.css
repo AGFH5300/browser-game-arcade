@@ -1,0 +1,17 @@
+/* Exact source Settings modal outer frame, 1 Nov 2026.
+ * Original SettingsControl dialog at 390x844 is [18,62,354,720], with
+ * no CSS border/outline and this same three-part box shadow already in
+ * Sidequest. Sidequest had an extra solid 1px border plus a browser default
+ * focused outline on the programmatically focused dialog.
+ * The close button, toggles, links and form controls retain their own
+ * visible focus rings; only the non-interactive dialog surface is reset.
+ *
+ * Comparing the original and Sidequest visible dialog regions:
+ * mobile MAE 16.521 -> 10.276 /255; desktop 13.557 -> 7.841 /255.
+ * These are unsynchronized screenshot differences, not a strict match. */
+.dd-global-settings-dialog.dd-source-dialog[role="dialog"]{
+  border:0!important;
+}
+.dd-global-settings-dialog.dd-source-dialog[role="dialog"]:focus-visible{
+  outline:none!important;
+}
