@@ -19,7 +19,8 @@ test('original DOM, canvas and synthesized sound scripts are delivered before ga
  assert(iface.includes('KRILLION'));
  assert(iface.includes('data-dd-sound'));
  assert(iface.includes('data-dd-setting'));
- assert(iface.includes('dd-mascot-poked'));
+ assert(iface.includes('The game controller owns mascot clicks'));
+ assert(!iface.includes("classList.add('dd-mascot-poked')"));
 });
 test('audio engine uses user gesture and local synthesis; no external sound files',()=>{
  for(const feature of ['AudioContext','createOscillator','createBufferSource','createBiquadFilter','createGain','visibilitychange','prefers','land_big','krillion','category','begin','reject']){
