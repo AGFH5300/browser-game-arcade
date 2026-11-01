@@ -46,7 +46,7 @@
  background:#4de3ff!important;
  border:0!important;
  font:12px/12px "ReferenceVT323",VT323,monospace!important;
- letter-spacing:0!important;
+ letter-spacing:.08em!important;
  text-transform:uppercase;
  z-index:4;
 }
