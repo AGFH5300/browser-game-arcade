@@ -76,6 +76,20 @@
   * trails that target rather than easing the world transform independently.
   */
  const sourceEaseSine = p => -(Math.cos(Math.PI * p) - 1) / 2;
+ /* Absolute-time 10-point reveal audit at 1440x900 / 390x844 shows an
+  * immediate camera catch-up followed by a slow descent. Sine ease held
+  * almost still for the first half second, then overshot source by 15–30px
+  * at landing. Fit the source's measured world-y positions to a two-part
+  * exponential + linear target, followed by the existing 6/s tracking.
+  */
+ const sourceEasePlankton = p => {
+   const mobile=typeof innerWidth==='number'&&innerWidth<=650;
+   const weight=mobile?.339:.557, rate=mobile?30:12.12, seconds=3.4;
+   const q=Math.max(0,Math.min(1,p));
+   const numerator=weight*(1-Math.exp(-rate*q*seconds))+(1-weight)*q;
+   const normalizer=weight*(1-Math.exp(-rate*seconds))+(1-weight);
+   return Math.min(1,numerator/normalizer);
+ };
  let lastFrame = null;
  let ease = easeInOutCubic;
  let lastRenderedAt = -Infinity;
@@ -135,7 +149,7 @@
      holdUntil = performance.now() + hold;
      startedAt = performance.now();
      // Source uses sinusoidal ease for Plankton, cubic for other tiers.
-     ease = opts?.ease === 'sine' ? sourceEaseSine : easeInOutCubic;
+     ease = opts?.ease === 'source-plankton' ? sourceEasePlankton : opts?.ease === 'sine' ? sourceEaseSine : easeInOutCubic;
      lastFrame = null;
      lastRenderedAt = -Infinity;
      ensureLoop();
