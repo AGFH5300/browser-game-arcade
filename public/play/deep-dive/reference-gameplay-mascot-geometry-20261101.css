@@ -1,0 +1,27 @@
+/* Krillion gameplay mascot placement and dimensions, 1 Nov 2026.
+ * In 18 source/Sidequest paired animation samples the current gameplay
+ * mascot averaged 18.44px too far right and 25.47px too high on 390x844,
+ * and 20.94px too high on 1440x900. The source sprite is ~64px.
+ * This adjustment was then tested over 15 additional moving samples:
+ * mobile mean candidate - source delta [x .34, y .97, w -.70, h .39] px;
+ * desktop [x 1.52, y .13, w -1.01, h .12] px.
+ *
+ * Keep the existing poke/roll, bobbing animation, focus treatment and
+ * boop text intact. Only the answering mascot geometry is changed;
+ * never alter intro mascot, feedback, results, or Party puffer.
+ */
+@media (min-width:651px){
+ .page.deep-home.dd-game-screen[data-world="ocean"][data-phase="answering"] .dd-game-fish{
+  top:616px!important;
+  width:64px!important;
+  height:64px!important;
+ }
+}
+@media (max-width:650px){
+ .page.deep-home.dd-game-screen[data-world="ocean"][data-phase="answering"] .dd-game-fish{
+  margin-left:-2px!important;
+  margin-top:44px!important;
+  width:64px!important;
+  height:64px!important;
+ }
+}

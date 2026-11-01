@@ -1,0 +1,28 @@
+/* Match the original Krillion answering controls at both viewport sizes.
+ * Independently measured 1 November 2026, source / replica:
+ * Mobile 390x844 original input [80,726.5,213.906,53], DIVE
+ * [303.906,727.25,74.094,51.5]. Replica input 212px, DIVE 76px.
+ * Desktop 1440x900 source input [488,733,447.906,59], DIVE
+ * [945.906,736.75,74.094,51.5]. Replica input 444px, DIVE 78px.
+ *
+ * The source button is intrinsically sized, not a 76/78px fixed-width flex
+ * child. Restoring intrinsic sizing automatically expands the answer input
+ * and its 4px fuse bar by the exact missing amount. Source line-height is
+ * 1.5 for both controls. The turquoise focused input border is source
+ * rgba(77,227,255,.65); retain visible focus, never suppress keyboard UI.
+ * Do not change game stages, other phases, modal or Puffer Party controls.
+ */
+.page.deep-home.dd-game-screen[data-world="ocean"][data-phase="answering"] .dd-dock .dd-input{
+ line-height:1.5!important;
+}
+.page.deep-home.dd-game-screen[data-world="ocean"][data-phase="answering"] .dd-dock input#answer-input.dd-input:focus-visible{
+ border:2px solid rgba(77,227,255,.65)!important;
+}
+.page.deep-home.dd-game-screen[data-world="ocean"][data-phase="answering"] .dd-dock button.dd-dive-btn{
+ flex:0 0 auto!important;
+ min-width:auto!important;
+ width:auto!important;
+ height:51.5px!important;
+ min-height:0!important;
+ line-height:1.5!important;
+}
