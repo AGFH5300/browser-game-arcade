@@ -39,9 +39,21 @@ jobs:
           KRILLION_TEST_URL: http://127.0.0.1:8765/play/deep-dive/index-public-art.html
           KRILLION_QA_OUTPUT: /tmp/krillion-visible-layer-qa
         run: node scripts/krillion-visible-layer-qa.mjs
+      - name: Compare original and candidate at matching screen sizes
+        env:
+          KRILLION_ORIGINAL_URL: https://krillion.io
+          KRILLION_CANDIDATE_URL: http://127.0.0.1:8765
+          KRILLION_SCENARIOS: home,gameplay
+          KRILLION_VIEWPORTS: 1440,390
+          KRILLION_AUDIT_DIR: /tmp/krillion-frame-compare
+        run: |
+          node scripts/krillion-live-visual-matrix.mjs || true
+          node --input-type=module -e "import fs from 'node:fs'; const list=JSON.parse(fs.readFileSync('/tmp/krillion-frame-compare/audit.json','utf8')); for(const item of list)console.log('FRAME_DIFF',item.width,item.screen,JSON.stringify(item.diff),item.orig?.error||'',item.own?.error||''); if(list.some(x=>!x.orig?.ok||!x.own?.ok))process.exitCode=1"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: krillion-visible-layer-qa
-          path: /tmp/krillion-visible-layer-qa
+          path: |
+            /tmp/krillion-visible-layer-qa
+            /tmp/krillion-frame-compare
           if-no-files-found: ignore
