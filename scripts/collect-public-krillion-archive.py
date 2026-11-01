@@ -2,7 +2,7 @@
 """Import *publicly published* historical answer snapshots for local practice.
 
 Source: krilliongame.com/krillion-answers/YYYY-MM-DD/ (independent archive).
-No official private/paid endpoint is queried. Data may differ from live scoring.
+No official private/paid endpoint is queried. A date is added only when a\npublic independent archive snapshot exists. Data may differ from live scoring.
 This one-time importer checks source dates and tier/point consistency, writes
 one small JSON per day, and records the provenance and source response digest.
 """
@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "public/play/deep-dive/recovered/archive"
 OUT.mkdir(parents=True, exist_ok=True)
 LEVEL = {"plankton": 10, "tooclever": 15, "schooler": 30, "rare": 60, "deepcut": 85, "krillion": 100}
-START, END = date(2026, 7, 16), date(2026, 10, 28)
+START, END = date(2026, 7, 16), date(2026, 11, 1)
 DAYS = [(START + timedelta(days=i)).isoformat() for i in range((END-START).days + 1)]
 SESSION = requests.Session()
 SESSION.headers["User-Agent"] = "Sidequest-Authorized-Public-Archive-Research/1.0"
