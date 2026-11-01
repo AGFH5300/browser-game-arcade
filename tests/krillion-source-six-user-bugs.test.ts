@@ -20,12 +20,13 @@ test('timer fuse uses original below-input location',()=>{
  assert(css.includes('bottom:-8px!important'));
  assert(css.includes('height:4px!important'));
 });
-test('shrimp is accessible and reacts with source roll and blub',()=>{
+test('shrimp is accessible and produces a single source-style blub',()=>{
  assert(game.includes('aria-label="Poke the shrimp mascot"'));
  assert(game.includes("target.classList.add('dd-mascot-poke')"));
  assert(game.includes("window.DeepDiveSfx?.event('blub')"));
  assert(game.includes("e.key==='Enter'||e.key===' '"));
- assert(css.includes('animation:ds-roll 900ms'));
+ assert(css.includes('animation:ds-blub-up 1s'));
+ assert(html.includes('reference-mascot-boop-source-20261101.css'));
  assert(css.includes('animation:ds-blub-up 1s'));
 });
 test('skip or timeout never retains the old question with missed result',()=>{
