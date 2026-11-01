@@ -844,6 +844,7 @@
         ${arcadeHud()}
         <div class="dd-game-fish${mascotPose?' '+mascotPose:''}${feedback&&!tier?' sad':''}${tier&&tier.score===100?' gold':''}" title="a friend" role="button" tabindex="0" aria-label="Poke the shrimp mascot"><span class="dd-blub" aria-live="off">blub!</span></div>
       </div>
+      ${worldId==='ocean'?'<div class="dd-viewport-overlays" aria-hidden="true"><div class="dd-vignette"></div><div class="dd-crt"></div></div>':''}
       ${preview?`<div class="dd-preview-pill">descending · the clock starts in <b>${pillLeft}</b>${!profile.tourSeen?' · rarer answers sink deeper':''}</div>`:''}
       <div class="dd-reject" id="dd-reject-line" role="status" aria-live="polite">${safe(rejectMsg)}</div>
       <div id="answer-correction" class="dd-correction" role="status" aria-live="polite" aria-atomic="true">${correction?correctionPanel(correction):''}</div>
@@ -1316,7 +1317,7 @@
         // fade rather than a CSS keyframe. Inspected source computed motion:
         // .259632 -> .297 opacity, 2000ms, ease, fill backwards.
         if(active.phase==='answering'&&active.index===0&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
-          const vignette=root.querySelector('.dd-vignette');
+          const vignette=root.querySelector('.dd-viewport-overlays .dd-vignette')||root.querySelector('.dd-vignette');
           if(vignette&&typeof vignette.animate==='function'){
             vignette.style.opacity='.297';
             vignette.animate([{opacity:'.259632'},{opacity:'.297'}],
