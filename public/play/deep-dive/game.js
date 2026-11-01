@@ -1259,7 +1259,7 @@
   }
   function hookWorldCamera(animate){
     /* Camera targets recovered live: answering anchor ≈23% of stage height,
-       landing reveal ≈42.5%, miss reveal ≈29%; t = anchor − 2×depthM, with
+       landing reveal ≈39.6% desktop / 41.5% mobile, miss reveal ≈29%; t = anchor − 2×depthM, with
        DeepDiveWorld's ease + idle drift doing the motion. */
     const stage=root.querySelector('.dd-stage'),world=root.querySelector('.dd-world');
     if(!world||!window.DeepDiveWorld?.camera)return;
