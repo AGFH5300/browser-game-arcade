@@ -1,0 +1,57 @@
+name: Import publicly published Krillion archive snapshots
+
+on:
+  push:
+    branches:
+      - fix/krillion-results-fully-expanded-source-parity-20261101
+    paths:
+      - scripts/collect-public-krillion-archive.py
+      - .github/workflows/sync-krillion-public-archive.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-public-archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Import only publicly visible independent snapshots
+        run: |
+          python -m pip install --quiet requests
+          python scripts/collect-public-krillion-archive.py
+      - name: Verify full archive and public source provenance
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          folder=Path('public/play/deep-dive/recovered/archive')
+          m=json.loads((folder/'manifest.json').read_text())
+          assert m['importedDates']==109 and m['prompts']==763, m
+          assert m['acceptedAnswerRows']>=580000, m
+          assert not m.get('failures'), m.get('failures')
+          assert m['lastDate']=='2026-11-01'
+          for entry in m['dates']:
+              x=json.loads((folder/(entry['date']+'.json')).read_text())
+              assert len(x['questions'])==7
+              assert x['source'].startswith('https://krilliongame.com/krillion-answers/')
+              assert len(x['sourceSha256'])==64
+          print('Verified',m['importedDates'],'dates;',m['acceptedAnswerRows'],'dated answer rows')
+          PY
+      - name: Commit verified snapshots to this branch only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/play/deep-dive/recovered/archive/
+          if ! git diff --cached --quiet; then
+            git commit -m 'data: recover public 2026-10-29 to 2026-11-01 answer sheets [skip ci]'
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
