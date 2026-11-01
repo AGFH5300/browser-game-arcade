@@ -12,7 +12,8 @@ test('original underwater canvas respects desktop 90px and mobile 50px reserved 
  assert(css.includes('background:#050c17!important'));
 });
 test('ocean mask does not resize canvas or alter world/camera motion',()=>{
- assert(!/\bwidth:|\bheight:|animation|transform:/.test(css));
+ const rules=css.replace(/\/\*[\s\S]*?\*\//g,'');
+ assert(!/\bwidth:|\bheight:|animation|transform:/.test(rules));
  assert(css.includes('data-world="ocean"'));
  assert(css.includes(':not([data-phase="done"])'));
 });
