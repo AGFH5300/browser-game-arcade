@@ -28,6 +28,7 @@
  color:#ff5d8f!important;
  font:18px/27px "ReferenceVT323",monospace!important;
  text-shadow:0 0 9px rgba(255,93,143,.7)!important;
+ transition:none!important; /* original has no 250ms color/font tween */
 }
 @media(prefers-reduced-motion:reduce){
  .page.deep-home.dd-game-screen[data-world="ocean"][data-phase="answering"] .dd-game-fish.dd-mascot-poked,
