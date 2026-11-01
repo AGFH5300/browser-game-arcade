@@ -1,0 +1,32 @@
+/* Full-viewport ocean, independent of the shorter interactive stage.
+ * The game's 90px desktop / 50px mobile reserved bottom region should not
+ * cut off the sea or change the camera color/depth calculation. Keep the
+ * HUD, prompt, input, foreground and hit targets in their existing stage. */
+.page.deep-home.dd-game-screen[data-world="ocean"]:not([data-phase="done"]){
+ height:100svh!important;
+ min-height:0!important;
+ overflow:hidden!important;
+}
+.dd-game-screen[data-world="ocean"]>.dd-source-ocean-canvas{
+ position:absolute!important;
+ inset:0!important;
+ display:block!important;
+ width:100%!important;
+ height:100%!important;
+ z-index:0!important;
+ pointer-events:none!important;
+ image-rendering:pixelated;
+}
+.dd-game-screen[data-world="ocean"]>.dd-stage{
+ position:absolute!important;
+ inset:0!important;
+ height:calc(100svh - 90px)!important;
+ overflow:hidden!important;
+ z-index:1!important;
+ background:transparent!important;
+}
+@media(max-width:650px){
+ .dd-game-screen[data-world="ocean"]>.dd-stage{
+  height:calc(100svh - 50px)!important;
+ }
+}
