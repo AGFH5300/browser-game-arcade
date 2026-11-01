@@ -12,7 +12,7 @@ const html=readFileSync(root+'index-public-art.html','utf8');
 test('a descending accepted word remains until its banner becomes visible',()=>{
  assert(effects.includes("const chip=stage.querySelector('.dd-chip')"));
  assert(effects.includes("reveal?.classList.remove('dd-reveal-pending')"));
- assert(effects.includes("chip.style.visibility='hidden';requestAnimationFrame(()=>chip.remove())"));
+ assert(effects.includes("chip.style.setProperty('visibility','hidden','important');requestAnimationFrame(()=>chip.remove())"));
  assert(css.includes('opacity:1!important;visibility:visible!important'));
  assert(css.includes('white-space:normal;overflow-wrap:anywhere'));
  assert(css.includes('width:max-content!important'),'short accepted answers must stay on one line');
