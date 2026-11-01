@@ -1,0 +1,79 @@
+/* Results and accepted-answer parity improvements, Nov 1 2026.
+ * Matches the original's source-observed post-results discovery hierarchy,
+ * without recreating the publisher's ads, store or unrelated promotions.
+ */
+.dd-done-screen .dd-result-discovery{
+ display:grid;gap:22px;
+ margin:160px 0 34px;
+}
+.dd-done-screen .dd-result-promo{
+ box-sizing:border-box;position:relative;isolation:isolate;
+ min-height:216px;padding:20px 16px 17px;
+ background:linear-gradient(180deg,rgba(12,30,50,.94),rgba(4,17,32,.96));
+ border:1px solid rgba(86,137,166,.55);
+ color:#e8f1ff;box-shadow:0 0 0 2px rgba(3,10,24,.9);
+}
+.dd-done-screen .dd-result-promo-label{
+ display:table;background:#ff5d8f;color:#091523;
+ padding:4px 7px 2px;font:12px/1.25 "ReferenceVT323",monospace;
+ letter-spacing:.09em;text-transform:uppercase;margin-bottom:12px;
+}
+.dd-done-screen .dd-result-promo h2{
+ position:relative;z-index:2;margin:0 0 9px;
+ font:30px/1 "ReferenceVT323",monospace;
+ color:#eaf6ff;letter-spacing:.06em;
+}
+.dd-done-screen .dd-result-promo p{
+ position:relative;z-index:2;margin:0 0 11px;
+ max-width:240px;font:18px/1.16 "ReferenceVT323",monospace;
+ color:#b4cfe2;
+}
+.dd-done-screen .dd-result-promo small{
+ display:block;margin-bottom:14px;
+ font:13px/1.25 "ReferenceVT323",monospace;color:#7eb0c9;
+ letter-spacing:.08em;
+}
+.dd-done-screen .dd-result-puffer-img{
+ position:absolute;right:13px;top:50px;width:84px;height:84px;
+ object-fit:contain;image-rendering:pixelated;
+ animation:dd-promo-puffer-float 2.6s ease-in-out infinite alternate;
+}
+.dd-done-screen .dd-result-promo-action{
+ display:inline-flex;align-items:center;justify-content:center;
+ min-height:40px;padding:8px 15px;border:1px solid #ff5d8f;
+ background:#ff5d8f;color:#071323;cursor:pointer;
+ font:18px/1.1 "ReferenceVT323",monospace;letter-spacing:.06em;
+}
+.dd-done-screen .dd-result-promo-action:hover,
+.dd-done-screen .dd-result-promo-action:focus-visible{
+ outline:2px solid #4de3ff;outline-offset:2px;filter:brightness(1.08);
+}
+.dd-done-screen .dd-result-friends .dd-result-promo-label,
+.dd-done-screen .dd-result-more .dd-result-promo-label{
+ background:transparent;color:#ff5d8f;padding:0;
+}
+.dd-done-screen .dd-result-friends .dd-result-promo-action,
+.dd-done-screen .dd-result-more .dd-result-promo-action{
+ background:#4de3ff;border-color:#4de3ff;
+}
+.dd-done-screen .dd-result-friends,.dd-done-screen .dd-result-more{min-height:190px}
+.dd-done-screen .dd-done-catch{margin-top:24px!important}
+@keyframes dd-promo-puffer-float{from{transform:translateY(0)}to{transform:translateY(-7px)}}
+@media(prefers-reduced-motion:reduce){.dd-done-screen .dd-result-puffer-img{animation:none!important}}
+@media(min-width:651px){
+ .dd-done-screen .dd-result-discovery{margin-top:138px}
+ .dd-done-screen .dd-result-promo{min-height:215px}
+}
+/* Long accepted words remain readable and above the decorative effects
+ * while they travel through their full tier-specific descent. The chip
+ * is removed only after the landing banner has been committed by JS. */
+.dd-reveal-screen[data-world="ocean"] .dd-world .dd-chip{
+ opacity:1!important;visibility:visible!important;
+ z-index:15!important;animation:none!important;
+ max-width:min(90vw,720px);box-sizing:border-box;
+ white-space:normal;overflow-wrap:anywhere;text-align:center;
+}
+.dd-reveal-screen[data-world="ocean"] .dd-chip.dd-source-wiggle{
+ opacity:1!important;visibility:visible!important;
+ animation:none!important;
+}
