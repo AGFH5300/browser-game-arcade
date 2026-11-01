@@ -49,6 +49,12 @@ jobs:
         run: |
           node scripts/krillion-live-visual-matrix.mjs || true
           node --input-type=module -e "import fs from 'node:fs'; const list=JSON.parse(fs.readFileSync('/tmp/krillion-frame-compare/audit.json','utf8')); for(const item of list)console.log('FRAME_DIFF',item.width,item.screen,JSON.stringify(item.diff),item.orig?.error||'',item.own?.error||''); if(list.some(x=>!x.orig?.ok||!x.own?.ok))process.exitCode=1"
+      - name: Measure homepage, mascot poke, descent and landing motion over time
+        env:
+          KRILLION_ORIGINAL_URL: https://krillion.io
+          KRILLION_CANDIDATE_URL: http://127.0.0.1:8765
+          KRILLION_MOTION_DIR: /tmp/krillion-motion-timeline
+        run: node scripts/krillion-motion-timeline-audit.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -56,4 +62,5 @@ jobs:
           path: |
             /tmp/krillion-visible-layer-qa
             /tmp/krillion-frame-compare
+            /tmp/krillion-motion-timeline
           if-no-files-found: ignore
