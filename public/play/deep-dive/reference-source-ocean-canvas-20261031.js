@@ -169,7 +169,15 @@
      ctx.fillStyle='rgba(200,220,255,'+snow.alpha+')';
      ctx.fillRect(snow.x,snow.y,snow.r,snow.r);
    }
-   marineLife(t,dt,top,depth,w,h);
+   // The source draws the sea full-bleed, but its creature world runs in
+   // a centred maximum 1080px viewport. Previous clone distributed fish
+   // across 1440px, putting random swimmers outside source stage bounds.
+   const worldWidth=Math.min(1080,w);
+   const worldInset=Math.max(0,(w-worldWidth)/2);
+   ctx.save();
+   ctx.translate(worldInset,0);
+   marineLife(t,dt,top,depth,worldWidth,h);
+   ctx.restore();
    raf=requestAnimationFrame(draw);
  }
  function stop(){

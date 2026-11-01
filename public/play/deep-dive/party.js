@@ -41,6 +41,7 @@ function home(){
     </div>
     <div class="pp-panel pp-play-panel"><div class="pp-panel-title">PLAY NOW <span>RATING ${Number(window.DeepDiveSocial?.profile?.rating)||1200}</span></div>
      <div class="pp-capacity-grid" role="group" aria-label="Preferred room size">${[[2,'1V1'],[3,'3S'],[6,'4–6'],[10,'8–10']].map(([cap,label])=>`<button type="button" class="pp-capacity ${selectedCapacity===cap?'selected':''}" data-party="capacity" data-capacity="${cap}" aria-pressed="${selectedCapacity===cap}">${label}</button>`).join('')}</div>
+     <div class="pp-capacity-hint" aria-live="polite">${selectedCapacity===2?'2 players':selectedCapacity===3?'3 players':selectedCapacity===6?'4 to 6 players':selectedCapacity===8?'6 to 8 players':'8 to 10 players'}</div>
      <div class="pp-play-buttons"><button type="button" class="pp-game-button" data-party="${ratedQueue?'cancelRated':'rated'}">${ratedQueue?'◀ CANCEL SEARCH':'▶ RATED ◀'}</button><button type="button" class="pp-game-button" data-party="quickplay">QUICK PLAY</button></div>
      <p class="pp-caption">${ratedQueue?'SEARCHING NEAR YOUR RATING…':window.DeepDiveSocial?.profile?'RATED 1V1 · ELO '+window.DeepDiveSocial.profile.rating+' · QUICK PLAY IS UNRATED':'SIGN IN FOR RATED MATCHMAKING · QUICK PLAY IS UNRATED'}</p>
     </div>

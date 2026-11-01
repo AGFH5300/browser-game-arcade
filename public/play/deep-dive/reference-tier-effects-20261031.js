@@ -165,7 +165,7 @@
    }
    const p=getOrigin();
    if(spotlight?.isConnected){
-     spotlight.style.background=`radial-gradient(circle at ${p.x}px ${p.y}px,transparent 66px,rgba(2,4,10,.72) 156px,rgba(2,4,10,.96) 326px)`;
+     spotlight.style.background=`radial-gradient(circle at ${p.x}px ${p.y}px,transparent 170px,rgba(2,4,10,.25) 310px,rgba(2,4,10,.68) 620px)`;
    }
    if(!landed){
      if(tier==='plankton'&&Math.random()<.25)bubble(p.x+rng(-30,30),p.y, rng(1.2,3),'143,163,196');

@@ -818,14 +818,14 @@
         <div class="dd-sea dd-game-sea"></div>
         <div class="dd-world" style="--dd-world-height:${worldMeta.height}px">
           <div class="dd-world-surface-sky" aria-hidden="true"></div>
-          ${worldId==='ocean'?'<div class="dd-world-surface-boat" aria-hidden="true">'+(oceanArt().match(/<svg class="dd-boat"[\s\S]*?<\/svg>/)||[''])[0]+'</div>':''}
+          <!-- In original runtime, underwater wreck is drawn by canvas; no separate surface boat -->
           ${worldSurface(currentTotal())}
           ${worldId==='ocean'?oceanRuler(metresSoFar(),feedback):''}
           ${window.DeepDiveThemes?.scenery(worldId)||''}
           <img class="dd-floor" src="${WORLD_FLOORS[worldId]||WORLD_FLOORS.ocean}" alt="" loading="lazy" style="--y:${worldMeta.floorTop}px">
           ${worldFacts()}
           ${feedback&&tier?roundTierLines(prevM):''}
-          ${feedback&&(!revealPending()||Date.now()-active.revealStartedAt>=1050)?'':`<div class="dd-game-prompt dd-card" style="--y:${baseY}px;animation-delay:.45s"><span class="dd-prompt-label rnd">PROMPT ${round+1} OF ${currentTotal()}${active.mode==='daily'?'':(' · '+safe(q.theme))}</span>
+          ${feedback&&(!tier||!revealPending()||Date.now()-active.revealStartedAt>=1050)?'':`<div class="dd-game-prompt dd-card" style="--y:${baseY}px;animation-delay:.45s"><span class="dd-prompt-label rnd">PROMPT ${round+1} OF ${currentTotal()}${active.mode==='daily'?'':(' · '+safe(q.theme))}</span>
             <h1 class="dd-prompt-text prompt">${safe(q.prompt)}</h1><p class="dd-prompt-hint hint">▼ rarer answers sink deeper ▼</p></div>`}
           ${feedback&&tier?`<div class="dd-chip${tier.score===100?' gold':''}" style="--cc:${tc};--y:${lineY}px" data-y="${lineY}" data-spawn="${spawnY}">${chipText}</div>`:''}
           ${feedback?`<div class="dd-landed${tier?'':' miss'}" style="--tc:${tc};--y:${lineY}px">
@@ -842,7 +842,7 @@
         <div class="dd-mobile-scenery" aria-hidden="true"><div class="dd-mobile-clouds"></div><div class="dd-mobile-coral"></div></div>
         <div class="dd-flash${feedback?' on':''}" aria-hidden="true"></div>
         ${arcadeHud()}
-        <div class="dd-game-fish${mascotPose?' '+mascotPose:''}${feedback&&!tier?' sad':''}${tier&&tier.score===100?' gold':''}" title="a friend" aria-hidden="true"><span class="dd-blub">blub!</span></div>
+        <div class="dd-game-fish${mascotPose?' '+mascotPose:''}${feedback&&!tier?' sad':''}${tier&&tier.score===100?' gold':''}" title="a friend" role="button" tabindex="0" aria-label="Poke the shrimp mascot"><span class="dd-blub" aria-live="off">blub!</span></div>
       </div>
       ${preview?`<div class="dd-preview-pill">descending · the clock starts in <b>${pillLeft}</b>${!profile.tourSeen?' · rarer answers sink deeper':''}</div>`:''}
       <div class="dd-reject" id="dd-reject-line" role="status" aria-live="polite">${safe(rejectMsg)}</div>
@@ -1166,7 +1166,7 @@
         <div class="dd-mobile-scenery" aria-hidden="true"><div class="dd-mobile-clouds"></div><div class="dd-mobile-coral"></div></div>
         <div class="dd-flash gold on" aria-hidden="true"></div>
         <div class="dd-hud"><div class="dd-hud-box"><span>DEPTH</span><strong class="dd-hud-depth crank">${format(finalM)}<small>m</small></strong></div><div class="dd-hud-progress"><div class="dd-hud-dots">${r.results.map(x=>`<i class="dd-hud-dot done" style="--dot:${x.tier!==null&&x.tier!==undefined?TIERS[x.tier].color:'#284c6b'}"></i>`).join('')}</div><small>DIVE COMPLETE</small></div><div class="dd-hud-box dd-hud-score"><span>SCORE</span><strong>${format(r.score)}</strong></div></div>
-        <div class="dd-game-fish gold" title="a friend" aria-hidden="true"><span class="dd-blub">blub!</span></div>
+        <div class="dd-game-fish gold" title="a friend" role="button" tabindex="0" aria-label="Poke the shrimp mascot"><span class="dd-blub" aria-live="off">blub!</span></div>
       </div>
       <div class="dd-done">
         <div class="dd-result-surface-decor" aria-hidden="true">
@@ -1263,6 +1263,17 @@
         ticker=setInterval(updateClock,120);
         if(active.phase==='answering')setTimeout(()=>{const input=document.getElementById('answer-input');if(input&&window.matchMedia('(pointer:fine)').matches)input.focus()},80);
         updateClock();
+        // Original first-round vignette uses a separate Web Animations API
+        // fade rather than a CSS keyframe. Inspected source computed motion:
+        // .259632 -> .297 opacity, 2000ms, ease, fill backwards.
+        if(active.phase==='answering'&&active.index===0&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+          const vignette=root.querySelector('.dd-vignette');
+          if(vignette&&typeof vignette.animate==='function'){
+            vignette.style.opacity='.297';
+            vignette.animate([{opacity:'.259632'},{opacity:'.297'}],
+              {duration:2000,easing:'ease',fill:'backwards'});
+          }
+        }
       }
       hookWorldCamera(animate);
       hookChipSink();
@@ -1270,7 +1281,7 @@
         if(revealPending()){
           const started=active.revealStartedAt;
           if(Date.now()-started<1050)setTimeout(()=>{
-            if(active?.phase==='feedback'&&active.revealStartedAt===started)root.querySelector('.dd-reveal-pending .dd-game-prompt')?.remove();
+            if(active?.phase==='feedback'&&active.revealStartedAt===started)root.querySelector('.dd-reveal-screen .dd-game-prompt')?.remove();
           },Math.max(0,1050-(Date.now()-started)));
 
           revealTimer=setTimeout(()=>{
@@ -1331,7 +1342,25 @@
   root.addEventListener('toggle',e=>{
     const row=e.target;if(row?.matches?.('.dd-catch-row')&&row.open)renderCatchAnswers(row);
   },true);
+  function pokeMascot(target){
+    if(!target?.isConnected)return;
+    const label=target.querySelector('.dd-blub');
+    target.classList.remove('dd-mascot-poke');
+    if(label){label.classList.remove('show');label.textContent='blub!';}
+    void target.offsetWidth;
+    target.classList.add('dd-mascot-poke');
+    if(label){void label.offsetWidth;label.classList.add('show')}
+    window.DeepDiveSfx?.event('blub');
+    window.setTimeout(()=>{if(target.isConnected)target.classList.remove('dd-mascot-poke')},900);
+  }
+  root.addEventListener('keydown',e=>{
+    if((e.key==='Enter'||e.key===' ')&&e.target?.matches?.('.dd-game-fish')){
+      e.preventDefault();pokeMascot(e.target);
+    }
+  });
   root.addEventListener('click',e=>{
+    const mascot=e.target.closest?.('.dd-game-fish');
+    if(mascot){pokeMascot(mascot);return;}
     const b=e.target.closest('button[data-action]');if(!b||b.disabled)return;
     switch(b.dataset.action){
       case 'startDaily':if(active?.mode==='daily'){currentView='daily';render()}else start('daily');break;
