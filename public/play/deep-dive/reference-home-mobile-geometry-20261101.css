@@ -58,4 +58,56 @@
   letter-spacing:.08em!important;
  }
 
+ /* Unlimited Classic shares the original title typography but uses its own
+    44px Dive Log, 52px three-column archive/today navigation and layout.
+    Source at 390x844: log y568.9, privacy y624.9, begin y658.6,
+    archive and today's dive y726. */
+ .deep-home[data-phase="intro"][data-mode="endless"] .dd-title-group{
+  top:30.7%!important;
+ }
+ .deep-home[data-phase="intro"][data-mode="endless"] .dd-logo,
+ .deep-home[data-phase="intro"][data-mode="endless"] .dd-logo span{
+  font-size:66.3px!important;
+  letter-spacing:.04em!important;
+  line-height:.9!important;
+ }
+ .deep-home[data-phase="intro"][data-mode="endless"] .dd-subtitle{
+  font-size:21.06px!important;
+  line-height:1.5!important;
+  margin-top:6px!important;
+ }
+ .deep-home[data-phase="intro"][data-mode="endless"] .dd-tagline{
+  font-size:15.6px!important;
+  line-height:1.5!important;
+  letter-spacing:.08em!important;
+ }
+ .deep-home[data-phase="intro"][data-mode="endless"] .dd-sea-center{
+  transform:translateY(72px)!important;
+ }
+ .deep-home[data-phase="intro"][data-mode="endless"] .dd-rules{
+  min-height:44px!important;
+  padding-top:10px!important;
+  box-sizing:border-box!important;
+ }
+ .deep-home[data-phase="intro"][data-mode="endless"] .dd-begin{
+  margin-top:15px!important;
+ }
+ .deep-home[data-phase="intro"][data-mode="endless"] .dd-mode-nav{
+  grid-template-columns:117px 102px 119px!important;
+  grid-auto-rows:52px!important;
+  gap:10px!important;
+  margin-top:13px!important;
+  justify-content:start!important;
+ }
+ .deep-home[data-phase="intro"][data-mode="endless"] .dd-mode-nav .dd-dive-number{
+  grid-column:1!important;
+  justify-self:start!important;
+  align-self:center!important;
+ }
+ .deep-home[data-phase="intro"][data-mode="endless"] .dd-mode-nav button{
+  height:52px!important;
+  width:100%!important;
+  font-size:14px!important;
+ }
+
 }
