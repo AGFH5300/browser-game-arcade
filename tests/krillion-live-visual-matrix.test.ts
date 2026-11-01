@@ -9,10 +9,13 @@ test('visual parity audit uses stable environment and explicit screen checks',()
   'KRILLION_CANDIDATE_URL','KRILLION_ORIGINAL_URL',
   'KRILLION_SCENARIOS','KRILLION_VIEWPORTS','KRILLION_NO_SEED',
   'aria-expanded="true"','MENU_NOT_OPEN','PARTY_NOT_OPEN',
-  'UNLIMITED_NOT_OPEN','getAnimations()','a.currentTime=0',
+  'UNLIMITED_NOT_OPEN','getAnimations()', 'FONT_RENDERER_UNAVAILABLE',
   'body:document.body.innerText','exactPercent','STRICT_PARITY'
  ])assert(code.includes(token),token);
  assert(code.includes("x.diff.exactPercent!==100"));
+ assert(!code.includes('a.currentTime=0'));
+ assert(code.includes('.cmpwrapper{display:none!important'));
+ assert(code.includes('await p.waitForTimeout(2600)'));
  assert(!code.includes('/Users/altygupta/'));
  assert(!code.includes('http://127.0.0.1:8918'));
 });

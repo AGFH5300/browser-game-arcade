@@ -1,0 +1,32 @@
+/* Measured source Puffer Party Play Now geometry at 390x844, 1 Nov 2026.
+ * Reference: panel y651 h263; title y657; capacities y690; hint y743;
+ * RATED / QUICK PLAY y781; explanatory text y843.
+ * Existing Sidequest panel was only 192px tall, shifted capacities 21px
+ * down and modes 10px up. Preserve all controls, keyboard access and state. */
+@media(max-width:650px){
+ .pp-view .pp-play-panel{
+  min-height:263px!important;
+ }
+ .pp-view .pp-play-panel .pp-panel-title{
+  position:relative!important;
+  top:-13px!important;
+ }
+ .pp-view .pp-play-panel .pp-capacity-grid{
+  position:relative!important;
+  top:-21px!important;
+ }
+ .pp-view .pp-play-panel .pp-capacity-hint{
+  position:absolute!important;
+  top:93px!important;
+  left:18px!important;
+ }
+ .pp-view .pp-play-panel .pp-play-buttons{
+  position:relative!important;
+  top:10px!important;
+  margin-left:0!important;
+ }
+ .pp-view .pp-play-panel .pp-caption{
+  position:relative!important;
+  top:20px!important;
+ }
+}
